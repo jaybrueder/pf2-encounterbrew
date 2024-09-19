@@ -3,8 +3,10 @@ package server
 import (
 	"net/http"
 
+	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"pf2.encounterbrew.com/cmd/web"
 )
 
 func (s *Server) RegisterRoutes() http.Handler {
@@ -15,7 +17,8 @@ func (s *Server) RegisterRoutes() http.Handler {
   		Level: 5,
 	}))
 
-	e.GET("/", s.HomeHandler)
+	e.GET("/", echo.WrapHandler(templ.Handler(web.Home())))
+	e.GET("/json", s.HomeHandler)
 
 	return e
 }
