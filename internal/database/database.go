@@ -22,6 +22,9 @@ type Service interface {
 	// Close terminates the database connection.
 	// It returns an error if the connection cannot be closed.
 	Close() error
+
+	// Insert inserts a new JSONB based record into the database.
+	InsertJson(table string, value map[string]interface{}) error
 }
 
 type service struct {
@@ -112,4 +115,16 @@ func (s *service) Health() map[string]string {
 func (s *service) Close() error {
 	log.Printf("Disconnected from database: %s", database)
 	return s.db.Close()
+}
+
+// Insert inserts a new JSONB based record into the database.
+func (s *service) InsertJson(table string, value map[string]interface{}) error {
+    stmt, err := s.db.Prepare("INSERT INTO " + table + " (data) VALUES ($1)")
+    if err != nil {
+        return err
+    }
+    defer stmt.Close()
+
+    _, err = stmt.Exec(value)
+    return err
 }
