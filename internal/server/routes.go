@@ -17,8 +17,15 @@ func (s *Server) RegisterRoutes() http.Handler {
   		Level: 5,
 	}))
 
+	fileServer := http.FileServer(http.FS(web.Files))
+	e.GET("/assets/*", echo.WrapHandler(fileServer))
+
 	e.GET("/", echo.WrapHandler(templ.Handler(web.Home())))
-	e.GET("/json", s.HomeHandler)
+	e.GET("/health", s.healthHandler)
 
 	return e
+}
+
+func (s *Server) healthHandler(c echo.Context) error {
+	return c.JSON(http.StatusOK, s.db.Health())
 }
