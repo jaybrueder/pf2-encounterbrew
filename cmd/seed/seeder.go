@@ -12,12 +12,26 @@ import (
 func main() {
 	dbService := database.New()
 
-	err := filepath.Walk("data/bestiary", func(path string, info os.FileInfo, err error) error {
+	// Seed conditions
+	err := filepath.Walk("data/conditions", func(path string, info os.FileInfo, err error) error {
         if err != nil {
             return err
         }
         if filepath.Ext(path) == ".json" {
-            if err := seedFile(dbService, path); err != nil {
+            if err := seedFile(dbService, path, "conditions"); err != nil {
+                return err
+            }
+        }
+        return nil
+    })
+
+	// Seed monsters
+	err = filepath.Walk("data/bestiaries", func(path string, info os.FileInfo, err error) error {
+        if err != nil {
+            return err
+        }
+        if filepath.Ext(path) == ".json" {
+            if err := seedFile(dbService, path, "monsters"); err != nil {
                 return err
             }
         }
@@ -32,19 +46,19 @@ func main() {
     fmt.Println("Data seeded successfully")
 }
 
-func seedFile(db database.Service, filePath string) error {
+func seedFile(db database.Service, filePath string, table string) error {
     data, err := os.ReadFile(filePath)
     if err != nil {
         return fmt.Errorf("unable to read file %s: %v", filePath, err)
     }
 
-    var character map[string]interface{}
-    err = json.Unmarshal(data, &character)
+    var jsonData map[string]interface{}
+    err = json.Unmarshal(data, &jsonData)
     if err != nil {
         return fmt.Errorf("unable to parse JSON from %s: %v", filePath, err)
     }
 
-    _, err = db.Insert("monsters", []string{"data"}, character)
+    _, err = db.Insert(table, []string{"data"}, jsonData)
     if err != nil {
         return fmt.Errorf("unable to insert data from %s: %v", filePath, err)
     }
