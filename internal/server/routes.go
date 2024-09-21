@@ -19,7 +19,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	fileServer := http.FileServer(http.FS(web.Files))
 	e.GET("/assets/*", echo.WrapHandler(fileServer))
 
-	e.GET("/", echo.WrapHandler(http.HandlerFunc(web.HomeHandler)))
+ 	e.GET("/", echo.WrapHandler(web.HomeHandler(s.db)))
 	e.GET("/health", s.healthHandler)
 
 	return e
