@@ -3,7 +3,6 @@ package server
 import (
 	"net/http"
 
-	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"pf2.encounterbrew.com/cmd/web"
@@ -20,7 +19,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	fileServer := http.FileServer(http.FS(web.Files))
 	e.GET("/assets/*", echo.WrapHandler(fileServer))
 
-	e.GET("/", echo.WrapHandler(templ.Handler(web.Home())))
+	e.GET("/", echo.WrapHandler(http.HandlerFunc(web.HomeHandler)))
 	e.GET("/health", s.healthHandler)
 
 	return e

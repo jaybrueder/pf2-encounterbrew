@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
@@ -23,8 +24,11 @@ type Service interface {
 	// It returns an error if the connection cannot be closed.
 	Close() error
 
-	// Insert inserts a new JSONB based record into the database.
-	InsertJson(table string, value map[string]interface{}) error
+	// Insert inserts data into a table.
+	Insert(table string, columns []string, values ...interface{}) (sql.Result, error)
+
+	// Query executes a query that returns rows, typically a SELECT.
+    Query(query string, args ...interface{}) (*sql.Rows, error)
 }
 
 type service struct {
@@ -117,14 +121,35 @@ func (s *service) Close() error {
 	return s.db.Close()
 }
 
-// Insert inserts a new JSONB based record into the database.
-func (s *service) InsertJson(table string, value map[string]interface{}) error {
-    stmt, err := s.db.Prepare("INSERT INTO " + table + " (data) VALUES ($1)")
+func (s *service) Insert(table string, columns []string, values ...interface{}) (sql.Result, error) {
+    // Build the query string
+    query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s)",
+        table,
+        strings.Join(columns, ", "),
+        strings.Join(strings.Split(strings.Repeat("?", len(columns)), ""), ", "))
+
+    // Replace ? with $1, $2, etc. for PostgreSQL
+    query = convertToPostgresPlaceholders(query)
+
+    // Prepare the statement
+    stmt, err := s.db.Prepare(query)
     if err != nil {
-        return err
+        return nil, fmt.Errorf("error preparing statement: %w", err)
     }
     defer stmt.Close()
 
-    _, err = stmt.Exec(value)
-    return err
+    // Execute the statement
+    return stmt.Exec(values...)
+}
+
+// Helper function to convert ? placeholders to $1, $2, etc.
+func convertToPostgresPlaceholders(query string) string {
+    for i := 1; strings.Contains(query, "?"); i++ {
+        query = strings.Replace(query, "?", fmt.Sprintf("$%d", i), 1)
+    }
+    return query
+}
+
+func (s *service) Query(query string, args ...interface{}) (*sql.Rows, error) {
+    return s.db.Query(query, args...)
 }
