@@ -4,4 +4,4 @@ CREATE TABLE IF NOT EXISTS monsters (
   CONSTRAINT data_not_null CHECK (data IS NOT NULL)
 );
 
-CREATE INDEX idx_data_gin ON monsters USING GIN (data);
+CREATE INDEX idx_monster_data_gin ON monsters USING GIN (data);
