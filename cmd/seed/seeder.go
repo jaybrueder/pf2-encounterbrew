@@ -32,7 +32,7 @@ func main() {
     fmt.Println("Data seeded successfully")
 }
 
-func seedFile(conn database.Service, filePath string) error {
+func seedFile(db database.Service, filePath string) error {
     data, err := os.ReadFile(filePath)
     if err != nil {
         return fmt.Errorf("unable to read file %s: %v", filePath, err)
@@ -44,7 +44,7 @@ func seedFile(conn database.Service, filePath string) error {
         return fmt.Errorf("unable to parse JSON from %s: %v", filePath, err)
     }
 
-    err = conn.InsertJson("monsters", character)
+    _, err = db.Insert("monsters", []string{"data"}, character)
     if err != nil {
         return fmt.Errorf("unable to insert data from %s: %v", filePath, err)
     }

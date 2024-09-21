@@ -1,7 +1,23 @@
 package web
 
-templ Home() {
+import (
+    "strconv"
+
+    "pf2.encounterbrew.com/internal/models"
+)
+
+templ Home(monsters []models.Monster) {
 	@Base() {
 		<h1>PF2 Encounterbrew</h1>
+		<ul>
+			for _, monster := range monsters {
+				<li>
+					<h2>{monster.Data.Name}</h2>
+					<p>ID: {strconv.Itoa(monster.ID)}</p>
+					<p>PF2-ID: {monster.Data.ID}</p>
+				</li>
+			}
+		</ul>
+
 	}
 }
