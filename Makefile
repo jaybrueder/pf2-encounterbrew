@@ -16,6 +16,11 @@ clean:
 	@echo "Cleaning..."
 	@rm -f main
 
+# Test the application
+test:
+	@echo "Testing..."
+	@go test ./... -v
+
 # Live Reload
 watch:
 	@if command -v air > /dev/null; then \
