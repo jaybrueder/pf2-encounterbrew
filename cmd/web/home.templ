@@ -7,7 +7,7 @@ import (
 )
 
 templ Home(monsters []models.Monster) {
-	@Base() {
+	@Base("Home") {
 		<h1>PF2 Encounterbrew</h1>
 		<ul>
 			for _, monster := range monsters {

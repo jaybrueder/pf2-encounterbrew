@@ -29,6 +29,9 @@ type Service interface {
 
 	// Query executes a query that returns rows, typically a SELECT.
     Query(query string, args ...interface{}) (*sql.Rows, error)
+
+    // QueryRow executes a query that is expected to return at most one row.
+    QueryRow(query string, args ...interface{}) *sql.Row
 }
 
 type service struct {
@@ -152,4 +155,8 @@ func convertToPostgresPlaceholders(query string) string {
 
 func (s *service) Query(query string, args ...interface{}) (*sql.Rows, error) {
     return s.db.Query(query, args...)
+}
+
+func (s *service) QueryRow(query string, args ...interface{}) *sql.Row {
+    return s.db.QueryRow(query, args...)
 }
