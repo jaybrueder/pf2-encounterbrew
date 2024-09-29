@@ -8,6 +8,7 @@ import (
 
 type Monster struct {
     ID   int `json:"id"`
+    Adjustment int `json:"adjustment"`
     Data struct {
 		ID    string `json:"_id"`
 		Img   string `json:"img"`

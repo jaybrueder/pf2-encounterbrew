@@ -1,0 +1,41 @@
+package web
+
+import (
+    "fmt"
+    "strconv"
+
+    "pf2.encounterbrew.com/internal/models"
+
+    _ "github.com/a-h/templ"
+)
+
+templ EncounterList(encounters []models.Encounter) {
+	@Base("Encounters") {
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <ul role="list" class="divide-y divide-gray-300">
+     			for _, encounter := range encounters {
+    				<li class="flex justify-between gap-x-6 py-5">
+                        <a href={templ.SafeURL(fmt.Sprintf("/encounters/%d", encounter.ID))}>
+                            <div class="flex min-w-0 gap-x-4">
+                                <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                <div class="min-w-0 flex-auto">
+                                    <p class="text-sm font-semibold leading-6 text-gray-900">{encounter.Name}</p>
+                           	        <p class="mt-1 truncate text-xs leading-5 text-gray-500">ID: {strconv.Itoa(encounter.ID)}</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <a href={templ.SafeURL(fmt.Sprintf("/encounters/%d/edit", encounter.ID))}><i class="fa-solid fa-pen"></i></a>
+                            </div>
+                        </a>
+    				</li>
+     			}
+ 			</ul>
+        </div>
+	}
+}
+
+templ EncounterShow(encounter models.Encounter) {
+    @Base(encounter.Name) {
+        <h2>Show { encounter.Name }</h2>
+    }
+}

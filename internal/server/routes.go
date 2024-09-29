@@ -19,7 +19,12 @@ func (s *Server) RegisterRoutes() http.Handler {
 	fileServer := http.FileServer(http.FS(web.Files))
 	e.GET("/assets/*", echo.WrapHandler(fileServer))
 
- 	e.GET("/", echo.WrapHandler(web.HomeHandler(s.db)))
+ 	e.GET("/", web.EncounterListHandler(s.db))
+
+  	e.GET("/encounters/", web.EncounterListHandler(s.db))
+    e.GET("/encounters/:id", web.EncounterShowHandler(s.db))
+    e.GET("/encounters/:id/edit", web.EncounterListHandler(s.db))
+
 	e.GET("/health", s.healthHandler)
 
 	return e
