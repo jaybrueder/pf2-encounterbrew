@@ -2,6 +2,8 @@ package models
 
 import (
 	"encoding/json"
+	"fmt"
+	"log"
 
 	"pf2.encounterbrew.com/internal/database"
 )
@@ -9,6 +11,7 @@ import (
 type Monster struct {
     ID   int `json:"id"`
     Adjustment int `json:"adjustment"`
+    Count int `json:"count"`
     Data struct {
 		ID    string `json:"_id"`
 		Img   string `json:"img"`
@@ -158,4 +161,41 @@ func GetAllMonsters(db database.Service) ([]Monster, error) {
     }
 
     return monsters, nil
+}
+
+func SearchMonsters(db database.Service, search string) ([]Monster, error) {
+  	query := "SELECT id, data FROM monsters WHERE LOWER(data->>'name') LIKE LOWER($1) LIMIT 10"
+
+	// Search for the monster in the database and return the 10 most relevant results
+	rows, err := db.Query(query, "%"+search+"%")
+    if err != nil {
+        log.Printf("Error executing query: %v", err)
+        return nil, fmt.Errorf("database query error: %w", err)
+    }
+    defer rows.Close()
+
+    var monsters []Monster
+    for rows.Next() {
+        var m Monster
+        var jsonData []byte
+        err := rows.Scan(&m.ID, &jsonData)
+        if err != nil {
+            log.Printf("Error scanning row: %v", err)
+            return nil, fmt.Errorf("error scanning row: %w", err)
+        }
+        err = json.Unmarshal(jsonData, &m.Data)
+        if err != nil {
+            log.Printf("Error unmarshaling JSON data: %v", err)
+            return nil, fmt.Errorf("error unmarshaling JSON: %w", err)
+        }
+
+        monsters = append(monsters, m)
+    }
+
+    if err = rows.Err(); err != nil {
+        log.Printf("Error iterating over rows: %v", err)
+        return nil, fmt.Errorf("error iterating over rows: %w", err)
+    }
+
+	return monsters, nil
 }

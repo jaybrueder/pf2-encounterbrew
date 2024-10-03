@@ -86,7 +86,7 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 
     // Query for associated monsters
     rows, err := db.Query(`
-        SELECT m.id, m.data, em.adjustment
+        SELECT m.id, m.data, em.adjustment, em.count
         FROM monsters m
         JOIN encounter_monsters em ON m.id = em.monster_id
         WHERE em.encounter_id = $1
@@ -99,7 +99,7 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
     for rows.Next() {
         var m Monster
         var jsonData []byte
-        err := rows.Scan(&m.ID, &jsonData, &m.Adjustment)
+        err := rows.Scan(&m.ID, &jsonData, &m.Adjustment, &m.Count)
         if err != nil {
             return e, fmt.Errorf("error scanning monster row: %v", err)
         }
@@ -115,4 +115,128 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
     }
 
 	return e, nil
+}
+
+func AddMonsterToEncounter(db database.Service, encounterID string, monsterID string) (Encounter, error) {
+ 	// Convert string IDs to integers
+  	encID, err := strconv.Atoi(encounterID)
+  	if err != nil {
+        return Encounter{}, fmt.Errorf("invalid encounter ID: %v", err)
+     }
+
+    monID, err := strconv.Atoi(monsterID)
+    if err != nil {
+       return Encounter{}, fmt.Errorf("invalid monster ID: %v", err)
+    }
+
+    // Use a transaction to ensure atomicity
+    tx, err := db.Begin()
+    if err != nil {
+    	return Encounter{}, fmt.Errorf("Error starting transaction: %v", err)
+    }
+    defer tx.Rollback() // Rollback the transaction if it hasn't been committed
+
+    // Try to update the count if the monster already exists in the encounter
+    result, err := tx.Exec(`
+        UPDATE encounter_monsters
+        SET count = count + 1
+        WHERE encounter_id = $1 AND monster_id = $2
+    `, encID, monID)
+    if err != nil {
+    	return Encounter{}, fmt.Errorf("Error updating monster count: %v", err)
+    }
+
+    rowsAffected, err := result.RowsAffected()
+    if err != nil {
+    	return Encounter{}, fmt.Errorf("Error getting rows affected: %v", err)
+    }
+
+    if rowsAffected == 0 {
+	    // Insert the new relationship into the encounter_monsters table
+	    _, err = db.Exec(`
+	        INSERT INTO encounter_monsters (encounter_id, monster_id)
+	        VALUES ($1, $2)
+	        ON CONFLICT (encounter_id, monster_id) DO NOTHING
+	    `, encID, monID)
+
+	    if err != nil {
+	        return Encounter{}, fmt.Errorf("Failed to add monster to encounter: %v", err)
+	    }
+	}
+
+ 	// Commit the transaction
+    if err = tx.Commit(); err != nil {
+    	return Encounter{}, fmt.Errorf("Error committing transaction: %v", err)
+    }
+
+    encounter, err := GetEncounter(db, encounterID)
+
+    return encounter, nil
+}
+
+func RemoveMonsterFromEncounter(db database.Service, encounterID string, monsterID string) (Encounter, error) {
+    // Convert string IDs to integers
+    encID, err := strconv.Atoi(encounterID)
+    if err != nil {
+        return Encounter{}, fmt.Errorf("invalid encounter ID: %v", err)
+    }
+
+    monID, err := strconv.Atoi(monsterID)
+    if err != nil {
+        return Encounter{}, fmt.Errorf("invalid monster ID: %v", err)
+    }
+
+    // Use a transaction to ensure atomicity
+    tx, err := db.Begin()
+    if err != nil {
+        return Encounter{}, fmt.Errorf("error starting transaction: %v", err)
+    }
+    defer tx.Rollback() // Rollback the transaction if it hasn't been committed
+
+    // Get the current count of the monster in the encounter
+    var count int
+    err = tx.QueryRow(`
+        SELECT count FROM encounter_monsters
+        WHERE encounter_id = $1 AND monster_id = $2
+    `, encID, monID).Scan(&count)
+    if err != nil {
+        if err == sql.ErrNoRows {
+            return Encounter{}, fmt.Errorf("monster not found in encounter")
+        }
+        return Encounter{}, fmt.Errorf("error getting monster count: %v", err)
+    }
+
+    if count > 1 {
+        // If count is greater than 1, decrement the count
+        _, err = tx.Exec(`
+            UPDATE encounter_monsters
+            SET count = count - 1
+            WHERE encounter_id = $1 AND monster_id = $2
+        `, encID, monID)
+        if err != nil {
+            return Encounter{}, fmt.Errorf("error updating monster count: %v", err)
+        }
+    } else {
+        // If count is 1, remove the monster from the encounter
+        _, err = tx.Exec(`
+            DELETE FROM encounter_monsters
+            WHERE encounter_id = $1 AND monster_id = $2
+        `, encID, monID)
+        if err != nil {
+            return Encounter{}, fmt.Errorf("error removing monster from encounter: %v", err)
+        }
+    }
+
+    // Commit the transaction
+    if err = tx.Commit(); err != nil {
+        return Encounter{}, fmt.Errorf("error committing transaction: %v", err)
+    }
+
+    // Fetch the updated encounter
+    encounter, err := GetEncounter(db, encounterID)
+    if err != nil {
+        return Encounter{}, fmt.Errorf("error fetching updated encounter: %v", err)
+    }
+
+    return encounter, nil
 }
