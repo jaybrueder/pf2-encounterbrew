@@ -1,0 +1,2 @@
+ALTER TABLE encounter_monsters
+ADD COLUMN count INTEGER NOT NULL DEFAULT 1;
