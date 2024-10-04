@@ -160,7 +160,7 @@ templ Encounter(encounter models.Encounter) {
 templ Combatant(combatant models.Combatant) {
     <div class="flex justify-left w-full overflow-hidden bg-white rounded-md mb-2">
         <div class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
-            <span class="text-white font-semibold">!</span>
+            <span class="text-white font-semibold">{strconv.Itoa(combatant.GetInitiative())}</span>
         </div>
 
         <div class="px-4 py-2 -mx-3">

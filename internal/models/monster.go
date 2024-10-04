@@ -12,6 +12,7 @@ type Monster struct {
     ID   int `json:"id"`
     Adjustment int `json:"adjustment"`
     Count int `json:"count"`
+    Initiative int `json:"initiative"`
     Data struct {
 		ID    string `json:"_id"`
 		Img   string `json:"img"`
@@ -146,6 +147,18 @@ func (m Monster) GetName() string {
 
 func (m Monster) GetType() string {
 	return "monster"
+}
+
+func (m Monster) GetInitiative() int {
+    return m.Initiative
+}
+
+func (m *Monster) SetInitiative(i int) {
+    m.Initiative = i
+}
+
+func (m Monster) GetPerceptionMod() int {
+    return m.Data.System.Perception.Mod
 }
 
 // Databas interactions

@@ -10,6 +10,7 @@ type Player struct {
 	Ac     	int    `json:"ac"`
 	PartyID int    `json:"party_id"`
 	Party   *Party `json:"party,omitempty"`
+	Initiative int `json:"initiative"`
 }
 
 // Implement the Combatant interface
@@ -20,4 +21,16 @@ func (p Player) GetName() string {
 
 func (p Player) GetType() string {
     return "player"
+}
+
+func (p Player) GetInitiative() int {
+    return p.Initiative
+}
+
+func (p *Player) SetInitiative(i int) {
+    p.Initiative = i
+}
+
+func (p Player) GetPerceptionMod() int {
+    return 0
 }
