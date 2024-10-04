@@ -32,7 +32,7 @@ func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 		log.Printf("Received ID: %q", id)
 
 		// Fetch the encounter from the database
-		encounter, err := models.GetEncounter(db, id)
+		encounter, err := models.GetEncounterWithCombatants(db, id)
 		if err != nil {
 			log.Printf("Error fetching encounter: %v", err)
 			return c.String(http.StatusInternalServerError, "Error fetching encounter")
@@ -62,16 +62,16 @@ func EncounterEditHandler(db database.Service) echo.HandlerFunc {
 	}
 }
 
-func EncounterUpdateHandler(db database.Service) echo.HandlerFunc {
-	return func(c echo.Context) error {
-		//id := c.Param("id")
-		//newName := c.FormValue("name")
+// func EncounterUpdateHandler(db database.Service) echo.HandlerFunc {
+// 	return func(c echo.Context) error {
+// 		//id := c.Param("id")
+// 		//newName := c.FormValue("name")
 
-		// Fetch the encounter from the database
-		// TODO
-		return nil
-	}
-}
+// 		// Fetch the encounter from the database
+// 		// TODO
+// 		return nil
+// 	}
+// }
 
 func EncounterSearchMonster(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {

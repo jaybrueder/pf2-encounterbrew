@@ -20,7 +20,18 @@ templ EncounterList(encounters []models.Encounter) {
 
 templ EncounterShow(encounter models.Encounter) {
     @Base(encounter.Name) {
-        <h2>Show { encounter.Name }</h2>
+        <section class="max-w-4xl p-6 mx-auto">
+            <h2 class="text-lg font-semibold text-gray-700 capitalize">Show { encounter.Name }</h2>
+            <div id="combatants">
+                if len(encounter.Combatants) == 0 {
+                    <p>No combatants.</p>
+                } else {
+                    for _, combatant := range encounter.Combatants {
+                        @Combatant(combatant)
+                    }
+                }
+            </div>
+        </section>
     }
 }
 
@@ -144,4 +155,30 @@ templ Encounter(encounter models.Encounter) {
             <button hx-get={"/encounters/" + strconv.Itoa(encounter.ID) + "/edit"} hx-target="body" class="text-4xl font-medium uppercase text-gray-700 mt-1"><i class="fa-solid fa-square-pen"></i></button>
         </div>
     </div>
+}
+
+templ Combatant(combatant models.Combatant) {
+    <div class="flex justify-left w-full overflow-hidden bg-white rounded-md mb-2">
+        <div class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
+            <span class="text-white font-semibold">!</span>
+        </div>
+
+        <div class="px-4 py-2 -mx-3">
+            <div class="mx-3">
+                <span class="font-semibold text-sm text-gray-700">{combatant.GetName()}</span>
+                <p class="text-xs text-gray-400">{combatant.GetType()}</p>
+            </div>
+        </div>
+    </div>
+}
+
+func getColorClass(combatant models.Combatant) string {
+    switch combatant.GetType() {
+    case "player":
+        return "bg-green-700"
+    case "monster":
+        return "bg-red-700"
+    default:
+        return "bg-gray-500"
+    }
 }

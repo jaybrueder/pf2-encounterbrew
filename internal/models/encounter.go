@@ -16,6 +16,7 @@ type Encounter struct {
  	UserID 		int			`json:"user_id"`
     User   		*User		`json:"user,omitempty"`
     Monsters 	[]*Monster 	`json:"monsters,omitempty"`
+    Combatants 	[]Combatant `json:"combatants,omitempty"`
 }
 
 func GetAllEncounters(db database.Service) ([]Encounter, error) {
@@ -115,6 +116,48 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
     }
 
 	return e, nil
+}
+
+func GetEncounterWithCombatants(db database.Service, id string) (Encounter, error) {
+	encounter, err := GetEncounter(db, id)
+	if err != nil {
+		fmt.Errorf("Error fetching encounter: %v", err)
+	}
+
+	// Fetch the active party from the database
+	// TODO make this flexible (hard-coded for now to 1)
+	party, err := GetParty(db, "1")
+
+	// Get party's players and encounter's monsters
+	players := party.Players
+	monsters := encounter.Monsters
+
+	combatants := make([]Combatant, 0, len(players)+len(monsters))
+
+    // Add players to combatants
+    for _, player := range players {
+        combatants = append(combatants, player)
+    }
+
+	// Add monsters to combatants, respecting the count
+	for _, monsterPtr := range monsters {
+        for i := 0; i < monsterPtr.Count; i++ {
+            // Create a non-pointer copy of the monster for each count
+            monsterCopy := *monsterPtr
+
+            // Modify the name to differentiate multiple instances
+            if monsterPtr.Count > 1 {
+                monsterCopy.Data.Name = fmt.Sprintf("%s (%d)", monsterPtr.Data.Name, i+1)
+            }
+
+            combatants = append(combatants, monsterCopy)
+        }
+    }
+
+	// Add combatants to the encounter
+	encounter.Combatants = combatants
+
+	return encounter, nil
 }
 
 func AddMonsterToEncounter(db database.Service, encounterID string, monsterID string) (Encounter, error) {
