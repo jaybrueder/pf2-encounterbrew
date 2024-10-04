@@ -173,7 +173,10 @@ templ Combatant(combatant models.Combatant, index int, encounterID int) {
         <div class="px-4 py-2 -mx-3">
             <div class="mx-3">
                 <span class="font-semibold text-sm text-gray-700">{combatant.GetName()}</span>
-                <p class="text-xs text-gray-400"><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b>/{strconv.Itoa(combatant.GetMaxHp())}</p>
+                <p class="text-xs text-gray-400">
+                    <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b>/{strconv.Itoa(combatant.GetMaxHp())}</span>
+                    <span class="mx-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
+                </p>
             </div>
         </div>
     </div>
