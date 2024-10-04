@@ -138,6 +138,18 @@ type Monster struct {
 	    }
 }
 
+// Implement the Combatant interface
+
+func (m Monster) GetName() string {
+	return m.Data.Name
+}
+
+func (m Monster) GetType() string {
+	return "monster"
+}
+
+// Databas interactions
+
 func GetAllMonsters(db database.Service) ([]Monster, error) {
     rows, err := db.Query("SELECT id, data FROM monsters")
     if err != nil {

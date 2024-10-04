@@ -11,3 +11,13 @@ type Player struct {
 	PartyID int    `json:"party_id"`
 	Party   *Party `json:"party,omitempty"`
 }
+
+// Implement the Combatant interface
+
+func (p Player) GetName() string {
+	return p.Name
+}
+
+func (p Player) GetType() string {
+    return "player"
+}
