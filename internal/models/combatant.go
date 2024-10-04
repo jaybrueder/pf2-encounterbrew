@@ -9,6 +9,9 @@ type Combatant interface {
 	GetName() string
 	GetInitiative() int
     SetInitiative(int)
+   	GetHp() int
+    SetHp(int)
+    GetMaxHp() int
 	GetType() string
 	GetPerceptionMod() int
 }

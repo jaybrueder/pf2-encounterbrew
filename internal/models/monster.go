@@ -157,6 +157,18 @@ func (m *Monster) SetInitiative(i int) {
     m.Initiative = i
 }
 
+func (m Monster) GetHp() int {
+    return m.Data.System.Attributes.Hp.Value
+}
+
+func (m *Monster) SetHp(i int) {
+    m.Data.System.Attributes.Hp.Value -= i
+}
+
+func (m Monster) GetMaxHp() int {
+    return m.Data.System.Attributes.Hp.Max
+}
+
 func (m Monster) GetPerceptionMod() int {
     return m.Data.System.Perception.Mod
 }

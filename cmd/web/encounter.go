@@ -134,6 +134,7 @@ func UpdateCombatant(db database.Service) echo.HandlerFunc {
 		// encounterID := c.Param("encounter_id")
         combatantIndex, _ := strconv.Atoi(c.Param("index"))
         newInitiative, _ := strconv.Atoi(c.FormValue("initiative"))
+        damage, _ := strconv.Atoi(c.FormValue("damage"))
 
         // Get session
         sess, _ := session.Get("encounter-session", c)
@@ -150,12 +151,13 @@ func UpdateCombatant(db database.Service) echo.HandlerFunc {
          	return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
         }
 
-        // Update the specific combatant's initiative
+        // Update the specific combatant's values
         if combatantIndex < len(encounter.Combatants) {
             encounter.Combatants[combatantIndex].SetInitiative(newInitiative)
+            encounter.Combatants[combatantIndex].SetHp(damage)
         }
 
-        // Sort combatants by new initiative
+        // Re-sort combatants by initiative
         models.SortCombatantsByInitiative(encounter.Combatants)
 
         // Save updated encounter back to session
