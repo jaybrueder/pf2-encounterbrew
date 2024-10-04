@@ -135,8 +135,8 @@ func GetEncounterWithCombatants(db database.Service, id string) (Encounter, erro
 	combatants := make([]Combatant, 0, len(players)+len(monsters))
 
     // Add players to combatants
-    for _, player := range players {
-        combatants = append(combatants, player)
+    for i := range players {
+        combatants = append(combatants, &players[i])
     }
 
 	// Add monsters to combatants, respecting the count
@@ -150,9 +150,13 @@ func GetEncounterWithCombatants(db database.Service, id string) (Encounter, erro
                 monsterCopy.Data.Name = fmt.Sprintf("%s (%d)", monsterPtr.Data.Name, i+1)
             }
 
-            combatants = append(combatants, monsterCopy)
+            combatants = append(combatants, &monsterCopy)
         }
     }
+
+    // Set Initiative and sort the combatants
+    AssignInitiative(combatants)
+    SortCombatantsByInitiative(combatants)
 
 	// Add combatants to the encounter
 	encounter.Combatants = combatants
