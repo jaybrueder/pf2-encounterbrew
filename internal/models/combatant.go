@@ -14,6 +14,7 @@ type Combatant interface {
     GetMaxHp() int
     GetAc() int
 	GetType() string
+	GetLevel() int
 	GetPerceptionMod() int
 }
 
