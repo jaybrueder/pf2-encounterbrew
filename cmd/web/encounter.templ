@@ -163,7 +163,7 @@ templ CombatantList(encounter models.Encounter) {
 }
 
 templ Combatant(combatant models.Combatant, index int, encounterID int) {
-    <div x-data="{ isOpen: false }" class="flex justify-left w-full overflow-hidden bg-white rounded-md mb-2">
+    <div x-data="{ isOpen: false }" class={ "flex justify-left w-full overflow-hidden bg-white rounded-md mb-2", setInactive(combatant) }>
         <button @click="isOpen = true" class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
             <span class="text-white font-semibold">{strconv.Itoa(combatant.GetInitiative())}</span>
         </button>
@@ -247,4 +247,12 @@ func getColorClass(combatant models.Combatant) string {
     default:
         return "bg-gray-500"
     }
+}
+
+func setInactive(combatant models.Combatant) string {
+    if combatant.GetHp() <= 0 {
+        return "opacity-50"
+    }
+
+    return ""
 }
