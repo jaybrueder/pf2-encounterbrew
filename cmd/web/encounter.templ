@@ -173,7 +173,7 @@ templ Combatant(combatant models.Combatant, index int, encounterID int) {
         <div class="px-4 py-2 -mx-3">
             <div class="mx-3">
                 <span class="font-semibold text-sm text-gray-700">{combatant.GetName()}</span>
-                <p class="text-xs text-gray-400">{combatant.GetType()}</p>
+                <p class="text-xs text-gray-400"><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b>/{strconv.Itoa(combatant.GetMaxHp())}</p>
             </div>
         </div>
     </div>
@@ -198,13 +198,26 @@ templ EditCombatantModal(combatant models.Combatant, index int, encounterID int)
                 </h3>
 
                 <form class="mt-4" hx-patch={"/encounters/" + strconv.Itoa(encounterID) + "/combatant/" + strconv.Itoa(index) + "/update"} hx-target="#combatants">
-                    <label for="emails-list" class="text-sm text-gray-700">
-                        Initiative
-                    </label>
 
-                    <label class="block mt-3" for="email">
-                        <input type="number" name="initiative" id="initiative" value={strconv.Itoa(combatant.GetInitiative())} class="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
-                    </label>
+                    <div>
+                        <label for="initiative" class="text-sm text-gray-700">
+                            Initiative
+                        </label>
+
+                        <div class="block mt-3">
+                            <input type="number" name="initiative" id="initiative" value={strconv.Itoa(combatant.GetInitiative())} class="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="damage" class="text-sm text-gray-700">
+                            Damage
+                        </label>
+
+                        <div class="block mt-3">
+                            <input type="number" name="damage" id="damage" value="0" class="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                        </div>
+                    </div>
 
                     <div class="mt-4 sm:flex sm:items-center sm:-mx-2">
                         <button type="button" @click="isOpen = false" class="w-full px-4 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:w-1/2 sm:mx-2 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">

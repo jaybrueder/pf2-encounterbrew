@@ -31,6 +31,16 @@ func (p *Player) SetInitiative(i int) {
     p.Initiative = i
 }
 
+func (p Player) GetHp() int {
+    return 0
+}
+
+func (p *Player) SetHp(i int) {}
+
+func (p Player) GetMaxHp() int {
+    return 0
+}
+
 func (p Player) GetPerceptionMod() int {
     return 0
 }
