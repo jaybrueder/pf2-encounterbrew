@@ -32,13 +32,13 @@ func (p *Player) SetInitiative(i int) {
 }
 
 func (p Player) GetHp() int {
-    return 0
+    return 1
 }
 
 func (p *Player) SetHp(i int) {}
 
 func (p Player) GetMaxHp() int {
-    return 0
+    return 1
 }
 
 func (p Player) GetAc() int {
