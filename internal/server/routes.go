@@ -5,6 +5,8 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/labstack/echo-contrib/session"
+
 	"pf2.encounterbrew.com/cmd/web"
 )
 
@@ -12,6 +14,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Use(session.Middleware(s.sessionStore))
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
   		Level: 5,
 	}))
@@ -28,6 +31,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	e.POST("/encounters/:encounter_id/search_monsters", web.EncounterSearchMonster(s.db))
     e.POST("/encounters/:encounter_id/add_monster/:monster_id", web.EncounterAddMonster(s.db))
     e.POST("/encounters/:encounter_id/remove_monster/:monster_id", web.EncounterRemoveMonster(s.db))
+    e.PATCH("/encounters/:encounter_id/combatant/:index/update", web.UpdateCombatant(s.db))
 
 	e.GET("/health", s.healthHandler)
 
