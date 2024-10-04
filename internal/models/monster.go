@@ -173,6 +173,10 @@ func (m Monster) GetAc() int {
     return m.Data.System.Attributes.Ac.Value
 }
 
+func (m Monster) GetLevel() int {
+    return m.Data.System.Details.Level.Value
+}
+
 func (m Monster) GetPerceptionMod() int {
     return m.Data.System.Perception.Mod
 }

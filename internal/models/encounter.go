@@ -287,3 +287,51 @@ func RemoveMonsterFromEncounter(db database.Service, encounterID string, monster
 
     return encounter, nil
 }
+
+func (e Encounter) GetDifficulty() int {
+	partyLevel := 1
+	monsterXpPool := 0
+
+	for _, combatant := range e.Combatants {
+		if combatant.GetType() == "monster" {
+			monsterLevel := combatant.GetLevel()
+			difference := monsterLevel - partyLevel
+
+			switch {
+				case difference <= -4:
+					monsterXpPool += 10
+				case difference == -3:
+					monsterXpPool += 15
+				case difference == -2:
+					monsterXpPool += 20
+				case difference == -1:
+					monsterXpPool += 30
+				case difference == 0:
+					monsterXpPool += 40
+				case difference == 1:
+					monsterXpPool += 60
+				case difference == 2:
+					monsterXpPool += 80
+				case difference == 3:
+					monsterXpPool += 120
+				case difference >= 4:
+					monsterXpPool += 160
+			}
+		}
+	}
+
+	switch {
+		case monsterXpPool <= 40:
+			return 0
+		case monsterXpPool <= 60:
+			return 1
+		case monsterXpPool <= 80:
+			return 2
+		case monsterXpPool <= 120:
+			return 3
+		case monsterXpPool > 120:
+			return 4
+	}
+
+	return 0
+}

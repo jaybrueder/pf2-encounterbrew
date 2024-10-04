@@ -38,11 +38,15 @@ func (p Player) GetHp() int {
 func (p *Player) SetHp(i int) {}
 
 func (p Player) GetMaxHp() int {
-    return 1
+    return p.Hp
 }
 
 func (p Player) GetAc() int {
-    return 0
+    return p.Ac
+}
+
+func (p Player) GetLevel() int {
+    return p.Level
 }
 
 func (p Player) GetPerceptionMod() int {

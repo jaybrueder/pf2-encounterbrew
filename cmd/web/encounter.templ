@@ -21,6 +21,7 @@ templ EncounterList(encounters []models.Encounter) {
 templ EncounterShow(encounter models.Encounter) {
     @Base(encounter.Name) {
         <section class="max-w-4xl p-6 mx-auto">
+            @Difficulty(encounter)
             <div id="combatants">
                 @CombatantList(encounter)
             </div>
@@ -238,6 +239,12 @@ templ EditCombatantModal(combatant models.Combatant, index int, encounterID int)
     </div>
 }
 
+templ Difficulty(encounter models.Encounter) {
+    <div id="difficulty" class={ "flex mb-2 p-1 justify-center rounded-md", getDifficultyClass(encounter.GetDifficulty())}>
+        <p class="text-xs">{ getDifficultyText(encounter.GetDifficulty()) }</p>
+    </div>
+}
+
 func getColorClass(combatant models.Combatant) string {
     switch combatant.GetType() {
     case "player":
@@ -255,4 +262,38 @@ func setInactive(combatant models.Combatant) string {
     }
 
     return ""
+}
+
+func getDifficultyClass(value int) string {
+   	switch {
+        case value == 0:
+            return "bg-green-100 text-green-800"
+        case value == 1:
+            return "bg-blue-100 text-blue-800"
+        case value == 2:
+            return "bg-yellow-100 text-yellow-800"
+        case value == 3:
+            return "bg-orange-100 text-orange-800"
+        case value == 4:
+            return "bg-red-100 text-red-800"
+    }
+
+    return "bg-gray-100 text-gray-800"
+}
+
+func getDifficultyText(value int) string {
+   	switch {
+		case value == 0:
+			return "Trivial (50 XP)"
+		case value == 1:
+			return "Low (60 XP)"
+		case value == 2:
+			return "Moderate (80 XP)"
+		case value == 3:
+			return "Severe (120 XP)"
+		case value == 4:
+			return "Extreme (160 XP)"
+	}
+
+	return "Unknown"
 }
