@@ -41,6 +41,10 @@ func (p Player) GetMaxHp() int {
     return 0
 }
 
+func (p Player) GetAc() int {
+    return 0
+}
+
 func (p Player) GetPerceptionMod() int {
     return 0
 }
