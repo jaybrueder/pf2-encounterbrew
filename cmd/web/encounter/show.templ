@@ -1,25 +1,16 @@
-package web
+package encounter
 
 import (
     "strconv"
 
+    "pf2.encounterbrew.com/cmd/web"
     "pf2.encounterbrew.com/internal/models"
 
     _ "github.com/a-h/templ"
 )
 
-templ EncounterList(encounters []models.Encounter) {
-	@Base("Encounters") {
-	    <section class="max-w-4xl p-6 mx-auto">
-            for _, encounter := range encounters {
-      		@Encounter(encounter)
-            }
-        </section>
-	}
-}
-
 templ EncounterShow(encounter models.Encounter) {
-    @Base(encounter.Name) {
+    @web.Base(encounter.Name) {
         <section class="max-w-4xl p-6 mx-auto">
             @Difficulty(encounter)
             <div id="combatants">
@@ -27,128 +18,6 @@ templ EncounterShow(encounter models.Encounter) {
             </div>
         </section>
     }
-}
-
-templ EncounterEdit(encounter models.Encounter) {
-    @Base(encounter.Name) {
-        <section class="max-w-4xl p-6 mx-auto">
-            <h2 class="text-lg font-semibold text-gray-700 capitalize">Edit { encounter.Name }</h2>
-
-            <form hx-patch={"/encounters/" + strconv.Itoa(encounter.ID)} hx-target="body">
-                <!--div class="grid grid-cols-1 gap-6 mt-4">
-                    <div>
-                        <label class="text-gray-700" for="name">Encounter name</label>
-                        <input id="name" name="name" type="text" value={templ.EscapeString(encounter.Name)} autocomplete="off" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
-                    </div>
-                </div-->
-
-                <div class="grid grid-cols-1 gap-6 mt-4">
-                    <label class="text-gray-700" for="username">Monsters</label>
-                    <div id="monsters-added">
-                        @MonstersAdded(encounter)
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 gap-6 mt-4">
-                    <div>
-                        <label class="text-gray-700" for="username">Add new monsters</label>
-                        <input
-                            id="search"
-                            name="search"
-                            type="text"
-                            placeholder="Search monster..."
-                            autocomplete="off"
-                            hx-post={"/encounters/" + strconv.Itoa(encounter.ID) + "/search_monsters"}
-                            hx-trigger="input changed delay:500ms, search"
-                            hx-target="#search-results"
-                            hx-swap="innerHTML"
-                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
-                    </div>
-                    <div id="search-results">
-                    </div>
-                </div>
-
-                <div class="flex justify-end mt-6">
-
-                    <button hx-get={"/encounters/" + strconv.Itoa(encounter.ID)} hx-target="body" type="submit" class="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                        <i class="fa-solid fa-play"></i>
-                        <span class="mx-2">Play</span>
-                    </button>
-
-                </div>
-            </form>
-        </section>
-    }
-}
-
-templ MonsterSearchResults(encounterID string, monsters []models.Monster) {
-    <div id="monster-search-results">
-        if len(monsters) == 0 {
-            <p>No monsters found.</p>
-        } else {
-            for _, monster := range monsters {
-                @Monster(encounterID, &monster, false)
-            }
-        }
-    </div>
-}
-
-templ MonstersAdded(encounter models.Encounter) {
-    <div id="monster-added-list">
-        if len(encounter.Monsters) == 0 {
-            <p>No monsters added so far.</p>
-        } else {
-            for _, monster := range encounter.Monsters {
-                @Monster(strconv.Itoa(encounter.ID), monster, true)
-            }
-        }
-    </div>
-}
-
-templ Monster(encounterID string, monster *models.Monster, isAdded bool) {
-    <div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
-        <div class="flex items-center justify-center w-12 bg-red-500">
-            if isAdded {
-                <span class="text-white font-semibold">{strconv.Itoa(monster.Count)}</span>
-            }
-        </div>
-
-        <div class="px-4 py-2 -mx-3">
-            <div class="mx-3">
-                <span class="font-semibold text-sm text-gray-700">{monster.Data.Name}</span>
-                <p class="text-xs text-gray-400">{monster.Data.System.Details.Publication.Title}</p>
-            </div>
-        </div>
-
-        if isAdded {
-            <div id="right" class="ml-auto flex items-center pr-2">
-                <button hx-post={"/encounters/" + encounterID + "/remove_monster/" + strconv.Itoa(monster.ID)} hx-target="#monsters-added" class="text-4xl font-medium uppercase text-red-700 mt-1"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-        } else {
-            <div id="right" class="ml-auto flex items-center pr-2">
-                <button hx-post={"/encounters/" + encounterID + "/add_monster/" + strconv.Itoa(monster.ID)} hx-target="#monsters-added" class="text-4xl font-medium uppercase text-green-700 mt-1"><i class="fa-solid fa-square-plus"></i></button>
-            </div>
-        }
-    </div>
-}
-
-templ Encounter(encounter models.Encounter) {
-    <div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
-        <div class="flex items-center justify-center w-12 bg-blue-500">
-            <span class="text-white font-semibold">?</span>
-        </div>
-
-        <div class="px-4 py-2 -mx-3">
-            <div class="mx-3">
-                <span class="font-semibold text-sm text-gray-700">{encounter.Name}</span>
-                <p class="text-xs text-gray-400">{strconv.Itoa(encounter.ID)}</p>
-            </div>
-        </div>
-
-        <div id="right" class="ml-auto flex items-center pr-2">
-            <button hx-get={"/encounters/" + strconv.Itoa(encounter.ID) + "/edit"} hx-target="body" class="text-4xl font-medium uppercase text-gray-700 mt-1"><i class="fa-solid fa-square-pen"></i></button>
-        </div>
-    </div>
 }
 
 templ CombatantList(encounter models.Encounter) {
