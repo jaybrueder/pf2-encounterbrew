@@ -17,6 +17,8 @@ type Encounter struct {
     User   		*User		`json:"user,omitempty"`
     Monsters 	[]*Monster 	`json:"monsters,omitempty"`
     Combatants 	[]Combatant `json:"combatants,omitempty"`
+    Round 		int 		`json:"round"`
+    Turn 		int 		`json:"turn"`
 }
 
 func GetAllEncounters(db database.Service) ([]Encounter, error) {
