@@ -12,10 +12,16 @@ import (
 templ EncounterShow(encounter models.Encounter) {
     @web.Base(encounter.Name) {
         <section class="max-w-4xl p-6 mx-auto">
-            @Difficulty(encounter)
+            <div id="difficulty">
+                @Difficulty(encounter)
+            </div>
             <div id="combatants">
                 @CombatantList(encounter)
             </div>
+        </section>
+        <section class="p-2 mx-auto bg-black flex justify-between fixed w-full bottom-0">
+            <button hx-post={"/encounters/" + strconv.Itoa(encounter.ID) + "/prev_turn"} hx-target="body" class="text-4xl text-white ml-4"><i class="fa-solid fa-caret-left"></i></button>
+            <button hx-post={"/encounters/" + strconv.Itoa(encounter.ID) + "/next_turn"} hx-target="body" class="text-4xl text-white mr-4"><i class="fa-solid fa-caret-right"></i></button>
         </section>
     }
 }
@@ -26,19 +32,19 @@ templ CombatantList(encounter models.Encounter) {
             <p>No combatants.</p>
         } else {
             for i, combatant := range encounter.Combatants {
-                @Combatant(combatant, i, encounter.ID)
+                @Combatant(combatant, i, encounter)
             }
         }
     </div>
 }
 
-templ Combatant(combatant models.Combatant, index int, encounterID int) {
-    <div x-data="{ isOpen: false }" class={ "flex justify-left w-full overflow-hidden bg-white rounded-md mb-2", setInactive(combatant) }>
+templ Combatant(combatant models.Combatant, index int, encounter models.Encounter) {
+    <div x-data="{ isOpen: false }" class={ "flex justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }>
         <button @click="isOpen = true" class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
             <span class="text-white font-semibold">{strconv.Itoa(combatant.GetInitiative())}</span>
         </button>
 
-        @EditCombatantModal(combatant, index, encounterID)
+        @EditCombatantModal(combatant, index, encounter.ID)
 
         <div class="px-4 py-2 -mx-3">
             <div class="mx-3">
@@ -109,8 +115,8 @@ templ EditCombatantModal(combatant models.Combatant, index int, encounterID int)
 }
 
 templ Difficulty(encounter models.Encounter) {
-    <div id="difficulty" class={ "flex mb-2 p-1 justify-center rounded-md", getDifficultyClass(encounter.GetDifficulty())}>
-        <p class="text-xs">{ getDifficultyText(encounter.GetDifficulty()) }</p>
+    <div id="difficulty-box" class={ "flex mb-2 p-1 justify-center rounded-md", getDifficultyClass(encounter.GetDifficulty())}>
+        <p class="text-xs">{ getDifficultyText(encounter.GetDifficulty()) } - Round {strconv.Itoa(encounter.Round + 1)} / Turn {strconv.Itoa(encounter.Turn + 1)}</p>
     </div>
 }
 
@@ -125,7 +131,7 @@ func getColorClass(combatant models.Combatant) string {
     }
 }
 
-func setInactive(combatant models.Combatant) string {
+func setDefeated(combatant models.Combatant) string {
     if combatant.GetHp() <= 0 {
         return "opacity-50"
     }
@@ -165,4 +171,12 @@ func getDifficultyText(value int) string {
 	}
 
 	return "Unknown"
+}
+
+func isActive(index int, turn int) string {
+    if index == turn {
+        return "border-black"
+    } else {
+        return "border-gray-100"
+    }
 }
