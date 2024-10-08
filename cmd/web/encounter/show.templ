@@ -42,14 +42,14 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
     <div x-data="{ isOpen: false, showStatblock: false }" class={ "flex-col justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }>
         <div class="flex">
             <button @click="isOpen = true" class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
-                <span class="text-white font-semibold">{strconv.Itoa(combatant.GetInitiative())}</span>
+                <span class="text-white font-bold">{strconv.Itoa(combatant.GetInitiative())}</span>
             </button>
 
             @EditCombatantModal(combatant, index, encounter.ID)
 
             <div class="px-4 py-2 -mx-3">
                 <div class="mx-3">
-                    <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700">{combatant.GetName()}</button>
+                    <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700 uppercase">{combatant.GetName()}</button>
                     <p class="text-xs text-gray-400">
                         <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b>/{strconv.Itoa(combatant.GetMaxHp())}</span>
                         <span class="mx-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
@@ -127,8 +127,100 @@ templ Difficulty(encounter models.Encounter) {
 }
 
 templ Statblock(combatant models.Combatant) {
-    <div x-show="showStatblock" class="statblock w-full">
-        <p>I am statblock</p>
+    <div x-show="showStatblock" class="statblock w-full p-2 text-xs">
+        // Rarity, Size, Traits, Level
+        <div class="mb-2">
+            <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-gray-900 ring-2 ring-inset ring-yellow-500 uppercase">Creature 8</span>
+            <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-green-700 ring-2 ring-inset ring-yellow-500 uppercase">Medium</span>
+            <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-red-900 ring-2 ring-inset ring-yellow-500 uppercase">Aeon</span>
+            <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-red-900 ring-2 ring-inset ring-yellow-500 uppercase">Monitor</span>
+        </div>
+
+        // Perception
+        <div>
+            <p><b>Perception</b> +19; darkvision</p>
+        </div>
+
+        // Languages
+        <div>
+            <p><b>Languages</b> Chthonian, Common, Diabolic, Draconic, Empyrean, Utopian</p>
+        </div>
+
+        // Skills
+        <div>
+            <p><b>Skills</b> Acrobatics +16, Axis Lore +17, Craft +21, Diplomacy +15, Occultism +17, Religion +17</p>
+        </div>
+
+        // Attribute Modifies
+        <div>
+            <p><b>Str</b> +5, <b>Dex</b> +4, <b>Con</b> +3, <b>Int</b> +5, <b>Wis</b> +5, <b>Cha</b> +3</p>
+        </div>
+
+        // Items
+        <div>
+            <p><b>Items</b> sterling artisan’s toolkit, +1 striking warhammer</p>
+        </div>
+
+        // Interaction Abilities
+        // TODO
+
+        <hr class="h-px my-1 border-gray-600">
+
+        // -- Defenses
+
+        // AC & Saving Throws
+        <div>
+            <p><b>AC</b> 26; <b>Fort</b> +13, <b>Ref</b> +16, <b>Will</b> +18; +1 status to all saves vs. magic</p>
+        </div>
+
+        // HP, Immunities, Weknesses, Resistances
+        <div>
+            <p><b>HP</b> 155; <b>Immunities</b> disease, emotion, fear; <b>Resistances</b> electricity 10, mental 10</p>
+            // TODO Weaknesses
+        </div>
+
+        // Automatic Abilities
+        // TODO
+
+        // Reactive Abilities
+        // TODO
+
+        <hr class="h-px my-1 border-gray-600">
+
+        // -- Offensive
+
+        // Speed
+        <div>
+            <p><b>Speed</b> 25 feet</p>
+        </div>
+
+        // Melee
+        <div>
+            <p><b>Melee</b>[1] warhammer +20 (magical, shove), <b>Damage</b> 2d8+11 bludgeoning</p>
+            <p><b>Melee</b>[1] fist +17 (agile, magical), <b>Damage</b> 2d8+9 bludgeoning</p>
+        </div>
+
+        // Ranged
+        // TODO
+
+        // Spells
+        // TODO
+
+        // Inate Spells
+        <div>
+            <p><b>Divine Innate Spells</b> DC 27, attack +17; <b>5th</b> <i>telekinetic haul</i>; <b>4th</b> <i>dispel magic</i>, <i>lightning bolt</i> (×3); <b>3rd</b> <i>haste</i> (×3), <i>paralyze</i>; <b>2nd</b> <i>telekinetic maneuver</i>; <b>1th</b> <i>sure strike (at will)</i>; <b>Cantrips (4th)</b> <i>telekinetic projectile</i></p>
+        </div>
+
+        // Focus Spells
+        // TODO
+
+        // Rituals
+        // TODO
+
+        // Offensive or Proactive Abilities
+        <div>
+            <p><b>Crystalline Dust Form</b>[1] (polymorph) The axiomite shifts their form to a cloud of crystalline dust in which strange symbols and equations flash. They gain a fly Speed of 40 feet and can fit through even tiny apertures, similar to vapor form. They can cast spells but can’t make melee or ranged attacks. The axiomite can Dismiss this form to return to humanoid form.</p>
+        </div>
     </div>
 }
 
@@ -137,7 +229,7 @@ func getColorClass(combatant models.Combatant) string {
     case "player":
         return "bg-green-700"
     case "monster":
-        return "bg-red-700"
+        return "bg-red-900"
     default:
         return "bg-gray-500"
     }
