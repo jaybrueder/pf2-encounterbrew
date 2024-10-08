@@ -4,7 +4,12 @@ module.exports = {
       "./cmd/web/**/*.html", "./cmd/web/**/*.templ",
     ],
     theme: {
-        extend: {},
+        extend: {
+          fontWeight: {
+            normal: 300,
+            bold: 700,
+          },
+        },
         fontFamily: {
           'sans': ['"Roboto"', 'sans-serif'],
         },
