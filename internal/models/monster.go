@@ -2,12 +2,17 @@ package models
 
 import (
 	"encoding/json"
+	"fmt"
+	"log"
 
 	"pf2.encounterbrew.com/internal/database"
 )
 
 type Monster struct {
     ID   int `json:"id"`
+    Adjustment int `json:"adjustment"`
+    Count int `json:"count"`
+    Initiative int `json:"initiative"`
     Data struct {
 		ID    string `json:"_id"`
 		Img   string `json:"img"`
@@ -134,6 +139,50 @@ type Monster struct {
 	    }
 }
 
+// Implement the Combatant interface
+
+func (m Monster) GetName() string {
+	return m.Data.Name
+}
+
+func (m Monster) GetType() string {
+	return "monster"
+}
+
+func (m Monster) GetInitiative() int {
+    return m.Initiative
+}
+
+func (m *Monster) SetInitiative(i int) {
+    m.Initiative = i
+}
+
+func (m Monster) GetHp() int {
+    return m.Data.System.Attributes.Hp.Value
+}
+
+func (m *Monster) SetHp(i int) {
+    m.Data.System.Attributes.Hp.Value -= i
+}
+
+func (m Monster) GetMaxHp() int {
+    return m.Data.System.Attributes.Hp.Max
+}
+
+func (m Monster) GetAc() int {
+    return m.Data.System.Attributes.Ac.Value
+}
+
+func (m Monster) GetLevel() int {
+    return m.Data.System.Details.Level.Value
+}
+
+func (m Monster) GetPerceptionMod() int {
+    return m.Data.System.Perception.Mod
+}
+
+// Databas interactions
+
 func GetAllMonsters(db database.Service) ([]Monster, error) {
     rows, err := db.Query("SELECT id, data FROM monsters")
     if err != nil {
@@ -157,4 +206,41 @@ func GetAllMonsters(db database.Service) ([]Monster, error) {
     }
 
     return monsters, nil
+}
+
+func SearchMonsters(db database.Service, search string) ([]Monster, error) {
+  	query := "SELECT id, data FROM monsters WHERE LOWER(data->>'name') LIKE LOWER($1) LIMIT 10"
+
+	// Search for the monster in the database and return the 10 most relevant results
+	rows, err := db.Query(query, "%"+search+"%")
+    if err != nil {
+        log.Printf("Error executing query: %v", err)
+        return nil, fmt.Errorf("database query error: %w", err)
+    }
+    defer rows.Close()
+
+    var monsters []Monster
+    for rows.Next() {
+        var m Monster
+        var jsonData []byte
+        err := rows.Scan(&m.ID, &jsonData)
+        if err != nil {
+            log.Printf("Error scanning row: %v", err)
+            return nil, fmt.Errorf("error scanning row: %w", err)
+        }
+        err = json.Unmarshal(jsonData, &m.Data)
+        if err != nil {
+            log.Printf("Error unmarshaling JSON data: %v", err)
+            return nil, fmt.Errorf("error unmarshaling JSON: %w", err)
+        }
+
+        monsters = append(monsters, m)
+    }
+
+    if err = rows.Err(); err != nil {
+        log.Printf("Error iterating over rows: %v", err)
+        return nil, fmt.Errorf("error iterating over rows: %w", err)
+    }
+
+	return monsters, nil
 }
