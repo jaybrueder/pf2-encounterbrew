@@ -32,29 +32,35 @@ templ CombatantList(encounter models.Encounter) {
             <p>No combatants.</p>
         } else {
             for i, combatant := range encounter.Combatants {
-                @Combatant(combatant, i, encounter)
+                @CombatantListItem(combatant, i, encounter)
             }
         }
     </div>
 }
 
-templ Combatant(combatant models.Combatant, index int, encounter models.Encounter) {
-    <div x-data="{ isOpen: false }" class={ "flex justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }>
-        <button @click="isOpen = true" class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
-            <span class="text-white font-semibold">{strconv.Itoa(combatant.GetInitiative())}</span>
-        </button>
+templ CombatantListItem(combatant models.Combatant, index int, encounter models.Encounter) {
+    <div x-data="{ isOpen: false, showStatblock: false }" class={ "flex-col justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }>
+        <div class="flex">
+            <button @click="isOpen = true" class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
+                <span class="text-white font-semibold">{strconv.Itoa(combatant.GetInitiative())}</span>
+            </button>
 
-        @EditCombatantModal(combatant, index, encounter.ID)
+            @EditCombatantModal(combatant, index, encounter.ID)
 
-        <div class="px-4 py-2 -mx-3">
-            <div class="mx-3">
-                <span class="font-semibold text-sm text-gray-700">{combatant.GetName()}</span>
-                <p class="text-xs text-gray-400">
-                    <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b>/{strconv.Itoa(combatant.GetMaxHp())}</span>
-                    <span class="mx-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
-                </p>
+            <div class="px-4 py-2 -mx-3">
+                <div class="mx-3">
+                    <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700">{combatant.GetName()}</button>
+                    <p class="text-xs text-gray-400">
+                        <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b>/{strconv.Itoa(combatant.GetMaxHp())}</span>
+                        <span class="mx-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
+                    </p>
+                </div>
             </div>
         </div>
+
+        if combatant.GetType() == "monster" {
+            @Statblock(combatant)
+        }
     </div>
 }
 
@@ -117,6 +123,12 @@ templ EditCombatantModal(combatant models.Combatant, index int, encounterID int)
 templ Difficulty(encounter models.Encounter) {
     <div id="difficulty-box" class={ "flex mb-2 p-1 justify-center rounded-md", getDifficultyClass(encounter.GetDifficulty())}>
         <p class="text-xs">{ getDifficultyText(encounter.GetDifficulty()) } - Round {strconv.Itoa(encounter.Round + 1)} / Turn {strconv.Itoa(encounter.Turn + 1)}</p>
+    </div>
+}
+
+templ Statblock(combatant models.Combatant) {
+    <div x-show="showStatblock" class="statblock w-full">
+        <p>I am statblock</p>
     </div>
 }
 
