@@ -51,7 +51,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                 <div class="mx-3">
                     <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700 uppercase">{combatant.GetName()}</button>
                     <p class="text-xs text-gray-400">
-                        <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b>/{strconv.Itoa(combatant.GetMaxHp())}</span>
+                        <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b></span>
                         <span class="mx-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
                     </p>
                 </div>
