@@ -1,0 +1,39 @@
+package encounter
+
+import (
+    "strconv"
+
+    "pf2.encounterbrew.com/cmd/web"
+    "pf2.encounterbrew.com/internal/models"
+
+    _ "github.com/a-h/templ"
+)
+
+templ EncounterList(encounters []models.Encounter) {
+	@web.Base("Encounters") {
+	    <section class="max-w-4xl p-6 mx-auto">
+            for _, encounter := range encounters {
+                @EncounterListItem(encounter)
+            }
+        </section>
+	}
+}
+
+templ EncounterListItem(encounter models.Encounter) {
+    <div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
+        <div class="flex items-center justify-center w-12 bg-blue-500">
+            <span class="text-white font-semibold">?</span>
+        </div>
+
+        <div class="px-4 py-2 -mx-3">
+            <div class="mx-3">
+                <span class="font-semibold text-sm text-gray-700">{encounter.Name}</span>
+                <p class="text-xs text-gray-400">{strconv.Itoa(encounter.ID)}</p>
+            </div>
+        </div>
+
+        <div id="right" class="ml-auto flex items-center pr-2">
+            <button hx-get={"/encounters/" + strconv.Itoa(encounter.ID) + "/edit"} hx-replace-url={"/encounters/" + strconv.Itoa(encounter.ID) + "/edit"} hx-target="body" class="text-4xl font-medium uppercase text-gray-700 mt-1"><i class="fa-solid fa-square-pen"></i></button>
+        </div>
+    </div>
+}
