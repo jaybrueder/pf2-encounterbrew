@@ -1,18 +1,18 @@
 package main
 
 import (
-	"fmt"
 	"encoding/gob"
+	"fmt"
 
-	"pf2.encounterbrew.com/internal/server"
 	"pf2.encounterbrew.com/internal/models"
+	"pf2.encounterbrew.com/internal/server"
 )
 
 func init() {
-    gob.Register(&models.Encounter{})
-    gob.Register(&models.Player{})
-    gob.Register(&models.Monster{})
-    gob.Register(map[string]interface{}{})
+	gob.Register(&models.Encounter{})
+	gob.Register(&models.Player{})
+	gob.Register(&models.Monster{})
+	gob.Register(map[string]interface{}{})
 }
 
 func main() {

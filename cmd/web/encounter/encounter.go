@@ -13,18 +13,18 @@ import (
 )
 
 func EncounterListHandler(db database.Service) echo.HandlerFunc {
-    return func(c echo.Context) error {
-        // Fetch all encounters for given user
-        encounters, err := models.GetAllEncounters(db)
-        if err != nil {
+	return func(c echo.Context) error {
+		// Fetch all encounters for given user
+		encounters, err := models.GetAllEncounters(db)
+		if err != nil {
 			log.Printf("Error fetching encounters: %v", err)
 			return c.String(http.StatusInternalServerError, "Error fetching encounters")
 		}
 
-        // Render the template with the encounters
-        component := EncounterList(encounters)
-        return component.Render(c.Request().Context(), c.Response().Writer)
-    }
+		// Render the template with the encounters
+		component := EncounterList(encounters)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
 }
 
 func EncounterShowHandler(db database.Service) echo.HandlerFunc {
@@ -40,11 +40,11 @@ func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 		}
 
 		// Store encounter in session
-        sess, _ := session.Get("encounter-session", c)
-        sess.Values["encounter"] = encounter
-        if err := sess.Save(c.Request(), c.Response()); err != nil {
-            log.Printf("Error saving session: %v", err)
-        }
+		sess, _ := session.Get("encounter-session", c)
+		sess.Values["encounter"] = encounter
+		if err := sess.Save(c.Request(), c.Response()); err != nil {
+			log.Printf("Error saving session: %v", err)
+		}
 
 		// Render the template with the encounter
 		component := EncounterShow(encounter)
@@ -93,7 +93,7 @@ func EncounterSearchMonster(db database.Service) echo.HandlerFunc {
 		}
 
 		component := MonsterSearchResults(encounterID, monsters)
-        return component.Render(c.Request().Context(), c.Response().Writer)
+		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
 
@@ -109,7 +109,7 @@ func EncounterAddMonster(db database.Service) echo.HandlerFunc {
 		}
 
 		component := MonstersAdded(encounter)
-        return component.Render(c.Request().Context(), c.Response().Writer)
+		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
 
@@ -125,104 +125,104 @@ func EncounterRemoveMonster(db database.Service) echo.HandlerFunc {
 		}
 
 		component := MonstersAdded(encounter)
-        return component.Render(c.Request().Context(), c.Response().Writer)
+		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
 
 func UpdateCombatant() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// encounterID := c.Param("encounter_id")
-        combatantIndex, _ := strconv.Atoi(c.Param("index"))
-        newInitiative, _ := strconv.Atoi(c.FormValue("initiative"))
-        damage, _ := strconv.Atoi(c.FormValue("damage"))
+		combatantIndex, _ := strconv.Atoi(c.Param("index"))
+		newInitiative, _ := strconv.Atoi(c.FormValue("initiative"))
+		damage, _ := strconv.Atoi(c.FormValue("damage"))
 
-        // Get session
-        sess, _ := session.Get("encounter-session", c)
+		// Get session
+		sess, _ := session.Get("encounter-session", c)
 
-        // Get encounter from session
-        encounterData, ok := sess.Values["encounter"]
-        if !ok {
-            return c.String(http.StatusInternalServerError, "Encounter not found in session")
-        }
+		// Get encounter from session
+		encounterData, ok := sess.Values["encounter"]
+		if !ok {
+			return c.String(http.StatusInternalServerError, "Encounter not found in session")
+		}
 
-        encounter, ok := encounterData.(*models.Encounter)
-        if !ok {
-        	log.Printf("Type assertion failed. Actual type: %T", encounterData)
-         	return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
-        }
+		encounter, ok := encounterData.(*models.Encounter)
+		if !ok {
+			log.Printf("Type assertion failed. Actual type: %T", encounterData)
+			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		}
 
-        // Update the specific combatant's values
-        if combatantIndex < len(encounter.Combatants) {
-            encounter.Combatants[combatantIndex].SetInitiative(newInitiative)
-            encounter.Combatants[combatantIndex].SetHp(damage)
-        }
+		// Update the specific combatant's values
+		if combatantIndex < len(encounter.Combatants) {
+			encounter.Combatants[combatantIndex].SetInitiative(newInitiative)
+			encounter.Combatants[combatantIndex].SetHp(damage)
+		}
 
-        // Re-sort combatants by initiative
-        models.SortCombatantsByInitiative(encounter.Combatants)
+		// Re-sort combatants by initiative
+		models.SortCombatantsByInitiative(encounter.Combatants)
 
-        // Save updated encounter back to session
-        sess.Values["encounter"] = encounter
-        if err := sess.Save(c.Request(), c.Response()); err != nil {
-            log.Printf("Error saving session: %v", err)
-            return c.String(http.StatusInternalServerError, "Error saving session")
-        }
+		// Save updated encounter back to session
+		sess.Values["encounter"] = encounter
+		if err := sess.Save(c.Request(), c.Response()); err != nil {
+			log.Printf("Error saving session: %v", err)
+			return c.String(http.StatusInternalServerError, "Error saving session")
+		}
 
-        // Render and return the updated combatant list
-        component := CombatantList(*encounter)
-        return component.Render(c.Request().Context(), c.Response().Writer)
+		// Render and return the updated combatant list
+		component := CombatantList(*encounter)
+		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
 
 func ChangeTurn(next bool) echo.HandlerFunc {
 	return func(c echo.Context) error {
-  		// Get session
-        sess, _ := session.Get("encounter-session", c)
+		// Get session
+		sess, _ := session.Get("encounter-session", c)
 
-        // Get encounter from session
-        encounterData, ok := sess.Values["encounter"]
-        if !ok {
-            return c.String(http.StatusInternalServerError, "Encounter not found in session")
-        }
+		// Get encounter from session
+		encounterData, ok := sess.Values["encounter"]
+		if !ok {
+			return c.String(http.StatusInternalServerError, "Encounter not found in session")
+		}
 
-        encounter, ok := encounterData.(*models.Encounter)
-        if !ok {
-        	log.Printf("Type assertion failed. Actual type: %T", encounterData)
-         	return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
-        }
+		encounter, ok := encounterData.(*models.Encounter)
+		if !ok {
+			log.Printf("Type assertion failed. Actual type: %T", encounterData)
+			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		}
 
-        numberOfCombatants := len(encounter.Combatants)
+		numberOfCombatants := len(encounter.Combatants)
 
-        if next == true {
-        	if encounter.Turn == numberOfCombatants - 1 {
-         		encounter.Turn = 0
-        	    encounter.Round += 1
-         	} else {
-          		encounter.Turn += 1
-		 	}
-        } else {
-        	if encounter.Turn == 0 {
-        		encounter.Turn = numberOfCombatants - 1
-          		encounter.Round -= 1
-        	} else {
-         		encounter.Turn -= 1
-		 	}
-        }
+		if next == true {
+			if encounter.Turn == numberOfCombatants-1 {
+				encounter.Turn = 0
+				encounter.Round += 1
+			} else {
+				encounter.Turn += 1
+			}
+		} else {
+			if encounter.Turn == 0 {
+				encounter.Turn = numberOfCombatants - 1
+				encounter.Round -= 1
+			} else {
+				encounter.Turn -= 1
+			}
+		}
 
-        if encounter.Round < 0 {
-        	encounter.Round = 0
-         	encounter.Turn = 0
-        }
+		if encounter.Round < 0 {
+			encounter.Round = 0
+			encounter.Turn = 0
+		}
 
-        // Save updated encounter back to session
-        sess.Values["encounter"] = encounter
-        if err := sess.Save(c.Request(), c.Response()); err != nil {
-            log.Printf("Error saving session: %v", err)
-            return c.String(http.StatusInternalServerError, "Error saving session")
-        }
+		// Save updated encounter back to session
+		sess.Values["encounter"] = encounter
+		if err := sess.Save(c.Request(), c.Response()); err != nil {
+			log.Printf("Error saving session: %v", err)
+			return c.String(http.StatusInternalServerError, "Error saving session")
+		}
 
-        // Render and return the updated combatant list
-        component := EncounterShow(*encounter)
-        return component.Render(c.Request().Context(), c.Response().Writer)
+		// Render and return the updated combatant list
+		component := EncounterShow(*encounter)
+		return component.Render(c.Request().Context(), c.Response().Writer)
 
 	}
 }
