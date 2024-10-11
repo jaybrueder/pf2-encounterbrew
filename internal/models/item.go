@@ -1,5 +1,7 @@
 package models
 
+import "pf2.encounterbrew.com/internal/utils"
+
 type Item struct {
 	ID    string `json:"_id"`
 	Flags struct {
@@ -26,7 +28,7 @@ type Item struct {
 		Bonus struct {
 			Value int `json:"value"`
 		} `json:"bonus"`
-		Category string `json:"category"`
+		Category    string `json:"category"`
 		DamageRolls map[string]struct {
 			Damage     string `json:"damage"`
 			DamageType string `json:"damageType"`
@@ -42,13 +44,13 @@ type Item struct {
 			Remaster bool   `json:"remaster"`
 			Title    string `json:"title"`
 		} `json:"publication"`
-		Quantity int `json:"quantity"`
-		Rules  []any `json:"rules"`
-		Slug   any   `json:"slug"`
-		Spelldc struct {
-			Dc  int `json:"dc"`
-			Mod int  `json:"mod"`
-			Value int`json:"value"`
+		Quantity int   `json:"quantity"`
+		Rules    []any `json:"rules"`
+		Slug     any   `json:"slug"`
+		Spelldc  struct {
+			Dc    int `json:"dc"`
+			Mod   int `json:"mod"`
+			Value int `json:"value"`
 		} `json:"spelldc"`
 		Traits struct {
 			Value []string `json:"value"`
@@ -58,4 +60,48 @@ type Item struct {
 		} `json:"weaponType"`
 	} `json:"system"`
 	Type string `json:"type"`
+}
+
+func (i Item) GetWeaponType() string {
+	return utils.CapitalizeFirst(i.System.WeaponType.Value)
+}
+
+func (i Item) GetName() string {
+	return utils.CapitalizeFirst(i.Name)
+}
+
+func (i Item) GetAttackValue() int {
+	return i.System.Bonus.Value
+}
+
+func (i Item) GetTraits() string {
+	var traits string
+
+	for _, trait := range i.System.Traits.Value {
+		traits += trait + ", "
+	}
+
+	if len(traits) > 0 {
+		return " (" + utils.RemoveTrailingComma(traits) + ")"
+	} else {
+		return ""
+	}
+}
+
+func (i Item) GetDamageValue() string {
+	var damage string
+
+	for _, damageRoll := range i.System.DamageRolls {
+		damage += damageRoll.Damage + " " + damageRoll.DamageType + ", "
+	}
+
+	return utils.RemoveTrailingComma(damage)
+}
+
+func (i Item) GetSpellDC() int {
+	return i.System.Spelldc.Dc
+}
+
+func (i Item) GetSpellAttackValue() int {
+	return i.System.Spelldc.Value
 }
