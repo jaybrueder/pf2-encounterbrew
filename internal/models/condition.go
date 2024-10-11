@@ -7,8 +7,8 @@ import (
 )
 
 type Condition struct {
- 	ID   int `json:"id"`
-    Data struct {
+	ID   int `json:"id"`
+	Data struct {
 		ID     string `json:"_id"`
 		Img    string `json:"img"`
 		Name   string `json:"name"`
@@ -44,30 +44,30 @@ type Condition struct {
 			} `json:"value"`
 		} `json:"system"`
 		Type string `json:"type"`
-    }
+	}
 }
 
 func GetAllConditions(db database.Service) ([]Condition, error) {
-    rows, err := db.Query("SELECT id, data FROM conditions")
-    if err != nil {
-        return nil, err
-    }
-    defer rows.Close()
+	rows, err := db.Query("SELECT id, data FROM conditions")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
 
-    var conditions []Condition
-    for rows.Next() {
-        var c Condition
-        var jsonData []byte
-        err := rows.Scan(&c.ID, &jsonData)
-        if err != nil {
-            return nil, err
-        }
-        err = json.Unmarshal(jsonData, &c.Data)
-        if err != nil {
-            return nil, err
-        }
-        conditions = append(conditions, c)
-    }
+	var conditions []Condition
+	for rows.Next() {
+		var c Condition
+		var jsonData []byte
+		err := rows.Scan(&c.ID, &jsonData)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(jsonData, &c.Data)
+		if err != nil {
+			return nil, err
+		}
+		conditions = append(conditions, c)
+	}
 
-    return conditions, nil
+	return conditions, nil
 }

@@ -28,16 +28,16 @@ type Service interface {
 	Insert(table string, columns []string, values ...interface{}) (sql.Result, error)
 
 	// Query executes a query that returns rows, typically a SELECT.
-    Query(query string, args ...interface{}) (*sql.Rows, error)
+	Query(query string, args ...interface{}) (*sql.Rows, error)
 
-    // QueryRow executes a query that is expected to return at most one row.
-    QueryRow(query string, args ...interface{}) *sql.Row
+	// QueryRow executes a query that is expected to return at most one row.
+	QueryRow(query string, args ...interface{}) *sql.Row
 
-    // Exec executes a query without returning any rows.
-    Exec(query string, args ...interface{}) (sql.Result, error)
+	// Exec executes a query without returning any rows.
+	Exec(query string, args ...interface{}) (sql.Result, error)
 
-    // Begin starts a transaction.
-    Begin() (*sql.Tx, error)
+	// Begin starts a transaction.
+	Begin() (*sql.Tx, error)
 }
 
 type service struct {
@@ -131,44 +131,44 @@ func (s *service) Close() error {
 }
 
 func (s *service) Insert(table string, columns []string, values ...interface{}) (sql.Result, error) {
-    // Build the query string
-    query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s)",
-        table,
-        strings.Join(columns, ", "),
-        strings.Join(strings.Split(strings.Repeat("?", len(columns)), ""), ", "))
+	// Build the query string
+	query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s)",
+		table,
+		strings.Join(columns, ", "),
+		strings.Join(strings.Split(strings.Repeat("?", len(columns)), ""), ", "))
 
-    // Replace ? with $1, $2, etc. for PostgreSQL
-    query = convertToPostgresPlaceholders(query)
+	// Replace ? with $1, $2, etc. for PostgreSQL
+	query = convertToPostgresPlaceholders(query)
 
-    // Prepare the statement
-    stmt, err := s.db.Prepare(query)
-    if err != nil {
-        return nil, fmt.Errorf("error preparing statement: %w", err)
-    }
-    defer stmt.Close()
+	// Prepare the statement
+	stmt, err := s.db.Prepare(query)
+	if err != nil {
+		return nil, fmt.Errorf("error preparing statement: %w", err)
+	}
+	defer stmt.Close()
 
-    // Execute the statement
-    return stmt.Exec(values...)
+	// Execute the statement
+	return stmt.Exec(values...)
 }
 
 // Helper function to convert ? placeholders to $1, $2, etc.
 func convertToPostgresPlaceholders(query string) string {
-    for i := 1; strings.Contains(query, "?"); i++ {
-        query = strings.Replace(query, "?", fmt.Sprintf("$%d", i), 1)
-    }
-    return query
+	for i := 1; strings.Contains(query, "?"); i++ {
+		query = strings.Replace(query, "?", fmt.Sprintf("$%d", i), 1)
+	}
+	return query
 }
 
 func (s *service) Query(query string, args ...interface{}) (*sql.Rows, error) {
-    return s.db.Query(query, args...)
+	return s.db.Query(query, args...)
 }
 
 func (s *service) QueryRow(query string, args ...interface{}) *sql.Row {
-    return s.db.QueryRow(query, args...)
+	return s.db.QueryRow(query, args...)
 }
 
 func (s *service) Exec(query string, args ...interface{}) (sql.Result, error) {
-    return s.db.Exec(query, args...)
+	return s.db.Exec(query, args...)
 }
 
 func (s *service) Begin() (*sql.Tx, error) {
