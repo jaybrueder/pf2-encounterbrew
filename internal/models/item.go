@@ -52,6 +52,9 @@ type Item struct {
 				Max   int `json:"max"`
 			} `json:"uses"`
 		}  `json:"location"`
+		Mod struct {
+			Value int `json:"value"`
+		} `json:"mod"`
 		Publication struct {
 			License  string `json:"license"`
 			Remaster bool   `json:"remaster"`
