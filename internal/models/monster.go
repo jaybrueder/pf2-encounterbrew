@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"strconv"
-	"strings"
 
 	"pf2.encounterbrew.com/internal/database"
 	"pf2.encounterbrew.com/internal/utils"
@@ -274,7 +273,7 @@ func (m Monster) GetResistances() string {
 
 	if len(m.Data.System.Attributes.Resistances) > 0 {
 		for _, resistance := range m.Data.System.Attributes.Resistances {
-			resistances += fmt.Sprintf("%s, ", resistance.Type)
+			resistances += fmt.Sprintf("%s %d, ", resistance.Type, resistance.Value)
 		}
 	}
 
@@ -286,7 +285,7 @@ func (m Monster) GetWeaknesses() string {
 
 	if len(m.Data.System.Attributes.Weaknesses) > 0 {
 		for _, weakness := range m.Data.System.Attributes.Weaknesses {
-			weaknesses += fmt.Sprintf("%s, ", weakness.Type)
+			weaknesses += fmt.Sprintf("%s %d, ", weakness.Type, weakness.Value)
 		}
 	}
 
@@ -331,12 +330,21 @@ func (m Monster) GetSpells() []map[string]string {
 			spell["name"] = i.Name
 
 			description := i.System.Description.Value
-			description = strings.ReplaceAll(description, "<p>", "")
-			description = strings.ReplaceAll(description, "</p>", "")
+			description = utils.RemoveHTML(description)
 			spell["description"] = description
 
-			spell["level"] = strconv.Itoa(i.System.Level.Value)
+			spell["level"] = utils.FormatOrdinal(strconv.Itoa(i.System.Level.Value))
 			spell["type"] = i.Type
+			spell["uses"] = ""
+
+			uses := strconv.Itoa(i.System.Location.Uses.Max)
+			if uses != "0" {
+				spell["uses"] = "(x" + uses + ")"
+			}
+
+			if utils.ContainsCantrip(i.System.Traits.Value) {
+				spell["level"] = "Cantrips (" + spell["level"] + ")"
+			}
 
 			spells = append(spells, spell)
 		}
@@ -344,6 +352,59 @@ func (m Monster) GetSpells() []map[string]string {
 	return spells
 }
 
+func (m Monster) GetActions(category string) []map[string]string {
+	actions := []map[string]string{}
+
+	for _, i := range m.Data.Items {
+		if i.Type == "action" && i.System.Category == category {
+			action := map[string]string{}
+
+			action["name"] = i.Name
+			action["actionType"] = i.System.ActionType.Value
+			action["actionCost"] = strconv.Itoa(i.System.Actions.Value)
+
+			var traits string
+			for _, trait := range i.System.Traits.Value {
+				traits += trait + ", "
+			}
+
+			action["traits"] = utils.RemoveTrailingComma(traits)
+
+			description := i.System.Description.Value
+			description = utils.RemoveHTML(description)
+			action["description"] = description
+
+			actions = append(actions, action)
+		}
+	}
+
+	return actions
+}
+
+func (m Monster) GetDefensiveActions() []map[string]string {
+	return m.GetActions("defensive")
+}
+
+func (m Monster) GetOffensiveActions() []map[string]string {
+	return m.GetActions("offensive")
+}
+
+func (m Monster) GetInventory() string {
+	var inventory string
+
+	for _, i := range m.Data.Items {
+		switch i.Type {
+			case "equipment":
+				inventory += i.FormatEquipmentName()
+			case "weapon":
+				inventory += i.FormatWeaponName()
+			case "armor":
+				inventory += i.FormatWeaponName()
+		}
+	}
+
+	return utils.RemoveTrailingComma(inventory)
+}
 
 // Databas interactions
 

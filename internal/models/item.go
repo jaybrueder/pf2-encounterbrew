@@ -1,6 +1,10 @@
 package models
 
-import "pf2.encounterbrew.com/internal/utils"
+import (
+	"fmt"
+
+	"pf2.encounterbrew.com/internal/utils"
+)
 
 type Item struct {
 	ID    string `json:"_id"`
@@ -39,6 +43,11 @@ type Item struct {
 		Level struct {
 			Value int `json:"value"`
 		} `json:"level"`
+		Location struct {
+			Uses struct {
+				Max   int `json:"max"`
+			} `json:"uses"`
+		}  `json:"location"`
 		Publication struct {
 			License  string `json:"license"`
 			Remaster bool   `json:"remaster"`
@@ -46,6 +55,10 @@ type Item struct {
 		} `json:"publication"`
 		Quantity int   `json:"quantity"`
 		Rules    []any `json:"rules"`
+		Runes	struct {
+			Potency int `json:"potency"`
+			Striking int `json:"striking"`
+		} `json:"runes"`
 		Slug     any   `json:"slug"`
 		Spelldc  struct {
 			Dc    int `json:"dc"`
@@ -72,6 +85,14 @@ func (i Item) GetName() string {
 
 func (i Item) GetAttackValue() int {
 	return i.System.Bonus.Value
+}
+
+func (i Item) GetActionCost() int {
+	if i.System.Actions.Value == 0 {
+		return 1
+	} else {
+		return i.System.Actions.Value
+	}
 }
 
 func (i Item) GetTraits() string {
@@ -104,4 +125,30 @@ func (i Item) GetSpellDC() int {
 
 func (i Item) GetSpellAttackValue() int {
 	return i.System.Spelldc.Value
+}
+
+func (i Item) FormatEquipmentName() string {
+	return i.GetName() + i.GetQuantity() + ", "
+}
+
+func (i Item) FormatWeaponName() string {
+	var potency string
+
+	if i.System.Runes.Potency > 0 {
+		if i.System.Runes.Striking > 0 {
+			potency = fmt.Sprintf("+%d striking ", i.System.Runes.Striking)
+		} else {
+			potency = fmt.Sprintf("+%d ", i.System.Runes.Potency)
+		}
+	}
+
+	return potency + i.GetName() + i.GetQuantity() + ", "
+}
+
+func (i Item) GetQuantity() string {
+	if i.System.Quantity > 1 {
+		return fmt.Sprintf(" (%d)", i.System.Quantity)
+	} else {
+		return ""
+	}
 }
