@@ -154,7 +154,7 @@ templ Statblock(combatant models.Combatant) {
 
         // Attribute Modifies
         <div>
-            <p><b>Str</b> +{strconv.Itoa(combatant.GetStr())}, <b>Dex</b> +{strconv.Itoa(combatant.GetDex())}, <b>Con</b> +{strconv.Itoa(combatant.GetCon())}, <b>Int</b> +{strconv.Itoa(combatant.GetInt())}, <b>Wis</b> +{strconv.Itoa(combatant.GetWis())}, <b>Cha</b> +{strconv.Itoa(combatant.GetCha())}</p>
+            <p><b>Str</b> {plusMinus(combatant.GetStr())}, <b>Dex</b> {plusMinus(combatant.GetDex())}, <b>Con</b> {plusMinus(combatant.GetCon())}, <b>Int</b> {plusMinus(combatant.GetInt())}, <b>Wis</b> {plusMinus(combatant.GetWis())}, <b>Cha</b> {plusMinus(combatant.GetCha())}</p>
         </div>
 
         // Items
@@ -349,5 +349,13 @@ func isActive(index int, turn int) string {
         return "border-gray-600"
     } else {
         return "border-gray-100"
+    }
+}
+
+func plusMinus(value int) string {
+    if value <= 0 {
+        return strconv.Itoa(value)
+    } else {
+        return "+" + strconv.Itoa(value)
     }
 }
