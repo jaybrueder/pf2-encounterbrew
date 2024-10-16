@@ -158,9 +158,11 @@ templ Statblock(combatant models.Combatant) {
         </div>
 
         // Items
-        <div>
-            <p><b>Items</b> <span style="color:blue">sterling artisan’s toolkit, +1 striking warhammer</span></p>
-        </div>
+        if combatant.GetInventory() != "" {
+            <div>
+                <p><b>Items</b> {combatant.GetInventory()}</p>
+            </div>
+        }
 
         // Interaction Abilities
         // TODO
@@ -171,7 +173,7 @@ templ Statblock(combatant models.Combatant) {
 
         // AC & Saving Throws
         <div>
-            <p><b>AC</b> {strconv.Itoa(combatant.GetAc())}; <b>Fort</b> +{strconv.Itoa(combatant.GetFort())}, <b>Ref</b> +{strconv.Itoa(combatant.GetRef())}, <b>Will</b> +{strconv.Itoa(combatant.GetWill())}; <span style="color:blue">+1 status to all saves vs. magic</span></p>
+            <p><b>AC</b> {strconv.Itoa(combatant.GetAc())}; <b>Fort</b> +{strconv.Itoa(combatant.GetFort())}, <b>Ref</b> +{strconv.Itoa(combatant.GetRef())}, <b>Will</b> +{strconv.Itoa(combatant.GetWill())}</p>
         </div>
 
         // HP, Immunities, Weknesses, Resistances
@@ -195,6 +197,15 @@ templ Statblock(combatant models.Combatant) {
         // Reactive Abilities
         // TODO
 
+        // Defensive Abilities
+        if len(combatant.GetDefensiveActions()) > 0 {
+            <div>
+                for _, action := range combatant.GetDefensiveActions() {
+                    @Action(action)
+                }
+            </div>
+        }
+
         <hr class="h-px my-1 border-gray-600">
 
         // -- Offensive
@@ -215,36 +226,66 @@ templ Statblock(combatant models.Combatant) {
         if len(combatant.GetSpells()) > 0 {
             <div>
                 <p>
-                <span>@SpellSchool(combatant.GetSpellSchool()); </span>
+                <span>@SpellSchool(combatant.GetSpellSchool())</span>
                 @Spells(combatant.GetSpells())
                 </p>
             </div>
         }
 
         // Offensive or Proactive Abilities
-        <div>
-            <p><b>Crystalline Dust Form</b>[1] (polymorph) The axiomite shifts their form to a cloud of crystalline dust in which strange symbols and equations flash. They gain a fly Speed of 40 feet and can fit through even tiny apertures, similar to vapor form. They can cast spells but can’t make melee or ranged attacks. The axiomite can Dismiss this form to return to humanoid form.</p>
-        </div>
+        if len(combatant.GetOffensiveActions()) > 0 {
+            <div>
+                for _, action := range combatant.GetOffensiveActions() {
+                    @Action(action)
+                }
+            </div>
+        }
     </div>
 }
 
 templ Attack(i models.Item) {
     <p>
         <b>{i.GetWeaponType()}</b>
-        <img class="inline-flex" style="height:12px" src='/assets/images/1-action.webp' />
+        if i.GetActionCost() != 0 {
+            @ActionCost(strconv.Itoa(i.GetActionCost()))
+        }
         {i.GetName()} +{strconv.Itoa(i.GetAttackValue())}{i.GetTraits()},
         <b>Damage</b> {i.GetDamageValue()}
     </p>
 }
 
+templ Action(a map[string]string) {
+    <p>
+        <b>{a["name"]}</b>
+        if a["actionCost"] != "0" {
+            @ActionCost(a["actionCost"])
+        }
+        if a["actionType"] == "free" {
+            @ActionCost("free")
+        }
+        if a["traits"] != "" {
+            ({a["traits"]})
+        }
+        {a["description"]}
+    </p>
+}
+
 templ Spells(spells []map[string]string) {
-    for _, spell := range spells {
-        <span><b>{spell["level"]}th</b> <i>{spell["name"]}</i>, </span>
-    }
+    <ul class="flex flex-wrap pl-2">
+        for _, spell := range spells {
+            <li class="mr-1">
+                <b>{spell["level"]}</b> <i>{spell["name"]}</i> {spell["uses"]}
+            </li>
+        }
+    </ul>
 }
 
 templ SpellSchool(i models.Item) {
     <b>{i.GetName()}</b> DC {strconv.Itoa(i.GetSpellDC())}, attack +{strconv.Itoa(i.GetSpellAttackValue())}
+}
+
+templ ActionCost(cost string) {
+    <img class="inline-flex mr-1" style="height:12px" src={"/assets/images/" + cost + "-action.webp"} />
 }
 
 func getColorClass(combatant models.Combatant) string {

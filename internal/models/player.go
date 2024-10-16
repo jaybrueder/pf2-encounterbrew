@@ -134,3 +134,15 @@ func (p Player) GetSpellSchool() Item {
 func (p Player) GetSpells() []map[string]string  {
 	return []map[string]string{}
 }
+
+func (p Player) GetDefensiveActions() []map[string]string {
+	return []map[string]string{}
+}
+
+func (p Player) GetOffensiveActions()[]map[string]string {
+	return []map[string]string{}
+}
+
+func (p Player) GetInventory() string {
+	return ""
+}

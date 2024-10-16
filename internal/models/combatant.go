@@ -37,6 +37,9 @@ type Combatant interface {
 	GetAttacks() []Item
 	GetSpellSchool() Item
 	GetSpells() []map[string]string
+	GetDefensiveActions() []map[string]string
+	GetOffensiveActions() []map[string]string
+	GetInventory() string
 }
 
 func AssignInitiative(combatants []Combatant) {
