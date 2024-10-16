@@ -214,7 +214,7 @@ templ Statblock(combatant models.Combatant) {
 
         // Speed
         <div>
-            <p><b>Speed</b> {combatant.GetSpeed()}</p>
+            <p><b>Speed</b> {combatant.GetSpeed()}{combatant.GetOtherSpeeds()}</p>
         </div>
 
         // Melee / Ranged Attacks

@@ -304,6 +304,20 @@ func (m Monster) GetSpeed() string {
 	return fmt.Sprintf("%d feet", m.Data.System.Attributes.Speed.Value)
 }
 
+func (m Monster) GetOtherSpeeds() string {
+	if len(m.Data.System.Attributes.Speed.OtherSpeeds) > 0 {
+		var otherSpeeds string
+
+		for _, speed := range m.Data.System.Attributes.Speed.OtherSpeeds {
+			otherSpeeds += fmt.Sprintf(" (%s %d feet)", speed.Type, speed.Value)
+		}
+
+		return otherSpeeds
+	} else {
+		return ""
+	}
+}
+
 func (m Monster) GetAttacks() []Item {
 	attacks := []Item{}
 

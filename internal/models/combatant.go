@@ -35,6 +35,7 @@ type Combatant interface {
 	GetResistances() string
 	GetWeaknesses() string
 	GetSpeed() string
+	GetOtherSpeeds() string
 	GetAttacks() []Item
 	GetSpellSchool() Item
 	GetSpells() []map[string]string
