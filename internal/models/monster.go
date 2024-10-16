@@ -170,6 +170,14 @@ func (m Monster) GetAc() int {
 	return m.Data.System.Attributes.Ac.Value
 }
 
+func (m Monster) GetAcDetails() string {
+	if m.Data.System.Attributes.Ac.Details == "" {
+		return ""
+	} else {
+		return " " + m.Data.System.Attributes.Ac.Details
+	}
+}
+
 func (m Monster) GetLevel() int {
 	return m.Data.System.Details.Level.Value
 }

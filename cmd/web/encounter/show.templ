@@ -173,7 +173,7 @@ templ Statblock(combatant models.Combatant) {
 
         // AC & Saving Throws
         <div>
-            <p><b>AC</b> {strconv.Itoa(combatant.GetAc())}; <b>Fort</b> +{strconv.Itoa(combatant.GetFort())}, <b>Ref</b> +{strconv.Itoa(combatant.GetRef())}, <b>Will</b> +{strconv.Itoa(combatant.GetWill())}</p>
+            <p><b>AC</b> {strconv.Itoa(combatant.GetAc())}{combatant.GetAcDetails()}; <b>Fort</b> +{strconv.Itoa(combatant.GetFort())}, <b>Ref</b> +{strconv.Itoa(combatant.GetRef())}, <b>Will</b> +{strconv.Itoa(combatant.GetWill())}</p>
         </div>
 
         // HP, Immunities, Weknesses, Resistances

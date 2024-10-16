@@ -13,6 +13,7 @@ type Combatant interface {
 	SetHp(int)
 	GetMaxHp() int
 	GetAc() int
+	GetAcDetails() string
 	GetType() string
 	GetLevel() int
 	GetSize() string
