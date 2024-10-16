@@ -228,6 +228,18 @@ func (m Monster) GetSkills() string {
 	return utils.RemoveTrailingComma(skills)
 }
 
+func (m Monster) GetLores() string {
+	var lores string
+
+	for _, i := range m.Data.Items {
+		if i.Type == "lore"  {
+			lores += fmt.Sprintf(", %s +%d", utils.CapitalizeFirst(i.Name), i.System.Mod.Value)
+		}
+	}
+
+	return lores
+}
+
 func (m Monster) GetStr() int {
 	return m.Data.System.Abilities.Str.Mod
 }
