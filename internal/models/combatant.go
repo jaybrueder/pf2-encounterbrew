@@ -22,6 +22,7 @@ type Combatant interface {
 	GetPerceptionSenses() string
 	GetLanguages() string
 	GetSkills() string
+	GetLores() string
 	GetStr() int
 	GetDex() int
 	GetCon() int

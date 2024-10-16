@@ -151,7 +151,7 @@ templ Statblock(combatant models.Combatant) {
 
         // Skills
         <div>
-            <p><b>Skills</b> {combatant.GetSkills()}</p>
+            <p><b>Skills</b> {combatant.GetSkills()}{combatant.GetLores()}</p>
         </div>
 
         // Attribute Modifies

@@ -75,6 +75,10 @@ func (p Player) GetSkills() string {
 	return ""
 }
 
+func (p Player) GetLores() string {
+	return ""
+}
+
 func (p Player) GetStr() int {
 	return 0
 }
