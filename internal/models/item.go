@@ -40,6 +40,10 @@ type Item struct {
 		Description struct {
 			Value string `json:"value"`
 		} `json:"description"`
+		Hardness int `json:"hardness"`
+		HP struct {
+			Max int `json:"max"`
+		} `json:"hp"`
 		Level struct {
 			Value int `json:"value"`
 		} `json:"level"`
@@ -143,6 +147,14 @@ func (i Item) FormatWeaponName() string {
 	}
 
 	return potency + i.GetName() + i.GetQuantity() + ", "
+}
+
+func (i Item) FormatConsumableName() string {
+	return i.GetName() + i.GetQuantity() + ", "
+}
+
+func (i Item) FormatShieldName() string {
+	return i.GetName() + fmt.Sprintf(" (Hardness %d, HP %d, BT %d)", i.System.Hardness, i.System.HP.Max, i.System.HP.Max / 2) +  ", "
 }
 
 func (i Item) GetQuantity() string {
