@@ -215,6 +215,10 @@ func (m Monster) GetLanguages() string {
 		languages += fmt.Sprintf("%s, ", utils.CapitalizeFirst(language))
 	}
 
+	if m.Data.System.Details.Languages.Details != "" {
+		languages += m.Data.System.Details.Languages.Details
+	}
+
 	return utils.RemoveTrailingComma(languages)
 }
 
