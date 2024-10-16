@@ -127,6 +127,10 @@ func (p Player) GetSpeed() string {
 	return ""
 }
 
+func (p Player) GetOtherSpeeds() string {
+	return ""
+}
+
 func (p Player) GetAttacks() []Item {
 	return []Item{}
 }
