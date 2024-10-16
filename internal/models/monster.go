@@ -325,7 +325,7 @@ func (m Monster) GetOtherSpeeds() string {
 		var otherSpeeds string
 
 		for _, speed := range m.Data.System.Attributes.Speed.OtherSpeeds {
-			otherSpeeds += fmt.Sprintf(" (%s %d feet)", speed.Type, speed.Value)
+			otherSpeeds += fmt.Sprintf(", %s %d feet", speed.Type, speed.Value)
 		}
 
 		return otherSpeeds
