@@ -143,9 +143,11 @@ templ Statblock(combatant models.Combatant) {
         </div>
 
         // Languages
-        <div>
-            <p><b>Languages</b> {combatant.GetLanguages()}</p>
-        </div>
+        if combatant.GetLanguages() != "" {
+            <div>
+                <p><b>Languages</b> {combatant.GetLanguages()}</p>
+            </div>
+        }
 
         // Skills
         <div>
