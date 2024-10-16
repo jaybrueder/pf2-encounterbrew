@@ -252,7 +252,12 @@ templ Attack(i models.Item) {
             @ActionCost(strconv.Itoa(i.GetActionCost()))
         }
         {i.GetName()} +{strconv.Itoa(i.GetAttackValue())}{i.GetTraits()},
-        <b>Damage</b> {i.GetDamageValue()}
+        if i.GetDamageValue() != "" {
+            <b>Damage</b> {i.GetDamageValue()}
+        }
+        if i.GetDamageEffect() != "" {
+            <b>Effect</b> {i.GetDamageEffect()}
+        }
     </p>
 }
 
