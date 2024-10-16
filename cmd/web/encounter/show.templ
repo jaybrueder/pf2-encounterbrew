@@ -263,6 +263,9 @@ templ Action(a map[string]string) {
         if a["actionType"] == "free" {
             @ActionCost("free")
         }
+        if a["actionType"] == "reaction" {
+            @ActionCost("reaction")
+        }
         if a["traits"] != "" {
             ({a["traits"]})
         }
