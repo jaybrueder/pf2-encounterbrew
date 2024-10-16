@@ -43,6 +43,10 @@ func (p Player) GetAc() int {
 	return p.Ac
 }
 
+func (p Player) GetAcDetails() string {
+	return ""
+}
+
 func (p Player) GetLevel() int {
 	return p.Level
 }
