@@ -400,6 +400,10 @@ func (m Monster) GetInventory() string {
 				inventory += i.FormatWeaponName()
 			case "armor":
 				inventory += i.FormatWeaponName()
+			case "consumable":
+				inventory += i.FormatConsumableName()
+			case "shield":
+				inventory += i.FormatShieldName()
 		}
 	}
 
