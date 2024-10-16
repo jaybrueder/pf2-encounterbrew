@@ -123,6 +123,14 @@ func (i Item) GetDamageValue() string {
 	return utils.RemoveTrailingComma(damage)
 }
 
+func (i Item) GetDamageEffect() string {
+	if len(i.System.AttackEffects.Value) > 0 {
+		return i.System.AttackEffects.Value[0].(string)
+	} else {
+		return ""
+	}
+}
+
 func (i Item) GetSpellDC() int {
 	return i.System.Spelldc.Dc
 }
