@@ -180,15 +180,15 @@ templ Statblock(combatant models.Combatant) {
 
         // HP, Immunities, Weknesses, Resistances
         <div>
-            <p><b>HP</b> {strconv.Itoa(combatant.GetMaxHp())};
+            <p><b>HP</b> {strconv.Itoa(combatant.GetMaxHp())}
             if combatant.GetImmunities() != "" {
-                <b>Immunities</b> {combatant.GetImmunities()};
+                ; <b>Immunities</b> {combatant.GetImmunities()}
             }
             if combatant.GetResistances() != "" {
-                <b>Resistances</b> {combatant.GetResistances()};
+                ; <b>Resistances</b> {combatant.GetResistances()}
             }
             if combatant.GetWeaknesses() != "" {
-                <b>Weaknesses</b> {combatant.GetWeaknesses()};
+                ; <b>Weaknesses</b> {combatant.GetWeaknesses()}
             }
             </p>
         </div>
