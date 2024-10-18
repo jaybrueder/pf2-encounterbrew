@@ -32,29 +32,35 @@ templ CombatantList(encounter models.Encounter) {
             <p>No combatants.</p>
         } else {
             for i, combatant := range encounter.Combatants {
-                @Combatant(combatant, i, encounter)
+                @CombatantListItem(combatant, i, encounter)
             }
         }
     </div>
 }
 
-templ Combatant(combatant models.Combatant, index int, encounter models.Encounter) {
-    <div x-data="{ isOpen: false }" class={ "flex justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }>
-        <button @click="isOpen = true" class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
-            <span class="text-white font-semibold">{strconv.Itoa(combatant.GetInitiative())}</span>
-        </button>
+templ CombatantListItem(combatant models.Combatant, index int, encounter models.Encounter) {
+    <div x-data="{ isOpen: false, showStatblock: false }" class={ "flex-col justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }>
+        <div class="flex">
+            <button @click="isOpen = true" class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
+                <span class="text-white font-bold">{strconv.Itoa(combatant.GetInitiative())}</span>
+            </button>
 
-        @EditCombatantModal(combatant, index, encounter.ID)
+            @EditCombatantModal(combatant, index, encounter.ID)
 
-        <div class="px-4 py-2 -mx-3">
-            <div class="mx-3">
-                <span class="font-semibold text-sm text-gray-700">{combatant.GetName()}</span>
-                <p class="text-xs text-gray-400">
-                    <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b>/{strconv.Itoa(combatant.GetMaxHp())}</span>
-                    <span class="mx-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
-                </p>
+            <div class="px-4 py-2 -mx-3">
+                <div class="mx-3">
+                    <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700 uppercase">{combatant.GetName()}</button>
+                    <p class="text-xs text-gray-400">
+                        <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b></span>
+                        <span class="mx-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
+                    </p>
+                </div>
             </div>
         </div>
+
+        if combatant.GetType() == "monster" {
+            @Statblock(combatant)
+        }
     </div>
 }
 
@@ -120,12 +126,184 @@ templ Difficulty(encounter models.Encounter) {
     </div>
 }
 
+templ Statblock(combatant models.Combatant) {
+    <div x-show="showStatblock" class="statblock w-full p-2 text-xs">
+        // Rarity, Size, Traits, Level
+        <div class="mb-1">
+            <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-gray-900 ring-2 ring-inset ring-yellow-500 uppercase">Creature {strconv.Itoa(combatant.GetLevel())}</span>
+            <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-green-700 ring-2 ring-inset ring-yellow-500 uppercase">{combatant.GetSize()}</span>
+            for _, trait := range combatant.GetTraits() {
+                <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-red-900 ring-2 ring-inset ring-yellow-500 uppercase mr-1 mb-1">{trait}</span>
+            }
+          </div>
+
+        // Perception
+        <div>
+            <p><b>Perception</b> +{strconv.Itoa(combatant.GetPerceptionMod())}; <span>{combatant.GetPerceptionSenses()}</span></p>
+        </div>
+
+        // Languages
+        if combatant.GetLanguages() != "" {
+            <div>
+                <p><b>Languages</b> {combatant.GetLanguages()}</p>
+            </div>
+        }
+
+        // Skills
+        <div>
+            <p><b>Skills</b> {combatant.GetSkills()}{combatant.GetLores()}</p>
+        </div>
+
+        // Attribute Modifies
+        <div>
+            <p><b>Str</b> {plusMinus(combatant.GetStr())}, <b>Dex</b> {plusMinus(combatant.GetDex())}, <b>Con</b> {plusMinus(combatant.GetCon())}, <b>Int</b> {plusMinus(combatant.GetInt())}, <b>Wis</b> {plusMinus(combatant.GetWis())}, <b>Cha</b> {plusMinus(combatant.GetCha())}</p>
+        </div>
+
+        // Items
+        if combatant.GetInventory() != "" {
+            <div>
+                <p><b>Items</b> {combatant.GetInventory()}</p>
+            </div>
+        }
+
+        // Interaction Abilities
+        // TODO
+
+        <hr class="h-px my-1 border-gray-600">
+
+        // -- Defenses
+
+        // AC & Saving Throws
+        <div>
+            <p><b>AC</b> {strconv.Itoa(combatant.GetAc())}{combatant.GetAcDetails()}; <b>Fort</b> +{strconv.Itoa(combatant.GetFort())}, <b>Ref</b> +{strconv.Itoa(combatant.GetRef())}, <b>Will</b> +{strconv.Itoa(combatant.GetWill())}</p>
+        </div>
+
+        // HP, Immunities, Weknesses, Resistances
+        <div>
+            <p><b>HP</b> {strconv.Itoa(combatant.GetMaxHp())}
+            if combatant.GetImmunities() != "" {
+                ; <b>Immunities</b> {combatant.GetImmunities()}
+            }
+            if combatant.GetResistances() != "" {
+                ; <b>Resistances</b> {combatant.GetResistances()}
+            }
+            if combatant.GetWeaknesses() != "" {
+                ; <b>Weaknesses</b> {combatant.GetWeaknesses()}
+            }
+            </p>
+        </div>
+
+        // Automatic Abilities
+        // TODO
+
+        // Reactive Abilities
+        // TODO
+
+        // Defensive Abilities
+        if len(combatant.GetDefensiveActions()) > 0 {
+            <div>
+                for _, action := range combatant.GetDefensiveActions() {
+                    @Action(action)
+                }
+            </div>
+        }
+
+        <hr class="h-px my-1 border-gray-600">
+
+        // -- Offensive
+
+        // Speed
+        <div>
+            <p><b>Speed</b> {combatant.GetSpeed()}{combatant.GetOtherSpeeds()}</p>
+        </div>
+
+        // Melee / Ranged Attacks
+        <div>
+            for _, attack := range combatant.GetAttacks() {
+                @Attack(attack)
+            }
+        </div>
+
+        // Spells
+        if len(combatant.GetSpells()) > 0 {
+            <div>
+                <p>
+                <span>@SpellSchool(combatant.GetSpellSchool())</span>
+                @Spells(combatant.GetSpells())
+                </p>
+            </div>
+        }
+
+        // Offensive or Proactive Abilities
+        if len(combatant.GetOffensiveActions()) > 0 {
+            <div>
+                for _, action := range combatant.GetOffensiveActions() {
+                    @Action(action)
+                }
+            </div>
+        }
+    </div>
+}
+
+templ Attack(i models.Item) {
+    <p>
+        <b>{i.GetWeaponType()}</b>
+        if i.GetActionCost() != 0 {
+            @ActionCost(strconv.Itoa(i.GetActionCost()))
+        }
+        {i.GetName()} +{strconv.Itoa(i.GetAttackValue())}{i.GetTraits()},
+        if i.GetDamageValue() != "" {
+            <b>Damage</b> {i.GetDamageValue()}
+        }
+        if i.GetDamageEffect() != "" {
+            <b>Effect</b> {i.GetDamageEffect()}
+        }
+    </p>
+}
+
+templ Action(a map[string]string) {
+    <p>
+        <b>{a["name"]}</b>
+        if a["actionCost"] != "0" {
+            @ActionCost(a["actionCost"])
+        }
+        if a["actionType"] == "free" {
+            @ActionCost("free")
+        }
+        if a["actionType"] == "reaction" {
+            @ActionCost("reaction")
+        }
+        if a["traits"] != "" {
+            ({a["traits"]})
+        }
+        {a["description"]}
+    </p>
+}
+
+templ Spells(formattedSpells map[string]string) {
+    <ul class="pl-2">
+        for level, spells := range formattedSpells {
+            <li class="mr-1">
+                <b>{level}</b> <i>{spells}</i>
+            </li>
+        }
+    </ul>
+}
+
+templ SpellSchool(i models.Item) {
+    <b>{i.GetName()}</b> DC {strconv.Itoa(i.GetSpellDC())}, attack +{strconv.Itoa(i.GetSpellAttackValue())}
+}
+
+templ ActionCost(cost string) {
+    <img class="inline-flex mr-1" style="height:12px" src={"/assets/images/" + cost + "-action.webp"} />
+}
+
 func getColorClass(combatant models.Combatant) string {
     switch combatant.GetType() {
     case "player":
         return "bg-green-700"
     case "monster":
-        return "bg-red-700"
+        return "bg-red-900"
     default:
         return "bg-gray-500"
     }
@@ -178,5 +356,13 @@ func isActive(index int, turn int) string {
         return "border-gray-600"
     } else {
         return "border-gray-100"
+    }
+}
+
+func plusMinus(value int) string {
+    if value <= 0 {
+        return strconv.Itoa(value)
+    } else {
+        return "+" + strconv.Itoa(value)
     }
 }
