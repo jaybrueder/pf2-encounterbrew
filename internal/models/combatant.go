@@ -39,7 +39,7 @@ type Combatant interface {
 	GetOtherSpeeds() string
 	GetAttacks() []Item
 	GetSpellSchool() Item
-	GetSpells() []map[string]string
+	GetSpells() map[string]string
 	GetDefensiveActions() []map[string]string
 	GetOffensiveActions() []map[string]string
 	GetInventory() string
