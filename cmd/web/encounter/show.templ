@@ -280,11 +280,11 @@ templ Action(a map[string]string) {
     </p>
 }
 
-templ Spells(spells []map[string]string) {
-    <ul class="flex flex-wrap pl-2">
-        for _, spell := range spells {
+templ Spells(formattedSpells map[string]string) {
+    <ul class="pl-2">
+        for level, spells := range formattedSpells {
             <li class="mr-1">
-                <b>{spell["level"]}</b> <i>{spell["name"]}</i> {spell["uses"]}
+                <b>{level}</b> <i>{spells}</i>
             </li>
         }
     </ul>

@@ -48,6 +48,7 @@ type Item struct {
 			Value int `json:"value"`
 		} `json:"level"`
 		Location struct {
+			HeightenedLevel int `json:"heightenedLevel"`
 			Uses struct {
 				Max   int `json:"max"`
 			} `json:"uses"`
