@@ -89,18 +89,27 @@ templ EditCombatantModal(combatant models.Combatant, index int, encounterID int)
                             Initiative
                         </label>
 
-                        <div class="block mt-3">
+                        <div class="block mt-1">
                             <input type="number" name="initiative" id="initiative" value={strconv.Itoa(combatant.GetInitiative())} class="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
                         </div>
                     </div>
 
-                    <div>
+                    <div class="mt-2">
                         <label for="damage" class="text-sm text-gray-700">
                             Damage
                         </label>
 
-                        <div class="block mt-3">
+                        <div class="block mt-1">
                             <input type="number" name="damage" id="damage" value="0" class="block w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="conditions" class="text-sm text-gray-700 mb-2">
+                            Conditions
+                        </label>
+                        <div id={"combatant-conditions-" + strconv.Itoa(index)}>
+                            @CombatantConditions(strconv.Itoa(encounterID), index, combatant.GetConditions())
                         </div>
                     </div>
 
@@ -296,6 +305,77 @@ templ SpellSchool(i models.Item) {
 
 templ ActionCost(cost string) {
     <img class="inline-flex mr-1" style="height:12px" src={"/assets/images/" + cost + "-action.webp"} />
+}
+
+templ CombatantConditions(encounterID string, combatantIndex int, conditions []models.Condition) {
+    @ConditionsAdded(encounterID, combatantIndex, conditions)
+
+    <div class="block mt-1">
+        <input
+        type="text"
+        name="search_condition"
+        id="search_condition"
+        placeholder="Add new condition..."
+        autocomplete="off"
+        hx-post={"/encounters/" + encounterID + "/combatant/" + strconv.Itoa(combatantIndex) + "/search_conditions"}
+        hx-trigger="input changed delay:500ms, search"
+        hx-target={"#conditions-searched-" + strconv.Itoa(combatantIndex)}
+        hx-swap="innerHTML"
+        class="block w-full px-4 py-3 mb-2 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+    </div>
+
+    <div id={"conditions-searched-" + strconv.Itoa(combatantIndex)}>
+    </div>
+}
+
+templ ConditionsAdded(encounterID string, combatantIndex int, conditions []models.Condition) {
+    <div id={"conditions-added-" + strconv.Itoa(combatantIndex)}>
+        if len(conditions) != 0 {
+            for _, condition := range conditions {
+                @ConditionListItem(encounterID, combatantIndex, &condition, true)
+            }
+        }
+    </div>
+}
+
+templ ConditionSearchResults(encounterID string, combatantIndex int, conditions []models.Condition) {
+    <div id={"conditions-search-results-" + strconv.Itoa(combatantIndex)}>
+        if len(conditions) == 0 {
+            <p>No conditions found.</p>
+        } else {
+            for _, condition := range conditions {
+                @ConditionListItem(encounterID, combatantIndex, &condition, false)
+            }
+        }
+    </div>
+}
+
+templ ConditionListItem(encounterID string, combatantIndex int, condition *models.Condition, isAdded bool) {
+    <div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
+        <div class="flex">
+            <p class="text-lg font-semibold text-gray-700">{condition.Data.Name}</p>
+        </div>
+
+        <div class="flex">
+            if isAdded == false {
+                <button
+                hx-post={"/encounters/" + encounterID + "/combatant/" + strconv.Itoa(combatantIndex) + "/add_condition/" + strconv.Itoa(condition.ID)}
+                hx-target={"#combatant-conditions-" + strconv.Itoa(combatantIndex)}
+                hx-swap="innerHTML"
+                class="text-2xl font-medium uppercase text-green-700">
+                    <i class="fa-solid fa-square-plus"></i>
+                </button>
+            } else {
+                <button
+                hx-post={"/encounters/" + encounterID + "/combatant/" + strconv.Itoa(combatantIndex) + "/remove_condition/" + strconv.Itoa(condition.ID)}
+                hx-target={"#combatant-conditions-" + strconv.Itoa(combatantIndex)}
+                hx-swap="innerHTML"
+                class="text-2xl font-medium uppercase text-red-900">
+                    <i class="fa-solid fa-square-minus"></i>
+                </button>
+            }
+        </div>
+    </div>
 }
 
 func getColorClass(combatant models.Combatant) string {

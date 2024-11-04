@@ -1,7 +1,11 @@
 package models
 
 import (
+	"database/sql"
 	"encoding/json"
+	"errors"
+	"fmt"
+	"log"
 
 	"pf2.encounterbrew.com/internal/database"
 )
@@ -47,6 +51,37 @@ type Condition struct {
 	}
 }
 
+func GetCondition(db database.Service, conditionID int) (Condition, error) {
+	if db == nil {
+		return Condition{}, errors.New("database service is nil")
+	}
+
+	// Query the condition from the database
+    var c Condition
+    var jsonData []byte
+
+   	err := db.QueryRow(`
+        SELECT id, data
+        FROM conditions p
+        WHERE id = $1
+    `, conditionID).Scan(&c.ID, &jsonData)
+
+    if err != nil {
+		if err == sql.ErrNoRows {
+			return Condition{}, fmt.Errorf("no condition found with ID %d", conditionID)
+		}
+		return Condition{}, fmt.Errorf("error scanning condition row: %v", err)
+	}
+
+	// Unmarshal the JSON data
+    err = json.Unmarshal(jsonData, &c.Data)
+    if err != nil {
+        return Condition{}, fmt.Errorf("error unmarshaling condition data: %w", err)
+    }
+
+    return c, nil
+}
+
 func GetAllConditions(db database.Service) ([]Condition, error) {
 	rows, err := db.Query("SELECT id, data FROM conditions")
 	if err != nil {
@@ -67,6 +102,43 @@ func GetAllConditions(db database.Service) ([]Condition, error) {
 			return nil, err
 		}
 		conditions = append(conditions, c)
+	}
+
+	return conditions, nil
+}
+
+func SearchConditions(db database.Service, search string) ([]Condition, error) {
+	query := "SELECT id, data FROM conditions WHERE LOWER(data->>'name') LIKE LOWER($1) LIMIT 5"
+
+	// Search for the monster in the database and return the 10 most relevant results
+	rows, err := db.Query(query, "%"+search+"%")
+	if err != nil {
+		log.Printf("Error executing query: %v", err)
+		return nil, fmt.Errorf("database query error: %w", err)
+	}
+	defer rows.Close()
+
+	var conditions []Condition
+	for rows.Next() {
+		var c Condition
+		var jsonData []byte
+		err := rows.Scan(&c.ID, &jsonData)
+		if err != nil {
+			log.Printf("Error scanning row: %v", err)
+			return nil, fmt.Errorf("error scanning row: %w", err)
+		}
+		err = json.Unmarshal(jsonData, &c.Data)
+		if err != nil {
+			log.Printf("Error unmarshaling JSON data: %v", err)
+			return nil, fmt.Errorf("error unmarshaling JSON: %w", err)
+		}
+
+		conditions = append(conditions, c)
+	}
+
+	if err = rows.Err(); err != nil {
+		log.Printf("Error iterating over rows: %v", err)
+		return nil, fmt.Errorf("error iterating over rows: %w", err)
 	}
 
 	return conditions, nil

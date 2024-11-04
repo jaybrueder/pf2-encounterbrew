@@ -3,6 +3,8 @@ package models
 import (
 	"math/rand"
 	"sort"
+
+	"pf2.encounterbrew.com/internal/database"
 )
 
 type Combatant interface {
@@ -43,6 +45,9 @@ type Combatant interface {
 	GetDefensiveActions() []map[string]string
 	GetOffensiveActions() []map[string]string
 	GetInventory() string
+	GetConditions() []Condition
+	SetCondition(db database.Service, conditionID int) []Condition
+	RemoveCondition(conditionID int) []Condition
 }
 
 func AssignInitiative(combatants []Combatant) {

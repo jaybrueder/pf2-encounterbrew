@@ -1,5 +1,7 @@
 package models
 
+import "pf2.encounterbrew.com/internal/database"
+
 type Player struct {
 	ID         int    `json:"id"`
 	Name       string `json:"name"`
@@ -9,6 +11,7 @@ type Player struct {
 	PartyID    int    `json:"party_id"`
 	Party      *Party `json:"party,omitempty"`
 	Initiative int    `json:"initiative"`
+	Conditions []Condition `json:"conditions"`
 }
 
 // Implement the Combatant interface
@@ -157,4 +160,36 @@ func (p Player) GetOffensiveActions()[]map[string]string {
 
 func (p Player) GetInventory() string {
 	return ""
+}
+
+func (p Player) GetConditions() []Condition {
+	return p.Conditions
+}
+
+func (p *Player) SetCondition(db database.Service, conditionID int) []Condition {
+    // Get condition from the database
+    condition, _ := GetCondition(db, conditionID)
+
+    // Initialize the Conditions slice if it's nil
+    if p.Conditions == nil {
+        p.Conditions = make([]Condition, 0)
+    }
+
+    // Add the condition to the player's conditions
+    p.Conditions = append(p.Conditions, condition)
+
+    return p.Conditions
+}
+
+func (p *Player) RemoveCondition(conditionID int) []Condition {
+	// Find the condition in the player's conditions
+	for i, c := range p.Conditions {
+		if c.ID == conditionID {
+			// Remove the condition from the slice
+			p.Conditions = append(p.Conditions[:i], p.Conditions[i+1:]...)
+			break
+		}
+	}
+
+	return p.Conditions
 }
