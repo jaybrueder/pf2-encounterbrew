@@ -49,11 +49,16 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
 
             <div class="px-4 py-2 -mx-3">
                 <div class="mx-3">
-                    <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700 uppercase">{combatant.GetName()}</button>
+                    <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700 text-left uppercase">{combatant.GetName()}</button>
                     <p class="text-xs text-gray-400">
                         <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b></span>
                         <span class="mx-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
                     </p>
+                    <div>
+                        for _, condition := range combatant.GetConditions() {
+                            <a class="px-2 py-1 mr-2 text-xs font-bold text-white bg-blue-700 rounded-md cursor-pointer" tabindex="0" role="button">{condition.Data.Name}</a>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
