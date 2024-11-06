@@ -13,8 +13,8 @@ import (
 
 type Monster struct {
 	ID         int `json:"id"`
-	Adjustment int `json:"adjustment"`
-	Count      int `json:"count"`
+	AssociationID int `json:"association_id"`
+	LevelAdjustment int `json:"level_adjustment"`
 	Initiative int `json:"initiative"`
 	Conditions []Condition `json:"conditions"`
 	Data       struct {
