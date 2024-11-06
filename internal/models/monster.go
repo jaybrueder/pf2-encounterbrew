@@ -141,7 +141,13 @@ type Sense struct {
 // Implement the Combatant interface
 
 func (m Monster) GetName() string {
-	return m.Data.Name
+	if m.LevelAdjustment > 0 {
+		return fmt.Sprintf("Elite %s", m.Data.Name)
+	} else if m.LevelAdjustment < 0 {
+		return fmt.Sprintf("Weak %s", m.Data.Name)
+	} else {
+		return m.Data.Name
+	}
 }
 
 func (m Monster) GetType() string {
@@ -181,7 +187,7 @@ func (m Monster) GetAcDetails() string {
 }
 
 func (m Monster) GetLevel() int {
-	return m.Data.System.Details.Level.Value
+	return m.Data.System.Details.Level.Value + m.LevelAdjustment
 }
 
 func (m Monster) GetSize() string {

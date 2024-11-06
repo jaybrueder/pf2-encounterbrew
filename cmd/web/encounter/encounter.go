@@ -101,7 +101,7 @@ func EncounterAddMonster(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		encounterID := c.Param("encounter_id")
 		monsterID := c.Param("monster_id")
-		levelAdjustment := 0
+		levelAdjustment, _ := strconv.Atoi(c.FormValue("level_adjustment"))
 
 		encounter, err := models.AddMonsterToEncounter(db, encounterID, monsterID, levelAdjustment)
 		if err != nil {
