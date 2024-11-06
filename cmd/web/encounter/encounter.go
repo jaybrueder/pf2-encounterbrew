@@ -249,6 +249,7 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 		encounterID := c.Param("encounter_id")
 		conditionID, _ := strconv.Atoi(c.Param("condition_id"))
 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
+		conditionValue, _ := strconv.Atoi(c.FormValue("condition_value"))
 
 		// Get session
 		sess, _ := session.Get("encounter-session", c)
@@ -266,7 +267,7 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 		}
 
 		// Update the specific combatant's values
-		conditions := encounter.Combatants[combatantIndex].SetCondition(db, conditionID)
+		conditions := encounter.Combatants[combatantIndex].SetCondition(db, conditionID, conditionValue)
 
 		// Save updated encounter back to session
 		sess.Values["encounter"] = encounter

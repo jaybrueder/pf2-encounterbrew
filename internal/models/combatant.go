@@ -46,7 +46,7 @@ type Combatant interface {
 	GetOffensiveActions() []map[string]string
 	GetInventory() string
 	GetConditions() []Condition
-	SetCondition(db database.Service, conditionID int) []Condition
+	SetCondition(db database.Service, conditionID int, conditionValue int) []Condition
 	RemoveCondition(conditionID int) []Condition
 }
 

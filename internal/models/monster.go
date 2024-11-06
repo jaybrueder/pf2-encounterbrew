@@ -462,9 +462,12 @@ func (m Monster) GetConditions() []Condition {
 	return m.Conditions
 }
 
-func (m *Monster) SetCondition(db database.Service, conditionID int) []Condition {
+func (m *Monster) SetCondition(db database.Service, conditionID int, conditionValue int) []Condition {
 	// Get condition from the database
     condition, _ := GetCondition(db, conditionID)
+
+    // Set the condition's value
+    condition.Data.System.Value.Value = conditionValue
 
     // Initialize the Conditions slice if it's nil
     if m.Conditions == nil {

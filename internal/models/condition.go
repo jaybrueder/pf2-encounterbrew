@@ -44,11 +44,15 @@ type Condition struct {
 			} `json:"traits"`
 			Value struct {
 				IsValued bool `json:"isValued"`
-				Value    any  `json:"value"`
+				Value    int  `json:"value"`
 			} `json:"value"`
 		} `json:"system"`
 		Type string `json:"type"`
 	}
+}
+
+func (c Condition) GetValue() int {
+	return c.Data.System.Value.Value
 }
 
 func GetCondition(db database.Service, conditionID int) (Condition, error) {
