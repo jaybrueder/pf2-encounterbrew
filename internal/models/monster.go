@@ -16,6 +16,7 @@ type Monster struct {
 	Adjustment int `json:"adjustment"`
 	Count      int `json:"count"`
 	Initiative int `json:"initiative"`
+	Conditions []Condition `json:"conditions"`
 	Data       struct {
 		ID     string `json:"_id"`
 		Img    string `json:"img"`
@@ -455,6 +456,41 @@ func (m Monster) GetInventory() string {
 	}
 
 	return utils.RemoveTrailingComma(inventory)
+}
+
+func (m Monster) GetConditions() []Condition {
+	return m.Conditions
+}
+
+func (m *Monster) SetCondition(db database.Service, conditionID int, conditionValue int) []Condition {
+	// Get condition from the database
+    condition, _ := GetCondition(db, conditionID)
+
+    // Set the condition's value
+    condition.Data.System.Value.Value = conditionValue
+
+    // Initialize the Conditions slice if it's nil
+    if m.Conditions == nil {
+        m.Conditions = make([]Condition, 0)
+    }
+
+    // Add the condition to the monsters's conditions
+    m.Conditions = append(m.Conditions, condition)
+
+    return m.Conditions
+}
+
+func (m *Monster) RemoveCondition(conditionID int) []Condition {
+	// Find the condition in the player's conditions
+	for i, c := range m.Conditions {
+		if c.ID == conditionID {
+			// Remove the condition from the slice
+			m.Conditions = append(m.Conditions[:i], m.Conditions[i+1:]...)
+			break
+		}
+	}
+
+	return m.Conditions
 }
 
 // Databas interactions
