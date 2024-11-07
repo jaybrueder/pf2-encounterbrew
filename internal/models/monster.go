@@ -12,12 +12,12 @@ import (
 )
 
 type Monster struct {
-	ID         int `json:"id"`
-	AssociationID int `json:"association_id"`
-	LevelAdjustment int `json:"level_adjustment"`
-	Initiative int `json:"initiative"`
-	Conditions []Condition `json:"conditions"`
-	Data       struct {
+	ID              int         `json:"id"`
+	AssociationID   int         `json:"association_id"`
+	LevelAdjustment int         `json:"level_adjustment"`
+	Initiative      int         `json:"initiative"`
+	Conditions      []Condition `json:"conditions"`
+	Data            struct {
 		ID     string `json:"_id"`
 		Img    string `json:"img"`
 		Items  []Item `json:"items"`
@@ -79,8 +79,8 @@ type Monster struct {
 			Details struct {
 				Blurb     string `json:"blurb"`
 				Languages struct {
-					Details string `json:"details"`
-					Value   []string  `json:"value"`
+					Details string   `json:"details"`
+					Value   []string `json:"value"`
 				} `json:"languages"`
 				Level struct {
 					Value int `json:"value"`
@@ -97,8 +97,8 @@ type Monster struct {
 				Statistic string `json:"statistic"`
 			} `json:"initiative"`
 			Perception struct {
-				Details string `json:"details"`
-				Mod     int    `json:"mod"`
+				Details string  `json:"details"`
+				Mod     int     `json:"mod"`
 				Senses  []Sense `json:"senses"`
 			} `json:"perception"`
 			Resources struct {
@@ -150,33 +150,33 @@ func (m Monster) AdjustMonster() map[string]int {
 	if (adjustmentLevel + currentLevel) > currentLevel {
 		// Elite monster
 		switch {
-			case currentLevel <= 0:
-				adjustments["level"] = adjustments["level"] + 1
-				adjustments["hp"] = 10
-			case currentLevel == 1:
-				adjustments["hp"] = 10
-			case currentLevel >= 2 && currentLevel <= 4:
-				adjustments["hp"] = 15
-			case currentLevel >= 5 && currentLevel <= 19:
-				adjustments["hp"] = 20
-			case currentLevel >= 20:
-				adjustments["hp"] = 30
+		case currentLevel <= 0:
+			adjustments["level"] = adjustments["level"] + 1
+			adjustments["hp"] = 10
+		case currentLevel == 1:
+			adjustments["hp"] = 10
+		case currentLevel >= 2 && currentLevel <= 4:
+			adjustments["hp"] = 15
+		case currentLevel >= 5 && currentLevel <= 19:
+			adjustments["hp"] = 20
+		case currentLevel >= 20:
+			adjustments["hp"] = 30
 		}
 
 	} else if (adjustmentLevel + currentLevel) < currentLevel {
 		// Weaken monster
 		switch {
-			case currentLevel <= 1:
-				adjustments["level"] = adjustments["level"] - 1
-				adjustments["hp"] = -10
-			case currentLevel == 2:
-				adjustments["hp"] = -10
-			case currentLevel >= 3 && currentLevel <= 5:
-				adjustments["hp"] = -15
-			case currentLevel >= 6 && currentLevel <= 20:
-				adjustments["hp"] = -20
-			case currentLevel >= 21:
-				adjustments["hp"] = -30
+		case currentLevel <= 1:
+			adjustments["level"] = adjustments["level"] - 1
+			adjustments["hp"] = -10
+		case currentLevel == 2:
+			adjustments["hp"] = -10
+		case currentLevel >= 3 && currentLevel <= 5:
+			adjustments["hp"] = -15
+		case currentLevel >= 6 && currentLevel <= 20:
+			adjustments["hp"] = -20
+		case currentLevel >= 21:
+			adjustments["hp"] = -30
 		}
 	}
 
@@ -283,7 +283,7 @@ func (m Monster) GetSkills() string {
 	var skills string
 
 	for key, value := range m.Data.System.Skills {
-		skills += fmt.Sprintf("%s +%d, ", utils.CapitalizeFirst(key), value.Base + m.AdjustMonster()["mod"])
+		skills += fmt.Sprintf("%s +%d, ", utils.CapitalizeFirst(key), value.Base+m.AdjustMonster()["mod"])
 	}
 
 	return utils.RemoveTrailingComma(skills)
@@ -293,7 +293,7 @@ func (m Monster) GetLores() string {
 	var lores string
 
 	for _, i := range m.Data.Items {
-		if i.Type == "lore"  {
+		if i.Type == "lore" {
 			lores += fmt.Sprintf(", %s +%d", utils.CapitalizeFirst(i.Name), i.System.Mod.Value)
 		}
 	}
@@ -309,7 +309,7 @@ func (m Monster) GetDex() int {
 	return m.Data.System.Abilities.Dex.Mod
 }
 
-func (m Monster) GetCon() int{
+func (m Monster) GetCon() int {
 	return m.Data.System.Abilities.Con.Mod
 }
 
@@ -418,41 +418,41 @@ func (m Monster) GetSpellSchool() Item {
 func (m Monster) GetSpells() map[string]string {
 	spellsByLevel := make(map[int][]map[string]string)
 
- 	for _, spell := range m.Data.Items {
-  	 	if spell.Type == "spell" {
-	        level := spell.System.Level.Value
-	        if utils.Contains(spell.System.Traits.Value, "cantrip") {
-	            level = 0
-	        }
+	for _, spell := range m.Data.Items {
+		if spell.Type == "spell" {
+			level := spell.System.Level.Value
+			if utils.Contains(spell.System.Traits.Value, "cantrip") {
+				level = 0
+			}
 
 			if level < spell.System.Location.HeightenedLevel {
 				level = spell.System.Location.HeightenedLevel
 			}
 
-	        spellInfo := map[string]string{
-	            "name":        spell.Name,
-	            "description": spell.System.Description.Value,
-	            "level":       strconv.Itoa(level),
-	            "uses":        strconv.Itoa(spell.System.Location.Uses.Max),
-	            "type":        spell.Type,
-	        }
+			spellInfo := map[string]string{
+				"name":        spell.Name,
+				"description": spell.System.Description.Value,
+				"level":       strconv.Itoa(level),
+				"uses":        strconv.Itoa(spell.System.Location.Uses.Max),
+				"type":        spell.Type,
+			}
 
 			spellsByLevel[level] = append(spellsByLevel[level], spellInfo)
-     	}
-    }
+		}
+	}
 
-    var levels []int
-    for level := range spellsByLevel {
-        levels = append(levels, level)
-    }
-    sort.Sort(sort.Reverse(sort.IntSlice(levels)))
+	var levels []int
+	for level := range spellsByLevel {
+		levels = append(levels, level)
+	}
+	sort.Sort(sort.Reverse(sort.IntSlice(levels)))
 
-    var sortedSpells []map[string]string
-    for _, level := range levels {
-        sortedSpells = append(sortedSpells, spellsByLevel[level]...)
-    }
+	var sortedSpells []map[string]string
+	for _, level := range levels {
+		sortedSpells = append(sortedSpells, spellsByLevel[level]...)
+	}
 
-    return utils.FormatSortedSpells(sortedSpells, utils.DivideAndRoundUp(m.GetLevel()))
+	return utils.FormatSortedSpells(sortedSpells, utils.DivideAndRoundUp(m.GetLevel()))
 }
 
 func (m Monster) GetActions(category string) []map[string]string {
@@ -497,16 +497,16 @@ func (m Monster) GetInventory() string {
 
 	for _, i := range m.Data.Items {
 		switch i.Type {
-			case "equipment":
-				inventory += i.FormatEquipmentName()
-			case "weapon":
-				inventory += i.FormatWeaponName()
-			case "armor":
-				inventory += i.FormatWeaponName()
-			case "consumable":
-				inventory += i.FormatConsumableName()
-			case "shield":
-				inventory += i.FormatShieldName()
+		case "equipment":
+			inventory += i.FormatEquipmentName()
+		case "weapon":
+			inventory += i.FormatWeaponName()
+		case "armor":
+			inventory += i.FormatWeaponName()
+		case "consumable":
+			inventory += i.FormatConsumableName()
+		case "shield":
+			inventory += i.FormatShieldName()
 		}
 	}
 
@@ -519,20 +519,20 @@ func (m Monster) GetConditions() []Condition {
 
 func (m *Monster) SetCondition(db database.Service, conditionID int, conditionValue int) []Condition {
 	// Get condition from the database
-    condition, _ := GetCondition(db, conditionID)
+	condition, _ := GetCondition(db, conditionID)
 
-    // Set the condition's value
-    condition.Data.System.Value.Value = conditionValue
+	// Set the condition's value
+	condition.Data.System.Value.Value = conditionValue
 
-    // Initialize the Conditions slice if it's nil
-    if m.Conditions == nil {
-        m.Conditions = make([]Condition, 0)
-    }
+	// Initialize the Conditions slice if it's nil
+	if m.Conditions == nil {
+		m.Conditions = make([]Condition, 0)
+	}
 
-    // Add the condition to the monsters's conditions
-    m.Conditions = append(m.Conditions, condition)
+	// Add the condition to the monsters's conditions
+	m.Conditions = append(m.Conditions, condition)
 
-    return m.Conditions
+	return m.Conditions
 }
 
 func (m *Monster) RemoveCondition(conditionID int) []Condition {

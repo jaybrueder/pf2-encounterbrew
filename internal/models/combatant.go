@@ -53,6 +53,7 @@ type Combatant interface {
 
 func AssignInitiative(combatants []Combatant) {
 	for _, c := range combatants {
+		//nolint:gosec
 		c.SetInitiative(rand.Intn(20) + 1 + c.GetPerceptionMod())
 	}
 }

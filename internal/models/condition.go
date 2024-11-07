@@ -61,16 +61,16 @@ func GetCondition(db database.Service, conditionID int) (Condition, error) {
 	}
 
 	// Query the condition from the database
-    var c Condition
-    var jsonData []byte
+	var c Condition
+	var jsonData []byte
 
-   	err := db.QueryRow(`
+	err := db.QueryRow(`
         SELECT id, data
         FROM conditions p
         WHERE id = $1
     `, conditionID).Scan(&c.ID, &jsonData)
 
-    if err != nil {
+	if err != nil {
 		if err == sql.ErrNoRows {
 			return Condition{}, fmt.Errorf("no condition found with ID %d", conditionID)
 		}
@@ -78,12 +78,12 @@ func GetCondition(db database.Service, conditionID int) (Condition, error) {
 	}
 
 	// Unmarshal the JSON data
-    err = json.Unmarshal(jsonData, &c.Data)
-    if err != nil {
-        return Condition{}, fmt.Errorf("error unmarshaling condition data: %w", err)
-    }
+	err = json.Unmarshal(jsonData, &c.Data)
+	if err != nil {
+		return Condition{}, fmt.Errorf("error unmarshaling condition data: %w", err)
+	}
 
-    return c, nil
+	return c, nil
 }
 
 func GetAllConditions(db database.Service) ([]Condition, error) {
