@@ -142,19 +142,18 @@ func GetEncounterWithCombatants(db database.Service, id string) (Encounter, erro
 	}
 
 	// Add monsters to combatants, respecting the count
-	for i := range monsters {
-		// for i := 0; i < monsterPtr.Count; i++ {
-		// Create a non-pointer copy of the monster for each count
-		// monsterCopy := *monsterPtr
+	counts := make(map[string]int)
 
-		// Modify the name to differentiate multiple instances
-		// if monsterPtr.Count > 1 {
-		// 	monsterCopy.Data.Name = fmt.Sprintf("%s (%d)", monsterPtr.Data.Name, i+1)
-		// }
+	for _, monster := range monsters {
+		exactName := monster.GetName()
+		counts[exactName]++
 
-		// combatants = append(combatants, &monsterCopy)
-		// }
-		combatants = append(combatants, monsters[i])
+		if counts[exactName] > 1 {
+			monster.SetEnumeration(counts[exactName])
+			fmt.Printf("%s %d", monster.GetName(), counts[exactName])
+		}
+
+		combatants = append(combatants, monster)
 	}
 
 	// Set Initiative and sort the combatants
