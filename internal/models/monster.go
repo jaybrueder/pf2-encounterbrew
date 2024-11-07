@@ -15,6 +15,7 @@ type Monster struct {
 	ID              int         `json:"id"`
 	AssociationID   int         `json:"association_id"`
 	LevelAdjustment int         `json:"level_adjustment"`
+	Enumeration     int         `json:"enumeration"`
 	Initiative      int         `json:"initiative"`
 	Conditions      []Condition `json:"conditions"`
 	Data            struct {
@@ -186,13 +187,21 @@ func (m Monster) AdjustMonster() map[string]int {
 // Implement the Combatant interface
 
 func (m Monster) GetName() string {
+	var name string
+
 	if m.LevelAdjustment > 0 {
-		return fmt.Sprintf("Elite %s", m.Data.Name)
+		name = fmt.Sprintf("Elite %s", m.Data.Name)
 	} else if m.LevelAdjustment < 0 {
-		return fmt.Sprintf("Weak %s", m.Data.Name)
+		name = fmt.Sprintf("Weak %s", m.Data.Name)
 	} else {
-		return m.Data.Name
+		name = m.Data.Name
 	}
+
+	if m.Enumeration > 0 {
+		name = fmt.Sprintf("%s %d", name, m.Enumeration)
+	}
+
+	return name
 }
 
 func (m Monster) GetType() string {
@@ -550,6 +559,10 @@ func (m *Monster) RemoveCondition(conditionID int) []Condition {
 
 func (m Monster) GetAdjustmentModifier() int {
 	return m.AdjustMonster()["mod"]
+}
+
+func (m *Monster) SetEnumeration(value int) {
+	m.Enumeration = value
 }
 
 // Databas interactions

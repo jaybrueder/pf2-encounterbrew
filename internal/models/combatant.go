@@ -9,6 +9,7 @@ import (
 
 type Combatant interface {
 	GetName() string
+	SetEnumeration(int)
 	GetInitiative() int
 	SetInitiative(int)
 	GetHp() int
