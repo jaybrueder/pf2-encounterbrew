@@ -25,6 +25,10 @@ func main() {
 		return nil
 	})
 
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error walking through files: %v", err)
+	}
+
 	// Seed monsters
 	err = filepath.Walk("data/bestiaries", func(path string, info os.FileInfo, err error) error {
 		if err != nil {

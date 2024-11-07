@@ -17,6 +17,8 @@
 # Go workspace file
 go.work
 tmp/
+/bin
+/dist
 
 # IDE specific files
 .vscode
@@ -31,3 +33,7 @@ main
 
 # PF2 data
 data/
+
+# IDE
+.vscode/
+.idea/
