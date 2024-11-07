@@ -138,6 +138,17 @@ type Sense struct {
 	Range  int    `json:"range,omitempty"`
 }
 
+func (m Monster) AdjustMonster() map[string]int {
+	adjustments := map[string]int{}
+	adjustmentLevel := m.LevelAdjustment
+
+	adjustments["level"] = adjustmentLevel
+	adjustments["mod"] = adjustmentLevel * 2
+	adjustments["hp"] = adjustmentLevel * 10
+
+	return adjustments
+}
+
 // Implement the Combatant interface
 
 func (m Monster) GetName() string {
@@ -163,7 +174,7 @@ func (m *Monster) SetInitiative(i int) {
 }
 
 func (m Monster) GetHp() int {
-	return m.Data.System.Attributes.Hp.Value
+	return m.Data.System.Attributes.Hp.Value + m.AdjustMonster()["hp"]
 }
 
 func (m *Monster) SetHp(i int) {
@@ -171,11 +182,11 @@ func (m *Monster) SetHp(i int) {
 }
 
 func (m Monster) GetMaxHp() int {
-	return m.Data.System.Attributes.Hp.Max
+	return m.Data.System.Attributes.Hp.Max + m.AdjustMonster()["hp"]
 }
 
 func (m Monster) GetAc() int {
-	return m.Data.System.Attributes.Ac.Value
+	return m.Data.System.Attributes.Ac.Value + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetAcDetails() string {
@@ -186,8 +197,12 @@ func (m Monster) GetAcDetails() string {
 	}
 }
 
+func (m Monster) GetOriginalLevel() int {
+	return m.Data.System.Details.Level.Value
+}
+
 func (m Monster) GetLevel() int {
-	return m.Data.System.Details.Level.Value + m.LevelAdjustment
+	return m.GetOriginalLevel() + m.AdjustMonster()["level"]
 }
 
 func (m Monster) GetSize() string {
@@ -199,7 +214,7 @@ func (m Monster) GetTraits() []string {
 }
 
 func (m Monster) GetPerceptionMod() int {
-	return m.Data.System.Perception.Mod
+	return m.Data.System.Perception.Mod + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetPerceptionSenses() string {
@@ -234,7 +249,7 @@ func (m Monster) GetSkills() string {
 	var skills string
 
 	for key, value := range m.Data.System.Skills {
-		skills += fmt.Sprintf("%s +%d, ", utils.CapitalizeFirst(key), value.Base)
+		skills += fmt.Sprintf("%s +%d, ", utils.CapitalizeFirst(key), value.Base + m.AdjustMonster()["mod"])
 	}
 
 	return utils.RemoveTrailingComma(skills)
@@ -277,15 +292,15 @@ func (m Monster) GetCha() int {
 }
 
 func (m Monster) GetFort() int {
-	return m.Data.System.Saves.Fortitude.Value
+	return m.Data.System.Saves.Fortitude.Value + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetRef() int {
-	return m.Data.System.Saves.Reflex.Value
+	return m.Data.System.Saves.Reflex.Value + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetWill() int {
-	return m.Data.System.Saves.Will.Value
+	return m.Data.System.Saves.Will.Value + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetImmunities() string {
@@ -497,6 +512,10 @@ func (m *Monster) RemoveCondition(conditionID int) []Condition {
 	}
 
 	return m.Conditions
+}
+
+func (m Monster) GetAdjustmentModifier() int {
+	return m.AdjustMonster()["mod"]
 }
 
 // Databas interactions
