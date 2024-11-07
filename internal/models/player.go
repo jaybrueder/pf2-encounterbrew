@@ -196,3 +196,7 @@ func (p *Player) RemoveCondition(conditionID int) []Condition {
 
 	return p.Conditions
 }
+
+func (p Player) GetAdjustmentModifier() int {
+	return 0
+}

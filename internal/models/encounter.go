@@ -89,7 +89,7 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 
 	// Query for associated monsters
 	rows, err := db.Query(`
-        SELECT m.id, m.data, em.adjustment, em.count
+        SELECT m.id, m.data, em.level_adjustment, em.id
         FROM monsters m
         JOIN encounter_monsters em ON m.id = em.monster_id
         WHERE em.encounter_id = $1
@@ -102,7 +102,7 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 	for rows.Next() {
 		var m Monster
 		var jsonData []byte
-		err := rows.Scan(&m.ID, &jsonData, &m.Adjustment, &m.Count)
+		err := rows.Scan(&m.ID, &jsonData, &m.LevelAdjustment, &m.AssociationID)
 		if err != nil {
 			return e, fmt.Errorf("error scanning monster row: %v", err)
 		}
@@ -142,18 +142,19 @@ func GetEncounterWithCombatants(db database.Service, id string) (Encounter, erro
 	}
 
 	// Add monsters to combatants, respecting the count
-	for _, monsterPtr := range monsters {
-		for i := 0; i < monsterPtr.Count; i++ {
+	for i := range monsters {
+		// for i := 0; i < monsterPtr.Count; i++ {
 			// Create a non-pointer copy of the monster for each count
-			monsterCopy := *monsterPtr
+			// monsterCopy := *monsterPtr
 
 			// Modify the name to differentiate multiple instances
-			if monsterPtr.Count > 1 {
-				monsterCopy.Data.Name = fmt.Sprintf("%s (%d)", monsterPtr.Data.Name, i+1)
-			}
+			// if monsterPtr.Count > 1 {
+			// 	monsterCopy.Data.Name = fmt.Sprintf("%s (%d)", monsterPtr.Data.Name, i+1)
+			// }
 
-			combatants = append(combatants, &monsterCopy)
-		}
+			// combatants = append(combatants, &monsterCopy)
+		// }
+		combatants = append(combatants, monsters[i])
 	}
 
 	// Set Initiative and sort the combatants
@@ -166,7 +167,7 @@ func GetEncounterWithCombatants(db database.Service, id string) (Encounter, erro
 	return encounter, nil
 }
 
-func AddMonsterToEncounter(db database.Service, encounterID string, monsterID string) (Encounter, error) {
+func AddMonsterToEncounter(db database.Service, encounterID string, monsterID string, levelAdjustment int) (Encounter, error) {
 	// Convert string IDs to integers
 	encID, err := strconv.Atoi(encounterID)
 	if err != nil {
@@ -185,32 +186,13 @@ func AddMonsterToEncounter(db database.Service, encounterID string, monsterID st
 	}
 	defer tx.Rollback() // Rollback the transaction if it hasn't been committed
 
-	// Try to update the count if the monster already exists in the encounter
-	result, err := tx.Exec(`
-        UPDATE encounter_monsters
-        SET count = count + 1
-        WHERE encounter_id = $1 AND monster_id = $2
-    `, encID, monID)
+	_, err = db.Exec(`
+        INSERT INTO encounter_monsters (encounter_id, monster_id, level_adjustment)
+        VALUES ($1, $2, $3)
+    `, encID, monID, levelAdjustment)
+
 	if err != nil {
-		return Encounter{}, fmt.Errorf("Error updating monster count: %v", err)
-	}
-
-	rowsAffected, err := result.RowsAffected()
-	if err != nil {
-		return Encounter{}, fmt.Errorf("Error getting rows affected: %v", err)
-	}
-
-	if rowsAffected == 0 {
-		// Insert the new relationship into the encounter_monsters table
-		_, err = db.Exec(`
-	        INSERT INTO encounter_monsters (encounter_id, monster_id)
-	        VALUES ($1, $2)
-	        ON CONFLICT (encounter_id, monster_id) DO NOTHING
-	    `, encID, monID)
-
-		if err != nil {
-			return Encounter{}, fmt.Errorf("Failed to add monster to encounter: %v", err)
-		}
+		return Encounter{}, fmt.Errorf("Failed to add monster to encounter: %v", err)
 	}
 
 	// Commit the transaction
@@ -223,14 +205,8 @@ func AddMonsterToEncounter(db database.Service, encounterID string, monsterID st
 	return encounter, nil
 }
 
-func RemoveMonsterFromEncounter(db database.Service, encounterID string, monsterID string) (Encounter, error) {
-	// Convert string IDs to integers
-	encID, err := strconv.Atoi(encounterID)
-	if err != nil {
-		return Encounter{}, fmt.Errorf("invalid encounter ID: %v", err)
-	}
-
-	monID, err := strconv.Atoi(monsterID)
+func RemoveMonsterFromEncounter(db database.Service, encounterID string, associationID string) (Encounter, error) {
+	assID, err := strconv.Atoi(associationID)
 	if err != nil {
 		return Encounter{}, fmt.Errorf("invalid monster ID: %v", err)
 	}
@@ -242,38 +218,13 @@ func RemoveMonsterFromEncounter(db database.Service, encounterID string, monster
 	}
 	defer tx.Rollback() // Rollback the transaction if it hasn't been committed
 
-	// Get the current count of the monster in the encounter
-	var count int
-	err = tx.QueryRow(`
-        SELECT count FROM encounter_monsters
-        WHERE encounter_id = $1 AND monster_id = $2
-    `, encID, monID).Scan(&count)
-	if err != nil {
-		if err == sql.ErrNoRows {
-			return Encounter{}, fmt.Errorf("monster not found in encounter")
-		}
-		return Encounter{}, fmt.Errorf("error getting monster count: %v", err)
-	}
+	_, err = tx.Exec(`
+        DELETE FROM encounter_monsters
+        WHERE id = $1
+    `, assID)
 
-	if count > 1 {
-		// If count is greater than 1, decrement the count
-		_, err = tx.Exec(`
-            UPDATE encounter_monsters
-            SET count = count - 1
-            WHERE encounter_id = $1 AND monster_id = $2
-        `, encID, monID)
-		if err != nil {
-			return Encounter{}, fmt.Errorf("error updating monster count: %v", err)
-		}
-	} else {
-		// If count is 1, remove the monster from the encounter
-		_, err = tx.Exec(`
-            DELETE FROM encounter_monsters
-            WHERE encounter_id = $1 AND monster_id = $2
-        `, encID, monID)
-		if err != nil {
-			return Encounter{}, fmt.Errorf("error removing monster from encounter: %v", err)
-		}
+	if err != nil {
+		return Encounter{}, fmt.Errorf("error removing monster from encounter: %v", err)
 	}
 
 	// Commit the transaction

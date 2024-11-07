@@ -91,8 +91,8 @@ func (i Item) GetName() string {
 	return utils.CapitalizeFirst(i.Name)
 }
 
-func (i Item) GetAttackValue() int {
-	return i.System.Bonus.Value
+func (i Item) GetAttackValue(modifier int) int {
+	return i.System.Bonus.Value + modifier
 }
 
 func (i Item) GetActionCost() int {
@@ -117,14 +117,14 @@ func (i Item) GetTraits() string {
 	}
 }
 
-func (i Item) GetDamageValue() string {
-	var damage string
+func (i Item) GetDamageValue(modifier int) string {
+	var damageString string
 
 	for _, damageRoll := range i.System.DamageRolls {
-		damage += damageRoll.Damage + " " + damageRoll.DamageType + ", "
+		damageString += utils.ModifyDamage(damageRoll.Damage, modifier) + " " + damageRoll.DamageType + ", "
 	}
 
-	return utils.RemoveTrailingComma(damage)
+	return utils.RemoveTrailingComma(damageString)
 }
 
 func (i Item) GetDamageEffect() string {
@@ -135,12 +135,12 @@ func (i Item) GetDamageEffect() string {
 	}
 }
 
-func (i Item) GetSpellDC() int {
-	return i.System.Spelldc.Dc
+func (i Item) GetSpellDC(modifier int) int {
+	return i.System.Spelldc.Dc + modifier
 }
 
-func (i Item) GetSpellAttackValue() int {
-	return i.System.Spelldc.Value
+func (i Item) GetSpellAttackValue(modifier int) int {
+	return i.System.Spelldc.Value + modifier
 }
 
 func (i Item) FormatEquipmentName() string {
