@@ -123,12 +123,12 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 func GetEncounterWithCombatants(db database.Service, id string) (Encounter, error) {
 	encounter, err := GetEncounter(db, id)
 	if err != nil {
-		fmt.Errorf("Error fetching encounter: %v", err)
+		return Encounter{}, fmt.Errorf("error fetching encounter: %w", err)
 	}
 
 	// Fetch the active party from the database
 	// TODO make this flexible (hard-coded for now to 1)
-	party, err := GetParty(db, "1")
+	party, _ := GetParty(db, "1")
 
 	// Get party's players and encounter's monsters
 	players := party.Players
@@ -144,15 +144,15 @@ func GetEncounterWithCombatants(db database.Service, id string) (Encounter, erro
 	// Add monsters to combatants, respecting the count
 	for i := range monsters {
 		// for i := 0; i < monsterPtr.Count; i++ {
-			// Create a non-pointer copy of the monster for each count
-			// monsterCopy := *monsterPtr
+		// Create a non-pointer copy of the monster for each count
+		// monsterCopy := *monsterPtr
 
-			// Modify the name to differentiate multiple instances
-			// if monsterPtr.Count > 1 {
-			// 	monsterCopy.Data.Name = fmt.Sprintf("%s (%d)", monsterPtr.Data.Name, i+1)
-			// }
+		// Modify the name to differentiate multiple instances
+		// if monsterPtr.Count > 1 {
+		// 	monsterCopy.Data.Name = fmt.Sprintf("%s (%d)", monsterPtr.Data.Name, i+1)
+		// }
 
-			// combatants = append(combatants, &monsterCopy)
+		// combatants = append(combatants, &monsterCopy)
 		// }
 		combatants = append(combatants, monsters[i])
 	}
@@ -184,6 +184,7 @@ func AddMonsterToEncounter(db database.Service, encounterID string, monsterID st
 	if err != nil {
 		return Encounter{}, fmt.Errorf("Error starting transaction: %v", err)
 	}
+	//nolint:errcheck
 	defer tx.Rollback() // Rollback the transaction if it hasn't been committed
 
 	_, err = db.Exec(`
@@ -200,7 +201,7 @@ func AddMonsterToEncounter(db database.Service, encounterID string, monsterID st
 		return Encounter{}, fmt.Errorf("Error committing transaction: %v", err)
 	}
 
-	encounter, err := GetEncounter(db, encounterID)
+	encounter, _ := GetEncounter(db, encounterID)
 
 	return encounter, nil
 }
@@ -216,6 +217,7 @@ func RemoveMonsterFromEncounter(db database.Service, encounterID string, associa
 	if err != nil {
 		return Encounter{}, fmt.Errorf("error starting transaction: %v", err)
 	}
+	//nolint:errcheck
 	defer tx.Rollback() // Rollback the transaction if it hasn't been committed
 
 	_, err = tx.Exec(`

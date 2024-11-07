@@ -3,14 +3,14 @@ package models
 import "pf2.encounterbrew.com/internal/database"
 
 type Player struct {
-	ID         int    `json:"id"`
-	Name       string `json:"name"`
-	Level      int    `json:"level"`
-	Hp         int    `json:"hp"`
-	Ac         int    `json:"ac"`
-	PartyID    int    `json:"party_id"`
-	Party      *Party `json:"party,omitempty"`
-	Initiative int    `json:"initiative"`
+	ID         int         `json:"id"`
+	Name       string      `json:"name"`
+	Level      int         `json:"level"`
+	Hp         int         `json:"hp"`
+	Ac         int         `json:"ac"`
+	PartyID    int         `json:"party_id"`
+	Party      *Party      `json:"party,omitempty"`
+	Initiative int         `json:"initiative"`
 	Conditions []Condition `json:"conditions"`
 }
 
@@ -90,7 +90,7 @@ func (p Player) GetDex() int {
 	return 0
 }
 
-func (p Player) GetCon() int{
+func (p Player) GetCon() int {
 	return 0
 }
 
@@ -154,7 +154,7 @@ func (p Player) GetDefensiveActions() []map[string]string {
 	return []map[string]string{}
 }
 
-func (p Player) GetOffensiveActions()[]map[string]string {
+func (p Player) GetOffensiveActions() []map[string]string {
 	return []map[string]string{}
 }
 
@@ -167,21 +167,21 @@ func (p Player) GetConditions() []Condition {
 }
 
 func (p *Player) SetCondition(db database.Service, conditionID int, conditionValue int) []Condition {
-    // Get condition from the database
-    condition, _ := GetCondition(db, conditionID)
+	// Get condition from the database
+	condition, _ := GetCondition(db, conditionID)
 
-    // Set the condition's value
-    condition.Data.System.Value.Value = conditionValue
+	// Set the condition's value
+	condition.Data.System.Value.Value = conditionValue
 
-    // Initialize the Conditions slice if it's nil
-    if p.Conditions == nil {
-        p.Conditions = make([]Condition, 0)
-    }
+	// Initialize the Conditions slice if it's nil
+	if p.Conditions == nil {
+		p.Conditions = make([]Condition, 0)
+	}
 
-    // Add the condition to the player's conditions
-    p.Conditions = append(p.Conditions, condition)
+	// Add the condition to the player's conditions
+	p.Conditions = append(p.Conditions, condition)
 
-    return p.Conditions
+	return p.Conditions
 }
 
 func (p *Player) RemoveCondition(conditionID int) []Condition {
