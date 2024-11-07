@@ -41,7 +41,7 @@ type Item struct {
 			Value string `json:"value"`
 		} `json:"description"`
 		Hardness int `json:"hardness"`
-		HP struct {
+		HP       struct {
 			Max int `json:"max"`
 		} `json:"hp"`
 		Level struct {
@@ -49,10 +49,10 @@ type Item struct {
 		} `json:"level"`
 		Location struct {
 			HeightenedLevel int `json:"heightenedLevel"`
-			Uses struct {
-				Max   int `json:"max"`
+			Uses            struct {
+				Max int `json:"max"`
 			} `json:"uses"`
-		}  `json:"location"`
+		} `json:"location"`
 		Mod struct {
 			Value int `json:"value"`
 		} `json:"mod"`
@@ -63,12 +63,12 @@ type Item struct {
 		} `json:"publication"`
 		Quantity int   `json:"quantity"`
 		Rules    []any `json:"rules"`
-		Runes	struct {
-			Potency int `json:"potency"`
+		Runes    struct {
+			Potency  int `json:"potency"`
 			Striking int `json:"striking"`
 		} `json:"runes"`
-		Slug     any   `json:"slug"`
-		Spelldc  struct {
+		Slug    any `json:"slug"`
+		Spelldc struct {
 			Dc    int `json:"dc"`
 			Mod   int `json:"mod"`
 			Value int `json:"value"`
@@ -166,7 +166,7 @@ func (i Item) FormatConsumableName() string {
 }
 
 func (i Item) FormatShieldName() string {
-	return i.GetName() + fmt.Sprintf(" (Hardness %d, HP %d, BT %d)", i.System.Hardness, i.System.HP.Max, i.System.HP.Max / 2) +  ", "
+	return i.GetName() + fmt.Sprintf(" (Hardness %d, HP %d, BT %d)", i.System.Hardness, i.System.HP.Max, i.System.HP.Max/2) + ", "
 }
 
 func (i Item) GetQuantity() string {

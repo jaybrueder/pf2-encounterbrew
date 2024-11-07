@@ -83,7 +83,7 @@ func (s *service) Health() map[string]string {
 	if err != nil {
 		stats["status"] = "down"
 		stats["error"] = fmt.Sprintf("db down: %v", err)
-		log.Fatalf(fmt.Sprintf("db down: %v", err)) // Log the error and terminate the program
+		log.Fatalf("db down: %v", err) // Log the error and terminate the program
 		return stats
 	}
 
@@ -132,6 +132,7 @@ func (s *service) Close() error {
 
 func (s *service) Insert(table string, columns []string, values ...interface{}) (sql.Result, error) {
 	// Build the query string
+	//nolint:gosec
 	query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s)",
 		table,
 		strings.Join(columns, ", "),

@@ -25,6 +25,9 @@ test:
 	@echo "Testing..."
 	@go test ./... -v
 
+lint:
+    @golangci-lint run
+
 # Live Reload
 watch:
 	@if command -v air > /dev/null; then \

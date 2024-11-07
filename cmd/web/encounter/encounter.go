@@ -193,7 +193,7 @@ func ChangeTurn(next bool) echo.HandlerFunc {
 
 		numberOfCombatants := len(encounter.Combatants)
 
-		if next == true {
+		if next {
 			if encounter.Turn == numberOfCombatants-1 {
 				encounter.Turn = 0
 				encounter.Round += 1
