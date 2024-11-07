@@ -9,7 +9,3 @@ CREATE INDEX idx_players_party_id ON players(party_id);
 
 -- Index for encounters table
 CREATE INDEX idx_encounters_user_id ON encounters(user_id);
-
--- Indexes for encounter_monsters table
-CREATE INDEX idx_encounter_monsters_encounter_id ON encounter_monsters(encounter_id);
-CREATE INDEX idx_encounter_monsters_monster_id ON encounter_monsters(monster_id);

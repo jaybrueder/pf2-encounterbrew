@@ -101,8 +101,9 @@ func EncounterAddMonster(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		encounterID := c.Param("encounter_id")
 		monsterID := c.Param("monster_id")
+		levelAdjustment, _ := strconv.Atoi(c.FormValue("level_adjustment"))
 
-		encounter, err := models.AddMonsterToEncounter(db, encounterID, monsterID)
+		encounter, err := models.AddMonsterToEncounter(db, encounterID, monsterID, levelAdjustment)
 		if err != nil {
 			log.Printf("Error adding monster: %v", err)
 			return c.String(http.StatusInternalServerError, "Error adding monster")
@@ -116,9 +117,9 @@ func EncounterAddMonster(db database.Service) echo.HandlerFunc {
 func EncounterRemoveMonster(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		encounterID := c.Param("encounter_id")
-		monsterID := c.Param("monster_id")
+		associationID := c.Param("association_id")
 
-		encounter, err := models.RemoveMonsterFromEncounter(db, encounterID, monsterID)
+		encounter, err := models.RemoveMonsterFromEncounter(db, encounterID, associationID)
 		if err != nil {
 			log.Printf("Error removing monster: %v", err)
 			return c.String(http.StatusInternalServerError, "Error removing monster")

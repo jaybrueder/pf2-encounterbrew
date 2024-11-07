@@ -13,8 +13,8 @@ import (
 
 type Monster struct {
 	ID         int `json:"id"`
-	Adjustment int `json:"adjustment"`
-	Count      int `json:"count"`
+	AssociationID int `json:"association_id"`
+	LevelAdjustment int `json:"level_adjustment"`
 	Initiative int `json:"initiative"`
 	Conditions []Condition `json:"conditions"`
 	Data       struct {
@@ -138,10 +138,61 @@ type Sense struct {
 	Range  int    `json:"range,omitempty"`
 }
 
+func (m Monster) AdjustMonster() map[string]int {
+	currentLevel := m.GetOriginalLevel()
+	adjustmentLevel := m.LevelAdjustment
+
+	adjustments := map[string]int{}
+	adjustments["level"] = 1 * adjustmentLevel
+	adjustments["mod"] = 2 * adjustmentLevel
+	adjustments["hp"] = 0
+
+	if (adjustmentLevel + currentLevel) > currentLevel {
+		// Elite monster
+		switch {
+			case currentLevel <= 0:
+				adjustments["level"] = adjustments["level"] + 1
+				adjustments["hp"] = 10
+			case currentLevel == 1:
+				adjustments["hp"] = 10
+			case currentLevel >= 2 && currentLevel <= 4:
+				adjustments["hp"] = 15
+			case currentLevel >= 5 && currentLevel <= 19:
+				adjustments["hp"] = 20
+			case currentLevel >= 20:
+				adjustments["hp"] = 30
+		}
+
+	} else if (adjustmentLevel + currentLevel) < currentLevel {
+		// Weaken monster
+		switch {
+			case currentLevel <= 1:
+				adjustments["level"] = adjustments["level"] - 1
+				adjustments["hp"] = -10
+			case currentLevel == 2:
+				adjustments["hp"] = -10
+			case currentLevel >= 3 && currentLevel <= 5:
+				adjustments["hp"] = -15
+			case currentLevel >= 6 && currentLevel <= 20:
+				adjustments["hp"] = -20
+			case currentLevel >= 21:
+				adjustments["hp"] = -30
+		}
+	}
+
+	return adjustments
+}
+
 // Implement the Combatant interface
 
 func (m Monster) GetName() string {
-	return m.Data.Name
+	if m.LevelAdjustment > 0 {
+		return fmt.Sprintf("Elite %s", m.Data.Name)
+	} else if m.LevelAdjustment < 0 {
+		return fmt.Sprintf("Weak %s", m.Data.Name)
+	} else {
+		return m.Data.Name
+	}
 }
 
 func (m Monster) GetType() string {
@@ -157,7 +208,7 @@ func (m *Monster) SetInitiative(i int) {
 }
 
 func (m Monster) GetHp() int {
-	return m.Data.System.Attributes.Hp.Value
+	return m.Data.System.Attributes.Hp.Value + m.AdjustMonster()["hp"]
 }
 
 func (m *Monster) SetHp(i int) {
@@ -165,11 +216,11 @@ func (m *Monster) SetHp(i int) {
 }
 
 func (m Monster) GetMaxHp() int {
-	return m.Data.System.Attributes.Hp.Max
+	return m.Data.System.Attributes.Hp.Max + m.AdjustMonster()["hp"]
 }
 
 func (m Monster) GetAc() int {
-	return m.Data.System.Attributes.Ac.Value
+	return m.Data.System.Attributes.Ac.Value + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetAcDetails() string {
@@ -180,8 +231,12 @@ func (m Monster) GetAcDetails() string {
 	}
 }
 
-func (m Monster) GetLevel() int {
+func (m Monster) GetOriginalLevel() int {
 	return m.Data.System.Details.Level.Value
+}
+
+func (m Monster) GetLevel() int {
+	return m.GetOriginalLevel() + m.AdjustMonster()["level"]
 }
 
 func (m Monster) GetSize() string {
@@ -193,7 +248,7 @@ func (m Monster) GetTraits() []string {
 }
 
 func (m Monster) GetPerceptionMod() int {
-	return m.Data.System.Perception.Mod
+	return m.Data.System.Perception.Mod + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetPerceptionSenses() string {
@@ -228,7 +283,7 @@ func (m Monster) GetSkills() string {
 	var skills string
 
 	for key, value := range m.Data.System.Skills {
-		skills += fmt.Sprintf("%s +%d, ", utils.CapitalizeFirst(key), value.Base)
+		skills += fmt.Sprintf("%s +%d, ", utils.CapitalizeFirst(key), value.Base + m.AdjustMonster()["mod"])
 	}
 
 	return utils.RemoveTrailingComma(skills)
@@ -271,15 +326,15 @@ func (m Monster) GetCha() int {
 }
 
 func (m Monster) GetFort() int {
-	return m.Data.System.Saves.Fortitude.Value
+	return m.Data.System.Saves.Fortitude.Value + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetRef() int {
-	return m.Data.System.Saves.Reflex.Value
+	return m.Data.System.Saves.Reflex.Value + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetWill() int {
-	return m.Data.System.Saves.Will.Value
+	return m.Data.System.Saves.Will.Value + m.AdjustMonster()["mod"]
 }
 
 func (m Monster) GetImmunities() string {
@@ -491,6 +546,10 @@ func (m *Monster) RemoveCondition(conditionID int) []Condition {
 	}
 
 	return m.Conditions
+}
+
+func (m Monster) GetAdjustmentModifier() int {
+	return m.AdjustMonster()["mod"]
 }
 
 // Databas interactions

@@ -68,7 +68,6 @@ func Contains(slice []string, item string) bool {
     return false
 }
 
-
 func FormatSortedSpells(sortedSpells []map[string]string, combatantLevel int) map[string]string {
     levelGroups := make(map[string][]string)
 
@@ -113,4 +112,57 @@ func DivideAndRoundUp(n int) int {
         result++
     }
     return result
+}
+
+func ModifyDamage(damageStr string, modifier int) string {
+	// Split the string at 'd'
+	parts := strings.Split(damageStr, "d")
+	if len(parts) != 2 {
+		return damageStr // Return original if format is invalid
+	}
+
+	// Get the number of dice
+	numDice := parts[0]
+
+	// Check if there's an existing modifier
+	secondParts := strings.Split(parts[1], "+")
+	if len(secondParts) == 1 {
+		// Also check for negative modifier
+		secondParts = strings.Split(parts[1], "-")
+		if len(secondParts) > 1 {
+			diceType := secondParts[0]
+			existingMod, _ := strconv.Atoi(secondParts[1])
+			existingMod = -existingMod // Make it negative since it was a subtraction
+			newMod := existingMod + modifier
+
+			// Format the output based on whether newMod is positive or negative
+			if newMod > 0 {
+				return fmt.Sprintf("%sd%s+%d", numDice, diceType, newMod)
+			} else if newMod < 0 {
+				return fmt.Sprintf("%sd%s%d", numDice, diceType, newMod) // Negative number already includes the minus sign
+			}
+			return fmt.Sprintf("%sd%s", numDice, diceType)
+		}
+		// No modifier found
+		diceType := parts[1]
+		if modifier > 0 {
+			return fmt.Sprintf("%sd%s+%d", numDice, diceType, modifier)
+		} else if modifier < 0 {
+			return fmt.Sprintf("%sd%s%d", numDice, diceType, modifier) // Negative number already includes the minus sign
+		}
+		return fmt.Sprintf("%sd%s", numDice, diceType)
+	}
+
+	// There is an existing positive modifier
+	diceType := secondParts[0]
+	existingMod, _ := strconv.Atoi(secondParts[1])
+	newMod := existingMod + modifier
+
+	// Format the output based on whether newMod is positive or negative
+	if newMod > 0 {
+		return fmt.Sprintf("%sd%s+%d", numDice, diceType, newMod)
+	} else if newMod < 0 {
+		return fmt.Sprintf("%sd%s%d", numDice, diceType, newMod) // Negative number already includes the minus sign
+	}
+	return fmt.Sprintf("%sd%s", numDice, diceType)
 }
