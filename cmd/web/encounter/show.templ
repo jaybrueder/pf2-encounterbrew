@@ -235,7 +235,7 @@ templ Statblock(combatant models.Combatant) {
         // Melee / Ranged Attacks
         <div>
             for _, attack := range combatant.GetAttacks() {
-                @Attack(attack)
+                @Attack(attack, combatant.GetAdjustmentModifier())
             }
         </div>
 
@@ -243,7 +243,7 @@ templ Statblock(combatant models.Combatant) {
         if len(combatant.GetSpells()) > 0 {
             <div>
                 <p>
-                <span>@SpellSchool(combatant.GetSpellSchool())</span>
+                <span>@SpellSchool(combatant.GetSpellSchool(), combatant.GetAdjustmentModifier())</span>
                 @Spells(combatant.GetSpells())
                 </p>
             </div>
@@ -260,15 +260,15 @@ templ Statblock(combatant models.Combatant) {
     </div>
 }
 
-templ Attack(i models.Item) {
+templ Attack(i models.Item, modifier int) {
     <p>
         <b>{i.GetWeaponType()}</b>
         if i.GetActionCost() != 0 {
             @ActionCost(strconv.Itoa(i.GetActionCost()))
         }
-        {i.GetName()} +{strconv.Itoa(i.GetAttackValue())}{i.GetTraits()},
-        if i.GetDamageValue() != "" {
-            <b>Damage</b> {i.GetDamageValue()}
+        {i.GetName()} +{strconv.Itoa(i.GetAttackValue(modifier))}{i.GetTraits()},
+        if i.GetDamageValue(modifier) != "" {
+            <b>Damage</b> {i.GetDamageValue(modifier)}
         }
         if i.GetDamageEffect() != "" {
             <b>Effect</b> {i.GetDamageEffect()}
@@ -305,8 +305,8 @@ templ Spells(formattedSpells map[string]string) {
     </ul>
 }
 
-templ SpellSchool(i models.Item) {
-    <b>{i.GetName()}</b> DC {strconv.Itoa(i.GetSpellDC())}, attack +{strconv.Itoa(i.GetSpellAttackValue())}
+templ SpellSchool(i models.Item, modifier int) {
+    <b>{i.GetName()}</b> DC {strconv.Itoa(i.GetSpellDC(modifier))}, attack +{strconv.Itoa(i.GetSpellAttackValue(modifier))}
 }
 
 templ ActionCost(cost string) {
