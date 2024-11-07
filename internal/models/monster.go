@@ -139,12 +139,46 @@ type Sense struct {
 }
 
 func (m Monster) AdjustMonster() map[string]int {
-	adjustments := map[string]int{}
+	currentLevel := m.GetOriginalLevel()
 	adjustmentLevel := m.LevelAdjustment
 
-	adjustments["level"] = adjustmentLevel
-	adjustments["mod"] = adjustmentLevel * 2
-	adjustments["hp"] = adjustmentLevel * 10
+	adjustments := map[string]int{}
+	adjustments["level"] = 1 * adjustmentLevel
+	adjustments["mod"] = 2 * adjustmentLevel
+	adjustments["hp"] = 0
+
+	if (adjustmentLevel + currentLevel) > currentLevel {
+		// Elite monster
+		switch {
+			case currentLevel <= 0:
+				adjustments["level"] = adjustments["level"] + 1
+				adjustments["hp"] = 10
+			case currentLevel == 1:
+				adjustments["hp"] = 10
+			case currentLevel >= 2 && currentLevel <= 4:
+				adjustments["hp"] = 15
+			case currentLevel >= 5 && currentLevel <= 19:
+				adjustments["hp"] = 20
+			case currentLevel >= 20:
+				adjustments["hp"] = 30
+		}
+
+	} else if (adjustmentLevel + currentLevel) < currentLevel {
+		// Weaken monster
+		switch {
+			case currentLevel <= 1:
+				adjustments["level"] = adjustments["level"] - 1
+				adjustments["hp"] = -10
+			case currentLevel == 2:
+				adjustments["hp"] = -10
+			case currentLevel >= 3 && currentLevel <= 5:
+				adjustments["hp"] = -15
+			case currentLevel >= 6 && currentLevel <= 20:
+				adjustments["hp"] = -20
+			case currentLevel >= 21:
+				adjustments["hp"] = -30
+		}
+	}
 
 	return adjustments
 }
