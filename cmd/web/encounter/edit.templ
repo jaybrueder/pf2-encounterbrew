@@ -11,7 +11,7 @@ import (
 
 templ EncounterEdit(encounter models.Encounter) {
     @web.Base(encounter.Name) {
-        <section class="max-w-4xl p-6 mx-auto">
+        <section class="max-w-4xl px-6 mx-auto">
             <h2 class="text-lg font-semibold text-gray-700 capitalize">Edit { encounter.Name }</h2>
 
             <form hx-patch={"/encounters/" + strconv.Itoa(encounter.ID)} hx-target="body">
