@@ -174,6 +174,44 @@ func UpdateCombatant() echo.HandlerFunc {
 	}
 }
 
+func BulkUpdateInitiative() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		// Get session
+		sess, _ := session.Get("encounter-session", c)
+
+		// Get encounter from session
+		encounterData, ok := sess.Values["encounter"]
+		if !ok {
+			return c.String(http.StatusInternalServerError, "Encounter not found in session")
+		}
+
+		encounter, ok := encounterData.(*models.Encounter)
+		if !ok {
+			log.Printf("Type assertion failed. Actual type: %T", encounterData)
+			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		}
+
+		// Update the each combatant's initiative
+		for i, combatant := range encounter.Combatants {
+			newInitiative, _ := strconv.Atoi(c.FormValue("initiative-" + strconv.Itoa(i)))
+			combatant.SetInitiative(newInitiative)
+		}
+
+		// Re-sort combatants by initiative
+		models.SortCombatantsByInitiative(encounter.Combatants)
+
+		// Save updated encounter back to session
+		sess.Values["encounter"] = encounter
+		if err := sess.Save(c.Request(), c.Response()); err != nil {
+			log.Printf("Error saving session: %v", err)
+			return c.String(http.StatusInternalServerError, "Error saving session")
+		}
+
+		component := CombatantList(*encounter)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
+}
+
 func ChangeTurn(next bool) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// Get session
