@@ -12,9 +12,10 @@ services:
       - PORT=8080
       - DB_HOST=postgres
       - DB_PORT=5432
-      - DB_USER=admin
+      - DB_USERNAME=admin
       - DB_PASSWORD=admin
-      - DB_NAME=encounterbrew
+      - DB_DATABASE=encounterbrew
+      - DB_SCHEMA=public
       - REDIS_ADDR=redis:6379
     restart: unless-stopped
     logging:
@@ -22,6 +23,36 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile.migrate
+    depends_on:
+      - postgres
+    volumes:
+      - ./migrations:/migrations
+    command: ["-path", "/migrations", "-database", "postgres://admin:admin@postgres:5432/encounterbrew?sslmode=disable", "up"]
+    profiles:
+      - tools
+
+  seeder:
+    build:
+      context: .
+      dockerfile: Dockerfile.seeder
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin
+      - DB_DATABASE=encounterbrew
+      - DB_SCHEMA=public
+    restart: "no"  # Don't restart the container after it finishes
+    profiles:
+      - seeder  # This makes the seeder not start by default
 
   postgres:
     image: postgres:13

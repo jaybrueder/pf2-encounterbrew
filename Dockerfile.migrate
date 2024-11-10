@@ -1,0 +1,7 @@
+FROM golang:1.23.1-alpine
+
+# Install migrate
+RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+
+# The migrate binary will be available at /go/bin/migrate
+ENTRYPOINT ["migrate"]
