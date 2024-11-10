@@ -20,6 +20,15 @@ func (s *Server) RegisterRoutes() http.Handler {
 		Level: 5,
 	}))
 
+	// Basic HTTP Auth until we have a proper auth system
+	e.Use(middleware.BasicAuth(func(username, password string, c echo.Context) (bool, error) {
+		// Define your credentials
+		if username == "dragon" && password == "hobgoblin" {
+			return true, nil
+		}
+		return false, nil
+	}))
+
 	fileServer := http.FileServer(http.FS(web.Files))
 	e.GET("/assets/*", echo.WrapHandler(fileServer))
 
