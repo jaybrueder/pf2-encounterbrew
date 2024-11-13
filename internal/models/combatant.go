@@ -50,6 +50,7 @@ type Combatant interface {
 	SetCondition(db database.Service, conditionID int, conditionValue int) []Condition
 	RemoveCondition(conditionID int) []Condition
 	GetAdjustmentModifier() int
+	IsMonster() bool
 }
 
 func AssignInitiative(combatants []Combatant) {

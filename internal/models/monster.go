@@ -565,6 +565,10 @@ func (m *Monster) SetEnumeration(value int) {
 	m.Enumeration = value
 }
 
+func (m Monster) IsMonster() bool {
+	return true
+}
+
 // Databas interactions
 
 func GetAllMonsters(db database.Service) ([]Monster, error) {

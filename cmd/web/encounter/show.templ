@@ -11,7 +11,7 @@ import (
 
 templ EncounterShow(encounter models.Encounter) {
     @web.Base(encounter.Name) {
-        <section class="max-w-4xl px-6 mx-auto">
+        <section class="max-w-4xl px-2 mx-auto">
             <div id="difficulty">
                 @Difficulty(encounter)
             </div>
@@ -55,13 +55,15 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
             <div class="px-4 py-2 -mx-3">
                 <div class="mx-3">
                     <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700 text-left uppercase">{combatant.GetName()}</button>
-                    <p class="text-xs text-gray-400">
-                        <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b></span>
-                        <span class="ml-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
-                        <span class="ml-6"><i class="fa-solid fa-hand-fist"></i> +{strconv.Itoa(combatant.GetFort())}</span>
-                        <span class="ml-2"><i class="fa-solid fa-person-running"></i> +{strconv.Itoa(combatant.GetRef())}</span>
-                        <span class="ml-2"><i class="fa-solid fa-brain"></i> +{strconv.Itoa(combatant.GetWill())}</span>
-                    </p>
+                    if combatant.IsMonster() {
+                        <p class="text-xs text-gray-400">
+                            <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b></span>
+                            <span class="ml-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
+                            <span class="ml-6"><i class="fa-solid fa-hand-fist"></i> +{strconv.Itoa(combatant.GetFort())}</span>
+                            <span class="ml-2"><i class="fa-solid fa-person-running"></i> +{strconv.Itoa(combatant.GetRef())}</span>
+                            <span class="ml-2"><i class="fa-solid fa-brain"></i> +{strconv.Itoa(combatant.GetWill())}</span>
+                        </p>
+                    }
                     <div>
                         for _, condition := range combatant.GetConditions() {
                             <a class="px-2 py-1 mr-2 text-xs font-bold text-white bg-blue-700 rounded-md cursor-pointer" tabindex="0" role="button">@ConditionName(&condition)</a>
@@ -89,8 +91,8 @@ templ EditCombatantModal(combatant models.Combatant, index int, encounterID int)
         aria-labelledby="modal-title" role="dialog" aria-modal="true"
     >
 
-        <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-            <div class="relative inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform border-solid border-2 bg-white rounded-md shadow-md sm:my-8 sm:w-full sm:max-w-sm sm:p-6 sm:align-middle">
+        <div class="flex items-end justify-center min-h-screen pb-20 text-center">
+            <div class="relative inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform border-solid border-2 bg-white rounded-md shadow-md w-full">
                 <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">
                     Edit <b>{combatant.GetName()}</b>
                 </h3>
@@ -452,14 +454,14 @@ templ ConditionSearchListItem(encounterID string, combatantIndex int, condition 
                     id="condition_value"
                     autocomplete="off"
                     value="1"
-                    class="block w-8 text-xs text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                    class="block w-8 text-xs text-center text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
                 </div>
             }
 
             <div class="flex">
                 <button
                 type="submit"
-                class="text-2xl font-medium uppercase text-green-700">
+                class="text-4xl font-medium uppercase text-green-700">
                     <i class="fa-solid fa-square-plus"></i>
                 </button>
             </div>
@@ -531,7 +533,7 @@ func getDifficultyText(value int) string {
 
 func isActive(index int, turn int) string {
     if index == turn {
-        return "border-gray-600"
+        return "border-yellow-500"
     } else {
         return "border-gray-100"
     }

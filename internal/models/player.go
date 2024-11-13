@@ -205,3 +205,7 @@ func (p Player) GetAdjustmentModifier() int {
 func (p *Player) SetEnumeration(value int) {
 	p.Enumeration = value
 }
+
+func (p Player) IsMonster() bool {
+	return false
+}
