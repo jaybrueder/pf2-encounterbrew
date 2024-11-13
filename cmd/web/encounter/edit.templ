@@ -88,13 +88,11 @@ templ MonstersAdded(encounter models.Encounter) {
 templ MonsterListItem(encounterID string, monster *models.Monster, isAdded bool) {
     <div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
         <div class="flex items-center justify-center w-12 bg-red-900">
-            if isAdded {
-                <span class="text-white font-semibold">{strconv.Itoa(monster.GetLevel())}</span>
-            }
+            <span class="text-white font-semibold">{strconv.Itoa(monster.GetLevel())}</span>
         </div>
 
-        <div class="px-4 py-2 -mx-3">
-            <div class="mx-3">
+        <div class="flex-1 px-4 py-2">
+            <div>
                 <span class="font-semibold uppercase text-xs text-gray-700">{monster.GetName()}</span>
                 <p class="text-xs text-gray-400">{monster.Data.System.Details.Publication.Title}</p>
             </div>
@@ -109,14 +107,14 @@ templ MonsterListItem(encounterID string, monster *models.Monster, isAdded bool)
                 hx-post={"/encounters/" + encounterID + "/add_monster/" + strconv.Itoa(monster.ID)}
                 hx-target="#monsters-added">
 
-                <div class="flex">
+                <div class="flex py-2">
                     <input
                     type="number"
                     name="level_adjustment"
                     id="level_adjustment"
                     autocomplete="off"
                     value="0"
-                    class="block w-8 mr-2 text-xs text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                    class="block w-8 mr-2 text-xs text-center text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
                 </div>
 
                 <div id="right" class="ml-auto flex items-center pr-2">
