@@ -198,7 +198,7 @@ templ Difficulty(encounter models.Encounter) {
 }
 
 templ Statblock(combatant models.Combatant) {
-    <div x-show="showStatblock" class="statblock w-full p-2 text-xs">
+    <div x-show="showStatblock" class="statblock w-full p-2 text-sm">
         // Rarity, Size, Traits, Level
         <div class="mb-1">
             <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-gray-900 ring-2 ring-inset ring-yellow-500 uppercase">Creature {strconv.Itoa(combatant.GetLevel())}</span>
