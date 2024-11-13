@@ -8,6 +8,7 @@ import (
 	"log"
 
 	"pf2.encounterbrew.com/internal/database"
+	"pf2.encounterbrew.com/internal/utils"
 )
 
 type Condition struct {
@@ -53,6 +54,10 @@ type Condition struct {
 
 func (c Condition) GetValue() int {
 	return c.Data.System.Value.Value
+}
+
+func (c Condition) GetDescription() string {
+	return utils.RemoveHTML(c.Data.System.Description.Value)
 }
 
 func GetCondition(db database.Service, conditionID int) (Condition, error) {
