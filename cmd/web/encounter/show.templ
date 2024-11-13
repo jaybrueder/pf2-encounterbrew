@@ -57,7 +57,10 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                     <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700 text-left uppercase">{combatant.GetName()}</button>
                     <p class="text-xs text-gray-400">
                         <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b></span>
-                        <span class="mx-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
+                        <span class="ml-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
+                        <span class="ml-6"><i class="fa-solid fa-hand-fist"></i> +{strconv.Itoa(combatant.GetFort())}</span>
+                        <span class="ml-2"><i class="fa-solid fa-person-running"></i> +{strconv.Itoa(combatant.GetRef())}</span>
+                        <span class="ml-2"><i class="fa-solid fa-brain"></i> +{strconv.Itoa(combatant.GetWill())}</span>
                     </p>
                     <div>
                         for _, condition := range combatant.GetConditions() {
