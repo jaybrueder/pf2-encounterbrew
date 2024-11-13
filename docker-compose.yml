@@ -23,6 +23,8 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+    profiles:
+      - prod
 
   migrate:
     build:
@@ -60,17 +62,39 @@ services:
       POSTGRES_DB: encounterbrew
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    profiles:
+      - dev
+
+  postgres-dev:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: encounterbrew
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    profiles:
+      - dev
 
   redis:
+    image: redis:6
+    volumes:
+      - redis_data:/data
+    profiles:
+      - dev
+
+  redis-dev:
     image: redis:6
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
+    profiles:
+      - dev
 
 volumes:
   postgres_data:
