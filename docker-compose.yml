@@ -1,4 +1,5 @@
 services:
+  # Production services
   app:
     build:
       context: .
@@ -26,6 +27,48 @@ services:
     profiles:
       - prod
 
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: encounterbrew
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    profiles:
+      - prod
+
+  redis:
+    image: redis:6
+    volumes:
+      - redis_data:/data
+    profiles:
+      - prod
+
+  # Development services (with port mapping)
+  postgres-dev:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: encounterbrew
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    profiles:
+      - dev
+
+  redis-dev:
+    image: redis:6
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    profiles:
+      - dev
+
+  # Tools
   migrate:
     build:
       context: .
@@ -52,49 +95,9 @@ services:
       - DB_PASSWORD=admin
       - DB_DATABASE=encounterbrew
       - DB_SCHEMA=public
-    restart: "no"  # Don't restart the container after it finishes
+    restart: "no"
     profiles:
-      - seeder  # This makes the seeder not start by default
-
-  postgres:
-    image: postgres:13
-    environment:
-      POSTGRES_DB: encounterbrew
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    profiles:
-      - dev
-
-  postgres-dev:
-    image: postgres:13
-    environment:
-      POSTGRES_DB: encounterbrew
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    profiles:
-      - dev
-
-  redis:
-    image: redis:6
-    volumes:
-      - redis_data:/data
-    profiles:
-      - dev
-
-  redis-dev:
-    image: redis:6
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    profiles:
-      - dev
+      - seeder
 
 volumes:
   postgres_data:
