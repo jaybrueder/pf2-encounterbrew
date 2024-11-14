@@ -440,7 +440,7 @@ func (m Monster) GetSpells() map[string]string {
 
 			spellInfo := map[string]string{
 				"name":        spell.Name,
-				"description": spell.System.Description.Value,
+				"description": utils.NewReplacer().ProcessText(spell.System.Description.Value),
 				"level":       strconv.Itoa(level),
 				"uses":        strconv.Itoa(spell.System.Location.Uses.Max),
 				"type":        spell.Type,
@@ -483,7 +483,7 @@ func (m Monster) GetActions(category string) []map[string]string {
 			action["traits"] = utils.RemoveTrailingComma(traits)
 
 			description := i.System.Description.Value
-			description = utils.RemoveHTML(description)
+			description = utils.RemoveHTML(utils.NewReplacer().ProcessText(description))
 			action["description"] = description
 
 			actions = append(actions, action)
