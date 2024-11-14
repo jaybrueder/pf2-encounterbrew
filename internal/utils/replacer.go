@@ -23,10 +23,11 @@ func NewReplacer() *Replacer {
 			"damage": regexp.MustCompile(`@Damage\[(\d+)d(\d+)\[([^\]]+)\]\]`),
 
 			// Check patterns
-			"check_with_traits": regexp.MustCompile(`@Check\[([^|]+)\|dc:(\d+)\|traits:([^]]+)\]`),
-			"check_with_showdc": regexp.MustCompile(`@Check\[([^|]+)\|showDC:all\|dc:(\d+)\]`),
-			"check_with_basic":  regexp.MustCompile(`@Check\[([^|]+)\|dc:(\d+)\|basic\]`),
-			"check_simple":      regexp.MustCompile(`@Check\[([^|]+)\|dc:(\d+)\]`),
+			"check_with_full_traits": regexp.MustCompile(`@Check\[([^|]+)\|dc:(\d+)\|basic\|traits:([^|]+)(?:\|overrideTraits:true)?\]`),
+			"check_with_traits":      regexp.MustCompile(`@Check\[([^|]+)\|dc:(\d+)\|traits:([^]]+)\]`),
+			"check_with_showdc":      regexp.MustCompile(`@Check\[([^|]+)\|showDC:all\|dc:(\d+)\]`),
+			"check_with_basic":       regexp.MustCompile(`@Check\[([^|]+)\|dc:(\d+)\|basic\]`),
+			"check_simple":           regexp.MustCompile(`@Check\[([^|]+)\|dc:(\d+)\]`),
 
 			// Template patterns
 			"template_with_text":   regexp.MustCompile(`@Template\[([^|]+)\|distance:(\d+)\]{[^}]+}`),
@@ -82,6 +83,15 @@ func (r *Replacer) ProcessText(input string) string {
 		template := parts[1] // emanation
 		distance := parts[2] // 100
 		return fmt.Sprintf("%s (%s feet)", template, distance)
+	})
+
+	// Replace checks with full traits
+	input = r.patterns["check_with_full_traits"].ReplaceAllStringFunc(input, func(match string) string {
+		parts := r.patterns["check_with_full_traits"].FindStringSubmatch(match)
+		checkType := parts[1]
+		dc := parts[2]
+		// traits are in parts[3] but we don't need them for the output
+		return fmt.Sprintf("DC %s basic %s", dc, checkType)
 	})
 
 	// Replace checks with traits
