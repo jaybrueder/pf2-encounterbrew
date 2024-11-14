@@ -350,9 +350,9 @@ templ Action(a map[string]string) {
             @ActionCost("reaction")
         }
         if a["traits"] != "" {
-            ({a["traits"]})
+            <span>({a["traits"]}) </span>
         }
-        {a["description"]}
+        <p class="px-2 text-justify">@templ.Raw(a["description"])</p>
     </p>
 }
 
@@ -493,7 +493,7 @@ templ ConditionButton(condition *models.Condition) {
             class="absolute p-4 m-2 text-sm bg-gray-900 text-white font-normal text-left rounded-lg shadow-lg left-0"
             style="top: 4em; z-index: 1;">
                 <p class="mb-1 font-bold">{condition.GetName()}</p>
-                <p>{condition.GetDescription()}</p>
+                <p>@templ.Raw(condition.GetDescription())</p>
          </div>
     </div>
 }
