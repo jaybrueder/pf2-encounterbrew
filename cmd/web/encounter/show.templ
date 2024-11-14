@@ -59,31 +59,14 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                         <p class="text-xs text-gray-400">
                             <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b></span>
                             <span class="ml-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
-                            <span class="ml-6"><i class="fa-solid fa-hand-fist"></i> +{strconv.Itoa(combatant.GetFort())}</span>
-                            <span class="ml-2"><i class="fa-solid fa-person-running"></i> +{strconv.Itoa(combatant.GetRef())}</span>
-                            <span class="ml-2"><i class="fa-solid fa-brain"></i> +{strconv.Itoa(combatant.GetWill())}</span>
+                            <span class="ml-6"><i class="fa-solid fa-hand-fist"></i> {plusMinus(combatant.GetFort())}</span>
+                            <span class="ml-2"><i class="fa-solid fa-person-running"></i> {plusMinus(combatant.GetRef())}</span>
+                            <span class="ml-2"><i class="fa-solid fa-brain"></i> {plusMinus(combatant.GetWill())}</span>
                         </p>
                     }
                     <div class="flex justify-left">
                         for _, condition := range combatant.GetConditions() {
-                            <div x-data="{ showTooltip: false }">
-                                <button
-                                    @click="showTooltip = !showTooltip"
-                                    @click.outside="showTooltip = false"
-                                    class="px-2 py-1 mr-2 text-xs font-bold text-white bg-blue-700 rounded-md cursor-pointer relative">
-                                    @ConditionName(&condition)
-
-                                    <div
-                                        x-show="showTooltip"
-                                        x-cloak
-                                        x-transition
-                                        class="w-64 p-2 mt-2 text-xs text-white font-normal text-left rounded-lg shadow-lg left-0">
-                                        {condition.GetDescription()}
-                                    </div>
-                                </button>
-                            </div>
-
-                            <!--button x-data data-description={condition.GetDescription()} @click="$tooltip($el.dataset.description, { placement: 'bottom', allowHTML: true, trigger: 'click', hideOnClick: true  })" class="px-2 py-1 mr-2 text-xs font-bold text-white bg-blue-700 rounded-md cursor-pointer" tabindex="0" role="button">@ConditionName(&condition)</button-->
+                            @ConditionButton(&condition)
                         }
                     </div>
                 </div>
@@ -460,10 +443,10 @@ templ ConditionSearchListItem(encounterID string, combatantIndex int, condition 
             hx-swap="innerHTML">
 
             <div class="flex">
-                <p class="text-lg font-semibold text-gray-700">{condition.Data.Name}</p>
+                <p class="text-lg font-semibold text-gray-700">{condition.GetName()}</p>
             </div>
 
-            if condition.Data.System.Value.IsValued {
+            if condition.IsValued() {
                 <div class="flex">
                     <input
                     type="number"
@@ -488,11 +471,31 @@ templ ConditionSearchListItem(encounterID string, combatantIndex int, condition 
 
 templ ConditionName(condition *models.Condition) {
     <span>
-        {condition.Data.Name}
+        {condition.GetName()}
         if condition.GetValue() > 0 {
             {strconv.Itoa(condition.GetValue())}
         }
     </span>
+}
+
+templ ConditionButton(condition *models.Condition) {
+    <div x-data="{ showTooltip: false }">
+        <button
+            @click="showTooltip = !showTooltip"
+            @click.outside="showTooltip = false"
+            class="px-2 py-1 mr-2 text-xs font-bold text-white bg-blue-700 rounded-md cursor-pointer relative">
+            @ConditionName(condition)
+        </button>
+
+        <div
+            x-show="showTooltip"
+            x-transition
+            class="absolute p-4 m-2 text-sm bg-gray-900 text-white font-normal text-left rounded-lg shadow-lg left-0"
+            style="top: 4em">
+                <p class="mb-1 font-bold">{condition.GetName()}</p>
+                <p>{condition.GetDescription()}</p>
+         </div>
+    </div>
 }
 
 func getColorClass(combatant models.Combatant) string {
