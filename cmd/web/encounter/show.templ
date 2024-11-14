@@ -352,7 +352,7 @@ templ Action(a map[string]string) {
         if a["traits"] != "" {
             <span>({a["traits"]}) </span>
         }
-        <div class="px-2 text-justify action-decription">@templ.Raw(a["description"])</div>
+        <div class="px-2 text-justify">@templ.Raw(a["description"])</div>
     </p>
 }
 
