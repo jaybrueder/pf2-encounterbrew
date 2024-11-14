@@ -65,7 +65,7 @@ func (c Condition) IsValued() bool {
 }
 
 func (c Condition) GetDescription() string {
-	return utils.RemoveHTML(c.Data.System.Description.Value)
+	return utils.RemoveHTML(utils.NewReplacer().ProcessText(c.Data.System.Description.Value))
 }
 
 func GetCondition(db database.Service, conditionID int) (Condition, error) {
