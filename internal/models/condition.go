@@ -56,6 +56,14 @@ func (c Condition) GetValue() int {
 	return c.Data.System.Value.Value
 }
 
+func (c Condition) GetName() string {
+	return utils.RemoveHTML(c.Data.Name)
+}
+
+func (c Condition) IsValued() bool {
+	return c.Data.System.Value.IsValued
+}
+
 func (c Condition) GetDescription() string {
 	return utils.RemoveHTML(c.Data.System.Description.Value)
 }
