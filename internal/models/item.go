@@ -92,6 +92,15 @@ func (i Item) GetName() string {
 	return utils.CapitalizeFirst(i.Name)
 }
 
+func (i Item) GetDescription() string {
+	localizer, _ := utils.GetLocalizer("data/lang/en.json")
+
+	description := localizer.ProcessText(i.System.Description.Value)
+	description = utils.RemoveHTML(utils.NewReplacer().ProcessText(description))
+
+	return description
+}
+
 func (i Item) GetAttackValue(modifier int) int {
 	return i.System.Bonus.Value + modifier
 }

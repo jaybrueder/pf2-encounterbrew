@@ -461,12 +461,7 @@ func (m Monster) GetActions(category string) []map[string]string {
 			}
 
 			action["traits"] = utils.RemoveTrailingComma(traits)
-
-			localizer, _ := utils.GetLocalizer("data/lang/en.json")
-
-			description := localizer.ProcessText(i.System.Description.Value)
-			description = utils.RemoveHTML(utils.NewReplacer().ProcessText(description))
-			action["description"] = description
+			action["description"] = i.GetDescription()
 
 			actions = append(actions, action)
 		}
