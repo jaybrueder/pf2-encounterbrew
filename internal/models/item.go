@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"sort"
 
 	"pf2.encounterbrew.com/internal/utils"
 )
@@ -29,6 +30,10 @@ type Item struct {
 		AttackEffects struct {
 			Value []any `json:"value"`
 		} `json:"attackEffects"`
+		Area struct {
+			Type  string `json:"type"`
+			Value int    `json:"value"`
+		} `json:"area"`
 		Bonus struct {
 			Value int `json:"value"`
 		} `json:"bonus"`
@@ -37,9 +42,20 @@ type Item struct {
 			Damage     string `json:"damage"`
 			DamageType string `json:"damageType"`
 		} `json:"damageRolls"`
+		Defense struct {
+			Save struct {
+				Basic     bool   `json:"basic"`
+				Statistic string `json:"statistic"`
+			} `json:"save"`
+		} `json:"defense"`
 		Description struct {
 			Value string `json:"value"`
 		} `json:"description"`
+		Duration struct {
+			Sustained bool   `json:"sustained"`
+			Value     string `json:"value"`
+		} `json:"duration"`
+
 		Hardness int `json:"hardness"`
 		HP       struct {
 			Max int `json:"max"`
@@ -61,9 +77,12 @@ type Item struct {
 			Remaster bool   `json:"remaster"`
 			Title    string `json:"title"`
 		} `json:"publication"`
-		Quantity int   `json:"quantity"`
-		Rules    []any `json:"rules"`
-		Runes    struct {
+		Quantity int `json:"quantity"`
+		Range    struct {
+			Value string `json:"value"`
+		} `json:"range"`
+		Rules []any `json:"rules"`
+		Runes struct {
 			Potency  int `json:"potency"`
 			Striking int `json:"striking"`
 		} `json:"runes"`
@@ -73,8 +92,15 @@ type Item struct {
 			Mod   int `json:"mod"`
 			Value int `json:"value"`
 		} `json:"spelldc"`
+		Target struct {
+			Value string `json:"value"`
+		} `json:"target"`
+		Time struct {
+			Value string `json:"value"`
+		} `json:"time"`
 		Traits struct {
-			Value []string `json:"value"`
+			Value      []string `json:"value"`
+			Traditions []string `json:"traditions"`
 		} `json:"traits"`
 		WeaponType struct {
 			Value string `json:"value"`
@@ -89,6 +115,75 @@ func (i Item) GetWeaponType() string {
 
 func (i Item) GetName() string {
 	return utils.CapitalizeFirst(i.Name)
+}
+
+func (i Item) GetDescription() string {
+	localizer, _ := utils.GetLocalizer("data/lang/en.json")
+
+	description := localizer.ProcessText(i.System.Description.Value)
+	description = utils.NewReplacer().ProcessText(description)
+
+	return description
+}
+
+func (i Item) GetLevel() int {
+	return i.System.Level.Value
+}
+
+func (i Item) GetSpellTraits() []string {
+	return i.System.Traits.Value
+}
+
+func (i Item) GetSpellTraditions() string {
+	traditions := ""
+
+	for _, tradition := range i.System.Traits.Traditions {
+		traditions += tradition + ", "
+	}
+
+	return traditions
+}
+
+func (i Item) GetSpellDefense() string {
+	return i.System.Defense.Save.Statistic
+}
+
+func (i Item) GetSpellRange() string {
+	return i.System.Range.Value
+}
+
+func (i Item) HasCastTime() bool {
+	if i.System.Time.Value != "1" && i.System.Time.Value != "2" && i.System.Time.Value != "3" && i.System.Time.Value != "1 to 3" && i.System.Time.Value != "reaction" {
+		return true
+	} else {
+		return false
+	}
+}
+
+func (i Item) GetSpellTarget() string {
+	return i.System.Target.Value
+}
+
+func (i Item) GetSpellDuration() string {
+	return i.System.Duration.Value
+}
+
+func (i Item) GetSpellTime() string {
+	if i.System.Time.Value == "1 to 3" {
+		return "1-3"
+	} else {
+		return i.System.Time.Value
+	}
+}
+
+func (i Item) GetSpellArea() string {
+	area := ""
+
+	if i.System.Area.Value > 0 {
+		area = fmt.Sprintf("%d-foot %s", i.System.Area.Value, i.System.Area.Type)
+	}
+
+	return area
 }
 
 func (i Item) GetAttackValue(modifier int) int {
@@ -175,4 +270,30 @@ func (i Item) GetQuantity() string {
 	} else {
 		return ""
 	}
+}
+
+// OrderedItemMap is a map of Items with ordered keys
+type OrderedItemMap struct {
+	Data map[int][]Item
+	Keys []int
+}
+
+func CreateSortedOrderedItemMap(originalMap map[int][]Item) OrderedItemMap {
+	newMap := OrderedItemMap{
+		Data: make(map[int][]Item),
+		Keys: make([]int, 0, len(originalMap)),
+	}
+
+	// Get and sort keys
+	for k := range originalMap {
+		newMap.Keys = append(newMap.Keys, k)
+	}
+	sort.Ints(newMap.Keys)
+
+	// Populate map
+	for _, k := range newMap.Keys {
+		newMap.Data[k] = originalMap[k]
+	}
+
+	return newMap
 }

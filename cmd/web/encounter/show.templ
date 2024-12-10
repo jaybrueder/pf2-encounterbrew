@@ -5,6 +5,7 @@ import (
 
     "pf2.encounterbrew.com/cmd/web"
     "pf2.encounterbrew.com/internal/models"
+    "pf2.encounterbrew.com/internal/utils"
 
     _ "github.com/a-h/templ"
 )
@@ -211,7 +212,7 @@ templ Statblock(combatant models.Combatant) {
             for _, trait := range combatant.GetTraits() {
                 <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-red-900 ring-2 ring-inset ring-yellow-500 uppercase mr-1 mb-1">{trait}</span>
             }
-          </div>
+        </div>
 
         // Perception
         <div>
@@ -301,7 +302,7 @@ templ Statblock(combatant models.Combatant) {
         </div>
 
         // Spells
-        if len(combatant.GetSpells()) > 0 {
+        if len(combatant.GetSpells().Keys) > 0 {
             <div>
                 <p>
                 <span>@SpellSchool(combatant.GetSpellSchool(), combatant.GetAdjustmentModifier())</span>
@@ -356,11 +357,22 @@ templ Action(a map[string]string) {
     </p>
 }
 
-templ Spells(formattedSpells map[string]string) {
+templ Spells(orderedSpells models.OrderedItemMap) {
     <ul class="pl-2">
-        for level, spells := range formattedSpells {
+        for _, level := range orderedSpells.Keys {
             <li class="mr-1">
-                <b>{level}</b> <i>{spells}</i>
+                <div class="flex flex-wrap">
+                    <span class="mr-1">
+                        if level == 0 {
+                            <b>Cantrips</b>
+                        } else {
+                            <b>{utils.FormatOrdinal(strconv.Itoa(level))}</b>
+                        }
+                    </span>
+                    for _, spell := range orderedSpells.Data[level] {
+                        @SpellButton(spell)
+                    }
+                </div>
             </li>
         }
     </ul>
@@ -372,6 +384,14 @@ templ SpellSchool(i models.Item, modifier int) {
 
 templ ActionCost(cost string) {
     <img class="inline-flex mr-1" style="height:12px" src={"/assets/images/" + cost + "-action.webp"} />
+}
+
+templ ActionCostBig(cost string) {
+    if cost == "1-3" {
+    <img class="inline-flex" style="height:24px; margin-top: -4px;" src={"/assets/images/1-action.webp"} /> to <img class="inline-flex" style="height:24px; margin-top: -4px;" src={"/assets/images/3-action.webp"} />
+    } else {
+        <img class="inline-flex" style="height:24px; margin-top: -4px;" src={"/assets/images/" + cost + "-action.webp"} />
+    }
 }
 
 templ CombatantConditions(encounterID string, combatantIndex int, conditions []models.Condition) {
@@ -487,13 +507,74 @@ templ ConditionButton(condition *models.Condition) {
             @ConditionName(condition)
         </button>
 
-        <div
-            x-show="showTooltip"
-            x-transition
-            class="absolute p-4 m-2 text-sm bg-gray-900 text-white font-normal text-left rounded-lg shadow-lg left-0"
-            style="top: 4em; z-index: 1;">
-                <p class="mb-1 font-bold">{condition.GetName()}</p>
+        <div x-show="showTooltip" x-transition class="fixed inset-0 flex items-center justify-center bg-black/50" style="z-index: 50;">
+            <div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-blue-700 rounded-lg shadow-lg max-w-2xl max-h-[80vh] overflow-y-auto">
+                <p class="mb-1 text-lg font-bold uppercase">{condition.GetName()}</p>
                 <p>@templ.Raw(condition.GetDescription())</p>
+            </div>
+         </div>
+    </div>
+}
+
+templ SpellButton(spell models.Item) {
+    <div x-data="{ showTooltip: false }">
+        <button
+            @click="showTooltip = !showTooltip"
+            @click.outside="showTooltip = false"
+            class="mr-1 underline cursor-pointer">
+            {spell.GetName()}
+        </button>
+
+        <div x-show="showTooltip" x-transition class="fixed inset-0 flex items-center justify-center bg-black/50" style="z-index: 50;">
+            <div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-red-900 rounded-lg shadow-lg max-w-2xl max-h-[80vh] overflow-y-auto">
+                <p class="mb-1 text-lg font-bold uppercase">{spell.GetName()}
+                    if !spell.HasCastTime() {
+                        <span class="ml-1">@ActionCostBig(spell.GetSpellTime())</span>
+                    }
+                </p>
+                <hr>
+                <div class="mb-1 mt-1">
+                    <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-gray-900 ring-2 ring-inset ring-yellow-500 uppercase">Spell {strconv.Itoa(spell.GetLevel())}</span>
+                    for _, trait := range spell.GetSpellTraits() {
+                        <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-red-900 ring-2 ring-inset ring-yellow-500 uppercase mr-1 mb-1">{trait}</span>
+                    }
+                </div>
+                <div>
+                    <strong>Traditions</strong> {spell.GetSpellTraditions()}
+                </div>
+                if spell.GetSpellArea() != "" {
+                    <div>
+                        <strong>Area</strong> <span>{spell.GetSpellArea()}</span>
+                    </div>
+                }
+                if spell.HasCastTime() {
+                    <div>
+                        <strong>Cast</strong> <span>{spell.GetSpellTime()}</span>
+                    </div>
+                }
+                if spell.GetSpellRange() != "" {
+                    <div>
+                        <strong>Range</strong> <span>{spell.GetSpellRange()}</span>
+                    </div>
+                }
+                if spell.GetSpellTarget() != "" {
+                    <div>
+                        <strong>Targets</strong> <span>{spell.GetSpellTarget()}</span>
+                    </div>
+                }
+                if spell.GetSpellDefense() != "" {
+                    <div>
+                        <strong>Defense</strong> <span class="capitalize">{spell.GetSpellDefense()}</span>
+                    </div>
+                }
+                if spell.GetSpellDuration() != "" {
+                    <div>
+                        <strong>Duration</strong> <span>{spell.GetSpellDuration()}</span>
+                    </div>
+                }
+                <hr>
+                <div>@templ.Raw(spell.GetDescription())</div>
+            </div>
          </div>
     </div>
 }

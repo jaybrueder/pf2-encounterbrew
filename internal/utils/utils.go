@@ -68,44 +68,6 @@ func Contains(slice []string, item string) bool {
 	return false
 }
 
-func FormatSortedSpells(sortedSpells []map[string]string, combatantLevel int) map[string]string {
-	levelGroups := make(map[string][]string)
-
-	for _, spell := range sortedSpells {
-		level := spell["level"]
-
-		var spellString string
-		uses, _ := strconv.Atoi(spell["uses"])
-
-		if uses > 0 {
-			spellString = spell["name"] + " (x" + spell["uses"] + ")"
-		} else {
-			spellString = spell["name"]
-		}
-
-		levelGroups[level] = append(levelGroups[level], spellString)
-	}
-
-	levels := []string{"10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0"}
-	result := make(map[string]string)
-
-	for _, level := range levels {
-		spells, exists := levelGroups[level]
-		if !exists {
-			continue
-		}
-
-		key := FormatOrdinal(level)
-		if level == "0" {
-			key = "Cantrips" + " (" + FormatOrdinal(strconv.Itoa(combatantLevel)) + ")"
-		}
-
-		result[key] = strings.Join(spells, ", ")
-	}
-
-	return result
-}
-
 func DivideAndRoundUp(n int) int {
 	result := n / 2
 	if n%2 != 0 {
