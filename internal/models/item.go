@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"sort"
 
 	"pf2.encounterbrew.com/internal/utils"
 )
@@ -175,4 +176,30 @@ func (i Item) GetQuantity() string {
 	} else {
 		return ""
 	}
+}
+
+// OrderedItemMap is a map of Items with ordered keys
+type OrderedItemMap struct {
+	Data map[int][]Item
+	Keys []int
+}
+
+func CreateSortedOrderedItemMap(originalMap map[int][]Item) OrderedItemMap {
+	newMap := OrderedItemMap{
+		Data: make(map[int][]Item),
+		Keys: make([]int, 0, len(originalMap)),
+	}
+
+	// Get and sort keys
+	for k := range originalMap {
+		newMap.Keys = append(newMap.Keys, k)
+	}
+	sort.Ints(newMap.Keys)
+
+	// Populate map
+	for _, k := range newMap.Keys {
+		newMap.Data[k] = originalMap[k]
+	}
+
+	return newMap
 }

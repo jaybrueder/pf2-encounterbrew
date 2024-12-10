@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"sort"
 	"strconv"
 
 	"pf2.encounterbrew.com/internal/database"
@@ -424,8 +423,8 @@ func (m Monster) GetSpellSchool() Item {
 	return spellSchool
 }
 
-func (m Monster) GetSpells() map[string]string {
-	spellsByLevel := make(map[int][]map[string]string)
+func (m Monster) GetSpells() OrderedItemMap {
+	spellsByLevel := make(map[int][]Item)
 
 	for _, spell := range m.Data.Items {
 		if spell.Type == "spell" {
@@ -438,30 +437,11 @@ func (m Monster) GetSpells() map[string]string {
 				level = spell.System.Location.HeightenedLevel
 			}
 
-			spellInfo := map[string]string{
-				"name":        spell.Name,
-				"description": utils.NewReplacer().ProcessText(spell.System.Description.Value),
-				"level":       strconv.Itoa(level),
-				"uses":        strconv.Itoa(spell.System.Location.Uses.Max),
-				"type":        spell.Type,
-			}
-
-			spellsByLevel[level] = append(spellsByLevel[level], spellInfo)
+			spellsByLevel[level] = append(spellsByLevel[level], spell)
 		}
 	}
 
-	var levels []int
-	for level := range spellsByLevel {
-		levels = append(levels, level)
-	}
-	sort.Sort(sort.Reverse(sort.IntSlice(levels)))
-
-	var sortedSpells []map[string]string
-	for _, level := range levels {
-		sortedSpells = append(sortedSpells, spellsByLevel[level]...)
-	}
-
-	return utils.FormatSortedSpells(sortedSpells, utils.DivideAndRoundUp(m.GetLevel()))
+	return CreateSortedOrderedItemMap(spellsByLevel)
 }
 
 func (m Monster) GetActions(category string) []map[string]string {

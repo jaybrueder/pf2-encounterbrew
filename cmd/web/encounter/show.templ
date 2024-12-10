@@ -5,6 +5,7 @@ import (
 
     "pf2.encounterbrew.com/cmd/web"
     "pf2.encounterbrew.com/internal/models"
+    "pf2.encounterbrew.com/internal/utils"
 
     _ "github.com/a-h/templ"
 )
@@ -301,7 +302,7 @@ templ Statblock(combatant models.Combatant) {
         </div>
 
         // Spells
-        if len(combatant.GetSpells()) > 0 {
+        if len(combatant.GetSpells().Keys) > 0 {
             <div>
                 <p>
                 <span>@SpellSchool(combatant.GetSpellSchool(), combatant.GetAdjustmentModifier())</span>
@@ -356,11 +357,18 @@ templ Action(a map[string]string) {
     </p>
 }
 
-templ Spells(formattedSpells map[string]string) {
+templ Spells(orderedSpells models.OrderedItemMap) {
     <ul class="pl-2">
-        for level, spells := range formattedSpells {
+        for _, level := range orderedSpells.Keys {
             <li class="mr-1">
-                <b>{level}</b> <i>{spells}</i>
+                if level == 0 {
+                    <b>Cantrips</b>
+                } else {
+                <b>{utils.FormatOrdinal(strconv.Itoa(level))}</b>
+                }
+                for _, spell := range orderedSpells.Data[level] {
+                    <a href="#" class="mr-1 underline">{spell.GetName()}</a>
+                }
             </li>
         }
     </ul>
