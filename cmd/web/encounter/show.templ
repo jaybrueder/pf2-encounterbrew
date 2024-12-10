@@ -508,9 +508,9 @@ templ ConditionButton(condition *models.Condition) {
         </button>
 
         <div x-show="showTooltip" x-transition class="fixed inset-0 flex items-center justify-center bg-black/50" style="z-index: 50;">
-            <div class="p-4 m-2 text-sm bg-gray-900 text-white font-normal text-left rounded-lg shadow-lg max-w-2xl max-h-[80vh] overflow-y-auto">
-            <p class="mb-1 font-bold">{condition.GetName()}</p>
-            <p>@templ.Raw(condition.GetDescription())</p>
+            <div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-blue-700 rounded-lg shadow-lg max-w-2xl max-h-[80vh] overflow-y-auto">
+                <p class="mb-1 text-lg font-bold uppercase">{condition.GetName()}</p>
+                <p>@templ.Raw(condition.GetDescription())</p>
             </div>
          </div>
     </div>
