@@ -8,7 +8,13 @@
 - docker-compose
 
 ```
-docker compose --profile dev up -d
+$ docker compose --profile dev up -d
+
+$ export PF2ENCOUNTERBREW_DB_DSN=postgres://admin:admin@localhost/encounterbrew?sslmode=disable
+
+$ migrate -path=./migrations -database=$PF2ENCOUNTERBREW_DB_DSN up
+
+$ go run cmd/seed/seeder.go
 ```
 
 ## Production
