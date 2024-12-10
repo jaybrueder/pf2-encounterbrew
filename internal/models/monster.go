@@ -461,7 +461,7 @@ func (m Monster) GetActions(category string) []map[string]string {
 			}
 
 			action["traits"] = utils.RemoveTrailingComma(traits)
-			action["description"] = i.GetDescription()
+			action["description"] = utils.RemoveHTML(i.GetDescription())
 
 			actions = append(actions, action)
 		}
