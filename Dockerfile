@@ -37,6 +37,8 @@ WORKDIR /app
 COPY --from=builder /app/main .
 # Copy any static assets needed for runtime
 COPY --from=builder /app/cmd/web/assets/css/output.css ./cmd/web/assets/css/output.css
+# Copy language files
+COPY --from=builder /app/data/lang ./data/lang
 
 # Expose the port your app runs on
 EXPOSE 8080
