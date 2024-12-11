@@ -86,8 +86,21 @@ func (l *Localizer) cleanText(text string) string {
 }
 
 // ProcessText replaces all @Localize patterns with their corresponding text
-func (l *Localizer) ProcessText(input string) string {
-	return l.pattern.ReplaceAllStringFunc(input, func(match string) string {
+func (l *Localizer) ProcessText(input interface{}) string {
+	// Handle nil input
+	if input == nil {
+		return ""
+	}
+
+	// Convert input to string if it's not already
+	inputStr, ok := input.(string)
+	if !ok {
+		// Handle non-string input
+		// You might want to log this situation
+		return fmt.Sprintf("%v", input)
+	}
+
+	return l.pattern.ReplaceAllStringFunc(inputStr, func(match string) string {
 		// Extract path from @Localize[...]
 		path := l.pattern.FindStringSubmatch(match)[1]
 

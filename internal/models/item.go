@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"log"
 	"sort"
 
 	"pf2.encounterbrew.com/internal/utils"
@@ -116,7 +117,11 @@ func (i Item) GetName() string {
 }
 
 func (i Item) GetDescription() string {
-	localizer, _ := utils.GetLocalizer("data/lang/en.json")
+	localizer, err := utils.GetLocalizer("data/lang/en.json")
+	if err != nil {
+		log.Fatal(err)
+		return ""
+	}
 
 	description := localizer.ProcessText(i.System.Description.Value)
 	description = utils.NewReplacer().ProcessText(description)
