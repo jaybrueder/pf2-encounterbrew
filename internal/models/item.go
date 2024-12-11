@@ -77,12 +77,10 @@ type Item struct {
 			Remaster bool   `json:"remaster"`
 			Title    string `json:"title"`
 		} `json:"publication"`
-		Quantity int `json:"quantity"`
-		Range    struct {
-			Value string `json:"value"`
-		} `json:"range"`
-		Rules []any `json:"rules"`
-		Runes struct {
+		Quantity int         `json:"quantity"`
+		Range    interface{} `json:"range"`
+		Rules    []any       `json:"rules"`
+		Runes    struct {
 			Potency  int `json:"potency"`
 			Striking int `json:"striking"`
 		} `json:"runes"`
@@ -148,8 +146,16 @@ func (i Item) GetSpellDefense() string {
 	return i.System.Defense.Save.Statistic
 }
 
-func (i Item) GetSpellRange() string {
-	return i.System.Range.Value
+func (i *Item) GetRange() string {
+	switch v := i.System.Range.(type) {
+	case map[string]interface{}:
+		if val, ok := v["value"].(string); ok {
+			return val
+		}
+	case float64: // JSON numbers are unmarshaled as float64
+		return fmt.Sprintf("%d", int(v))
+	}
+	return ""
 }
 
 func (i Item) HasCastTime() bool {
