@@ -73,8 +73,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.migrate
-    depends_on:
-      - postgres
     volumes:
       - ./migrations:/migrations
     command: ["-path", "/migrations", "-database", "postgres://admin:admin@postgres:5432/encounterbrew?sslmode=disable", "up"]
@@ -85,9 +83,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.seeder
-    depends_on:
-      - postgres
-      - redis
     environment:
       - DB_HOST=postgres
       - DB_PORT=5432
