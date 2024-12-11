@@ -552,9 +552,9 @@ templ SpellButton(spell models.Item) {
                         <strong>Cast</strong> <span>{spell.GetSpellTime()}</span>
                     </div>
                 }
-                if spell.GetSpellRange() != "" {
+                if spell.GetRange() != "" {
                     <div>
-                        <strong>Range</strong> <span>{spell.GetSpellRange()}</span>
+                        <strong>Range</strong> <span>{spell.GetRange()}</span>
                     </div>
                 }
                 if spell.GetSpellTarget() != "" {
