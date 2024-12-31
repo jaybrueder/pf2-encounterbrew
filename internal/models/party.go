@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"log"
 	"strconv"
 
 	"pf2.encounterbrew.com/internal/database"
@@ -18,6 +19,42 @@ type Party struct {
 }
 
 // Database interaction
+func GetAllParties(db database.Service) ([]Party, error) {
+	if db == nil {
+		return nil, errors.New("database service is nil")
+	}
+
+	rows, err := db.Query(`
+		SELECT p.id, p.name, p.user_id, u.name AS user_name
+		FROM parties p
+		JOIN users u ON p.user_id = u.id
+		WHERE p.user_id = $1
+		ORDER BY p.id
+	`, 1)
+	if err != nil {
+		return nil, fmt.Errorf("error querying parties: %v", err)
+	}
+	defer rows.Close()
+
+	var parties []Party
+	for rows.Next() {
+		var p Party
+		p.User = &User{}
+
+		err := rows.Scan(&p.ID, &p.Name, &p.UserID, &p.User.Name)
+
+		if err != nil {
+			return nil, fmt.Errorf("error scanning party row: %v", err)
+		}
+		parties = append(parties, p)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("error iterating party rows: %v", err)
+	}
+
+	return parties, nil
+}
 
 func GetParty(db database.Service, id string) (Party, error) {
 	if db == nil {
@@ -75,4 +112,100 @@ func GetParty(db database.Service, id string) (Party, error) {
 	p.Players = players
 
 	return p, nil
+}
+
+// Update updates the party's name in the database
+func (p *Party) Update(db database.Service) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	result, err := db.Exec(`
+        UPDATE parties
+        SET name = $1
+        WHERE id = $2 AND user_id = $3`,
+		p.Name, p.ID, p.UserID)
+
+	if err != nil {
+		return fmt.Errorf("error updating party: %v", err)
+	}
+
+	// Check if any row was affected
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("error getting rows affected: %v", err)
+	}
+	if rowsAffected == 0 {
+		return fmt.Errorf("party not found or user not authorized")
+	}
+
+	return nil
+}
+
+// UpdateWithPlayers updates the party and all its players in a single transaction
+func (p *Party) UpdateWithPlayers(db database.Service) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	// Start transaction
+	tx, err := db.Begin()
+	if err != nil {
+		return fmt.Errorf("error starting transaction: %v", err)
+	}
+	defer func() {
+		if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
+			// Log the rollback error but don't return it since we're likely already handling another error
+			log.Printf("error rolling back transaction: %v", err)
+		}
+	}()
+
+	// Update party
+	result, err := tx.Exec(`
+        UPDATE parties
+        SET name = $1
+        WHERE id = $2 AND user_id = $3`,
+		p.Name, p.ID, p.UserID)
+
+	if err != nil {
+		return fmt.Errorf("error updating party: %v", err)
+	}
+
+	// Check if party was updated
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("error getting rows affected: %v", err)
+	}
+	if rowsAffected == 0 {
+		return fmt.Errorf("party not found or user not authorized")
+	}
+
+	// Update each player
+	for _, player := range p.Players {
+		result, err := tx.Exec(`
+            UPDATE players
+            SET name = $1, level = $2, ac = $3, hp = $4
+            WHERE id = $5 AND party_id = $6`,
+			player.Name, player.Level, player.Ac, player.Hp, player.ID, p.ID)
+
+		if err != nil {
+			return fmt.Errorf("error updating player: %v", err)
+		}
+
+		// Check if player was updated
+		rowsAffected, err := result.RowsAffected()
+		if err != nil {
+			return fmt.Errorf("error getting rows affected: %v", err)
+		}
+		if rowsAffected == 0 {
+			return fmt.Errorf("player %d not found or not associated with party", player.ID)
+		}
+	}
+
+	// Commit transaction
+	if err = tx.Commit(); err != nil {
+		return fmt.Errorf("error committing transaction: %v", err)
+	}
+
+	return nil
 }

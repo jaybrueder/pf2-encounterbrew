@@ -1,6 +1,11 @@
 package models
 
-import "pf2.encounterbrew.com/internal/database"
+import (
+	"errors"
+	"fmt"
+
+	"pf2.encounterbrew.com/internal/database"
+)
 
 type Player struct {
 	ID          int         `json:"id"`
@@ -208,4 +213,26 @@ func (p *Player) SetEnumeration(value int) {
 
 func (p Player) IsMonster() bool {
 	return false
+}
+
+// Database interactions
+
+// Update updates the player's details in the database
+func (p *Player) Update(db database.Service) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	err := db.QueryRow(`
+        UPDATE players
+        SET name = $1, level = $2, ac = $3, hp = $4
+        WHERE id = $5 AND party_id = $6
+        RETURNING id`,
+		p.Name, p.Level, p.Ac, p.Hp, p.ID, p.PartyID).Scan(&p.ID)
+
+	if err != nil {
+		return fmt.Errorf("error updating player: %v", err)
+	}
+
+	return nil
 }

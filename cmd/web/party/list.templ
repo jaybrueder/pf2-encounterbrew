@@ -1,0 +1,42 @@
+package party
+
+import (
+    "strconv"
+
+    "pf2.encounterbrew.com/cmd/web"
+    "pf2.encounterbrew.com/internal/models"
+
+    _ "github.com/a-h/templ"
+)
+
+templ PartyList(parties []models.Party) {
+	@web.Base("Parties") {
+	    <div class="mx-auto max-w-4xl px-2">
+	       <h2 class="text-2xl font-semibold">Parties</h2>
+    	    <section class="mt-2">
+                for _, party := range parties {
+                    @PartyListItem(party)
+                }
+            </section>
+        </div>
+	}
+}
+
+templ PartyListItem(party models.Party) {
+    <div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
+        <div class="flex items-center justify-center w-12 bg-blue-500">
+            <span class="text-white font-semibold">1</span>
+        </div>
+
+        <div class="px-4 py-2 -mx-3">
+            <div class="mx-3">
+                <span class="font-semibold text-sm text-gray-700">{party.Name}</span>
+                <p class="text-xs text-gray-400">{strconv.Itoa(party.ID)}</p>
+            </div>
+        </div>
+
+        <div id="right" class="ml-auto flex items-center pr-2">
+            <button hx-get={"/parties/" + strconv.Itoa(party.ID) + "/edit/"} hx-replace-url={"/parties/" + strconv.Itoa(party.ID) + "/edit"} hx-target="body" class="text-4xl font-medium uppercase text-gray-700 mt-1"><i class="fa-solid fa-square-pen"></i></button>
+        </div>
+    </div>
+}
