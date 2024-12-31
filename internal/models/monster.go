@@ -546,7 +546,7 @@ func (m Monster) IsMonster() bool {
 	return true
 }
 
-// Databas interactions
+// Database interactions
 
 func GetAllMonsters(db database.Service) ([]Monster, error) {
 	rows, err := db.Query("SELECT id, data FROM monsters")
