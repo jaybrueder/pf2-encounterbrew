@@ -1,0 +1,94 @@
+package party
+
+import (
+    "fmt"
+    "strconv"
+
+    "pf2.encounterbrew.com/internal/models"
+
+    _ "github.com/a-h/templ"
+)
+
+func playerValue(player *models.Player, defaultValue string, getValue func(*models.Player) string) string {
+    if player != nil {
+        return getValue(player)
+    }
+    return defaultValue
+}
+
+templ PlayerForm(index int, player *models.Player) {
+    <div
+        class="grid grid-cols-1 md:grid-cols-5 gap-4 p-4 border rounded-lg relative group"
+        id={fmt.Sprintf("player-%d", index)}
+    >
+        <input
+            type="hidden"
+            name="players[]id"
+            value={playerValue(player, "0", func(p *models.Player) string { return strconv.Itoa(p.ID) })}
+        />
+
+        <div class="md:col-span-2">
+            <label for={fmt.Sprintf("player-name-%d", index)} class="block text-sm font-medium text-gray-700">Name</label>
+            <input
+                type="text"
+                id={fmt.Sprintf("player-name-%d", index)}
+                name="players[]name"
+                value={playerValue(player, "", func(p *models.Player) string { return p.Name })}
+                class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+            />
+        </div>
+
+        <div>
+            <label for={fmt.Sprintf("player-level-%d", index)} class="block text-sm font-medium text-gray-700">Level</label>
+            <input
+                type="number"
+                id={fmt.Sprintf("player-level-%d", index)}
+                name="players[]level"
+                value={playerValue(player, "1", func(p *models.Player) string { return strconv.Itoa(p.Level) })}
+                min="1"
+                max="20"
+                class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+            />
+        </div>
+
+        <div>
+            <label for={fmt.Sprintf("player-ac-%d", index)} class="block text-sm font-medium text-gray-700">AC</label>
+            <input
+                type="number"
+                id={fmt.Sprintf("player-ac-%d", index)}
+                name="players[]ac"
+                value={playerValue(player, "10", func(p *models.Player) string { return strconv.Itoa(p.Ac) })}
+                min="1"
+                class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+            />
+        </div>
+
+        <div>
+            <label for={fmt.Sprintf("player-hp-%d", index)} class="block text-sm font-medium text-gray-700">HP</label>
+            <input
+                type="number"
+                id={fmt.Sprintf("player-hp-%d", index)}
+                name="players[]hp"
+                value={playerValue(player, "8", func(p *models.Player) string { return strconv.Itoa(p.Hp) })}
+                min="1"
+                class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+            />
+        </div>
+
+        // Remove button
+        <button
+            type="button"
+            @click={fmt.Sprintf("document.getElementById('player-%d').remove()", index)}
+            class="absolute -right-3 -top-3 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
+            title="Remove player"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+            </svg>
+        </button>
+    </div>
+}

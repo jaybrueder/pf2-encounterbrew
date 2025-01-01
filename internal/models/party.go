@@ -4,7 +4,9 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"log"
 	"strconv"
+	"strings"
 
 	"pf2.encounterbrew.com/internal/database"
 )
@@ -17,7 +19,106 @@ type Party struct {
 	Players []Player `json:"players,omitempty"`
 }
 
+func (p *Party) GetLevel() float64 {
+	log.Printf("Number of players: %d", len(p.Players))
+	if len(p.Players) == 0 {
+		return 0
+	}
+
+	totalLevel := 0
+	for i, player := range p.Players {
+		log.Printf("Player %d level: %d", i, player.Level)
+		totalLevel += player.Level
+	}
+
+	average := float64(totalLevel) / float64(len(p.Players))
+	log.Printf("Calculated average: %f", average)
+
+	return average
+}
+
 // Database interaction
+func (p *Party) Create(db database.Service) (int, error) {
+	if db == nil {
+		return 0, errors.New("database service is nil")
+	}
+
+	id, err := db.InsertReturningID(
+		"parties",
+		[]string{"name", "user_id"},
+		p.Name, p.UserID,
+	)
+	if err != nil {
+		return 0, fmt.Errorf("error creating party: %v", err)
+	}
+
+	return id, nil
+}
+
+func GetAllParties(db database.Service) ([]Party, error) {
+	if db == nil {
+		return nil, errors.New("database service is nil")
+	}
+
+	// First get all parties
+	rows, err := db.Query(`
+        SELECT p.id, p.name, p.user_id, u.name AS user_name
+        FROM parties p
+        JOIN users u ON p.user_id = u.id
+        WHERE p.user_id = $1
+        ORDER BY p.id
+    `, 1)
+	if err != nil {
+		return nil, fmt.Errorf("error querying parties: %v", err)
+	}
+	defer rows.Close()
+
+	var parties []Party
+	for rows.Next() {
+		var p Party
+		p.User = &User{}
+
+		err := rows.Scan(&p.ID, &p.Name, &p.UserID, &p.User.Name)
+		if err != nil {
+			return nil, fmt.Errorf("error scanning party row: %v", err)
+		}
+
+		// Get players for this party
+		playerRows, err := db.Query(`
+            SELECT id, name, level, hp, ac
+            FROM players
+            WHERE party_id = $1
+        `, p.ID)
+		if err != nil {
+			return nil, fmt.Errorf("error querying players: %v", err)
+		}
+		defer playerRows.Close()
+
+		var players []Player
+		for playerRows.Next() {
+			var player Player
+			err := playerRows.Scan(&player.ID, &player.Name, &player.Level, &player.Hp, &player.Ac)
+			if err != nil {
+				return nil, fmt.Errorf("error scanning player row: %v", err)
+			}
+			player.PartyID = p.ID
+			players = append(players, player)
+		}
+
+		if err = playerRows.Err(); err != nil {
+			return nil, fmt.Errorf("error iterating player rows: %v", err)
+		}
+
+		p.Players = players
+		parties = append(parties, p)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("error iterating party rows: %v", err)
+	}
+
+	return parties, nil
+}
 
 func GetParty(db database.Service, id string) (Party, error) {
 	if db == nil {
@@ -75,4 +176,167 @@ func GetParty(db database.Service, id string) (Party, error) {
 	p.Players = players
 
 	return p, nil
+}
+
+// Update updates the party's name in the database
+func (p *Party) Update(db database.Service) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	result, err := db.Exec(`
+        UPDATE parties
+        SET name = $1
+        WHERE id = $2 AND user_id = $3`,
+		p.Name, p.ID, p.UserID)
+
+	if err != nil {
+		return fmt.Errorf("error updating party: %v", err)
+	}
+
+	// Check if any row was affected
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("error getting rows affected: %v", err)
+	}
+	if rowsAffected == 0 {
+		return fmt.Errorf("party not found or user not authorized")
+	}
+
+	return nil
+}
+
+// UpdateWithPlayers updates the party and all its players in a single transaction
+func (p *Party) UpdateWithPlayers(db database.Service, playersToDelete []int) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	tx, err := db.Begin()
+	if err != nil {
+		return fmt.Errorf("error starting transaction: %v", err)
+	}
+
+	defer func() {
+		if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
+			log.Printf("error rolling back transaction: %v", err)
+		}
+	}()
+
+	// Update party
+	_, err = tx.Exec(`
+        UPDATE parties
+        SET name = $1
+        WHERE id = $2 AND user_id = $3`,
+		p.Name, p.ID, p.UserID)
+
+	if err != nil {
+		return fmt.Errorf("error updating party: %v", err)
+	}
+
+	// Delete removed players
+	if len(playersToDelete) > 0 {
+		placeholders := make([]string, len(playersToDelete))
+		args := make([]interface{}, len(playersToDelete))
+		for i, id := range playersToDelete {
+			placeholders[i] = fmt.Sprintf("$%d", i+1)
+			args[i] = id
+		}
+		//nolint:gosec
+		query := fmt.Sprintf("DELETE FROM players WHERE id IN (%s)", strings.Join(placeholders, ","))
+		_, err := tx.Exec(query, args...)
+		if err != nil {
+			return fmt.Errorf("error deleting players: %v", err)
+		}
+	}
+
+	// Update or insert players
+	for _, player := range p.Players {
+		if player.ID == 0 {
+			// Insert new player
+			err := tx.QueryRow(`
+                INSERT INTO players (name, level, ac, hp, party_id)
+                VALUES ($1, $2, $3, $4, $5)
+                RETURNING id`,
+				player.Name, player.Level, player.Ac, player.Hp, p.ID).Scan(&player.ID)
+			if err != nil {
+				return fmt.Errorf("error inserting player: %v", err)
+			}
+		} else {
+			// Update existing player
+			result, err := tx.Exec(`
+                UPDATE players
+                SET name = $1, level = $2, ac = $3, hp = $4
+                WHERE id = $5 AND party_id = $6`,
+				player.Name, player.Level, player.Ac, player.Hp, player.ID, p.ID)
+
+			if err != nil {
+				return fmt.Errorf("error updating player: %v", err)
+			}
+
+			rowsAffected, err := result.RowsAffected()
+			if err != nil {
+				return fmt.Errorf("error getting rows affected: %v", err)
+			}
+			if rowsAffected == 0 {
+				return fmt.Errorf("player %d not found or not associated with party", player.ID)
+			}
+		}
+	}
+
+	if err = tx.Commit(); err != nil {
+		return fmt.Errorf("error committing transaction: %v", err)
+	}
+
+	return nil
+}
+
+// Removes party and associated players
+func (p *Party) Delete(db database.Service) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	tx, err := db.Begin()
+	if err != nil {
+		return fmt.Errorf("error starting transaction: %v", err)
+	}
+
+	defer func() {
+		if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
+			log.Printf("error rolling back transaction: %v", err)
+		}
+	}()
+
+	// Delete all players first
+	_, err = tx.Exec(`
+        DELETE FROM players
+        WHERE party_id = $1`,
+		p.ID)
+	if err != nil {
+		return fmt.Errorf("error deleting players: %v", err)
+	}
+
+	// Delete the party
+	result, err := tx.Exec(`
+        DELETE FROM parties
+        WHERE id = $1 AND user_id = $2`,
+		p.ID, p.UserID)
+	if err != nil {
+		return fmt.Errorf("error deleting party: %v", err)
+	}
+
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("error getting rows affected: %v", err)
+	}
+	if rowsAffected == 0 {
+		return fmt.Errorf("party not found or user not authorized")
+	}
+
+	if err = tx.Commit(); err != nil {
+		return fmt.Errorf("error committing transaction: %v", err)
+	}
+
+	return nil
 }

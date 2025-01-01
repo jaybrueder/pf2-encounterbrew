@@ -9,6 +9,7 @@ import (
 
 	"pf2.encounterbrew.com/cmd/web"
 	"pf2.encounterbrew.com/cmd/web/encounter"
+	"pf2.encounterbrew.com/cmd/web/party"
 )
 
 func (s *Server) RegisterRoutes() http.Handler {
@@ -34,9 +35,10 @@ func (s *Server) RegisterRoutes() http.Handler {
 
 	e.GET("/", encounter.EncounterListHandler(s.db))
 
+	// Encounter routes
 	e.GET("/encounters", encounter.EncounterListHandler(s.db))
 	e.GET("/encounters/:encounter_id", encounter.EncounterShowHandler(s.db))
-	e.GET("/encounters/:encounter_id/edit/", encounter.EncounterEditHandler(s.db))
+	e.GET("/encounters/:encounter_id/edit", encounter.EncounterEditHandler(s.db))
 	// e.PATCH("/encounters/:encounter_id", encounter.EncounterUpdateHandler(s.db))
 	e.POST("/encounters/:encounter_id/search_monsters", encounter.EncounterSearchMonster(s.db))
 	e.POST("/encounters/:encounter_id/add_monster/:monster_id", encounter.EncounterAddMonster(s.db))
@@ -46,9 +48,17 @@ func (s *Server) RegisterRoutes() http.Handler {
 	e.POST("/encounters/:encounter_id/combatant/:index/search_conditions", encounter.SearchConditions(s.db))
 	e.POST("/encounters/:encounter_id/combatant/:index/add_condition/:condition_id", encounter.AddCondition(s.db))
 	e.POST("/encounters/:encounter_id/combatant/:index/remove_condition/:condition_id", encounter.RemoveCondition())
-
 	e.POST("/encounters/:encounter_id/next_turn", encounter.ChangeTurn(true))
 	e.POST("/encounters/:encounter_id/prev_turn", encounter.ChangeTurn(false))
+
+	// Party routes
+	e.GET("/parties", party.PartyListHandler(s.db))
+	e.GET("/parties/new", party.PartyNewHandler)
+	e.POST("/parties", party.PartyCreateHandler(s.db))
+	e.GET("/parties/:party_id/edit", party.PartyEditHandler(s.db))
+	e.PATCH("/parties/:party_id", party.PartyUpdateHandler(s.db))
+	e.DELETE("/parties/:party_id", party.DeletePartyHandler(s.db))
+	e.GET("/parties/:party_id/player/new", party.NewPlayerFormHandler(s.db))
 
 	e.GET("/health", s.healthHandler)
 
