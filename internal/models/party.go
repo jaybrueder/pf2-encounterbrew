@@ -226,3 +226,53 @@ func (p *Party) UpdateWithPlayers(db database.Service) error {
 
 	return nil
 }
+
+// Removes party and associated players
+func (p *Party) Delete(db database.Service) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	tx, err := db.Begin()
+	if err != nil {
+		return fmt.Errorf("error starting transaction: %v", err)
+	}
+
+	defer func() {
+		if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
+			log.Printf("error rolling back transaction: %v", err)
+		}
+	}()
+
+	// Delete all players first
+	_, err = tx.Exec(`
+        DELETE FROM players
+        WHERE party_id = $1`,
+		p.ID)
+	if err != nil {
+		return fmt.Errorf("error deleting players: %v", err)
+	}
+
+	// Delete the party
+	result, err := tx.Exec(`
+        DELETE FROM parties
+        WHERE id = $1 AND user_id = $2`,
+		p.ID, p.UserID)
+	if err != nil {
+		return fmt.Errorf("error deleting party: %v", err)
+	}
+
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return fmt.Errorf("error getting rows affected: %v", err)
+	}
+	if rowsAffected == 0 {
+		return fmt.Errorf("party not found or user not authorized")
+	}
+
+	if err = tx.Commit(); err != nil {
+		return fmt.Errorf("error committing transaction: %v", err)
+	}
+
+	return nil
+}

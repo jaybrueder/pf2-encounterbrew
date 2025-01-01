@@ -124,3 +124,24 @@ func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
+
+func DeletePartyHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		partyID := c.Param("party_id")
+		id, err := strconv.Atoi(partyID)
+		if err != nil {
+			return echo.NewHTTPError(http.StatusBadRequest, "Invalid party ID")
+		}
+
+		party := models.Party{
+			ID:     id,
+			UserID: 1, // Replace with actual user ID from session
+		}
+
+		if err := party.Delete(db); err != nil {
+			return echo.NewHTTPError(http.StatusInternalServerError, "Failed to delete party")
+		}
+
+		return c.Redirect(http.StatusSeeOther, "/parties")
+	}
+}
