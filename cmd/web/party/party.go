@@ -1,6 +1,7 @@
 package party
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -10,6 +11,31 @@ import (
 	"pf2.encounterbrew.com/internal/database"
 	"pf2.encounterbrew.com/internal/models"
 )
+
+func PartyNewHandler(c echo.Context) error {
+	return PartyCreate().Render(c.Request().Context(), c.Response().Writer)
+}
+
+func PartyCreateHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		partyName := c.FormValue("party_name")
+		if partyName == "" {
+			return echo.NewHTTPError(http.StatusBadRequest, "Party name is required")
+		}
+
+		party := models.Party{
+			Name:   partyName,
+			UserID: 1, // Replace with actual user ID from session
+		}
+
+		id, err := party.Create(db)
+		if err != nil {
+			return echo.NewHTTPError(http.StatusInternalServerError, "Failed to create party")
+		}
+
+		return c.Redirect(http.StatusSeeOther, fmt.Sprintf("/parties/%d/edit", id))
+	}
+}
 
 func PartyListHandler(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {

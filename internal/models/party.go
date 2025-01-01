@@ -19,6 +19,23 @@ type Party struct {
 }
 
 // Database interaction
+func (p *Party) Create(db database.Service) (int, error) {
+	if db == nil {
+		return 0, errors.New("database service is nil")
+	}
+
+	id, err := db.InsertReturningID(
+		"parties",
+		[]string{"name", "user_id"},
+		p.Name, p.UserID,
+	)
+	if err != nil {
+		return 0, fmt.Errorf("error creating party: %v", err)
+	}
+
+	return id, nil
+}
+
 func GetAllParties(db database.Service) ([]Party, error) {
 	if db == nil {
 		return nil, errors.New("database service is nil")

@@ -38,7 +38,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	// Encounter routes
 	e.GET("/encounters", encounter.EncounterListHandler(s.db))
 	e.GET("/encounters/:encounter_id", encounter.EncounterShowHandler(s.db))
-	e.GET("/encounters/:encounter_id/edit/", encounter.EncounterEditHandler(s.db))
+	e.GET("/encounters/:encounter_id/edit", encounter.EncounterEditHandler(s.db))
 	// e.PATCH("/encounters/:encounter_id", encounter.EncounterUpdateHandler(s.db))
 	e.POST("/encounters/:encounter_id/search_monsters", encounter.EncounterSearchMonster(s.db))
 	e.POST("/encounters/:encounter_id/add_monster/:monster_id", encounter.EncounterAddMonster(s.db))
@@ -53,7 +53,9 @@ func (s *Server) RegisterRoutes() http.Handler {
 
 	// Party routes
 	e.GET("/parties", party.PartyListHandler(s.db))
-	e.GET("/parties/:party_id/edit/", party.PartyEditHandler(s.db))
+	e.GET("/parties/new", party.PartyNewHandler)
+	e.POST("/parties", party.PartyCreateHandler(s.db))
+	e.GET("/parties/:party_id/edit", party.PartyEditHandler(s.db))
 	e.PATCH("/parties/:party_id", party.PartyUpdateHandler(s.db))
 
 	e.GET("/health", s.healthHandler)

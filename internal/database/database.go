@@ -38,6 +38,9 @@ type Service interface {
 
 	// Begin starts a transaction.
 	Begin() (*sql.Tx, error)
+
+	// InsertReturningID inserts data and returns the ID of the inserted row
+	InsertReturningID(table string, columns []string, values ...interface{}) (int, error)
 }
 
 type service struct {
@@ -174,4 +177,25 @@ func (s *service) Exec(query string, args ...interface{}) (sql.Result, error) {
 
 func (s *service) Begin() (*sql.Tx, error) {
 	return s.db.Begin()
+}
+
+func (s *service) InsertReturningID(table string, columns []string, values ...interface{}) (int, error) {
+	// Build the query string with RETURNING id
+	//nolint:gosec
+	query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s) RETURNING id",
+		table,
+		strings.Join(columns, ", "),
+		strings.Join(strings.Split(strings.Repeat("?", len(columns)), ""), ", "))
+
+	// Replace ? with $1, $2, etc. for PostgreSQL
+	query = convertToPostgresPlaceholders(query)
+
+	// Execute the query and get the ID
+	var id int
+	err := s.db.QueryRow(query, values...).Scan(&id)
+	if err != nil {
+		return 0, fmt.Errorf("error inserting record: %w", err)
+	}
+
+	return id, nil
 }
