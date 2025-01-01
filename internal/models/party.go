@@ -19,6 +19,24 @@ type Party struct {
 	Players []Player `json:"players,omitempty"`
 }
 
+func (p *Party) GetLevel() float64 {
+	log.Printf("Number of players: %d", len(p.Players))
+	if len(p.Players) == 0 {
+		return 0
+	}
+
+	totalLevel := 0
+	for i, player := range p.Players {
+		log.Printf("Player %d level: %d", i, player.Level)
+		totalLevel += player.Level
+	}
+
+	average := float64(totalLevel) / float64(len(p.Players))
+	log.Printf("Calculated average: %f", average)
+
+	return average
+}
+
 // Database interaction
 func (p *Party) Create(db database.Service) (int, error) {
 	if db == nil {
@@ -42,13 +60,14 @@ func GetAllParties(db database.Service) ([]Party, error) {
 		return nil, errors.New("database service is nil")
 	}
 
+	// First get all parties
 	rows, err := db.Query(`
-		SELECT p.id, p.name, p.user_id, u.name AS user_name
-		FROM parties p
-		JOIN users u ON p.user_id = u.id
-		WHERE p.user_id = $1
-		ORDER BY p.id
-	`, 1)
+        SELECT p.id, p.name, p.user_id, u.name AS user_name
+        FROM parties p
+        JOIN users u ON p.user_id = u.id
+        WHERE p.user_id = $1
+        ORDER BY p.id
+    `, 1)
 	if err != nil {
 		return nil, fmt.Errorf("error querying parties: %v", err)
 	}
@@ -60,10 +79,37 @@ func GetAllParties(db database.Service) ([]Party, error) {
 		p.User = &User{}
 
 		err := rows.Scan(&p.ID, &p.Name, &p.UserID, &p.User.Name)
-
 		if err != nil {
 			return nil, fmt.Errorf("error scanning party row: %v", err)
 		}
+
+		// Get players for this party
+		playerRows, err := db.Query(`
+            SELECT id, name, level, hp, ac
+            FROM players
+            WHERE party_id = $1
+        `, p.ID)
+		if err != nil {
+			return nil, fmt.Errorf("error querying players: %v", err)
+		}
+		defer playerRows.Close()
+
+		var players []Player
+		for playerRows.Next() {
+			var player Player
+			err := playerRows.Scan(&player.ID, &player.Name, &player.Level, &player.Hp, &player.Ac)
+			if err != nil {
+				return nil, fmt.Errorf("error scanning player row: %v", err)
+			}
+			player.PartyID = p.ID
+			players = append(players, player)
+		}
+
+		if err = playerRows.Err(); err != nil {
+			return nil, fmt.Errorf("error iterating player rows: %v", err)
+		}
+
+		p.Players = players
 		parties = append(parties, p)
 	}
 
