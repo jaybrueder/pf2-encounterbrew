@@ -80,6 +80,9 @@ func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 			return echo.NewHTTPError(http.StatusBadRequest, "Failed to parse form")
 		}
 
+		// Debug logging
+		log.Printf("Form data: %+v", c.Request().Form)
+
 		// Get the existing party
 		party, err := models.GetParty(db, partyID)
 		if err != nil {
@@ -97,25 +100,49 @@ func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 		playerACs := c.Request().Form["players[]ac"]
 		playerHPs := c.Request().Form["players[]hp"]
 
-		// Update players
-		for i := range playerIDs {
-			if i < len(party.Players) {
-				id, _ := strconv.Atoi(playerIDs[i])
-				level, _ := strconv.Atoi(playerLevels[i])
-				ac, _ := strconv.Atoi(playerACs[i])
-				hp, _ := strconv.Atoi(playerHPs[i])
+		// Debug logging
+		log.Printf("Player IDs: %v", playerIDs)
+		log.Printf("Player Names: %v", playerNames)
 
-				party.Players[i].ID = id
-				party.Players[i].Name = playerNames[i]
-				party.Players[i].Level = level
-				party.Players[i].Ac = ac
-				party.Players[i].Hp = hp
-				party.Players[i].PartyID = party.ID
-			}
+		// Create a map of existing player IDs for tracking deletions
+		existingPlayers := make(map[int]bool)
+		for _, player := range party.Players {
+			existingPlayers[player.ID] = true
 		}
 
+		// Update or create players
+		var updatedPlayers []models.Player
+		for i := range playerIDs {
+			playerID, _ := strconv.Atoi(playerIDs[i])
+			level, _ := strconv.Atoi(playerLevels[i])
+			ac, _ := strconv.Atoi(playerACs[i])
+			hp, _ := strconv.Atoi(playerHPs[i])
+
+			player := models.Player{
+				ID:      playerID,
+				Name:    playerNames[i],
+				Level:   level,
+				Ac:      ac,
+				Hp:      hp,
+				PartyID: party.ID,
+			}
+
+			if playerID != 0 {
+				delete(existingPlayers, playerID) // Remove from tracking map
+			}
+			updatedPlayers = append(updatedPlayers, player)
+		}
+
+		// Any remaining IDs in existingPlayers map represent players to be deleted
+		playersToDelete := make([]int, 0)
+		for id := range existingPlayers {
+			playersToDelete = append(playersToDelete, id)
+		}
+
+		party.Players = updatedPlayers
+
 		// Save all changes
-		if err := party.UpdateWithPlayers(db); err != nil {
+		if err := party.UpdateWithPlayers(db, playersToDelete); err != nil {
 			log.Printf("Failed to update party: %v", err)
 			return echo.NewHTTPError(http.StatusInternalServerError, "Failed to update party")
 		}
@@ -143,5 +170,15 @@ func DeletePartyHandler(db database.Service) echo.HandlerFunc {
 		}
 
 		return c.Redirect(http.StatusSeeOther, "/parties")
+	}
+}
+
+func NewPlayerFormHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		index, err := strconv.Atoi(c.QueryParam("index"))
+		if err != nil {
+			return echo.NewHTTPError(http.StatusBadRequest, "Invalid index")
+		}
+		return PlayerForm(index, nil).Render(c.Request().Context(), c.Response().Writer)
 	}
 }

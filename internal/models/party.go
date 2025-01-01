@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"strings"
 
 	"pf2.encounterbrew.com/internal/database"
 )
@@ -160,25 +161,24 @@ func (p *Party) Update(db database.Service) error {
 }
 
 // UpdateWithPlayers updates the party and all its players in a single transaction
-func (p *Party) UpdateWithPlayers(db database.Service) error {
+func (p *Party) UpdateWithPlayers(db database.Service, playersToDelete []int) error {
 	if db == nil {
 		return errors.New("database service is nil")
 	}
 
-	// Start transaction
 	tx, err := db.Begin()
 	if err != nil {
 		return fmt.Errorf("error starting transaction: %v", err)
 	}
+
 	defer func() {
 		if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
-			// Log the rollback error but don't return it since we're likely already handling another error
 			log.Printf("error rolling back transaction: %v", err)
 		}
 	}()
 
 	// Update party
-	result, err := tx.Exec(`
+	_, err = tx.Exec(`
         UPDATE parties
         SET name = $1
         WHERE id = $2 AND user_id = $3`,
@@ -188,38 +188,56 @@ func (p *Party) UpdateWithPlayers(db database.Service) error {
 		return fmt.Errorf("error updating party: %v", err)
 	}
 
-	// Check if party was updated
-	rowsAffected, err := result.RowsAffected()
-	if err != nil {
-		return fmt.Errorf("error getting rows affected: %v", err)
-	}
-	if rowsAffected == 0 {
-		return fmt.Errorf("party not found or user not authorized")
+	// Delete removed players
+	if len(playersToDelete) > 0 {
+		placeholders := make([]string, len(playersToDelete))
+		args := make([]interface{}, len(playersToDelete))
+		for i, id := range playersToDelete {
+			placeholders[i] = fmt.Sprintf("$%d", i+1)
+			args[i] = id
+		}
+		//nolint:gosec
+		query := fmt.Sprintf("DELETE FROM players WHERE id IN (%s)", strings.Join(placeholders, ","))
+		_, err := tx.Exec(query, args...)
+		if err != nil {
+			return fmt.Errorf("error deleting players: %v", err)
+		}
 	}
 
-	// Update each player
+	// Update or insert players
 	for _, player := range p.Players {
-		result, err := tx.Exec(`
-            UPDATE players
-            SET name = $1, level = $2, ac = $3, hp = $4
-            WHERE id = $5 AND party_id = $6`,
-			player.Name, player.Level, player.Ac, player.Hp, player.ID, p.ID)
+		if player.ID == 0 {
+			// Insert new player
+			err := tx.QueryRow(`
+                INSERT INTO players (name, level, ac, hp, party_id)
+                VALUES ($1, $2, $3, $4, $5)
+                RETURNING id`,
+				player.Name, player.Level, player.Ac, player.Hp, p.ID).Scan(&player.ID)
+			if err != nil {
+				return fmt.Errorf("error inserting player: %v", err)
+			}
+		} else {
+			// Update existing player
+			result, err := tx.Exec(`
+                UPDATE players
+                SET name = $1, level = $2, ac = $3, hp = $4
+                WHERE id = $5 AND party_id = $6`,
+				player.Name, player.Level, player.Ac, player.Hp, player.ID, p.ID)
 
-		if err != nil {
-			return fmt.Errorf("error updating player: %v", err)
-		}
+			if err != nil {
+				return fmt.Errorf("error updating player: %v", err)
+			}
 
-		// Check if player was updated
-		rowsAffected, err := result.RowsAffected()
-		if err != nil {
-			return fmt.Errorf("error getting rows affected: %v", err)
-		}
-		if rowsAffected == 0 {
-			return fmt.Errorf("player %d not found or not associated with party", player.ID)
+			rowsAffected, err := result.RowsAffected()
+			if err != nil {
+				return fmt.Errorf("error getting rows affected: %v", err)
+			}
+			if rowsAffected == 0 {
+				return fmt.Errorf("player %d not found or not associated with party", player.ID)
+			}
 		}
 	}
 
-	// Commit transaction
 	if err = tx.Commit(); err != nil {
 		return fmt.Errorf("error committing transaction: %v", err)
 	}

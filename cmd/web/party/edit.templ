@@ -108,68 +108,21 @@ templ PartyEdit(party models.Party) {
 
                 // Players Section
                 <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">Players</h3>
-                    <div class="space-y-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Players</h3>
+                        <button
+                            type="button"
+                            hx-get={fmt.Sprintf("/parties/%d/player/new?index=%d", party.ID, len(party.Players))}
+                            hx-target="#players-container"
+                            hx-swap="beforeend"
+                            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                            Add Player
+                        </button>
+                    </div>
+                    <div id="players-container" class="space-y-6">
                         for i, player := range party.Players {
-                            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 p-4 border rounded-lg">
-                                <input
-                                    type="hidden"
-                                    name="players[]id"
-                                    value={strconv.Itoa(player.ID)}
-                                />
-
-                                <div class="md:col-span-2">
-                                    <label for={fmt.Sprintf("player-name-%d", i)} class="block text-sm font-medium text-gray-700">Name</label>
-                                    <input
-                                        type="text"
-                                        id={fmt.Sprintf("player-name-%d", i)}
-                                        name="players[]name"
-                                        value={player.Name}
-                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <label for={fmt.Sprintf("player-level-%d", i)} class="block text-sm font-medium text-gray-700">Level</label>
-                                    <input
-                                        type="number"
-                                        id={fmt.Sprintf("player-level-%d", i)}
-                                        name="players[]level"
-                                        value={strconv.Itoa(player.Level)}
-                                        min="1"
-                                        max="20"
-                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <label for={fmt.Sprintf("player-ac-%d", i)} class="block text-sm font-medium text-gray-700">AC</label>
-                                    <input
-                                        type="number"
-                                        id={fmt.Sprintf("player-ac-%d", i)}
-                                        name="players[]ac"
-                                        value={strconv.Itoa(player.Ac)}
-                                        min="1"
-                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <label for={fmt.Sprintf("player-hp-%d", i)} class="block text-sm font-medium text-gray-700">HP</label>
-                                    <input
-                                        type="number"
-                                        id={fmt.Sprintf("player-hp-%d", i)}
-                                        name="players[]hp"
-                                        value={strconv.Itoa(player.Hp)}
-                                        min="1"
-                                        class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                        required
-                                    />
-                                </div>
-                            </div>
+                            @PlayerForm(i, &player)
                         }
                     </div>
                 </div>
