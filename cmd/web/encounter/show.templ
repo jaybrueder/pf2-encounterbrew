@@ -56,15 +56,15 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
             <div class="px-4 py-2 -mx-3">
                 <div class="mx-3">
                     <button @click="showStatblock = !showStatblock" class="font-semibold text-sm text-gray-700 text-left uppercase">{combatant.GetName()}</button>
-                    if combatant.IsMonster() {
                         <p class="text-xs text-gray-400">
                             <span><i class="fa-regular fa-heart"></i> <b>{strconv.Itoa(combatant.GetHp())}</b></span>
                             <span class="ml-2"><i class="fa-solid fa-shield-halved"></i> {strconv.Itoa(combatant.GetAc())}</span>
-                            <span class="ml-6"><i class="fa-solid fa-hand-fist"></i> {plusMinus(combatant.GetFort())}</span>
-                            <span class="ml-2"><i class="fa-solid fa-person-running"></i> {plusMinus(combatant.GetRef())}</span>
-                            <span class="ml-2"><i class="fa-solid fa-brain"></i> {plusMinus(combatant.GetWill())}</span>
+                            if combatant.IsMonster() {
+                                <span class="ml-6"><i class="fa-solid fa-hand-fist"></i> {plusMinus(combatant.GetFort())}</span>
+                                <span class="ml-2"><i class="fa-solid fa-person-running"></i> {plusMinus(combatant.GetRef())}</span>
+                                <span class="ml-2"><i class="fa-solid fa-brain"></i> {plusMinus(combatant.GetWill())}</span>
+                            }
                         </p>
-                    }
                     <div class="flex justify-left">
                         for _, condition := range combatant.GetConditions() {
                             @ConditionButton(&condition)

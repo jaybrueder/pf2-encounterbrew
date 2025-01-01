@@ -39,7 +39,7 @@ func (p *Player) SetInitiative(i int) {
 }
 
 func (p Player) GetHp() int {
-	return 1
+	return p.Hp
 }
 
 func (p *Player) SetHp(i int) {}
