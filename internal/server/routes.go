@@ -59,6 +59,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	e.PATCH("/parties/:party_id", party.PartyUpdateHandler(s.db))
 	e.DELETE("/parties/:party_id", party.DeletePartyHandler(s.db))
 	e.GET("/parties/:party_id/player/new", party.NewPlayerFormHandler(s.db))
+	e.POST("/parties/:party_id/active", party.PartyActiveHandler(s.db))
 
 	e.GET("/health", s.healthHandler)
 

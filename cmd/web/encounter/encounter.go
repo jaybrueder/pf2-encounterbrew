@@ -32,8 +32,16 @@ func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 		// Get the encounter ID from the URL path parameter
 		id := c.Param("encounter_id")
 
+		// Get active party
+		// TODO: Use actual user ID
+		user, err := models.GetUserByID(db, 1)
+		if err != nil {
+			log.Printf("Error fetching users: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching user")
+		}
+
 		// Fetch the encounter from the database
-		encounter, err := models.GetEncounterWithCombatants(db, id)
+		encounter, err := models.GetEncounterWithCombatants(db, id, strconv.Itoa(user.ActivePartyID))
 		if err != nil {
 			log.Printf("Error fetching encounter: %v", err)
 			return c.String(http.StatusInternalServerError, "Error fetching encounter")
@@ -69,17 +77,6 @@ func EncounterEditHandler(db database.Service) echo.HandlerFunc {
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
-
-// func EncounterUpdateHandler(db database.Service) echo.HandlerFunc {
-// 	return func(c echo.Context) error {
-// 		//id := c.Param("id")
-// 		//newName := c.FormValue("name")
-
-// 		// Fetch the encounter from the database
-// 		// TODO
-// 		return nil
-// 	}
-// }
 
 func EncounterSearchMonster(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {

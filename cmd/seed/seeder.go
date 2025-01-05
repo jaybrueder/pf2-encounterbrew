@@ -52,6 +52,13 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Set active party for default user
+	// TODO: Static user id of 1
+	if err := setDefaultUserActiveParty(dbService, 1); err != nil {
+		fmt.Fprintf(os.Stderr, "Error setting default user's active party: %v\n", err)
+		os.Exit(1)
+	}
+
 	// Seed monsters
 	err = filepath.Walk("data/bestiaries", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -169,5 +176,21 @@ func seedParties(db database.Service, filePath string) error {
 	}
 
 	fmt.Printf("Successfully seeded %d parties\n", len(partiesData.Parties))
+	return nil
+}
+
+func setDefaultUserActiveParty(db database.Service, userID int) error {
+	// Set the first party (ID 1) as the active party for the default user
+	_, err := db.Exec(`
+        UPDATE users
+        SET active_party_id = 1
+        WHERE id = $1
+    `, userID)
+
+	if err != nil {
+		return fmt.Errorf("error setting default user's active party: %v", err)
+	}
+
+	fmt.Println("Set default user's active party")
 	return nil
 }

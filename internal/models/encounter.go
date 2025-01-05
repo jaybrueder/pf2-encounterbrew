@@ -120,15 +120,14 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 	return e, nil
 }
 
-func GetEncounterWithCombatants(db database.Service, id string) (Encounter, error) {
+func GetEncounterWithCombatants(db database.Service, id string, partyId string) (Encounter, error) {
 	encounter, err := GetEncounter(db, id)
 	if err != nil {
 		return Encounter{}, fmt.Errorf("error fetching encounter: %w", err)
 	}
 
 	// Fetch the active party from the database
-	// TODO make this flexible (hard-coded for now to 1)
-	party, _ := GetParty(db, "1")
+	party, _ := GetParty(db, partyId)
 
 	// Get party's players and encounter's monsters
 	players := party.Players
