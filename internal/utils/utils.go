@@ -52,10 +52,10 @@ func ContainsCantrip(traits []string) bool {
 }
 
 func RemoveHTML(input string) string {
-	var output string
-	output = strings.ReplaceAll(input, "<p>", "")
-	output = strings.ReplaceAll(output, "</p>", "")
-	output = strings.ReplaceAll(output, "<hr />", "")
+	//var output string
+	//output = strings.ReplaceAll(input, "<p>", "")
+	//output = strings.ReplaceAll(output, "</p>", "")
+	output := strings.ReplaceAll(input, "<hr />", "")
 	return output
 }
 

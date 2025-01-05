@@ -328,6 +328,9 @@ templ Attack(i models.Item, modifier int) {
         if i.GetDamageEffect() != "" {
             <b>Effect</b> {i.GetDamageEffect()}
         }
+        if i.GetDescription() != "" {
+            <div class="px-2 text-justify">@templ.Raw(i.GetDescription())</div>
+        }
     </p>
 }
 

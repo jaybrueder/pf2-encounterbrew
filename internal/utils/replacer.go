@@ -36,6 +36,8 @@ func NewReplacer() *Replacer {
 			"template_simple":      regexp.MustCompile(`@Template\[([^|]+)\|distance:(\d+)\]`),
 
 			// UUID patterns
+			"uuid_condition": regexp.MustCompile(`@UUID\[Compendium\.pf2e\.conditionitems\.Item\.[^]]+\]{([^}]+)}`),
+			"uuid_action":    regexp.MustCompile(`@UUID\[Compendium\.pf2e\.actionspf2e\.Item\.[^]]+\]{([^}]+)}`),
 			"uuid_with_text": regexp.MustCompile(`@UUID\[Compendium\.pf2e\.[^.]+\.Item\.([^]]+)\]{([^}]+)}`),
 			"uuid_simple":    regexp.MustCompile(`@UUID\[Compendium\.pf2e\.[^.]+\.Item\.([^]]+)\]`),
 		},
@@ -140,6 +142,18 @@ func (r *Replacer) ProcessText(input string) string {
 		checkType := parts[1] // will
 		dc := parts[2]        // 18
 		return fmt.Sprintf("DC %s %s", dc, checkType)
+	})
+
+	// Replace condition UUIDs
+	input = r.patterns["uuid_condition"].ReplaceAllStringFunc(input, func(match string) string {
+		parts := r.patterns["uuid_condition"].FindStringSubmatch(match)
+		return parts[1] // Return the condition name (e.g., "Grabbed")
+	})
+
+	// Replace action UUIDs
+	input = r.patterns["uuid_action"].ReplaceAllStringFunc(input, func(match string) string {
+		parts := r.patterns["uuid_action"].FindStringSubmatch(match)
+		return parts[1] // Return the action name (e.g., "Grapple")
 	})
 
 	// Replace UUIDs with custom text
