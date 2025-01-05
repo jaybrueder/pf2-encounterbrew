@@ -79,6 +79,45 @@ templ PlayerForm(index int, player *models.Player) {
             />
         </div>
 
+        <div>
+            <label for={fmt.Sprintf("player-fort-%d", index)} class="block text-sm font-medium text-gray-700">Fort</label>
+            <input
+                type="number"
+                id={fmt.Sprintf("player-fort-%d", index)}
+                name="players[]fort"
+                value={playerValue(player, "0", func(p *models.Player) string { return strconv.Itoa(p.Fort) })}
+                min="1"
+                class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+            />
+        </div>
+
+        <div>
+            <label for={fmt.Sprintf("player-ref-%d", index)} class="block text-sm font-medium text-gray-700">Ref</label>
+            <input
+                type="number"
+                id={fmt.Sprintf("player-ref-%d", index)}
+                name="players[]ref"
+                value={playerValue(player, "0", func(p *models.Player) string { return strconv.Itoa(p.Ref) })}
+                min="1"
+                class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+            />
+        </div>
+
+        <div>
+            <label for={fmt.Sprintf("player-will-%d", index)} class="block text-sm font-medium text-gray-700">Will</label>
+            <input
+                type="number"
+                id={fmt.Sprintf("player-will-%d", index)}
+                name="players[]will"
+                value={playerValue(player, "0", func(p *models.Player) string { return strconv.Itoa(p.Will) })}
+                min="1"
+                class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                required
+            />
+        </div>
+
         // Remove button
         <button
             type="button"

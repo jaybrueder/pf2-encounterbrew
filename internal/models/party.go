@@ -20,19 +20,16 @@ type Party struct {
 }
 
 func (p *Party) GetLevel() float64 {
-	log.Printf("Number of players: %d", len(p.Players))
 	if len(p.Players) == 0 {
 		return 0
 	}
 
 	totalLevel := 0
-	for i, player := range p.Players {
-		log.Printf("Player %d level: %d", i, player.Level)
+	for _, player := range p.Players {
 		totalLevel += player.Level
 	}
 
 	average := float64(totalLevel) / float64(len(p.Players))
-	log.Printf("Calculated average: %f", average)
 
 	return average
 }
@@ -85,7 +82,7 @@ func GetAllParties(db database.Service) ([]Party, error) {
 
 		// Get players for this party
 		playerRows, err := db.Query(`
-            SELECT id, name, level, hp, ac
+            SELECT id, name, level, hp, ac, fort, ref, will
             FROM players
             WHERE party_id = $1
         `, p.ID)
@@ -97,7 +94,7 @@ func GetAllParties(db database.Service) ([]Party, error) {
 		var players []Player
 		for playerRows.Next() {
 			var player Player
-			err := playerRows.Scan(&player.ID, &player.Name, &player.Level, &player.Hp, &player.Ac)
+			err := playerRows.Scan(&player.ID, &player.Name, &player.Level, &player.Hp, &player.Ac, &player.Fort, &player.Ref, &player.Will)
 			if err != nil {
 				return nil, fmt.Errorf("error scanning player row: %v", err)
 			}
@@ -149,7 +146,7 @@ func GetParty(db database.Service, id string) (Party, error) {
 
 	// Query for associated players
 	rows, err := db.Query(`
-        SELECT id, name, level, hp, ac
+        SELECT id, name, level, hp, ac, fort, ref, will
         FROM players
         WHERE party_id = $1
     `, partyID)
@@ -161,7 +158,7 @@ func GetParty(db database.Service, id string) (Party, error) {
 	var players []Player
 	for rows.Next() {
 		var player Player
-		err := rows.Scan(&player.ID, &player.Name, &player.Level, &player.Hp, &player.Ac)
+		err := rows.Scan(&player.ID, &player.Name, &player.Level, &player.Hp, &player.Ac, &player.Fort, &player.Ref, &player.Will)
 		if err != nil {
 			return Party{}, fmt.Errorf("error scanning player row: %v", err)
 		}
@@ -255,10 +252,10 @@ func (p *Party) UpdateWithPlayers(db database.Service, playersToDelete []int) er
 		if player.ID == 0 {
 			// Insert new player
 			err := tx.QueryRow(`
-                INSERT INTO players (name, level, ac, hp, party_id)
-                VALUES ($1, $2, $3, $4, $5)
+                INSERT INTO players (name, level, ac, hp, fort, ref, will, party_id)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
                 RETURNING id`,
-				player.Name, player.Level, player.Ac, player.Hp, p.ID).Scan(&player.ID)
+				player.Name, player.Level, player.Ac, player.Hp, player.Fort, player.Ref, player.Will, p.ID).Scan(&player.ID)
 			if err != nil {
 				return fmt.Errorf("error inserting player: %v", err)
 			}
@@ -266,9 +263,9 @@ func (p *Party) UpdateWithPlayers(db database.Service, playersToDelete []int) er
 			// Update existing player
 			result, err := tx.Exec(`
                 UPDATE players
-                SET name = $1, level = $2, ac = $3, hp = $4
-                WHERE id = $5 AND party_id = $6`,
-				player.Name, player.Level, player.Ac, player.Hp, player.ID, p.ID)
+                SET name = $1, level = $2, ac = $3, hp = $4, fort = $5, ref = $6, will = $7
+                WHERE id = $8 AND party_id = $9`,
+				player.Name, player.Level, player.Ac, player.Hp, player.Fort, player.Ref, player.Will, player.ID, p.ID)
 
 			if err != nil {
 				return fmt.Errorf("error updating player: %v", err)

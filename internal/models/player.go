@@ -13,6 +13,9 @@ type Player struct {
 	Level       int         `json:"level"`
 	Hp          int         `json:"hp"`
 	Ac          int         `json:"ac"`
+	Fort        int         `json:"for"`
+	Ref         int         `json:"ref"`
+	Will        int         `json:"wil"`
 	PartyID     int         `json:"party_id"`
 	Party       *Party      `json:"party,omitempty"`
 	Initiative  int         `json:"initiative"`
@@ -115,15 +118,15 @@ func (p Player) GetCha() int {
 }
 
 func (p Player) GetFort() int {
-	return 0
+	return p.Fort
 }
 
 func (p Player) GetRef() int {
-	return 0
+	return p.Ref
 }
 
 func (p Player) GetWill() int {
-	return 0
+	return p.Will
 }
 
 func (p Player) GetImmunities() string {
@@ -248,10 +251,10 @@ func (p *Player) Update(db database.Service) error {
 
 	err := db.QueryRow(`
         UPDATE players
-        SET name = $1, level = $2, ac = $3, hp = $4
-        WHERE id = $5 AND party_id = $6
+        SET name = $1, level = $2, ac = $3, hp = $4, fort = $5, ref = $6, will = $7
+        WHERE id = $8 AND party_id = $9
         RETURNING id`,
-		p.Name, p.Level, p.Ac, p.Hp, p.ID, p.PartyID).Scan(&p.ID)
+		p.Name, p.Level, p.Ac, p.Hp, p.Fort, p.Ref, p.Will, p.ID, p.PartyID).Scan(&p.ID)
 
 	if err != nil {
 		return fmt.Errorf("error updating player: %v", err)

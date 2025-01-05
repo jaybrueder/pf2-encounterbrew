@@ -80,9 +80,6 @@ func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 			return echo.NewHTTPError(http.StatusBadRequest, "Failed to parse form")
 		}
 
-		// Debug logging
-		log.Printf("Form data: %+v", c.Request().Form)
-
 		// Get the existing party
 		party, err := models.GetParty(db, partyID)
 		if err != nil {
@@ -99,10 +96,9 @@ func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 		playerLevels := c.Request().Form["players[]level"]
 		playerACs := c.Request().Form["players[]ac"]
 		playerHPs := c.Request().Form["players[]hp"]
-
-		// Debug logging
-		log.Printf("Player IDs: %v", playerIDs)
-		log.Printf("Player Names: %v", playerNames)
+		playerFort := c.Request().Form["players[]fort"]
+		playerRef := c.Request().Form["players[]ref"]
+		playerWill := c.Request().Form["players[]will"]
 
 		// Create a map of existing player IDs for tracking deletions
 		existingPlayers := make(map[int]bool)
@@ -117,6 +113,9 @@ func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 			level, _ := strconv.Atoi(playerLevels[i])
 			ac, _ := strconv.Atoi(playerACs[i])
 			hp, _ := strconv.Atoi(playerHPs[i])
+			fort, _ := strconv.Atoi(playerFort[i])
+			ref, _ := strconv.Atoi(playerRef[i])
+			will, _ := strconv.Atoi(playerWill[i])
 
 			player := models.Player{
 				ID:      playerID,
@@ -124,6 +123,9 @@ func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 				Level:   level,
 				Ac:      ac,
 				Hp:      hp,
+				Fort:    fort,
+				Ref:     ref,
+				Will:    will,
 				PartyID: party.ID,
 			}
 
