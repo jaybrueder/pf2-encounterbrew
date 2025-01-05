@@ -42,14 +42,16 @@ func (p Player) GetHp() int {
 	return p.Hp
 }
 
-func (p *Player) SetHp(i int) {}
+func (p *Player) SetHp(i int) {
+	p.Hp -= i
+}
 
 func (p Player) GetMaxHp() int {
 	return p.Hp
 }
 
 func (p Player) GetAc() int {
-	return p.Ac
+	return p.Ac + p.AdjustConditions()["ac"]
 }
 
 func (p Player) GetAcDetails() string {
@@ -213,6 +215,27 @@ func (p *Player) SetEnumeration(value int) {
 
 func (p Player) IsMonster() bool {
 	return false
+}
+
+func (p Player) IsOffGuard() bool {
+	for _, c := range p.Conditions {
+		if c.GetName() == "Off-Guard" {
+			return true
+		}
+	}
+
+	return false
+}
+
+func (p Player) AdjustConditions() map[string]int {
+	conditions := map[string]int{}
+	conditions["ac"] = 0
+
+	if p.IsOffGuard() {
+		conditions["ac"] = -2
+	}
+
+	return conditions
 }
 
 // Database interactions

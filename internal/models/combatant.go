@@ -51,6 +51,8 @@ type Combatant interface {
 	RemoveCondition(conditionID int) []Condition
 	GetAdjustmentModifier() int
 	IsMonster() bool
+	IsOffGuard() bool
+	AdjustConditions() map[string]int
 }
 
 func AssignInitiative(combatants []Combatant) {

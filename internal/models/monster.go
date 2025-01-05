@@ -183,6 +183,17 @@ func (m Monster) AdjustMonster() map[string]int {
 	return adjustments
 }
 
+func (m Monster) AdjustConditions() map[string]int {
+	conditions := map[string]int{}
+	conditions["ac"] = 0
+
+	if m.IsOffGuard() {
+		conditions["ac"] = -2
+	}
+
+	return conditions
+}
+
 // Implement the Combatant interface
 
 func (m Monster) GetName() string {
@@ -228,7 +239,7 @@ func (m Monster) GetMaxHp() int {
 }
 
 func (m Monster) GetAc() int {
-	return m.Data.System.Attributes.Ac.Value + m.AdjustMonster()["mod"]
+	return m.Data.System.Attributes.Ac.Value + m.AdjustMonster()["mod"] + m.AdjustConditions()["ac"]
 }
 
 func (m Monster) GetAcDetails() string {
@@ -544,6 +555,16 @@ func (m *Monster) SetEnumeration(value int) {
 
 func (m Monster) IsMonster() bool {
 	return true
+}
+
+func (m Monster) IsOffGuard() bool {
+	for _, c := range m.Conditions {
+		if c.GetName() == "Off-Guard" {
+			return true
+		}
+	}
+
+	return false
 }
 
 // Database interactions
