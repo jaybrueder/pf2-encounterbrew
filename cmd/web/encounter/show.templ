@@ -1,6 +1,7 @@
 package encounter
 
 import (
+    "fmt"
     "strconv"
 
     "pf2.encounterbrew.com/cmd/web"
@@ -26,7 +27,7 @@ templ EncounterShow(encounter models.Encounter) {
         </section>
         <section class="p-2 mx-auto bg-black flex justify-between fixed w-full bottom-0">
             <button hx-post={"/encounters/" + strconv.Itoa(encounter.ID) + "/prev_turn"} hx-target="body" class="text-4xl text-white ml-4"><i class="fa-solid fa-caret-left"></i></button>
-            <button hx-get={"/encounters/" + strconv.Itoa(encounter.ID) + "/edit"} hx-replace-url={"/encounters/" + strconv.Itoa(encounter.ID) + "/edit"} hx-target="body" class="text-xl text-white ml-4"><i class="fa-solid fa-pencil"></i></button>
+            <a href={ templ.URL(fmt.Sprintf("/encounters/%d/edit", encounter.ID)) } class="text-xl text-white ml-4"><i class="fa-solid fa-pencil"></i></a>
             <button hx-post={"/encounters/" + strconv.Itoa(encounter.ID) + "/next_turn"} hx-target="body" class="text-4xl text-white mr-4"><i class="fa-solid fa-caret-right"></i></button>
         </section>
     }

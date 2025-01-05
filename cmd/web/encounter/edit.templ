@@ -1,6 +1,7 @@
 package encounter
 
 import (
+    "fmt"
     "strconv"
 
     "pf2.encounterbrew.com/cmd/web"
@@ -50,10 +51,10 @@ templ EncounterEdit(encounter models.Encounter) {
 
                 <div class="flex justify-end mt-6">
 
-                    <button hx-get={"/encounters/" + strconv.Itoa(encounter.ID)} hx-replace-url={"/encounters/" + strconv.Itoa(encounter.ID)} hx-target="body" type="submit" class="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                    <a href={ templ.URL(fmt.Sprintf("/encounters/%d", encounter.ID)) } class="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
                         <i class="fa-solid fa-play"></i>
                         <span class="mx-2">Play</span>
-                    </button>
+                    </a>
 
                 </div>
             </form>
