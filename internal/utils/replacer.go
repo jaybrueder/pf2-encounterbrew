@@ -20,7 +20,8 @@ func NewReplacer() *Replacer {
 			"formatted_rolls_simple": regexp.MustCompile(`\[\[/r ([^]]+)\]\]`),
 
 			// Damage patterns
-			"damage": regexp.MustCompile(`@Damage\[(\d+)d(\d+)\[([^\]]+)\]\]`),
+			"damage":            regexp.MustCompile(`@Damage\[(\d+)d(\d+)\[([^\]]+)\]\]`),
+			"damage_with_level": regexp.MustCompile(`@Damage\[\(@item\.level\)\[([^\]]+)\]\]`),
 
 			// Check patterns
 			"check_with_full_traits": regexp.MustCompile(`@Check\[([^|]+)\|dc:(\d+)\|basic\|traits:([^|]+)(?:\|overrideTraits:true)?\]`),
@@ -48,6 +49,12 @@ func (r *Replacer) ProcessText(input string) string {
 	input = r.patterns["formatted_rolls_simple"].ReplaceAllString(input, "$1")
 
 	// Replace damage
+	input = r.patterns["damage_with_level"].ReplaceAllStringFunc(input, func(match string) string {
+		parts := r.patterns["damage_with_level"].FindStringSubmatch(match)
+		type_ := parts[1] // bleed
+		return type_
+	})
+
 	input = r.patterns["damage"].ReplaceAllStringFunc(input, func(match string) string {
 		parts := r.patterns["damage"].FindStringSubmatch(match)
 		number := parts[1] // 18
