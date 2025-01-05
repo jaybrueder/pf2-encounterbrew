@@ -1,6 +1,7 @@
 package models
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"sort"
@@ -53,10 +54,9 @@ type Item struct {
 			Value string `json:"value"`
 		} `json:"description"`
 		Duration struct {
-			Sustained bool   `json:"sustained"`
-			Value     string `json:"value"`
+			Sustained bool                  `json:"sustained"`
+			Value     FlexibleDurationValue `json:"value"`
 		} `json:"duration"`
-
 		Hardness int `json:"hardness"`
 		HP       struct {
 			Max int `json:"max"`
@@ -106,6 +106,28 @@ type Item struct {
 		} `json:"weaponType"`
 	} `json:"system"`
 	Type string `json:"type"`
+}
+
+type FlexibleDurationValue struct {
+	Value string
+}
+
+func (fdv *FlexibleDurationValue) UnmarshalJSON(data []byte) error {
+	// Try unmarshaling as string first
+	var strValue string
+	if err := json.Unmarshal(data, &strValue); err == nil {
+		fdv.Value = strValue
+		return nil
+	}
+
+	// If string unmarshal fails, try as number
+	var numValue float64
+	if err := json.Unmarshal(data, &numValue); err == nil {
+		fdv.Value = fmt.Sprintf("%v", numValue)
+		return nil
+	}
+
+	return fmt.Errorf("value must be either a string or a number")
 }
 
 func (i Item) GetWeaponType() string {
@@ -176,7 +198,7 @@ func (i Item) GetSpellTarget() string {
 }
 
 func (i Item) GetSpellDuration() string {
-	return i.System.Duration.Value
+	return i.System.Duration.Value.Value
 }
 
 func (i Item) GetSpellTime() string {
