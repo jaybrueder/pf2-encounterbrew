@@ -41,6 +41,9 @@ templ PartyListItem(party models.Party) {
         <div class="px-4 py-2 -mx-3">
             <div class="mx-3">
                 <span class="font-semibold text-md text-gray-700">{party.Name}</span>
+                if party.IsActive() {
+                    <span class="text-sm ml-2 text-green-500">Active</span>
+                }
             </div>
         </div>
 

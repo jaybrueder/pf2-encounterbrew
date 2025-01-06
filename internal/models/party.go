@@ -34,6 +34,10 @@ func (p *Party) GetLevel() float64 {
 	return average
 }
 
+func (p Party) IsActive() bool {
+	return false
+}
+
 // Database interaction
 func (p *Party) Create(db database.Service) (int, error) {
 	if db == nil {
