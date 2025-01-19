@@ -13,7 +13,7 @@ import (
 
 templ EncounterShow(encounter models.Encounter) {
     @web.Base(encounter.Name) {
-        <section class="max-w-4xl px-2 mx-auto">
+        <section class="max-w-4xl px-2 mx-auto  pb-16">
             <div id="difficulty">
                 @Difficulty(encounter)
             </div>
