@@ -6,6 +6,7 @@
 - golangci-lint
 - docker
 - docker-compose
+- npm install -g tailwindcss@3.4.17
 
 ```
 $ docker compose --profile dev up -d

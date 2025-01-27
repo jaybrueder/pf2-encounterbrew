@@ -49,7 +49,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
     <div x-data="{ isOpen: false, showStatblock: false, showRadialMenu: false }" class={ "flex-col justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }>
         <div class="flex justify-between">
             <div class="flex">
-                <button class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
+                <button @click="showStatblock = !showStatblock" class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
                     <span class="text-white font-bold">{strconv.Itoa(combatant.GetInitiative())}</span>
                 </button>
 
@@ -95,7 +95,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                     x-transition:leave="transition ease-in duration-150"
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-95"
-                    class="absolute right-12 top-0 flex gap-2"
+                    class="absolute right-12 top-2 flex gap-3"
                 >
                     <button
                         @click="isOpen = true; showRadialMenu = false"
@@ -107,18 +107,18 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
 
                     <button
                         @click="isOpen = true; showRadialMenu = false"
-                        class="flex items-center justify-center w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
-                        title="Deal Damage"
-                    >
-                        <i class="fas fa-heart-broken"></i>
-                    </button>
-
-                    <button
-                        @click="isOpen = true; showRadialMenu = false"
                         class="flex items-center justify-center w-10 h-10 bg-purple-500 hover:bg-purple-600 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
                         title="Add Condition"
                     >
                         <i class="fas fa-plus-circle"></i>
+                    </button>
+
+                    <button
+                        @click="isOpen = true; showRadialMenu = false"
+                        class="flex items-center justify-center w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
+                        title="Deal Damage"
+                    >
+                        <i class="fas fa-heart-broken"></i>
                     </button>
                 </div>
             </div>
