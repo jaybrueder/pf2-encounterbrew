@@ -19,7 +19,7 @@ templ EncounterShow(encounter models.Encounter) {
             </div>
             <div id="bulk-initiative" x-data="{ isInitiativeOpen: false }">
                 @SetInitiative(encounter)
-                @InitiativeModal(encounter)
+                @AllInitiativeModal(encounter)
             </div>
             <div id="combatants">
                 @CombatantList(encounter)
@@ -48,7 +48,8 @@ templ CombatantList(encounter models.Encounter) {
 templ CombatantListItem(combatant models.Combatant, index int, encounter models.Encounter) {
 	<div
         x-data="{
-            isOpen: false,
+            initiativeIsOpen: false,
+            damageIsOpen: false,
             showStatblock: false,
             showRadialMenu: false,
             showConditions: false,
@@ -117,7 +118,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                     class="absolute right-12 top-2 flex gap-3"
                 >
                     <button
-                        @click="isOpen = true; showRadialMenu = false"
+                        @click="initiativeIsOpen = true; showRadialMenu = false"
                         class="flex items-center justify-center w-10 h-10 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
                         title="Edit Initiative"
                     >
@@ -169,7 +170,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                     </div>
 
                     <button
-                        @click="isOpen = true; showRadialMenu = false"
+                        @click="damageIsOpen = true; showRadialMenu = false"
                         class="flex items-center justify-center w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
                         title="Deal Damage"
                     >
@@ -180,7 +181,8 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
 
         </div>
 
-        @EditCombatantModal(combatant, index, encounter.ID)
+        @EditInitiativeModal(combatant, index, encounter.ID)
+        @DealDamageModal(combatant, index, encounter.ID)
 
         if combatant.GetType() == "monster" {
             @Statblock(combatant)
@@ -188,8 +190,8 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
     </div>
 }
 
-templ EditCombatantModal(combatant models.Combatant, index int, encounterID int) {
-    <div x-show="isOpen"
+templ EditInitiativeModal(combatant models.Combatant, index int, encounterID int) {
+    <div x-show="initiativeIsOpen"
         x-transition
         class="fixed inset-0 flex items-center justify-center bg-black/50"
         style="z-index: 50;"
@@ -198,7 +200,7 @@ templ EditCombatantModal(combatant models.Combatant, index int, encounterID int)
 
         <div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-yellow-500 rounded-lg shadow-lg max-w-4xl max-h-[80vh] overflow-y-auto">
             <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">
-                Edit <b>{combatant.GetName()}</b>
+                <b>{combatant.GetName()}</b>
             </h3>
 
             <form class="mt-4" hx-patch={"/encounters/" + strconv.Itoa(encounterID) + "/combatant/" + strconv.Itoa(index) + "/update"} hx-target="#combatants">
@@ -213,8 +215,37 @@ templ EditCombatantModal(combatant models.Combatant, index int, encounterID int)
                     </div>
                 </div>
 
+                <div class="mt-4 sm:flex sm:items-center sm:-mx-2">
+                    <button type="button" @click="initiativeIsOpen = false" class="w-full px-4 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:w-1/2 sm:mx-2 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="w-full px-4 py-2 mt-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-md sm:mt-0 sm:w-1/2 sm:mx-2 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+templ DealDamageModal(combatant models.Combatant, index int, encounterID int) {
+    <div x-show="damageIsOpen"
+        x-transition
+        class="fixed inset-0 flex items-center justify-center bg-black/50"
+        style="z-index: 50;"
+        aria-labelledby="modal-title" role="dialog" aria-modal="true"
+    >
+
+        <div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-red-500 rounded-lg shadow-lg max-w-4xl max-h-[80vh] overflow-y-auto">
+            <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">
+                <b>{combatant.GetName()}</b>
+            </h3>
+
+            <form class="mt-4" hx-patch={"/encounters/" + strconv.Itoa(encounterID) + "/combatant/" + strconv.Itoa(index) + "/update"} hx-target="#combatants">
+
                 <div class="mt-2">
-                    <label for="damage" class="text-sm text-gray-700">
+                    <label for="damage" class="text-md text-gray-700">
                         Damage
                     </label>
 
@@ -223,17 +254,8 @@ templ EditCombatantModal(combatant models.Combatant, index int, encounterID int)
                     </div>
                 </div>
 
-                <div class="mt-2">
-                    <label for="conditions" class="text-sm text-gray-700 mb-2">
-                        Conditions
-                    </label>
-                    <div id={"combatant-conditions-" + strconv.Itoa(index)}>
-                        @CombatantConditions(strconv.Itoa(encounterID), index, combatant.GetConditions())
-                    </div>
-                </div>
-
                 <div class="mt-4 sm:flex sm:items-center sm:-mx-2">
-                    <button type="button" @click="isOpen = false" class="w-full px-4 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:w-1/2 sm:mx-2 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
+                    <button type="button" @click="damageIsOpen = false" class="w-full px-4 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:w-1/2 sm:mx-2 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
                         Cancel
                     </button>
 
@@ -256,7 +278,7 @@ templ SetInitiative(encounter models.Encounter) {
     }
 }
 
-templ InitiativeModal(encounter models.Encounter) {
+templ AllInitiativeModal(encounter models.Encounter) {
     <div x-show="isInitiativeOpen"
         x-transition
         class="fixed inset-0 flex items-center justify-center bg-black/50"
@@ -489,101 +511,6 @@ templ ActionCostBig(cost string) {
     } else {
         <img class="inline-flex" style="height:24px; margin-top: -4px;" src={"/assets/images/" + cost + "-action.webp"} />
     }
-}
-
-templ CombatantConditions(encounterID string, combatantIndex int, conditions []models.Condition) {
-    @ConditionsAdded(encounterID, combatantIndex, conditions)
-
-    <div class="block mt-1">
-        <input
-        type="text"
-        name="search_condition"
-        id="search_condition"
-        placeholder="Add new condition..."
-        autocomplete="off"
-        hx-post={"/encounters/" + encounterID + "/combatant/" + strconv.Itoa(combatantIndex) + "/search_conditions"}
-        hx-trigger="input changed delay:500ms, search"
-        hx-target={"#conditions-searched-" + strconv.Itoa(combatantIndex)}
-        hx-swap="innerHTML"
-        class="block w-full px-4 py-3 mb-2 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
-    </div>
-
-    <div id={"conditions-searched-" + strconv.Itoa(combatantIndex)}>
-    </div>
-}
-
-templ ConditionsAdded(encounterID string, combatantIndex int, conditions []models.Condition) {
-    <div id={"conditions-added-" + strconv.Itoa(combatantIndex)}>
-        if len(conditions) != 0 {
-            for _, condition := range conditions {
-                @ConditionAddedListItem(encounterID, combatantIndex, &condition)
-            }
-        }
-    </div>
-}
-
-templ ConditionSearchResults(encounterID string, combatantIndex int, conditions []models.Condition) {
-    <div id={"conditions-search-results-" + strconv.Itoa(combatantIndex)}>
-        if len(conditions) == 0 {
-            <p>No conditions found.</p>
-        } else {
-            for _, condition := range conditions {
-                @ConditionSearchListItem(encounterID, combatantIndex, &condition)
-            }
-        }
-    </div>
-}
-
-templ ConditionAddedListItem(encounterID string, combatantIndex int, condition *models.Condition) {
-    <div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
-        <div class="flex">
-            <p class="text-lg font-semibold text-gray-700">@ConditionName(condition)</p>
-        </div>
-
-        <div class="flex">
-            <button
-            hx-post={"/encounters/" + encounterID + "/combatant/" + strconv.Itoa(combatantIndex) + "/remove_condition/" + strconv.Itoa(condition.ID)}
-            hx-target={"#combatant-conditions-" + strconv.Itoa(combatantIndex)}
-            hx-swap="innerHTML"
-            class="text-2xl font-medium uppercase text-red-900">
-                <i class="fa-solid fa-square-minus"></i>
-            </button>
-        </div>
-    </div>
-}
-
-templ ConditionSearchListItem(encounterID string, combatantIndex int, condition *models.Condition) {
-    <div class="w-full overflow-hidden bg-white rounded-md mb-2">
-        <form class="flex justify-between"
-            hx-post={"/encounters/" + encounterID + "/combatant/" + strconv.Itoa(combatantIndex) + "/add_condition/" + strconv.Itoa(condition.ID)}
-            hx-target={"#combatant-conditions-" + strconv.Itoa(combatantIndex)}
-            hx-swap="innerHTML">
-
-            <div class="flex">
-                <p class="text-lg font-semibold text-gray-700">{condition.GetName()}</p>
-            </div>
-
-            if condition.IsValued() {
-                <div class="flex">
-                    <input
-                    type="number"
-                    name="condition_value"
-                    id="condition_value"
-                    autocomplete="off"
-                    value="1"
-                    class="block w-8 text-xs text-center text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
-                </div>
-            }
-
-            <div class="flex">
-                <button
-                type="submit"
-                class="text-4xl font-medium uppercase text-green-700">
-                    <i class="fa-solid fa-square-plus"></i>
-                </button>
-            </div>
-        </form>
-    </div>
 }
 
 templ ConditionName(condition *models.Condition) {
