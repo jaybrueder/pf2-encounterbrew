@@ -46,7 +46,26 @@ templ CombatantList(encounter models.Encounter) {
 }
 
 templ CombatantListItem(combatant models.Combatant, index int, encounter models.Encounter) {
-    <div x-data="{ isOpen: false, showStatblock: false, showRadialMenu: false }" class={ "flex-col justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }>
+	<div
+        x-data="{
+            isOpen: false,
+            showStatblock: false,
+            showRadialMenu: false,
+            showConditions: false,
+            conditions: [
+                'Blinded', 'Broken', 'Clumsy', 'Concealed', 'Confused',
+                'Controlled', 'Cursebound', 'Dazzled', 'Deafened', 'Doomed',
+                'Drained', 'Dying', 'Encumbered', 'Enfeebled', 'Fascinated',
+                'Fatigued', 'Fleeing', 'Friendly', 'Frightened', 'Grabbed',
+                'Helpful', 'Hidden', 'Hostile', 'Immobilized', 'Indifferent',
+                'Invisible', 'Observed', 'Off-Guard', 'Paralyzed', 'Persistent Damage',
+                'Petrified', 'Prone', 'Quickened', 'Restrained', 'Sickened',
+                'Slowed', 'Stunned', 'Stupefied', 'Unconscious', 'Undetected',
+                'Unfriendly', 'Unnoticed', 'Wounded'
+            ]
+        }"
+        class={ "flex-col justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }
+    >
         <div class="flex justify-between">
             <div class="flex">
                 <button @click="showStatblock = !showStatblock" class={ "flex items-center justify-center w-12", getColorClass(combatant) }>
@@ -88,7 +107,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
 
                 <div
                     x-show="showRadialMenu"
-                    @click.outside="showRadialMenu = false"
+                    @click.outside="showRadialMenu = false; showConditions = false"
                     x-transition:enter="transition ease-out duration-200"
                     x-transition:enter-start="opacity-0 scale-95"
                     x-transition:enter-end="opacity-100 scale-100"
@@ -105,13 +124,49 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                         <i class="fas fa-clock"></i>
                     </button>
 
-                    <button
-                        @click="isOpen = true; showRadialMenu = false"
-                        class="flex items-center justify-center w-10 h-10 bg-purple-500 hover:bg-purple-600 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
-                        title="Add Condition"
-                    >
-                        <i class="fas fa-plus-circle"></i>
-                    </button>
+                    // Conditions Grid
+                    <div class="relative">
+                        <button
+                            @click="showConditions = !showConditions"
+                            class="flex items-center justify-center w-10 h-10 bg-purple-500 hover:bg-purple-600 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
+                            title="Add Condition"
+                        >
+                            <i class="fas fa-plus-circle"></i>
+                        </button>
+
+                        <div
+                            x-cloak
+                            x-show="showConditions"
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 scale-95"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-95"
+                            @click.outside="showConditions = false"
+                            class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+                        >
+                        	<div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-blue-700 rounded-lg shadow-lg max-w-3xl max-h-[80vh] overflow-y-auto">
+                                <div class="grid grid-cols-3 gap-2">
+                                    <template x-for="condition in conditions" :key="condition">
+                                        <button
+                                            @click="showConditions = false"
+                                            class="px-2 py-1 text-sm text-center bg-purple-100 hover:bg-purple-200 rounded-md truncate"
+                                            x-text="condition"
+                                            hx-post={"/encounters/" + strconv.Itoa(encounter.ID) + "/combatant/" + strconv.Itoa(index) + "/add_condition"}
+                                            hx-target="#combatants"
+                                        ></button>
+                                    </template>
+                                </div>
+
+                                <div class="mt-4 flex items-center">
+                                    <button type="button" @click="showConditions = false" class="w-full px-4 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <button
                         @click="isOpen = true; showRadialMenu = false"
@@ -122,6 +177,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                     </button>
                 </div>
             </div>
+
         </div>
 
         @EditCombatantModal(combatant, index, encounter.ID)
