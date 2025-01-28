@@ -47,6 +47,14 @@ func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 			return c.String(http.StatusInternalServerError, "Error fetching encounter")
 		}
 
+		// Get all conditions
+		groupedConditions, err := models.GetGroupedConditions(db)
+		if err != nil {
+			log.Printf("Error fetching grouped conditions: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching conditions")
+		}
+		encounter.GroupedConditions = groupedConditions
+
 		// Store encounter in session
 		sess, _ := session.Get("encounter-session", c)
 		sess.Values["encounter"] = encounter
@@ -129,10 +137,7 @@ func EncounterRemoveMonster(db database.Service) echo.HandlerFunc {
 
 func UpdateCombatant() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		// encounterID := c.Param("encounter_id")
 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
-		newInitiative, _ := strconv.Atoi(c.FormValue("initiative"))
-		damage, _ := strconv.Atoi(c.FormValue("damage"))
 
 		// Get session
 		sess, _ := session.Get("encounter-session", c)
@@ -151,12 +156,22 @@ func UpdateCombatant() echo.HandlerFunc {
 
 		// Update the specific combatant's values
 		if combatantIndex < len(encounter.Combatants) {
-			encounter.Combatants[combatantIndex].SetInitiative(newInitiative)
-			encounter.Combatants[combatantIndex].SetHp(damage)
-		}
+			// Check if initiative was provided
+			if initiativeStr := c.FormValue("initiative"); initiativeStr != "" {
+				if newInitiative, err := strconv.Atoi(initiativeStr); err == nil {
+					encounter.Combatants[combatantIndex].SetInitiative(newInitiative)
+					// Re-sort combatants by initiative only if initiative was updated
+					models.SortCombatantsByInitiative(encounter.Combatants)
+				}
+			}
 
-		// Re-sort combatants by initiative
-		models.SortCombatantsByInitiative(encounter.Combatants)
+			// Check if damage was provided
+			if damageStr := c.FormValue("damage"); damageStr != "" {
+				if damage, err := strconv.Atoi(damageStr); err == nil {
+					encounter.Combatants[combatantIndex].SetHp(damage)
+				}
+			}
+		}
 
 		// Save updated encounter back to session
 		sess.Values["encounter"] = encounter
@@ -263,29 +278,10 @@ func ChangeTurn(next bool) echo.HandlerFunc {
 	}
 }
 
-func SearchConditions(db database.Service) echo.HandlerFunc {
-	return func(c echo.Context) error {
-		search := c.FormValue("search_condition")
-		encounterID := c.Param("encounter_id")
-		combatantIndex, _ := strconv.Atoi(c.Param("index"))
-
-		conditions, err := models.SearchConditions(db, search)
-		if err != nil {
-			log.Printf("Error searching for condition: %v", err)
-			return c.String(http.StatusInternalServerError, "Error searching for conditions")
-		}
-
-		component := ConditionSearchResults(encounterID, combatantIndex, conditions)
-		return component.Render(c.Request().Context(), c.Response().Writer)
-	}
-}
-
 func AddCondition(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		encounterID := c.Param("encounter_id")
 		conditionID, _ := strconv.Atoi(c.Param("condition_id"))
 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
-		conditionValue, _ := strconv.Atoi(c.FormValue("condition_value"))
 
 		// Get session
 		sess, _ := session.Get("encounter-session", c)
@@ -303,7 +299,8 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 		}
 
 		// Update the specific combatant's values
-		conditions := encounter.Combatants[combatantIndex].SetCondition(db, conditionID, conditionValue)
+		// TODO Increasr value if already there
+		encounter.Combatants[combatantIndex].SetCondition(db, conditionID, 0)
 
 		// Save updated encounter back to session
 		sess.Values["encounter"] = encounter
@@ -313,14 +310,13 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 		}
 
 		// Render and return the updated combatant list
-		component := CombatantConditions(encounterID, combatantIndex, conditions)
+		component := CombatantList(*encounter)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
 
 func RemoveCondition() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		encounterID := c.Param("encounter_id")
 		conditionID, _ := strconv.Atoi(c.Param("condition_id"))
 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
 
@@ -340,7 +336,7 @@ func RemoveCondition() echo.HandlerFunc {
 		}
 
 		// Update the specific combatant's values
-		conditions := encounter.Combatants[combatantIndex].RemoveCondition(conditionID)
+		encounter.Combatants[combatantIndex].RemoveCondition(conditionID)
 
 		// Save updated encounter back to session
 		sess.Values["encounter"] = encounter
@@ -350,7 +346,7 @@ func RemoveCondition() echo.HandlerFunc {
 		}
 
 		// Render and return the updated combatant list
-		component := CombatantConditions(encounterID, combatantIndex, conditions)
+		component := CombatantList(*encounter)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }

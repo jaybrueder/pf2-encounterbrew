@@ -11,14 +11,15 @@ import (
 )
 
 type Encounter struct {
-	ID         int         `json:"id"`
-	Name       string      `json:"name"`
-	UserID     int         `json:"user_id"`
-	User       *User       `json:"user,omitempty"`
-	Monsters   []*Monster  `json:"monsters,omitempty"`
-	Combatants []Combatant `json:"combatants,omitempty"`
-	Round      int         `json:"round"`
-	Turn       int         `json:"turn"`
+	ID                int                        `json:"id"`
+	Name              string                     `json:"name"`
+	UserID            int                        `json:"user_id"`
+	User              *User                      `json:"user,omitempty"`
+	Monsters          []*Monster                 `json:"monsters,omitempty"`
+	Combatants        []Combatant                `json:"combatants,omitempty"`
+	Round             int                        `json:"round"`
+	Turn              int                        `json:"turn"`
+	GroupedConditions map[string][]ConditionInfo `json:"grouped_conditions"`
 }
 
 func GetAllEncounters(db database.Service) ([]Encounter, error) {
