@@ -20,6 +20,7 @@ type Encounter struct {
 	Round             int                        `json:"round"`
 	Turn              int                        `json:"turn"`
 	GroupedConditions map[string][]ConditionInfo `json:"grouped_conditions"`
+	Party             Party                      `json:"party"`
 }
 
 func GetAllEncounters(db database.Service) ([]Encounter, error) {
@@ -163,6 +164,9 @@ func GetEncounterWithCombatants(db database.Service, id string, partyId string) 
 	// Add combatants to the encounter
 	encounter.Combatants = combatants
 
+	// Set the party level
+	encounter.Party = party
+
 	return encounter, nil
 }
 
@@ -243,8 +247,8 @@ func RemoveMonsterFromEncounter(db database.Service, encounterID string, associa
 }
 
 func (e Encounter) GetDifficulty() int {
-	partyLevel := 1
-	monsterXpPool := 0
+	partyLevel := int(e.Party.GetLevel())
+	monsterXpPool := 0.0
 
 	for _, combatant := range e.Combatants {
 		if combatant.GetType() == "monster" {
@@ -253,37 +257,39 @@ func (e Encounter) GetDifficulty() int {
 
 			switch {
 			case difference <= -4:
-				monsterXpPool += 10
+				monsterXpPool += 10.0
 			case difference == -3:
-				monsterXpPool += 15
+				monsterXpPool += 15.0
 			case difference == -2:
-				monsterXpPool += 20
+				monsterXpPool += 20.0
 			case difference == -1:
-				monsterXpPool += 30
+				monsterXpPool += 30.0
 			case difference == 0:
-				monsterXpPool += 40
+				monsterXpPool += 40.0
 			case difference == 1:
-				monsterXpPool += 60
+				monsterXpPool += 60.0
 			case difference == 2:
-				monsterXpPool += 80
+				monsterXpPool += 80.0
 			case difference == 3:
-				monsterXpPool += 120
+				monsterXpPool += 120.0
 			case difference >= 4:
-				monsterXpPool += 160
+				monsterXpPool += 160.0
 			}
 		}
 	}
 
+	threshold := float64(e.Party.GetNumbersOfPlayer()) / 4.0
+
 	switch {
-	case monsterXpPool <= 40:
+	case monsterXpPool <= 40.0*threshold:
 		return 0
-	case monsterXpPool <= 60:
+	case monsterXpPool <= 60.0*threshold:
 		return 1
-	case monsterXpPool <= 80:
+	case monsterXpPool <= 80.0*threshold:
 		return 2
-	case monsterXpPool <= 120:
+	case monsterXpPool <= 120.0*threshold:
 		return 3
-	case monsterXpPool > 120:
+	case monsterXpPool > 120.0*threshold:
 		return 4
 	}
 
