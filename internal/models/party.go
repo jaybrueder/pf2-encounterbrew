@@ -34,6 +34,10 @@ func (p *Party) GetLevel() float64 {
 	return average
 }
 
+func (p Party) GetNumbersOfPlayer() float64 {
+	return float64(len(p.Players))
+}
+
 func (p Party) IsActive() bool {
 	return false
 }
