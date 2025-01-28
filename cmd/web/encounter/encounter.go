@@ -47,6 +47,14 @@ func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 			return c.String(http.StatusInternalServerError, "Error fetching encounter")
 		}
 
+		// Get all conditions
+		groupedConditions, err := models.GetGroupedConditions(db)
+		if err != nil {
+			log.Printf("Error fetching grouped conditions: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching conditions")
+		}
+		encounter.GroupedConditions = groupedConditions
+
 		// Store encounter in session
 		sess, _ := session.Get("encounter-session", c)
 		sess.Values["encounter"] = encounter
@@ -270,77 +278,75 @@ func ChangeTurn(next bool) echo.HandlerFunc {
 	}
 }
 
-// func AddCondition(db database.Service) echo.HandlerFunc {
-// 	return func(c echo.Context) error {
-// 		encounterID := c.Param("encounter_id")
-// 		conditionID, _ := strconv.Atoi(c.Param("condition_id"))
-// 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
-// 		conditionValue, _ := strconv.Atoi(c.FormValue("condition_value"))
+func AddCondition(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		conditionID, _ := strconv.Atoi(c.Param("condition_id"))
+		combatantIndex, _ := strconv.Atoi(c.Param("index"))
 
-// 		// Get session
-// 		sess, _ := session.Get("encounter-session", c)
+		// Get session
+		sess, _ := session.Get("encounter-session", c)
 
-// 		// Get encounter from session
-// 		encounterData, ok := sess.Values["encounter"]
-// 		if !ok {
-// 			return c.String(http.StatusInternalServerError, "Encounter not found in session")
-// 		}
+		// Get encounter from session
+		encounterData, ok := sess.Values["encounter"]
+		if !ok {
+			return c.String(http.StatusInternalServerError, "Encounter not found in session")
+		}
 
-// 		encounter, ok := encounterData.(*models.Encounter)
-// 		if !ok {
-// 			log.Printf("Type assertion failed. Actual type: %T", encounterData)
-// 			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
-// 		}
+		encounter, ok := encounterData.(*models.Encounter)
+		if !ok {
+			log.Printf("Type assertion failed. Actual type: %T", encounterData)
+			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		}
 
-// 		// Update the specific combatant's values
-// 		conditions := encounter.Combatants[combatantIndex].SetCondition(db, conditionID, conditionValue)
+		// Update the specific combatant's values
+		// TODO Increasr value if already there
+		encounter.Combatants[combatantIndex].SetCondition(db, conditionID, 0)
 
-// 		// Save updated encounter back to session
-// 		sess.Values["encounter"] = encounter
-// 		if err := sess.Save(c.Request(), c.Response()); err != nil {
-// 			log.Printf("Error saving session: %v", err)
-// 			return c.String(http.StatusInternalServerError, "Error saving session")
-// 		}
+		// Save updated encounter back to session
+		sess.Values["encounter"] = encounter
+		if err := sess.Save(c.Request(), c.Response()); err != nil {
+			log.Printf("Error saving session: %v", err)
+			return c.String(http.StatusInternalServerError, "Error saving session")
+		}
 
-// 		// Render and return the updated combatant list
-// 		component := CombatantConditions(encounterID, combatantIndex, conditions)
-// 		return component.Render(c.Request().Context(), c.Response().Writer)
-// 	}
-// }
+		// Render and return the updated combatant list
+		component := CombatantList(*encounter)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
+}
 
-// func RemoveCondition() echo.HandlerFunc {
-// 	return func(c echo.Context) error {
-// 		encounterID := c.Param("encounter_id")
-// 		conditionID, _ := strconv.Atoi(c.Param("condition_id"))
-// 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
+func RemoveCondition() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		conditionID, _ := strconv.Atoi(c.Param("condition_id"))
+		combatantIndex, _ := strconv.Atoi(c.Param("index"))
 
-// 		// Get session
-// 		sess, _ := session.Get("encounter-session", c)
+		// Get session
+		sess, _ := session.Get("encounter-session", c)
 
-// 		// Get encounter from session
-// 		encounterData, ok := sess.Values["encounter"]
-// 		if !ok {
-// 			return c.String(http.StatusInternalServerError, "Encounter not found in session")
-// 		}
+		// Get encounter from session
+		encounterData, ok := sess.Values["encounter"]
+		if !ok {
+			return c.String(http.StatusInternalServerError, "Encounter not found in session")
+		}
 
-// 		encounter, ok := encounterData.(*models.Encounter)
-// 		if !ok {
-// 			log.Printf("Type assertion failed. Actual type: %T", encounterData)
-// 			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
-// 		}
+		encounter, ok := encounterData.(*models.Encounter)
+		if !ok {
+			log.Printf("Type assertion failed. Actual type: %T", encounterData)
+			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		}
 
-// 		// Update the specific combatant's values
-// 		conditions := encounter.Combatants[combatantIndex].RemoveCondition(conditionID)
+		// Update the specific combatant's values
+		encounter.Combatants[combatantIndex].RemoveCondition(conditionID)
 
-// 		// Save updated encounter back to session
-// 		sess.Values["encounter"] = encounter
-// 		if err := sess.Save(c.Request(), c.Response()); err != nil {
-// 			log.Printf("Error saving session: %v", err)
-// 			return c.String(http.StatusInternalServerError, "Error saving session")
-// 		}
+		// Save updated encounter back to session
+		sess.Values["encounter"] = encounter
+		if err := sess.Save(c.Request(), c.Response()); err != nil {
+			log.Printf("Error saving session: %v", err)
+			return c.String(http.StatusInternalServerError, "Error saving session")
+		}
 
-// 		// Render and return the updated combatant list
-// 		component := CombatantConditions(encounterID, combatantIndex, conditions)
-// 		return component.Render(c.Request().Context(), c.Response().Writer)
-// 	}
-// }
+		// Render and return the updated combatant list
+		component := CombatantList(*encounter)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
+}

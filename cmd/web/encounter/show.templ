@@ -52,18 +52,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
             damageIsOpen: false,
             showStatblock: false,
             showRadialMenu: false,
-            showConditions: false,
-            conditions: [
-                'Blinded', 'Broken', 'Clumsy', 'Concealed', 'Confused',
-                'Controlled', 'Cursebound', 'Dazzled', 'Deafened', 'Doomed',
-                'Drained', 'Dying', 'Encumbered', 'Enfeebled', 'Fascinated',
-                'Fatigued', 'Fleeing', 'Friendly', 'Frightened', 'Grabbed',
-                'Helpful', 'Hidden', 'Hostile', 'Immobilized', 'Indifferent',
-                'Invisible', 'Observed', 'Off-Guard', 'Paralyzed', 'Persistent Damage',
-                'Petrified', 'Prone', 'Quickened', 'Restrained', 'Sickened',
-                'Slowed', 'Stunned', 'Stupefied', 'Unconscious', 'Undetected',
-                'Unfriendly', 'Unnoticed', 'Wounded'
-            ]
+            showConditions: false
         }"
         class={ "flex-col justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }
     >
@@ -91,7 +80,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                         </p>
                         <div class="flex justify-left">
                             for _, condition := range combatant.GetConditions() {
-                                @ConditionButton(&condition)
+                                @ConditionButton(&condition, encounter, index)
                             }
                         </div>
                     </div>
@@ -101,7 +90,7 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
             <div class="relative flex items-center pr-4">
                 <button
                     @click="showRadialMenu = !showRadialMenu"
-                    class="p-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+                    class="p-2 text-gray-300 hover:text-gray-500 focus:outline-none"
                 >
                     <i class="fas fa-ellipsis-v text-xl"></i>
                 </button>
@@ -148,17 +137,11 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                             class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
                         >
                         	<div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-blue-700 rounded-lg shadow-lg max-w-3xl max-h-[80vh] overflow-y-auto">
-                                <div class="grid grid-cols-3 gap-2">
-                                    <template x-for="condition in conditions" :key="condition">
-                                        <button
-                                            @click="showConditions = false"
-                                            class="px-2 py-1 text-sm text-center bg-blue-100 hover:bg-blue-200 rounded-md truncate"
-                                            x-text="condition"
-                                            hx-post={"/encounters/" + strconv.Itoa(encounter.ID) + "/combatant/" + strconv.Itoa(index) + "/add_condition"}
-                                            hx-target="#combatants"
-                                        ></button>
-                                    </template>
-                                </div>
+                                @ConditionGroupList("other", combatant, index, encounter)
+                                @ConditionGroupList("abilities", combatant, index, encounter)
+                                @ConditionGroupList("senses", combatant, index, encounter)
+                                @ConditionGroupList("death", combatant, index, encounter)
+                                @ConditionGroupList("detection", combatant, index, encounter)
 
                                 <div class="mt-4 flex items-center">
                                     <button type="button" @click="showConditions = false" class="w-full px-4 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
@@ -188,6 +171,31 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
             @Statblock(combatant)
         }
     </div>
+}
+
+templ ConditionGroupList(group string, combatant models.Combatant, index int, encounter models.Encounter) {
+ 	<div class="mb-4">
+  		if (group != "other") {
+      		<h3 class="font-bold text-md mb-2 uppercase">{group}</h3>
+    	}
+
+	    <div class="grid grid-cols-3 gap-2">
+		    for _, condition := range encounter.GroupedConditions[group] {
+				<button
+				  @click="showConditions = false"
+				  if (condition.Name == "Off-Guard") {
+					class="px-2 py-2 text-sm text-center bg-red-100 hover:bg-blue-200 rounded-md truncate"
+				  } else {
+					class="px-2 py-2 text-sm text-center bg-blue-100 hover:bg-blue-200 rounded-md truncate"
+				  }
+				  hx-post={"/encounters/" + strconv.Itoa(encounter.ID) + "/combatant/" + strconv.Itoa(index) + "/add_condition/" + strconv.Itoa(condition.ID)}
+				  hx-target="#combatants"
+				>
+				  {condition.Name}
+				</button>
+		    }
+		</div>
+	</div>
 }
 
 templ EditInitiativeModal(combatant models.Combatant, index int, encounterID int) {
@@ -522,14 +530,20 @@ templ ConditionName(condition *models.Condition) {
     </span>
 }
 
-templ ConditionButton(condition *models.Condition) {
-    <div x-data="{ showTooltip: false }">
+templ ConditionButton(condition *models.Condition, encounter models.Encounter, combatantIndex int) {
+    <div x-data="{ showTooltip: false }" class="inline-flex items-center">
+	    <button
+	        @click="showTooltip = !showTooltip"
+	        @click.outside="showTooltip = false"
+	        class="px-2 py-1 mt-1 text-xs font-bold text-white bg-blue-700 rounded-l-md cursor-pointer relative">
+	        @ConditionName(condition)
+	    </button>
         <button
-            @click="showTooltip = !showTooltip"
-            @click.outside="showTooltip = false"
-            class="px-2 py-1 mr-2 text-xs font-bold text-white bg-blue-700 rounded-md cursor-pointer relative">
-            @ConditionName(condition)
-        </button>
+        	hx-post={fmt.Sprintf("/encounters/%d/combatant/%d/remove_condition/%d", encounter.ID, combatantIndex, condition.ID)}
+            hx-target="#combatants"
+            class="px-1 py-1 mt-1 mr-2 text-xs font-bold text-white bg-blue-800 hover:bg-blue-900 rounded-r-md border-l border-blue-600">
+            ×
+         </button>
 
         <div x-show="showTooltip" x-transition class="fixed inset-0 flex items-center justify-center bg-black/50" style="z-index: 50;">
             <div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-blue-700 rounded-lg shadow-lg max-w-2xl max-h-[80vh] overflow-y-auto">
