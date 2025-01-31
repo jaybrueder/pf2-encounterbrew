@@ -55,6 +55,9 @@ func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 		}
 		encounter.GroupedConditions = groupedConditions
 
+		// Set Initiative and sort the combatants
+		models.SortCombatantsByInitiative(encounter.Combatants)
+
 		// Store encounter in session
 		sess, _ := session.Get("encounter-session", c)
 		sess.Values["encounter"] = encounter
@@ -67,24 +70,6 @@ func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
-
-// func EncounterEditHandler(db database.Service) echo.HandlerFunc {
-// 	return func(c echo.Context) error {
-// 		// Get the encounter ID from the URL path parameter
-// 		id := c.Param("encounter_id")
-
-// 		// Fetch the encounter from the database
-// 		encounter, err := models.GetEncounter(db, id)
-// 		if err != nil {
-// 			log.Printf("Error fetching encounter: %v", err)
-// 			return c.String(http.StatusInternalServerError, "Error fetching encounter")
-// 		}
-
-// 		// Render the template with the encounter
-// 		component := EncounterEdit(encounter)
-// 		return component.Render(c.Request().Context(), c.Response().Writer)
-// 	}
-// }
 
 func EncounterSearchMonster(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
@@ -108,7 +93,13 @@ func EncounterAddMonster(db database.Service) echo.HandlerFunc {
 		monsterID := c.Param("monster_id")
 		levelAdjustment, _ := strconv.Atoi(c.FormValue("level_adjustment"))
 
-		encounter, err := models.AddMonsterToEncounter(db, encounterID, monsterID, levelAdjustment)
+		monster, err := models.GetMonster(db, monsterID)
+		if err != nil {
+			log.Printf("Error finding monster: %v", err)
+			return c.String(http.StatusInternalServerError, "Error addfindinging monster")
+		}
+
+		encounter, err := models.AddMonsterToEncounter(db, encounterID, monsterID, levelAdjustment, monster.GenerateInitiative())
 		if err != nil {
 			log.Printf("Error adding monster: %v", err)
 			return c.String(http.StatusInternalServerError, "Error adding monster")

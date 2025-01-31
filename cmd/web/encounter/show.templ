@@ -21,7 +21,7 @@ templ EncounterShow(encounter models.Encounter) {
 	                @AllInitiativeModal(encounter)
 	            </div>
 	            <div id="monsters">
-	            	@MonstersModal()
+	            	@MonstersModal(encounter)
 	            </div>
 	            <div id="combatants">
 	                @CombatantList(encounter)

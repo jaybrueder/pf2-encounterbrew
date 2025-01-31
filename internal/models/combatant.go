@@ -1,7 +1,6 @@
 package models
 
 import (
-	"math/rand"
 	"sort"
 
 	"pf2.encounterbrew.com/internal/database"
@@ -12,6 +11,7 @@ type Combatant interface {
 	SetEnumeration(int)
 	GetInitiative() int
 	SetInitiative(int)
+	GenerateInitiative() int
 	GetHp() int
 	SetHp(int)
 	GetMaxHp() int
@@ -53,13 +53,6 @@ type Combatant interface {
 	IsMonster() bool
 	IsOffGuard() bool
 	AdjustConditions() map[string]int
-}
-
-func AssignInitiative(combatants []Combatant) {
-	for _, c := range combatants {
-		//nolint:gosec
-		c.SetInitiative(rand.Intn(20) + 1 + c.GetPerceptionMod())
-	}
 }
 
 func SortCombatantsByInitiative(combatants []Combatant) {
