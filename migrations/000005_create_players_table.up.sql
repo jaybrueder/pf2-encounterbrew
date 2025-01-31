@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS players (
     fort INTEGER DEFAULT 0,
     ref INTEGER DEFAULT 0,
     will INTEGER DEFAULT 0,
+    perception INTEGER DEFAULT 0,
     party_id INTEGER REFERENCES parties(id)
 );
