@@ -68,23 +68,23 @@ func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 	}
 }
 
-func EncounterEditHandler(db database.Service) echo.HandlerFunc {
-	return func(c echo.Context) error {
-		// Get the encounter ID from the URL path parameter
-		id := c.Param("encounter_id")
+// func EncounterEditHandler(db database.Service) echo.HandlerFunc {
+// 	return func(c echo.Context) error {
+// 		// Get the encounter ID from the URL path parameter
+// 		id := c.Param("encounter_id")
 
-		// Fetch the encounter from the database
-		encounter, err := models.GetEncounter(db, id)
-		if err != nil {
-			log.Printf("Error fetching encounter: %v", err)
-			return c.String(http.StatusInternalServerError, "Error fetching encounter")
-		}
+// 		// Fetch the encounter from the database
+// 		encounter, err := models.GetEncounter(db, id)
+// 		if err != nil {
+// 			log.Printf("Error fetching encounter: %v", err)
+// 			return c.String(http.StatusInternalServerError, "Error fetching encounter")
+// 		}
 
-		// Render the template with the encounter
-		component := EncounterEdit(encounter)
-		return component.Render(c.Request().Context(), c.Response().Writer)
-	}
-}
+// 		// Render the template with the encounter
+// 		component := EncounterEdit(encounter)
+// 		return component.Render(c.Request().Context(), c.Response().Writer)
+// 	}
+// }
 
 func EncounterSearchMonster(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {

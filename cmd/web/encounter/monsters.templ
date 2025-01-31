@@ -1,0 +1,27 @@
+package encounter
+
+import (
+    // "strconv"
+
+    // "pf2.encounterbrew.com/internal/models"
+    // "pf2.encounterbrew.com/internal/utils"
+
+    _ "github.com/a-h/templ"
+)
+
+templ MonstersModal() {
+	<div x-show="isMonstersOpen"
+        x-transition
+        class="fixed inset-0 flex items-center justify-center bg-black/50"
+        style="z-index: 50;"
+        aria-labelledby="modal-title" role="dialog" aria-modal="true"
+    >
+
+        <div @click.outside="isMonstersOpen = false"
+        	class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-red-900 rounded-lg shadow-lg max-w-4xl max-h-[80vh] overflow-y-auto">
+            <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">
+                <b>Add Monsters</b>
+            </h3>
+        </div>
+    </div>
+}

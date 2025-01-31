@@ -164,7 +164,7 @@ func GetEncounterWithCombatants(db database.Service, id string, partyId string) 
 	// Add combatants to the encounter
 	encounter.Combatants = combatants
 
-	// Set the party level
+	// Set the party
 	encounter.Party = party
 
 	return encounter, nil
