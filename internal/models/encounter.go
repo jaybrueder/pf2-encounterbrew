@@ -16,11 +16,11 @@ type Encounter struct {
 	UserID            int                        `json:"user_id"`
 	User              *User                      `json:"user,omitempty"`
 	Monsters          []*Monster                 `json:"monsters,omitempty"`
+	Players           []*Player                  `json:"players,omitempty"`
 	Combatants        []Combatant                `json:"combatants,omitempty"`
 	Round             int                        `json:"round"`
 	Turn              int                        `json:"turn"`
 	GroupedConditions map[string][]ConditionInfo `json:"grouped_conditions"`
-	Party             Party                      `json:"party"`
 }
 
 func GetAllEncounters(db database.Service) ([]Encounter, error) {
@@ -89,9 +89,9 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 		return Encounter{}, fmt.Errorf("error scanning encounter row: %v", err)
 	}
 
-	// Query for associated monsters
+	// Query for associated monsters (existing code)
 	rows, err := db.Query(`
-        SELECT m.id, m.data, em.level_adjustment, em.id
+        SELECT m.id, m.data, em.level_adjustment, em.id, em.initiative
         FROM monsters m
         JOIN encounter_monsters em ON m.id = em.monster_id
         WHERE em.encounter_id = $1
@@ -104,7 +104,13 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 	for rows.Next() {
 		var m Monster
 		var jsonData []byte
-		err := rows.Scan(&m.ID, &jsonData, &m.LevelAdjustment, &m.AssociationID)
+		err := rows.Scan(
+			&m.ID,
+			&jsonData,
+			&m.LevelAdjustment,
+			&m.AssociationID,
+			&m.Initiative,
+		)
 		if err != nil {
 			return e, fmt.Errorf("error scanning monster row: %v", err)
 		}
@@ -119,6 +125,41 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 		return e, fmt.Errorf("error iterating monster rows: %v", err)
 	}
 
+	// Query for associated players
+	playerRows, err := db.Query(`
+        SELECT p.id, p.name, p.level, p.hp, p.ac, p.fort, p.ref, p.will, ep.initiative
+        FROM players p
+        JOIN encounter_players ep ON p.id = ep.player_id
+        WHERE ep.encounter_id = $1
+    `, encounterID)
+	if err != nil {
+		return e, fmt.Errorf("error querying players: %v", err)
+	}
+	defer playerRows.Close()
+
+	for playerRows.Next() {
+		var player Player
+		err := playerRows.Scan(
+			&player.ID,
+			&player.Name,
+			&player.Level,
+			&player.Hp,
+			&player.Ac,
+			&player.Fort,
+			&player.Ref,
+			&player.Will,
+			&player.Initiative,
+		)
+		if err != nil {
+			return e, fmt.Errorf("error scanning player row: %v", err)
+		}
+		e.Players = append(e.Players, &player)
+	}
+
+	if err = playerRows.Err(); err != nil {
+		return e, fmt.Errorf("error iterating player rows: %v", err)
+	}
+
 	return e, nil
 }
 
@@ -128,18 +169,15 @@ func GetEncounterWithCombatants(db database.Service, id string, partyId string) 
 		return Encounter{}, fmt.Errorf("error fetching encounter: %w", err)
 	}
 
-	// Fetch the active party from the database
-	party, _ := GetParty(db, partyId)
-
 	// Get party's players and encounter's monsters
-	players := party.Players
+	players := encounter.Players
 	monsters := encounter.Monsters
 
 	combatants := make([]Combatant, 0, len(players)+len(monsters))
 
 	// Add players to combatants
 	for i := range players {
-		combatants = append(combatants, &players[i])
+		combatants = append(combatants, players[i])
 	}
 
 	// Add monsters to combatants, respecting the count
@@ -157,20 +195,13 @@ func GetEncounterWithCombatants(db database.Service, id string, partyId string) 
 		combatants = append(combatants, monster)
 	}
 
-	// Set Initiative and sort the combatants
-	AssignInitiative(combatants)
-	SortCombatantsByInitiative(combatants)
-
 	// Add combatants to the encounter
 	encounter.Combatants = combatants
-
-	// Set the party level
-	encounter.Party = party
 
 	return encounter, nil
 }
 
-func AddMonsterToEncounter(db database.Service, encounterID string, monsterID string, levelAdjustment int) (Encounter, error) {
+func AddMonsterToEncounter(db database.Service, encounterID string, monsterID string, levelAdjustment int, initiative int) (Encounter, error) {
 	// Convert string IDs to integers
 	encID, err := strconv.Atoi(encounterID)
 	if err != nil {
@@ -191,9 +222,9 @@ func AddMonsterToEncounter(db database.Service, encounterID string, monsterID st
 	defer tx.Rollback() // Rollback the transaction if it hasn't been committed
 
 	_, err = db.Exec(`
-        INSERT INTO encounter_monsters (encounter_id, monster_id, level_adjustment)
-        VALUES ($1, $2, $3)
-    `, encID, monID, levelAdjustment)
+        INSERT INTO encounter_monsters (encounter_id, monster_id, level_adjustment, initiative)
+        VALUES ($1, $2, $3, $4)
+    `, encID, monID, levelAdjustment, initiative)
 
 	if err != nil {
 		return Encounter{}, fmt.Errorf("Failed to add monster to encounter: %v", err)
@@ -247,7 +278,12 @@ func RemoveMonsterFromEncounter(db database.Service, encounterID string, associa
 }
 
 func (e Encounter) GetDifficulty() int {
-	partyLevel := int(e.Party.GetLevel())
+	levels := 0
+	for _, player := range e.Players {
+		levels += player.Level
+	}
+
+	partyLevel := int(float64(levels) / float64(len(e.Players)))
 	monsterXpPool := 0.0
 
 	for _, combatant := range e.Combatants {
@@ -278,7 +314,7 @@ func (e Encounter) GetDifficulty() int {
 		}
 	}
 
-	threshold := float64(e.Party.GetNumbersOfPlayer()) / 4.0
+	threshold := float64(len(e.Players)) / 4.0
 
 	switch {
 	case monsterXpPool <= 40.0*threshold:

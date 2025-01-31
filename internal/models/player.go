@@ -3,6 +3,7 @@ package models
 import (
 	"errors"
 	"fmt"
+	"math/rand"
 
 	"pf2.encounterbrew.com/internal/database"
 )
@@ -16,6 +17,7 @@ type Player struct {
 	Fort        int         `json:"for"`
 	Ref         int         `json:"ref"`
 	Will        int         `json:"wil"`
+	Perception  int         `json:"perception"`
 	PartyID     int         `json:"party_id"`
 	Party       *Party      `json:"party,omitempty"`
 	Initiative  int         `json:"initiative"`
@@ -74,7 +76,7 @@ func (p Player) GetTraits() []string {
 }
 
 func (p Player) GetPerceptionMod() int {
-	return 0
+	return p.Perception
 }
 
 func (p Player) GetPerceptionSenses() string {
@@ -239,6 +241,11 @@ func (p Player) AdjustConditions() map[string]int {
 	}
 
 	return conditions
+}
+
+func (p Player) GenerateInitiative() int {
+	//nolint:gosec
+	return rand.Intn(20) + 1 + p.GetPerceptionMod()
 }
 
 // Database interactions

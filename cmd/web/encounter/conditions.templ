@@ -1,0 +1,68 @@
+package encounter
+
+import (
+	"fmt"
+    "strconv"
+
+    "pf2.encounterbrew.com/internal/models"
+
+    _ "github.com/a-h/templ"
+)
+
+templ ConditionGroupList(group string, combatant models.Combatant, index int, encounter models.Encounter) {
+ 	<div class="mb-4">
+  		if (group != "other") {
+      		<h3 class="font-bold text-md mb-2 uppercase">{group}</h3>
+    	}
+
+	    <div class="grid grid-cols-3 gap-2">
+		    for _, condition := range encounter.GroupedConditions[group] {
+				<button
+				  @click="showConditions = false"
+				  if (condition.Name == "Off-Guard") {
+					class="px-2 py-2 text-sm text-center bg-red-100 hover:bg-blue-200 rounded-md truncate"
+				  } else {
+					class="px-2 py-2 text-sm text-center bg-blue-100 hover:bg-blue-200 rounded-md truncate"
+				  }
+				  hx-post={"/encounters/" + strconv.Itoa(encounter.ID) + "/combatant/" + strconv.Itoa(index) + "/add_condition/" + strconv.Itoa(condition.ID)}
+				  hx-target="#combatants"
+				>
+				  {condition.Name}
+				</button>
+		    }
+		</div>
+	</div>
+}
+
+templ ConditionName(condition *models.Condition) {
+    <span>
+        {condition.GetName()}
+        if condition.GetValue() > 0 {
+            {strconv.Itoa(condition.GetValue())}
+        }
+    </span>
+}
+
+templ ConditionButton(condition *models.Condition, encounter models.Encounter, combatantIndex int) {
+    <div x-data="{ showTooltip: false }" class="inline-flex items-center">
+	    <button
+	        @click="showTooltip = !showTooltip"
+	        @click.outside="showTooltip = false"
+	        class="px-2 py-1 mt-1 text-xs font-bold text-white bg-blue-700 rounded-l-md cursor-pointer relative">
+	        @ConditionName(condition)
+	    </button>
+        <button
+        	hx-post={fmt.Sprintf("/encounters/%d/combatant/%d/remove_condition/%d", encounter.ID, combatantIndex, condition.ID)}
+            hx-target="#combatants"
+            class="px-1 py-1 mt-1 mr-2 text-xs font-bold text-white bg-blue-800 hover:bg-blue-900 rounded-r-md border-l border-blue-600">
+            ×
+         </button>
+
+        <div x-show="showTooltip" x-transition class="fixed inset-0 flex items-center justify-center bg-black/50" style="z-index: 50;">
+            <div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-blue-700 rounded-lg shadow-lg max-w-2xl max-h-[80vh] overflow-y-auto">
+                <p class="mb-1 text-lg font-bold uppercase">{condition.GetName()}</p>
+                <p>@templ.Raw(condition.GetDescription())</p>
+            </div>
+         </div>
+    </div>
+}

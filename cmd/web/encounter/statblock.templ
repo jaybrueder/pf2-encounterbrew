@@ -1,0 +1,267 @@
+package encounter
+
+import (
+    "strconv"
+
+    "pf2.encounterbrew.com/internal/models"
+    "pf2.encounterbrew.com/internal/utils"
+
+    _ "github.com/a-h/templ"
+)
+
+templ Statblock(combatant models.Combatant) {
+    <div x-show="showStatblock" class="statblock w-full p-2 text-sm">
+        // Rarity, Size, Traits, Level
+        <div class="mb-1">
+            <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-gray-900 ring-2 ring-inset ring-yellow-500 uppercase">Creature {strconv.Itoa(combatant.GetLevel())}</span>
+            <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-green-700 ring-2 ring-inset ring-yellow-500 uppercase">{combatant.GetSize()}</span>
+            for _, trait := range combatant.GetTraits() {
+                <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-red-900 ring-2 ring-inset ring-yellow-500 uppercase mr-1 mb-1">{trait}</span>
+            }
+        </div>
+
+        // Perception
+        <div>
+            <p><b>Perception</b> +{strconv.Itoa(combatant.GetPerceptionMod())}; <span>{combatant.GetPerceptionSenses()}</span></p>
+        </div>
+
+        // Languages
+        if combatant.GetLanguages() != "" {
+            <div>
+                <p><b>Languages</b> {combatant.GetLanguages()}</p>
+            </div>
+        }
+
+        // Skills
+        <div>
+            <p><b>Skills</b> {combatant.GetSkills()}{combatant.GetLores()}</p>
+        </div>
+
+        // Attribute Modifies
+        <div>
+            <p><b>Str</b> {plusMinus(combatant.GetStr())}, <b>Dex</b> {plusMinus(combatant.GetDex())}, <b>Con</b> {plusMinus(combatant.GetCon())}, <b>Int</b> {plusMinus(combatant.GetInt())}, <b>Wis</b> {plusMinus(combatant.GetWis())}, <b>Cha</b> {plusMinus(combatant.GetCha())}</p>
+        </div>
+
+        // Items
+        if combatant.GetInventory() != "" {
+            <div>
+                <p><b>Items</b> {combatant.GetInventory()}</p>
+            </div>
+        }
+
+        // Interaction Abilities
+        // TODO
+
+        <hr class="h-px my-1 border-gray-600">
+
+        // -- Defenses
+
+        // AC & Saving Throws
+        <div>
+            <p><b>AC</b> {strconv.Itoa(combatant.GetAc())}{combatant.GetAcDetails()}; <b>Fort</b> +{strconv.Itoa(combatant.GetFort())}, <b>Ref</b> +{strconv.Itoa(combatant.GetRef())}, <b>Will</b> +{strconv.Itoa(combatant.GetWill())}</p>
+        </div>
+
+        // HP, Immunities, Weknesses, Resistances
+        <div>
+            <p><b>HP</b> {strconv.Itoa(combatant.GetMaxHp())}
+            if combatant.GetImmunities() != "" {
+                ; <b>Immunities</b> {combatant.GetImmunities()}
+            }
+            if combatant.GetResistances() != "" {
+                ; <b>Resistances</b> {combatant.GetResistances()}
+            }
+            if combatant.GetWeaknesses() != "" {
+                ; <b>Weaknesses</b> {combatant.GetWeaknesses()}
+            }
+            </p>
+        </div>
+
+        // Automatic Abilities
+        // TODO
+
+        // Reactive Abilities
+        // TODO
+
+        // Defensive Abilities
+        if len(combatant.GetDefensiveActions()) > 0 {
+            <div>
+                for _, action := range combatant.GetDefensiveActions() {
+                    @Action(action)
+                }
+            </div>
+        }
+
+        <hr class="h-px my-1 border-gray-600">
+
+        // -- Offensive
+
+        // Speed
+        <div>
+            <p><b>Speed</b> {combatant.GetSpeed()}{combatant.GetOtherSpeeds()}</p>
+        </div>
+
+        // Melee / Ranged Attacks
+        <div>
+            for _, attack := range combatant.GetAttacks() {
+                @Attack(attack, combatant.GetAdjustmentModifier())
+            }
+        </div>
+
+        // Spells
+        if len(combatant.GetSpells().Keys) > 0 {
+            <div>
+                <p>
+                <span>@SpellSchool(combatant.GetSpellSchool(), combatant.GetAdjustmentModifier())</span>
+                @Spells(combatant.GetSpells())
+                </p>
+            </div>
+        }
+
+        // Offensive or Proactive Abilities
+        if len(combatant.GetOffensiveActions()) > 0 {
+            <div>
+                for _, action := range combatant.GetOffensiveActions() {
+                    @Action(action)
+                }
+            </div>
+        }
+    </div>
+}
+
+templ Attack(i models.Item, modifier int) {
+    <p>
+        <b>{i.GetWeaponType()}</b>
+        if i.GetActionCost() != 0 {
+            @ActionCost(strconv.Itoa(i.GetActionCost()))
+        }
+        {i.GetName()} +{strconv.Itoa(i.GetAttackValue(modifier))}{i.GetTraits()},
+        if i.GetDamageValue(modifier) != "" {
+            <b>Damage</b> {i.GetDamageValue(modifier)}
+        }
+        if i.GetDamageEffect() != "" {
+            <b>Effect</b> {i.GetDamageEffect()}
+        }
+        if i.GetDescription() != "" {
+            <div class="px-2 text-justify">@templ.Raw(i.GetDescription())</div>
+        }
+    </p>
+}
+
+templ Action(a map[string]string) {
+    <p>
+        <b>{a["name"]}</b>
+        if a["actionCost"] != "0" {
+            @ActionCost(a["actionCost"])
+        }
+        if a["actionType"] == "free" {
+            @ActionCost("free")
+        }
+        if a["actionType"] == "reaction" {
+            @ActionCost("reaction")
+        }
+        if a["traits"] != "" {
+            <span>({a["traits"]}) </span>
+        }
+        <div class="px-2 text-justify">@templ.Raw(a["description"])</div>
+    </p>
+}
+
+templ Spells(orderedSpells models.OrderedItemMap) {
+    <ul class="pl-2">
+        for _, level := range orderedSpells.Keys {
+            <li class="mr-1">
+                <div class="flex flex-wrap">
+                    <span class="mr-1">
+                        if level == 0 {
+                            <b>Cantrips</b>
+                        } else {
+                            <b>{utils.FormatOrdinal(strconv.Itoa(level))}</b>
+                        }
+                    </span>
+                    for _, spell := range orderedSpells.Data[level] {
+                        @SpellButton(spell)
+                    }
+                </div>
+            </li>
+        }
+    </ul>
+}
+
+templ SpellSchool(i models.Item, modifier int) {
+    <b>{i.GetName()}</b> DC {strconv.Itoa(i.GetSpellDC(modifier))}, attack +{strconv.Itoa(i.GetSpellAttackValue(modifier))}
+}
+
+templ ActionCost(cost string) {
+    <img class="inline-flex mr-1" style="height:12px" src={"/assets/images/" + cost + "-action.webp"} />
+}
+
+templ ActionCostBig(cost string) {
+    if cost == "1-3" {
+    <img class="inline-flex" style="height:24px; margin-top: -4px;" src={"/assets/images/1-action.webp"} /> to <img class="inline-flex" style="height:24px; margin-top: -4px;" src={"/assets/images/3-action.webp"} />
+    } else {
+        <img class="inline-flex" style="height:24px; margin-top: -4px;" src={"/assets/images/" + cost + "-action.webp"} />
+    }
+}
+
+templ SpellButton(spell models.Item) {
+    <div x-data="{ showTooltip: false }">
+        <button
+            @click="showTooltip = !showTooltip"
+            @click.outside="showTooltip = false"
+            class="mr-1 underline cursor-pointer">
+            {spell.GetName()}
+        </button>
+
+        <div x-show="showTooltip" x-transition class="fixed inset-0 flex items-center justify-center bg-black/50" style="z-index: 50;">
+            <div class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-red-900 rounded-lg shadow-lg max-w-2xl max-h-[80vh] overflow-y-auto">
+                <p class="mb-1 text-lg font-bold uppercase">{spell.GetName()}
+                    if !spell.HasCastTime() {
+                        <span class="ml-1">@ActionCostBig(spell.GetSpellTime())</span>
+                    }
+                </p>
+                <hr>
+                <div class="mb-1 mt-1">
+                    <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-gray-900 ring-2 ring-inset ring-yellow-500 uppercase">Spell {strconv.Itoa(spell.GetLevel())}</span>
+                    for _, trait := range spell.GetSpellTraits() {
+                        <span class="inline-flex items-center px-2 py-1 text-xs text-white bg-red-900 ring-2 ring-inset ring-yellow-500 uppercase mr-1 mb-1">{trait}</span>
+                    }
+                </div>
+                <div>
+                    <strong>Traditions</strong> {spell.GetSpellTraditions()}
+                </div>
+                if spell.GetSpellArea() != "" {
+                    <div>
+                        <strong>Area</strong> <span>{spell.GetSpellArea()}</span>
+                    </div>
+                }
+                if spell.HasCastTime() {
+                    <div>
+                        <strong>Cast</strong> <span>{spell.GetSpellTime()}</span>
+                    </div>
+                }
+                if spell.GetRange() != "" {
+                    <div>
+                        <strong>Range</strong> <span>{spell.GetRange()}</span>
+                    </div>
+                }
+                if spell.GetSpellTarget() != "" {
+                    <div>
+                        <strong>Targets</strong> <span>{spell.GetSpellTarget()}</span>
+                    </div>
+                }
+                if spell.GetSpellDefense() != "" {
+                    <div>
+                        <strong>Defense</strong> <span class="capitalize">{spell.GetSpellDefense()}</span>
+                    </div>
+                }
+                if spell.GetSpellDuration() != "" {
+                    <div>
+                        <strong>Duration</strong> <span>{spell.GetSpellDuration()}</span>
+                    </div>
+                }
+                <hr>
+                <div>@templ.Raw(spell.GetDescription())</div>
+            </div>
+         </div>
+    </div>
+}
