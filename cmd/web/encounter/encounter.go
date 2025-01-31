@@ -126,7 +126,7 @@ func EncounterRemoveMonster(db database.Service) echo.HandlerFunc {
 	}
 }
 
-func UpdateCombatant() echo.HandlerFunc {
+func UpdateCombatant(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
 
@@ -150,7 +150,9 @@ func UpdateCombatant() echo.HandlerFunc {
 			// Check if initiative was provided
 			if initiativeStr := c.FormValue("initiative"); initiativeStr != "" {
 				if newInitiative, err := strconv.Atoi(initiativeStr); err == nil {
-					encounter.Combatants[combatantIndex].SetInitiative(newInitiative)
+					if err := encounter.Combatants[combatantIndex].SetInitiative(db, newInitiative); err != nil {
+						log.Printf("Error updating initative: %v", err)
+					}
 					// Re-sort combatants by initiative only if initiative was updated
 					models.SortCombatantsByInitiative(encounter.Combatants)
 				}
@@ -177,7 +179,7 @@ func UpdateCombatant() echo.HandlerFunc {
 	}
 }
 
-func BulkUpdateInitiative() echo.HandlerFunc {
+func BulkUpdateInitiative(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// Get session
 		sess, _ := session.Get("encounter-session", c)
@@ -197,7 +199,9 @@ func BulkUpdateInitiative() echo.HandlerFunc {
 		// Update the each combatant's initiative
 		for i, combatant := range encounter.Combatants {
 			newInitiative, _ := strconv.Atoi(c.FormValue("initiative-" + strconv.Itoa(i)))
-			combatant.SetInitiative(newInitiative)
+			if err := combatant.SetInitiative(db, newInitiative); err != nil {
+				log.Printf("Error updating initative: %v", err)
+			}
 		}
 
 		// Re-sort combatants by initiative

@@ -225,8 +225,22 @@ func (m Monster) GetInitiative() int {
 	return m.Initiative
 }
 
-func (m *Monster) SetInitiative(i int) {
+func (m *Monster) SetInitiative(db database.Service, i int) error {
+	// Update the local struct
 	m.Initiative = i
+
+	// Update the database
+	_, err := db.Exec(`
+        UPDATE encounter_monsters
+        SET initiative = $1
+        WHERE id = $2
+    `, i, m.AssociationID)
+
+	if err != nil {
+		return fmt.Errorf("error updating monster initiative in database: %v", err)
+	}
+
+	return nil
 }
 
 func (m Monster) GetHp() int {
