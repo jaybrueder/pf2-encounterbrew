@@ -10,7 +10,7 @@ type Combatant interface {
 	GetName() string
 	SetEnumeration(int)
 	GetInitiative() int
-	SetInitiative(int)
+	SetInitiative(database.Service, int) error
 	GenerateInitiative() int
 	GetHp() int
 	SetHp(int)

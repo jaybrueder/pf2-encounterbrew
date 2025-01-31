@@ -9,20 +9,21 @@ import (
 )
 
 type Player struct {
-	ID          int         `json:"id"`
-	Name        string      `json:"name"`
-	Level       int         `json:"level"`
-	Hp          int         `json:"hp"`
-	Ac          int         `json:"ac"`
-	Fort        int         `json:"for"`
-	Ref         int         `json:"ref"`
-	Will        int         `json:"wil"`
-	Perception  int         `json:"perception"`
-	PartyID     int         `json:"party_id"`
-	Party       *Party      `json:"party,omitempty"`
-	Initiative  int         `json:"initiative"`
-	Conditions  []Condition `json:"conditions"`
-	Enumeration int         `json:"enumeration"`
+	ID            int         `json:"id"`
+	AssociationID int         `json:"association_id"`
+	Name          string      `json:"name"`
+	Level         int         `json:"level"`
+	Hp            int         `json:"hp"`
+	Ac            int         `json:"ac"`
+	Fort          int         `json:"for"`
+	Ref           int         `json:"ref"`
+	Will          int         `json:"wil"`
+	Perception    int         `json:"perception"`
+	PartyID       int         `json:"party_id"`
+	Party         *Party      `json:"party,omitempty"`
+	Initiative    int         `json:"initiative"`
+	Conditions    []Condition `json:"conditions"`
+	Enumeration   int         `json:"enumeration"`
 }
 
 // Implement the Combatant interface
@@ -39,8 +40,22 @@ func (p Player) GetInitiative() int {
 	return p.Initiative
 }
 
-func (p *Player) SetInitiative(i int) {
+func (p *Player) SetInitiative(db database.Service, i int) error {
+	// Update the local struct
 	p.Initiative = i
+
+	// Update the database
+	_, err := db.Exec(`
+        UPDATE encounter_players
+        SET initiative = $1
+        WHERE id = $2
+    `, i, p.AssociationID)
+
+	if err != nil {
+		return fmt.Errorf("error updating player initiative in database: %v", err)
+	}
+
+	return nil
 }
 
 func (p Player) GetHp() int {

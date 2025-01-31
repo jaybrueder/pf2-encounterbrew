@@ -127,11 +127,21 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 
 	// Query for associated players
 	playerRows, err := db.Query(`
-        SELECT p.id, p.name, p.level, p.hp, p.ac, p.fort, p.ref, p.will, ep.initiative
-        FROM players p
-        JOIN encounter_players ep ON p.id = ep.player_id
-        WHERE ep.encounter_id = $1
-    `, encounterID)
+    SELECT
+        p.id,
+        p.name,
+        p.level,
+        p.hp,
+        p.ac,
+        p.fort,
+        p.ref,
+        p.will,
+        ep.initiative,
+        ep.id as association_id  -- Add this line
+    FROM players p
+    JOIN encounter_players ep ON p.id = ep.player_id
+    WHERE ep.encounter_id = $1
+`, encounterID)
 	if err != nil {
 		return e, fmt.Errorf("error querying players: %v", err)
 	}
@@ -149,6 +159,7 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 			&player.Ref,
 			&player.Will,
 			&player.Initiative,
+			&player.AssociationID, // Add this line
 		)
 		if err != nil {
 			return e, fmt.Errorf("error scanning player row: %v", err)
