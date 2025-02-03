@@ -20,7 +20,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # Install tailwindcss
-RUN npm install -g tailwindcss
+RUN npm install -g tailwindcss@3.4.17
 
 # Copy source code
 COPY . .
