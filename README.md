@@ -1,6 +1,6 @@
 # PF2 Encounterbrew
 
-## Development Dependenies
+## Development Dependencies
 
 - pre-commit
 - golangci-lint
