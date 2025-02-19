@@ -36,13 +36,16 @@ func (s *Server) RegisterRoutes() http.Handler {
 	e.GET("/", encounter.EncounterListHandler(s.db))
 
 	// Encounter routes
+	e.GET("/encounters/new", encounter.EncounterNewHandler(s.db))
+	e.POST("/encounters", encounter.EncounterCreateHandler(s.db))
+	e.PATCH("/encounters/:encounter_id", encounter.EncounterUpdateHandler(s.db))
 	e.GET("/encounters", encounter.EncounterListHandler(s.db))
 	e.GET("/encounters/:encounter_id", encounter.EncounterShowHandler(s.db))
 	e.POST("/encounters/:encounter_id/search_monsters", encounter.EncounterSearchMonster(s.db))
 	e.POST("/encounters/:encounter_id/add_monster/:monster_id", encounter.EncounterAddMonster(s.db))
 	e.POST("/encounters/:encounter_id/remove_monster/:association_id", encounter.EncounterRemoveMonster(s.db))
 	e.PATCH("/encounters/:encounter_id/combatant/:index/update", encounter.UpdateCombatant(s.db))
-	e.PATCH("/encounters/:ecnounter_id/bulk_update_initiative", encounter.BulkUpdateInitiative(s.db))
+	e.PATCH("/encounters/:encounter_id/bulk_update_initiative", encounter.BulkUpdateInitiative(s.db))
 	e.POST("/encounters/:encounter_id/combatant/:index/add_condition/:condition_id", encounter.AddCondition(s.db))
 	e.POST("/encounters/:encounter_id/combatant/:index/remove_condition/:condition_id", encounter.RemoveCondition())
 	e.POST("/encounters/:encounter_id/next_turn", encounter.ChangeTurn(true))

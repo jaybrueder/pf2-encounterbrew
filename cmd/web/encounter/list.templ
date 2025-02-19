@@ -11,25 +11,68 @@ import (
 )
 
 templ EncounterList(encounters []models.Encounter) {
-	@web.Base("Encounters") {
-	    <section class="max-w-4xl px-2 mx-auto">
-            for _, encounter := range encounters {
-                @EncounterListItem(encounter)
+    @web.Base("Encounters") {
+        <section class="max-w-4xl mx-auto py-8 px-4">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Encounters</h2>
+                    <div class="h-1 w-20 bg-blue-900 rounded"></div>
+                </div>
+                if len(encounters) > 0 {
+                    <button
+                        hx-get={"/encounters/new"}
+                        hx-target="body"
+                        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200"
+                    >
+                        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        New Encounter
+                    </button>
+                }
+            </div>
+
+            if len(encounters) == 0 {
+                <div class="text-center py-12 bg-gray-50 rounded-lg shadow-sm">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                    <h3 class="mt-2 text-sm font-medium text-gray-900">No encounters</h3>
+                    <p class="mt-1 text-sm text-gray-500">Get started by creating a new encounter.</p>
+                    <div class="mt-6">
+                        <button
+                            hx-get={"/encounters/new"}
+                            hx-target="body"
+                            class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200"
+                        >
+                            <svg class="w-5 h-5 mr-2 -ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            Create first encounter
+                        </button>
+                    </div>
+                </div>
+            } else {
+            	<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    for _, encounter := range encounters {
+                        @EncounterListItem(encounter)
+                    }
+                </div>
             }
         </section>
-	}
+    }
 }
 
 templ EncounterListItem(encounter models.Encounter) {
-    <div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
-        <div class="flex items-center justify-center w-12 bg-blue-500">
+	<div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
+		<div class="flex items-center justify-center w-12 bg-blue-900">
             <span class="text-white font-semibold">?</span>
         </div>
 
-        <div class="px-4 py-2 -mx-3">
-            <div class="mx-3">
-                <span class="font-semibold text-sm text-gray-700">{encounter.Name}</span>
-                <p class="text-xs text-gray-400">{strconv.Itoa(encounter.ID)}</p>
+        <div class="flex-1 px-4 py-2">
+            <div>
+                <span class="font-semibold uppercase text-xs text-gray-700">{encounter.Name}</span>
+                <p class="text-xs text-gray-400">{strconv.Itoa(encounter.PartyID)}</p>
             </div>
         </div>
 

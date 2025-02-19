@@ -183,6 +183,15 @@ func GetParty(db database.Service, id string) (Party, error) {
 	return p, nil
 }
 
+func PartyExists(db database.Service, partyID int) (bool, error) {
+	var exists bool
+	err := db.QueryRow(`
+		SELECT EXISTS(SELECT 1 FROM parties WHERE id = $1)
+	`, partyID).Scan(&exists)
+
+	return exists, err
+}
+
 // Update updates the party's name in the database
 func (p *Party) Update(db database.Service) error {
 	if db == nil {

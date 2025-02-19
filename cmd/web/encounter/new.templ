@@ -1,0 +1,93 @@
+package encounter
+
+import (
+	"fmt"
+
+    "pf2.encounterbrew.com/cmd/web"
+    "pf2.encounterbrew.com/internal/models"
+
+    _ "github.com/a-h/templ"
+)
+
+templ EncounterNew(parties []models.Party) {
+    @web.Base("Encounters") {
+        <section class="max-w-4xl mx-auto py-8 px-4">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Create New Encounter</h2>
+                <div class="h-1 w-20 bg-green-700 rounded"></div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <form
+                    hx-post="/encounters"
+                    hx-target="body"
+                    class="space-y-6"
+                    onsubmit="return validateForm(this)"
+                >
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+                            Encounter Name
+                        </label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            required
+                            placeholder="Enter encounter name"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 shadow-sm placeholder-gray-400"
+                        />
+                    </div>
+
+                    <div>
+                        <label for="party" class="block text-sm font-medium text-gray-700 mb-1">
+                            Select Party
+                        </label>
+                        <select
+                            name="party_id"
+                            id="party"
+                            required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 shadow-sm"
+                        >
+                            <option value="">Select a party</option>
+                            for _, party := range parties {
+                                <option value={fmt.Sprint(party.ID)}>{party.Name}</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="flex justify-end space-x-3">
+                        <button
+                            type="button"
+                            hx-get="/encounters"
+                            class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="submit"
+                            class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                        >
+                            Create Encounter
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <script>
+            function validateForm(form) {
+                const name = form.elements['name'].value;
+                const partyId = form.elements['party_id'].value;
+
+                if (!name.trim()) {
+                    alert('Please enter an encounter name');
+                    return false;
+                }
+                if (!partyId) {
+                    alert('Please select a party');
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    }
+}

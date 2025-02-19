@@ -60,11 +60,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Seed a default encounter
-	if err := seedEncounter(dbService, 1); err != nil {
-		fmt.Fprintf(os.Stderr, "Error seeding encounter: %v\n", err)
-		os.Exit(1)
-	}
+	// // Seed a default encounter
+	// if err := seedEncounter(dbService, 1); err != nil {
+	// 	fmt.Fprintf(os.Stderr, "Error seeding encounter: %v\n", err)
+	// 	os.Exit(1)
+	// }
 
 	// Seed monsters
 	err = filepath.Walk("data/bestiaries", func(path string, info os.FileInfo, err error) error {
@@ -187,84 +187,84 @@ func seedParties(db database.Service, filePath string) error {
 	return nil
 }
 
-func seedEncounter(db database.Service, partyID int) error {
-	// First, verify the party exists
-	var exists bool
-	err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM parties WHERE id = $1)", partyID).Scan(&exists)
-	if err != nil {
-		return fmt.Errorf("error checking party existence: %v", err)
-	}
-	if !exists {
-		return fmt.Errorf("party with ID %d does not exist", partyID)
-	}
+// func seedEncounter(db database.Service, partyID int) error {
+// 	// First, verify the party exists
+// 	var exists bool
+// 	err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM parties WHERE id = $1)", partyID).Scan(&exists)
+// 	if err != nil {
+// 		return fmt.Errorf("error checking party existence: %v", err)
+// 	}
+// 	if !exists {
+// 		return fmt.Errorf("party with ID %d does not exist", partyID)
+// 	}
 
-	// Create a new encounter
-	var encounterID int
-	err = db.QueryRow(`
-        INSERT INTO encounters (name, user_id)
-        VALUES ($1, $2)
-        RETURNING id
-    `, "Default Encounter", 1).Scan(&encounterID)
+// 	// Create a new encounter
+// 	var encounterID int
+// 	err = db.QueryRow(`
+//         INSERT INTO encounters (name, user_id)
+//         VALUES ($1, $2)
+//         RETURNING id
+//     `, "Default Encounter", 1).Scan(&encounterID)
 
-	if err != nil {
-		return fmt.Errorf("error creating encounter: %v", err)
-	}
+// 	if err != nil {
+// 		return fmt.Errorf("error creating encounter: %v", err)
+// 	}
 
-	// Get all players from the party
-	rows, err := db.Query(`
-        SELECT id FROM players
-        WHERE party_id = $1
-    `, partyID)
-	if err != nil {
-		return fmt.Errorf("error getting party players: %v", err)
-	}
-	defer rows.Close()
+// 	// Get all players from the party
+// 	rows, err := db.Query(`
+//         SELECT id FROM players
+//         WHERE party_id = $1
+//     `, partyID)
+// 	if err != nil {
+// 		return fmt.Errorf("error getting party players: %v", err)
+// 	}
+// 	defer rows.Close()
 
-	// Collect all player IDs first
-	var playerIDs []int
-	for rows.Next() {
-		var playerID int
-		if err := rows.Scan(&playerID); err != nil {
-			return fmt.Errorf("error scanning player ID: %v", err)
-		}
-		playerIDs = append(playerIDs, playerID)
-	}
-	if err = rows.Err(); err != nil {
-		return fmt.Errorf("error iterating over players: %v", err)
-	}
+// 	// Collect all player IDs first
+// 	var playerIDs []int
+// 	for rows.Next() {
+// 		var playerID int
+// 		if err := rows.Scan(&playerID); err != nil {
+// 			return fmt.Errorf("error scanning player ID: %v", err)
+// 		}
+// 		playerIDs = append(playerIDs, playerID)
+// 	}
+// 	if err = rows.Err(); err != nil {
+// 		return fmt.Errorf("error iterating over players: %v", err)
+// 	}
 
-	// Start a new transaction for inserting encounter players
-	tx, err := db.Begin()
-	if err != nil {
-		return fmt.Errorf("error starting transaction: %v", err)
-	}
-	defer func() {
-		if tx != nil {
-			_ = tx.Rollback()
-		}
-	}()
+// 	// Start a new transaction for inserting encounter players
+// 	tx, err := db.Begin()
+// 	if err != nil {
+// 		return fmt.Errorf("error starting transaction: %v", err)
+// 	}
+// 	defer func() {
+// 		if tx != nil {
+// 			_ = tx.Rollback()
+// 		}
+// 	}()
 
-	// Add each player to the encounter_players table
-	for _, playerID := range playerIDs {
-		_, err = tx.Exec(`
-            INSERT INTO encounter_players (encounter_id, player_id, initiative)
-            VALUES ($1, $2, $3)
-        `, encounterID, playerID, 0)
+// 	// Add each player to the encounter_players table
+// 	for _, playerID := range playerIDs {
+// 		_, err = tx.Exec(`
+//             INSERT INTO encounter_players (encounter_id, player_id, initiative)
+//             VALUES ($1, $2, $3)
+//         `, encounterID, playerID, 0)
 
-		if err != nil {
-			return fmt.Errorf("error adding player to encounter: %v", err)
-		}
-	}
+// 		if err != nil {
+// 			return fmt.Errorf("error adding player to encounter: %v", err)
+// 		}
+// 	}
 
-	// Commit the transaction
-	if err = tx.Commit(); err != nil {
-		return fmt.Errorf("error committing transaction: %v", err)
-	}
-	tx = nil // Prevent rollback after successful commit
+// 	// Commit the transaction
+// 	if err = tx.Commit(); err != nil {
+// 		return fmt.Errorf("error committing transaction: %v", err)
+// 	}
+// 	tx = nil // Prevent rollback after successful commit
 
-	fmt.Printf("Successfully created encounter %d with players from party %d\n", encounterID, partyID)
-	return nil
-}
+// 	fmt.Printf("Successfully created encounter %d with players from party %d\n", encounterID, partyID)
+// 	return nil
+// }
 
 func setDefaultUserActiveParty(db database.Service, userID int) error {
 	// Set the first party (ID 1) as the active party for the default user
