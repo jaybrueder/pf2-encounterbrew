@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"strconv"
 
 	"pf2.encounterbrew.com/internal/database"
 )
@@ -15,6 +14,8 @@ type Encounter struct {
 	Name              string                     `json:"name"`
 	UserID            int                        `json:"user_id"`
 	User              *User                      `json:"user,omitempty"`
+	PartyID           int                        `json:"party_id"`
+	Party             *Party                     `json:"party,omitempty"`
 	Monsters          []*Monster                 `json:"monsters,omitempty"`
 	Players           []*Player                  `json:"players,omitempty"`
 	Combatants        []Combatant                `json:"combatants,omitempty"`
@@ -23,68 +24,212 @@ type Encounter struct {
 	GroupedConditions map[string][]ConditionInfo `json:"grouped_conditions"`
 }
 
-func GetAllEncounters(db database.Service) ([]Encounter, error) {
-	if db == nil {
-		return nil, errors.New("database service is nil")
-	}
-
-	rows, err := db.Query(`
-	    SELECT e.id, e.name, e.user_id, u.name AS user_name
-	    FROM encounters e
-	    JOIN users u ON e.user_id = u.id
-	    WHERE e.user_id = $1
-	    ORDER BY e.id
-    `, 1) // hard-coded User-ID for now
-	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
-
-	var encounters []Encounter
-	for rows.Next() {
-		var e Encounter
-		e.User = &User{}
-
-		err := rows.Scan(&e.ID, &e.Name, &e.UserID, &e.User.Name)
-
-		if err != nil {
-			return nil, err
-		}
-		encounters = append(encounters, e)
-	}
-
-	if err = rows.Err(); err != nil {
-		return nil, err
-	}
-
-	// TODO Also fetch monsters for each encounter?
-
-	return encounters, nil
-}
-
-func GetEncounter(db database.Service, id string) (Encounter, error) {
+func CreateEncounter(db database.Service, name string, partyId int) (Encounter, error) {
 	if db == nil {
 		return Encounter{}, errors.New("database service is nil")
 	}
 
-	encounterID, err := strconv.Atoi(id)
+	var e Encounter
+	e.Name = name
+	e.PartyID = partyId
+
+	err := db.QueryRow(`
+	    INSERT INTO encounters (name, party_id, user_id)
+	    VALUES ($1, $2, $3)
+	    RETURNING id
+    `, name, partyId, 1).Scan(&e.ID)
+
 	if err != nil {
-		return Encounter{}, fmt.Errorf("invalid encounter ID: %v", err)
+		return Encounter{}, err
+	}
+
+	// Get all players from the new party
+	rows, err := db.Query(`
+		SELECT id FROM players
+		WHERE party_id = $1
+	`, partyId)
+	if err != nil {
+		return Encounter{}, fmt.Errorf("error getting party players: %v", err)
+	}
+	defer rows.Close()
+
+	// Collect all player IDs
+	var playerIDs []int
+	for rows.Next() {
+		var playerID int
+		if err := rows.Scan(&playerID); err != nil {
+			return Encounter{}, fmt.Errorf("error scanning player ID: %v", err)
+		}
+		playerIDs = append(playerIDs, playerID)
+	}
+	if err = rows.Err(); err != nil {
+		return Encounter{}, fmt.Errorf("error iterating over players: %v", err)
+	}
+
+	// Add each player from the new party to the encounter
+	for _, playerID := range playerIDs {
+		_, err = db.Exec(`
+			INSERT INTO encounter_players (encounter_id, player_id, initiative)
+			VALUES ($1, $2, $3)
+		`, e.ID, playerID, 0)
+
+		if err != nil {
+			return Encounter{}, fmt.Errorf("error adding player to encounter: %v", err)
+		}
+	}
+
+	return e, nil
+}
+
+func UpdateEncounter(db database.Service, encounterId int, name string, partyId int) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	// First, verify the new party exists
+	var exists bool
+	err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM parties WHERE id = $1)", partyId).Scan(&exists)
+	if err != nil {
+		return fmt.Errorf("error checking party existence: %v", err)
+	}
+	if !exists {
+		return fmt.Errorf("party with ID %d does not exist", partyId)
+	}
+
+	// First, get the current party_id
+	var currentPartyID int
+	err = db.QueryRow(`
+		SELECT party_id
+		FROM encounters
+		WHERE id = $1
+	`, encounterId).Scan(&currentPartyID)
+
+	if err != nil {
+		return fmt.Errorf("failed to get current encounter: %w", err)
+	}
+
+	// Check if party_id has changed
+	if currentPartyID != partyId {
+		// Start a transaction for the party change
+		tx, err := db.Begin()
+		if err != nil {
+			return fmt.Errorf("error starting transaction: %v", err)
+		}
+		defer func() {
+			if tx != nil {
+				_ = tx.Rollback()
+			}
+		}()
+
+		// First, remove all existing players from the encounter
+		_, err = tx.Exec(`
+			DELETE FROM encounter_players
+			WHERE encounter_id = $1
+		`, encounterId)
+		if err != nil {
+			return fmt.Errorf("error removing existing players: %v", err)
+		}
+
+		// Get all players from the new party
+		rows, err := tx.Query(`
+			SELECT id FROM players
+			WHERE party_id = $1
+		`, partyId)
+		if err != nil {
+			return fmt.Errorf("error getting party players: %v", err)
+		}
+		defer rows.Close()
+
+		// Collect all player IDs
+		var playerIDs []int
+		for rows.Next() {
+			var playerID int
+			if err := rows.Scan(&playerID); err != nil {
+				return fmt.Errorf("error scanning player ID: %v", err)
+			}
+			playerIDs = append(playerIDs, playerID)
+		}
+		if err = rows.Err(); err != nil {
+			return fmt.Errorf("error iterating over players: %v", err)
+		}
+
+		// Add each player from the new party to the encounter
+		for _, playerID := range playerIDs {
+			_, err = tx.Exec(`
+				INSERT INTO encounter_players (encounter_id, player_id, initiative)
+				VALUES ($1, $2, $3)
+			`, encounterId, playerID, 0)
+
+			if err != nil {
+				return fmt.Errorf("error adding player to encounter: %v", err)
+			}
+		}
+
+		// Update the encounter itself
+		_, err = tx.Exec(`
+			UPDATE encounters
+			SET name = $1, party_id = $2
+			WHERE id = $3
+		`, name, partyId, encounterId)
+
+		if err != nil {
+			return fmt.Errorf("failed to update encounter: %w", err)
+		}
+
+		// Commit the transaction
+		if err = tx.Commit(); err != nil {
+			return fmt.Errorf("error committing transaction: %v", err)
+		}
+		tx = nil // Prevent rollback after successful commit
+	} else {
+		// If party hasn't changed, just update the name
+		_, err = db.Exec(`
+			UPDATE encounters
+			SET name = $1
+			WHERE id = $2
+		`, name, encounterId)
+
+		if err != nil {
+			return fmt.Errorf("failed to update encounter: %w", err)
+		}
+	}
+
+	return nil
+}
+
+func DeleteEncounter(db database.Service, id int) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	_, err := db.Exec(`
+        DELETE FROM encounters
+        WHERE id = $1
+    `, id)
+
+	return err
+}
+
+func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
+	if db == nil {
+		return Encounter{}, errors.New("database service is nil")
 	}
 
 	var e Encounter
 	e.User = &User{}
+	e.Party = &Party{}
 
-	err = db.QueryRow(`
-        SELECT e.id, e.name, e.user_id, u.name AS user_name
-        FROM encounters e
-        JOIN users u ON e.user_id = u.id
-        WHERE e.user_id = $1 AND e.id = $2
-    `, 1, encounterID).Scan(&e.ID, &e.Name, &e.User.ID, &e.User.Name)
+	err := db.QueryRow(`
+       SELECT e.id, e.name, e.user_id, e.party_id, u.name AS user_name, p.name AS party_name
+       FROM encounters e
+       JOIN users u ON e.user_id = u.id
+       JOIN parties p ON e.party_id = p.id
+       WHERE e.user_id = $1 AND e.id = $2
+   `, 1, encounterId).Scan(&e.ID, &e.Name, &e.User.ID, &e.Party.ID, &e.User.Name, &e.Party.Name)
 
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return Encounter{}, fmt.Errorf("no encounter found with ID %d", encounterID)
+			return Encounter{}, fmt.Errorf("no encounter found with ID %d", encounterId)
 		}
 		return Encounter{}, fmt.Errorf("error scanning encounter row: %v", err)
 	}
@@ -95,7 +240,7 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
         FROM monsters m
         JOIN encounter_monsters em ON m.id = em.monster_id
         WHERE em.encounter_id = $1
-    `, encounterID)
+    `, encounterId)
 	if err != nil {
 		return e, fmt.Errorf("error querying monsters: %v", err)
 	}
@@ -137,11 +282,11 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
         p.ref,
         p.will,
         ep.initiative,
-        ep.id as association_id  -- Add this line
+        ep.id as association_id
     FROM players p
     JOIN encounter_players ep ON p.id = ep.player_id
     WHERE ep.encounter_id = $1
-`, encounterID)
+`, encounterId)
 	if err != nil {
 		return e, fmt.Errorf("error querying players: %v", err)
 	}
@@ -174,8 +319,8 @@ func GetEncounter(db database.Service, id string) (Encounter, error) {
 	return e, nil
 }
 
-func GetEncounterWithCombatants(db database.Service, id string, partyId string) (Encounter, error) {
-	encounter, err := GetEncounter(db, id)
+func GetEncounterWithCombatants(db database.Service, encounterId int) (Encounter, error) {
+	encounter, err := GetEncounter(db, encounterId)
 	if err != nil {
 		return Encounter{}, fmt.Errorf("error fetching encounter: %w", err)
 	}
@@ -212,18 +357,59 @@ func GetEncounterWithCombatants(db database.Service, id string, partyId string) 
 	return encounter, nil
 }
 
-func AddMonsterToEncounter(db database.Service, encounterID string, monsterID string, levelAdjustment int, initiative int) (Encounter, error) {
-	// Convert string IDs to integers
-	encID, err := strconv.Atoi(encounterID)
-	if err != nil {
-		return Encounter{}, fmt.Errorf("invalid encounter ID: %v", err)
+func GetAllEncounters(db database.Service) ([]Encounter, error) {
+	if db == nil {
+		return nil, errors.New("database service is nil")
 	}
 
-	monID, err := strconv.Atoi(monsterID)
+	rows, err := db.Query(`
+        SELECT
+            e.id,
+            e.name,
+            e.user_id,
+            e.party_id,
+            u.name AS user_name,
+            p.name AS party_name
+        FROM encounters e
+        JOIN users u ON e.user_id = u.id
+        JOIN parties p ON e.party_id = p.id
+        WHERE e.user_id = $1
+        ORDER BY e.id
+    `, 1) // hard-coded User-ID for now
 	if err != nil {
-		return Encounter{}, fmt.Errorf("invalid monster ID: %v", err)
+		return nil, err
+	}
+	defer rows.Close()
+
+	var encounters []Encounter
+	for rows.Next() {
+		var e Encounter
+		e.User = &User{}
+		e.Party = &Party{}
+
+		err := rows.Scan(
+			&e.ID,
+			&e.Name,
+			&e.UserID,
+			&e.PartyID,
+			&e.User.Name,
+			&e.Party.Name,
+		)
+
+		if err != nil {
+			return nil, err
+		}
+		encounters = append(encounters, e)
 	}
 
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return encounters, nil
+}
+
+func AddMonsterToEncounter(db database.Service, encounterId int, monsterID int, levelAdjustment int, initiative int) (Encounter, error) {
 	// Use a transaction to ensure atomicity
 	tx, err := db.Begin()
 	if err != nil {
@@ -235,7 +421,7 @@ func AddMonsterToEncounter(db database.Service, encounterID string, monsterID st
 	_, err = db.Exec(`
         INSERT INTO encounter_monsters (encounter_id, monster_id, level_adjustment, initiative)
         VALUES ($1, $2, $3, $4)
-    `, encID, monID, levelAdjustment, initiative)
+    `, encounterId, monsterID, levelAdjustment, initiative)
 
 	if err != nil {
 		return Encounter{}, fmt.Errorf("Failed to add monster to encounter: %v", err)
@@ -246,17 +432,12 @@ func AddMonsterToEncounter(db database.Service, encounterID string, monsterID st
 		return Encounter{}, fmt.Errorf("Error committing transaction: %v", err)
 	}
 
-	encounter, _ := GetEncounter(db, encounterID)
+	encounter, _ := GetEncounter(db, encounterId)
 
 	return encounter, nil
 }
 
-func RemoveMonsterFromEncounter(db database.Service, encounterID string, associationID string) (Encounter, error) {
-	assID, err := strconv.Atoi(associationID)
-	if err != nil {
-		return Encounter{}, fmt.Errorf("invalid monster ID: %v", err)
-	}
-
+func RemoveMonsterFromEncounter(db database.Service, encounterId int, associationID int) (Encounter, error) {
 	// Use a transaction to ensure atomicity
 	tx, err := db.Begin()
 	if err != nil {
@@ -268,7 +449,7 @@ func RemoveMonsterFromEncounter(db database.Service, encounterID string, associa
 	_, err = tx.Exec(`
         DELETE FROM encounter_monsters
         WHERE id = $1
-    `, assID)
+    `, associationID)
 
 	if err != nil {
 		return Encounter{}, fmt.Errorf("error removing monster from encounter: %v", err)
@@ -280,12 +461,16 @@ func RemoveMonsterFromEncounter(db database.Service, encounterID string, associa
 	}
 
 	// Fetch the updated encounter
-	encounter, err := GetEncounter(db, encounterID)
+	encounter, err := GetEncounter(db, encounterId)
 	if err != nil {
 		return Encounter{}, fmt.Errorf("error fetching updated encounter: %v", err)
 	}
 
 	return encounter, nil
+}
+
+func (e Encounter) GetPartyName() string {
+	return e.Party.Name
 }
 
 func (e Encounter) GetDifficulty() int {

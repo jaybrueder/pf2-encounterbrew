@@ -653,23 +653,18 @@ func SearchMonsters(db database.Service, search string) ([]Monster, error) {
 	return monsters, nil
 }
 
-func GetMonster(db database.Service, id string) (Monster, error) {
+func GetMonster(db database.Service, id int) (Monster, error) {
 	if db == nil {
 		return Monster{}, errors.New("database service is nil")
 	}
 
-	monsterID, err := strconv.Atoi(id)
-	if err != nil {
-		return Monster{}, fmt.Errorf("invalid monster ID: %v", err)
-	}
-
 	var m Monster
 	var jsonData []byte
-	err = db.QueryRow("SELECT id, data FROM monsters WHERE id = $1", monsterID).Scan(&m.ID, &jsonData)
+	err := db.QueryRow("SELECT id, data FROM monsters WHERE id = $1", id).Scan(&m.ID, &jsonData)
 
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return Monster{}, fmt.Errorf("no monster found with ID %d", monsterID)
+			return Monster{}, fmt.Errorf("no monster found with ID %d", id)
 		}
 		return Monster{}, fmt.Errorf("error scanning monster row: %v", err)
 	}
