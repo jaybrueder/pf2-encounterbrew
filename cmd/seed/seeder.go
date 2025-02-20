@@ -53,19 +53,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Set active party for default user
-	// TODO: Static user id of 1
-	if err := setDefaultUserActiveParty(dbService, 1); err != nil {
-		fmt.Fprintf(os.Stderr, "Error setting default user's active party: %v\n", err)
-		os.Exit(1)
-	}
-
-	// // Seed a default encounter
-	// if err := seedEncounter(dbService, 1); err != nil {
-	// 	fmt.Fprintf(os.Stderr, "Error seeding encounter: %v\n", err)
-	// 	os.Exit(1)
-	// }
-
 	// Seed monsters
 	err = filepath.Walk("data/bestiaries", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -184,100 +171,5 @@ func seedParties(db database.Service, filePath string) error {
 	}
 
 	fmt.Printf("Successfully seeded %d parties\n", len(partiesData.Parties))
-	return nil
-}
-
-// func seedEncounter(db database.Service, partyID int) error {
-// 	// First, verify the party exists
-// 	var exists bool
-// 	err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM parties WHERE id = $1)", partyID).Scan(&exists)
-// 	if err != nil {
-// 		return fmt.Errorf("error checking party existence: %v", err)
-// 	}
-// 	if !exists {
-// 		return fmt.Errorf("party with ID %d does not exist", partyID)
-// 	}
-
-// 	// Create a new encounter
-// 	var encounterID int
-// 	err = db.QueryRow(`
-//         INSERT INTO encounters (name, user_id)
-//         VALUES ($1, $2)
-//         RETURNING id
-//     `, "Default Encounter", 1).Scan(&encounterID)
-
-// 	if err != nil {
-// 		return fmt.Errorf("error creating encounter: %v", err)
-// 	}
-
-// 	// Get all players from the party
-// 	rows, err := db.Query(`
-//         SELECT id FROM players
-//         WHERE party_id = $1
-//     `, partyID)
-// 	if err != nil {
-// 		return fmt.Errorf("error getting party players: %v", err)
-// 	}
-// 	defer rows.Close()
-
-// 	// Collect all player IDs first
-// 	var playerIDs []int
-// 	for rows.Next() {
-// 		var playerID int
-// 		if err := rows.Scan(&playerID); err != nil {
-// 			return fmt.Errorf("error scanning player ID: %v", err)
-// 		}
-// 		playerIDs = append(playerIDs, playerID)
-// 	}
-// 	if err = rows.Err(); err != nil {
-// 		return fmt.Errorf("error iterating over players: %v", err)
-// 	}
-
-// 	// Start a new transaction for inserting encounter players
-// 	tx, err := db.Begin()
-// 	if err != nil {
-// 		return fmt.Errorf("error starting transaction: %v", err)
-// 	}
-// 	defer func() {
-// 		if tx != nil {
-// 			_ = tx.Rollback()
-// 		}
-// 	}()
-
-// 	// Add each player to the encounter_players table
-// 	for _, playerID := range playerIDs {
-// 		_, err = tx.Exec(`
-//             INSERT INTO encounter_players (encounter_id, player_id, initiative)
-//             VALUES ($1, $2, $3)
-//         `, encounterID, playerID, 0)
-
-// 		if err != nil {
-// 			return fmt.Errorf("error adding player to encounter: %v", err)
-// 		}
-// 	}
-
-// 	// Commit the transaction
-// 	if err = tx.Commit(); err != nil {
-// 		return fmt.Errorf("error committing transaction: %v", err)
-// 	}
-// 	tx = nil // Prevent rollback after successful commit
-
-// 	fmt.Printf("Successfully created encounter %d with players from party %d\n", encounterID, partyID)
-// 	return nil
-// }
-
-func setDefaultUserActiveParty(db database.Service, userID int) error {
-	// Set the first party (ID 1) as the active party for the default user
-	_, err := db.Exec(`
-        UPDATE users
-        SET active_party_id = 1
-        WHERE id = $1
-    `, userID)
-
-	if err != nil {
-		return fmt.Errorf("error setting default user's active party: %v", err)
-	}
-
-	fmt.Println("Set default user's active party")
 	return nil
 }

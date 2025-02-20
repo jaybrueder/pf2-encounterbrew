@@ -38,10 +38,6 @@ func (p Party) GetNumbersOfPlayer() float64 {
 	return float64(len(p.Players))
 }
 
-func (p Party) IsActive() bool {
-	return false
-}
-
 // Database interaction
 func (p *Party) Create(db database.Service) (int, error) {
 	if db == nil {
