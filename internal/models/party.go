@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	"strconv"
 	"strings"
 
 	"pf2.encounterbrew.com/internal/database"
@@ -121,20 +120,15 @@ func GetAllParties(db database.Service) ([]Party, error) {
 	return parties, nil
 }
 
-func GetParty(db database.Service, id string) (Party, error) {
+func GetParty(db database.Service, partyID int) (Party, error) {
 	if db == nil {
 		return Party{}, errors.New("database service is nil")
-	}
-
-	partyID, err := strconv.Atoi(id)
-	if err != nil {
-		return Party{}, fmt.Errorf("invalid party ID: %v", err)
 	}
 
 	var p Party
 	p.User = &User{}
 
-	err = db.QueryRow(`
+	err := db.QueryRow(`
         SELECT p.id, p.name, p.user_id, u.name AS user_name
         FROM parties p
         JOIN users u ON p.user_id = u.id
@@ -148,9 +142,9 @@ func GetParty(db database.Service, id string) (Party, error) {
 		return Party{}, fmt.Errorf("error scanning party row: %v", err)
 	}
 
-	// Query for associated players
+	// Updated query to include perception
 	rows, err := db.Query(`
-        SELECT id, name, level, hp, ac, fort, ref, will
+        SELECT id, name, level, hp, ac, fort, ref, will, perception
         FROM players
         WHERE party_id = $1
     `, partyID)
@@ -162,7 +156,17 @@ func GetParty(db database.Service, id string) (Party, error) {
 	var players []Player
 	for rows.Next() {
 		var player Player
-		err := rows.Scan(&player.ID, &player.Name, &player.Level, &player.Hp, &player.Ac, &player.Fort, &player.Ref, &player.Will)
+		err := rows.Scan(
+			&player.ID,
+			&player.Name,
+			&player.Level,
+			&player.Hp,
+			&player.Ac,
+			&player.Fort,
+			&player.Ref,
+			&player.Will,
+			&player.Perception, // Added perception
+		)
 		if err != nil {
 			return Party{}, fmt.Errorf("error scanning player row: %v", err)
 		}
@@ -265,10 +269,12 @@ func (p *Party) UpdateWithPlayers(db database.Service, playersToDelete []int) er
 		if player.ID == 0 {
 			// Insert new player
 			err := tx.QueryRow(`
-                INSERT INTO players (name, level, ac, hp, fort, ref, will, party_id)
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                INSERT INTO players (name, level, ac, hp, fort, ref, will, perception, party_id)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
                 RETURNING id`,
-				player.Name, player.Level, player.Ac, player.Hp, player.Fort, player.Ref, player.Will, p.ID).Scan(&player.ID)
+				player.Name, player.Level, player.Ac, player.Hp,
+				player.Fort, player.Ref, player.Will, player.Perception,
+				p.ID).Scan(&player.ID)
 			if err != nil {
 				return fmt.Errorf("error inserting player: %v", err)
 			}
@@ -276,9 +282,12 @@ func (p *Party) UpdateWithPlayers(db database.Service, playersToDelete []int) er
 			// Update existing player
 			result, err := tx.Exec(`
                 UPDATE players
-                SET name = $1, level = $2, ac = $3, hp = $4, fort = $5, ref = $6, will = $7
-                WHERE id = $8 AND party_id = $9`,
-				player.Name, player.Level, player.Ac, player.Hp, player.Fort, player.Ref, player.Will, player.ID, p.ID)
+                SET name = $1, level = $2, ac = $3, hp = $4,
+                    fort = $5, ref = $6, will = $7, perception = $8
+                WHERE id = $9 AND party_id = $10`,
+				player.Name, player.Level, player.Ac, player.Hp,
+				player.Fort, player.Ref, player.Will, player.Perception,
+				player.ID, p.ID)
 
 			if err != nil {
 				return fmt.Errorf("error updating player: %v", err)
