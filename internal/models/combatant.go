@@ -49,6 +49,9 @@ type Combatant interface {
 	GetConditions() []Condition
 	SetCondition(db database.Service, conditionID int, conditionValue int) []Condition
 	RemoveCondition(conditionID int) []Condition
+	HasCondition(conditionID int) bool
+	GetConditionValue(conditionID int) int
+	SetConditionValue(conditionID int, conditionValue int) int
 	GetAdjustmentModifier() int
 	IsMonster() bool
 	IsOffGuard() bool

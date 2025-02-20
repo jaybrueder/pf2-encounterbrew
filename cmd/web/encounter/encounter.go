@@ -433,8 +433,30 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 		}
 
 		// Update the specific combatant's values
-		// TODO increase value if already there
-		encounter.Combatants[combatantIndex].SetCondition(db, conditionID, 0)
+		condition, err := models.GetCondition(db, conditionID)
+		if err != nil {
+			log.Printf("Error getting condition: %v", err)
+			return c.String(http.StatusInternalServerError, "Error getting condition")
+		}
+
+		combatant := encounter.Combatants[combatantIndex]
+		hasCondition := combatant.HasCondition(conditionID)
+		isValued := condition.IsValued()
+
+		if hasCondition && isValued {
+
+			// Increment existing valued condition
+			currentValue := combatant.GetConditionValue(conditionID)
+			log.Printf("Current value: %d", currentValue)
+			combatant.SetConditionValue(conditionID, currentValue+1)
+		} else if !hasCondition {
+			// Set new condition with value 1 if valued, 0 if not
+			value := 0
+			if isValued {
+				value = 1
+			}
+			combatant.SetCondition(db, conditionID, value)
+		}
 
 		// Save updated encounter back to session
 		sess.Values["encounter"] = encounter
