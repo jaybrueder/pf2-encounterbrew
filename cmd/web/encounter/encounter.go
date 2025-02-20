@@ -12,6 +12,153 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
+func EncounterNewHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		parties, err := models.GetAllParties(db)
+		if err != nil {
+			log.Printf("Error getting parties: %v", err)
+			return c.String(http.StatusInternalServerError, "Error getting parties")
+		}
+
+		component := EncounterNew(parties)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
+}
+
+func EncounterCreateHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		name := c.FormValue("name")
+		partyID, err := strconv.Atoi(c.FormValue("party_id"))
+		if err != nil {
+			return c.String(http.StatusBadRequest, "Invalid party ID")
+		}
+
+		// First, verify that the party exists
+		exists, err := models.PartyExists(db, partyID)
+		if err != nil {
+			log.Printf("Error checking party existence: %v", err)
+			return c.String(http.StatusInternalServerError, "Error creating encounter")
+		}
+		if !exists {
+			return c.String(http.StatusBadRequest, "Selected party does not exist")
+		}
+
+		_, err = models.CreateEncounter(db, name, partyID)
+		if err != nil {
+			log.Printf("Error creating encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error creating encounter")
+		}
+
+		encounters, err := models.GetAllEncounters(db)
+		if err != nil {
+			log.Printf("Error fetching encounters: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounters")
+		}
+
+		// Render the template with the encounter
+		component := EncounterList(encounters)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
+}
+
+func EncounterEditHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		id, err := strconv.Atoi(c.Param("encounter_id"))
+		if err != nil {
+			log.Printf("Invalid encounter ID: %v", err)
+			return c.String(http.StatusBadRequest, "Invalid encounter ID")
+		}
+
+		encounter, err := models.GetEncounter(db, id)
+		if err != nil {
+			log.Printf("Error getting encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error getting encounter")
+		}
+
+		parties, err := models.GetAllParties(db)
+		if err != nil {
+			log.Printf("Error getting parties: %v", err)
+			return c.String(http.StatusInternalServerError, "Error getting parties")
+		}
+
+		component := EncounterEdit(encounter, parties)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
+}
+
+func EncounterUpdateHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		// Get encounter ID from URL parameter
+		encounterID, err := strconv.Atoi(c.Param("encounter_id"))
+		if err != nil {
+			return c.String(http.StatusBadRequest, "Invalid encounter ID")
+		}
+
+		// Get form values
+		name := c.FormValue("name")
+		partyID, err := strconv.Atoi(c.FormValue("party_id"))
+		if err != nil {
+			return c.String(http.StatusBadRequest, "Invalid party ID")
+		}
+
+		// Verify that the party exists
+		exists, err := models.PartyExists(db, partyID)
+		if err != nil {
+			log.Printf("Error checking party existence: %v", err)
+			return c.String(http.StatusInternalServerError, "Error updating encounter")
+		}
+		if !exists {
+			return c.String(http.StatusBadRequest, "Selected party does not exist")
+		}
+
+		// Update the encounter
+		err = models.UpdateEncounter(db, encounterID, name, partyID)
+		if err != nil {
+			log.Printf("Error updating encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error updating encounter")
+		}
+
+		// Fetch the encounter from the database
+		encounter, err := models.GetEncounterWithCombatants(db, encounterID)
+		if err != nil {
+			log.Printf("Error fetching encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounter")
+		}
+
+		// Render the template with the encounter
+		component := EncounterShow(encounter)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
+}
+
+func EncounterDeleteHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		// Get encounter ID from URL parameter
+		encounterID, err := strconv.Atoi(c.Param("encounter_id"))
+		if err != nil {
+			return c.String(http.StatusBadRequest, "Invalid encounter ID")
+		}
+
+		// Delete the encounter
+		err = models.DeleteEncounter(db, encounterID)
+		if err != nil {
+			log.Printf("Error deleting encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error deleting encounter")
+		}
+
+		// Fetch all encounters to refresh the list
+		encounters, err := models.GetAllEncounters(db)
+		if err != nil {
+			log.Printf("Error fetching encounters: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounters")
+		}
+
+		// Render the updated list
+		component := EncounterList(encounters)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
+}
+
 func EncounterListHandler(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// Fetch all encounters for given user
@@ -30,18 +177,10 @@ func EncounterListHandler(db database.Service) echo.HandlerFunc {
 func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// Get the encounter ID from the URL path parameter
-		id := c.Param("encounter_id")
-
-		// Get active party
-		// TODO: Use actual user ID
-		user, err := models.GetUserByID(db, 1)
-		if err != nil {
-			log.Printf("Error fetching users: %v", err)
-			return c.String(http.StatusInternalServerError, "Error fetching user")
-		}
+		id, _ := strconv.Atoi(c.Param("encounter_id"))
 
 		// Fetch the encounter from the database
-		encounter, err := models.GetEncounterWithCombatants(db, id, strconv.Itoa(user.ActivePartyID))
+		encounter, err := models.GetEncounterWithCombatants(db, id)
 		if err != nil {
 			log.Printf("Error fetching encounter: %v", err)
 			return c.String(http.StatusInternalServerError, "Error fetching encounter")
@@ -89,8 +228,8 @@ func EncounterSearchMonster(db database.Service) echo.HandlerFunc {
 
 func EncounterAddMonster(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		encounterID := c.Param("encounter_id")
-		monsterID := c.Param("monster_id")
+		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
+		monsterID, _ := strconv.Atoi(c.Param("monster_id"))
 		levelAdjustment, _ := strconv.Atoi(c.FormValue("level_adjustment"))
 
 		monster, err := models.GetMonster(db, monsterID)
@@ -112,8 +251,8 @@ func EncounterAddMonster(db database.Service) echo.HandlerFunc {
 
 func EncounterRemoveMonster(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		encounterID := c.Param("encounter_id")
-		associationID := c.Param("association_id")
+		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
+		associationID, _ := strconv.Atoi(c.Param("association_id"))
 
 		encounter, err := models.RemoveMonsterFromEncounter(db, encounterID, associationID)
 		if err != nil {
@@ -294,7 +433,7 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 		}
 
 		// Update the specific combatant's values
-		// TODO Increasr value if already there
+		// TODO increase value if already there
 		encounter.Combatants[combatantIndex].SetCondition(db, conditionID, 0)
 
 		// Save updated encounter back to session

@@ -38,10 +38,6 @@ func (p Party) GetNumbersOfPlayer() float64 {
 	return float64(len(p.Players))
 }
 
-func (p Party) IsActive() bool {
-	return false
-}
-
 // Database interaction
 func (p *Party) Create(db database.Service) (int, error) {
 	if db == nil {
@@ -181,6 +177,15 @@ func GetParty(db database.Service, id string) (Party, error) {
 	p.Players = players
 
 	return p, nil
+}
+
+func PartyExists(db database.Service, partyID int) (bool, error) {
+	var exists bool
+	err := db.QueryRow(`
+		SELECT EXISTS(SELECT 1 FROM parties WHERE id = $1)
+	`, partyID).Scan(&exists)
+
+	return exists, err
 }
 
 // Update updates the party's name in the database

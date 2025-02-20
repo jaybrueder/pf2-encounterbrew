@@ -184,20 +184,3 @@ func NewPlayerFormHandler(db database.Service) echo.HandlerFunc {
 		return PlayerForm(index, nil).Render(c.Request().Context(), c.Response().Writer)
 	}
 }
-
-func PartyActiveHandler(db database.Service) echo.HandlerFunc {
-	return func(c echo.Context) error {
-		partyID, err := strconv.Atoi(c.Param("party_id"))
-		if err != nil {
-			return echo.NewHTTPError(http.StatusBadRequest, "Invalid party ID")
-		}
-
-		// Set the active party for the user
-		user := models.User{ID: 1} // Replace with actual user ID from session
-		if err := user.SetActiveParty(db, partyID); err != nil {
-			return echo.NewHTTPError(http.StatusInternalServerError, "Failed to set active party")
-		}
-
-		return c.Redirect(http.StatusSeeOther, "/parties")
-	}
-}
