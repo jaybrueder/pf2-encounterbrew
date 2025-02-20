@@ -55,10 +55,10 @@ func PartyListHandler(db database.Service) echo.HandlerFunc {
 func PartyEditHandler(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// Get the party ID from the URL path parameter
-		id := c.Param("party_id")
+		partyID, _ := strconv.Atoi(c.Param("party_id"))
 
 		// Fetch the party from the database
-		party, err := models.GetParty(db, id)
+		party, err := models.GetParty(db, partyID)
 		if err != nil {
 			log.Printf("Error fetching party: %v", err)
 			return c.String(http.StatusInternalServerError, "Error fetching party")
@@ -73,7 +73,7 @@ func PartyEditHandler(db database.Service) echo.HandlerFunc {
 func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// Get the party ID from the URL path parameter
-		partyID := c.Param("party_id")
+		partyID, _ := strconv.Atoi(c.Param("party_id"))
 
 		// Parse the form
 		if err := c.Request().ParseForm(); err != nil {
@@ -99,6 +99,7 @@ func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 		playerFort := c.Request().Form["players[]fort"]
 		playerRef := c.Request().Form["players[]ref"]
 		playerWill := c.Request().Form["players[]will"]
+		playerPerception := c.Request().Form["players[]perception"]
 
 		// Create a map of existing player IDs for tracking deletions
 		existingPlayers := make(map[int]bool)
@@ -116,17 +117,19 @@ func PartyUpdateHandler(db database.Service) echo.HandlerFunc {
 			fort, _ := strconv.Atoi(playerFort[i])
 			ref, _ := strconv.Atoi(playerRef[i])
 			will, _ := strconv.Atoi(playerWill[i])
+			perception, _ := strconv.Atoi(playerPerception[i])
 
 			player := models.Player{
-				ID:      playerID,
-				Name:    playerNames[i],
-				Level:   level,
-				Ac:      ac,
-				Hp:      hp,
-				Fort:    fort,
-				Ref:     ref,
-				Will:    will,
-				PartyID: party.ID,
+				ID:         playerID,
+				Name:       playerNames[i],
+				Level:      level,
+				Ac:         ac,
+				Hp:         hp,
+				Fort:       fort,
+				Ref:        ref,
+				Will:       will,
+				Perception: perception,
+				PartyID:    party.ID,
 			}
 
 			if playerID != 0 {
@@ -175,12 +178,33 @@ func DeletePartyHandler(db database.Service) echo.HandlerFunc {
 	}
 }
 
-func NewPlayerFormHandler(db database.Service) echo.HandlerFunc {
+func PlayerNewHandler(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		index, err := strconv.Atoi(c.QueryParam("index"))
 		if err != nil {
 			return echo.NewHTTPError(http.StatusBadRequest, "Invalid index")
 		}
 		return PlayerForm(index, nil).Render(c.Request().Context(), c.Response().Writer)
+	}
+}
+
+func PlayerDeleteHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		partyID, _ := strconv.Atoi(c.Param("party_id"))
+		playerID, _ := strconv.Atoi(c.Param("player_id"))
+
+		err := models.PlayerDelete(db, playerID)
+		if err != nil {
+			return echo.NewHTTPError(http.StatusNotFound, "Player not deleted")
+		}
+
+		// Get the existing party
+		party, err := models.GetParty(db, partyID)
+		if err != nil {
+			return echo.NewHTTPError(http.StatusNotFound, "Party not found")
+		}
+
+		component := PartyEdit(party)
+		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }

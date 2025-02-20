@@ -264,6 +264,18 @@ func (p Player) GenerateInitiative() int {
 }
 
 // Database interactions
+func PlayerDelete(db database.Service, id int) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	_, err := db.Exec(`
+        DELETE FROM players
+        WHERE id = $1
+    `, id)
+
+	return err
+}
 
 // Update updates the player's details in the database
 func (p *Player) Update(db database.Service) error {
