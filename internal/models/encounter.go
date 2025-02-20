@@ -197,6 +197,19 @@ func UpdateEncounter(db database.Service, encounterId int, name string, partyId 
 	return nil
 }
 
+func DeleteEncounter(db database.Service, id int) error {
+	if db == nil {
+		return errors.New("database service is nil")
+	}
+
+	_, err := db.Exec(`
+        DELETE FROM encounters
+        WHERE id = $1
+    `, id)
+
+	return err
+}
+
 func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
 	if db == nil {
 		return Encounter{}, errors.New("database service is nil")
@@ -306,7 +319,7 @@ func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
 	return e, nil
 }
 
-func GetEncounterWithCombatants(db database.Service, encounterId int, partyId int) (Encounter, error) {
+func GetEncounterWithCombatants(db database.Service, encounterId int) (Encounter, error) {
 	encounter, err := GetEncounter(db, encounterId)
 	if err != nil {
 		return Encounter{}, fmt.Errorf("error fetching encounter: %w", err)

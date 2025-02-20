@@ -1,7 +1,7 @@
 package encounter
 
 import (
-    "fmt"
+	"fmt"
     "strconv"
 
     "pf2.encounterbrew.com/cmd/web"
@@ -13,9 +13,9 @@ import (
 templ EncounterList(encounters []models.Encounter) {
     @web.Base("Encounters") {
         <section class="max-w-4xl mx-auto py-8 px-4">
-            <div class="flex justify-between items-center mb-8">
+            <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Encounters</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">Encounters</h2>
                     <div class="h-1 w-20 bg-blue-900 rounded"></div>
                 </div>
                 if len(encounters) > 0 {
@@ -64,7 +64,16 @@ templ EncounterList(encounters []models.Encounter) {
 }
 
 templ EncounterListItem(encounter models.Encounter) {
-	<div class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
+	<div
+		x-data="{
+	        showRadialMenu: false,
+			confirmDelete() {
+                if (confirm('Are you sure you want to delete this encounter?')) {
+                    this.$refs.deleteButton.click();
+                }
+            }
+		}"
+		class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
 		<div class="flex items-center justify-center w-12 bg-blue-900">
             <span class="text-white font-semibold">?</span>
         </div>
@@ -76,10 +85,51 @@ templ EncounterListItem(encounter models.Encounter) {
             </div>
         </div>
 
-        <div id="right" class="ml-auto flex items-center pr-2">
-            <a href={ templ.URL(fmt.Sprintf("/encounters/%d", encounter.ID)) } class="text-4xl font-medium uppercase text-gray-700 mt-1">
-                <i class="fa-solid fa-square-pen"></i>
-            </a>
+        <div class="relative flex items-center pr-4">
+            <button
+                @click="showRadialMenu = !showRadialMenu"
+                class="p-2 text-gray-300 hover:text-gray-500 focus:outline-none"
+            >
+                <i class="fas fa-ellipsis-v text-xl"></i>
+            </button>
+
+            <div
+                x-show="showRadialMenu"
+                @click.outside="showRadialMenu = false; showConditions = false"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95"
+                class="absolute right-12 top-2 flex gap-3"
+            >
+
+	           	<button
+	                @click="showRadialMenu = false"
+	                hx-get={fmt.Sprintf("/encounters/%d/edit", encounter.ID)}
+	                hx-target="body"
+	                class="flex items-center justify-center w-10 h-10 bg-green-700 hover:bg-green-500 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
+	                title="Edit Encounter"
+	            >
+	                <i class="fas fa-pen"></i>
+	            </button>
+
+				<button
+                    @click="confirmDelete(); showRadialMenu = false"
+                    class="flex items-center justify-center w-10 h-10 bg-red-700 hover:bg-red-500 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
+                    title="Delete Encounter"
+                >
+                    <i class="fas fa-xmark"></i>
+                </button>
+
+                <button
+                    x-ref="deleteButton"
+                    hx-delete={fmt.Sprintf("/encounters/%d", encounter.ID)}
+                    hx-target="body"
+                    class="hidden"
+                ></button>
+            </div>
         </div>
     </div>
 }
