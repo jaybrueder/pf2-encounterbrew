@@ -307,28 +307,7 @@ func (p *Party) Delete(db database.Service) error {
 		return errors.New("database service is nil")
 	}
 
-	tx, err := db.Begin()
-	if err != nil {
-		return fmt.Errorf("error starting transaction: %v", err)
-	}
-
-	defer func() {
-		if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
-			log.Printf("error rolling back transaction: %v", err)
-		}
-	}()
-
-	// Delete all players first
-	_, err = tx.Exec(`
-        DELETE FROM players
-        WHERE party_id = $1`,
-		p.ID)
-	if err != nil {
-		return fmt.Errorf("error deleting players: %v", err)
-	}
-
-	// Delete the party
-	result, err := tx.Exec(`
+	result, err := db.Exec(`
         DELETE FROM parties
         WHERE id = $1 AND user_id = $2`,
 		p.ID, p.UserID)
@@ -342,10 +321,6 @@ func (p *Party) Delete(db database.Service) error {
 	}
 	if rowsAffected == 0 {
 		return fmt.Errorf("party not found or user not authorized")
-	}
-
-	if err = tx.Commit(); err != nil {
-		return fmt.Errorf("error committing transaction: %v", err)
 	}
 
 	return nil
