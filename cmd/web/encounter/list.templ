@@ -2,7 +2,6 @@ package encounter
 
 import (
 	"fmt"
-    "strconv"
 
     "pf2.encounterbrew.com/cmd/web"
     "pf2.encounterbrew.com/internal/models"
@@ -22,7 +21,8 @@ templ EncounterList(encounters []models.Encounter) {
                     <button
                         hx-get={"/encounters/new"}
                         hx-target="body"
-                        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200"
+                        hx-push-url="true"
+                        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
                     >
                         <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
@@ -43,7 +43,8 @@ templ EncounterList(encounters []models.Encounter) {
                         <button
                             hx-get={"/encounters/new"}
                             hx-target="body"
-                            class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200"
+                            hx-push-url="true"
+                            class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 transition-all duration-200"
                         >
                             <svg class="w-5 h-5 mr-2 -ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
@@ -64,30 +65,38 @@ templ EncounterList(encounters []models.Encounter) {
 }
 
 templ EncounterListItem(encounter models.Encounter) {
-	<div
-		x-data="{
-	        showRadialMenu: false,
-			confirmDelete() {
+    <div
+        x-data="{
+            showRadialMenu: false,
+            confirmDelete() {
                 if (confirm('Are you sure you want to delete this encounter?')) {
                     this.$refs.deleteButton.click();
                 }
             }
-		}"
-		class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2">
-		<div class="flex items-center justify-center w-12 bg-blue-900">
-            <span class="text-white font-semibold">?</span>
-        </div>
+        }"
+        class="flex justify-between w-full overflow-hidden bg-white rounded-md mb-2 hover:bg-blue-100 transition-all duration-200"
+    >
+        <div
+            class="flex flex-1 cursor-pointer"
+            hx-get={fmt.Sprintf("/encounters/%d", encounter.ID)}
+            hx-target="body"
+            hx-push-url="true"
+        >
+            <div class="flex items-center justify-center w-12 bg-blue-900">
+                <span class="text-white font-semibold"><i class="fas fa-shield"></i></span>
+            </div>
 
-        <div class="flex-1 px-4 py-2">
-            <div>
-                <span class="font-semibold uppercase text-xs text-gray-700">{encounter.Name}</span>
-                <p class="text-xs text-gray-400">{strconv.Itoa(encounter.PartyID)}</p>
+            <div class="flex-1 px-4 py-2">
+                <div>
+                    <span class="font-semibold uppercase text-xs text-gray-700">{encounter.Name}</span>
+                    <p class="text-xs text-gray-400">{encounter.GetPartyName()}</p>
+                </div>
             </div>
         </div>
 
         <div class="relative flex items-center pr-4">
             <button
-                @click="showRadialMenu = !showRadialMenu"
+                @click.stop="showRadialMenu = !showRadialMenu"
                 class="p-2 text-gray-300 hover:text-gray-500 focus:outline-none"
             >
                 <i class="fas fa-ellipsis-v text-xl"></i>
@@ -95,28 +104,28 @@ templ EncounterListItem(encounter models.Encounter) {
 
             <div
                 x-show="showRadialMenu"
-                @click.outside="showRadialMenu = false; showConditions = false"
+                @click.outside="showRadialMenu = false"
                 x-transition:enter="transition ease-out duration-200"
                 x-transition:enter-start="opacity-0 scale-95"
                 x-transition:enter-end="opacity-100 scale-100"
                 x-transition:leave="transition ease-in duration-150"
                 x-transition:leave-start="opacity-100 scale-100"
                 x-transition:leave-end="opacity-0 scale-95"
-                class="absolute right-12 top-2 flex gap-3"
+                class="absolute right-12 top-2 flex gap-3 z-10"
             >
+                <button
+                    @click.stop="showRadialMenu = false"
+                    hx-get={fmt.Sprintf("/encounters/%d/edit", encounter.ID)}
+                    hx-push-url="true"
+                    hx-target="body"
+                    class="flex items-center justify-center w-10 h-10 bg-green-700 hover:bg-green-500 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
+                    title="Edit Encounter"
+                >
+                    <i class="fas fa-pen"></i>
+                </button>
 
-	           	<button
-	                @click="showRadialMenu = false"
-	                hx-get={fmt.Sprintf("/encounters/%d/edit", encounter.ID)}
-	                hx-target="body"
-	                class="flex items-center justify-center w-10 h-10 bg-green-700 hover:bg-green-500 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
-	                title="Edit Encounter"
-	            >
-	                <i class="fas fa-pen"></i>
-	            </button>
-
-				<button
-                    @click="confirmDelete(); showRadialMenu = false"
+                <button
+                    @click.stop="confirmDelete(); showRadialMenu = false"
                     class="flex items-center justify-center w-10 h-10 bg-red-700 hover:bg-red-500 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
                     title="Delete Encounter"
                 >

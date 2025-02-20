@@ -363,11 +363,18 @@ func GetAllEncounters(db database.Service) ([]Encounter, error) {
 	}
 
 	rows, err := db.Query(`
-	    SELECT e.id, e.name, e.user_id, u.name AS user_name
-	    FROM encounters e
-	    JOIN users u ON e.user_id = u.id
-	    WHERE e.user_id = $1
-	    ORDER BY e.id
+        SELECT
+            e.id,
+            e.name,
+            e.user_id,
+            e.party_id,
+            u.name AS user_name,
+            p.name AS party_name
+        FROM encounters e
+        JOIN users u ON e.user_id = u.id
+        JOIN parties p ON e.party_id = p.id
+        WHERE e.user_id = $1
+        ORDER BY e.id
     `, 1) // hard-coded User-ID for now
 	if err != nil {
 		return nil, err
@@ -378,8 +385,16 @@ func GetAllEncounters(db database.Service) ([]Encounter, error) {
 	for rows.Next() {
 		var e Encounter
 		e.User = &User{}
+		e.Party = &Party{}
 
-		err := rows.Scan(&e.ID, &e.Name, &e.UserID, &e.User.Name)
+		err := rows.Scan(
+			&e.ID,
+			&e.Name,
+			&e.UserID,
+			&e.PartyID,
+			&e.User.Name,
+			&e.Party.Name,
+		)
 
 		if err != nil {
 			return nil, err
@@ -390,8 +405,6 @@ func GetAllEncounters(db database.Service) ([]Encounter, error) {
 	if err = rows.Err(); err != nil {
 		return nil, err
 	}
-
-	// TODO Also fetch monsters for each encounter?
 
 	return encounters, nil
 }
@@ -454,6 +467,10 @@ func RemoveMonsterFromEncounter(db database.Service, encounterId int, associatio
 	}
 
 	return encounter, nil
+}
+
+func (e Encounter) GetPartyName() string {
+	return e.Party.Name
 }
 
 func (e Encounter) GetDifficulty() int {
