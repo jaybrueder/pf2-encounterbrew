@@ -562,6 +562,37 @@ func (m *Monster) RemoveCondition(conditionID int) []Condition {
 	return m.Conditions
 }
 
+func (m *Monster) HasCondition(conditionID int) bool {
+	for _, c := range m.Conditions {
+		if c.ID == conditionID {
+			return true
+		}
+	}
+
+	return false
+}
+
+func (m *Monster) GetConditionValue(conditionID int) int {
+	for _, c := range m.Conditions {
+		if c.ID == conditionID {
+			return c.GetValue()
+		}
+	}
+
+	return 0
+}
+
+func (m *Monster) SetConditionValue(conditionID int, conditionValue int) int {
+	for i := range m.Conditions {
+		if m.Conditions[i].ID == conditionID {
+			m.Conditions[i].SetValue(conditionValue)
+			return m.Conditions[i].GetValue()
+		}
+	}
+
+	return 0
+}
+
 func (m Monster) GetAdjustmentModifier() int {
 	return m.AdjustMonster()["mod"]
 }

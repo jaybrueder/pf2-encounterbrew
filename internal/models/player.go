@@ -213,7 +213,6 @@ func (p *Player) SetCondition(db database.Service, conditionID int, conditionVal
 }
 
 func (p *Player) RemoveCondition(conditionID int) []Condition {
-	// Find the condition in the player's conditions
 	for i, c := range p.Conditions {
 		if c.ID == conditionID {
 			// Remove the condition from the slice
@@ -223,6 +222,37 @@ func (p *Player) RemoveCondition(conditionID int) []Condition {
 	}
 
 	return p.Conditions
+}
+
+func (p *Player) HasCondition(conditionID int) bool {
+	for _, c := range p.Conditions {
+		if c.ID == conditionID {
+			return true
+		}
+	}
+
+	return false
+}
+
+func (p *Player) GetConditionValue(conditionID int) int {
+	for _, c := range p.Conditions {
+		if c.ID == conditionID {
+			return c.GetValue()
+		}
+	}
+
+	return 0
+}
+
+func (p *Player) SetConditionValue(conditionID int, conditionValue int) int {
+	for _, c := range p.Conditions {
+		if c.ID == conditionID {
+			c.SetValue(conditionValue)
+			return c.GetValue()
+		}
+	}
+
+	return 0
 }
 
 func (p Player) GetAdjustmentModifier() int {
