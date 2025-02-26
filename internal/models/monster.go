@@ -648,7 +648,7 @@ func GetAllMonsters(db database.Service) ([]Monster, error) {
 }
 
 func SearchMonsters(db database.Service, search string) ([]Monster, error) {
-	query := "SELECT id, data FROM monsters WHERE LOWER(data->>'name') LIKE LOWER($1) LIMIT 10"
+	query := "SELECT id, data FROM monsters WHERE LOWER(data->>'name') LIKE LOWER($1) LIMIT 20"
 
 	// Search for the monster in the database and return the 10 most relevant results
 	rows, err := db.Query(query, "%"+search+"%")
