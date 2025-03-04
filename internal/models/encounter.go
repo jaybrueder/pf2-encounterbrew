@@ -437,11 +437,11 @@ func AddMonsterToEncounter(db database.Service, encounterId int, monsterID int, 
 	return encounter, nil
 }
 
-func RemoveMonsterFromEncounter(db database.Service, encounterId int, associationID int) (Encounter, error) {
+func RemoveMonsterFromEncounter(db database.Service, encounterId int, associationID int) error {
 	// Use a transaction to ensure atomicity
 	tx, err := db.Begin()
 	if err != nil {
-		return Encounter{}, fmt.Errorf("error starting transaction: %v", err)
+		return fmt.Errorf("error starting transaction: %v", err)
 	}
 	//nolint:errcheck
 	defer tx.Rollback() // Rollback the transaction if it hasn't been committed
@@ -452,21 +452,41 @@ func RemoveMonsterFromEncounter(db database.Service, encounterId int, associatio
     `, associationID)
 
 	if err != nil {
-		return Encounter{}, fmt.Errorf("error removing monster from encounter: %v", err)
+		return fmt.Errorf("error removing monster from encounter: %v", err)
 	}
 
 	// Commit the transaction
 	if err = tx.Commit(); err != nil {
-		return Encounter{}, fmt.Errorf("error committing transaction: %v", err)
+		return fmt.Errorf("error committing transaction: %v", err)
 	}
 
-	// Fetch the updated encounter
-	encounter, err := GetEncounter(db, encounterId)
+	return nil
+}
+
+func RemovePlayerFromEncounter(db database.Service, encounterId int, associationID int) error {
+	// Use a transaction to ensure atomicity
+	tx, err := db.Begin()
 	if err != nil {
-		return Encounter{}, fmt.Errorf("error fetching updated encounter: %v", err)
+		return fmt.Errorf("error starting transaction: %v", err)
+	}
+	//nolint:errcheck
+	defer tx.Rollback() // Rollback the transaction if it hasn't been committed
+
+	_, err = tx.Exec(`
+        DELETE FROM encounter_players
+        WHERE id = $1
+    `, associationID)
+
+	if err != nil {
+		return fmt.Errorf("error removing player from encounter: %v", err)
 	}
 
-	return encounter, nil
+	// Commit the transaction
+	if err = tx.Commit(); err != nil {
+		return fmt.Errorf("error committing transaction: %v", err)
+	}
+
+	return nil
 }
 
 func (e Encounter) GetPartyName() string {

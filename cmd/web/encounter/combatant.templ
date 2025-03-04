@@ -1,6 +1,7 @@
 package encounter
 
 import (
+	"fmt"
     "strconv"
 
     "pf2.encounterbrew.com/internal/models"
@@ -28,7 +29,12 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
             showStatblock: false,
             showRadialMenu: false,
             showConditions: false,
-            monstersIsOpen: false
+            monstersIsOpen: false,
+            confirmDelete() {
+                if (confirm('Are you sure you want to remove this combatant from the encounter?')) {
+                    this.$refs.deleteButton.click();
+                }
+            }
         }"
         class={ "flex-col justify-left w-full overflow-hidden rounded-md mb-2 bg-white border-solid border-2", setDefeated(combatant), isActive(index, encounter.Turn) }
     >
@@ -82,6 +88,22 @@ templ CombatantListItem(combatant models.Combatant, index int, encounter models.
                     x-transition:leave-end="opacity-0 scale-95"
                     class="absolute right-12 top-2 flex gap-3"
                 >
+
+	                <button
+                  		@click.stop="confirmDelete(); showRadialMenu = false"
+	                    class="flex items-center justify-center w-10 h-10 bg-red-700 hover:bg-red-500 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"
+	                    title="Remove combatant"
+	                >
+                  		<i class="fas fa-xmark"></i>
+	                </button>
+
+	                <button
+	                    x-ref="deleteButton"
+	                    hx-delete={fmt.Sprintf("/encounters/%d/remove_combatant/%d/%t", encounter.ID, combatant.GetAssociationID(), combatant.IsMonster())}
+	                    hx-target="#combatants"
+	                    class="hidden"
+	                ></button>
+
                     <button
                         @click="isInitiativeOpen = true; showRadialMenu = false"
                         class="flex items-center justify-center w-10 h-10 bg-green-700 hover:bg-green-500 text-white rounded-full shadow-lg transform transition-all duration-200 hover:scale-110"

@@ -293,6 +293,10 @@ func (p Player) GenerateInitiative() int {
 	return rand.Intn(20) + 1 + p.GetPerceptionMod()
 }
 
+func (p *Player) GetAssociationID() int {
+	return p.AssociationID
+}
+
 // Database interactions
 func PlayerDelete(db database.Service, id int) error {
 	if db == nil {

@@ -254,13 +254,55 @@ func EncounterRemoveMonster(db database.Service) echo.HandlerFunc {
 		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
 		associationID, _ := strconv.Atoi(c.Param("association_id"))
 
-		encounter, err := models.RemoveMonsterFromEncounter(db, encounterID, associationID)
+		err := models.RemoveMonsterFromEncounter(db, encounterID, associationID)
 		if err != nil {
 			log.Printf("Error removing monster: %v", err)
 			return c.String(http.StatusInternalServerError, "Error removing monster")
 		}
 
+		// Fetch the encounter from the database
+		encounter, err := getEncounter(db, encounterID)
+		if err != nil {
+			log.Printf("Error fetching encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounter")
+		}
+
 		component := MonstersAdded(encounter)
+		return component.Render(c.Request().Context(), c.Response().Writer)
+	}
+}
+
+func EncounterRemoveCombatant(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
+		associationID, _ := strconv.Atoi(c.Param("association_id"))
+		isMonster, _ := strconv.ParseBool(c.Param("is_monster"))
+
+		if isMonster {
+			log.Printf("Removing monster: %v", associationID)
+			err := models.RemoveMonsterFromEncounter(db, encounterID, associationID)
+			if err != nil {
+				log.Printf("Error removing monster: %v", err)
+				return c.String(http.StatusInternalServerError, "Error removing monster")
+			}
+		} else {
+			log.Printf("Removing player: %v", associationID)
+			err := models.RemovePlayerFromEncounter(db, encounterID, associationID)
+			if err != nil {
+				log.Printf("Error removing monster: %v", err)
+				return c.String(http.StatusInternalServerError, "Error removing monster")
+			}
+		}
+
+		// Fetch the encounter from the database
+		encounter, err := getEncounter(db, encounterID)
+		if err != nil {
+			log.Printf("Error fetching encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounter")
+		}
+
+		// Render and return the updated combatant list
+		component := CombatantList(encounter)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
@@ -505,4 +547,26 @@ func RemoveCondition() echo.HandlerFunc {
 		component := CombatantList(*encounter)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
+}
+
+func getEncounter(db database.Service, encounterID int) (models.Encounter, error) {
+	// Fetch the encounter from the database
+	encounter, err := models.GetEncounterWithCombatants(db, encounterID)
+	if err != nil {
+		log.Printf("Error fetching encounter: %v", err)
+		return models.Encounter{}, err
+	}
+
+	// Get all conditions
+	groupedConditions, err := models.GetGroupedConditions(db)
+	if err != nil {
+		log.Printf("Error fetching grouped conditions: %v", err)
+		return models.Encounter{}, err
+	}
+	encounter.GroupedConditions = groupedConditions
+
+	// Set Initiative and sort the combatants
+	models.SortCombatantsByInitiative(encounter.Combatants)
+
+	return encounter, nil
 }

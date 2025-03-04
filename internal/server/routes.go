@@ -46,6 +46,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	e.POST("/encounters/:encounter_id/search_monsters", encounter.EncounterSearchMonster(s.db))
 	e.POST("/encounters/:encounter_id/add_monster/:monster_id", encounter.EncounterAddMonster(s.db))
 	e.POST("/encounters/:encounter_id/remove_monster/:association_id", encounter.EncounterRemoveMonster(s.db))
+	e.DELETE("/encounters/:encounter_id/remove_combatant/:association_id/:is_monster", encounter.EncounterRemoveCombatant(s.db))
 	e.PATCH("/encounters/:encounter_id/combatant/:index/update", encounter.UpdateCombatant(s.db))
 	e.PATCH("/encounters/:encounter_id/bulk_update_initiative", encounter.BulkUpdateInitiative(s.db))
 	e.POST("/encounters/:encounter_id/combatant/:index/add_condition/:condition_id", encounter.AddCondition(s.db))

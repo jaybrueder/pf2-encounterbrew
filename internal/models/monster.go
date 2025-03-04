@@ -620,6 +620,10 @@ func (m Monster) GenerateInitiative() int {
 	return rand.Intn(20) + 1 + m.GetPerceptionMod()
 }
 
+func (m *Monster) GetAssociationID() int {
+	return m.AssociationID
+}
+
 // Database interactions
 
 func GetAllMonsters(db database.Service) ([]Monster, error) {

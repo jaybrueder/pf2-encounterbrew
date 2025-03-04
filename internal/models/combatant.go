@@ -56,6 +56,7 @@ type Combatant interface {
 	IsMonster() bool
 	IsOffGuard() bool
 	AdjustConditions() map[string]int
+	GetAssociationID() int
 }
 
 func SortCombatantsByInitiative(combatants []Combatant) {
