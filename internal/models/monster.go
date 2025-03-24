@@ -247,8 +247,21 @@ func (m Monster) GetHp() int {
 	return m.Data.System.Attributes.Hp.Value + m.AdjustMonster()["hp"]
 }
 
-func (m *Monster) SetHp(i int) {
+func (m *Monster) SetHp(db database.Service, i int) error {
 	m.Data.System.Attributes.Hp.Value -= i
+
+	// Update the hp in the encounter_monsters table
+	_, err := db.Exec(`
+        UPDATE encounter_monsters
+        SET hp = $1
+        WHERE id = $2
+    `, m.Data.System.Attributes.Hp.Value, m.AssociationID)
+
+	if err != nil {
+		return fmt.Errorf("error updating monster hp in database: %v", err)
+	}
+
+	return nil
 }
 
 func (m Monster) GetMaxHp() int {

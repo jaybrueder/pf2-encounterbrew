@@ -13,7 +13,7 @@ type Combatant interface {
 	SetInitiative(database.Service, int) error
 	GenerateInitiative() int
 	GetHp() int
-	SetHp(int)
+	SetHp(database.Service, int) error
 	GetMaxHp() int
 	GetAc() int
 	GetAcDetails() string

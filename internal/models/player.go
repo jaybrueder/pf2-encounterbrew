@@ -62,8 +62,21 @@ func (p Player) GetHp() int {
 	return p.Hp
 }
 
-func (p *Player) SetHp(i int) {
+func (p *Player) SetHp(db database.Service, i int) error {
 	p.Hp -= i
+
+	// Update the hp in the encounter_players table
+	_, err := db.Exec(`
+        UPDATE encounter_players
+        SET hp = $1
+        WHERE player_id = $2 AND encounter_id = $3
+    `, p.Hp, p.ID, p.AssociationID)
+
+	if err != nil {
+		return fmt.Errorf("error updating player hp in database: %v", err)
+	}
+
+	return nil
 }
 
 func (p Player) GetMaxHp() int {

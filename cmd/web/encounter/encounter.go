@@ -317,7 +317,9 @@ func UpdateCombatant(db database.Service) echo.HandlerFunc {
 			// Check if damage was provided
 			if damageStr := c.FormValue("damage"); damageStr != "" {
 				if damage, err := strconv.Atoi(damageStr); err == nil {
-					encounter.Combatants[combatantIndex].SetHp(damage)
+					if err := encounter.Combatants[combatantIndex].SetHp(db, damage); err != nil {
+						log.Printf("Error updating hp: %v", err)
+					}
 				}
 			}
 		}
