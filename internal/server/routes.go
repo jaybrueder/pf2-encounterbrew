@@ -3,7 +3,6 @@ package server
 import (
 	"net/http"
 
-	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
@@ -16,7 +15,6 @@ func (s *Server) RegisterRoutes() http.Handler {
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	e.Use(session.Middleware(s.sessionStore))
 	e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
 		Level: 5,
 	}))
@@ -50,9 +48,9 @@ func (s *Server) RegisterRoutes() http.Handler {
 	e.PATCH("/encounters/:encounter_id/combatant/:index/update", encounter.UpdateCombatant(s.db))
 	e.PATCH("/encounters/:encounter_id/bulk_update_initiative", encounter.BulkUpdateInitiative(s.db))
 	e.POST("/encounters/:encounter_id/combatant/:index/add_condition/:condition_id", encounter.AddCondition(s.db))
-	e.POST("/encounters/:encounter_id/combatant/:index/remove_condition/:condition_id", encounter.RemoveCondition())
-	e.POST("/encounters/:encounter_id/next_turn", encounter.ChangeTurn(true))
-	e.POST("/encounters/:encounter_id/prev_turn", encounter.ChangeTurn(false))
+	e.POST("/encounters/:encounter_id/combatant/:index/remove_condition/:condition_id", encounter.RemoveCondition(s.db))
+	e.POST("/encounters/:encounter_id/next_turn", encounter.ChangeTurn(s.db, true))
+	e.POST("/encounters/:encounter_id/prev_turn", encounter.ChangeTurn(s.db, false))
 
 	// Party routes
 	e.GET("/parties", party.PartyListHandler(s.db))

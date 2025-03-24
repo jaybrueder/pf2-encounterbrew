@@ -197,6 +197,30 @@ func UpdateEncounter(db database.Service, encounterId int, name string, partyId 
 	return nil
 }
 
+func UpdateTurnAndRound(db database.Service, turn int, round int, id int) error {
+	if id == 0 {
+		return errors.New("invalid encounter ID")
+	}
+
+	if turn < 0 || round < 0 {
+		return errors.New("invalid turn or round")
+	}
+
+	fmt.Printf("Turn and round updates: %d %d", turn, round)
+
+	_, err := db.Exec(`
+		UPDATE encounters
+		SET turn = $1, round = $2
+		WHERE id = $3
+	`, turn, round, id)
+
+	if err != nil {
+		return fmt.Errorf("failed to update encounter: %w", err)
+	}
+
+	return nil
+}
+
 func DeleteEncounter(db database.Service, id int) error {
 	if db == nil {
 		return errors.New("database service is nil")
@@ -220,12 +244,12 @@ func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
 	e.Party = &Party{}
 
 	err := db.QueryRow(`
-       SELECT e.id, e.name, e.user_id, e.party_id, u.name AS user_name, p.name AS party_name
+       SELECT e.id, e.name, e.user_id, e.party_id, e.turn, e.round, u.name AS user_name, p.name AS party_name
        FROM encounters e
        JOIN users u ON e.user_id = u.id
        JOIN parties p ON e.party_id = p.id
        WHERE e.user_id = $1 AND e.id = $2
-   `, 1, encounterId).Scan(&e.ID, &e.Name, &e.User.ID, &e.Party.ID, &e.User.Name, &e.Party.Name)
+   `, 1, encounterId).Scan(&e.ID, &e.Name, &e.User.ID, &e.Party.ID, &e.Turn, &e.Round, &e.User.Name, &e.Party.Name)
 
 	if err != nil {
 		if err == sql.ErrNoRows {
