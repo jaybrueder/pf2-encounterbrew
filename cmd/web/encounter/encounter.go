@@ -443,7 +443,12 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 			if isValued {
 				value = 1
 			}
-			combatant.SetCondition(db, conditionID, value)
+
+			err = combatant.SetCondition(db, encounterID, conditionID, value)
+			if err != nil {
+				log.Printf("Error setting condition: %v", err)
+				return c.String(http.StatusInternalServerError, "Error setting condition")
+			}
 		}
 
 		// Render and return the updated combatant list
@@ -466,7 +471,11 @@ func RemoveCondition(db database.Service) echo.HandlerFunc {
 		}
 
 		// Update the specific combatant's values
-		encounter.Combatants[combatantIndex].RemoveCondition(conditionID)
+		err = encounter.Combatants[combatantIndex].RemoveCondition(db, encounterID, conditionID)
+		if err != nil {
+			log.Printf("Error removing condition: %v", err)
+			return c.String(http.StatusInternalServerError, "Error removing condition")
+		}
 
 		// Render and return the updated combatant list
 		component := CombatantList(encounter)

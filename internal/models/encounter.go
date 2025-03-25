@@ -91,7 +91,6 @@ func UpdateEncounter(db database.Service, encounterId int, name string, partyId 
 	// First, verify the new party exists
 	var exists bool
 	err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM parties WHERE id = $1)", partyId).Scan(&exists)
-
 	if err != nil {
 		return fmt.Errorf("error checking party existence: %v", err)
 	}
@@ -390,6 +389,15 @@ func GetEncounterWithCombatants(db database.Service, encounterId int) (Encounter
 	// Add combatants to the encounter
 	encounter.Combatants = combatants
 
+	// Fetch conditions for each combatant
+	for i := range encounter.Combatants {
+		conditions, err := GetCombatantConditions(db, encounterId, encounter.Combatants[i].GetAssociationID())
+		if err != nil {
+			return Encounter{}, fmt.Errorf("error fetching conditions for combatant: %w", err)
+		}
+		encounter.Combatants[i].SetConditions(conditions)
+	}
+
 	return encounter, nil
 }
 
@@ -599,4 +607,40 @@ func (e Encounter) GetDifficulty() int {
 	}
 
 	return 0
+}
+
+func GetCombatantConditions(db database.Service, encounterID int, associationID int) ([]Condition, error) {
+	rows, err := db.Query(`
+        SELECT c.id, c.data, cc.condition_value
+        FROM combatant_conditions cc
+        JOIN conditions c ON cc.condition_id = c.id
+        WHERE cc.encounter_id = $1 AND (cc.encounter_player_id = $2 OR cc.encounter_monster_id = $2)
+    `, encounterID, associationID)
+	if err != nil {
+		return nil, fmt.Errorf("error querying combatant conditions: %v", err)
+	}
+	defer rows.Close()
+
+	var conditions []Condition
+	for rows.Next() {
+		var c Condition
+		var jsonData []byte
+		var conditionValue int
+		err := rows.Scan(&c.ID, &jsonData, &conditionValue)
+		if err != nil {
+			return nil, fmt.Errorf("error scanning condition row: %v", err)
+		}
+		err = json.Unmarshal(jsonData, &c.Data)
+		if err != nil {
+			return nil, fmt.Errorf("error unmarshaling condition data: %v", err)
+		}
+		c.Data.System.Value.Value = conditionValue
+		conditions = append(conditions, c)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("error iterating condition rows: %v", err)
+	}
+
+	return conditions, nil
 }

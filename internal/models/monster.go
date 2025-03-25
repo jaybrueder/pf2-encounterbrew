@@ -544,9 +544,16 @@ func (m Monster) GetConditions() []Condition {
 	return m.Conditions
 }
 
-func (m *Monster) SetCondition(db database.Service, conditionID int, conditionValue int) []Condition {
+func (m *Monster) SetConditions(conditions []Condition) {
+	m.Conditions = conditions
+}
+
+func (m *Monster) SetCondition(db database.Service, encounterID int, conditionID int, conditionValue int) error {
 	// Get condition from the database
-	condition, _ := GetCondition(db, conditionID)
+	condition, err := GetCondition(db, conditionID)
+	if err != nil {
+		return err
+	}
 
 	// Set the condition's value
 	condition.Data.System.Value.Value = conditionValue
@@ -556,14 +563,24 @@ func (m *Monster) SetCondition(db database.Service, conditionID int, conditionVa
 		m.Conditions = make([]Condition, 0)
 	}
 
-	// Add the condition to the monsters's conditions
+	// Add the condition to the monster's conditions
 	m.Conditions = append(m.Conditions, condition)
 
-	return m.Conditions
+	// Insert the condition into the combatant_conditions table
+	_, err = db.Exec(`
+        INSERT INTO combatant_conditions (encounter_id, encounter_monster_id, condition_id, condition_value)
+        VALUES ($1, $2, $3, $4)
+    `, encounterID, m.AssociationID, conditionID, conditionValue)
+
+	if err != nil {
+		return fmt.Errorf("error inserting condition into combatant_conditions: %v", err)
+	}
+
+	return nil
 }
 
-func (m *Monster) RemoveCondition(conditionID int) []Condition {
-	// Find the condition in the player's conditions
+func (m *Monster) RemoveCondition(db database.Service, encounterID int, conditionID int) error {
+	// Find the condition in the monster's conditions
 	for i, c := range m.Conditions {
 		if c.ID == conditionID {
 			// Remove the condition from the slice
@@ -572,7 +589,17 @@ func (m *Monster) RemoveCondition(conditionID int) []Condition {
 		}
 	}
 
-	return m.Conditions
+	// Remove the condition from the combatant_conditions table
+	_, err := db.Exec(`
+        DELETE FROM combatant_conditions
+        WHERE encounter_id = $1 AND encounter_monster_id = $2 AND condition_id = $3
+    `, encounterID, m.AssociationID, conditionID)
+
+	if err != nil {
+		return fmt.Errorf("error removing condition from combatant_conditions: %v", err)
+	}
+
+	return nil
 }
 
 func (m *Monster) HasCondition(conditionID int) bool {
@@ -596,10 +623,10 @@ func (m *Monster) GetConditionValue(conditionID int) int {
 }
 
 func (m *Monster) SetConditionValue(conditionID int, conditionValue int) int {
-	for i := range m.Conditions {
-		if m.Conditions[i].ID == conditionID {
-			m.Conditions[i].SetValue(conditionValue)
-			return m.Conditions[i].GetValue()
+	for _, c := range m.Conditions {
+		if c.ID == conditionID {
+			c.SetValue(conditionValue)
+			return c.GetValue()
 		}
 	}
 
