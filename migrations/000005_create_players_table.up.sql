@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS players (
     ref INTEGER DEFAULT 0,
     will INTEGER DEFAULT 0,
     perception INTEGER DEFAULT 0,
-    party_id INTEGER REFERENCES parties(id)
+    party_id INTEGER REFERENCES parties(id) ON DELETE CASCADE
 );
