@@ -8,7 +8,6 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
-      - redis
     environment:
       - PORT=8080
       - DB_HOST=postgres
@@ -17,7 +16,6 @@ services:
       - DB_PASSWORD=admin
       - DB_DATABASE=encounterbrew
       - DB_SCHEMA=public
-      - REDIS_ADDR=redis:6379
     restart: unless-stopped
     logging:
       driver: "json-file"
@@ -38,13 +36,6 @@ services:
     profiles:
       - prod
 
-  redis:
-    image: redis:6
-    volumes:
-      - redis_data:/data
-    profiles:
-      - prod
-
   # Development services (with port mapping)
   postgres-dev:
     image: postgres:13
@@ -56,15 +47,6 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    profiles:
-      - dev
-
-  redis-dev:
-    image: redis:6
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
     profiles:
       - dev
 
@@ -96,4 +78,3 @@ services:
 
 volumes:
   postgres_data:
-  redis_data:
