@@ -13,7 +13,7 @@ type Combatant interface {
 	SetInitiative(database.Service, int) error
 	GenerateInitiative() int
 	GetHp() int
-	SetHp(int)
+	SetHp(database.Service, int) error
 	GetMaxHp() int
 	GetAc() int
 	GetAcDetails() string
@@ -47,8 +47,9 @@ type Combatant interface {
 	GetOffensiveActions() []map[string]string
 	GetInventory() string
 	GetConditions() []Condition
-	SetCondition(db database.Service, conditionID int, conditionValue int) []Condition
-	RemoveCondition(conditionID int) []Condition
+	SetConditions([]Condition)
+	SetCondition(db database.Service, encounterID int, conditionID int, conditionValue int) error
+	RemoveCondition(db database.Service, encounterID int, conditionID int) error
 	HasCondition(conditionID int) bool
 	GetConditionValue(conditionID int) int
 	SetConditionValue(conditionID int, conditionValue int) int

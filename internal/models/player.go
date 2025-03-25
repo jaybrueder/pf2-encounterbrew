@@ -62,8 +62,21 @@ func (p Player) GetHp() int {
 	return p.Hp
 }
 
-func (p *Player) SetHp(i int) {
+func (p *Player) SetHp(db database.Service, i int) error {
 	p.Hp -= i
+
+	// Update the hp in the encounter_players table
+	_, err := db.Exec(`
+        UPDATE encounter_players
+        SET hp = $1
+        WHERE player_id = $2 AND encounter_id = $3
+    `, p.Hp, p.ID, p.AssociationID)
+
+	if err != nil {
+		return fmt.Errorf("error updating player hp in database: %v", err)
+	}
+
+	return nil
 }
 
 func (p Player) GetMaxHp() int {
@@ -194,9 +207,16 @@ func (p Player) GetConditions() []Condition {
 	return p.Conditions
 }
 
-func (p *Player) SetCondition(db database.Service, conditionID int, conditionValue int) []Condition {
+func (p *Player) SetConditions(conditions []Condition) {
+	p.Conditions = conditions
+}
+
+func (p *Player) SetCondition(db database.Service, encounterID int, conditionID int, conditionValue int) error {
 	// Get condition from the database
-	condition, _ := GetCondition(db, conditionID)
+	condition, err := GetCondition(db, conditionID)
+	if err != nil {
+		return err
+	}
 
 	// Set the condition's value
 	condition.Data.System.Value.Value = conditionValue
@@ -209,10 +229,21 @@ func (p *Player) SetCondition(db database.Service, conditionID int, conditionVal
 	// Add the condition to the player's conditions
 	p.Conditions = append(p.Conditions, condition)
 
-	return p.Conditions
+	// Insert the condition into the combatant_conditions table
+	_, err = db.Exec(`
+        INSERT INTO combatant_conditions (encounter_id, encounter_player_id, condition_id, condition_value)
+        VALUES ($1, $2, $3, $4)
+    `, encounterID, p.AssociationID, conditionID, conditionValue)
+
+	if err != nil {
+		return fmt.Errorf("error inserting condition into combatant_conditions: %v", err)
+	}
+
+	return nil
 }
 
-func (p *Player) RemoveCondition(conditionID int) []Condition {
+func (p *Player) RemoveCondition(db database.Service, encounterID int, conditionID int) error {
+	// Find the condition in the player's conditions
 	for i, c := range p.Conditions {
 		if c.ID == conditionID {
 			// Remove the condition from the slice
@@ -221,7 +252,17 @@ func (p *Player) RemoveCondition(conditionID int) []Condition {
 		}
 	}
 
-	return p.Conditions
+	// Remove the condition from the combatant_conditions table
+	_, err := db.Exec(`
+        DELETE FROM combatant_conditions
+        WHERE encounter_id = $1 AND encounter_player_id = $2 AND condition_id = $3
+    `, encounterID, p.AssociationID, conditionID)
+
+	if err != nil {
+		return fmt.Errorf("error removing condition from combatant_conditions: %v", err)
+	}
+
+	return nil
 }
 
 func (p *Player) HasCondition(conditionID int) bool {

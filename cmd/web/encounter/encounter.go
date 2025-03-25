@@ -1,11 +1,11 @@
 package encounter
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
 
-	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 
 	"pf2.encounterbrew.com/internal/database"
@@ -177,31 +177,13 @@ func EncounterListHandler(db database.Service) echo.HandlerFunc {
 func EncounterShowHandler(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// Get the encounter ID from the URL path parameter
-		id, _ := strconv.Atoi(c.Param("encounter_id"))
+		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
 
 		// Fetch the encounter from the database
-		encounter, err := models.GetEncounterWithCombatants(db, id)
+		encounter, err := getEncounter(db, encounterID)
 		if err != nil {
 			log.Printf("Error fetching encounter: %v", err)
 			return c.String(http.StatusInternalServerError, "Error fetching encounter")
-		}
-
-		// Get all conditions
-		groupedConditions, err := models.GetGroupedConditions(db)
-		if err != nil {
-			log.Printf("Error fetching grouped conditions: %v", err)
-			return c.String(http.StatusInternalServerError, "Error fetching conditions")
-		}
-		encounter.GroupedConditions = groupedConditions
-
-		// Set Initiative and sort the combatants
-		models.SortCombatantsByInitiative(encounter.Combatants)
-
-		// Store encounter in session
-		sess, _ := session.Get("encounter-session", c)
-		sess.Values["encounter"] = encounter
-		if err := sess.Save(c.Request(), c.Response()); err != nil {
-			log.Printf("Error saving session: %v", err)
 		}
 
 		// Render the template with the encounter
@@ -235,7 +217,7 @@ func EncounterAddMonster(db database.Service) echo.HandlerFunc {
 		monster, err := models.GetMonster(db, monsterID)
 		if err != nil {
 			log.Printf("Error finding monster: %v", err)
-			return c.String(http.StatusInternalServerError, "Error addfindinging monster")
+			return c.String(http.StatusInternalServerError, "Error finding monster")
 		}
 
 		encounter, err := models.AddMonsterToEncounter(db, encounterID, monsterID, levelAdjustment, monster.GenerateInitiative())
@@ -309,21 +291,14 @@ func EncounterRemoveCombatant(db database.Service) echo.HandlerFunc {
 
 func UpdateCombatant(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
+		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
 
-		// Get session
-		sess, _ := session.Get("encounter-session", c)
-
-		// Get encounter from session
-		encounterData, ok := sess.Values["encounter"]
-		if !ok {
-			return c.String(http.StatusInternalServerError, "Encounter not found in session")
-		}
-
-		encounter, ok := encounterData.(*models.Encounter)
-		if !ok {
-			log.Printf("Type assertion failed. Actual type: %T", encounterData)
-			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		// Fetch the encounter from the database
+		encounter, err := getEncounter(db, encounterID)
+		if err != nil {
+			log.Printf("Error fetching encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounter")
 		}
 
 		// Update the specific combatant's values
@@ -332,7 +307,7 @@ func UpdateCombatant(db database.Service) echo.HandlerFunc {
 			if initiativeStr := c.FormValue("initiative"); initiativeStr != "" {
 				if newInitiative, err := strconv.Atoi(initiativeStr); err == nil {
 					if err := encounter.Combatants[combatantIndex].SetInitiative(db, newInitiative); err != nil {
-						log.Printf("Error updating initative: %v", err)
+						log.Printf("Error updating initiative: %v", err)
 					}
 					// Re-sort combatants by initiative only if initiative was updated
 					models.SortCombatantsByInitiative(encounter.Combatants)
@@ -342,82 +317,59 @@ func UpdateCombatant(db database.Service) echo.HandlerFunc {
 			// Check if damage was provided
 			if damageStr := c.FormValue("damage"); damageStr != "" {
 				if damage, err := strconv.Atoi(damageStr); err == nil {
-					encounter.Combatants[combatantIndex].SetHp(damage)
+					if err := encounter.Combatants[combatantIndex].SetHp(db, damage); err != nil {
+						log.Printf("Error updating hp: %v", err)
+					}
 				}
 			}
 		}
 
-		// Save updated encounter back to session
-		sess.Values["encounter"] = encounter
-		if err := sess.Save(c.Request(), c.Response()); err != nil {
-			log.Printf("Error saving session: %v", err)
-			return c.String(http.StatusInternalServerError, "Error saving session")
-		}
-
 		// Render and return the updated combatant list
-		component := CombatantList(*encounter)
+		component := CombatantList(encounter)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
 
 func BulkUpdateInitiative(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		// Get session
-		sess, _ := session.Get("encounter-session", c)
+		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
 
-		// Get encounter from session
-		encounterData, ok := sess.Values["encounter"]
-		if !ok {
-			return c.String(http.StatusInternalServerError, "Encounter not found in session")
-		}
-
-		encounter, ok := encounterData.(*models.Encounter)
-		if !ok {
-			log.Printf("Type assertion failed. Actual type: %T", encounterData)
-			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		// Fetch the encounter from the database
+		encounter, err := getEncounter(db, encounterID)
+		if err != nil {
+			log.Printf("Error fetching encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounter")
 		}
 
 		// Update the each combatant's initiative
 		for i, combatant := range encounter.Combatants {
 			newInitiative, _ := strconv.Atoi(c.FormValue("initiative-" + strconv.Itoa(i)))
 			if err := combatant.SetInitiative(db, newInitiative); err != nil {
-				log.Printf("Error updating initative: %v", err)
+				log.Printf("Error updating initiative: %v", err)
 			}
 		}
 
 		// Re-sort combatants by initiative
 		models.SortCombatantsByInitiative(encounter.Combatants)
 
-		// Save updated encounter back to session
-		sess.Values["encounter"] = encounter
-		if err := sess.Save(c.Request(), c.Response()); err != nil {
-			log.Printf("Error saving session: %v", err)
-			return c.String(http.StatusInternalServerError, "Error saving session")
-		}
-
-		component := CombatantList(*encounter)
+		component := CombatantList(encounter)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
 
-func ChangeTurn(next bool) echo.HandlerFunc {
+func ChangeTurn(db database.Service, next bool) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		// Get session
-		sess, _ := session.Get("encounter-session", c)
+		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
 
-		// Get encounter from session
-		encounterData, ok := sess.Values["encounter"]
-		if !ok {
-			return c.String(http.StatusInternalServerError, "Encounter not found in session")
-		}
-
-		encounter, ok := encounterData.(*models.Encounter)
-		if !ok {
-			log.Printf("Type assertion failed. Actual type: %T", encounterData)
-			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		// Fetch the encounter from the database
+		encounter, err := getEncounter(db, encounterID)
+		if err != nil {
+			log.Printf("Error fetching encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounter")
 		}
 
 		numberOfCombatants := len(encounter.Combatants)
+		fmt.Printf("Combatants: %d", numberOfCombatants)
 
 		if next {
 			if encounter.Turn == numberOfCombatants-1 {
@@ -440,15 +392,17 @@ func ChangeTurn(next bool) echo.HandlerFunc {
 			encounter.Turn = 0
 		}
 
-		// Save updated encounter back to session
-		sess.Values["encounter"] = encounter
-		if err := sess.Save(c.Request(), c.Response()); err != nil {
-			log.Printf("Error saving session: %v", err)
-			return c.String(http.StatusInternalServerError, "Error saving session")
+		fmt.Printf("Turn: %d", encounter.Turn)
+
+		// Persist turn and round
+		err = models.UpdateTurnAndRound(db, encounter.Turn, encounter.Round, encounterID)
+		if err != nil {
+			log.Printf("Error updating turn and round: %v", err)
+			return c.String(http.StatusInternalServerError, "Error updating turn and round")
 		}
 
 		// Render and return the updated combatant list
-		component := EncounterShow(*encounter)
+		component := EncounterShow(encounter)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 
 	}
@@ -456,22 +410,15 @@ func ChangeTurn(next bool) echo.HandlerFunc {
 
 func AddCondition(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
+		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
 		conditionID, _ := strconv.Atoi(c.Param("condition_id"))
 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
 
-		// Get session
-		sess, _ := session.Get("encounter-session", c)
-
-		// Get encounter from session
-		encounterData, ok := sess.Values["encounter"]
-		if !ok {
-			return c.String(http.StatusInternalServerError, "Encounter not found in session")
-		}
-
-		encounter, ok := encounterData.(*models.Encounter)
-		if !ok {
-			log.Printf("Type assertion failed. Actual type: %T", encounterData)
-			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		// Fetch the encounter from the database
+		encounter, err := getEncounter(db, encounterID)
+		if err != nil {
+			log.Printf("Error fetching encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounter")
 		}
 
 		// Update the specific combatant's values
@@ -486,7 +433,6 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 		isValued := condition.IsValued()
 
 		if hasCondition && isValued {
-
 			// Increment existing valued condition
 			currentValue := combatant.GetConditionValue(conditionID)
 			log.Printf("Current value: %d", currentValue)
@@ -497,54 +443,42 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 			if isValued {
 				value = 1
 			}
-			combatant.SetCondition(db, conditionID, value)
-		}
 
-		// Save updated encounter back to session
-		sess.Values["encounter"] = encounter
-		if err := sess.Save(c.Request(), c.Response()); err != nil {
-			log.Printf("Error saving session: %v", err)
-			return c.String(http.StatusInternalServerError, "Error saving session")
+			err = combatant.SetCondition(db, encounterID, conditionID, value)
+			if err != nil {
+				log.Printf("Error setting condition: %v", err)
+				return c.String(http.StatusInternalServerError, "Error setting condition")
+			}
 		}
 
 		// Render and return the updated combatant list
-		component := CombatantList(*encounter)
+		component := CombatantList(encounter)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
 
-func RemoveCondition() echo.HandlerFunc {
+func RemoveCondition(db database.Service) echo.HandlerFunc {
 	return func(c echo.Context) error {
+		encounterID, _ := strconv.Atoi(c.Param("encounter_id"))
 		conditionID, _ := strconv.Atoi(c.Param("condition_id"))
 		combatantIndex, _ := strconv.Atoi(c.Param("index"))
 
-		// Get session
-		sess, _ := session.Get("encounter-session", c)
-
-		// Get encounter from session
-		encounterData, ok := sess.Values["encounter"]
-		if !ok {
-			return c.String(http.StatusInternalServerError, "Encounter not found in session")
-		}
-
-		encounter, ok := encounterData.(*models.Encounter)
-		if !ok {
-			log.Printf("Type assertion failed. Actual type: %T", encounterData)
-			return c.String(http.StatusInternalServerError, "Invalid encounter data in session")
+		// Fetch the encounter from the database
+		encounter, err := getEncounter(db, encounterID)
+		if err != nil {
+			log.Printf("Error fetching encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error fetching encounter")
 		}
 
 		// Update the specific combatant's values
-		encounter.Combatants[combatantIndex].RemoveCondition(conditionID)
-
-		// Save updated encounter back to session
-		sess.Values["encounter"] = encounter
-		if err := sess.Save(c.Request(), c.Response()); err != nil {
-			log.Printf("Error saving session: %v", err)
-			return c.String(http.StatusInternalServerError, "Error saving session")
+		err = encounter.Combatants[combatantIndex].RemoveCondition(db, encounterID, conditionID)
+		if err != nil {
+			log.Printf("Error removing condition: %v", err)
+			return c.String(http.StatusInternalServerError, "Error removing condition")
 		}
 
 		// Render and return the updated combatant list
-		component := CombatantList(*encounter)
+		component := CombatantList(encounter)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
@@ -565,7 +499,7 @@ func getEncounter(db database.Service, encounterID int) (models.Encounter, error
 	}
 	encounter.GroupedConditions = groupedConditions
 
-	// Set Initiative and sort the combatants
+	// Sort the combatants by initiative
 	models.SortCombatantsByInitiative(encounter.Combatants)
 
 	return encounter, nil
