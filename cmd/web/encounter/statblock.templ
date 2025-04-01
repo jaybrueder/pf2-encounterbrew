@@ -50,7 +50,13 @@ templ Statblock(combatant models.Combatant) {
         }
 
         // Interaction Abilities
-        // TODO
+        if len(combatant.GetInteractions()) > 0 {
+            <div>
+                for _, action := range combatant.GetInteractions() {
+                    @Action(action)
+                }
+            </div>
+        }
 
         <hr class="h-px my-1 border-gray-600">
 

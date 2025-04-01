@@ -45,6 +45,7 @@ type Combatant interface {
 	GetSpells() OrderedItemMap
 	GetDefensiveActions() []map[string]string
 	GetOffensiveActions() []map[string]string
+	GetInteractions() []map[string]string
 	GetInventory() string
 	GetConditions() []Condition
 	SetConditions([]Condition)

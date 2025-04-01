@@ -199,6 +199,10 @@ func (p Player) GetOffensiveActions() []map[string]string {
 	return []map[string]string{}
 }
 
+func (p Player) GetInteractions() []map[string]string {
+	return []map[string]string{}
+}
+
 func (p Player) GetInventory() string {
 	return ""
 }
