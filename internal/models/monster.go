@@ -519,6 +519,10 @@ func (m Monster) GetOffensiveActions() []map[string]string {
 	return m.GetActions("offensive")
 }
 
+func (m Monster) GetInteractions() []map[string]string {
+	return m.GetActions("interaction")
+}
+
 func (m Monster) GetInventory() string {
 	var inventory string
 
