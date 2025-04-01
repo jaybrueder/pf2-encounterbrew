@@ -44,17 +44,17 @@ templ ConditionName(condition *models.Condition) {
 }
 
 templ ConditionButton(condition *models.Condition, encounter models.Encounter, combatantIndex int) {
-    <div x-data="{ showTooltip: false }" class="inline-flex items-center">
+    <div x-data="{ showTooltip: false }" class="inline-flex items-center mt-1">
 	    <button
 	        @click="showTooltip = !showTooltip"
 	        @click.outside="showTooltip = false"
-	        class="px-2 py-1 mt-1 text-xs font-bold text-white bg-blue-700 rounded-l-md cursor-pointer relative">
+	        class="px-2 py-1 text-xs font-bold text-white bg-blue-700 rounded-l-md cursor-pointer relative">
 	        @ConditionName(condition)
 	    </button>
         <button
         	hx-post={fmt.Sprintf("/encounters/%d/combatant/%d/remove_condition/%d", encounter.ID, combatantIndex, condition.ID)}
             hx-target="#combatants"
-            class="px-1 py-1 mt-1 mr-2 text-xs font-bold text-white bg-blue-800 hover:bg-blue-900 rounded-r-md border-l border-blue-600">
+            class="px-2 py-1 mr-1 text-xs font-bold text-white bg-blue-800 hover:bg-blue-900 rounded-r-md border-l border-blue-600">
             ×
          </button>
 
