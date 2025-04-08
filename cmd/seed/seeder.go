@@ -66,8 +66,19 @@ func main() {
 
 	// Seed parties - This function already logs changes internally
 	log.Println("Seeding parties...")
-	if err := upsertSeedParties(dbService, "data/parties.json"); err != nil {
-		log.Fatalf("FATAL: Error seeding parties: %v\n", err)
+	partiesFilePath := filepath.Join("data", "parties.json") // Use filepath.Join
+	err = upsertSeedParties(dbService, partiesFilePath)      // Assign error directly
+
+	if err != nil {
+		// Check if the error is specifically because the file doesn't exist
+		// os.ErrNotExist is generally fine, io/fs.ErrNotExist is slightly more modern
+		if errors.Is(err, os.ErrNotExist) {
+			log.Printf("Optional parties file '%s' not found, skipping party seeding.", partiesFilePath)
+			// No fatal error here, just log and continue
+		} else {
+			// For any other error (permissions, JSON parse error inside the file, DB error during upsert), treat it as fatal
+			log.Fatalf("FATAL: Error seeding parties from '%s': %v\n", partiesFilePath, err)
+		}
 	}
 
 	// Seed monsters
@@ -167,6 +178,7 @@ func upsertSeedFile(db database.Service, filePath string, table string) (bool, e
 func upsertSeedParties(db database.Service, filePath string) error {
 	data, err := os.ReadFile(filePath)
 	if err != nil {
+		// This error will be checked in main using errors.Is(err, os.ErrNotExist)
 		return fmt.Errorf("unable to read parties file '%s': %w", filePath, err)
 	}
 
@@ -187,11 +199,23 @@ func upsertSeedParties(db database.Service, filePath string) error {
 	if err != nil {
 		return fmt.Errorf("error starting transaction for %s: %w", filePath, err)
 	}
+	// Use named return for easier error handling in defer
+	var txErr error
 	defer func() {
-		if err := tx.Rollback(); err != nil && err != sql.ErrTxDone {
-			log.Printf("Error rolling back transaction for %s: %v\n", filePath, err)
+		if txErr != nil {
+			// If an error occurred during the transaction, rollback
+			if rbErr := tx.Rollback(); rbErr != nil && rbErr != sql.ErrTxDone {
+				log.Printf("Error rolling back transaction for %s (original error: %v): %v\n", filePath, txErr, rbErr)
+			}
+		} else {
+			// If no error occurred, try to commit
+			if cmtErr := tx.Commit(); cmtErr != nil {
+				// If commit fails, assign it to txErr so the function returns it
+				txErr = fmt.Errorf("error committing transaction for %s: %w", filePath, cmtErr)
+				log.Printf("Error during commit: %v", txErr) // Log commit error specifically
+			}
 		}
-	}()
+	}() // Pass txErr by reference (implicitly via closure)
 
 	totalPartiesProcessed := 0
 	totalPlayersAffected := int64(0)
@@ -206,32 +230,43 @@ func upsertSeedParties(db database.Service, filePath string) error {
 		var partyID int
 		userID := 1 // Default user ID
 
-		// Party Upsert - Still logs processing
+		// Party Upsert
 		partyQuery := `
-		    WITH party_data AS (
+		    WITH existing_party AS (
 		        SELECT id FROM parties WHERE name = $1 AND user_id = $2
-		    ),
-		    upsert AS (
+		    ), inserted_party AS (
 		        INSERT INTO parties (name, user_id)
 		        VALUES ($1, $2)
-		        ON CONFLICT (name, user_id) DO UPDATE SET
-		            name = EXCLUDED.name
-		        WHERE parties.name IS DISTINCT FROM EXCLUDED.name
+		        ON CONFLICT (name, user_id) DO NOTHING -- Avoid unnecessary updates if name/user_id match
 		        RETURNING id
 		    )
-		    SELECT id FROM upsert
+		    SELECT id FROM inserted_party
 		    UNION ALL
-		    SELECT id FROM party_data
-		    WHERE NOT EXISTS (SELECT 1 FROM upsert)
-		    LIMIT 1;
+		    SELECT id FROM existing_party WHERE NOT EXISTS (SELECT 1 FROM inserted_party)
+			LIMIT 1; -- Ensure only one ID is returned
 		`
-		err := tx.QueryRow(partyQuery, trimmedPartyName, userID).Scan(&partyID)
+		// Scan can potentially fail if the party already exists and ON CONFLICT DO NOTHING returns no rows.
+		// We need to handle sql.ErrNoRows specifically after the upsert attempt.
+		err = tx.QueryRow(partyQuery, trimmedPartyName, userID).Scan(&partyID)
 		if err != nil {
-			return fmt.Errorf("error upserting party '%s' in %s: %w", trimmedPartyName, filePath, err)
+			if errors.Is(err, sql.ErrNoRows) {
+				// This means the party existed, and DO NOTHING was triggered. We need to get the existing ID.
+				fetchQuery := `SELECT id FROM parties WHERE name = $1 AND user_id = $2`
+				err = tx.QueryRow(fetchQuery, trimmedPartyName, userID).Scan(&partyID)
+				if err != nil {
+					txErr = fmt.Errorf("error fetching existing party ID for '%s' in %s after failed upsert scan: %w", trimmedPartyName, filePath, err)
+					return txErr // Assign to txErr and return
+				}
+			} else {
+				// Genuine error during insert/query
+				txErr = fmt.Errorf("error upserting/finding party '%s' in %s: %w", trimmedPartyName, filePath, err)
+				return txErr // Assign to txErr and return
+			}
 		}
 
-		// Keep party processing log for context within the transaction
-		log.Printf("Processed party '%s' (ID: %d)\n", trimmedPartyName, partyID)
+
+		// Log party processing regardless of player changes
+		log.Printf("Processing party '%s' (ID: %d)\n", trimmedPartyName, partyID)
 
 		// Player Upserts
 		partyPlayersAffected := int64(0)
@@ -251,7 +286,7 @@ func upsertSeedParties(db database.Service, filePath string) error {
 			        level = EXCLUDED.level, hp = EXCLUDED.hp, ac = EXCLUDED.ac,
 			        fort = EXCLUDED.fort, ref = EXCLUDED.ref, will = EXCLUDED.will,
 			        perception = EXCLUDED.perception
-			    WHERE
+			    WHERE -- Only update if any relevant field has actually changed
 			        players.level IS DISTINCT FROM EXCLUDED.level OR
 			        players.hp IS DISTINCT FROM EXCLUDED.hp OR
 			        players.ac IS DISTINCT FROM EXCLUDED.ac OR
@@ -266,42 +301,44 @@ func upsertSeedParties(db database.Service, filePath string) error {
 				partyID,
 			)
 			if err != nil {
-				return fmt.Errorf("error upserting player '%s' for party '%s' in %s: %w",
+				// If a player fails, rollback the whole transaction for this file
+				txErr = fmt.Errorf("error upserting player '%s' for party '%s' in %s: %w",
 					trimmedPlayerName, trimmedPartyName, filePath, err)
+				return txErr // Assign to txErr and return
 			}
 
 			rowsAffected, raErr := res.RowsAffected()
 			if raErr != nil {
 				log.Printf("Warning: Could not get RowsAffected for player '%s' in party '%s': %v\n", trimmedPlayerName, trimmedPartyName, raErr)
+				// Continue processing other players even if RowsAffected fails
 			} else {
 				partyPlayersAffected += rowsAffected // Sum changes within the party
 			}
 			playersProcessedInParty++
 		}
-		// Log summary for the party's players only if changes occurred or if it's informative
+		// Log summary for the party's players
 		if partyPlayersAffected > 0 {
 			log.Printf("-> Upserted/Updated %d players for party '%s'.\n", partyPlayersAffected, trimmedPartyName)
 		} else if playersProcessedInParty > 0 {
 			log.Printf("-> All %d players for party '%s' were already up-to-date.\n", playersProcessedInParty, trimmedPartyName)
-		} else {
-			log.Printf("-> No players processed for party '%s'.\n", trimmedPartyName)
-		}
+		} else if len(partyData.Players) > 0 {
+            log.Printf("-> No valid players found to process for party '%s'.\n", trimmedPartyName)
+        } // No need to log if partyData.Players was empty
+
 
 		totalPartiesProcessed++
 		totalPlayersAffected += partyPlayersAffected
 	}
 
-	if err := tx.Commit(); err != nil {
-		return fmt.Errorf("error committing transaction for %s: %w", filePath, err)
+	if txErr == nil {
+		if totalPlayersAffected > 0 {
+			log.Printf("Successfully processed %d parties from %s. Total players inserted/updated: %d\n", totalPartiesProcessed, filePath, totalPlayersAffected)
+		} else if totalPartiesProcessed > 0 {
+			log.Printf("Successfully processed %d parties from %s. All player data was already up-to-date.\n", totalPartiesProcessed, filePath)
+		} else {
+			log.Printf("No valid parties processed from %s.\n", filePath)
+		}
 	}
 
-	// Final summary for parties file
-	if totalPlayersAffected > 0 {
-		log.Printf("Successfully processed %d parties from %s. Total players inserted/updated: %d\n", totalPartiesProcessed, filePath, totalPlayersAffected)
-	} else if totalPartiesProcessed > 0 {
-		log.Printf("Successfully processed %d parties from %s. All player data was already up-to-date.\n", totalPartiesProcessed, filePath)
-	} else {
-		log.Printf("No parties processed from %s.\n", filePath)
-	}
-	return nil
+	return txErr
 }
