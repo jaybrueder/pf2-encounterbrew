@@ -15,6 +15,7 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 
 	"pf2.encounterbrew.com/internal/database"
+	"pf2.encounterbrew.com/internal/seeder"
 )
 
 type Server struct {
@@ -47,12 +48,31 @@ func NewServer() (*http.Server, error) {
 		return nil, fmt.Errorf("failed to initialize database service")
 	}
 
-	log.Println("Running database migrations...")
-	err := runMigrations(dbURL, migrationsURL)
-	if err != nil {
-		return nil, fmt.Errorf("could not run database migrations: %w", err)
+	// Run Migrations
+	disableMigrations := os.Getenv("DISABLE_MIGRATIONS")
+	if disableMigrations == "" {
+		log.Println("Running database migrations...")
+		err := runMigrations(dbURL, migrationsURL)
+		if err != nil {
+			return nil, fmt.Errorf("could not run database migrations: %w", err)
+		}
+		log.Println("Database migrations finished successfully.")
+	} else {
+		log.Println("Migrations are disabled. Unset DISABLE_MIGRATIONS to enable.")
 	}
-	log.Println("Database migrations finished successfully.")
+
+	// Run Seeder
+	disableSeed := os.Getenv("DISABLE_SEED")
+	if disableSeed == "" {
+		log.Println("Running data seeder...")
+		err := seeder.Run(dbService)
+		if err != nil {
+			// Treat seeding errors as fatal for server startup
+			return nil, fmt.Errorf("could not run data seeder: %w", err)
+		}
+	} else {
+		log.Println("Seeding are disabled. Unset DISABLE_SEED to enable.")
+	}
 
 	// Server setup
 	newServer := &Server{
