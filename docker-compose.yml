@@ -7,7 +7,7 @@ services:
       - postgres
     environment:
       - PORT=8080
-      - USERNAME=demo
+      - USERNAME=gamemaster
       - PASSWORD=changeme123
       - MIGRATIONS_PATH=migrations
       - DB_HOST=postgres
