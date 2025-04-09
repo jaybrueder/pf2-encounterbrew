@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/gob"
-	"fmt"
+	"log"
 
 	"pf2.encounterbrew.com/internal/models"
 	"pf2.encounterbrew.com/internal/server"
@@ -18,12 +18,12 @@ func init() {
 func main() {
 	server, err := server.NewServer()
 	if err != nil {
-		panic(fmt.Sprintf("cannot initialize server: %s", err))
+		log.Fatalf("cannot initialize server: %s", err)
 	}
 
 	err = server.ListenAndServe()
 
 	if err != nil {
-		panic(fmt.Sprintf("cannot start server: %s", err))
+		log.Fatalf("cannot initialize server: %s", err)
 	}
 }

@@ -1,4 +1,4 @@
-package main
+package seeder
 
 import (
 	"database/sql"
@@ -13,7 +13,7 @@ import (
 	"pf2.encounterbrew.com/internal/database"
 )
 
-type PartiesData struct {
+type partiesData struct {
 	Parties []struct {
 		Name    string `json:"name"`
 		Players []struct {
@@ -29,89 +29,134 @@ type PartiesData struct {
 	} `json:"parties"`
 }
 
-func main() {
-	dbService := database.New()
+func Run(dbService database.Service) error {
+	if dbService == nil {
+		return fmt.Errorf("database service cannot be nil")
+	}
 
 	log.Println("Starting data seeding...")
+	var finalErr error // Variable to collect errors without stopping immediately
 
-	// Seed conditions
+	// --- Seed conditions ---
 	log.Println("Seeding conditions...")
 	conditionsChanged := 0
-	err := filepath.Walk("data/conditions", func(path string, info os.FileInfo, err error) error {
-		if err != nil {
-			log.Printf("Error accessing path %s: %v\n", path, err)
-			return err
+	// Use relative paths assuming execution from project root
+	conditionsPath := "data/conditions"
+	err := filepath.Walk(conditionsPath, func(path string, info os.FileInfo, walkErr error) error {
+		if walkErr != nil {
+			log.Printf("Error accessing path %s: %v\n", path, walkErr)
+			return nil // Continue walking other parts if possible
 		}
 		if !info.IsDir() && filepath.Ext(path) == ".json" {
-			changed, err := upsertSeedFile(dbService, path, "conditions")
-			if err != nil {
-				log.Printf("ERROR seeding file %s: %v\n", path, err)
-				// return err // Optional: stop on first file error
-			}
-			if changed {
+			changed, seedErr := upsertSeedFile(dbService, path, "conditions")
+			if seedErr != nil {
+				log.Printf("ERROR seeding file %s: %v\n", path, seedErr)
+				// Collect the error but continue seeding other files
+				if finalErr == nil {
+					finalErr = fmt.Errorf("error seeding conditions: %w", seedErr)
+				} else {
+					finalErr = fmt.Errorf("%w; error seeding conditions: %w", finalErr, seedErr)
+				}
+			} else if changed {
 				conditionsChanged++
 			}
 		}
-		return nil
+		return nil // Continue walking
 	})
+	// Check for error during the walk itself (e.g., directory not found)
 	if err != nil {
-		log.Printf("FATAL: Error walking conditions directory: %v\n", err)
-		// os.Exit(1)
-	}
-	if conditionsChanged == 0 {
-		log.Println("Conditions data already up-to-date.")
-	} else {
-		log.Printf("Finished seeding conditions. %d files resulted in changes.\n", conditionsChanged)
+		walkErrorMsg := fmt.Sprintf("error walking conditions directory '%s': %v", conditionsPath, err)
+		log.Printf("FATAL during seeding: %s\n", walkErrorMsg)
+		if finalErr == nil {
+			finalErr = errors.New(walkErrorMsg)
+		} else {
+			finalErr = fmt.Errorf("%w; %s", finalErr, walkErrorMsg)
+		}
+		// Return immediately if the walk failed catastrophically
+		return finalErr
 	}
 
-	// Seed parties - This function already logs changes internally
+	if finalErr == nil { // Only log success summary if no file errors occurred
+		if conditionsChanged == 0 {
+			log.Println("Conditions data already up-to-date.")
+		} else {
+			log.Printf("Finished seeding conditions. %d files resulted in changes.\n", conditionsChanged)
+		}
+	}
+
+	// --- Seed parties ---
 	log.Println("Seeding parties...")
-	partiesFilePath := filepath.Join("data", "parties.json") // Use filepath.Join
-	err = upsertSeedParties(dbService, partiesFilePath)      // Assign error directly
-
+	partiesFilePath := filepath.Join("data", "parties.json")
+	err = upsertSeedParties(dbService, partiesFilePath)
 	if err != nil {
 		// Check if the error is specifically because the file doesn't exist
-		// os.ErrNotExist is generally fine, io/fs.ErrNotExist is slightly more modern
 		if errors.Is(err, os.ErrNotExist) {
 			log.Printf("Optional parties file '%s' not found, skipping party seeding.", partiesFilePath)
-			// No fatal error here, just log and continue
 		} else {
-			// For any other error (permissions, JSON parse error inside the file, DB error during upsert), treat it as fatal
-			log.Fatalf("FATAL: Error seeding parties from '%s': %v\n", partiesFilePath, err)
+			// For any other error, record it as potentially fatal
+			partyErrorMsg := fmt.Sprintf("error seeding parties from '%s': %v", partiesFilePath, err)
+			log.Printf("ERROR during seeding: %s\n", partyErrorMsg)
+			if finalErr == nil {
+				finalErr = errors.New(partyErrorMsg)
+			} else {
+				finalErr = fmt.Errorf("%w; %s", finalErr, partyErrorMsg)
+			}
 		}
 	}
 
-	// Seed monsters
-	log.Println("Seeding monsters...") // Log section start
-	monstersChanged := 0              // Counter for changes
-	err = filepath.Walk("data/bestiaries", func(path string, info os.FileInfo, err error) error {
-		if err != nil {
-			log.Printf("Error accessing path %s: %v\n", path, err)
-			return err
+	// --- Seed monsters ---
+	log.Println("Seeding monsters...")
+	monstersChanged := 0
+	monstersPath := "data/bestiaries"
+	err = filepath.Walk(monstersPath, func(path string, info os.FileInfo, walkErr error) error {
+		if walkErr != nil {
+			log.Printf("Error accessing path %s: %v\n", path, walkErr)
+			return nil // Continue walking
 		}
 		if !info.IsDir() && filepath.Ext(path) == ".json" && filepath.Base(path) != "_folders.json" {
-			changed, err := upsertSeedFile(dbService, path, "monsters") // Capture changed status
-			if err != nil {
-				log.Printf("ERROR seeding file %s: %v\n", path, err)
-				// return err // Optional: stop on first file error
-			}
-			if changed {
+			changed, seedErr := upsertSeedFile(dbService, path, "monsters")
+			if seedErr != nil {
+				log.Printf("ERROR seeding file %s: %v\n", path, seedErr)
+				if finalErr == nil {
+					finalErr = fmt.Errorf("error seeding monsters: %w", seedErr)
+				} else {
+					finalErr = fmt.Errorf("%w; error seeding monsters: %w", finalErr, seedErr)
+				}
+			} else if changed {
 				monstersChanged++
 			}
 		}
-		return nil
+		return nil // Continue walking
 	})
+	// Check for error during the walk itself
 	if err != nil {
-		log.Printf("FATAL: Error walking bestiaries directory: %v\n", err)
-		// os.Exit(1)
-	}
-	if monstersChanged == 0 {
-		log.Println("Monsters data already up-to-date.")
-	} else {
-		log.Printf("Finished seeding monsters. %d files resulted in changes.\n", monstersChanged)
+		walkErrorMsg := fmt.Sprintf("error walking bestiaries directory '%s': %v", monstersPath, err)
+		log.Printf("FATAL during seeding: %s\n", walkErrorMsg)
+		if finalErr == nil {
+			finalErr = errors.New(walkErrorMsg)
+		} else {
+			finalErr = fmt.Errorf("%w; %s", finalErr, walkErrorMsg)
+		}
+		// Return immediately if the walk failed catastrophically
+		return finalErr
 	}
 
-	log.Println("Data seeding process completed.")
+	if finalErr == nil { // Only log success summary if no file errors occurred
+		if monstersChanged == 0 {
+			log.Println("Monsters data already up-to-date.")
+		} else {
+			log.Printf("Finished seeding monsters. %d files resulted in changes.\n", monstersChanged)
+		}
+	}
+
+	// --- Final Log ---
+	if finalErr != nil {
+		log.Printf("Data seeding process completed with errors: %v", finalErr)
+	} else {
+		log.Println("Data seeding process completed successfully.")
+	}
+
+	return finalErr
 }
 
 func upsertSeedFile(db database.Service, filePath string, table string) (bool, error) {
@@ -120,9 +165,9 @@ func upsertSeedFile(db database.Service, filePath string, table string) (bool, e
 		return false, fmt.Errorf("unable to read file %s: %w", filePath, err)
 	}
 
+	// Validate JSON structure *before* trying to upsert
 	var jsonData map[string]interface{}
-	err = json.Unmarshal(data, &jsonData)
-	if err != nil {
+	if err := json.Unmarshal(data, &jsonData); err != nil {
 		var syntaxError *json.SyntaxError
 		var unmarshalTypeError *json.UnmarshalTypeError
 		if errors.As(err, &syntaxError) {
@@ -133,6 +178,7 @@ func upsertSeedFile(db database.Service, filePath string, table string) (bool, e
 		return false, fmt.Errorf("unable to parse JSON from %s: %w", filePath, err)
 	}
 
+	// Extract and validate name
 	nameVal, ok := jsonData["name"]
 	if !ok {
 		return false, fmt.Errorf("missing 'name' field in JSON file %s", filePath)
@@ -151,7 +197,7 @@ func upsertSeedFile(db database.Service, filePath string, table string) (bool, e
 	    VALUES ($1, $2)
 	    ON CONFLICT (name) DO UPDATE SET
 	        data = EXCLUDED.data,
-	        name = EXCLUDED.name
+	        name = EXCLUDED.name -- Keep name update in case casing changed etc.
 	    WHERE %s.data::jsonb IS DISTINCT FROM EXCLUDED.data::jsonb;
 	`, table, table)
 
@@ -162,27 +208,25 @@ func upsertSeedFile(db database.Service, filePath string, table string) (bool, e
 
 	rowsAffected, raErr := res.RowsAffected()
 	if raErr != nil {
-		// Log the warning about RowsAffected error, but don't log general success
 		log.Printf("Warning: Could not get RowsAffected for %s (name: %s): %v\n", filePath, trimmedName, raErr)
-		return false, nil // Return false as we couldn't confirm change, but Exec was successful
+		return false, nil
 	}
 
 	if rowsAffected > 0 {
-		log.Printf("Upserted/Updated data from %s (Name: %s)\n", filePath, trimmedName)
 		return true, nil // Indicate change occurred
 	}
 
-	return false, nil // Indicate no change occurred
+	// No rows affected means data was identical or conflict occurred with no update needed
+	return false, nil
 }
 
 func upsertSeedParties(db database.Service, filePath string) error {
 	data, err := os.ReadFile(filePath)
 	if err != nil {
-		// This error will be checked in main using errors.Is(err, os.ErrNotExist)
 		return fmt.Errorf("unable to read parties file '%s': %w", filePath, err)
 	}
 
-	var partiesData PartiesData
+	var partiesData partiesData
 
 	if err := json.Unmarshal(data, &partiesData); err != nil {
 		var syntaxError *json.SyntaxError
@@ -195,27 +239,29 @@ func upsertSeedParties(db database.Service, filePath string) error {
 		return fmt.Errorf("unable to parse parties JSON from '%s': %w", filePath, err)
 	}
 
+	// Use a transaction for party/player upserts
 	tx, err := db.Begin()
 	if err != nil {
 		return fmt.Errorf("error starting transaction for %s: %w", filePath, err)
 	}
-	// Use named return for easier error handling in defer
+	// Defer rollback/commit handling
 	var txErr error
 	defer func() {
 		if txErr != nil {
-			// If an error occurred during the transaction, rollback
-			if rbErr := tx.Rollback(); rbErr != nil && rbErr != sql.ErrTxDone {
-				log.Printf("Error rolling back transaction for %s (original error: %v): %v\n", filePath, txErr, rbErr)
+			log.Printf("Rolling back transaction for %s due to error: %v", filePath, txErr)
+			if rbErr := tx.Rollback(); rbErr != nil && !errors.Is(rbErr, sql.ErrTxDone) {
+				log.Printf("Error rolling back transaction for %s: %v", filePath, rbErr)
 			}
+			// Ensure the function returns the original error that caused the rollback
+			err = txErr
 		} else {
-			// If no error occurred, try to commit
+			// No error during processing, attempt to commit
 			if cmtErr := tx.Commit(); cmtErr != nil {
-				// If commit fails, assign it to txErr so the function returns it
-				txErr = fmt.Errorf("error committing transaction for %s: %w", filePath, cmtErr)
-				log.Printf("Error during commit: %v", txErr) // Log commit error specifically
+				log.Printf("Error committing transaction for %s: %v", filePath, cmtErr)
+				err = fmt.Errorf("error committing transaction for %s: %w", filePath, cmtErr)
 			}
 		}
-	}() // Pass txErr by reference (implicitly via closure)
+	}()
 
 	totalPartiesProcessed := 0
 	totalPlayersAffected := int64(0)
@@ -228,47 +274,35 @@ func upsertSeedParties(db database.Service, filePath string) error {
 		}
 
 		var partyID int
-		userID := 1 // Default user ID
+		userID := 1 // Assuming a default user ID for seeded parties
 
-		// Party Upsert
-		partyQuery := `
-		    WITH existing_party AS (
-		        SELECT id FROM parties WHERE name = $1 AND user_id = $2
-		    ), inserted_party AS (
-		        INSERT INTO parties (name, user_id)
-		        VALUES ($1, $2)
-		        ON CONFLICT (name, user_id) DO NOTHING -- Avoid unnecessary updates if name/user_id match
-		        RETURNING id
-		    )
-		    SELECT id FROM inserted_party
-		    UNION ALL
-		    SELECT id FROM existing_party WHERE NOT EXISTS (SELECT 1 FROM inserted_party)
-			LIMIT 1; -- Ensure only one ID is returned
-		`
-		// Scan can potentially fail if the party already exists and ON CONFLICT DO NOTHING returns no rows.
-		// We need to handle sql.ErrNoRows specifically after the upsert attempt.
-		err = tx.QueryRow(partyQuery, trimmedPartyName, userID).Scan(&partyID)
-		if err != nil {
-			if errors.Is(err, sql.ErrNoRows) {
-				// This means the party existed, and DO NOTHING was triggered. We need to get the existing ID.
-				fetchQuery := `SELECT id FROM parties WHERE name = $1 AND user_id = $2`
-				err = tx.QueryRow(fetchQuery, trimmedPartyName, userID).Scan(&partyID)
-				if err != nil {
-					txErr = fmt.Errorf("error fetching existing party ID for '%s' in %s after failed upsert scan: %w", trimmedPartyName, filePath, err)
-					return txErr // Assign to txErr and return
-				}
-			} else {
-				// Genuine error during insert/query
-				txErr = fmt.Errorf("error upserting/finding party '%s' in %s: %w", trimmedPartyName, filePath, err)
-				return txErr // Assign to txErr and return
-			}
+		// --- Party Upsert Logic ---
+		// Try to insert, if conflict on (name, user_id), do nothing. Then fetch the ID.
+		// This handles existing parties without updating them unnecessarily.
+		partyInsertQuery := `
+            INSERT INTO parties (name, user_id)
+            VALUES ($1, $2)
+            ON CONFLICT (name, user_id) DO NOTHING;
+        `
+		_, txErr = tx.Exec(partyInsertQuery, trimmedPartyName, userID)
+		if txErr != nil {
+			txErr = fmt.Errorf("error inserting party '%s' in %s: %w", trimmedPartyName, filePath, txErr)
+			return txErr
 		}
 
+		// Always fetch the ID after attempting insert/on conflict
+		partyFetchQuery := `SELECT id FROM parties WHERE name = $1 AND user_id = $2;`
+		txErr = tx.QueryRow(partyFetchQuery, trimmedPartyName, userID).Scan(&partyID)
+		if txErr != nil {
+			txErr = fmt.Errorf("error fetching ID for party '%s' in %s after upsert: %w", trimmedPartyName, filePath, txErr)
+			return txErr
+		}
+		// --- End Party Upsert Logic ---
 
-		// Log party processing regardless of player changes
-		log.Printf("Processing party '%s' (ID: %d)\n", trimmedPartyName, partyID)
 
-		// Player Upserts
+		log.Printf("Processing party '%s' (ID: %d)\n", trimmedPartyName, partyID) // Log consistently
+
+		// --- Player Upserts within Transaction ---
 		partyPlayersAffected := int64(0)
 		playersProcessedInParty := 0
 		for _, playerData := range partyData.Players {
@@ -295,41 +329,42 @@ func upsertSeedParties(db database.Service, filePath string) error {
 			        players.will IS DISTINCT FROM EXCLUDED.will OR
 			        players.perception IS DISTINCT FROM EXCLUDED.perception;
 			`
-			res, err := tx.Exec(playerQuery,
+			res, playerErr := tx.Exec(playerQuery,
 				trimmedPlayerName, playerData.Level, playerData.Hp, playerData.Ac,
 				playerData.Fort, playerData.Ref, playerData.Will, playerData.Perception,
 				partyID,
 			)
-			if err != nil {
-				// If a player fails, rollback the whole transaction for this file
+			if playerErr != nil {
+				// If a player fails, the transaction will be rolled back by defer
 				txErr = fmt.Errorf("error upserting player '%s' for party '%s' in %s: %w",
-					trimmedPlayerName, trimmedPartyName, filePath, err)
-				return txErr // Assign to txErr and return
+					trimmedPlayerName, trimmedPartyName, filePath, playerErr)
+				return txErr
 			}
 
 			rowsAffected, raErr := res.RowsAffected()
 			if raErr != nil {
 				log.Printf("Warning: Could not get RowsAffected for player '%s' in party '%s': %v\n", trimmedPlayerName, trimmedPartyName, raErr)
-				// Continue processing other players even if RowsAffected fails
 			} else {
-				partyPlayersAffected += rowsAffected // Sum changes within the party
+				partyPlayersAffected += rowsAffected
 			}
 			playersProcessedInParty++
-		}
-		// Log summary for the party's players
+		} // End player loop
+
+		// Log summary for the party's players after processing all players for that party
 		if partyPlayersAffected > 0 {
 			log.Printf("-> Upserted/Updated %d players for party '%s'.\n", partyPlayersAffected, trimmedPartyName)
 		} else if playersProcessedInParty > 0 {
 			log.Printf("-> All %d players for party '%s' were already up-to-date.\n", playersProcessedInParty, trimmedPartyName)
 		} else if len(partyData.Players) > 0 {
-            log.Printf("-> No valid players found to process for party '%s'.\n", trimmedPartyName)
-        } // No need to log if partyData.Players was empty
-
+			log.Printf("-> No valid players found to process for party '%s'.\n", trimmedPartyName)
+		}
 
 		totalPartiesProcessed++
 		totalPlayersAffected += partyPlayersAffected
-	}
 
+	} // End party loop
+
+	// Final log message based on transaction outcome (set by defer)
 	if txErr == nil {
 		if totalPlayersAffected > 0 {
 			log.Printf("Successfully processed %d parties from %s. Total players inserted/updated: %d\n", totalPartiesProcessed, filePath, totalPlayersAffected)
