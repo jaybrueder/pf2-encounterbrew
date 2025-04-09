@@ -1,18 +1,20 @@
 services:
   app:
-    image: jaybrueder/pf2-ecnounterbrew:latest
+    image: jaybrueder/pf2-encounterbrew:latest
     ports:
       - "8080:8080"
     depends_on:
       - postgres
     environment:
       - PORT=8080
+      - USERNAME=demo
+      - PASSWORD=changeme123
       - MIGRATIONS_PATH=migrations
       - DB_HOST=postgres
       - DB_USERNAME=admin
-      - DB_PASSWORD=changeme123
+      - DB_PASSWORD=changemetoo123
       - DB_DATABASE=encounterbrew
-      - DB_URL=postgres://admin:admin@postgres/encounterbrew?sslmode=disable
+      - DB_URL=postgres://admin:changemetoo123@postgres/encounterbrew?sslmode=disable
     restart: unless-stopped
     logging:
       driver: "json-file"
@@ -25,7 +27,7 @@ services:
     environment:
       POSTGRES_DB: encounterbrew
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: changeme123
+      POSTGRES_PASSWORD: changemetoo123
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
