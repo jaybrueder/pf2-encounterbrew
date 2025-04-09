@@ -1,5 +1,4 @@
 services:
-  # Production services
   app:
     build:
       context: .
@@ -49,32 +48,6 @@ services:
       - postgres_data:/var/lib/postgresql/data
     profiles:
       - dev
-
-  # Tools
-  migrate:
-    build:
-      context: .
-      dockerfile: Dockerfile.migrate
-    volumes:
-      - ./migrations:/migrations
-    command: ["-path", "/migrations", "-database", "postgres://admin:admin@postgres:5432/encounterbrew?sslmode=disable", "up"]
-    profiles:
-      - tools
-
-  seeder:
-    build:
-      context: .
-      dockerfile: Dockerfile.seeder
-    environment:
-      - DB_HOST=postgres
-      - DB_PORT=5432
-      - DB_USERNAME=admin
-      - DB_PASSWORD=admin
-      - DB_DATABASE=encounterbrew
-      - DB_SCHEMA=public
-    restart: "no"
-    profiles:
-      - seeder
 
 volumes:
   postgres_data:
