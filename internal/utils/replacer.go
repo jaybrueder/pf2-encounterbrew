@@ -38,6 +38,7 @@ func NewReplacer() *Replacer {
 			// UUID patterns
 			"uuid_condition": regexp.MustCompile(`@UUID\[Compendium\.pf2e\.conditionitems\.Item\.[^]]+\]{([^}]+)}`),
 			"uuid_action":    regexp.MustCompile(`@UUID\[Compendium\.pf2e\.actionspf2e\.Item\.[^]]+\]{([^}]+)}`),
+			"uuid_actor":     regexp.MustCompile(`@UUID\[Compendium\.pf2e\.[^.]+\.Actor\.([^]]+)\]`),
 			"uuid_with_text": regexp.MustCompile(`@UUID\[Compendium\.pf2e\.[^.]+\.Item\.([^]]+)\]{([^}]+)}`),
 			"uuid_simple":    regexp.MustCompile(`@UUID\[Compendium\.pf2e\.[^.]+\.Item\.([^]]+)\]`),
 		},
@@ -154,6 +155,19 @@ func (r *Replacer) ProcessText(input string) string {
 	input = r.patterns["uuid_action"].ReplaceAllStringFunc(input, func(match string) string {
 		parts := r.patterns["uuid_action"].FindStringSubmatch(match)
 		return parts[1] // Return the action name (e.g., "Grapple")
+	})
+
+	// Replace actor UUIDs
+	input = r.patterns["uuid_actor"].ReplaceAllStringFunc(input, func(match string) string {
+		parts := r.patterns["uuid_actor"].FindStringSubmatch(match)
+		actorName := parts[1] // "Shadow Spawn"
+
+		// Extract the last word as the replacement
+		words := strings.Fields(actorName)
+		if len(words) > 0 {
+			return words[len(words)-1] // Return "Spawn"
+		}
+		return actorName
 	})
 
 	// Replace UUIDs with custom text
