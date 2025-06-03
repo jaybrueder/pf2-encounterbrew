@@ -433,10 +433,12 @@ func AddCondition(db database.Service) echo.HandlerFunc {
 		isValued := condition.IsValued()
 
 		if hasCondition && isValued {
-			// Increment existing valued condition
-			currentValue := combatant.GetConditionValue(conditionID)
-			log.Printf("Current value: %d", currentValue)
-			combatant.SetConditionValue(conditionID, currentValue+1)
+			// Increment existing valued condition by 1
+			err = combatant.SetCondition(db, encounterID, conditionID, 1)
+			if err != nil {
+				log.Printf("Error incrementing condition: %v", err)
+				return c.String(http.StatusInternalServerError, "Error incrementing condition")
+			}
 		} else if !hasCondition {
 			// Set new condition with value 1 if valued, 0 if not
 			value := 0
