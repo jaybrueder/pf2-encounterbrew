@@ -4,6 +4,14 @@
 
 Yes of course. Thank you: [https://ko-fi.com/jaybrueder](https://ko-fi.com/jaybrueder)
 
+## Can you add feature X, Y and Z?
+
+Feature requests are always welcome. Please open an issue on GitHub and I will try to make it happen.
+
+However, keep in mind that is a highly opinionated product and I might decided that I do not want that feature in the application.
+
+Even better would be if you want to contribute yourself! Learn all about it here: [CHANGELOG.md](./CHANGELOG.md)
+
 ## Why build another encounter manager?
 
 There are two reasons why I wanted to build this application:
