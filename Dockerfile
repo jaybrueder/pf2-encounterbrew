@@ -40,10 +40,10 @@ COPY --from=builder /app/migrations ./migrations
 COPY --from=builder /app/data/ ./data/
 
 # Expose the port your app runs on
-EXPOSE 8080
+EXPOSE 8081
 
 # Set environment variable to enable Go stack traces
-ENV PORT=8080
+ENV PORT=8081
 ENV USERNAME=dragon
 ENV PASSWORD=hobgoblin
 ENV MIGRATIONS_PATH=migrations
