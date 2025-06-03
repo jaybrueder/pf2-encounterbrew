@@ -1,0 +1,75 @@
+{
+    "_id": "yblD8fOR1J8rDwEQ",
+    "img": "systems/pf2e/icons/conditions/confused.webp",
+    "name": "Confused",
+    "system": {
+        "description": {
+            "value": "<p>You don't have your wits about you, and you attack wildly. You are @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard], you don't treat anyone as your ally (though they might still treat you as theirs), and you can't Delay, Ready, or use reactions.</p>\n<p>You use all your actions to Strike or cast offensive cantrips, though the GM can have you use other actions to facilitate attack, such as draw a weapon, move so target is in reach, and so forth. Your targets are determined randomly by the GM. If you have no other viable targets, you target yourself, automatically hitting but not scoring a critical hit. If it's impossible for you to attack or cast spells, you babble incoherently, wasting your actions.</p>\n<p>Each time you take damage from an attack or spell, you can attempt a @Check[flat|showDC:all|dc:11] to recover from your confusion and end the condition.</p>"
+        },
+        "duration": {
+            "expiry": null,
+            "unit": "unlimited",
+            "value": 0
+        },
+        "group": null,
+        "overrides": [],
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Pathfinder Player Core"
+        },
+        "references": {
+            "children": [],
+            "immunityFrom": [],
+            "overriddenBy": [],
+            "overrides": []
+        },
+        "rules": [
+            {
+                "key": "ActiveEffectLike",
+                "mode": "override",
+                "path": "system.attributes.flanking.canFlank",
+                "value": false
+            },
+            {
+                "domain": "all",
+                "key": "RollOption",
+                "option": "target:ally",
+                "value": false
+            },
+            {
+                "domain": "all",
+                "key": "RollOption",
+                "option": "origin:ally",
+                "value": false
+            },
+            {
+                "inMemoryOnly": true,
+                "key": "GrantItem",
+                "uuid": "Compendium.pf2e.conditionitems.Item.Off-Guard"
+            },
+            {
+                "key": "Note",
+                "predicate": [
+                    {
+                        "or": [
+                            "item:type:spell",
+                            "origin:action:trait:attack"
+                        ]
+                    }
+                ],
+                "selector": "damage-received",
+                "text": "PF2E.condition.confused.note",
+                "title": "{item|name}"
+            }
+        ],
+        "traits": {
+            "value": []
+        },
+        "value": {
+            "isValued": false,
+            "value": null
+        }
+    },
+    "type": "condition"
+}

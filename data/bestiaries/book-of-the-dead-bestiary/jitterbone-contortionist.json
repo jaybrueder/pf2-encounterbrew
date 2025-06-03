@@ -1,0 +1,408 @@
+{
+    "_id": "dlizffh8cFUFOhUf",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "al020n2uibvv8exp",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Fist",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": []
+                },
+                "bonus": {
+                    "value": 14
+                },
+                "damageRolls": {
+                    "lCe9xPIeFsRRjnOo": {
+                        "damage": "2d6+2",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "nonlethal",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "0zj1icya9xc6t4m7",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Consecration Vulnerability",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>A jitterbone in a place of worship dedicated to a non-evil deity or on sacred ground, such as an area blessed by @UUID[Compendium.pf2e.spells-srd.Item.Anointed Ground], is @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Rk6vaUzdBA05Ipr4",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.TTCw5NusiSSkJU1x"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Void Healing",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.NegativeHealing]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary 2"
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "system.attributes.hp.negativeHealing",
+                        "value": true
+                    }
+                ],
+                "slug": "negative-healing",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "onsl5qalhafgwyhe",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Compression",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The jitterbone can move through a gap at least 6 inches wide without Squeezing and can @UUID[Compendium.pf2e.actionspf2e.Item.Squeeze] through a gap at least 2 inches wide.When the jitterbone successfully Squeezes, they move through the tight space at full Speed. Narrow confines aren't difficult terrain for a jitterbone.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "t6tofj5bxmm53nld",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Death Gasp",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The jitterbone draws in a deep breath and holds it, temporarily suspending their biological processes and becoming undead. The jitterbone gains the undead trait and becomes immune to bleed, death effects, disease, @UUID[Compendium.pf2e.conditionitems.Item.Paralyzed], poison, and sleep. Any such effects the jitterbone is currently inflicted with are suspended but take effect again once they take a breath.</p>\n<p>Death Gasp lasts as long as the jitterbone holds their breath (up to 8 rounds).</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Death Gasp]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "obhnbsaze5pkt16e",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Osseous Defense",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The jitterbone elongates their bones, causing jagged bone spikes to protrude from their skin. While Osseous Defense is active, the jitterbone can make bone spike and bone dart Strikes and gains resistance 5 to piercing damage and slashing damage. The jitterbone loses Compression while their Osseous Defense is active. The jitterbone can end Osseous Defense as a single action, retracting their bones back into their body.</p>\n<p><strong>Melee</strong> <span class=\"action-glyph\">1</span> bone spike +14 (finesse), <strong>Damage</strong> 2d8+2 piercing plus 1d6 persistent bleed</p>\n<p><strong>Ranged</strong> <span class=\"action-glyph\">1</span> bone dart +14 (agile, thrown 20 feet), <strong>Damage</strong> 2d6+2 piercing</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "option": "osseous-defense",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "Resistance",
+                        "predicate": [
+                            "osseous-defense"
+                        ],
+                        "type": [
+                            "piercing",
+                            "slashing"
+                        ],
+                        "value": 5
+                    },
+                    {
+                        "attackModifier": 14,
+                        "damage": {
+                            "base": {
+                                "damageType": "piercing",
+                                "dice": 2,
+                                "die": "d8",
+                                "modifier": 2
+                            }
+                        },
+                        "key": "Strike",
+                        "label": "PF2E.BattleForm.Attack.BoneSpike",
+                        "predicate": [
+                            "osseous-defense"
+                        ],
+                        "slug": "bone-spike",
+                        "traits": [
+                            "finesse"
+                        ]
+                    },
+                    {
+                        "damageType": "bleed",
+                        "diceNumber": 1,
+                        "dieSize": "d6",
+                        "key": "DamageDice",
+                        "predicate": [
+                            "osseous-defense"
+                        ],
+                        "selector": "bone-spike-damage"
+                    },
+                    {
+                        "attackModifier": 14,
+                        "damage": {
+                            "base": {
+                                "damageType": "piercing",
+                                "dice": 2,
+                                "die": "d6",
+                                "modifier": 2
+                            }
+                        },
+                        "key": "Strike",
+                        "label": "PF2E.BattleForm.Attack.BoneDart",
+                        "predicate": [
+                            "osseous-defense"
+                        ],
+                        "range": {
+                            "increment": 20
+                        },
+                        "slug": "bone-dart",
+                        "traits": [
+                            "agile",
+                            "thrown"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Jitterbone Contortionist",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 1
+            },
+            "con": {
+                "mod": 3
+            },
+            "dex": {
+                "mod": 4
+            },
+            "int": {
+                "mod": 0
+            },
+            "str": {
+                "mod": 2
+            },
+            "wis": {
+                "mod": 1
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 20
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "void healing",
+                "max": 56,
+                "temp": 0,
+                "value": 56
+            },
+            "speed": {
+                "details": "compression",
+                "otherSpeeds": [],
+                "special": "",
+                "value": 25
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "halfling",
+                    "necril"
+                ]
+            },
+            "level": {
+                "value": 4
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Aptly named jitterbones, halfling mortics are capable of controlling the density and rigidity of their skeletal structure. When relaxed, they have elongated, rubbery limbs. When they harden their bones, they become difficult to harm and bony spikes jut from their flesh.</p>\n<hr />\n<p>Mortics are humanoids overwhelmed by void energy who tenaciously cling to life, straddling the line between living and dead.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Book of the Dead"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 10,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 10
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 14
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 10
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 12
+            },
+            "athletics": {
+                "base": 10
+            },
+            "deception": {
+                "base": 9
+            },
+            "stealth": {
+                "base": 12
+            }
+        },
+        "traits": {
+            "rarity": "rare",
+            "size": {
+                "value": "sm"
+            },
+            "value": [
+                "chaotic",
+                "halfling",
+                "humanoid",
+                "mortic"
+            ]
+        }
+    },
+    "type": "npc"
+}

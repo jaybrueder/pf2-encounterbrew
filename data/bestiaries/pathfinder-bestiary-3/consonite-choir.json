@@ -1,0 +1,341 @@
+{
+    "_id": "9uP6Dfv53H4Fa32c",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "B5cFXl5CIucCzoy0",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Launched Blade",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": []
+                },
+                "bonus": {
+                    "value": 26
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "6d6",
+                        "damageType": "piercing"
+                    },
+                    "cqmmnrqjk5x1pllk1hsx": {
+                        "damage": "2d6",
+                        "damageType": "sonic"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "magical",
+                        "range-120",
+                        "sonic"
+                    ]
+                },
+                "weaponType": {
+                    "value": "ranged"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "QJZgoLZp0BfuvxvJ",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Echolocation (Precise) 120 feet",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>The consonite choir can use hearing as a precise sense at the listed range.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "KZhlld4EKQcCTBjw",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.baA0nSMhQyFyJIia"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Swarm Mind",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.SwarmMind]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "swarm-mind",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "znuFqFCIX1YQTcWx",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Resonant Chimes",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>30 feet. The consonite choir's tones resonate within physical objects. A creature that begins its turn in the aura deals an additional @Damage[2d6[sonic]] damage on any Strike using a weapon.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 30,
+                        "slug": "resonant-chimes",
+                        "traits": [
+                            "sonic"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "sonic"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "MIgppLmIY2AofKTC",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Swarming Chimes",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The swarm deals @Damage[4d6[slashing],2d6[sonic]]{4d6 slashing damage plus 2d6 sonic damage} to each enemy in the swarm's space (@Check[reflex|dc:33|basic] save). On a critical failure, the enemy is also @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 minute.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Consonite Choir",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 6
+            },
+            "con": {
+                "mod": 8
+            },
+            "dex": {
+                "mod": 5
+            },
+            "int": {
+                "mod": -2
+            },
+            "str": {
+                "mod": 0
+            },
+            "wis": {
+                "mod": 2
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 32
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 200,
+                "temp": 0,
+                "value": 200
+            },
+            "immunities": [
+                {
+                    "type": "precision"
+                },
+                {
+                    "type": "swarm-mind"
+                }
+            ],
+            "resistances": [
+                {
+                    "type": "bludgeoning",
+                    "value": 8
+                },
+                {
+                    "type": "piercing",
+                    "value": 15
+                },
+                {
+                    "type": "slashing",
+                    "value": 15
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 40
+                    }
+                ],
+                "value": 10
+            },
+            "weaknesses": [
+                {
+                    "type": "area-damage",
+                    "value": 8
+                },
+                {
+                    "type": "splash-damage",
+                    "value": 8
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "petran"
+                ]
+            },
+            "level": {
+                "value": 13
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Floods of crystalline blades called consonite choirs surge through the caverns and tunnels of the Plane of Earth. Although their resonant chimes can be among the most beautiful music in the planes, those who intrude on their territory are instead confronted with a bone-shaking wall of sound and a barrage of razor-sharp crystals.</p>\n<p>The blades form naturally, just one of the many wondrous types of crystal on the Plane of Earth. Razor-edged consonite stalactites hum and chime along with the plane's grinding movement. As large collections of these crystals begin to communicate with each other through their shared song, they awaken into a sort of musical collective.</p>\n<p>Eventually, consonite choirs' songs grow loud and complex enough to shake these colonies loose of their stone moorings and free them to explore the Plane of Earth. Consonite choirs typically prefer to stay near their spawning grounds but might be coerced to perform in the homes of wealthy shaitans or serve other powerful creatures of earth. They willingly leave the comfort of their homes to hunt down the hated xorns, who enjoy the flavor of their immobile consonite brethren.</p>\n<p>Consonite choirs who leave the Plane of Earth, either through natural portals or by answering the calls of powerful rituals, often find the open spaces of other planes more to their liking. They enjoy the sensation of high winds moving through their chimes and search tirelessly for skilled performance partners. Crueler fates trap other choirs-more powerful beings might mystically bind them to service or bully them into becoming living trophies.</p>\n<p>Over years of movement, the individual crystal blades of a choir naturally chip and break down. In their native caverns, consonite choirs can easily find new members. Trapped elsewhere, they must rely on others for replacement blades or eventually fall into torpor.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary 3"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 23,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "acuity": "precise",
+                    "range": 120,
+                    "type": "echolocation"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 27
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 22
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 21
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 24
+            },
+            "performance": {
+                "base": 27
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "grg"
+            },
+            "value": [
+                "earth",
+                "elemental",
+                "swarm"
+            ]
+        }
+    },
+    "type": "npc"
+}
