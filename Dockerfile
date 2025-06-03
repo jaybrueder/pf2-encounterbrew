@@ -4,7 +4,7 @@ FROM node:alpine AS node-builder
 # Install tailwindcss
 RUN npm install -g tailwindcss
 
-FROM golang:1.23.1-alpine AS builder
+FROM golang:1.24.3-alpine AS builder
 
 # Install templ
 RUN go install github.com/a-h/templ/cmd/templ@v0.2.793

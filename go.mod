@@ -1,6 +1,6 @@
 module pf2.encounterbrew.com
 
-go 1.23.1
+go 1.24.3
 
 require (
 	github.com/a-h/templ v0.2.793
