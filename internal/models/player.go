@@ -216,6 +216,35 @@ func (p *Player) SetConditions(conditions []Condition) {
 }
 
 func (p *Player) SetCondition(db database.Service, encounterID int, conditionID int, conditionValue int) error {
+	// Initialize the Conditions slice if it's nil
+	if p.Conditions == nil {
+		p.Conditions = make([]Condition, 0)
+	}
+
+	// Check if the condition already exists
+	for i, c := range p.Conditions {
+		if c.ID == conditionID {
+			// Increment the existing condition's value
+			newValue := c.GetValue() + conditionValue
+			c.SetValue(newValue)
+			p.Conditions[i] = c
+
+			// Update the condition in the database
+			_, err := db.Exec(`
+				UPDATE combatant_conditions
+				SET condition_value = $1
+				WHERE encounter_id = $2 AND encounter_player_id = $3 AND condition_id = $4
+			`, newValue, encounterID, p.AssociationID, conditionID)
+
+			if err != nil {
+				return fmt.Errorf("error updating condition in combatant_conditions: %v", err)
+			}
+
+			return nil
+		}
+	}
+
+	// Condition doesn't exist, so add it
 	// Get condition from the database
 	condition, err := GetCondition(db, conditionID)
 	if err != nil {
@@ -224,11 +253,6 @@ func (p *Player) SetCondition(db database.Service, encounterID int, conditionID 
 
 	// Set the condition's value
 	condition.Data.System.Value.Value = conditionValue
-
-	// Initialize the Conditions slice if it's nil
-	if p.Conditions == nil {
-		p.Conditions = make([]Condition, 0)
-	}
 
 	// Add the condition to the player's conditions
 	p.Conditions = append(p.Conditions, condition)
