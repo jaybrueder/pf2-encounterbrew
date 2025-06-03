@@ -57,17 +57,7 @@ pip install pre-commit
    export PF2ENCOUNTERBREW_DB_DSN=postgres://admin:admin@localhost/encounterbrew?sslmode=disable
    ```
 
-5. **Run database migrations**
-   ```bash
-   migrate -path=./migrations -database=$PF2ENCOUNTERBREW_DB_DSN up
-   ```
-
-6. **Seed the database**
-   ```bash
-   go run cmd/seed/seeder.go
-   ```
-
-7. **Build and run the application**
+5. **Build and run the application**
    ```bash
    make build
    make run
