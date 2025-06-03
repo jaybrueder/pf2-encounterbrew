@@ -1,0 +1,452 @@
+{
+    "_id": "AGNRcnrftglAtlbN",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "bLVZ5ms9o0MNzxDg",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.Oiq3QgLrM4i3W5Hg"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/ogre-hook.webp",
+            "name": "Ogre Hook",
+            "sort": 100000,
+            "system": {
+                "baseItem": "ogre-hook",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 2
+                },
+                "category": "advanced",
+                "containerId": null,
+                "damage": {
+                    "damageType": "piercing",
+                    "dice": 1,
+                    "die": "d10"
+                },
+                "description": {
+                    "value": "<p>Ogres are known for using immense, curved picks called ogre hooks.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "pick",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": ""
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "lg",
+                "slug": "ogre-hook",
+                "splashDamage": {
+                    "value": null
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "value": [
+                        "deadly-d10",
+                        "trip"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-two-hands"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "6ofr6YtODR30jRp0",
+            "img": "systems/pf2e/icons/default-icons/armor.svg",
+            "name": "Lice-Infested Furs",
+            "sort": 200000,
+            "system": {
+                "acBonus": 0,
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "category": "light",
+                "checkPenalty": 0,
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "dexCap": 0,
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "inSlot": true,
+                    "invested": null
+                },
+                "group": null,
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "quantity": 1,
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "selector": "ac",
+                        "value": -1
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "selector": "reflex",
+                        "value": -2
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "selector": "attack",
+                        "value": -3
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "selector": "damage",
+                        "value": -4
+                    }
+                ],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "resilient": 0
+                },
+                "size": "lg",
+                "slug": null,
+                "speedPenalty": 0,
+                "strength": 0,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "armor"
+        },
+        {
+            "_id": "5GHPE9r4r5WcoocT",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.conditionitems.Item.XgEqL1kFApUbl5Z2"
+            },
+            "img": "systems/pf2e/icons/conditions/blinded.webp",
+            "name": "Blinded",
+            "sort": 300000,
+            "system": {
+                "description": {
+                    "value": "<p>You can't see. All normal terrain is difficult terrain to you. You can't detect anything using vision. You automatically critically fail Perception checks that require you to be able to see, and if vision is your only precise sense, you take a -4 status penalty to Perception checks. You are immune to visual effects. Blinded overrides @UUID[Compendium.pf2e.conditionitems.Item.Dazzled].</p>"
+                },
+                "duration": {
+                    "value": 0
+                },
+                "group": "senses",
+                "overrides": [
+                    "dazzled"
+                ],
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "references": {
+                    "children": [],
+                    "immunityFrom": [],
+                    "overriddenBy": [],
+                    "overrides": []
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "selector": "perception",
+                        "slug": "blinded",
+                        "type": "status",
+                        "value": -4
+                    }
+                ],
+                "slug": "blinded",
+                "value": {
+                    "isValued": false,
+                    "value": null
+                }
+            },
+            "type": "condition"
+        },
+        {
+            "_id": "S2bjckIBFgZGuliH",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "bLVZ5ms9o0MNzxDg"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Ogre Hook",
+            "sort": 400000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 12
+                },
+                "damageRolls": {
+                    "UZAIRs3zZXbl4Lmr": {
+                        "damage": "1d10+7",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "reach-10",
+                        "trip"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "66WdJU8fGY3RHFZN",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Blinded",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>Gromog's eyes have been wounded by Linzi. In time, he'll recover his eyesight (mostly), but for the duration of this combat he is @UUID[Compendium.pf2e.conditionitems.Item.Blinded]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "wzltAJwbP73KlolU",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Itchy",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>Not only have the itchy lice in Gromog's furs reduced his AC, Reflex save, and attack modifier through distraction (resulting in the values below the standard values for an ogre warrior), he also must succeed at a @Check[flat|dc:10] at the start of each round to avoid spending 2 actions furiously scratching himself. On a successful flat check, he must spend only one action scratching at the vermin. Finally, as a side effect of the discomfort caused by his lice, Gromog is too distracted to properly wield his ogre hook. While the weapon can still inflict grievous damage, as long as he remains itchy it doesn't possess the deadly trait these weapons normally possess.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "itemType": "melee",
+                        "key": "ItemAlteration",
+                        "mode": "add",
+                        "predicate": [
+                            "item:slug:ogre-hook",
+                            {
+                                "not": "self:armored"
+                            }
+                        ],
+                        "property": "traits",
+                        "value": "deadly-d10"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Gromog",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -2
+            },
+            "con": {
+                "mod": 4
+            },
+            "dex": {
+                "mod": -1
+            },
+            "int": {
+                "mod": -2
+            },
+            "str": {
+                "mod": 5
+            },
+            "wis": {
+                "mod": 0
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 17
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 28,
+                "temp": 0,
+                "value": 28
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 25
+            }
+        },
+        "details": {
+            "blurb": "Black Tear ogre",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "jotun"
+                ]
+            },
+            "level": {
+                "value": 2
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Kingmaker"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "blinded",
+            "mod": 5,
+            "senses": []
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 11
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 6
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 5
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 12
+            },
+            "intimidation": {
+                "base": 9
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "chaotic",
+                "evil",
+                "giant",
+                "humanoid"
+            ]
+        }
+    },
+    "type": "npc"
+}

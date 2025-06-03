@@ -1,0 +1,270 @@
+{
+    "_id": "jgMFqFDNUWsrnnBH",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "4UMDwIzgdxumhvIf",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Swarm Mind",
+            "sort": 100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.SwarmMind]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "nKL6rZMmn2WdRk3g",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Cling",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A creature leaves the swarm's space</p>\n<hr />\n<p><strong>Effect</strong> The swarm takes [[/r {1d6}]]{1d6 damage} as ticks cling to the creature and continue biting, dealing @Damage[3d6[bleed]]. Immersion in water reduces the DC of the flat check to end this persistent damage to 5, and any area damage dealt to the creature destroys these clinging ticks.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "fVaZtygxTBUfppLk",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Swarming Bites",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Each enemy in the swarm's space takes @Damage[3d6[piercing]] damage (@Check[reflex|dc:28|basic] save) plus Cling and exposure to tick fever.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "PQ87JPdxzlCptXn6",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Tick Fever",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Saving Throw</strong> @Check[fortitude|dc:27]</p>\n<p><strong>Onset</strong> 1 day</p>\n<p><strong>Stage 1</strong> @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1} (1 day)</p>\n<p><strong>Stage 2</strong> @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2} (1 day).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "disease"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Tick Swarm",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -5
+            },
+            "con": {
+                "mod": 4
+            },
+            "dex": {
+                "mod": 6
+            },
+            "int": {
+                "mod": -5
+            },
+            "str": {
+                "mod": 1
+            },
+            "wis": {
+                "mod": 3
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 28
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 130,
+                "temp": 0,
+                "value": 130
+            },
+            "immunities": [
+                {
+                    "type": "precision"
+                },
+                {
+                    "type": "swarm-mind"
+                }
+            ],
+            "resistances": [
+                {
+                    "type": "bludgeoning",
+                    "value": 5
+                },
+                {
+                    "type": "piercing",
+                    "value": 10
+                },
+                {
+                    "type": "slashing",
+                    "value": 10
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "climb",
+                        "value": 25
+                    }
+                ],
+                "value": 25
+            },
+            "weaknesses": [
+                {
+                    "type": "area-damage",
+                    "value": 10
+                },
+                {
+                    "type": "splash-damage",
+                    "value": 10
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 9
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>This swarm of thousands of fist-sized ticks forms a moving carpet of bloated insects-a nauseating and intimidating sight.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary 2"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 18,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 19
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 19
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 14
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 16
+            },
+            "stealth": {
+                "base": 19
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "animal",
+                "swarm"
+            ]
+        }
+    },
+    "type": "npc"
+}

@@ -1,0 +1,2474 @@
+{
+    "_id": "1SEyDYO9l6mcFhoy",
+    "img": "systems/pf2e/icons/default-icons/character.svg",
+    "items": [
+        {
+            "_id": "Ea0GAke3VJx9TC8Z",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.backgrounds.Item.6irgRkKZ8tRZzLvs"
+            },
+            "img": "systems/pf2e/icons/default-icons/background.svg",
+            "name": "Artisan",
+            "sort": 0,
+            "system": {
+                "boosts": {
+                    "0": {
+                        "selected": "str",
+                        "value": [
+                            "int",
+                            "str"
+                        ]
+                    },
+                    "1": {
+                        "selected": "dex",
+                        "value": [
+                            "cha",
+                            "con",
+                            "dex",
+                            "int",
+                            "str",
+                            "wis"
+                        ]
+                    }
+                },
+                "description": {
+                    "value": "<p>As an apprentice, you practiced a particular form of building or crafting, developing specialized skill. You might have been a blacksmith's apprentice toiling over the forge for countless hours, a young tailor sewing garments of all kinds, or a shipwright shaping the hulls of ships.</p>\n<p>Choose two ability boosts. One must be to <strong>Strength</strong> or <strong>Intelligence</strong>, and one is a free ability boost.</p>\n<p>You're trained in the Crafting skill and the Guild Lore skill. You gain the @UUID[Compendium.pf2e.feats-srd.Item.Specialty Crafting] skill feat.</p>"
+                },
+                "items": {
+                    "td7d8": {
+                        "img": "icons/sundries/books/book-red-exclamation.webp",
+                        "level": 1,
+                        "name": "Specialty Crafting",
+                        "uuid": "Compendium.pf2e.feats-srd.Item.Specialty Crafting"
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [],
+                "slug": "artisan",
+                "trainedSkills": {
+                    "lore": [
+                        "Guild Lore"
+                    ],
+                    "value": [
+                        "crafting"
+                    ]
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "background"
+        },
+        {
+            "_id": "vyqHNCJRcnOTgE5X",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.feats-srd.Item.QLeMH5mQgh28sa5o"
+            },
+            "img": "icons/sundries/books/book-red-exclamation.webp",
+            "name": "Specialty Crafting (Woodworking)",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "skill",
+                "description": {
+                    "value": "<p>Your training focused on Crafting one particular kind of item. Select one of the specialties listed below; you gain a +1 circumstance bonus to Crafting checks to Craft items of that type. If you are a master in Crafting, this bonus increases to +2. If it's unclear whether the specialty applies, the GM decides. Some specialties might apply only partially. For example, if you were making a morningstar and had specialty in woodworking, the GM might give you half your bonus because the item requires both blacksmithing and woodworking.</p>\n<table class=\"pf2e\" style=\"white-space: nowrap;\">\n<thead>\n<tr>\n<th>Specialty</th>\n<th>Applicable Items</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Alchemy*</td>\n<td>Alchemical items such as elixirs</td>\n</tr>\n<tr>\n<td>Artistry</td>\n<td>Fine art, including jewelry</td>\n</tr>\n<tr>\n<td>Blacksmithing</td>\n<td>Durable metal goods, including metal armor</td>\n</tr>\n<tr>\n<td>Bookmaking</td>\n<td>Books and paper</td>\n</tr>\n<tr>\n<td>Glassmaking</td>\n<td>Glass, including glassware and windows</td>\n</tr>\n<tr>\n<td>Leatherworking</td>\n<td>Leather goods, including leather armor</td>\n</tr>\n<tr>\n<td>Pottery</td>\n<td>Ceramic goods</td>\n</tr>\n<tr>\n<td>Shipbuilding</td>\n<td>Ships and boats</td>\n</tr>\n<tr>\n<td>Stonemasonry</td>\n<td>Stone goods and structures</td>\n</tr>\n<tr>\n<td>Tailoring</td>\n<td>Clothing</td>\n</tr>\n<tr>\n<td>Weaving</td>\n<td>Textiles, baskets, and rugs</td>\n</tr>\n<tr>\n<td>Woodworking</td>\n<td>Wooden goods and structures</td>\n</tr>\n</tbody>\n</table>\n<p>* You must have the Alchemical Crafting skill feat to Craft alchemical items.</p>"
+                },
+                "level": {
+                    "taken": 1,
+                    "value": 1
+                },
+                "location": "Ea0GAke3VJx9TC8Z",
+                "prerequisites": {
+                    "value": [
+                        {
+                            "value": "trained in Crafting"
+                        }
+                    ]
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "choices": [
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Alchemy",
+                                "value": "alchemy"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Artistry",
+                                "value": "artistry"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Blacksmithing",
+                                "value": "blacksmithing"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Bookmaking",
+                                "value": "bookmaking"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Glassmaking",
+                                "value": "glassmaking"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Leatherworking",
+                                "value": "leatherworking"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Pottery",
+                                "value": "pottery"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Shipbuilding",
+                                "value": "shipbuilding"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Stonemasonry",
+                                "value": "stonemasonry"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Tailoring",
+                                "value": "tailoring"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Weaving",
+                                "value": "weaving"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.SpecialtyCrafting.Woodworking",
+                                "value": "woodworking"
+                            }
+                        ],
+                        "flag": "specialtyCrafting",
+                        "key": "ChoiceSet",
+                        "prompt": "PF2E.SpecificRule.SpecialtyCrafting.Prompt",
+                        "selection": "woodworking"
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "action:craft",
+                            "{item|flags.pf2e.rulesSelections.specialtyCrafting}"
+                        ],
+                        "selector": "crafting",
+                        "type": "circumstance",
+                        "value": {
+                            "brackets": [
+                                {
+                                    "end": 4,
+                                    "start": 3,
+                                    "value": 2
+                                },
+                                {
+                                    "end": 2,
+                                    "start": 1,
+                                    "value": 1
+                                }
+                            ],
+                            "field": "actor|system.skills.crafting.rank"
+                        }
+                    }
+                ],
+                "slug": "specialty-crafting",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "general",
+                        "skill"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "b823A6RsolAfesbM",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.heritages.Item.zVf0Hlp5xG0Q7kmc"
+            },
+            "img": "systems/pf2e/icons/features/ancestry/skilled-heritage.webp",
+            "name": "Skilled Heritage",
+            "sort": 0,
+            "system": {
+                "ancestry": {
+                    "name": "Human",
+                    "slug": "human",
+                    "uuid": "Compendium.pf2e.ancestries.Item.IiG7DgeLWYrSNXuX"
+                },
+                "description": {
+                    "value": "<p>Your ingenuity allows you to train in a wide variety of skills. You become trained in one skill of your choice. At 5th level, you become an expert in the chosen skill.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [],
+                "slug": "skilled-heritage",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "heritage"
+        },
+        {
+            "_id": "GZ3aIv1wg9M7gGFU",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Giant Lore",
+            "sort": 0,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 0
+                },
+                "proficient": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        },
+        {
+            "_id": "64snLNQ9P2c8IffF",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Guild Lore",
+            "sort": 0,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 0
+                },
+                "proficient": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        },
+        {
+            "_id": "CBKkrJnJ9DcFA6p0",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Hunting Lore",
+            "sort": 0,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 0
+                },
+                "proficient": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        },
+        {
+            "_id": "AEkCYI7XfpqZuMHv",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.feats-srd.Item.D3SuA5MaKucO1flE"
+            },
+            "flags": {
+                "pf2e": {
+                    "itemGrants": {
+                        "generalTraining": {
+                            "id": "u5HxY3Rzz5Z3mwiG"
+                        }
+                    }
+                }
+            },
+            "img": "icons/sundries/books/book-red-exclamation.webp",
+            "name": "General Training",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "ancestry",
+                "description": {
+                    "value": "<p>Your adaptability manifests in your mastery of a range of useful abilities. You gain a 1st-level general feat. You must meet the feat's prerequisites, but if you select this feat during character creation, you can select the feat later in the process in order to determine which prerequisites you meet.</p>\n<p><strong>Special</strong> You can select this feat multiple times, choosing a different feat each time.</p>"
+                },
+                "level": {
+                    "taken": 1,
+                    "value": 1
+                },
+                "location": "ancestry-1",
+                "maxTakable": null,
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "adjustName": false,
+                        "choices": {
+                            "filter": [
+                                "item:level:1",
+                                "item:trait:general"
+                            ],
+                            "itemType": "feat"
+                        },
+                        "flag": "generalTraining",
+                        "key": "ChoiceSet",
+                        "prompt": "PF2E.SpecificRule.GeneralTraining.Prompt",
+                        "selection": "Compendium.pf2e.feats-srd.Item.Toughness"
+                    },
+                    {
+                        "key": "GrantItem",
+                        "uuid": "{item|flags.pf2e.rulesSelections.generalTraining}"
+                    }
+                ],
+                "slug": "general-training",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "human"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "u5HxY3Rzz5Z3mwiG",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.feats-srd.Item.AmP0qu7c5dlBSath"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "AEkCYI7XfpqZuMHv",
+                        "onDelete": "cascade"
+                    }
+                }
+            },
+            "img": "icons/sundries/books/book-red-exclamation.webp",
+            "name": "Toughness",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "general",
+                "description": {
+                    "value": "<p>You can withstand more punishment than most before succumbing. Increase your maximum Hit Points by your level. The DC of recovery checks is equal to 9 + your dying condition value.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": null,
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "selector": "hp",
+                        "value": "@actor.level"
+                    },
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "downgrade",
+                        "path": "system.attributes.dying.recoveryDC",
+                        "value": 9
+                    }
+                ],
+                "slug": "toughness",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "general"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "oxPlAKtVAWcUgUek",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.feats-srd.Item.c3b7DhnDBC7YEgRG"
+            },
+            "img": "icons/sundries/books/book-red-exclamation.webp",
+            "name": "Hunted Shot",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "class",
+                "description": {
+                    "value": "<p><strong>Frequency</strong> once per round</p>\n<p><strong>Requirements</strong> You are wielding a ranged weapon with reload 0</p>\n<hr />\n<p>You take two quick shots against the one you hunt. Make two Strikes against your prey with the required weapon. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses. Apply your multiple attack penalty to each Strike normally.</p>"
+                },
+                "level": {
+                    "taken": 1,
+                    "value": 1
+                },
+                "location": "class-1",
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [],
+                "slug": "hunted-shot",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "flourish",
+                        "ranger"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "3BEWQ0i0Gnzzxc0G",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.yd3kEK21YknZLlcT"
+            },
+            "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/alchemists-fire.webp",
+            "name": "Alchemist's Fire (Lesser)",
+            "sort": 0,
+            "system": {
+                "baseItem": "alchemical-bomb",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "martial",
+                "containerId": null,
+                "damage": {
+                    "damageType": "fire",
+                    "dice": 1,
+                    "die": "d8",
+                    "persistent": {
+                        "faces": null,
+                        "number": 1,
+                        "type": "fire"
+                    }
+                },
+                "description": {
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p>\n<p>Alchemist's fire is a combination of volatile liquids that ignite when exposed to air. Alchemist's fire deals 1d8 fire damage, 1 persistent fire damage, and 1 fire splash damage.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "bomb",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 1
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 3
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 3,
+                "range": 20,
+                "reload": {
+                    "value": "-"
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "alchemists-fire-lesser",
+                "splashDamage": {
+                    "value": 1
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemical",
+                        "bomb",
+                        "consumable",
+                        "fire",
+                        "splash"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "5VTOTZkceOWlAUjJ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.3lgwjrFEsQVKzhh7"
+            },
+            "img": "icons/containers/bags/pack-leather-white-tan.webp",
+            "name": "Backpack",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "capacity": 4,
+                    "heldOrStowed": 0.1,
+                    "ignored": 2,
+                    "value": 0
+                },
+                "collapsed": false,
+                "containerId": null,
+                "description": {
+                    "value": "<p>A backpack holds up to 4 Bulk of items and the first 2 Bulk of these items don't count against your Bulk limits. If you're carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "inSlot": false,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "backpack",
+                "stowing": true,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "wornbackpack"
+                }
+            },
+            "type": "backpack"
+        },
+        {
+            "_id": "IatemyIY1Fc3Vxl7",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.fyYnQf1NAx9fWFaS"
+            },
+            "img": "icons/sundries/survival/rope-wrapped-brown.webp",
+            "name": "Rope",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "5VTOTZkceOWlAUjJ",
+                "description": {
+                    "value": "<p>50 feet of rope.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 5
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "rope",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "SMWSiuv3jjyGSrr1",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.VnPh324pKwd2ZB66"
+            },
+            "img": "systems/pf2e/icons/equipment/adventuring-gear/waterskin.webp",
+            "name": "Waterskin",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "5VTOTZkceOWlAUjJ",
+                "description": {
+                    "value": "<p>When it's full, a waterskin contains roughly 1 day's worth of water for a Small or Medium creature.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "cp": 5
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "waterskin",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "qanvHLwTjjsEOFxf",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.xShIDyydOMkGvGNb"
+            },
+            "img": "systems/pf2e/icons/equipment/adventuring-gear/chalk.webp",
+            "name": "Chalk",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "category": "other",
+                "containerId": "5VTOTZkceOWlAUjJ",
+                "damage": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn"
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "per": 10,
+                    "value": {
+                        "cp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 10,
+                "rules": [],
+                "size": "med",
+                "slug": "chalk",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 1,
+                    "value": 1
+                }
+            },
+            "type": "consumable"
+        },
+        {
+            "_id": "hlpVKCRrjDbONGpR",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.UlIxxLm71UdRgCFE"
+            },
+            "img": "icons/commodities/stone/geode-raw-tan.webp",
+            "name": "Flint and Steel",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "containerId": "5VTOTZkceOWlAUjJ",
+                "description": {
+                    "value": "<p>Flint and steel are useful in creating a fire if you have the time to catch a spark, though using them is typically too time-consuming to be practical during an encounter. Even in ideal conditions, using flint and steel to light a flame requires using at least 3 actions, and often significantly longer.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "cp": 5
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "flint-and-steel",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "yevTdAAUjvGbYFn2",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.L9ZV076913otGtiB"
+            },
+            "img": "systems/pf2e/icons/equipment/adventuring-gear/rations.webp",
+            "name": "Rations",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "other",
+                "containerId": "5VTOTZkceOWlAUjJ",
+                "damage": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 4
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "rations",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 7,
+                    "value": 7
+                }
+            },
+            "type": "consumable"
+        },
+        {
+            "_id": "Fv19m5pjJKq34azV",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.8Jdw4yAzWYylGePS"
+            },
+            "img": "icons/sundries/lights/torch-brown.webp",
+            "name": "Torch",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "5VTOTZkceOWlAUjJ",
+                "description": {
+                    "value": "<p>A torch sheds bright light in a 20-foot radius (and dim light to the next 20 feet) for 1 hour. It can be used as an improvised weapon that deals 1d4 bludgeoning damage plus 1 fire damage.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "cp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 3,
+                "rules": [
+                    {
+                        "key": "TokenLight",
+                        "predicate": [
+                            "lit-torch"
+                        ],
+                        "value": {
+                            "alpha": 0.45,
+                            "animation": {
+                                "intensity": 1,
+                                "speed": 2,
+                                "type": "flame"
+                            },
+                            "attenuation": 0.4,
+                            "bright": 20,
+                            "color": "#ffae3d",
+                            "dim": 40,
+                            "shadows": 0.2
+                        }
+                    },
+                    {
+                        "category": "simple",
+                        "damage": {
+                            "base": {
+                                "damageType": "bludgeoning",
+                                "dice": 1,
+                                "die": "d4"
+                            }
+                        },
+                        "key": "Strike",
+                        "otherTags": [
+                            "improvised"
+                        ],
+                        "predicate": [
+                            {
+                                "not": "lit-torch"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "simple",
+                        "damage": {
+                            "base": {
+                                "damageType": "bludgeoning",
+                                "dice": 1,
+                                "die": "d4"
+                            }
+                        },
+                        "img": "icons/sundries/lights/torch-brown-lit.webp",
+                        "key": "Strike",
+                        "otherTags": [
+                            "improvised"
+                        ],
+                        "predicate": [
+                            "lit-torch"
+                        ]
+                    },
+                    {
+                        "damageType": "fire",
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "lit-torch"
+                        ],
+                        "selector": "{item|_id}-damage",
+                        "value": 1
+                    },
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "label": "PF2E.SpecificRule.LitTorch",
+                        "option": "lit-torch",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "TokenEffectIcon",
+                        "predicate": [
+                            "lit-torch"
+                        ],
+                        "value": "icons/sundries/lights/torch-brown-lit.webp"
+                    }
+                ],
+                "size": "med",
+                "slug": "torch",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "tClU2qFYPhZJVF2O",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.fagzYdmfYyMQ6J77"
+            },
+            "img": "icons/containers/ammunition/quiver-simple-brown.webp",
+            "name": "Bedroll",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "5VTOTZkceOWlAUjJ",
+                "description": {
+                    "value": "<p>A rolled up bed.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "cp": 2
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "bedroll",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "5ZzR9Yu0TpYSWquZ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.81aHsD27HFGnq1Nt"
+            },
+            "img": "icons/sundries/survival/soap.webp",
+            "name": "Soap",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "containerId": "5VTOTZkceOWlAUjJ",
+                "description": {
+                    "value": "<p>Bar of soap.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "cp": 2
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "soap",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "OGDCzsyhNsf5h3j3",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.y34yjumCFakrbtdw"
+            },
+            "img": "systems/pf2e/icons/equipment/adventuring-gear/artisan-tools.webp",
+            "name": "Artisan's Tools (Woodworker's)",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 2
+                },
+                "containerId": null,
+                "description": {
+                    "value": "<p>You need these tools to create items from raw materials with the Craft skill. Different sets are needed for different work, as determined by the GM; for example, blacksmith's tools differ from woodworker's tools.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 4
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "artisans-tools",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "g9hAlndNzXTVzNDu",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.w4Hd6nunVVqw3GWj"
+            },
+            "img": "icons/sundries/books/book-worn-blue.webp",
+            "name": "Basic Woodworker's Book",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": null,
+                "description": {
+                    "value": "<p>This book contains the formulas for Crafting the common items in Chapter 6 of the core rulebook.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "basic-crafters-book",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "YMTLk1xV1XKMrBbR",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.4tIVTg9wj56RrveA"
+            },
+            "img": "icons/equipment/chest/breastplate-banded-simple-leather-brown.webp",
+            "name": "Leather Armor",
+            "sort": 0,
+            "system": {
+                "acBonus": 1,
+                "baseItem": "leather-armor",
+                "bulk": {
+                    "value": 1
+                },
+                "category": "light",
+                "checkPenalty": -1,
+                "containerId": null,
+                "description": {
+                    "value": "<p>A mix of flexible and molded boiled leather, a suit of this type of armor provides some protection with maximum flexibility.</p>"
+                },
+                "dexCap": 4,
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "inSlot": true,
+                    "invested": null
+                },
+                "group": "leather",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 2
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "resilient": 0
+                },
+                "size": "med",
+                "slug": "leather-armor",
+                "speedPenalty": 0,
+                "strength": 0,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "armor"
+        },
+        {
+            "_id": "dxnqhLOa35IbOmU2",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.MVAWttmT0QDa7LsV"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/longbow.webp",
+            "name": "Longbow",
+            "sort": 0,
+            "system": {
+                "baseItem": "longbow",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 2
+                },
+                "category": "martial",
+                "containerId": null,
+                "damage": {
+                    "damageType": "piercing",
+                    "dice": 1,
+                    "die": "d8"
+                },
+                "description": {
+                    "value": "<p>This 5-foot-tall bow, usually made of a single piece of elm, hickory, or yew, has a powerful draw and is excellent at propelling arrows with great force and at an extreme distance. You must use two hands to fire a longbow, and it can't be used while mounted.</p>"
+                },
+                "equipped": {
+                    "carryType": "held",
+                    "handsHeld": 1,
+                    "invested": null
+                },
+                "group": "bow",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 6
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": 100,
+                "reload": {
+                    "value": "0"
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "longbow",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "deadly-d10",
+                        "volley-30"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-plus-hands"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "g4ojiKEXn1EWHRoZ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.w2ENw2VMPcsbif8g"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/arrows.webp",
+            "name": "Arrows",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "ammo",
+                "containerId": null,
+                "damage": null,
+                "description": {
+                    "value": "<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. It is stabilized in flight by fletching at one end and bears a metal head on the other.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "per": 10,
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 20,
+                "rules": [],
+                "size": "med",
+                "slug": "arrows",
+                "stackGroup": "arrows",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 1,
+                    "value": 1
+                }
+            },
+            "type": "consumable"
+        },
+        {
+            "_id": "4m6AuQosXI1Zz2yK",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.dDIPA1WE9ESF67EB"
+            },
+            "img": "icons/equipment/chest/shirt-collared-pink.webp",
+            "name": "Explorer's Clothing",
+            "sort": 0,
+            "system": {
+                "acBonus": 0,
+                "baseItem": "explorers-clothing",
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "unarmored",
+                "checkPenalty": 0,
+                "containerId": null,
+                "description": {
+                    "value": "<p>Explorer's clothing is sturdy enough that it can be reinforced to protect you, even though it isn't a suit of armor. It comes in many forms, though the most common sorts look like clerical vestments, monk's garments, or wizard's robes, as members of all three classes are likely to avoid wearing armor.</p>"
+                },
+                "dexCap": 5,
+                "equipped": {
+                    "carryType": "worn",
+                    "inSlot": false,
+                    "invested": null
+                },
+                "group": "cloth",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "resilient": 0
+                },
+                "size": "med",
+                "slug": "explorers-clothing",
+                "speedPenalty": 0,
+                "strength": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "comfort"
+                    ]
+                }
+            },
+            "type": "armor"
+        },
+        {
+            "_id": "0rmDD9ymGXaLDR7A",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.LJdbVTOZog39EEbi"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/longsword.webp",
+            "name": "Longsword",
+            "sort": 0,
+            "system": {
+                "baseItem": "longsword",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 1
+                },
+                "category": "martial",
+                "containerId": null,
+                "damage": {
+                    "damageType": "slashing",
+                    "dice": 1,
+                    "die": "d8"
+                },
+                "description": {
+                    "value": "<p>Longswords can be one-edged or two-edged swords. Their blades are heavy and they're between 3 and 4 feet in length.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "sword",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": ""
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "longsword",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "versatile-p"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "npjR8WLrdekO9o4d",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classes.Item.Yix76sfxrIlltSTJ"
+            },
+            "img": "systems/pf2e/icons/classes/ranger.webp",
+            "name": "Ranger",
+            "sort": 0,
+            "system": {
+                "ancestryFeatLevels": {
+                    "value": [
+                        1,
+                        5,
+                        9,
+                        13,
+                        17
+                    ]
+                },
+                "attacks": {
+                    "advanced": 0,
+                    "martial": 1,
+                    "other": {
+                        "name": "",
+                        "rank": 0
+                    },
+                    "simple": 1,
+                    "unarmed": 1
+                },
+                "classFeatLevels": {
+                    "value": [
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
+                        18,
+                        20
+                    ]
+                },
+                "defenses": {
+                    "heavy": 0,
+                    "light": 1,
+                    "medium": 1,
+                    "unarmored": 1
+                },
+                "description": {
+                    "value": "<p><em>Some rangers believe civilization wears down the soul, but still needs to be protected from wild creatures. Others say nature needs to be protected from the greedy, who wish to tame its beauty and plunder its treasures. You could champion either goal, or both. You might be a scout, tracker, or hunter of fugitives or beasts, haunting the edge of civilization or exploring the wilds. You know how to live off the land and are skilled at spotting and taking down both opportune prey and hated enemies.</em></p>\n<p><em>@UUID[Compendium.pf2e.journals.JournalEntry.kzxu2dI7tFxv6Ix6.JournalEntryPage.gdEmPPRYhRai7I1N]{Ranger}</em></p>"
+                },
+                "generalFeatLevels": {
+                    "value": [
+                        3,
+                        7,
+                        11,
+                        15,
+                        19
+                    ]
+                },
+                "hp": 10,
+                "items": {
+                    "07lzm": {
+                        "img": "icons/weapons/bows/shortbow-recurve-yellow-blue.webp",
+                        "level": 17,
+                        "name": "Masterful Hunter",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Masterful Hunter"
+                    },
+                    "3k9vv": {
+                        "img": "systems/pf2e/icons/features/classes/weapon-specialization.webp",
+                        "level": 7,
+                        "name": "Weapon Specialization",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
+                    },
+                    "7gij8": {
+                        "img": "icons/skills/ranged/arrow-flying-ornate-gold.webp",
+                        "level": 9,
+                        "name": "Nature's Edge",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Nature's Edge"
+                    },
+                    "86ooy": {
+                        "img": "icons/magic/nature/root-vine-entangle-foot-green.webp",
+                        "level": 5,
+                        "name": "Trackless Step",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Trackless Journey"
+                    },
+                    "8er6c": {
+                        "img": "systems/pf2e/icons/features/classes/incredible-sense.webp",
+                        "level": 15,
+                        "name": "Incredible Senses",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Perception Legend"
+                    },
+                    "9412w": {
+                        "img": "icons/equipment/chest/breastplate-quilted-brown.webp",
+                        "level": 11,
+                        "name": "Medium Armor Expertise",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Medium Armor Expertise"
+                    },
+                    "bhe5z": {
+                        "img": "icons/magic/symbols/question-stone-yellow.webp",
+                        "level": 1,
+                        "name": "Hunter's Edge",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Hunter's Edge"
+                    },
+                    "bucqx": {
+                        "img": "systems/pf2e/icons/features/classes/improved-evasion.webp",
+                        "level": 15,
+                        "name": "Improved Evasion",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Improved Evasion"
+                    },
+                    "bv3vc": {
+                        "img": "icons/creatures/invertebrates/spider-pink-purple.webp",
+                        "level": 19,
+                        "name": "Swift Prey",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Swift Prey"
+                    },
+                    "djh8f": {
+                        "img": "icons/commodities/leather/leather-studded-tan.webp",
+                        "level": 19,
+                        "name": "Second Skin",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Second Skin"
+                    },
+                    "e3ees": {
+                        "img": "icons/creatures/mammals/bull-horned-blue.webp",
+                        "level": 11,
+                        "name": "Juggernaut",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Juggernaut"
+                    },
+                    "eekwl": {
+                        "img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
+                        "level": 7,
+                        "name": "Evasion",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Evasion"
+                    },
+                    "eha1f": {
+                        "img": "icons/skills/melee/hand-grip-sword-orange.webp",
+                        "level": 15,
+                        "name": "Greater Weapon Specialization (Level 15)",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Greater Weapon Specialization"
+                    },
+                    "iyqmb": {
+                        "img": "icons/equipment/feet/boots-leather-laced-brown.webp",
+                        "level": 11,
+                        "name": "Wild Stride",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Unimpeded Journey"
+                    },
+                    "jhhhl": {
+                        "img": "systems/pf2e/icons/features/classes/ranger-weapon-expertise.webp",
+                        "level": 5,
+                        "name": "Ranger Weapon Expertise",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Ranger Weapon Expertise"
+                    },
+                    "lzbwg": {
+                        "img": "icons/magic/perception/eye-tendrils-web-purple.webp",
+                        "level": 7,
+                        "name": "Vigilant Senses",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Perception Mastery"
+                    },
+                    "nvyh4": {
+                        "img": "systems/pf2e/icons/features/classes/weapon-mastery.webp",
+                        "level": 13,
+                        "name": "Weapon Mastery",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Martial Weapon Mastery"
+                    },
+                    "q4kx8": {
+                        "img": "systems/pf2e/icons/features/classes/iron-will.webp",
+                        "level": 3,
+                        "name": "Iron Will",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Iron Will"
+                    },
+                    "s7kqn": {
+                        "img": "icons/creatures/eyes/humanoid-single-red-brown.webp",
+                        "level": 1,
+                        "name": "Hunt Prey",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Hunt Prey"
+                    },
+                    "upgl9": {
+                        "img": "icons/skills/ranged/target-bullseye-arrow-yellow.webp",
+                        "level": 9,
+                        "name": "Ranger Expertise",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Ranger Expertise"
+                    }
+                },
+                "keyAbility": {
+                    "selected": "dex",
+                    "value": [
+                        "dex",
+                        "str"
+                    ]
+                },
+                "perception": 2,
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [],
+                "savingThrows": {
+                    "fortitude": 2,
+                    "reflex": 2,
+                    "will": 1
+                },
+                "skillFeatLevels": {
+                    "value": [
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
+                        18,
+                        20
+                    ]
+                },
+                "skillIncreaseLevels": {
+                    "value": [
+                        3,
+                        5,
+                        7,
+                        9,
+                        11,
+                        13,
+                        15,
+                        17,
+                        19
+                    ]
+                },
+                "slug": "ranger",
+                "spellcasting": 0,
+                "trainedSkills": {
+                    "additional": 4,
+                    "value": [
+                        "nature",
+                        "survival"
+                    ]
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "class"
+        },
+        {
+            "_id": "klp38z8fakZYN1lr",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.mzkkj9LEWjJPBhaq"
+            },
+            "flags": {
+                "pf2e": {
+                    "itemGrants": {
+                        "precision": {
+                            "id": "patFWCthFUoRrRSG",
+                            "onDelete": "detach"
+                        }
+                    }
+                }
+            },
+            "img": "icons/magic/symbols/question-stone-yellow.webp",
+            "name": "Hunter's Edge",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>You have trained for countless hours to become a skilled hunter and tracker, gaining an additional benefit when you Hunt Prey depending on the focus of your training. Choose one of the following hunter's edges:</p>\n<ul>\n<li>@UUID[Compendium.pf2e.classfeatures.Item.Flurry]</li>\n<li>@UUID[Compendium.pf2e.classfeatures.Item.Outwit]</li>\n<li>@UUID[Compendium.pf2e.classfeatures.Item.Precision]</li>\n</ul>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": "npjR8WLrdekO9o4d",
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "adjustName": false,
+                        "allowedDrops": {
+                            "label": "1st-level Ranger class feature",
+                            "predicate": [
+                                "item:level:1",
+                                "item:trait:ranger",
+                                "item:type:feature"
+                            ]
+                        },
+                        "choices": [
+                            {
+                                "value": "Compendium.pf2e.classfeatures.Item.Flurry"
+                            },
+                            {
+                                "value": "Compendium.pf2e.classfeatures.Item.Outwit"
+                            },
+                            {
+                                "value": "Compendium.pf2e.classfeatures.Item.Precision"
+                            }
+                        ],
+                        "flag": "huntersEdge",
+                        "key": "ChoiceSet",
+                        "prompt": "PF2E.SpecificRule.Ranger.HuntersEdge.Prompt",
+                        "selection": "Compendium.pf2e.classfeatures.Item.Precision"
+                    },
+                    {
+                        "flag": "precision",
+                        "key": "GrantItem",
+                        "uuid": "{item|flags.pf2e.rulesSelections.huntersEdge}"
+                    }
+                ],
+                "slug": "hunters-edge",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "ranger"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "xHrwrFiVorKticRX",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.0nIOGpHQNHsKSFKT"
+            },
+            "flags": {
+                "pf2e": {
+                    "itemGrants": {
+                        "huntPrey": {
+                            "id": "wJK6hYFBrmTblVlL",
+                            "onDelete": "detach"
+                        }
+                    }
+                }
+            },
+            "img": "icons/creatures/eyes/humanoid-single-red-brown.webp",
+            "name": "Hunt Prey",
+            "sort": 100,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>When you focus your attention on a single foe, you become unstoppable in your pursuit. You gain the @UUID[Compendium.pf2e.actionspf2e.Item.Hunt Prey] action.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": "npjR8WLrdekO9o4d",
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "allowDuplicate": false,
+                        "flag": "huntPrey",
+                        "key": "GrantItem",
+                        "uuid": "Compendium.pf2e.actionspf2e.Item.Hunt Prey"
+                    },
+                    {
+                        "count": true,
+                        "domain": "all",
+                        "key": "RollOption",
+                        "option": "grants-hunt-prey",
+                        "priority": 99
+                    }
+                ],
+                "slug": "hunt-prey",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "ranger"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "patFWCthFUoRrRSG",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.u6cBjqz2fiRBadBt"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "klp38z8fakZYN1lr",
+                        "onDelete": "cascade"
+                    }
+                }
+            },
+            "img": "icons/skills/ranged/target-bullseye-archer-orange.webp",
+            "name": "Precision",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>You have trained to aim for your prey's weak points. The first time you hit your hunted prey in a round, you also deal 1d8 additional precision damage. (Precision damage increases the damage you already deal, using the same type, but is ineffective against creatures that lack vital organs or weak points.)</p>\n<p>At 11th level, the extra damage increases to 2d8 precision damage, and at 19th level, the extra damage increases to 3d8 precision damage.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": null,
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "label": "PF2E.SpecificRule.Ranger.HuntersEdge.FirstAttack",
+                        "option": "first-attack",
+                        "toggleable": true
+                    },
+                    {
+                        "category": "precision",
+                        "diceNumber": "ternary(lt(@actor.level, 11), 1, ternary(lt(@actor.level, 19), 2, 3))",
+                        "dieSize": "d8",
+                        "key": "DamageDice",
+                        "predicate": [
+                            "first-attack"
+                        ],
+                        "selector": "strike-damage"
+                    }
+                ],
+                "slug": "precision",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "ranger"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "wJK6hYFBrmTblVlL",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.actionspf2e.Item.JYi4MnsdFu618hPm"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "xHrwrFiVorKticRX",
+                        "onDelete": "cascade"
+                    }
+                }
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Hunt Prey",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>You designate a single creature as your prey and focus your attacks against that creature. You must be able to see or hear the prey, or you must be tracking the prey during exploration.</p>\n<p>You gain a +2 circumstance bonus to Perception checks when you @UUID[Compendium.pf2e.actionspf2e.Item.Seek] your prey and a +2 circumstance bonus to Survival checks when you @UUID[Compendium.pf2e.actionspf2e.Item.Track] your prey. You also ignore the penalty for making ranged attacks within your second range increment against the prey you're hunting.</p>\n<p>You can have only one creature designated as your prey at a time. If you use Hunt Prey against a creature when you already have a creature designated, the prior creature loses the designation and the new prey gains the designation. Your designation lasts until your next daily preparations.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "label": "PF2E.SpecificRule.HuntPrey.TargetHuntedPrey",
+                        "option": "hunted-prey",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "label": "PF2E.SpecificRule.HuntPrey.SeekHuntedPrey",
+                        "predicate": [
+                            "action:seek",
+                            "hunted-prey"
+                        ],
+                        "selector": "perception",
+                        "type": "circumstance",
+                        "value": 2
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "label": "PF2E.SpecificRule.HuntPrey.TrackHuntedPrey",
+                        "predicate": [
+                            "action:track",
+                            "hunted-prey"
+                        ],
+                        "selector": "survival",
+                        "type": "circumstance",
+                        "value": 2
+                    },
+                    {
+                        "domain": "ranged-attack-roll",
+                        "key": "RollOption",
+                        "option": "ignore-range-penalty:2",
+                        "predicate": [
+                            "hunted-prey"
+                        ]
+                    }
+                ],
+                "slug": "hunt-prey",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "concentrate",
+                        "ranger"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "7WnEXCz4d4GoieJn",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.ancestries.Item.IiG7DgeLWYrSNXuX"
+            },
+            "img": "systems/pf2e/icons/default-icons/alternatives/ancestries/human.svg",
+            "name": "Human",
+            "sort": 0,
+            "system": {
+                "additionalLanguages": {
+                    "count": 1,
+                    "custom": "",
+                    "value": []
+                },
+                "boosts": {
+                    "0": {
+                        "selected": "dex",
+                        "value": [
+                            "cha",
+                            "con",
+                            "dex",
+                            "int",
+                            "str",
+                            "wis"
+                        ]
+                    },
+                    "1": {
+                        "selected": "con",
+                        "value": [
+                            "str",
+                            "dex",
+                            "con",
+                            "int",
+                            "wis",
+                            "cha"
+                        ]
+                    },
+                    "2": {
+                        "value": []
+                    }
+                },
+                "description": {
+                    "value": "<p><em>As unpredictable and varied as any of Golarion's peoples, humans have exceptional drive and the capacity to endure and expand. Though many civilizations thrived before humanity rose to prominence, humans have built some of the greatest and the most terrible societies throughout the course of history, and today they are the most populous people in the realms around the Inner Sea.</em></p>\n<p><em>@UUID[Compendium.pf2e.journals.JournalEntry.45SK8rdbbxvEHfMn.JournalEntryPage.7pU8yM7yPMw92SY3]{Human}</em></p>"
+                },
+                "flaws": {
+                    "0": {
+                        "value": []
+                    }
+                },
+                "hp": 8,
+                "items": {},
+                "languages": {
+                    "custom": "",
+                    "value": [
+                        "common"
+                    ]
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "reach": 5,
+                "rules": [],
+                "size": "med",
+                "slug": "human",
+                "speed": 25,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "human",
+                        "humanoid"
+                    ]
+                },
+                "vision": "normal"
+            },
+            "type": "ancestry"
+        }
+    ],
+    "name": "Ekundayo (Level 1)",
+    "prototypeToken": {
+        "name": "Ekundayo"
+    },
+    "system": {
+        "attributes": {
+            "hp": {
+                "temp": 0,
+                "value": 21
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 25
+            }
+        },
+        "build": {
+            "attributes": {
+                "boosts": {
+                    "1": [
+                        "dex",
+                        "con",
+                        "str",
+                        "wis"
+                    ]
+                }
+            }
+        },
+        "crafting": {
+            "entries": {},
+            "formulas": []
+        },
+        "details": {
+            "age": {
+                "value": ""
+            },
+            "alliance": "party",
+            "biography": {
+                "allies": "",
+                "anathema": [],
+                "appearance": "",
+                "attitude": "",
+                "backstory": "",
+                "beliefs": "",
+                "birthPlace": "",
+                "campaignNotes": "",
+                "catchphrases": "",
+                "dislikes": "",
+                "edicts": [],
+                "enemies": "",
+                "likes": "",
+                "organizations": ""
+            },
+            "ethnicity": {
+                "value": ""
+            },
+            "gender": {
+                "value": ""
+            },
+            "height": {
+                "value": ""
+            },
+            "keyability": {
+                "value": "str"
+            },
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 1
+            },
+            "nationality": {
+                "value": ""
+            },
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Kingmaker"
+            },
+            "weight": {
+                "value": ""
+            },
+            "xp": {
+                "max": 1000,
+                "min": 0,
+                "pct": 0,
+                "value": 0
+            }
+        },
+        "exploration": [],
+        "initiative": {
+            "statistic": "perception"
+        },
+        "pfs": {
+            "characterNumber": null,
+            "currentFaction": "EA",
+            "levelBump": false,
+            "playerNumber": null,
+            "reputation": {
+                "EA": null,
+                "GA": null,
+                "HH": null,
+                "RO": null,
+                "VS": null,
+                "VW": null
+            },
+            "school": null
+        },
+        "resources": {
+            "crafting": {
+                "infusedReagents": {}
+            },
+            "focus": {},
+            "heroPoints": {
+                "max": 3,
+                "value": 1
+            }
+        },
+        "saves": {},
+        "skills": {
+            "acrobatics": {
+                "rank": 1
+            },
+            "arcana": {
+                "rank": 0
+            },
+            "athletics": {
+                "rank": 1
+            },
+            "crafting": {
+                "rank": 0
+            },
+            "deception": {
+                "rank": 0
+            },
+            "diplomacy": {
+                "rank": 0
+            },
+            "intimidation": {
+                "rank": 0
+            },
+            "medicine": {
+                "rank": 0
+            },
+            "nature": {
+                "rank": 0
+            },
+            "occultism": {
+                "rank": 0
+            },
+            "performance": {
+                "rank": 0
+            },
+            "religion": {
+                "rank": 0
+            },
+            "society": {
+                "rank": 0
+            },
+            "stealth": {
+                "rank": 1
+            },
+            "survival": {
+                "rank": 0
+            },
+            "thievery": {
+                "rank": 0
+            }
+        }
+    },
+    "type": "character"
+}

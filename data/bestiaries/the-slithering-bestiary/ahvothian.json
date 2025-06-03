@@ -1,0 +1,1330 @@
+{
+    "_id": "wgeuaYe2fbGNg42z",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "mpI9WDlBvyMzSu7b",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Divine Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "flexible": false,
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {
+                    "slot1": {
+                        "max": 1,
+                        "value": 1
+                    },
+                    "slot2": {
+                        "max": 1,
+                        "value": 1
+                    },
+                    "slot3": {
+                        "max": 2,
+                        "value": 2
+                    },
+                    "slot4": {
+                        "max": 2,
+                        "value": 2
+                    }
+                },
+                "slug": null,
+                "spelldc": {
+                    "dc": 23,
+                    "mod": 0,
+                    "value": 15
+                },
+                "tradition": {
+                    "value": "divine"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "1DKUtQGZMzbSOMFt",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.TUj8eugNqAvB1vVR"
+            },
+            "img": "icons/commodities/wood/log-cut-cherry-brown.webp",
+            "name": "Creation",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You conjure a temporary object from eldritch energy. It must be of vegetable matter (such as wood or paper) and 5 cubic feet or smaller. It can't rely on intricate artistry or complex moving parts, never fulfills a cost or the like, and can't be made of precious materials or materials with a rarity of uncommon or higher. It is obviously temporarily conjured, and thus can't be sold or passed off as a genuine item.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The item is metal and can include common minerals, like feldspar or quartz.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 hour"
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "heightenedLevel": 4,
+                    "value": "mpI9WDlBvyMzSu7b"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "0 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "creation",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "1 minute"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "wDSVyzvPQ5vlfuQx",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.aqRYNoSvxsVfqglH"
+            },
+            "img": "icons/equipment/feet/boots-leather-laced-brown.webp",
+            "name": "Freedom of Movement (Constant)",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You repel effects that would hinder a creature or slow its movement. While under this spell's effect, the target ignores effects that would give them a circumstance penalty to Speed. When they attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Escape] an effect that has them @UUID[Compendium.pf2e.conditionitems.Item.Immobilized], @UUID[Compendium.pf2e.conditionitems.Item.Grabbed], or @UUID[Compendium.pf2e.conditionitems.Item.Restrained], they automatically succeed unless the effect is magical and of a higher rank than the <em>freedom of movement</em> spell.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Unfettered Movement]{Spell Effect: Freedom of Movement}</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "10 minutes"
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "heightenedLevel": 4,
+                    "value": "mpI9WDlBvyMzSu7b"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "freedom-of-movement",
+                "target": {
+                    "value": "1 creature touched"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "fk3fyHsCu9fQAT3f",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gPvtmKMRpg9I9D7H"
+            },
+            "img": "icons/magic/earth/barrier-stone-explosion-debris.webp",
+            "name": "Earthbind (At Will)",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>Using the weight of earth, you hamper a target's flight, with effects based on its Fortitude save. If the creature reaches the ground safely, it doesn't take falling damage.</p>\n<hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target falls safely up to 120 feet.</p>\n<p><strong>Failure</strong> The target falls safely up to 120 feet. If it hits the ground, it can't Fly, levitate, or otherwise leave the ground for 1 round.</p>\n<p><strong>Critical Failure</strong> The target falls safely up to 120 feet. If it hits the ground, it can't Fly, levitate, or otherwise leave the ground for 1 minute.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "varies"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "heightenedLevel": 3,
+                    "value": "mpI9WDlBvyMzSu7b"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "earthbind",
+                "target": {
+                    "value": "1 flying creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "z7ibYqOwng8NoutT",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.dLdRqT6UxTKlsPgp"
+            },
+            "img": "systems/pf2e/icons/spells/death-knell.webp",
+            "name": "Death Knell (At Will)",
+            "sort": 500000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You snuff the life out of a creature on the brink of death. The target must attempt a Will save. If this kills it, you gain 10 temporary HP and a +1 status bonus to attack and damage rolls for 10 minutes.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target's @UUID[Compendium.pf2e.conditionitems.Item.Dying] value increases by 1.</p>\n<p><strong>Failure</strong> The target dies.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Death Knell]</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "heightenedLevel": 2,
+                    "value": "mpI9WDlBvyMzSu7b"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "death-knell",
+                "target": {
+                    "value": "1 living creature that has 0 HP"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "death",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "oNwa9xvzJCz17I9G",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.BBvV7qoXGdw09q1C"
+            },
+            "img": "icons/creatures/mammals/ox-buffalo-horned-green.webp",
+            "name": "Speak with Animals (Constant)",
+            "sort": 600000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You can ask questions of, receive answers from, and use the Diplomacy skill with animals. The spell doesn't make them more friendly than normal. Cunning animals are likely to be terse and evasive, while less intelligent ones often make inane comments.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "10 minutes"
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "heightenedLevel": 4,
+                    "value": "mpI9WDlBvyMzSu7b"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "speak-with-animals",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "nXoB7LFaHXpqw20J",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.vLA0q0WOK2YPuJs6"
+            },
+            "img": "systems/pf2e/icons/spells/charm.webp",
+            "name": "Charm (At Will)",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>To the target, your words are honey and your visage seems bathed in a dreamy haze. It must attempt a Will save, with a +4 circumstance bonus if you or your allies recently threatened it or used hostile actions against it.</p>\n<p>You can Dismiss the spell. If you use hostile actions against the target, the spell ends. When the spell ends, the target doesn't necessarily realize it was charmed unless its friendship with you or the actions you convinced it to take clash with its expectations, meaning you could potentially convince the target to continue being your friend via mundane means.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected and aware you tried to charm it.</p>\n<p><strong>Success</strong> The target is unaffected but thinks your spell was something harmless instead of charm, unless it identifies the spell.</p>\n<p><strong>Failure</strong> The target's attitude becomes @UUID[Compendium.pf2e.conditionitems.Item.Friendly] toward you. If it was Friendly, it becomes @UUID[Compendium.pf2e.conditionitems.Item.Helpful]. It can't use hostile actions against you.</p>\n<p><strong>Critical Failure</strong> The target's attitude becomes Helpful toward you, and it can't use hostile actions against you.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> The duration lasts until the next time you make your daily preparations.</p>\n<p><strong>Heightened (8th)</strong> The duration lasts until the next time you make your daily preparations, and you can target up to 10 creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 hour"
+                },
+                "heightening": {
+                    "levels": {
+                        "8": {
+                            "target": {
+                                "value": "10 creatures"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "heightenedLevel": 1,
+                    "value": "mpI9WDlBvyMzSu7b"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "charm",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "emotion",
+                        "incapacitation",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "xjFxQMG8LqqSSG1W",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.4koZzrnMXhhosn0D"
+            },
+            "img": "systems/pf2e/icons/spells/fear.webp",
+            "name": "Fear (At Will)",
+            "sort": 800000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You plant fear in the target; it must attempt a Will save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3} and @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] for 1 round.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You can target up to five creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "varies"
+                },
+                "heightening": {
+                    "levels": {
+                        "3": {
+                            "target": {
+                                "value": "5 creatures"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "heightenedLevel": 3,
+                    "value": "mpI9WDlBvyMzSu7b"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "fear",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "emotion",
+                        "fear",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "UNSjROv54VCnZ2ho",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.JNt7GmLCCVz5BiEI"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/javelin.webp",
+            "name": "Javelin",
+            "sort": 900000,
+            "system": {
+                "baseItem": "javelin",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "simple",
+                "containerId": null,
+                "damage": {
+                    "damageType": "piercing",
+                    "dice": 1,
+                    "die": "d6"
+                },
+                "description": {
+                    "value": "<p>This thin spear is well balanced for throwing but is not designed for melee use.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "dart",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 3,
+                "range": 30,
+                "reload": {
+                    "value": "-"
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "javelin",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "thrown"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "6awATcLdnEvB90cn",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.aXuJh4i8HqSu6NYV"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/longspear.webp",
+            "name": "Longspear",
+            "sort": 1000000,
+            "system": {
+                "baseItem": "longspear",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 2
+                },
+                "category": "simple",
+                "containerId": null,
+                "damage": {
+                    "damageType": "piercing",
+                    "dice": 1,
+                    "die": "d8"
+                },
+                "description": {
+                    "value": "<p>This very long spear, sometimes called a pike, is purely for thrusting rather than throwing. Used by many soldiers and city watch for crowd control and defense against charging enemies, it must be wielded with two hands.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "spear",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 5
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": ""
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "longspear",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "reach"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-two-hands"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "k2zMnY1SyorStHC4",
+            "img": "systems/pf2e/icons/default-icons/equipment.svg",
+            "name": "Animal Trophy",
+            "sort": 1100000,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "ekY9AwnqyyIWyeLF",
+            "img": "systems/pf2e/icons/default-icons/equipment.svg",
+            "name": "Beast Trophy",
+            "sort": 1200000,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "oZTpbgQ9GxSw2jn6",
+            "img": "systems/pf2e/icons/default-icons/equipment.svg",
+            "name": "Humanoid Trophy",
+            "sort": 1300000,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "7GOoRsbrE9UaDr1e",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 1400000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 18
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "2d10+8",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "unarmed",
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "aXVkoRdPUFm0chi2",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "6awATcLdnEvB90cn"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Longspear",
+            "sort": 1500000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "wicked-trophies"
+                    ]
+                },
+                "bonus": {
+                    "value": 18
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "1d8+8",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "reach-10",
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "Xk4mAJsQXmo4Abnd",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "UNSjROv54VCnZ2ho"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Javelin",
+            "sort": 1600000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": [
+                        "wicked-trophies"
+                    ]
+                },
+                "bonus": {
+                    "value": 14
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "1d6+8",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "thrown-30",
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "ranged"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "mbsMNMc4Ko20wyxU",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.kakyXBG5WA8c6Zfd"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Constant Spells",
+            "sort": 1700000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.ConstantSpells]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "constant-spells",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "5I3RhiAu5JJ8xYWB",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.hFtNbo1LKYCoDy2O"
+            },
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Attack of Opportunity",
+            "sort": 1800000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.AttackOfOpportunity]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "attack-of-opportunity",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "E7RPGCghR7RuRFmy",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Reptile Master",
+            "sort": 1900000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When an ahvothian uses an innate spell against a reptile, the DC is 27 rather than 23.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "ObmsLNn679xvM3dS",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Wicked Trophies",
+            "sort": 2000000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>An ahvothian chooses a creature type (such as animal, celestial, or humanoid) from which they currently carry a trophy from a past kill.</p>\n<p>Their weapon Strikes against creatures of that type deal an additional [[/r 1d10]] damage and they gain a +2 status bonus on Intimidation checks against creatures of that type.</p>\n<p>The ahvothian doesn't lose these bonuses if they lose the trophies. Once per day, an ahvothian can change the creature type of their wicked trophies in a ritual that takes 1 hour.</p>\n<p>Nearly all ahvothians encountered on the Material Plane have selected humanoids as the focus of their wicked trophies.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "label": "Target is subject of Wicked Trophies",
+                        "option": "wicked-trophies",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "wicked-trophies"
+                        ],
+                        "selector": "intimidation",
+                        "type": "status",
+                        "value": 2
+                    },
+                    {
+                        "diceNumber": 1,
+                        "dieSize": "d10",
+                        "key": "DamageDice",
+                        "predicate": [
+                            "wicked-trophies",
+                            {
+                                "or": [
+                                    "item:slug:longspear",
+                                    "item:slug:javelin"
+                                ]
+                            }
+                        ],
+                        "selector": "strike-damage"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Ahvothian",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 2
+            },
+            "con": {
+                "mod": 4
+            },
+            "dex": {
+                "mod": 2
+            },
+            "int": {
+                "mod": 0
+            },
+            "str": {
+                "mod": 6
+            },
+            "wis": {
+                "mod": 4
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 25
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 160,
+                "temp": 0,
+                "value": 160
+            },
+            "resistances": [
+                {
+                    "type": "fire",
+                    "value": 10
+                }
+            ],
+            "speed": {
+                "details": "freedom of movement",
+                "otherSpeeds": [
+                    {
+                        "type": "Freedom Of Movement",
+                        "value": 25
+                    }
+                ],
+                "value": 30
+            },
+            "weaknesses": [
+                {
+                    "type": "cold",
+                    "value": 5
+                },
+                {
+                    "type": "holy",
+                    "value": 5
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "speak with animals",
+                "value": [
+                    "chthonian",
+                    "common"
+                ]
+            },
+            "level": {
+                "value": 7
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Ahvothians are feral and cunning fiends from an Abyssal realm of jungles, dinosaurs, and relentless brutality. They resemble humanoid dinosaurs with narrow, fanged heads similar to raptors and solid, heavy legs like sauropods. Relentless trackers and survivalists, ahvothians are skilled at navigating jungles and are most commonly encountered stalking prey or operating out of fortified ruins. Ahvothians have an uncanny affinity with reptiles, and they often use dinosaurs-particularly carnivores such as allosauruses or deinonychuses-as hunting companions or guard animals. Although dangerous in large groups, ahvothians have such a strong desire to assert dominance over others that ahvothian armies frequently fall to infighting and bloody battles for dominance within days, or even hours. The mightiest ahvothians might lead dozens of their kin and herds of carnivorous dinosaurs.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Adventure: The Slithering"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 18,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {
+            "focus": {
+                "max": 1,
+                "value": 1
+            }
+        },
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 18
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 12
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 15
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 19
+            },
+            "crafting": {
+                "base": 11
+            },
+            "intimidation": {
+                "base": 15,
+                "special": [
+                    {
+                        "base": 17,
+                        "label": "against humanoids",
+                        "predicate": [
+                            "target:trait:humanoid"
+                        ]
+                    }
+                ]
+            },
+            "religion": {
+                "base": 11
+            },
+            "survival": {
+                "base": 17
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "chaotic",
+                "evil",
+                "fiend",
+                "unholy"
+            ]
+        }
+    },
+    "type": "npc"
+}

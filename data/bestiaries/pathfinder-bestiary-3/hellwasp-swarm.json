@@ -1,0 +1,349 @@
+{
+    "_id": "N6nBHGfmlaeMiBMP",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "WtYldqbo5WHxuBHU",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.baA0nSMhQyFyJIia"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Swarm Mind",
+            "sort": 100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.SwarmMind]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "swarm-mind",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "lZYIDbiemHOhYhm5",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Abandon Corpse",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Requirements</strong> The hellwasp swarm is controlling a corpse with Infest Corpse</p>\n<hr />\n<p><strong>Effect</strong> The hellwasp swarm leaves its host corpse, which dies instantly and becomes a normal corpse in all respects. The hellwasp swarm expands out from that space to its normal size.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "shT4gXjrfuduYtZr",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Hellwasp Stings",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Each enemy in the swarm's space takes @Damage[4d8[piercing]] damage (@Check[reflex|dc:26|basic] save). Any creature that fails its saving throw is exposed to hellwasp venom.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "LKCha1KO0muUvUr0",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Hellwasp Venom",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Saving Throw</strong> @Check[fortitude|dc:26]</p>\n<hr />\n<p><strong>Maximum Duration</strong> 6 rounds</p>\n<p><strong>Stage 1</strong> @Damage[1d8[poison]] damage and @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 2} (1 round)</p>\n<p><strong>Stage 2</strong> @Damage[2d8[poison]] damage and clumsy 2 (1 round)</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "poison"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "VvNRwoYk3JBUgyor",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Infest Corpse",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The hellwasp swarm animates the corpse of a Small, Medium, or Large humanoid that protected by @UUID[Compendium.pf2e.spells-srd.Item.Peaceful Rest] or similar magic, crawling into its mouth and other orifices.</p>\n<p>Its size changes to that of the corpse and it loses its piercing and slashing resistances, fly Speed, and Hellwasp Stings.</p>\n<p>It gains a fist melee Strike with a [[/r 1d20+18 #Fist]]{+18}/[[/r 1d20+13 #Fist]]{+13}/[[/r 1d20+8 #Fist]]{+8} attack modifier that deals @Damage[2d8[bludgeoning],2d8[piercing]]{2d8 bludgeoning damage plus 2d8 piercing damage} and hellwasp venom. The hellwasp swarm gains [[/r 40 #Temporary Hit Points]]{40 temporary Hit Points} when it Infests a Corpse; when these temporary HP are depleted, the corpse falls apart and the swarm Abandons the Corpse automatically.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "jbOS76Gp3MzY4W9x",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Torturous Buzz",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The swarm emits a distracting, cacophonous buzzing. Each creature within @Template[emanation|distance:20]{20 feet} must attempt a @Check[will|dc:26] save.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected and temporarily immune for 1 minute.</p>\n<p><strong>Success</strong> The creature is unaffected.</p>\n<p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Confused] for 1 round.</p>\n<p><strong>Critical Failure</strong> The creature is confused for [[/gmr 1d4 #Duration Confused]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "auditory",
+                        "emotion",
+                        "incapacitation",
+                        "occult"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Hellwasp Swarm",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -2
+            },
+            "con": {
+                "mod": 6
+            },
+            "dex": {
+                "mod": 4
+            },
+            "int": {
+                "mod": -3
+            },
+            "str": {
+                "mod": 0
+            },
+            "wis": {
+                "mod": 2
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 24
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 95,
+                "temp": 0,
+                "value": 95
+            },
+            "immunities": [
+                {
+                    "type": "precision"
+                },
+                {
+                    "type": "swarm-mind"
+                }
+            ],
+            "resistances": [
+                {
+                    "type": "bludgeoning",
+                    "value": 5
+                },
+                {
+                    "type": "fire",
+                    "value": 10
+                },
+                {
+                    "type": "piercing",
+                    "value": 10
+                },
+                {
+                    "type": "slashing",
+                    "value": 5
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 40
+                    }
+                ],
+                "value": 20
+            },
+            "weaknesses": [
+                {
+                    "type": "area-damage",
+                    "value": 10
+                },
+                {
+                    "type": "splash-damage",
+                    "value": 10
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "(can't speak any language)",
+                "value": [
+                    "diabolic"
+                ]
+            },
+            "level": {
+                "value": 8
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Hellwasps' infernal nature allows them to collectively inhabit and control humanoid corpses, and they use this ability to infest and horrify large swathes of territory unless destroyed. While individual hellwasp poses little threat, these fist-sized insects instinctively form into aggressive swarms that will viciously attack any creature approaching their colony, the lone exception being powerful fiends.</p>\n<p>Hellwasp swarms have a rudimentary intelligence focused on the protection and expansion of their colony. They can understand Infernal but are incapable of speech. They sometimes obey simple commands from a lawful fiend more powerful than their swarm, but there is no nuance or understanding to this obedience, and if left alone for more than a day they stop obeying and return to their colony.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary 3"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 16,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 18
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 16
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 14
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 18
+            },
+            "stealth": {
+                "base": 18
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "evil",
+                "fiend",
+                "lawful",
+                "swarm",
+                "unholy"
+            ]
+        }
+    },
+    "type": "npc"
+}

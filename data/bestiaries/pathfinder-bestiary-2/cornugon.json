@@ -1,0 +1,1332 @@
+{
+    "_id": "i8C4jqI3VdozylBL",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "e45FiBhbCxHP7Had",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Divine Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "flexible": false,
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 36,
+                    "mod": 0,
+                    "value": 28
+                },
+                "tradition": {
+                    "value": "divine"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "WCQlFC5ws7lGO3JY",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.VlNcjmYyu95vOUe8"
+            },
+            "img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
+            "name": "Dimension Door",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>Opening a door that bypasses normal space, you instantly transport yourself and any items you're wearing and holding from your current space to a clear space within range you can see. If this would bring another creature with you-even if you're carrying it in an extradimensional container-the spell is lost.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The range increases to 1 mile. You don't need to be able to see your destination, as long as you have been there in the past and know its relative location and distance from you. You are temporarily immune for 1 hour.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "levels": {
+                        "5": {
+                            "range": {
+                                "value": "1 mile"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "heightenedLevel": 5,
+                    "value": "e45FiBhbCxHP7Had"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "dimension-door",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "teleportation"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "SOdblsm3svF3C9dl",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.VlNcjmYyu95vOUe8"
+            },
+            "img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
+            "name": "Dimension Door (At Will)",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>Opening a door that bypasses normal space, you instantly transport yourself and any items you're wearing and holding from your current space to a clear space within range you can see. If this would bring another creature with you-even if you're carrying it in an extradimensional container-the spell is lost.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The range increases to 1 mile. You don't need to be able to see your destination, as long as you have been there in the past and know its relative location and distance from you. You are temporarily immune for 1 hour.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "levels": {
+                        "5": {
+                            "range": {
+                                "value": "1 mile"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "heightenedLevel": 4,
+                    "value": "e45FiBhbCxHP7Had"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "dimension-door",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "teleportation"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "LhTXxiflh9Y0Qgrd",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.sxQZ6yqTn0czJxVd"
+            },
+            "img": "icons/magic/fire/projectile-fireball-orange-yellow.webp",
+            "name": "Fireball",
+            "sort": 400000,
+            "system": {
+                "area": {
+                    "type": "burst",
+                    "value": 20
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "6d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "fire"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
+                "description": {
+                    "value": "<p>A roaring blast of fire appears at a spot you designate, dealing 6d6 fire damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "2d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "uses": {
+                        "max": 2,
+                        "value": 2
+                    },
+                    "value": "e45FiBhbCxHP7Had"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "500 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "fireball",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "fire",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "Z8uKG92WFDWOytoo",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.9AAkVUCwF6WVNNY2"
+            },
+            "img": "icons/magic/lightning/bolt-strike-sparks-blue.webp",
+            "name": "Lightning Bolt",
+            "sort": 500000,
+            "system": {
+                "area": {
+                    "type": "line",
+                    "value": 120
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "4d12",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "electricity"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
+                "description": {
+                    "value": "<p>A bolt of lightning strikes outward from your hand, dealing 4d12 electricity damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d12.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d12"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "uses": {
+                        "max": 2,
+                        "value": 2
+                    },
+                    "value": "e45FiBhbCxHP7Had"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "lightning-bolt",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "electricity",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "XUgPw2gwxeasXIwN",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.9HpwDN4MYQJnW0LG"
+            },
+            "img": "systems/pf2e/icons/spells/dispel-magic.webp",
+            "name": "Dispel Magic",
+            "sort": 600000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": true,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You unravel the magic behind a spell or effect. Attempt a counteract check against the target. If you successfully counteract a magic item, the item becomes a mundane item of its type for 10 minutes. This doesn't change the item's non-magical properties. If the target is an artifact or similar item, you automatically fail.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "value": "e45FiBhbCxHP7Had"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "dispel-magic",
+                "target": {
+                    "value": "1 spell effect or unattended magic item"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "xkejELkWzoE9Cjs1",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.30BBep9U4BDV0EgQ"
+            },
+            "img": "systems/pf2e/icons/spells/infernal-pact.webp",
+            "name": "Infernal Pact",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You make an appeal to a powerful devil, asking it to bind some of its subordinates to your service. If you succeed, the devil sends you its choice of one devil whose level is no more than double <em>infernal pact's</em> rank, two devils whose levels are each at least 2 less than double the spell rank, or three devils whose levels are each at least 3 less than double the spell rank.</p>\n<hr />\n<p><strong>Critical Success</strong> The devils are sent to you and serve you for [[/r 1d4 #weeks]]{1d4 weeks}.</p>\n<p><strong>Success</strong> The devils are sent to you and serve you for [[/r 1d4 #days]]{1d4 days}.</p>\n<p><strong>Failure</strong> Your request is denied.</p>\n<p><strong>Critical Failure</strong> Not only is your request denied, but the powerful devil sends word of its displeasure to your master.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": null
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "ritual": {
+                    "primary": {
+                        "check": "Religion (expert; you must be a devil)"
+                    },
+                    "secondary": {
+                        "casters": 0,
+                        "checks": ""
+                    }
+                },
+                "rules": [],
+                "slug": "infernal-pact",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "1 day"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": []
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "lsRbdvha9BWdhNaL",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.zi9ovfoRp2fMhfpO"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/spiked-chain.webp",
+            "name": "Spiked Chain",
+            "sort": 800000,
+            "system": {
+                "baseItem": "spiked-chain",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 1
+                },
+                "category": "martial",
+                "containerId": null,
+                "damage": {
+                    "damageType": "slashing",
+                    "dice": 1,
+                    "die": "d8"
+                },
+                "description": {
+                    "value": "<p>This 4-foot-long length of chain is covered with barbs and has spikes on one or both ends. Some feature metal hoops used as handgrips.</p>"
+                },
+                "equipped": {
+                    "carryType": "held",
+                    "handsHeld": 2,
+                    "invested": null
+                },
+                "group": "flail",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 3
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": ""
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 2,
+                    "property": [
+                        "unholy"
+                    ],
+                    "striking": 2
+                },
+                "size": "lg",
+                "slug": "spiked-chain",
+                "splashDamage": {
+                    "value": null
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "value": [
+                        "disarm",
+                        "finesse",
+                        "trip"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-two-hands"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "4MEkxras2sA4aWfg",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "lsRbdvha9BWdhNaL"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Spiked Chain",
+            "sort": 900000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "stunning-chain"
+                    ]
+                },
+                "bonus": {
+                    "value": 34
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "3d8+16",
+                        "damageType": "slashing"
+                    },
+                    "1": {
+                        "damage": "2d6",
+                        "damageType": "spirit"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "disarm",
+                        "evil",
+                        "finesse",
+                        "magical",
+                        "reach-10",
+                        "trip",
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "IS4BmsREr7eTZUPO",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Claw",
+            "sort": 1000000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": []
+                },
+                "bonus": {
+                    "value": 32
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "3d10+14",
+                        "damageType": "slashing"
+                    },
+                    "1": {
+                        "damage": "1d6",
+                        "damageType": "spirit"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "magical",
+                        "reach-10",
+                        "unarmed",
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "PxJ09KlgYVpdaklS",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Tail",
+            "sort": 1100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "infernal-wound"
+                    ]
+                },
+                "bonus": {
+                    "value": 32
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "3d8+14",
+                        "damageType": "slashing"
+                    },
+                    "1": {
+                        "damage": "1d6",
+                        "damageType": "spirit"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "tail",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "magical",
+                        "reach-10",
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "CxhKccyCVc1NDZFs",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.4Ho2xMPEC05aSxzr"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Greater Darkvision",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.GreaterDarkvision]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "greater-darkvision",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "zYVeJXwYqCDo3GsP",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.kdhbPaBMK1d1fpbA"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Telepathy 100 feet",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Telepathy]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "telepathy",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "magical"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "quht5jPh2LiFjJft",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.kquBnQ0kObZztnBc"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "+1 Status to All Saves vs. Magic",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "item:magical"
+                        ],
+                        "selector": "saving-throw",
+                        "type": "status",
+                        "value": 1
+                    }
+                ],
+                "slug": "1-status-to-all-saves-vs-magic",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "jzI4ObWhN1kXyFjY",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.hFtNbo1LKYCoDy2O"
+            },
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Attack of Opportunity",
+            "sort": 1500000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.AttackOfOpportunity]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "attack-of-opportunity",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "O10CpdkrcpxqCHHH",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Circle of Protection",
+            "sort": 1600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>10 feet. A constant @UUID[Compendium.pf2e.spells-srd.Item.Circle of Protection] against good is centered on the cornugon.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "divine",
+                        "evil"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Fu1B7hcvnk9S79DA",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Commander's Aura",
+            "sort": 1700000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>100 feet. Allied evil creatures in the aura of lower level than the devil's gain a +1 circumstance bonus to attack rolls, damage rolls, AC, saves, and skill checks.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Commander's Aura]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "effects": [
+                            {
+                                "affects": "allies",
+                                "events": [
+                                    "enter"
+                                ],
+                                "includesSelf": false,
+                                "predicate": [
+                                    "target:trait:evil",
+                                    {
+                                        "lt": [
+                                            "target:level",
+                                            "self:level"
+                                        ]
+                                    }
+                                ],
+                                "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Commander's Aura"
+                            }
+                        ],
+                        "key": "Aura",
+                        "radius": 100,
+                        "slug": "commanders-aura",
+                        "traits": [
+                            "divine"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "ssitSO6O1esw1YHS",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.etMnv73EIdEZrYYu"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Frightful Presence",
+            "sort": 1800000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>10 feet. @Check[will|dc:34]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 10,
+                        "slug": "frightful-presence",
+                        "traits": [
+                            "emotion",
+                            "fear",
+                            "mental"
+                        ]
+                    }
+                ],
+                "slug": "frightful-presence",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "emotion",
+                        "fear",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "rQn75QJUJH2hQKpE",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Chain of Malebolge",
+            "sort": 1900000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Requirements</strong> The cornugon's last action was a success with a spiked chain Strike.</p>\n<hr />\n<p><strong>Effect</strong> The devil pulls the creature 5 feet closer and @UUID[Compendium.pf2e.conditionitems.Item.Grabbed]{Grabs} it with the spiked chain (@UUID[Compendium.pf2e.actionspf2e.Item.Escape] DC 42). The creature is automatically freed if the devil makes another spiked chain attack or moves away.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "pUwo9wumwrjtvid1",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Infernal Wound",
+            "sort": 2000000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>A cornugon's tail Strike deals @Damage[4d6[bleed]].</p>\n<p>The DC of the flat check to stop the bleeding starts at @Check[flat|dc:20] and is reduced to @Check[flat|dc:15] only if someone successfully assists. The DC to @UUID[Compendium.pf2e.actionspf2e.Item.Administer First Aid] to a creature with an infernal wound increases by 10.</p>\n<p>A spellcaster or item using healing magic on an infernally wounded creature must succeed at a DC 34 counteract check or the magic fails to heal the creature.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Infernal Wound]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "damageType": "bleed",
+                        "diceNumber": 4,
+                        "dieSize": "d6",
+                        "key": "DamageDice",
+                        "selector": "tail-damage"
+                    }
+                ],
+                "slug": "infernal-wound",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "WHISh35la4f2ULAj",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Stunning Chain",
+            "sort": 2100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>If the cornugon critically hits with its spiked chain Strike, the target must succeed at a @Check[fortitude|dc:34] save or be @UUID[Compendium.pf2e.conditionitems.Item.Stunned] for 1 round ([[/gmr 1d4 #Duration Stun]]{1d4 rounds} on a critical failure).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "stunning-chain",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "incapacitation"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "TWwOYkc75X6kXsmZ",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Warfare Lore",
+            "sort": 2200000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 30
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Cornugon",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 6
+            },
+            "con": {
+                "mod": 7
+            },
+            "dex": {
+                "mod": 6
+            },
+            "int": {
+                "mod": 4
+            },
+            "str": {
+                "mod": 8
+            },
+            "wis": {
+                "mod": 6
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 38
+            },
+            "allSaves": {
+                "value": "+1 status to all saves vs. magic"
+            },
+            "hp": {
+                "details": "",
+                "max": 300,
+                "temp": 0,
+                "value": 300
+            },
+            "immunities": [
+                {
+                    "type": "fire"
+                }
+            ],
+            "resistances": [
+                {
+                    "exceptions": [
+                        "silver"
+                    ],
+                    "type": "physical",
+                    "value": 15
+                },
+                {
+                    "type": "poison",
+                    "value": 15
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 50
+                    }
+                ],
+                "value": 25
+            },
+            "weaknesses": [
+                {
+                    "type": "holy",
+                    "value": 15
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "telepathy 100 feet",
+                "value": [
+                    "common",
+                    "diabolic",
+                    "draconic",
+                    "empyrean"
+                ]
+            },
+            "level": {
+                "value": 16
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Hell's armies contain legions upon legions of different devils all suited precisely to their roles. But such an army needs able commanders, and it is this role that cornugons fill. Their mere presence inspires those under their command to improved performance- often through fear of the horrible torments that a cornugon can unleash as punishment for failure. Forged in the fires of Malebolge from the most renowned warriors among lesser devilkind, even the least cornugon is among the fiercest warriors of the multiverse. The greatest among them on occasion ascend further still, becoming those rare and feared legends of Hell called malebranche.</p>\n<hr />\n<p>Each type of devil plays a particular role in Hell's bureaucracies and hierarchies, though some have far more specialized functions than others.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary 2"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 28,
+            "senses": [
+                {
+                    "type": "greater-darkvision"
+                }
+            ]
+        },
+        "resources": {
+            "focus": {
+                "max": 1,
+                "value": 1
+            }
+        },
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 31
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 26
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 26
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 28
+            },
+            "athletics": {
+                "base": 32
+            },
+            "intimidation": {
+                "base": 30
+            },
+            "religion": {
+                "base": 28
+            },
+            "stealth": {
+                "base": 26
+            }
+        },
+        "spellcasting": {
+            "rituals": {
+                "dc": 36
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "devil",
+                "evil",
+                "fiend",
+                "lawful",
+                "unholy"
+            ]
+        }
+    },
+    "type": "npc"
+}

@@ -1,0 +1,361 @@
+{
+    "_id": "GD8yAL8R8oft23Ml",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "a9aLzghe9uCANIDN",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": []
+                },
+                "bonus": {
+                    "value": 10
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "1d6+1",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "hFX9SvNVh26s4No7",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Fade Away",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A creature within 30 feet that the fading fox is aware of either moves toward the fox or targets it with an ability</p>\n<p><strong>Requirements</strong> The fading fox is in natural surroundings</p>\n<hr />\n<p><strong>Effect</strong> The fading fox @UUID[Compendium.pf2e.actionspf2e.Item.Hide]{Hides}. If its Stealth check result meets or exceeds the triggering creature's Perception DC, the fading fox is @UUID[Compendium.pf2e.conditionitems.Item.Hidden] to that creature.</p>\n<p>The fading fox can use this reaction even if it is being @UUID[Compendium.pf2e.conditionitems.Item.Observed].</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "3p5BUgo3SACdAkGj",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Leaping Pounce",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The fading fox either Strides or Leaps up to its Speed and makes a Strike at the end of that movement.</p>\n<p>If the fox began this action @UUID[Compendium.pf2e.conditionitems.Item.Hidden], it remains hidden until after this ability's Strike.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "1qHeEusR10OOW67e",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.AWvNPE4U0kEJSL1T"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Sneak Attack",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The fading fox deals an additional 1d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [
+                    {
+                        "category": "precision",
+                        "diceNumber": 1,
+                        "dieSize": "d6",
+                        "key": "DamageDice",
+                        "predicate": [
+                            "target:condition:off-guard"
+                        ],
+                        "selector": "strike-damage"
+                    },
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+                        "option": "target:condition:off-guard",
+                        "toggleable": "totm"
+                    }
+                ],
+                "slug": "sneak-attack",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "PLTi8diRg1rhDOR9",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Trackless Step",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The fading fox always gains the benefits of @UUID[Compendium.pf2e.actionspf2e.Item.Cover Tracks] in natural surroundings, even while moving at full Speed.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "0IOuDjFm6iLT2q5x",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Vanish into the Wilds",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Requirements</strong> The fading fox is in natural surroundings</p>\n<hr />\n<p><strong>Effect</strong> The fading fox Steps, then @UUID[Compendium.pf2e.actionspf2e.Item.Hide]{Hides}, then @UUID[Compendium.pf2e.actionspf2e.Item.Sneak]{Sneaks}. It can take this Step into natural difficult terrain and can Hide in this way even if it is being @UUID[Compendium.pf2e.conditionitems.Item.Observed].</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Fading Fox",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 0
+            },
+            "con": {
+                "mod": 1
+            },
+            "dex": {
+                "mod": 4
+            },
+            "int": {
+                "mod": -4
+            },
+            "str": {
+                "mod": -1
+            },
+            "wis": {
+                "mod": 3
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 21
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 25,
+                "temp": 0,
+                "value": 25
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 35
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 2
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>With fur that shifts between hues of red, dull brown, and silver as it moves, the fading fox vexes any pursuer. It has a knack for escaping traps, leaves no footprints, and seemingly disappears into thin air. Fading foxes have lustrous fur and a robust build that set them apart from their red fox progenitors.</p>\n<hr />\n<p>Elusive and shrewd, foxes have gained a reputation as sly tricksters, earning them a place in many folk tales.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary 3"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 11,
+            "senses": [
+                {
+                    "type": "low-light-vision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 30,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 7
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 10
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 7
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 8,
+                "special": [
+                    {
+                        "base": 10,
+                        "label": "to Escape",
+                        "predicate": [
+                            "action:escape"
+                        ]
+                    }
+                ]
+            },
+            "athletics": {
+                "base": 5,
+                "special": [
+                    {
+                        "base": 7,
+                        "label": "to High Jump or Long Jump",
+                        "predicate": [
+                            {
+                                "or": [
+                                    "action:high-jump",
+                                    "action:long-jump"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "stealth": {
+                "base": 10
+            },
+            "survival": {
+                "base": 9
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "tiny"
+            },
+            "value": [
+                "animal"
+            ]
+        }
+    },
+    "type": "npc"
+}

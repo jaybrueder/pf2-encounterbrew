@@ -2,9 +2,12 @@ package server
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+
+	_ "github.com/joho/godotenv/autoload"
 
 	"pf2.encounterbrew.com/cmd/web"
 	"pf2.encounterbrew.com/cmd/web/encounter"
@@ -22,7 +25,7 @@ func (s *Server) RegisterRoutes() http.Handler {
 	// Basic HTTP Auth until we have a proper auth system
 	e.Use(middleware.BasicAuth(func(username, password string, c echo.Context) (bool, error) {
 		// Define your credentials
-		if username == "dragon" && password == "hobgoblin" {
+		if username == os.Getenv("USERNAME") && password == os.Getenv("PASSWORD") {
 			return true, nil
 		}
 		return false, nil

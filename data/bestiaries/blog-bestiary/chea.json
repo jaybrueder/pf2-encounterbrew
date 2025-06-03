@@ -1,0 +1,838 @@
+{
+    "_id": "DqDwGNZzUrtlKJQ6",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "4ACmoQqhE8gwlHTv",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Monk Focus Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "flexible": false,
+                    "value": "focus"
+                },
+                "proficiency": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slots": {
+                    "slot5": {
+                        "max": 3,
+                        "value": 3
+                    }
+                },
+                "slug": null,
+                "spelldc": {
+                    "dc": 25,
+                    "mod": 0,
+                    "value": 17
+                },
+                "tradition": {
+                    "value": "arcane"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "yKx1IobYCQnqBEag",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.ps0nmhclT6aIXgd8"
+            },
+            "img": "systems/pf2e/icons/spells/ki-rush.webp",
+            "name": "Ki Rush (Focus)",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>Accelerated by your ki, you move with such speed you become a blur. Move two times: two Strides, two Steps, or one Stride and one @UUID[Compendium.pf2e.actionspf2e.Item.Step] (in either order). You gain the @UUID[Compendium.pf2e.conditionitems.Item.Concealed] condition during this movement and until the start of your next turn.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "value": "4ACmoQqhE8gwlHTv"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "ki-rush",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "1"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": [
+                        "concentrate",
+                        "focus",
+                        "monk"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "1RJKBJL8ppM4xXWI",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.ZL8NTvB22NeEWhVG"
+            },
+            "img": "systems/pf2e/icons/spells/ki-strike.webp",
+            "name": "Ki Strike (Focus)",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "category": null,
+                        "formula": "2d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "untyped"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>You focus your ki into magical attacks. Make an unarmed Strike or Flurry of Blows (this doesn't change the limit on using only one flourish per turn). You gain a +1 status bonus to your attack rolls with the Strikes, and the Strikes deal 1d6 extra damage. This damage can be any of the following types of your choice, chosen each time you Strike: force, lawful (only if you're lawful), negative, or positive.</p>\n<hr />\n<p><strong>Heightened (+4)</strong> The extra damage increases by 1d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d6"
+                    },
+                    "interval": 4,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "value": "4ACmoQqhE8gwlHTv"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "ki-strike",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "1"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": [
+                        "concentrate",
+                        "focus",
+                        "monk"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "n7jlCCIAkrFfGj3N",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.tvO6Kmc2pQve9DC5"
+            },
+            "img": "icons/skills/movement/arrow-upward-yellow.webp",
+            "name": "Unfolding Wind Rush",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You travel on a rushing wind. Move two times: two Strides, two Steps, or one Stride and one Step (in either order). You can Stride or Step into the air during this movement, moving upward at a 45-degree angle at most; if you end your movement in the air, you fall after taking one action or when your turn ends, whichever comes first. A @UUID[Compendium.pf2e.spells-srd.Item.Wall of Wind] appears in all the spaces you left during this movement, lasting for 1 round.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The <em>wall of wind</em> lasts 3 rounds.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "value": "4ACmoQqhE8gwlHTv"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "unfolding-wind-rush",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "1"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": [
+                        "concentrate",
+                        "focus"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "lcpur4C4AmXM9nqR",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.FNDq4NFSN0g2HKWO"
+            },
+            "img": "icons/equipment/hand/gauntlet-simple-leather-brown-gold.webp",
+            "name": "+1 Striking Handwraps of Mighty Blows",
+            "sort": 500000,
+            "system": {
+                "baseItem": null,
+                "bonus": {
+                    "value": 1
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 0
+                },
+                "category": "unarmed",
+                "containerId": null,
+                "damage": {
+                    "damageType": "bludgeoning",
+                    "dice": 1,
+                    "die": "d4"
+                },
+                "description": {
+                    "value": "<p>As you invest these embroidered strips of cloth, you must meditate and slowly wrap them around your hands. These handwraps have weapon runes etched into them to give your unarmed attacks the benefits of those runes, making your unarmed attacks work like magic weapons. For example, <em>+1 striking handwraps of mighty blows</em> would give you a +1 item bonus to attack rolls with your unarmed attacks and increase the damage of your unarmed attacks from one weapon die to two (normally 2d4 instead of 1d4, but if your fists have a different weapon damage die or you have other unarmed attacks, use two of that die size instead).</p>\n<p>You can upgrade, add, and transfer runes to and from the handwraps just as you would for a weapon, and you can attach talismans to the handwraps. Treat the handwraps as melee weapons of the brawling group with light Bulk for these purposes. Property runes apply only when they would be applicable to the unarmed attack you're using. For example, a property that must be applied to a slashing weapon wouldn't function when you attacked with a fist, but you would gain its benefits if you attacked with a claw or some other slashing unarmed attack.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "inSlot": false,
+                    "invested": false
+                },
+                "group": "brawling",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 2
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 35
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": ""
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "handwraps-of-mighty-blows",
+                "splashDamage": {
+                    "value": null
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "invested",
+                        "magical",
+                        "nonlethal",
+                        "unarmed"
+                    ]
+                },
+                "usage": {
+                    "value": "worngloves"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "XowxFumTWRh8y5Ek",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Fist",
+            "sort": 600000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 19
+                },
+                "damageRolls": {
+                    "u8e7nx8czee8kynix9xx": {
+                        "damage": "2d6+11",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "magical",
+                        "nonlethal",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "7UBVimaEEErBZhia",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 700000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 19
+                },
+                "damageRolls": {
+                    "433ewx7hhiagaal6nvbp": {
+                        "damage": "2d4+11",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "jaws",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "magical",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "zaw9x45HWPiQ6dMB",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Wind Crash",
+            "sort": 800000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 19
+                },
+                "damageRolls": {
+                    "w8btgok8vrmej8mz3cb8": {
+                        "damage": "2d6+11",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "nonlethal",
+                        "propulsive",
+                        "range-30",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "ranged"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "pd9PCWlCBKlBNUFz",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Change Shape",
+            "sort": 900000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>Chea changes between her humanoid shape or hybrid shape. She gains a jaws unarmed Strike while in her hybrid shape.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "concentrate",
+                        "polymorph",
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "PyjVENdKRsFCdY1k",
+            "img": "systems/pf2e/icons/actions/FreeAction.webp",
+            "name": "Quick Change",
+            "sort": 1000000,
+            "system": {
+                "actionType": {
+                    "value": "free"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> Chea rolls initiative</p>\n<hr />\n<p><strong>Effect</strong> Chea's instincts kick in and she takes on an aggressive stance. Chea uses Change Shape to enter her hybrid form.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "selector": "initiative",
+                        "text": "{item|system.description.value}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "IGD4sNDyo86YwXHW",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Animalistic Resistance",
+            "sort": 1100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>Chea gains a +2 circumstance bonus to saves to resist diseases and poisons.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "xrNJ9PkDjBUR60rE",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Flurry of Blows",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Chea makes two unarmed Strikes. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "flourish"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "PDtrmfsis0mP7CZI",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Flying Kick",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Chea launches herself at a foe. She makes a Leap or attempts a High Jump or Long Jump. At the end of the jump, if she's adjacent to a foe, she can immediately Strike that foe with an unarmed attack, even if the foe is in midair. She falls to the ground after the Strike. If the distance she falls is no more than the height of her jump, Chea lands upright and takes no damage.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "P9pJGpxjWGUB9EYM",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Pack Tactics",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>If an enemy is within reach of Chea and at least two of her allies, that enemy is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] against Chea.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "uzl5fVQMZi3OIitf",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Powerful Fists",
+            "sort": 1500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Chea's fist Strikes are treated as cold iron and silver and don't take penalties when making lethal attacks.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "5AMlR8gQp1MtridU",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Lore",
+            "sort": 1600000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 13
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Chea",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 0
+            },
+            "con": {
+                "mod": 3
+            },
+            "dex": {
+                "mod": 4
+            },
+            "int": {
+                "mod": 0
+            },
+            "str": {
+                "mod": 3
+            },
+            "wis": {
+                "mod": 2
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 27
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 155,
+                "temp": 0,
+                "value": 155
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 40
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "vudrani"
+                ]
+            },
+            "level": {
+                "value": 9
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Blog"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 18,
+            "senses": []
+        },
+        "resources": {
+            "focus": {
+                "max": 1,
+                "value": 1
+            }
+        },
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 18
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 21
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 15
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 20
+            },
+            "athletics": {
+                "base": 18
+            },
+            "occultism": {
+                "base": 13
+            },
+            "religion": {
+                "base": 16
+            },
+            "stealth": {
+                "base": 18
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "beast",
+                "beastkin",
+                "human",
+                "humanoid"
+            ]
+        }
+    },
+    "type": "npc"
+}

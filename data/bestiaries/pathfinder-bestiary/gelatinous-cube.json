@@ -1,0 +1,342 @@
+{
+    "_id": "TZcDdN5o7s4alZNE",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "mNomS6NBwvlheidl",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Cube Face",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "paralysis"
+                    ]
+                },
+                "bonus": {
+                    "value": 11
+                },
+                "damageRolls": {
+                    "xdjwadcumrlvj6hfe9dk": {
+                        "damage": "1d6",
+                        "damageType": "acid"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "InkIGrftuKGUgSoo",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Motion Sense 60 feet",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>A gelatinous cube can sense nearby motion through vibration and air movement.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "nXQUyl9JGuo2YBLG",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Transparent",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>A gelatinous cube is so clear that it's difficult to spot. A successful @Check[perception|dc:23|traits:action:search] check is required to notice a stationary cube, and a creature must be @UUID[Compendium.pf2e.actionspf2e.Item.Search]{Searching} to attempt this check.</p>\n<p>A creature that walks into the cube is automatically Engulfed (this usually causes the GM to call for initiative).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "PHrmAQv1FUnGiNrw",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.zU3Ovaet4xQ5Gmvy"
+            },
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Engulf",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>@Check[reflex|dc:19|traits:damaging-effect], @Damage[2d6[acid]], Escape DC 19, Rupture 7</p>\n<p>A creature Engulfed by the gelatinous cube must also attempt a saving throw against paralysis.</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Engulf]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "engulf",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "OUrfzECO9Dy3ncIO",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Paralysis",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>A creature Engulfed by the cube or hit by its attack is @UUID[Compendium.pf2e.conditionitems.Item.Paralyzed] unless it succeeds at a @Check[fortitude|dc:20] save. A victim can attempt a new save to recover at the end of each of its turn.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "paralysis",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "incapacitation"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "L8QPL1ttGhwzsJOz",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Weak Acid",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>A gelatinous cube's acid damages only organic material-not metal, stone, or other inorganic substances.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Gelatinous Cube",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -5
+            },
+            "con": {
+                "mod": 5
+            },
+            "dex": {
+                "mod": -5
+            },
+            "int": {
+                "mod": -5
+            },
+            "str": {
+                "mod": 4
+            },
+            "wis": {
+                "mod": 0
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 10
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 90,
+                "temp": 0,
+                "value": 90
+            },
+            "immunities": [
+                {
+                    "type": "acid"
+                },
+                {
+                    "type": "critical-hits"
+                },
+                {
+                    "type": "precision"
+                },
+                {
+                    "type": "unconscious"
+                },
+                {
+                    "type": "visual"
+                }
+            ],
+            "resistances": [
+                {
+                    "type": "electricity",
+                    "value": 5
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [],
+                "value": 15
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 3
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Found underground or in dungeons, these quivering cubes of slime continuously scour their domain for food. The acid in their bodies is weak enough that many gelatinous cubes still contain the gear of their victims, as they're unable to break them down.</p>\n<hr />\n<p>Slimes, molds, and other oozes can be found in dank dungeons and shadowed forests. While not necessarily evil, some grow to enormous sizes and have insatiable appetites.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 5,
+            "senses": [
+                {
+                    "acuity": "precise",
+                    "range": 60,
+                    "type": "motion-sense"
+                }
+            ],
+            "vision": false
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 12
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 0
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 5
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 11,
+                "special": [
+                    {
+                        "base": 13,
+                        "label": "to Shove",
+                        "predicate": [
+                            "action:shove"
+                        ]
+                    }
+                ]
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "mindless",
+                "ooze"
+            ]
+        }
+    },
+    "type": "npc"
+}

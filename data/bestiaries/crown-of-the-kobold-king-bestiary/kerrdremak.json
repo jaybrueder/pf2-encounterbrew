@@ -1,0 +1,1037 @@
+{
+    "_id": "s2XZc2b1FaZQDnhN",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "56S5Txf301HVYhYM",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Divine Prepared Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "flexible": false,
+                    "value": "prepared"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {
+                    "slot0": {
+                        "max": 5,
+                        "prepared": [
+                            {
+                                "id": "AiBtu2jRuEc3vCIV"
+                            },
+                            {
+                                "id": "1f9eayAH6jF55PUw"
+                            },
+                            {
+                                "id": "EL0j4N4U6kzjSrFm"
+                            },
+                            {
+                                "id": "gnMfmhX5lG3wVdZI"
+                            },
+                            {
+                                "id": "NRuGb6Oje6nUQuTD"
+                            }
+                        ]
+                    },
+                    "slot1": {
+                        "max": 3,
+                        "prepared": [
+                            {
+                                "id": "RqHbebo52iwvVri4"
+                            },
+                            {
+                                "id": "cNt2Z6DBf6fVBwmQ"
+                            },
+                            {
+                                "id": "8Bau3KrgIQ2xtQNg"
+                            }
+                        ]
+                    }
+                },
+                "slug": null,
+                "spelldc": {
+                    "dc": 17,
+                    "value": 9
+                },
+                "tradition": {
+                    "value": "divine"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "jSBHs65NPAudCPU4",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Hex Cantrips",
+            "sort": 200000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "focus"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 17,
+                    "value": 9
+                },
+                "tradition": {
+                    "value": "divine"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "RqHbebo52iwvVri4",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.aIHY2DArKFweIrpf"
+            },
+            "img": "systems/pf2e/icons/spells/command.webp",
+            "name": "Command",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You shout a command that's hard to ignore. You can command the target to approach you, run away (as if it had the @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] condition), release what it's holding, drop @UUID[Compendium.pf2e.conditionitems.Item.Prone], or stand in place. It can't Delay or take any reactions until it has obeyed your command. The effects depend on the target's Will save.</p>\n<hr /><p><strong>Success</strong> The creature is unaffected.</p>\n<p><strong>Failure</strong> For the first action on its next turn, the creature must use a single action to do as you command.</p>\n<p><strong>Critical Failure</strong> The target must use all its actions on its next turn to obey your command.</p>\n<hr /><p><strong>Heightened (5th)</strong> You can target up to 10 creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "until the end of the target's next turn"
+                },
+                "heightening": {
+                    "levels": {
+                        "5": {
+                            "target": {
+                                "value": "10 creatures"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "56S5Txf301HVYhYM"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "command",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "auditory",
+                        "concentrate",
+                        "linguistic",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "AiBtu2jRuEc3vCIV",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.qwZBXN6zBoB9BHXE"
+            },
+            "img": "systems/pf2e/icons/spells/divine-lance.webp",
+            "name": "Divine Lance",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "2d4",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "spirit"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>You unleash a beam of divine energy. Make a ranged spell attack against the target's AC. On a hit, the target takes 2d4 spirit damage (double damage on a critical hit).</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d4"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "56S5Txf301HVYhYM"
+                },
+                "overlays": {},
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "divine-lance",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine"
+                    ],
+                    "value": [
+                        "attack",
+                        "cantrip",
+                        "concentrate",
+                        "manipulate",
+                        "sanctified"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "cNt2Z6DBf6fVBwmQ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.4koZzrnMXhhosn0D"
+            },
+            "img": "systems/pf2e/icons/spells/fear.webp",
+            "name": "Fear",
+            "sort": 500000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You plant fear in the target; it must attempt a Will save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3} and @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] for 1 round.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You can target up to five creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "varies"
+                },
+                "heightening": {
+                    "levels": {
+                        "3": {
+                            "target": {
+                                "value": "5 creatures"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "56S5Txf301HVYhYM"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "fear",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "emotion",
+                        "fear",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "1f9eayAH6jF55PUw",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.izcxFQFwf3woCnFs"
+            },
+            "img": "systems/pf2e/icons/spells/guidance.webp",
+            "name": "Guidance",
+            "sort": 600000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You ask for divine guidance, granting the target a +1 status bonus to one attack roll, Perception check, saving throw, or skill check the target attempts before the duration ends. The target chooses which roll to use the bonus on before rolling. If the target uses the bonus, the spell ends. Either way, the target is then temporarily immune for 1 hour.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Guidance]</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Effect: Guidance Immunity]</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "until the start of your next turn"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "56S5Txf301HVYhYM"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "guidance",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "1"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "EL0j4N4U6kzjSrFm",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.vLzFcIaSXs7YTIqJ"
+            },
+            "img": "systems/pf2e/icons/spells/message.webp",
+            "name": "Message",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You mouth words quietly, but instead of coming out of your mouth, they're transferred directly to the ears of the target. While others can't hear your words any better than if you normally mouthed them, the target can hear your words as if they were standing next to you.</p>\n<p>The target can give a brief response as a reaction, or as a free action on their next turn if they wish, but they must be able to see you and be within range to do so. If they respond, their response is delivered directly to your ear, just like the original message.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> The spell's range increases to 500 feet.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "see below"
+                },
+                "heightening": {
+                    "levels": {
+                        "3": {
+                            "range": {
+                                "value": "500 feet"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "56S5Txf301HVYhYM"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "message",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "1"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "auditory",
+                        "cantrip",
+                        "concentrate",
+                        "illusion",
+                        "linguistic",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "8Bau3KrgIQ2xtQNg",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.J7Y7tl0bbdz7TcCc"
+            },
+            "img": "systems/pf2e/icons/spells/ray-of-enfeeblement.webp",
+            "name": "Ray of Enfeeblement",
+            "sort": 800000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>A ray that saps a foe's strength flashes from your hand. Attempt a ranged spell attack against the target. If you succeed, that creature attempts a Fortitude save to determine the spell's effect. If your attack roll is a critical success, use the outcome for one degree of success worse than the result of its save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1}.</p>\n<p><strong>Failure</strong> The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2}.</p>\n<p><strong>Critical Failure</strong> The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 3}.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "56S5Txf301HVYhYM"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "ray-of-enfeeblement",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "attack",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "gnMfmhX5lG3wVdZI",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.TVKNbcgTee19PXZR"
+            },
+            "img": "systems/pf2e/icons/spells/shield.webp",
+            "name": "Shield",
+            "sort": 900000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You raise a magical shield of force. This counts as using the Raise a Shield action, giving you a +1 circumstance bonus to AC until the start of your next turn, but it doesn't require a hand to use.</p>\n<p>While the spell is in effect, you can use the @UUID[Compendium.pf2e.feats-srd.Item.Shield Block] reaction with your magic shield. The shield has Hardness 5. After you use Shield Block, the spell ends and you can't cast it again for 10 minutes. Unlike a normal Shield Block, you can use the spell's reaction against the @UUID[Compendium.pf2e.spells-srd.Item.Force Barrage] spell.</p>\n<p>Heightening the spell increases the shield's Hardness.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Shield]</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> The shield has Hardness 10.</p>\n<p><strong>Heightened (5th)</strong> The shield has Hardness 15.</p>\n<p><strong>Heightened (7th)</strong> The shield has Hardness 20.</p>\n<p><strong>Heightened (9th)</strong> The shield has Hardness 25.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "until the start of your next turn"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "56S5Txf301HVYhYM"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "shield",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "1"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "force"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "NRuGb6Oje6nUQuTD",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.AUctDF2fqPZN2w4W"
+            },
+            "img": "systems/pf2e/icons/spells/sigil.webp",
+            "name": "Sigil",
+            "sort": 1000000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You harmlessly place your unique magical sigil, which is about 1 square inch in size, on the targeted creature or object. The mark can be visible or invisible, and you can change it from one state to another by using an Interact action to touch the target. The mark can be scrubbed or scraped off with 5 minutes of work. If it's on a creature, it fades naturally over the course of a week. The time before the mark fades increases depending on your heightened level.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> The sigil instead fades after 1 month.</p>\n<p><strong>Heightened (5th)</strong> The sigil instead fades after 1 year.</p>\n<p><strong>Heightened (7th)</strong> The sigil never fades.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "unlimited"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "56S5Txf301HVYhYM"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "sigil",
+                "target": {
+                    "value": "1 creature or object"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "7dOQ85VcZC0xLQQ7",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.GeUbPvwdZ4B4l0up"
+            },
+            "img": "icons/skills/melee/strike-sword-blood-red.webp",
+            "name": "Stoke the Heart",
+            "sort": 1100000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>Intense fervor fills the target creature, empowering their blows. The target gains a +2 status bonus to damage rolls. Once this spell ends, the target becomes temporarily immune for 1 minute.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> The status bonus to damage increases by 1.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Stoke the Heart]</p>"
+                },
+                "duration": {
+                    "sustained": true,
+                    "value": "1 minute"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "jSBHs65NPAudCPU4"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Advanced Player's Guide"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "stoke-the-heart",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "1"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "emotion",
+                        "hex",
+                        "witch"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "68fIjhqqEDIoV0bb",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.rQWaJhI5Bko5x14Z"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/dagger.webp",
+            "name": "Dagger",
+            "sort": 1200000,
+            "system": {
+                "baseItem": "dagger",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "simple",
+                "containerId": null,
+                "damage": {
+                    "damageType": "piercing",
+                    "dice": 1,
+                    "die": "d4"
+                },
+                "description": {
+                    "value": "<p>This small, bladed weapon is held in one hand and used to stab a creature in close combat. It can also be thrown.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "knife",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 2
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": "-"
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "dagger",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "thrown-10",
+                        "versatile-s"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "sB6AZ7CPD7ayOULU",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "68fIjhqqEDIoV0bb"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Dagger",
+            "sort": 1300000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 7
+                },
+                "damageRolls": {
+                    "WCeAWVBmyohI8KZd": {
+                        "damage": "1d4-1",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "versatile-s"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "cZ5dTEuo59FxzHYb",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Whispering Retreat",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Requirements</strong> Kerrdremak is adjacent to at least one enemy;</p>\n<p><strong>Effect</strong> Kerrdremak whispers under his breath, and one adjacent enemy must attempt a @Check[will|dc:17] save or become @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1} as they hear a whispering voice just behind them that claims to know when the target will die; the target is then temporarily immune to Whispering Retreat for 1 hour. Kerrdremak then Strides, and this movement doesn't trigger reactions from frightened creatures. He must end this movement in a space that isn't adjacent to any enemy.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "divine",
+                        "emotion",
+                        "fear",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Kerrdremak",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 3
+            },
+            "con": {
+                "mod": 1
+            },
+            "dex": {
+                "mod": 2
+            },
+            "int": {
+                "mod": 4
+            },
+            "str": {
+                "mod": -1
+            },
+            "wis": {
+                "mod": 0
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 15
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 20,
+                "temp": 0,
+                "value": 20
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 25
+            }
+        },
+        "details": {
+            "blurb": "Male kobold witch",
+            "languages": {
+                "details": "",
+                "value": [
+                    "diabolic",
+                    "draconic"
+                ]
+            },
+            "level": {
+                "value": 1
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Adventure: Crown of the Kobold King"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 5,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 6
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 7
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 5
+            }
+        },
+        "skills": {
+            "deception": {
+                "base": 6
+            },
+            "intimidation": {
+                "base": 6
+            },
+            "occultism": {
+                "base": 7
+            },
+            "religion": {
+                "base": 5
+            },
+            "stealth": {
+                "base": 7
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "sm"
+            },
+            "value": [
+                "evil",
+                "humanoid",
+                "kobold",
+                "lawful"
+            ]
+        }
+    },
+    "type": "npc"
+}

@@ -1,0 +1,553 @@
+{
+    "_id": "Ziy3L849K2Fayesa",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "TMrd9GXKDXvR55F2",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Primal Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": 1
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 21,
+                    "value": 13
+                },
+                "tradition": {
+                    "value": "primal"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "vTZpkyDJc10fE8qC",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.Qw3fnUlaUbnn7ipC"
+            },
+            "img": "icons/magic/symbols/runes-triangle-blue.webp",
+            "name": "Prestidigitation",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>The simplest magic does your bidding. You can perform simple magical effects for as long as you Sustain the Spell. Each time you Sustain the Spell, you can choose one of four options.</p>\n<ul>\n<li><strong>Cook</strong> Cool, warm, or flavor 1 pound of nonliving material.</li>\n<li><strong>Lift</strong> Slowly lift an unattended object of light Bulk or less 1 foot off the ground.</li>\n<li><strong>Make</strong> Create a temporary object of negligible Bulk, made of congealed magical substance. The object looks crude and artificial and is extremely fragile-it can't be used as a tool, weapon, or spell component.</li>\n<li><strong>Tidy</strong> Color, clean, or soil an object of light Bulk or less. You can affect an object of 1 Bulk with 10 rounds of concentration, and a larger object a 1 minute per Bulk.</li>\n</ul>\n<p>Prestidigitation can't deal damage or cause adverse conditions. Any actual change to an object (beyond what is noted above) persists only as long as you Sustain the Spell.</p>"
+                },
+                "duration": {
+                    "sustained": true,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "TMrd9GXKDXvR55F2"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "10 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "prestidigitation",
+                "target": {
+                    "value": "1 object (cook, lift, or tidy only)"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "T894mJ55BpbBgizx",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.7tKkkF8eZ4iCLJtp"
+            },
+            "img": "icons/weapons/swords/sword-guard-purple.webp",
+            "name": "Shortsword",
+            "sort": 300000,
+            "system": {
+                "baseItem": "shortsword",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "martial",
+                "containerId": null,
+                "damage": {
+                    "damageType": "piercing",
+                    "dice": 1,
+                    "die": "d6"
+                },
+                "description": {
+                    "value": "<p>These blades come in a variety of shapes and styles, but they are typically 2 feet long.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "sword",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 9
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": ""
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "tiny",
+                "slug": "shortsword",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "versatile-s"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "FTQxRR29z5xX3uvr",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.nNtakXnSrcXWndBV"
+            },
+            "img": "systems/pf2e/icons/equipment/held-items/travelers-any-tool.webp",
+            "name": "Traveler's Any-Tool",
+            "sort": 400000,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 1
+                },
+                "containerId": null,
+                "description": {
+                    "value": "<p>Before it's activated, this item appears to be an ash rod capped with steel on either end.</p>\n<p><strong>Activate</strong> <span class=\"action-glyph\">2</span> Interact, envision</p>\n<hr />\n<p><strong>Effect</strong> You imagine a specific simple tool, and the any-tool transforms into it. (Usually, you can choose from a tool listed in Chapter 6). This transforms the wooden portion into any haft and the metal caps into spades, hammer heads, or the like, allowing for most basic tools but nothing more complex. You can return the item to its rod form with an Interact action.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 6
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 200
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "tiny",
+                "slug": "travelers-any-tool",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "magical"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-two-hands"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "VgrSRyAc5yo8oEDH",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "T894mJ55BpbBgizx"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Shortsword",
+            "sort": 500000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 14
+                },
+                "damageRolls": {
+                    "27CjUMCxv52l18it": {
+                        "damage": "1d6+5",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "magical",
+                        "versatile-s"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "q3mCqdHIM3h7Dygf",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.AWvNPE4U0kEJSL1T"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Sneak Attack",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Noolik deals an additional 2d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [
+                    {
+                        "category": "precision",
+                        "diceNumber": 2,
+                        "dieSize": "d6",
+                        "key": "DamageDice",
+                        "predicate": [
+                            "target:condition:off-guard"
+                        ],
+                        "selector": "strike-damage"
+                    },
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
+                        "option": "target:condition:off-guard",
+                        "toggleable": "totm"
+                    }
+                ],
+                "slug": "sneak-attack",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "7QPS7Bzoo5c8BwL3",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Tinker",
+            "sort": 700000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>A group of six jinkins can work together for an hour to imbue an item with a curse at a range of 60 feet. While this process is lengthy, it's also unobtrusive and can be performed while @UUID[Compendium.pf2e.actionspf2e.Item.Hide]{Hiding}. Jinkins prefer to use this ability on magic items. The curse makes the item unreliable (@Check[flat|dc:5] or waste any action to Interact with or Activate the item), adds a bizarre requirement to use the item, or imparts some other curse of a similar caliber.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "curse",
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "TfpnMepCP7CcT5q0",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Trap Tinker",
+            "sort": 800000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 3
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Noolik can cause a complex mechanical trap to continue longer than its normal duration. She moves up to her speed and Interacts with a trap. The trap can use its reaction during its next round as well as its routine, although its initiative doesn't change.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Noolik",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 3
+            },
+            "con": {
+                "mod": 2
+            },
+            "dex": {
+                "mod": 6
+            },
+            "int": {
+                "mod": 3
+            },
+            "str": {
+                "mod": 0
+            },
+            "wis": {
+                "mod": 3
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 21
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 58,
+                "temp": 0,
+                "value": 58
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 30
+            },
+            "weaknesses": [
+                {
+                    "exceptions": [],
+                    "type": "cold-iron",
+                    "value": 4
+                }
+            ]
+        },
+        "details": {
+            "blurb": "Jinkin leader",
+            "languages": {
+                "details": "",
+                "value": [
+                    "sakvroth"
+                ]
+            },
+            "level": {
+                "value": 4
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Adventure: The Enmity Cycle"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 11,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 9
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 14
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 10
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 12
+            },
+            "crafting": {
+                "base": 10,
+                "special": [
+                    {
+                        "base": 12,
+                        "label": "traps",
+                        "predicate": [
+                            "trap"
+                        ]
+                    }
+                ]
+            },
+            "deception": {
+                "base": 8
+            },
+            "nature": {
+                "base": 8
+            },
+            "stealth": {
+                "base": 12
+            },
+            "thievery": {
+                "base": 12
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "tiny"
+            },
+            "value": [
+                "chaotic",
+                "evil",
+                "fey",
+                "gremlin"
+            ]
+        }
+    },
+    "type": "npc"
+}

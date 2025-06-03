@@ -1,0 +1,287 @@
+{
+    "_id": "z3u0OykjFKz9KJjk",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "397ggaqWwpvwUX4X",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Nib Teeth",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "bitter-heart"
+                    ]
+                },
+                "bonus": {
+                    "value": 9
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "1d6+3",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "JDeVXzew9W8MmDim",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.kdhbPaBMK1d1fpbA"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Telepathy 100 feet",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Telepathy]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "telepathy",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "magical"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "RO8nM1pfHkCiTrt9",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Aromatic",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>When a cacaodaemon is reduced to half its HP, the ruptures to its rind exude a fragrant tropical scent. Creatures within 10 feet of the cacaodaemon take a -1 circumstance penalty to Will saving throws until the cacaodaemon dies or is healed above half its HP.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "VrsczLHcQqAYzNPZ",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Bitter Heart",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dissonance between the cacaodaemon's sweet scent and bitter inside drains the victim's spirit</p>\n<p><strong>Saving Throw</strong> @Check[fortitude|dc:17]</p>\n<p><strong>Maximum Duration</strong> 6 rounds</p>\n<p><strong>Stage 1</strong> @Damage[1d8[mental]] damage and @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] (1 round).</p>\n<p><strong>Stage 2</strong> @Damage[1d8[mental]] damage and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} (1 round)</p>\n<p><strong>Stage 3</strong> @Damage[1d12[mental]] damage and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 2} (1 round)</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "poison"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Cacaodaemon",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 1
+            },
+            "con": {
+                "mod": 4
+            },
+            "dex": {
+                "mod": 1
+            },
+            "int": {
+                "mod": -2
+            },
+            "str": {
+                "mod": 3
+            },
+            "wis": {
+                "mod": 0
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 16
+            },
+            "allSaves": {
+                "value": null
+            },
+            "hp": {
+                "details": "",
+                "max": 22,
+                "temp": 0,
+                "value": 22
+            },
+            "immunities": [
+                {
+                    "type": "death-effects"
+                }
+            ],
+            "resistances": [
+                {
+                    "type": "bludgeoning",
+                    "value": 2
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 40
+                    }
+                ],
+                "value": 5
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "telepathy 100 feet",
+                "value": [
+                    "common",
+                    "daemonic"
+                ]
+            },
+            "level": {
+                "value": 1
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Blog: April Fool's Bestiary"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 2,
+            "senses": []
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 10
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 7
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 4
+            }
+        },
+        "skills": {
+            "deception": {
+                "base": 7,
+                "special": [
+                    {
+                        "base": 10,
+                        "label": "to appear as an inanimate object",
+                        "predicate": [
+                            "inanimate"
+                        ]
+                    }
+                ]
+            },
+            "nature": {
+                "base": 3
+            },
+            "religion": {
+                "base": 4
+            },
+            "stealth": {
+                "base": 5
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "tiny"
+            },
+            "value": [
+                "daemon",
+                "evil",
+                "fiend",
+                "unholy"
+            ]
+        }
+    },
+    "type": "npc"
+}

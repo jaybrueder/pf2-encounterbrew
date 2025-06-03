@@ -11,10 +11,6 @@ build:
 run:
 	@go run cmd/api/main.go
 
-# Seed the database
-seed:
-	@go run cmd/seed/seeder.go
-
 # Clean the binary
 clean:
 	@echo "Cleaning..."

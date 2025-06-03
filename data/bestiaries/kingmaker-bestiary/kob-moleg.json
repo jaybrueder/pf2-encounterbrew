@@ -1,0 +1,780 @@
+{
+    "_id": "M7hMPdEbaC1RNwfY",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "hCCNqP3969tyxk96",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.kdGqnqbrwPzQfTsm"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/greatclub.webp",
+            "name": "+2 Greater Striking Spiked Greatclub",
+            "sort": 100000,
+            "system": {
+                "baseItem": "greatclub",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 2
+                },
+                "category": "martial",
+                "containerId": null,
+                "damage": {
+                    "damageType": "bludgeoning",
+                    "dice": 1,
+                    "die": "d10"
+                },
+                "description": {
+                    "value": "<p>While many greatclubs are intricately carved, others are little more than a sturdy tree branch. These massive clubs are too heavy to wield with only one hand.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "club",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": ""
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 2,
+                    "property": [],
+                    "striking": 2
+                },
+                "size": "lg",
+                "slug": "greatclub",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "backswing",
+                        "magical",
+                        "shove"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-two-hands"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "R7WS5l7jScWRr53y",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.AnwzlOs0njF9Jqnr"
+            },
+            "img": "icons/equipment/chest/vest-leather-tattered-white.webp",
+            "name": "Hide Armor",
+            "sort": 200000,
+            "system": {
+                "acBonus": 3,
+                "baseItem": "hide-armor",
+                "bulk": {
+                    "value": 2
+                },
+                "category": "medium",
+                "checkPenalty": -2,
+                "containerId": null,
+                "description": {
+                    "value": "<p>A mix of furs, sturdy hide, and sometimes molded boiled leather, this armor provides protection due to its layers of leather, though its bulkiness slows the wearer down and decreases mobility.</p>"
+                },
+                "dexCap": 2,
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "inSlot": true,
+                    "invested": null
+                },
+                "group": "leather",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 2
+                    }
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "quantity": 1,
+                "rules": [],
+                "runes": {
+                    "potency": 2,
+                    "property": [],
+                    "resilient": 1
+                },
+                "size": "lg",
+                "slug": "hide-armor",
+                "speedPenalty": -5,
+                "strength": 2,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "armor"
+        },
+        {
+            "_id": "4uhmqqCnN4EAqpVy",
+            "img": "systems/pf2e/icons/spells/shape-stone.webp",
+            "name": "Rock",
+            "sort": 300000,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "category": "ammo",
+                "containerId": "sYM1QIDI5nAUWghX",
+                "damage": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "quantity": 5,
+                "rules": [],
+                "size": "med",
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 1,
+                    "value": 1
+                }
+            },
+            "type": "consumable"
+        },
+        {
+            "_id": "sYM1QIDI5nAUWghX",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.DujblC14ytJEZMaz"
+            },
+            "img": "icons/containers/bags/sack-simple-leather-brown.webp",
+            "name": "Sack",
+            "sort": 400000,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "capacity": 8,
+                    "heldOrStowed": 0.1,
+                    "ignored": 0,
+                    "value": 0.1
+                },
+                "collapsed": false,
+                "containerId": null,
+                "description": {
+                    "value": "<p>A sack can hold up to 8 Bulk worth of items. A sack containing 2 Bulk or less can be worn on the body, usually tucked into a belt. You can carry a sack with one hand, but must use two hands to transfer items in and out.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "cp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "lg",
+                "slug": "sack",
+                "stowing": false,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "backpack"
+        },
+        {
+            "_id": "kBr3AKRl4vlCwVK2",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "hCCNqP3969tyxk96"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Spiked Greatclub",
+            "sort": 500000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": []
+                },
+                "bonus": {
+                    "value": 33
+                },
+                "damageRolls": {
+                    "cauyldp7ucogum3lgy0i": {
+                        "damage": "3d12+17",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "backswing",
+                        "reach-10",
+                        "shove",
+                        "versatile-p"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "3tyBaMgyINlZCj76",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Fist",
+            "sort": 600000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "grab"
+                    ]
+                },
+                "bonus": {
+                    "value": 31
+                },
+                "damageRolls": {
+                    "fmlpw1mmhbg13dw7joaw": {
+                        "damage": "1d6+17",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "reach-10",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "6SHvRrPDTa74t0cD",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Rock",
+            "sort": 700000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "rock"
+                    ]
+                },
+                "bonus": {
+                    "value": 29
+                },
+                "damageRolls": {
+                    "cvz39c34iy8sx920aleg": {
+                        "damage": "1d8+17",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "brutal",
+                        "range-increment-120"
+                    ]
+                },
+                "weaponType": {
+                    "value": "ranged"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "fS0rXdbVRA1IMM8E",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.hFtNbo1LKYCoDy2O"
+            },
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Attack of Opportunity",
+            "sort": 800000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.AttackOfOpportunity]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "attack-of-opportunity",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "T1WSPSyMbIh6gzFQ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.uG0Z8PsyZtsYuvGR"
+            },
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Catch Rock",
+            "sort": 900000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.CatchRock]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "option": "catch-rock",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "catch-rock"
+                        ],
+                        "selector": [
+                            "ac",
+                            "saving-throw"
+                        ],
+                        "type": "circumstance",
+                        "value": 4
+                    }
+                ],
+                "slug": "catch-rock",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "4SgwfAqj7PXlo4NI",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Kob's Ruinous Strike",
+            "sort": 1000000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Kob Moleg makes a melee Strike. If he hits and deals damage, the target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}, or @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} on a critical hit.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "093ZnioHRqaohRiq",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.a0tx6exmB9v9CUsj"
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Throw Rock",
+            "sort": 1100000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.ThrowRock]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "throw-rock",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "xEHY10Oxi5BJJCmQ",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Wide Swing",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The hill giant makes a single greatclub Strike and compares the attack roll result to the ACs of up to two foes within its reach.</p>\n<p>This counts as two attacks for the hill giant's multiple attack penalty.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "XHQxmGEm71C14Nci",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Tkd8sH4pwFIPzqTr"
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Grab",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Grab]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "grab",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "xYt0Yl9LAnVB1BZ6",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Warfare Lore",
+            "sort": 1400000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 27
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Kob Moleg",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 6
+            },
+            "con": {
+                "mod": 6
+            },
+            "dex": {
+                "mod": 5
+            },
+            "int": {
+                "mod": 1
+            },
+            "str": {
+                "mod": 9
+            },
+            "wis": {
+                "mod": 5
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 39
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 295,
+                "temp": 0,
+                "value": 295
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 35
+            }
+        },
+        "details": {
+            "blurb": "Variant male hill giant",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "jotun"
+                ]
+            },
+            "level": {
+                "value": 16
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Selfish and crude, these rough-skinned raiders are bullies and ultimately cowards. Quick-tempered and fond of violence, a hill giant gladly raids and pillages the defenseless but is quick to flee from those who are bigger, stronger, or better organized than they are. A hill giant is never above shoving or tricking one of their own kind to slow down their opponent or get the best loot.</p>\n<hr />\n<p>Giants are massive humanoid creatures who live in remote regions throughout the world. They are divided into a number of subtypes.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Kingmaker"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 27,
+            "senses": [
+                {
+                    "type": "low-light-vision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 30
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 27
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 27
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 31
+            },
+            "intimidation": {
+                "base": 30
+            },
+            "survival": {
+                "base": 29
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "chaotic",
+                "earth",
+                "evil",
+                "giant",
+                "humanoid"
+            ]
+        }
+    },
+    "type": "npc"
+}

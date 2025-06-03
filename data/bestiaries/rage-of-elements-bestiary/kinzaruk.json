@@ -1,0 +1,221 @@
+{
+    "_id": "OX25euLqeBR07Ul7",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "bSCuq4rzdlNOmZHR",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Razor's Edge",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 11
+                },
+                "damageRolls": {
+                    "7pNOOFha4eWc6FJ8": {
+                        "damage": "1d10+3",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "finesse"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "xVx1hUc9VnobkCUj",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Fold Form",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The kinzaruk swiftly unfolds and refolds its body into a new shape chosen from the options of @UUID[Compendium.pf2e.spells-srd.Item.Animal Form]. This grants it the movement Speeds and Strikes of the chosen form, but none of the other benefits. Its attack bonus is unchanged, and its damage bonus is +3. The kinzaruk can return to its natural form by taking this action again, and automatically returns if it falls @UUID[Compendium.pf2e.conditionitems.Item.Unconscious].</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Fold Form]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "concentrate",
+                        "polymorph",
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Kinzaruk",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 0
+            },
+            "con": {
+                "mod": 1
+            },
+            "dex": {
+                "mod": 4
+            },
+            "int": {
+                "mod": -4
+            },
+            "str": {
+                "mod": 3
+            },
+            "wis": {
+                "mod": 0
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 19
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 45,
+                "temp": 0,
+                "value": 45
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "bleed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "paralyzed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "poison"
+                },
+                {
+                    "exceptions": [],
+                    "type": "sleep"
+                }
+            ],
+            "resistances": [
+                {
+                    "doubleVs": [],
+                    "exceptions": [],
+                    "type": "electricity",
+                    "value": 5
+                }
+            ],
+            "speed": {
+                "details": "(can't ascend more than 5 feet off the ground)",
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 10
+                    }
+                ],
+                "value": null
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 3
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>In its natural state, the kinzaruk resembles a paper-thin, perfectly square sheet of lightweight silvery-white metal, approximately 15 feet across. It's almost never encountered this form, however, being far better known for its ability to intricately fold its body thousands of times in an instant to reconfigure itself into a varied assortment of deadly animal-like shapes.</p>\n<hr />\n<p>Metal elementals can manifest in a wide variety of different forms, from shapeless amalgams of different metals to humanoid and beast-like monstrosities.</p>\n<h2>Metal Forms</h2>\n<p>Though metal elementals are made almost entirely of metal, most are composed of layers of different metals in tiny fragments, as complex as a body of flesh or plant matter. Many of these metals are rusted or decayed from the natural, slow entropy of the Plane of Metal.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": true,
+                "title": "Pathfinder Rage of Elements"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 9,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 8
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 11
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 7
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 11
+            },
+            "stealth": {
+                "base": 9
+            },
+            "survival": {
+                "base": 7
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "elemental",
+                "metal"
+            ]
+        }
+    },
+    "type": "npc"
+}

@@ -1,0 +1,569 @@
+{
+    "_id": "1hdQjYLtup92Jlls",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "GtDhQviwk4x4rmKZ",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Divine Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "flexible": false,
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 34,
+                    "mod": 0,
+                    "value": 26
+                },
+                "tradition": {
+                    "value": "divine"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "eZNtdUZirFsSmpWu",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.8kJbiBEjMWG4VUjs"
+            },
+            "img": "systems/pf2e/icons/spells/warp-mind.webp",
+            "name": "Warp Mind",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": true,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You scramble a creature's mental faculties and sensory input. The target must attempt a Will saving throw. Regardless of the result of that save, the target is then temporarily immune for 10 minutes. Warp mind's effects happen instantly, so dispel magic and other effects that counteract spells can't counteract them. However, alter reality, miracle, primal phenomenon, restoration, or wish can still counteract the effects.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target spends the first action on its next turn with the @UUID[Compendium.pf2e.conditionitems.Item.Confused] condition.</p>\n<p><strong>Failure</strong> The target is Confused for 1 minute.</p>\n<p><strong>Critical Failure</strong> The target is Confused permanently.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 7
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "uses": {
+                        "max": 3,
+                        "value": 3
+                    },
+                    "value": "GtDhQviwk4x4rmKZ"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "warp-mind",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "emotion",
+                        "incapacitation",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "5wKokTxNYOw3NX8Y",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.IihxWhRfpsBgQ5jS"
+            },
+            "img": "systems/pf2e/icons/spells/enthrall.webp",
+            "name": "Enthrall (At Will)",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>Your words fascinate your targets. You speak or sing without interruption throughout the casting and duration. Targets who notice your speech or song might give their undivided attention; each target must attempt a Will save. The GM might grant a circumstance bonus (to a maximum of +4) if the target is of an opposing religion, ancestry, or political leaning, or is otherwise unlikely to agree with what you're saying.</p>\n<p>Each creature that comes within range has to attempt a save when you Sustain the Spell. If you're speaking, enthrall gains the linguistic trait.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected and notices that you tried to use magic.</p>\n<p><strong>Success</strong> The target needn't pay attention but doesn't notice you tried to use magic (it might notice others are enthralled).</p>\n<p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Fascinated] with you. It can attempt another Will save if it witnesses actions or speech with which it disagrees. If it succeeds, it's no longer Fascinated and is temporarily immune for 1 hour. If the target is subject to a hostile act, or if another creature succeeds at a Diplomacy or Intimidation check against it, the fascination ends immediately.</p>\n<p><strong>Critical Failure</strong> As failure, but the target can't attempt a save to end the fascination if it disagrees with you.</p>"
+                },
+                "duration": {
+                    "sustained": true,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {},
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "heightenedLevel": 3,
+                    "value": "GtDhQviwk4x4rmKZ"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "enthrall",
+                "target": {
+                    "value": "all creatures in range"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "auditory",
+                        "concentrate",
+                        "emotion",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "f84cxpe3e8us7653",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Claw",
+            "sort": 400000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "grab"
+                    ]
+                },
+                "bonus": {
+                    "value": 29
+                },
+                "damageRolls": {
+                    "UW8NXMgSvG5cyiMo": {
+                        "damage": "3d8+12",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "magical",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "TN9YVnHaKRk3uwTv",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.TTCw5NusiSSkJU1x"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Void Healing",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.NegativeHealing]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary 2"
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "system.attributes.hp.negativeHealing",
+                        "value": true
+                    }
+                ],
+                "slug": "negative-healing",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "jdhshd6p6earqvr9",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Waves of Sorrow",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>30 feet. When a creature ends its turn in the obrousian's waves of sorrow aura, the creature is overwhelmed by the sorrow that suffuses the obrousian's being. The creature must succeed at a @Check[will|dc:33] saving throw or become @UUID[Compendium.pf2e.conditionitems.Item.Paralyzed] for 1 round.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 30,
+                        "slug": "waves-of-sorrow",
+                        "traits": [
+                            "divine",
+                            "incapacitation",
+                            "mental"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "divine",
+                        "incapacitation",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "CZFYOk40GBWGe5U5",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.eQM5hQ1W3d1uen97"
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Change Shape",
+            "sort": 700000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The obrousian can take on the appearance of any kind of Small or Medium humanoid creature. This transformation increases their Speed to 25 feet and might remove their swim Speed depending on the form. It doesn't change their attack and damage modifiers with their Strikes, but it might change the damage type their Strikes deal (typically to bludgeoning damage).</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.ChangeShape]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "change-shape",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "concentrate",
+                        "divine",
+                        "polymorph"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "zqe60ky12wasdnz6",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Drowning Grasp",
+            "sort": 800000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When a creature is @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] by the obrousian, the creature's lungs magically fill with water. A creature that can't breathe water is suffocating while it is grabbed.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "pbwnkebF8Azr64pn",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Tkd8sH4pwFIPzqTr"
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Grab",
+            "sort": 900000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Grab]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "grab",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Obrousian",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 7
+            },
+            "con": {
+                "mod": 3
+            },
+            "dex": {
+                "mod": 4
+            },
+            "int": {
+                "mod": 0
+            },
+            "str": {
+                "mod": 6
+            },
+            "wis": {
+                "mod": 4
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 36
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "void healing",
+                "max": 250,
+                "temp": 0,
+                "value": 250
+            },
+            "immunities": [
+                {
+                    "type": "death-effects"
+                },
+                {
+                    "type": "disease"
+                },
+                {
+                    "type": "paralyzed"
+                },
+                {
+                    "type": "poison"
+                },
+                {
+                    "type": "unconscious"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "swim",
+                        "value": 30
+                    }
+                ],
+                "value": 5
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "necril",
+                    "thalassic"
+                ]
+            },
+            "level": {
+                "value": 14
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Spawned from sorrow and hatred, obrousians are undead merfolk who lurk in shallow places to prey upon hated land dwellers. The genesis of an obrousian is a tragic one: some merfolk forsake their aquatic homes when they fall in love with a land dweller, only to be spurned or rejected. Having given up their entire world for another and then feeling that new world closed off to them as well, merfolk can become emotionally overwhelmed. When such merfolk die, often overcome with sorrow and regret, they rise as obrousians.</p>\n<p>Obrousians think of little other than taking revenge upon the land dwellers who specifically wronged them, and then upon anyone else with the misfortune to cross their paths. They can contort their bodies to take the guise of other humanoids, but doing so is painful, so obrousians use this ability only when absolutely necessary to enact their schemes. While they are capable of long-term planning, their underlying mental turmoil simmers beneath any careful preparation, and many obrousians foil their own plans with unexpected outbursts of emotion.</p>\n<p>Obrousians are recognizable as the merfolk they once were before they died, though their bodies show obvious decay and their hands have elongated into sharp claws. Their voices are melodic and entrancing, belying their rotting bodies and turbulent minds, so some obrousians hide in tall reeds or under docks before speaking to their victims, lulling them into false comfort with a pleasant voice.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Book of the Dead"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 26,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 25
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 22
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 28
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 26
+            },
+            "deception": {
+                "base": 27
+            },
+            "intimidation": {
+                "base": 25
+            },
+            "nature": {
+                "base": 24
+            },
+            "stealth": {
+                "base": 26
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "amphibious",
+                "evil",
+                "undead",
+                "unholy"
+            ]
+        }
+    },
+    "type": "npc"
+}

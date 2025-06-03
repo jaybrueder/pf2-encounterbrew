@@ -1,0 +1,231 @@
+{
+    "_id": "EhtODTbFdElXSyXX",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "cdO3prxbJedebC1E",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 7
+                },
+                "damageRolls": {
+                    "8n2fepd66r5g0kf7kgw8ii": {
+                        "damage": "1d6+1",
+                        "damageType": "piercing"
+                    },
+                    "mnvfng46mv9t6mfpjl8z": {
+                        "damage": "1",
+                        "damageType": "cold"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "jaws",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "gUXTztO5KPImLwMr",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Icy Death",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "deathNote": true,
+                "description": {
+                    "value": "<p>When an icy rat is slain, its body explodes in a burst of frozen fur and bone, dealing @Damage[2d4[cold]] damage to all adjacent creatures (@Check[reflex|dc:14|basic] save).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Icy Rat",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -3
+            },
+            "con": {
+                "mod": 2
+            },
+            "dex": {
+                "mod": 3
+            },
+            "int": {
+                "mod": -4
+            },
+            "str": {
+                "mod": 1
+            },
+            "wis": {
+                "mod": 1
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 16
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 15,
+                "temp": 0,
+                "value": 15
+            },
+            "immunities": [
+                {
+                    "type": "cold"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "climb",
+                        "value": 10
+                    }
+                ],
+                "value": 30
+            },
+            "weaknesses": [
+                {
+                    "type": "fire",
+                    "value": 5
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 0
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Adventure: The Fall of Plaguestone"
+            },
+            "rarity": {
+                "value": ""
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 5,
+            "senses": [
+                {
+                    "type": "low-light-vision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 30,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 6
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 7
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 3
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 5
+            },
+            "athletics": {
+                "base": 3,
+                "special": [
+                    {
+                        "base": 5,
+                        "label": "to Climb or Swim",
+                        "predicate": [
+                            {
+                                "or": [
+                                    "action:climb",
+                                    "action:swim"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "stealth": {
+                "base": 7
+            }
+        },
+        "traits": {
+            "rarity": "rare",
+            "size": {
+                "value": "sm"
+            },
+            "value": [
+                "animal"
+            ]
+        }
+    },
+    "type": "npc"
+}

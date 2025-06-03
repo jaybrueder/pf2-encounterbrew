@@ -1,0 +1,437 @@
+{
+    "_id": "0PrrwvV1936eSCQy",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "bh3hivovyu8ym9ay",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Painful Touch",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": []
+                },
+                "bonus": {
+                    "value": 28
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "4d6+14",
+                        "damageType": "mental"
+                    },
+                    "1": {
+                        "category": "persistent",
+                        "damage": "2d6",
+                        "damageType": "mental"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "magical"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "hK1tPnyMOt0g3STo",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.sebk9XseMCRkDqRg"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Lifesense 60 feet",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Lifesense]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "lifesense",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Z47yWqdpdND95LJp",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.lR9R5Vld8Eu2Dha5"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Regeneration 10 (Deactivated by Fire)",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "deathNote": true,
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Regeneration]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [
+                    {
+                        "deactivatedBy": [
+                            "fire"
+                        ],
+                        "key": "FastHealing",
+                        "type": "regeneration",
+                        "value": 10
+                    }
+                ],
+                "slug": "regeneration",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "ssmbr5eqwybx9xne",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Endless Suffering",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>The tormented perished by fire and brand.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "0aqvd9pAwLkOwZeo",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Tortured Gaze",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>30 foot or 60 foot if the tormented is at 125 HP or lower.</p>\n<p>The psychic agony of a tormented spills into the world around them, inflicting murderous hallucinations replicating the tormented's last moments. A non-undead creature that ends its turn in the aura must succeed at a @Check[will|dc:32] save or take @Damage[6d6[fire]] damage and be wreathed in ghostly flames for 1 minute, negating its @UUID[Compendium.pf2e.conditionitems.Item.Concealed] condition and rendering it concealed if it would be @UUID[Compendium.pf2e.conditionitems.Item.Invisible]. While it has a condition from Tortured Gaze, a creature can't gain a new condition from the aura but can take damage from it again.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": "ternary(lte(@actor.hitPoints.value, 125), 60, 30)",
+                        "slug": "tortured-gaze",
+                        "traits": [
+                            "divine",
+                            "illusion",
+                            "mental"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "divine",
+                        "illusion",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "9QFD9WobEytvbbov",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.TTCw5NusiSSkJU1x"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Void Healing",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.NegativeHealing]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary 2"
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "system.attributes.hp.negativeHealing",
+                        "value": true
+                    }
+                ],
+                "slug": "negative-healing",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "ijsqkg9v5y89e7nf",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Scream in Agony",
+            "sort": 700000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Each creature in the tormented's Tortured Gaze aura takes @Damage[14d6[mental]] damage (@Check[will|dc:34|basic]). A creature that fails is also @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1} (or @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2} on a critical failure).</p>\n<p>The tormented can't Scream in Agony again for [[/gmr 1d4 #Recharge Scream in Agony]]{1d4 rounds}, but recharges the ability whenever they take damage from an attacker's critical hit or their own critical failure on a saving throw.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "auditory",
+                        "divine",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Tormented (Burning)",
+    "prototypeToken": {
+        "name": "Tormented"
+    },
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 8
+            },
+            "con": {
+                "mod": 4
+            },
+            "dex": {
+                "mod": 4
+            },
+            "int": {
+                "mod": -1
+            },
+            "str": {
+                "mod": 6
+            },
+            "wis": {
+                "mod": 5
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 35
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "void healing, regeneration 10 (deactivated by fire)",
+                "max": 250,
+                "temp": 0,
+                "value": 250
+            },
+            "immunities": [
+                {
+                    "type": "death-effects"
+                },
+                {
+                    "type": "disease"
+                },
+                {
+                    "type": "paralyzed"
+                },
+                {
+                    "type": "poison"
+                },
+                {
+                    "type": "unconscious"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 25
+                    }
+                ],
+                "special": "",
+                "value": 25
+            },
+            "weaknesses": [
+                {
+                    "type": "fire",
+                    "value": 10
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "aklo",
+                    "common",
+                    "necril"
+                ]
+            },
+            "level": {
+                "value": 14
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Twisted caricatures of living beings, tormented arise from the remains of those who've been tortured to death. They appear as the mortals they were in life, horribly disfigured by acts of cruelty. Unable to rest, they haunt the sites of their deaths, doomed to relive their last moments of agony. The toxic psychic residue of their death is so great it spills over, afflicting anyone who meets the tormented's haunted gaze.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Book of the Dead"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 27,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "acuity": "precise",
+                    "range": 60,
+                    "type": "lifesense"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 22
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 26
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 27
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 24
+            },
+            "athletics": {
+                "base": 26
+            },
+            "intimidation": {
+                "base": 28
+            },
+            "stealth": {
+                "base": 24
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "chaotic",
+                "evil",
+                "undead",
+                "unholy"
+            ]
+        }
+    },
+    "type": "npc"
+}

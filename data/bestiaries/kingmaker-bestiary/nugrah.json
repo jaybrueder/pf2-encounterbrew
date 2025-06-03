@@ -1,0 +1,1538 @@
+{
+    "_id": "KP7uf1E8CQgzTuQy",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "JP9GiA6aaQlXRKAE",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Primal Prepared Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "flexible": false,
+                    "value": "prepared"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slots": {
+                    "slot0": {
+                        "max": 5,
+                        "prepared": [
+                            {
+                                "id": "jIK413xRCnhPk9nZ"
+                            },
+                            {
+                                "id": "s6prvoc4NEwfctu8"
+                            },
+                            {
+                                "id": "Avf0S9QTWblD87GO"
+                            },
+                            {
+                                "id": "cgQbf8jnX6IVdxFX"
+                            },
+                            {
+                                "id": "qb4QMA73GsGf4uoK"
+                            }
+                        ]
+                    },
+                    "slot1": {
+                        "max": 3,
+                        "prepared": [
+                            {
+                                "id": "XeQDJT8vZTAVzU3m"
+                            },
+                            {
+                                "id": "5UvokC81ZGZHv7cw"
+                            },
+                            {
+                                "id": "SW3T6RuS4YntlRpJ"
+                            }
+                        ]
+                    },
+                    "slot2": {
+                        "max": 3,
+                        "prepared": [
+                            {
+                                "id": "fUl3IEqCOQTJPiba"
+                            },
+                            {
+                                "id": "xPHyWycs22TF3xCC"
+                            },
+                            {
+                                "id": "8UDTWU5ER5FLbGR7"
+                            }
+                        ]
+                    },
+                    "slot3": {
+                        "max": 2,
+                        "prepared": [
+                            {
+                                "id": "gsOL3sUrk6lZsKTu"
+                            },
+                            {
+                                "id": "6uJH3kHSOMnvk0Za"
+                            }
+                        ]
+                    }
+                },
+                "slug": null,
+                "spelldc": {
+                    "dc": 23,
+                    "value": 21
+                },
+                "tradition": {
+                    "value": "primal"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "gsOL3sUrk6lZsKTu",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.vh1RpbWfqdNC4L3P"
+            },
+            "img": "icons/magic/earth/strike-fist-stone-light.webp",
+            "name": "Meld into Stone",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You merge with an adjacent block of stone with enough volume to fit you and your worn and held possessions. You must touch the stone when you Cast the Spell. You can hear, but not see, what's going on outside the stone, and you can cast spells while in the stone as long as they don't require line of effect beyond the stone.</p>\n<p>Significant physical damage to the stone while you are inside it expels you and deals 10d6 damage to you. Passwall expels you without dealing damage and ends <em>one with stone</em>. You can Dismiss this spell.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "10 minutes"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "meld-into-stone",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "earth",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "fUl3IEqCOQTJPiba",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.YWrfKetOqDwVFut7"
+            },
+            "img": "systems/pf2e/icons/spells/barkskin.webp",
+            "name": "Barkskin",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>The target's skin becomes covered in bark. The target gains resistance 2 to bludgeoning and piercing damage and weakness 3 to fire. After the target takes fire damage, it can Dismiss the spell as a free action triggered by taking the damage; doing so doesn't reduce the fire damage the target was dealt.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Oaken Resilience]</p>\n<hr />\n<p><strong>Heightened (+2)</strong> The resistances increase by 2, and the weakness increases by 3.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "10 minutes"
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "barkskin",
+                "target": {
+                    "value": "1 willing creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "plant"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "8UDTWU5ER5FLbGR7",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.5KobTMrZeZxuXMgl"
+            },
+            "img": "icons/creatures/invertebrates/spider-striped-web-red.webp",
+            "name": "Spider Climb",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>Tiny clinging hairs sprout across the creature's hands and feet, offering purchase on nearly any surface. The target gains a climb Speed equal to its Speed.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The duration increases to 1 hour.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "10 minutes"
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "spider-climb",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "jIK413xRCnhPk9nZ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gpzpAAAJ1Lza2JVl"
+            },
+            "img": "systems/pf2e/icons/spells/detect-magic.webp",
+            "name": "Detect Magic",
+            "sort": 500000,
+            "system": {
+                "area": {
+                    "type": "emanation",
+                    "value": 30
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You send out a pulse that registers the presence of magic. You receive no information beyond the presence or absence of magic. You can choose to ignore magic you're fully aware of, such as the magic items and ongoing spells of you and your allies.</p>\n<p>You detect illusion magic only if that magic's effect has a lower level than the rank of your detect magic spell. However, items that have an illusion aura but aren't deceptive in appearance (such as an invisibility potion) typically are detected normally.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You learn the school of magic for the highest-level effect within range that the spell detects. If multiple effects are equally strong, the GM determines which you learn.</p>\n<p><strong>Heightened (4th)</strong> As 3rd level, but you also pinpoint the source of the highest-level magic. Like for an imprecise sense, you don't learn the exact location, but can narrow down the source to within a 5-foot cube (or the nearest if larger than that).</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "detect-magic",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "detection",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "s6prvoc4NEwfctu8",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.kBhaPuzLUSwS6vVf"
+            },
+            "img": "icons/magic/lightning/bolt-strike-forked-blue.webp",
+            "name": "Electric Arc",
+            "sort": 600000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": true,
+                        "category": null,
+                        "formula": "1d4",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "electricity"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
+                "description": {
+                    "value": "<p>An arc of lightning leaps from one target to another. You deal electricity damage equal to 1d4 plus your spellcasting ability modifier.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d4"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "electric-arc",
+                "target": {
+                    "value": "1 or 2 creatures"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "electricity",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "xPHyWycs22TF3xCC",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.rfZpqmj0AIIdkVIs"
+            },
+            "img": "icons/magic/life/cross-worn-green.webp",
+            "name": "Heal",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "1d8",
+                        "kinds": [
+                            "damage",
+                            "healing"
+                        ],
+                        "materials": [],
+                        "type": "vitality"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>You channel vitality energy to heal the living or damage the undead. If the target is a willing living creature, you restore 1d8 Hit Points. If the target is undead, you deal that amount of vitality damage to it, and it gets a basic Fortitude save. The number of actions you spend when Casting this Spell determines its targets, range, area, and other parameters.</p>\n<p><span class=\"action-glyph\">1</span> <strong>(somatic)</strong> The spell has a range of touch.</p>\n<p><span class=\"action-glyph\">2</span> <strong>(verbal, somatic)</strong> The spell has a range of 30 feet. If you're healing a living creature, increase the Hit Points restored by 8</p>\n<p><span class=\"action-glyph\">3</span> <strong>(material, somatic, verbal)</strong> You disperse vitality energy in a 30-foot emanation. This targets all living and undead creatures in the burst.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The amount of healing or damage increases by 1d8, and the extra healing for the 2-action version increases by 8.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d8"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "overlays": {
+                    "37gy7l19tik74o4s": {
+                        "_id": "37gy7l19tik74o4s",
+                        "name": "Heal (vs. Living)",
+                        "overlayType": "override",
+                        "sort": 2,
+                        "system": {
+                            "damage": {
+                                "0": {
+                                    "formula": "1d8+8",
+                                    "kinds": [
+                                        "healing"
+                                    ]
+                                }
+                            },
+                            "defense": null,
+                            "heightening": {
+                                "damage": {
+                                    "0": "1d8+8"
+                                }
+                            },
+                            "range": {
+                                "value": "30 feet"
+                            },
+                            "time": {
+                                "value": "2"
+                            },
+                            "traits": {
+                                "value": [
+                                    "concentrate",
+                                    "healing",
+                                    "manipulate",
+                                    "vitality"
+                                ]
+                            }
+                        }
+                    },
+                    "7qdtetowq348s9oc": {
+                        "_id": "7qdtetowq348s9oc",
+                        "overlayType": "override",
+                        "sort": 1,
+                        "system": {
+                            "range": {
+                                "value": "touch"
+                            },
+                            "time": {
+                                "value": "1"
+                            }
+                        }
+                    },
+                    "7vbvdrv2cl87sqta": {
+                        "_id": "7vbvdrv2cl87sqta",
+                        "overlayType": "override",
+                        "sort": 4,
+                        "system": {
+                            "area": {
+                                "type": "emanation",
+                                "value": 30
+                            },
+                            "range": {
+                                "value": ""
+                            },
+                            "target": {
+                                "value": "all living and undead creatures"
+                            },
+                            "time": {
+                                "value": "3"
+                            },
+                            "traits": {
+                                "value": [
+                                    "concentrate",
+                                    "healing",
+                                    "manipulate",
+                                    "vitality"
+                                ]
+                            }
+                        }
+                    },
+                    "lfxcoz2d3f8j2zq1": {
+                        "_id": "lfxcoz2d3f8j2zq1",
+                        "name": "Heal (vs. Undead)",
+                        "overlayType": "override",
+                        "sort": 3,
+                        "system": {
+                            "damage": {
+                                "0": {
+                                    "kinds": [
+                                        "damage"
+                                    ]
+                                }
+                            },
+                            "range": {
+                                "value": "30 feet"
+                            },
+                            "target": {
+                                "value": "1 undead"
+                            },
+                            "time": {
+                                "value": "2"
+                            },
+                            "traits": {
+                                "value": [
+                                    "concentrate",
+                                    "healing",
+                                    "manipulate",
+                                    "vitality"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "varies"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "heal",
+                "target": {
+                    "value": "1 willing living creature or 1 undead"
+                },
+                "time": {
+                    "value": "1 to 3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine",
+                        "primal"
+                    ],
+                    "value": [
+                        "healing",
+                        "manipulate",
+                        "vitality"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "XeQDJT8vZTAVzU3m",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.jfVCuOpzC6mUrf6f"
+            },
+            "img": "systems/pf2e/icons/spells/hydraulic-push.webp",
+            "name": "Hydraulic Push",
+            "sort": 800000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "category": null,
+                        "formula": "3d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "bludgeoning"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>You call forth a powerful blast of pressurized water that bludgeons the target and knocks it back. Make a ranged spell attack roll.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes 6d6 bludgeoning damage and is knocked back 10 feet.</p>\n<p><strong>Success</strong> The target takes 3d6 bludgeoning damage and is knocked back 5 feet.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "2d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "60 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "hydraulic-push",
+                "target": {
+                    "value": "1 creature or unattended object"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "attack",
+                        "concentrate",
+                        "manipulate",
+                        "water"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "Avf0S9QTWblD87GO",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4"
+            },
+            "img": "systems/pf2e/icons/spells/light.webp",
+            "name": "Light",
+            "sort": 900000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>The object glows, casting bright light in a 20-foot radius (and dim light for the next 20 feet) like a torch. If you cast this spell again on a second object, the light spell on the first object ends.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Light]</p>\n<hr />\n<p><strong>Heightened (4th)</strong> The object sheds bright light in a 60-foot radius (and dim light for the next 60 feet).</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "until the next time you make your daily preparations"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "light",
+                "target": {
+                    "value": "1 object of 1 Bulk or less, either unattended or possessed by you or a willing ally"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "light",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "5UvokC81ZGZHv7cw",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.KcLVELhCUcKXxiKE"
+            },
+            "img": "systems/pf2e/icons/spells/longstrider.webp",
+            "name": "Longstrider",
+            "sort": 1000000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You lengthen your stride beyond what should be possible. You gain a +10-foot status bonus to your Speed.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tailwind]</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The duration increases to 8 hours.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tailwind (8 hours)]</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 hour"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "longstrider",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "cgQbf8jnX6IVdxFX",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.Qw3fnUlaUbnn7ipC"
+            },
+            "img": "icons/magic/symbols/runes-triangle-blue.webp",
+            "name": "Prestidigitation",
+            "sort": 1100000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>The simplest magic does your bidding. You can perform simple magical effects for as long as you Sustain the Spell. Each time you Sustain the Spell, you can choose one of four options.</p>\n<ul>\n<li><strong>Cook</strong> Cool, warm, or flavor 1 pound of nonliving material.</li>\n<li><strong>Lift</strong> Slowly lift an unattended object of light Bulk or less 1 foot off the ground.</li>\n<li><strong>Make</strong> Create a temporary object of negligible Bulk, made of congealed magical substance. The object looks crude and artificial and is extremely fragile-it can't be used as a tool, weapon, or spell component.</li>\n<li><strong>Tidy</strong> Color, clean, or soil an object of light Bulk or less. You can affect an object of 1 Bulk with 10 rounds of concentration, and a larger object a 1 minute per Bulk.</li>\n</ul>\n<p>Prestidigitation can't deal damage or cause adverse conditions. Any actual change to an object (beyond what is noted above) persists only as long as you Sustain the Spell.</p>"
+                },
+                "duration": {
+                    "sustained": true,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "10 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "prestidigitation",
+                "target": {
+                    "value": "1 object (cook, lift, or tidy only)"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "qb4QMA73GsGf4uoK",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gYjPm7YwGtEa1oxh"
+            },
+            "img": "icons/magic/movement/trail-streak-impact-blue.webp",
+            "name": "Ray of Frost",
+            "sort": 1200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "2d4",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "cold"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a -10-foot status penalty to its Speeds for 1 round.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ray of Frost]</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d4"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "ray-of-frost",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "attack",
+                        "cantrip",
+                        "cold",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "SW3T6RuS4YntlRpJ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.s3abwDbTV43pGFFW"
+            },
+            "img": "systems/pf2e/icons/spells/shillelagh.webp",
+            "name": "Shillelagh",
+            "sort": 1300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>The target grows vines and leaves, brimming with primal energy. The target becomes a <em>+1 striking weapon</em> while in your hands, gaining a +1 item bonus to attack rolls and increasing the number of weapon damage dice to two. Additionally, as long as you are on your home plane, attacks you make with the target against aberrations, extraplanar creatures, and undead increase the number of weapon damage dice to three.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Shillelagh]</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "shillelagh",
+                "target": {
+                    "value": "1 club or staff you hold"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "plant"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "6uJH3kHSOMnvk0Za",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.4YnON9JHYqtLzccu"
+            },
+            "img": "systems/pf2e/icons/spells/summon-animal.webp",
+            "name": "Summon Animal",
+            "sort": 1400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You conjure an animal to fight for you. You summon a common creature that has the animal trait and whose level is -1, such as those found in Pathfinder Bestiary volumes. Heightening the spell increases the maximum level of creature you can summon.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> Level 1</p>\n<p><strong>Heightened (3rd)</strong> Level 2</p>\n<p><strong>Heightened (4th)</strong> Level 3</p>\n<p><strong>Heightened (5th)</strong> Level 5</p>\n<p><strong>Heightened (6th)</strong> Level 7</p>\n<p><strong>Heightened (7th)</strong> Level 9</p>\n<p><strong>Heightened (8th)</strong> Level 11</p>\n<p><strong>Heightened (9th)</strong> Level 13</p>\n<p><strong>Heightened (10th)</strong> Level 15</p>"
+                },
+                "duration": {
+                    "sustained": true,
+                    "value": "1 minute"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "JP9GiA6aaQlXRKAE"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "summon-animal",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "XCidR8jXEtqNTigA",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.c58wczIzH2gzeXQL"
+            },
+            "img": "icons/weapons/clubs/club-banded-brown.webp",
+            "name": "Club",
+            "sort": 1500000,
+            "system": {
+                "baseItem": "club",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 1
+                },
+                "category": "simple",
+                "containerId": null,
+                "damage": {
+                    "damageType": "bludgeoning",
+                    "dice": 1,
+                    "die": "d6"
+                },
+                "description": {
+                    "value": "<p>This is a piece of stout wood shaped or repurposed to bludgeon an enemy. Clubs can be intricately carved pieces of martial art or as simple as a tree branch or piece of wood.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "club",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": "-"
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "club",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "thrown-10"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "RyEkbNlf2v3XdUOC",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.ilbLQNy6TbBPW7sQ"
+            },
+            "img": "icons/equipment/chest/shirt-collared-brown.webp",
+            "name": "Filthy Rags",
+            "sort": 1600000,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "clothing-ordinary",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "worn"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "b5j9aIeq7ERjg1cn",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
+            },
+            "img": "icons/commodities/treasure/broach-jeweled-green.webp",
+            "name": "Religious Symbol of Gozreh (Wooden and Bloodstained)",
+            "sort": 1700000,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": null,
+                "description": {
+                    "value": "<p>This piece of wood or silver is emblazoned with an image representing a deity. Some divine spellcasters, such as clerics, can use a religious symbol of their deity as a divine focus to use certain abilities and cast some spells. A religious symbol must be held in one hand to use it.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "option": "has-religious-symbol",
+                        "requiresEquipped": false
+                    }
+                ],
+                "size": "med",
+                "slug": "religious-symbol-wooden",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "C4fZA5gB6JeZf08P",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "XCidR8jXEtqNTigA"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Club",
+            "sort": 1800000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 12
+                },
+                "damageRolls": {
+                    "8o3B8eBQt47Z3F16": {
+                        "damage": "1d6+3",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "wAjwXDiTkvisDxZR",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Survival of the Fittest",
+            "sort": 1900000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A 1st- or higher-level animal summoned by Nugrah is killed within 30 feet of him</p>\n<hr />\n<p><strong>Effect</strong> Blood- red energy flows from the slain creature into Nugrah's mouth. He immediately heals @Damage[1d6[healing]] Hit Points per level of the slain animal, gaining any excess healing as temporary Hit Points that last for 10 minutes. As long as he possesses these temporary Hit Points, blood-red energy ripples across his flesh and his AC increases to 22.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "option": "survival-of-the-fittest",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "survival-of-the-fittest"
+                        ],
+                        "selector": "ac",
+                        "value": 5
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "wXPOAgEeixFbagOW",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Swift Summon",
+            "sort": 2000000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Requirements</strong> Nugrah has a @UUID[Compendium.pf2e.spells-srd.Item.Summon Animal] spell prepared and available.</p><hr /><p><strong>Effect</strong> Nugrah casts <em>summon animal</em> but does not need to use a material component.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Nugrah",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 4
+            },
+            "con": {
+                "mod": 2
+            },
+            "dex": {
+                "mod": 0
+            },
+            "int": {
+                "mod": 0
+            },
+            "str": {
+                "mod": 1
+            },
+            "wis": {
+                "mod": 5
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 17
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 75,
+                "temp": 0,
+                "value": 75
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 20
+            }
+        },
+        "details": {
+            "blurb": "Male human druid of Gozreh",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "hallit"
+                ]
+            },
+            "level": {
+                "value": 5
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Kingmaker"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 14,
+            "senses": []
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 10
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 6
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 15
+            }
+        },
+        "skills": {
+            "deception": {
+                "base": 11
+            },
+            "intimidation": {
+                "base": 13
+            },
+            "nature": {
+                "base": 12
+            },
+            "stealth": {
+                "base": 9
+            },
+            "survival": {
+                "base": 12
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "evil",
+                "human",
+                "humanoid"
+            ]
+        }
+    },
+    "type": "npc"
+}

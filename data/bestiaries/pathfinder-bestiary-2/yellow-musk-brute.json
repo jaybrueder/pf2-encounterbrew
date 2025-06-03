@@ -1,0 +1,343 @@
+{
+    "_id": "Kw4UUxt5rorsGjsK",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "So7Gr127G3zbRJAt",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Fist",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "improved-push",
+                        "pollen-touch"
+                    ]
+                },
+                "bonus": {
+                    "value": 11
+                },
+                "damageRolls": {
+                    "jbe6v7kpoqegnfrxu25n": {
+                        "damage": "1d12+5",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "reach-10",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "HQ205X1b6CWTHXfU",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Slow",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>A yellow musk brute is permanently @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} and can't use reactions.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "6t0iHm0ru1bcVGTw",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Entangling Tendrils",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>5 feet. Grasping tendrils extend out from the brute. When the brute ends its movement next to a creature, or a creature ends its turn next to the brute, that creature must succeed at a @Check[reflex|dc:15] save or be @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] by the tendrils.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 5,
+                        "slug": "entangling-tendrils",
+                        "traits": []
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "JqWD8UssH8Z7OeZz",
+            "img": "systems/pf2e/icons/actions/FreeAction.webp",
+            "name": "Limb Extension",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "free"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The yellow musk brute is reduced to 15 HP or fewer</p>\n<hr />\n<p><strong>Effect</strong> Creeper tendrils tear through the brute's limbs, causing its forearms to tear loose. The brute's melee reach increases by 5 feet.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "option": "limb-extension",
+                        "toggleable": true
+                    },
+                    {
+                        "itemType": "melee",
+                        "key": "ItemAlteration",
+                        "mode": "add",
+                        "predicate": [
+                            "limb-extension",
+                            "item:melee"
+                        ],
+                        "property": "traits",
+                        "value": "reach-15"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Lv1GZd4xpvCGfjkz",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Pollen Touch",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When the brute strikes a creature, that creature is exposed to yellow musk creeper pollen, as Spray Pollen (DC 15). The creature is fascinated by the yellow musk creeper that spawned the brute, not by the brute itself. The affected creature must attempt a @Check[will|dc:15] save.</p>\n<p>Once a creature succeeds at any save against Spray Pollen, it becomes temporarily immune for 24 hours.</p>\n<hr />\n<p><strong>Success</strong> The creature is unaffected.</p>\n<p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Fascinated]. For as long as it is fascinated, it must spend each of its actions to move closer to the yellow musk creeper that spawned the brute as expediently as possible, while avoiding obvious dangers. If the creature is adjacent to the yellow musk creeper, it stays still and doesn't act.</p>\n<p><strong>Critical Failure</strong> As failure, but the condition doesn't end automatically. The creature can attempt a new save at the end of each of its turns. On a success, the fascinated condition and other effects end.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "pollen-touch",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "oApMO7ZwPJkW1mn1",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.6l7e7CHQLESlI57U"
+            },
+            "img": "systems/pf2e/icons/actions/FreeAction.webp",
+            "name": "Improved Push",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "free"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.ImprovedPush]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "improved-push",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Yellow Musk Brute",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -2
+            },
+            "con": {
+                "mod": 4
+            },
+            "dex": {
+                "mod": -3
+            },
+            "int": {
+                "mod": -5
+            },
+            "str": {
+                "mod": 5
+            },
+            "wis": {
+                "mod": 0
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 15
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 45,
+                "temp": 0,
+                "value": 45
+            },
+            "immunities": [],
+            "speed": {
+                "otherSpeeds": [],
+                "value": 25
+            },
+            "weaknesses": [
+                {
+                    "type": "fire",
+                    "value": 10
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 2
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>A creature transformed by a yellow musk creeper's tendrils boring into its brain becomes a yellow musk thrall if it's Small or Medium, or a yellow musk brute if Large (a Small creature becomes a Small thrall rather than a Medium one). The transformation takes 1 hour. A yellow musk thrall takes only the most rudimentary of actions: bringing the yellow musk creeper water and new creatures to infest. After a few days (or if the creeper dies), the thrall wanders off into the wilderness and falls dead within 24 hours. The body of a deceased thrall sprouts a new yellow musk creeper within hours of its death, becoming a fully grown plant within 24 hours.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary 2"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 4,
+            "senses": [
+                {
+                    "type": "low-light-vision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 10
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 3
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 6
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 9
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "mindless",
+                "plant"
+            ]
+        }
+    },
+    "type": "npc"
+}

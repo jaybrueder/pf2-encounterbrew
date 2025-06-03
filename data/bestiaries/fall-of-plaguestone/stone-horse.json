@@ -1,0 +1,209 @@
+{
+    "_id": "23kCcF391RtapbfJ",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "mVLpape73XGX3YNO",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Hoof",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 10
+                },
+                "damageRolls": {
+                    "sf4xrlxw9d3cmlfzu4adp": {
+                        "damage": "1d8+4",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "3Ope7LQxbCtQSi9I",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Shattering Hooves",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The hooves of the stone horse are as hard as iron; if the horse makes a Hoof Strike and gets a critical hit, the target's armor is damaged as well, the attack dealing as much damage to the armor as it dealt to the target (Hardness applies as normal). If the target uses shield block against the stone horse's critical hit with a hoof attack, treat the shield's Hardness as 5 points lower (minimum 0).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "strike-damage",
+                        "text": "If the horse makes a Hoof Strike and gets a critical hit, the target's armor is damaged as well, the attack dealing as much damage to the armor as it dealt to the target (Hardness applies as normal). If the target uses shield block against the stone horse's critical hit with a hoof attack, treat the shield's Hardness as 5 points lower (minimum 0).",
+                        "title": "{item|name}",
+                        "visibility": "gm"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Stone Horse",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -1
+            },
+            "con": {
+                "mod": 5
+            },
+            "dex": {
+                "mod": 1
+            },
+            "int": {
+                "mod": -4
+            },
+            "str": {
+                "mod": 4
+            },
+            "wis": {
+                "mod": 2
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 16
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 30,
+                "temp": 0,
+                "value": 30
+            },
+            "resistances": [
+                {
+                    "exceptions": [
+                        "bludgeoning"
+                    ],
+                    "type": "physical",
+                    "value": 5
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [],
+                "value": 30
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 2
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Adventure: The Fall of Plaguestone"
+            },
+            "rarity": {
+                "value": ""
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 6,
+            "senses": [
+                {
+                    "type": "low-light-vision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 30,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 11
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 5
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 8
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 5
+            },
+            "athletics": {
+                "base": 10
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "animal"
+            ]
+        }
+    },
+    "type": "npc"
+}

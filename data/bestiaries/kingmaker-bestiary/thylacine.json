@@ -1,0 +1,216 @@
+{
+    "_id": "TLoNfIIhS7YGdV54",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "O2EsiBYHC57XSjTz",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 7
+                },
+                "damageRolls": {
+                    "RKmpkpwnAFJ4GE1O": {
+                        "damage": "1d4+3",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "jaws",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "BxuCFIo6yswNsArJ",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Hunting Cry",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The thylacine growls, hisses, and bares its jaws in a frightening manner as it attempts to @UUID[Compendium.pf2e.actionspf2e.Item.Demoralize] a creature. It gains a +2 circumstance bonus to this Intimidation check, and the attempt is not penalized if the target can't understand the thylacine.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "domain": "intimidation",
+                        "key": "RollOption",
+                        "option": "hunting-cry",
+                        "toggleable": true,
+                        "value": true
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "hunting-cry",
+                            "action:demoralize"
+                        ],
+                        "selector": "intimidation",
+                        "type": "circumstance",
+                        "value": 2
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "auditory",
+                        "emotion",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Thylacine",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 0
+            },
+            "con": {
+                "mod": 2
+            },
+            "dex": {
+                "mod": 2
+            },
+            "int": {
+                "mod": -4
+            },
+            "str": {
+                "mod": 3
+            },
+            "wis": {
+                "mod": 2
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 16
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 16,
+                "temp": 0,
+                "value": 16
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 25
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 0
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>A thylacine can be easily mistaken for a dog or jackal, but the defining stripes on their gold-hued backs and unusually wide gaping jaws negate this perception in close encounters. A thylacine is quite vocal, and uses a combination of growls, hisses, and gaping threat-yawns when threatened. An adult thylacine stands 2 feet tall at the shoulder, is 4 feet long (not counting an additional 2 feet of tail) and weighs roughly 50 pounds.</p>\n<hr />\n<p>The thylacine is a marsupial carnivore. This nocturnal predator typically hunts alone, only occasionally forming small packs. Because of their odd appearance, thylacines have a far harsher reputation than they probably should, playing a sort of bogeyman role in farming communities.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Kingmaker"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 4,
+            "senses": [
+                {
+                    "type": "low-light-vision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 30,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 6
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 8
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 4
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 5
+            },
+            "intimidation": {
+                "base": 4
+            },
+            "stealth": {
+                "base": 6
+            },
+            "survival": {
+                "base": 4
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "sm"
+            },
+            "value": [
+                "animal"
+            ]
+        }
+    },
+    "type": "npc"
+}

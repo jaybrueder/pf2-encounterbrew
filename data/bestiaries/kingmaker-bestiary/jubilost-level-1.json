@@ -1,0 +1,3307 @@
+{
+    "_id": "KqWZZBucIAA1MzjF",
+    "img": "systems/pf2e/icons/default-icons/alternatives/ancestries/gnome.svg",
+    "items": [
+        {
+            "_id": "fyeZk1MxWZ6tAvId",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.backgrounds.Item.v0WPfxN6G8XFfFZT"
+            },
+            "flags": {
+                "pf2e": {
+                    "itemGrants": {
+                        "scholarNature": {
+                            "id": "ZYK0sPC3qVDuS38N"
+                        }
+                    }
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/background.svg",
+            "name": "Scholar (Nature)",
+            "sort": 0,
+            "system": {
+                "boosts": {
+                    "0": {
+                        "selected": "int",
+                        "value": [
+                            "int",
+                            "wis"
+                        ]
+                    },
+                    "1": {
+                        "selected": "dex",
+                        "value": [
+                            "cha",
+                            "con",
+                            "dex",
+                            "int",
+                            "str",
+                            "wis"
+                        ]
+                    }
+                },
+                "description": {
+                    "value": "<p>You have a knack for learning, and sequestered yourself from the outside world to learn all you could. You read about so many wondrous places and things in your books, and always dreamed about one day seeing the real things. Eventually, that curiosity led you to leave your studies and become an adventurer.</p>\n<p>Choose two ability boosts. One must be to Intelligence or Wisdom, and one is a free ability boost.</p>\n<p>You're trained in your choice of the Arcana, Nature, Occultism, or Religion skill, and the Academia Lore skill. You gain the @UUID[Compendium.pf2e.feats-srd.Item.Assurance] skill feat in your chosen skill.</p>"
+                },
+                "items": {},
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "choices": [
+                            {
+                                "label": "PF2E.Skill.Arcana",
+                                "value": "arcana"
+                            },
+                            {
+                                "label": "PF2E.Skill.Nature",
+                                "value": "nature"
+                            },
+                            {
+                                "label": "PF2E.Skill.Occultism",
+                                "value": "occultism"
+                            },
+                            {
+                                "label": "PF2E.Skill.Religion",
+                                "value": "religion"
+                            }
+                        ],
+                        "flag": "scholar",
+                        "key": "ChoiceSet",
+                        "prompt": "PF2E.SpecificRule.Prompt.Skill",
+                        "selection": "nature"
+                    },
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "upgrade",
+                        "path": "system.skills.{item|flags.pf2e.rulesSelections.scholar}.rank",
+                        "value": 1
+                    },
+                    {
+                        "key": "GrantItem",
+                        "preselectChoices": {
+                            "assurance": "{item|flags.pf2e.rulesSelections.scholar}"
+                        },
+                        "uuid": "Compendium.pf2e.feats-srd.Item.Assurance"
+                    }
+                ],
+                "slug": "scholar",
+                "trainedSkills": {
+                    "lore": [
+                        "Academia Lore"
+                    ],
+                    "value": []
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "background"
+        },
+        {
+            "_id": "ZYK0sPC3qVDuS38N",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.feats-srd.Item.W6Gl9ePmItfDHji0"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "fyeZk1MxWZ6tAvId",
+                        "onDelete": "cascade"
+                    }
+                }
+            },
+            "img": "icons/sundries/books/book-red-exclamation.webp",
+            "name": "Assurance",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "skill",
+                "description": {
+                    "value": "<p>Even in the worst circumstances, you can perform basic tasks. Choose a skill you're trained in. You can forgo rolling a skill check for that skill to instead receive a result of 10 + your proficiency bonus (do not apply any other bonuses, penalties, or modifiers).</p>\n<hr />\n<p><strong>Special</strong> You can select this feat multiple times. Each time, choose a different skill and gain the benefits for that skill.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": null,
+                "maxTakable": null,
+                "prerequisites": {
+                    "value": [
+                        {
+                            "value": "trained in at least one skill"
+                        }
+                    ]
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "choices": [
+                            {
+                                "label": "PF2E.Skill.Acrobatics",
+                                "value": "acrobatics"
+                            },
+                            {
+                                "label": "PF2E.Skill.Arcana",
+                                "value": "arcana"
+                            },
+                            {
+                                "label": "PF2E.Skill.Athletics",
+                                "value": "athletics"
+                            },
+                            {
+                                "label": "PF2E.Skill.Crafting",
+                                "value": "crafting"
+                            },
+                            {
+                                "label": "PF2E.Skill.Deception",
+                                "value": "deception"
+                            },
+                            {
+                                "label": "PF2E.Skill.Diplomacy",
+                                "value": "diplomacy"
+                            },
+                            {
+                                "label": "PF2E.Skill.Intimidation",
+                                "value": "intimidation"
+                            },
+                            {
+                                "label": "PF2E.Skill.Medicine",
+                                "value": "medicine"
+                            },
+                            {
+                                "label": "PF2E.Skill.Nature",
+                                "value": "nature"
+                            },
+                            {
+                                "label": "PF2E.Skill.Occultism",
+                                "value": "occultism"
+                            },
+                            {
+                                "label": "PF2E.Skill.Performance",
+                                "value": "performance"
+                            },
+                            {
+                                "label": "PF2E.Skill.Religion",
+                                "value": "religion"
+                            },
+                            {
+                                "label": "PF2E.Skill.Society",
+                                "value": "society"
+                            },
+                            {
+                                "label": "PF2E.Skill.Stealth",
+                                "value": "stealth"
+                            },
+                            {
+                                "label": "PF2E.Skill.Survival",
+                                "value": "survival"
+                            },
+                            {
+                                "label": "PF2E.Skill.Thievery",
+                                "value": "thievery"
+                            },
+                            {
+                                "label": "PF2E.SkillLore",
+                                "value": "lore"
+                            }
+                        ],
+                        "flag": "assurance",
+                        "key": "ChoiceSet",
+                        "prompt": "PF2E.SpecificRule.Prompt.Skill",
+                        "selection": "nature"
+                    },
+                    {
+                        "key": "SubstituteRoll",
+                        "label": "PF2E.SpecificRule.SubstituteRoll.Assurance",
+                        "selector": "{item|flags.pf2e.rulesSelections.assurance}",
+                        "slug": "assurance",
+                        "value": 10
+                    },
+                    {
+                        "key": "AdjustModifier",
+                        "predicate": [
+                            "substitute:assurance",
+                            {
+                                "not": "bonus:type:proficiency"
+                            }
+                        ],
+                        "selector": "{item|flags.pf2e.rulesSelections.assurance}",
+                        "suppress": true
+                    }
+                ],
+                "slug": "assurance",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "fortune",
+                        "general",
+                        "skill"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "432AQ0jbevEtWKdG",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.qCEOZ6109Yo34tRx"
+            },
+            "img": "icons/sundries/books/book-tooled-brass-brown.webp",
+            "name": "Formula Book",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "BShWAPVCyu7cWTvS",
+                "description": {
+                    "value": "<p>A formula book holds the formulas necessary to make items other than the common equipment from this chapter; alchemists typically get one for free. Each formula book can hold the formulas for up to 100 different items. Formulas can also appear on parchment sheets, tablets, and almost any other medium; there's no need for you to copy them into a specific book as long as you can keep them on hand to reference them.</p>"
+                },
+                "equipped": {
+                    "carryType": "stowed",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "formula-book-blank",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "erfRdDyImM68Z6Ca",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.heritages.Item.D3hTAqgwSank8OyO"
+            },
+            "img": "systems/pf2e/icons/features/ancestry/fey-touched-gnome.webp",
+            "name": "Fey-Touched Gnome",
+            "sort": 0,
+            "system": {
+                "ancestry": {
+                    "name": "Gnome",
+                    "slug": "gnome",
+                    "uuid": "Compendium.pf2e.ancestries.Item.CYlfsYLJcBOgqKtD"
+                },
+                "description": {
+                    "value": "<p>The blood of the fey is so strong within you that you're truly one of them. You gain the fey trait, in addition to the gnome and humanoid traits. Choose one cantrip from the primal spell list. You can cast this spell as a primal innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up. You can change this cantrip to a different one from the same list once per day by meditating to realign yourself with the First World; this is a 10-minute activity that has the concentrate trait.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "add": [
+                            "fey"
+                        ],
+                        "key": "ActorTraits"
+                    }
+                ],
+                "slug": "fey-touched-gnome",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "heritage"
+        },
+        {
+            "_id": "wll4JHYsNNNsx4lF",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Academia Lore",
+            "sort": 0,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 0
+                },
+                "proficient": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        },
+        {
+            "_id": "gS87nm7lmCmY8pzz",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "First World Lore",
+            "sort": 0,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 0
+                },
+                "proficient": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        },
+        {
+            "_id": "AYlNJO8ziqGDNG6F",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Forest Lore",
+            "sort": 0,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 0
+                },
+                "proficient": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        },
+        {
+            "_id": "dsVVZHTsFi9iFwgD",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Hill Lore",
+            "sort": 0,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 0
+                },
+                "proficient": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        },
+        {
+            "_id": "pfic0QiF1jUkDVwR",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "River Lore",
+            "sort": 0,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 0
+                },
+                "proficient": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        },
+        {
+            "_id": "bS3LmCir3Q7hG0cf",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.rQWaJhI5Bko5x14Z"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/dagger.webp",
+            "name": "Dagger",
+            "sort": 0,
+            "system": {
+                "baseItem": "dagger",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "simple",
+                "containerId": null,
+                "damage": {
+                    "damageType": "piercing",
+                    "dice": 1,
+                    "die": "d4"
+                },
+                "description": {
+                    "value": "<p>This small, bladed weapon is held in one hand and used to stab a creature in close combat. It can also be thrown.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "knife",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 2
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": "-"
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "dagger",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "thrown-10",
+                        "versatile-s"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "M0PZttNQxZ0lCuKN",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.62nnVQvGhoVLLl2K"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/crossbow.webp",
+            "name": "Crossbow",
+            "sort": 0,
+            "system": {
+                "baseItem": "crossbow",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 1
+                },
+                "category": "simple",
+                "containerId": null,
+                "damage": {
+                    "damageType": "piercing",
+                    "dice": 1,
+                    "die": "d8"
+                },
+                "description": {
+                    "value": "<p>This ranged weapon has a bow-like assembly mounted on a handled frame called a tiller. The tiller has a mechanism to lock the bowstring in place, attached to a trigger mechanism that releases the tension and launches a bolt.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "crossbow",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 3
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": 120,
+                "reload": {
+                    "value": "1"
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "selectedAmmoId": "dmKCXn2dc5sMBk3m",
+                "size": "med",
+                "slug": "crossbow",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-two-hands"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "dmKCXn2dc5sMBk3m",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.AITVZmakiu3RgfKo"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/bolts.webp",
+            "name": "Bolts",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "ammo",
+                "containerId": null,
+                "damage": null,
+                "description": {
+                    "value": "<p>Shorter than traditional arrows but similar in construction, bolts are the ammunition used by crossbows.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn"
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "per": 10,
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 10,
+                "rules": [],
+                "size": "med",
+                "slug": "bolts",
+                "stackGroup": "bolts",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 1,
+                    "value": 1
+                }
+            },
+            "type": "consumable"
+        },
+        {
+            "_id": "j6QlimVWydxtqp14",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.4ftXXUCBHcf4b0MH"
+            },
+            "img": "icons/tools/laboratory/vials-blue-pink.webp",
+            "name": "Alchemist's Tools",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 1
+                },
+                "containerId": "BShWAPVCyu7cWTvS",
+                "description": {
+                    "value": "<p>This mobile collection of vials and chemicals can be used for simple alchemical tasks.</p>"
+                },
+                "equipped": {
+                    "carryType": "stowed",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 3
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "alchemists-tools",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-two-hands"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "BShWAPVCyu7cWTvS",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.3lgwjrFEsQVKzhh7"
+            },
+            "img": "icons/containers/bags/pack-leather-white-tan.webp",
+            "name": "Backpack",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "capacity": 4,
+                    "heldOrStowed": 0.1,
+                    "ignored": 2,
+                    "value": 0
+                },
+                "collapsed": false,
+                "containerId": null,
+                "description": {
+                    "value": "<p>A backpack holds up to 4 Bulk of items and the first 2 Bulk of these items don't count against your Bulk limits. If you're carrying or stowing the pack rather than wearing it on your back, its Bulk is light instead of negligible</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "inSlot": true,
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "backpack",
+                "stowing": true,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "wornbackpack"
+                }
+            },
+            "type": "backpack"
+        },
+        {
+            "_id": "CMVNkXj5aj3zoQBA",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.VnPh324pKwd2ZB66"
+            },
+            "img": "systems/pf2e/icons/equipment/adventuring-gear/waterskin.webp",
+            "name": "Waterskin",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "BShWAPVCyu7cWTvS",
+                "description": {
+                    "value": "<p>When it's full, a waterskin contains roughly 1 day's worth of water for a Small or Medium creature.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "cp": 5
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "waterskin",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "5grHAJlMIrJsKyJU",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.xShIDyydOMkGvGNb"
+            },
+            "img": "systems/pf2e/icons/equipment/adventuring-gear/chalk.webp",
+            "name": "Chalk",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "category": "other",
+                "containerId": "BShWAPVCyu7cWTvS",
+                "damage": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn"
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "per": 10,
+                    "value": {
+                        "cp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 10,
+                "rules": [],
+                "size": "med",
+                "slug": "chalk",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 1,
+                    "value": 1
+                }
+            },
+            "type": "consumable"
+        },
+        {
+            "_id": "4THokVvnMr9rMQPX",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.L9ZV076913otGtiB"
+            },
+            "img": "systems/pf2e/icons/equipment/adventuring-gear/rations.webp",
+            "name": "Rations",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "other",
+                "containerId": "BShWAPVCyu7cWTvS",
+                "damage": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn"
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 4
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 2,
+                "rules": [],
+                "size": "med",
+                "slug": "rations",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 7,
+                    "value": 7
+                }
+            },
+            "type": "consumable"
+        },
+        {
+            "_id": "w8klWsDQvpVg9lG5",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.fagzYdmfYyMQ6J77"
+            },
+            "img": "icons/containers/ammunition/quiver-simple-brown.webp",
+            "name": "Bedroll",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "BShWAPVCyu7cWTvS",
+                "description": {
+                    "value": "<p>A rolled up bed.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "cp": 2
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "bedroll",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "AdBQ2An2B8f2UzCm",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.HamOU17sqb5ljiB5"
+            },
+            "img": "systems/pf2e/icons/equipment/adventuring-gear/bandolier.webp",
+            "name": "Bandolier",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "capacity": 0,
+                    "heldOrStowed": 0.1,
+                    "ignored": 0,
+                    "value": 0
+                },
+                "collapsed": false,
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "bandolier",
+                "stowing": false,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "worn"
+                }
+            },
+            "type": "backpack"
+        },
+        {
+            "_id": "xyt4iczSvxwXeZ10",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.eFqKVKrf62XOGWUw"
+            },
+            "img": "systems/pf2e/icons/equipment/adventuring-gear/belt-pouch.webp",
+            "name": "Belt Pouch",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "capacity": 0,
+                    "heldOrStowed": 0,
+                    "ignored": 0,
+                    "value": 0
+                },
+                "collapsed": false,
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "belt-pouch",
+                "stowing": false,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "worn"
+                }
+            },
+            "type": "backpack"
+        },
+        {
+            "_id": "bvJxSvquAYJ4gmCC",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.dDIPA1WE9ESF67EB"
+            },
+            "img": "icons/equipment/chest/shirt-collared-pink.webp",
+            "name": "Explorer's Clothing",
+            "sort": 0,
+            "system": {
+                "acBonus": 0,
+                "baseItem": "explorers-clothing",
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "unarmored",
+                "checkPenalty": 0,
+                "containerId": null,
+                "description": {
+                    "value": "<p>Explorer's clothing is sturdy enough that it can be reinforced to protect you, even though it isn't a suit of armor. It comes in many forms, though the most common sorts look like clerical vestments, monk's garments, or wizard's robes, as members of all three classes are likely to avoid wearing armor.</p>"
+                },
+                "dexCap": 5,
+                "equipped": {
+                    "carryType": "worn",
+                    "inSlot": false,
+                    "invested": null
+                },
+                "group": "cloth",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "resilient": 0
+                },
+                "size": "med",
+                "slug": "explorers-clothing",
+                "speedPenalty": 0,
+                "strength": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "comfort"
+                    ]
+                }
+            },
+            "type": "armor"
+        },
+        {
+            "_id": "6VX48cR3zOK61EKV",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.zBYEU9E7034ENCmh"
+            },
+            "img": "icons/equipment/chest/breastplate-banded-leather-brown.webp",
+            "name": "Padded Armor",
+            "sort": 0,
+            "system": {
+                "acBonus": 1,
+                "baseItem": "padded-armor",
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "light",
+                "checkPenalty": 0,
+                "containerId": null,
+                "description": {
+                    "value": "<p>This armor is simply a layer of heavy, quilted cloth, but it is sometimes used because it's so inexpensive. Padded armor is easier to damage and destroy than other types of armor. Heavy armor comes with a padded armor undercoat included in its Price, though it loses the comfort trait when worn under heavy armor. You can wear just that padded armor or undercoat to sleep in, if your heavy armor is destroyed, or when otherwise not wearing the full heavy armor. This allows you to keep the armor invested and benefit from the power of any runes on the associated heavy armor, but no one else can wear your heavy armor without the padded undercoat.</p>"
+                },
+                "dexCap": 3,
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "inSlot": true,
+                    "invested": null
+                },
+                "group": null,
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 2
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "resilient": 0
+                },
+                "size": "med",
+                "slug": "padded-armor",
+                "speedPenalty": 0,
+                "strength": 0,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "comfort"
+                    ]
+                }
+            },
+            "type": "armor"
+        },
+        {
+            "_id": "bR3PacA7mpoCme4G",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.dIRZ0LL7G31fJNYz"
+            },
+            "img": "icons/sundries/lights/lantern-iron-yellow.webp",
+            "name": "Lantern (Hooded)",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "BShWAPVCyu7cWTvS",
+                "description": {
+                    "value": "<p>A lantern sheds bright light and requires 1 pint of oil to function for 6 hours. A bull's-eye lantern emits its light in a 60-foot cone (and dim light in the next 60 feet). A hooded lantern sheds light in a 30-foot radius (and dim light in the next 30 feet) and is equipped with shutters, which you can close to block the light. Closing or opening the shutters takes an Interact action.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 7
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [
+                    {
+                        "key": "TokenLight",
+                        "value": {
+                            "animation": {
+                                "intensity": 4,
+                                "speed": 1,
+                                "type": "torch"
+                            },
+                            "bright": 30,
+                            "color": "#9b7337",
+                            "dim": 60,
+                            "shadows": 0.2
+                        }
+                    },
+                    {
+                        "key": "TokenEffectIcon",
+                        "value": "icons/sundries/lights/lantern-iron-yellow.webp"
+                    }
+                ],
+                "size": "med",
+                "slug": "lantern-hooded",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "WNiiNoNpjHnaaYY4",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.Du05UxCyCM0ZWH8z"
+            },
+            "img": "icons/consumables/potions/potion-bottle-labeled-medicine-capped-red-black.webp",
+            "name": "Oil (1 pint)",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0
+                },
+                "category": "oil",
+                "containerId": "BShWAPVCyu7cWTvS",
+                "damage": null,
+                "description": {
+                    "value": "<p>You can use oil to fuel lanterns, but you can also set a pint of oil aflame and throw it. You must first spend an Interact action preparing the oil, then throw it with another action as a ranged attack. If you hit, it splatters on the creature or in a single 5-foot square you target. You must succeed at a @Check[flat|dc:10] for the oil to ignite successfully when it hits. If the oil ignites, the target takes 1d6 fire damage.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "cp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 2,
+                "rules": [],
+                "size": "med",
+                "slug": "oil-1-pint",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 1,
+                    "value": 1
+                }
+            },
+            "type": "consumable"
+        },
+        {
+            "_id": "AKXpxrH19dBG20z4",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.QJb8S927Yj81EgHH"
+            },
+            "img": "icons/tools/scribal/ink-quill-red.webp",
+            "name": "Writing Set",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "BShWAPVCyu7cWTvS",
+                "description": {
+                    "value": "<p>Using a writing set, you can draft correspondence and scribe scrolls. A set includes stationery, including a variety of paper and parchment, as well as ink, a quill or inkpen, sealing wax, and a simple seal. If you've written a large amount, you can refill your kit with extra ink and paper.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "writing-set",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "7WhV0Iy8XlOIcXtH",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.3yLu12TCwN8utY0u"
+            },
+            "img": "icons/sundries/scrolls/scroll-plain-tan.webp",
+            "name": "Writing Set (Extra Ink and Paper)",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": "BShWAPVCyu7cWTvS",
+                "description": {
+                    "value": "<p>Extra ink and paper to refill your writing set.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "writing-set-extra-ink-and-paper",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "cBsYWkv82ykgTjHc",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.yd3kEK21YknZLlcT"
+            },
+            "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/alchemists-fire.webp",
+            "name": "Alchemist's Fire (Lesser)",
+            "sort": 0,
+            "system": {
+                "baseItem": "alchemical-bomb",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "martial",
+                "containerId": null,
+                "damage": {
+                    "damageType": "fire",
+                    "dice": 1,
+                    "die": "d8",
+                    "persistent": {
+                        "faces": null,
+                        "number": 1,
+                        "type": "fire"
+                    }
+                },
+                "description": {
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p>\n<p>Alchemist's fire is a combination of volatile liquids that ignite when exposed to air. Alchemist's fire deals 1d8 fire damage, 1 persistent fire damage, and 1 fire splash damage.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "group": "bomb",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 1
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 3
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 4,
+                "range": 20,
+                "reload": {
+                    "value": "-"
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "alchemists-fire-lesser",
+                "splashDamage": {
+                    "value": 1
+                },
+                "temporary": true,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemical",
+                        "bomb",
+                        "consumable",
+                        "fire",
+                        "infused",
+                        "splash"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "iAmFxAsvNojoZVF9",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.hDLbR56Id2OtU318"
+            },
+            "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/elixir-of-life.webp",
+            "name": "Elixir of Life (Minor)",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "category": "elixir",
+                "containerId": null,
+                "damage": {
+                    "formula": "1d6",
+                    "kind": "healing",
+                    "type": "untyped"
+                },
+                "description": {
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Interact</p>\n<p>Elixirs of life accelerate a living creature's natural healing processes and immune system. Upon drinking this elixir, you regain @Damage[1d6[healing]] Hit Points and gain +1 item bonus to saving throws against diseases and poisons for 10 minutes.</p>\n<p>@UUID[Compendium.pf2e.equipment-effects.Item.Effect: Elixir of Life]</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 1
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 3
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 2,
+                "rules": [],
+                "size": "med",
+                "slug": "elixir-of-life-minor",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemical",
+                        "consumable",
+                        "elixir",
+                        "healing",
+                        "infused"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 1,
+                    "value": 1
+                }
+            },
+            "type": "consumable"
+        },
+        {
+            "_id": "kTN86guVl5qzlzIK",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Primal Innate Spells",
+            "sort": 0,
+            "system": {
+                "ability": {
+                    "value": "cha"
+                },
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "slug": "",
+                    "value": 2
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 0,
+                    "value": 0
+                },
+                "tradition": {
+                    "value": "primal"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "AAyyxD8q9J6hpy97",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.tXa5vOu5giBNCjdR"
+            },
+            "img": "icons/skills/ranged/arrow-flying-ornate-gold.webp",
+            "name": "Know Direction",
+            "sort": 0,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>In your mind's eye, you see a path northward. You immediately know which direction is north (if it exists at your current location).</p>\n<hr />\n<p><strong>Heightened (7th)</strong> You can instead know the direction to a familiar location, such as a previous home or a favorite tavern.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "kTN86guVl5qzlzIK"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "know-direction",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "detection",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "YfXioTzgQNcuRES5",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.feats-srd.Item.FWCULKnVXhSPL0ST"
+            },
+            "img": "icons/sundries/books/book-red-exclamation.webp",
+            "name": "Fey Fellowship",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "ancestry",
+                "description": {
+                    "value": "<p>Your enhanced fey connection affords you a warmer reception from creatures of the First World as well as tools to foil their tricks. You gain a +2 circumstance bonus to both Perception checks and saving throws against fey. In addition, whenever you meet a fey creature in a social situation, you can immediately attempt a Diplomacy check to Make an Impression on that creature rather than needing to converse for 1 minute. You take a -5 penalty to the check. If you fail, you can engage in 1 minute of conversation and attempt a new check at the end of that time rather than accepting the failure or critical failure result.</p>\n<p><strong>Special</strong> If you have the Glad-Hand skill feat, you don't take the penalty on your immediate Diplomacy check if the target is a fey.</p>"
+                },
+                "level": {
+                    "taken": 1,
+                    "value": 1
+                },
+                "location": "ancestry-1",
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "target:trait:fey"
+                        ],
+                        "selector": "perception",
+                        "type": "circumstance",
+                        "value": 2
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "origin:trait:fey"
+                        ],
+                        "selector": "saving-throw",
+                        "type": "circumstance",
+                        "value": 2
+                    }
+                ],
+                "slug": "fey-fellowship",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "gnome"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "5AfCpB9S2NTzNsbL",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.feats-srd.Item.BJHsCiBLdjgJo6zM"
+            },
+            "img": "icons/sundries/books/book-red-exclamation.webp",
+            "name": "Far Lobber",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "class",
+                "description": {
+                    "value": "<p>You've learned how to throw a longer distance. When you throw an alchemical bomb, it has a range increment of 30 feet instead of the usual 20 feet.</p>"
+                },
+                "level": {
+                    "taken": 1,
+                    "value": 1
+                },
+                "location": "class-1",
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "definition": [
+                            "item:base:alchemical-bomb"
+                        ],
+                        "key": "AdjustStrike",
+                        "mode": "upgrade",
+                        "property": "range-increment",
+                        "value": 30
+                    }
+                ],
+                "slug": "far-lobber",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemist"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "brTAR9gHjPdJYyhx",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.B6B7tBWJSqOBz5zz"
+            },
+            "img": "systems/pf2e/icons/equipment/treasure/currency/gold-pieces.webp",
+            "name": "Gold Pieces",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 1
+                },
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn"
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 4,
+                "rules": [],
+                "size": "med",
+                "slug": "gold-pieces",
+                "stackGroup": "coins",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "treasure"
+        },
+        {
+            "_id": "EI4hPGc36RWXZFeq",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.5Ew82vBF9YfaiY9f"
+            },
+            "img": "systems/pf2e/icons/equipment/treasure/currency/silver-pieces.webp",
+            "name": "Silver Pieces",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 1
+                },
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn"
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 2,
+                "rules": [],
+                "size": "med",
+                "slug": "silver-pieces",
+                "stackGroup": "coins",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "treasure"
+        },
+        {
+            "_id": "gMBBlyBWsTUmvDdt",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classes.Item.XwfcJuskrhI9GIjX"
+            },
+            "img": "systems/pf2e/icons/classes/alchemist.webp",
+            "name": "Alchemist",
+            "sort": 0,
+            "system": {
+                "ancestryFeatLevels": {
+                    "value": [
+                        1,
+                        5,
+                        9,
+                        13,
+                        17
+                    ]
+                },
+                "attacks": {
+                    "advanced": 0,
+                    "martial": 0,
+                    "other": {
+                        "name": "Alchemical Bombs",
+                        "rank": 1
+                    },
+                    "simple": 1,
+                    "unarmed": 1
+                },
+                "classFeatLevels": {
+                    "value": [
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
+                        18,
+                        20
+                    ]
+                },
+                "defenses": {
+                    "heavy": 0,
+                    "light": 1,
+                    "medium": 1,
+                    "unarmored": 1
+                },
+                "description": {
+                    "value": "<p><em>There's no sight more beautiful to you than a strange brew bubbling in a beaker, and you consume your ingenious elixirs with abandon. You're fascinated by uncovering the secrets of science and the natural world, and you're constantly experimenting in your lab or on the go with inventive concoctions for every eventuality. You are fearless in the face of risk, hurling explosive or toxic creations at your foes. Your unique path toward greatness is lined with alchemical brews that push your mind and body to their limits.</em></p>\n<p>@UUID[Compendium.pf2e.journals.JournalEntry.kzxu2dI7tFxv6Ix6.JournalEntryPage.Om4e4tsgNWrComie]{Alchemist}</p>"
+                },
+                "generalFeatLevels": {
+                    "value": [
+                        3,
+                        7,
+                        11,
+                        15,
+                        19
+                    ]
+                },
+                "hp": 8,
+                "items": {
+                    "0btpz": {
+                        "img": "icons/magic/symbols/question-stone-yellow.webp",
+                        "level": 7,
+                        "name": "(Choice) Perpetual Infusions",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Perpetual Infusions"
+                    },
+                    "0q0he": {
+                        "img": "icons/equipment/back/mantle-collared-green.webp",
+                        "level": 13,
+                        "name": "Alchemist Armor Expertise (Level 13)",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Alchemist Armor Expertise (Level 13)"
+                    },
+                    "17vbv": {
+                        "img": "icons/consumables/potions/potion-flash-open-blue.webp",
+                        "level": 15,
+                        "name": "Alchemical Alacrity",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Alchemical Alacrity"
+                    },
+                    "4bdrn": {
+                        "img": "icons/tools/laboratory/mortar-liquid-pink.webp",
+                        "level": 1,
+                        "name": "Alchemy",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Alchemy"
+                    },
+                    "7rg3w": {
+                        "img": "icons/equipment/chest/breastplate-rivited-red.webp",
+                        "level": 19,
+                        "name": "Alchemist Armor Mastery",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Alchemist Armor Mastery (Level 19)"
+                    },
+                    "b3ohx": {
+                        "img": "icons/magic/symbols/question-stone-yellow.webp",
+                        "level": 1,
+                        "name": "Research Field",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Research Field"
+                    },
+                    "bdpgv": {
+                        "img": "icons/magic/symbols/question-stone-yellow.webp",
+                        "level": 11,
+                        "name": "Perpetual Potency",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Perpetual Potency"
+                    },
+                    "bm730": {
+                        "img": "icons/creatures/eyes/human-single-blue.webp",
+                        "level": 9,
+                        "name": "Alertness",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Alertness"
+                    },
+                    "enfdl": {
+                        "img": "systems/pf2e/icons/features/classes/weapon-specialization.webp",
+                        "level": 13,
+                        "name": "Weapon Specialization",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Weapon Specialization"
+                    },
+                    "f4a0p": {
+                        "img": "icons/magic/light/orbs-hand-gray.webp",
+                        "level": 9,
+                        "name": "Double Brew",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Double Brew"
+                    },
+                    "j5xnl": {
+                        "img": "systems/pf2e/icons/features/classes/alchemical-weapon-expertise.webp",
+                        "level": 7,
+                        "name": "Alchemical Weapon Expertise",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Alchemical Weapon Expertise"
+                    },
+                    "k4a5r": {
+                        "img": "icons/creatures/mammals/bull-horned-blue.webp",
+                        "level": 11,
+                        "name": "Juggernaut",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Juggernaut"
+                    },
+                    "l170j": {
+                        "img": "icons/magic/symbols/question-stone-yellow.webp",
+                        "level": 13,
+                        "name": "(Choice) Greater Field Discovery",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Greater Field Discovery"
+                    },
+                    "nmzo2": {
+                        "img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
+                        "level": 15,
+                        "name": "Evasion",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Evasion"
+                    },
+                    "plldb": {
+                        "img": "icons/consumables/potions/potion-round-corked-glowing-green.webp",
+                        "level": 9,
+                        "name": "Alchemical Expertise",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Alchemical Expertise"
+                    },
+                    "t9bmz": {
+                        "img": "icons/sundries/books/book-purple-gem.webp",
+                        "level": 1,
+                        "name": "Formula Book",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Formula Book"
+                    },
+                    "u9it3": {
+                        "img": "systems/pf2e/icons/features/classes/iron-will.webp",
+                        "level": 7,
+                        "name": "Iron Will",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Iron Will"
+                    },
+                    "xtjxi": {
+                        "img": "icons/magic/symbols/question-stone-yellow.webp",
+                        "level": 17,
+                        "name": "Perpetual Perfection",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Perpetual Perfection"
+                    },
+                    "xzcdr": {
+                        "img": "icons/magic/symbols/question-stone-yellow.webp",
+                        "level": 5,
+                        "name": "Field Discovery",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Field Discovery"
+                    },
+                    "yc9ak": {
+                        "img": "icons/commodities/materials/bowl-powder-teal.webp",
+                        "level": 5,
+                        "name": "Powerful Alchemy",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Powerful Alchemy"
+                    },
+                    "yy1uz": {
+                        "img": "icons/tools/cooking/mortar-stone-yellow.webp",
+                        "level": 17,
+                        "name": "Alchemical Mastery",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Alchemical Mastery"
+                    }
+                },
+                "keyAbility": {
+                    "value": [
+                        "int"
+                    ]
+                },
+                "perception": 1,
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "upgrade",
+                        "path": "system.proficiencies.attacks.weapon-base-alchemical-bomb.rank",
+                        "value": 1
+                    }
+                ],
+                "savingThrows": {
+                    "fortitude": 2,
+                    "reflex": 2,
+                    "will": 1
+                },
+                "skillFeatLevels": {
+                    "value": [
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
+                        18,
+                        20
+                    ]
+                },
+                "skillIncreaseLevels": {
+                    "value": [
+                        3,
+                        5,
+                        7,
+                        9,
+                        11,
+                        13,
+                        15,
+                        17,
+                        19
+                    ]
+                },
+                "slug": "alchemist",
+                "spellcasting": 0,
+                "trainedSkills": {
+                    "additional": 3,
+                    "value": [
+                        "crafting"
+                    ]
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "class"
+        },
+        {
+            "_id": "OnGY481UzwFBexpz",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.cU2ofQLj7pg6wTSi"
+            },
+            "flags": {
+                "pf2e": {
+                    "itemGrants": {
+                        "bomber": {
+                            "id": "clG5lJLS1adFrATG",
+                            "onDelete": "detach"
+                        }
+                    }
+                }
+            },
+            "img": "icons/magic/symbols/question-stone-yellow.webp",
+            "name": "Research Field",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>Your inquiries into the alchemical nature of the universe have led you to focus on a particular field of research. You might have a degree from a scientific institute, correspond with other researchers in your field, or work as a genius loner. Choose a field of research.</p>\n<p>Your research field adds a number of formulas to your formula book; these are your signature items. When using a batch of infused reagents to create your signature items using advanced alchemy, you create three items instead of two. Each time you gain a level, you can swap one of your signature items with another formula in your formula book. This new signature item must be on your research field's list of possible signature items.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": "gMBBlyBWsTUmvDdt",
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "adjustName": false,
+                        "allowedDrops": {
+                            "label": "level 1 Alchemist class feature",
+                            "predicate": [
+                                "item:level:1",
+                                "item:trait:alchemist",
+                                "item:type:feature"
+                            ]
+                        },
+                        "choices": [
+                            {
+                                "value": "Compendium.pf2e.classfeatures.Item.Bomber"
+                            },
+                            {
+                                "value": "Compendium.pf2e.classfeatures.Item.Chirurgeon"
+                            },
+                            {
+                                "value": "Compendium.pf2e.classfeatures.Item.Mutagenist"
+                            },
+                            {
+                                "value": "Compendium.pf2e.classfeatures.Item.Toxicologist"
+                            }
+                        ],
+                        "flag": "researchField",
+                        "key": "ChoiceSet",
+                        "prompt": "PF2E.SpecificRule.Alchemist.ResearchField.Prompt",
+                        "selection": "Compendium.pf2e.classfeatures.Item.Bomber"
+                    },
+                    {
+                        "flag": "bomber",
+                        "key": "GrantItem",
+                        "uuid": "{item|flags.pf2e.rulesSelections.researchField}"
+                    }
+                ],
+                "slug": "research-field",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemist"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "ZWizuSeQsKSY9Pnz",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.w3aS3tsvH2Ub6XMn"
+            },
+            "flags": {
+                "pf2e": {
+                    "itemGrants": {
+                        "advancedAlchemy": {
+                            "id": "aT3Is6eQIGGVifAf",
+                            "onDelete": "detach"
+                        },
+                        "alchemicalCrafting": {
+                            "id": "xbU21Y26FU4rABvB",
+                            "onDelete": "detach"
+                        },
+                        "infusedReagents": {
+                            "id": "8EcOhH21sveNzK25",
+                            "onDelete": "detach"
+                        },
+                        "quickAlchemy": {
+                            "id": "nrObVFkO5hCbezR4",
+                            "onDelete": "detach"
+                        }
+                    }
+                }
+            },
+            "img": "icons/tools/laboratory/mortar-liquid-pink.webp",
+            "name": "Alchemy",
+            "sort": 100,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>You understand the complex interactions of natural and unnatural substances and can concoct alchemical items to meet your needs. You can do this using normal reagents and the Craft activity, or you can use special infused reagents that allow you to craft temporary items quickly and at no cost. Over time, you can create more and more alchemical items for free, and since each of them becomes more and more powerful, you advance in power dramatically, leaving behind those who don't understand your strange science.</p>\n<p>You gain the @UUID[Compendium.pf2e.feats-srd.Item.Alchemical Crafting] feat, even if you don't meet that feat's prerequisites, and you gain the four common 1st-level alchemical formulas granted by that feat. You can use this feat to create alchemical items as long as you have the items' formulas in your formula book.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": "gMBBlyBWsTUmvDdt",
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "flag": "alchemicalCrafting",
+                        "key": "GrantItem",
+                        "uuid": "Compendium.pf2e.feats-srd.Item.Alchemical Crafting"
+                    },
+                    {
+                        "flag": "infusedReagents",
+                        "key": "GrantItem",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Infused Reagents"
+                    },
+                    {
+                        "flag": "advancedAlchemy",
+                        "key": "GrantItem",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Advanced Alchemy"
+                    },
+                    {
+                        "flag": "quickAlchemy",
+                        "key": "GrantItem",
+                        "uuid": "Compendium.pf2e.classfeatures.Item.Quick Alchemy"
+                    }
+                ],
+                "slug": "alchemy",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemist"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "wd4RRmNdQo8T0MNs",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.XPPG7nN9pxt0sjMg"
+            },
+            "flags": {
+                "pf2e": {
+                    "itemGrants": {
+                        "formulaBookBlank": {
+                            "id": "rKcViPntNoKjcQhq",
+                            "onDelete": "detach"
+                        }
+                    }
+                }
+            },
+            "img": "icons/sundries/books/book-purple-gem.webp",
+            "name": "Formula Book",
+            "sort": 200,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>An alchemist keeps meticulous formulas for every item they can create. You start with a standard @UUID[Compendium.pf2e.equipment-srd.Item.Formula Book (Blank)] worth 10 sp or less for free. The formula book contains the formulas for two common 1st-level alchemical items of your choice, in addition to those you gained from @UUID[Compendium.pf2e.feats-srd.Item.Alchemical Crafting] and your research field.</p>\n<p>Each time you gain a level, you can add the formulas for two common alchemical items to your formula book. These new formulas can be for any level of item you can create. You learn these formulas automatically, but it's also possible to find or buy additional formulas in settlements or from other alchemists, or to invent them with the @UUID[Compendium.pf2e.feats-srd.Item.Inventor] feat.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": "gMBBlyBWsTUmvDdt",
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "flag": "formulaBookBlank",
+                        "key": "GrantItem",
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.Formula Book (Blank)"
+                    }
+                ],
+                "slug": "formula-book",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemist"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "clG5lJLS1adFrATG",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.7JbiaZ8bxODM5mzS"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "OnGY481UzwFBexpz",
+                        "onDelete": "cascade"
+                    }
+                }
+            },
+            "img": "icons/weapons/thrown/bomb-fuse-blue.webp",
+            "name": "Bomber",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>You specialize in explosions and other violent alchemical reactions. You start with the formulas for two common 1st-level alchemical bombs, in addition to your other formulas.</p>\n<p>Your research field adds a number of formulas to your formula book; these are your signature items. When using a batch of @UUID[Compendium.pf2e.classfeatures.Item.Infused Reagents] to create your signature items using @UUID[Compendium.pf2e.classfeatures.Item.Advanced Alchemy], you create three items instead of two. Each time you gain a level, you can swap one of your signature items with another formula in your formula book. This new signature item must be on your research field's list of possible signature items.</p>\n<p>When throwing an alchemical bomb with the splash trait, you can deal splash damage to only your primary target instead of the usual splash area.</p>\n<h2 class=\"title\">@UUID[Compendium.pf2e.classfeatures.Item.Field Discovery (Bomber)]{Field Discovery}<span style=\"float:right\">Level 5</span></h2>\n<p>When using Advanced Alchemy to make bombs during your daily preparations, you can use a batch of reagents to create any three bombs instead of just two of the same bomb.</p>\n<h2 class=\"title\">@UUID[Compendium.pf2e.classfeatures.Item.Perpetual Infusions (Bomber)]{Perpetual Infusions}<span style=\"float:right\">Level 7</span></h2>\n<p>You have learned how to create perpetual alchemical infusions that can provide a near-infinite supply of certain simple items. You gain the ability to create two 1st-level alchemical items using @UUID[Compendium.pf2e.classfeatures.Item.Quick Alchemy] without spending a batch of infused reagents. The items you can select depend on your research field and must be in your formula book.</p>\n<p>Each time you gain a level, you can swap any number of your perpetual infusions with other eligible infusions.</p>\n<p>Choose two 1st-level bombs.</p>\n<h2 class=\"title\">@UUID[Compendium.pf2e.classfeatures.Item.Perpetual Potency (Bomber)]{Perpetual Potency}<span style=\"float:right\">Level 11</span></h2>\n<p>Your perpetual infusions improve, allowing you to use Quick Alchemy to create more powerful items with no cost. The items you can select depend on your research field and must be in your formula book.</p>\n<p>The moderate versions of the bombs you chose for perpetual infusions.</p>\n<h2 class=\"title\">@UUID[Compendium.pf2e.classfeatures.Item.Greater Field Discovery (Bomber)]{Greater Field Discovery}<span style=\"float:right\">Level 13</span></h2>\n<p>You can increase the splash on your bombs to damage creatures within 10 feet, or 15 feet if you have @UUID[Compendium.pf2e.feats-srd.Item.Expanded Splash].</p>\n<h2 class=\"title\">@UUID[Compendium.pf2e.classfeatures.Item.Perpetual Perfection (Bomber)]{Perpetual Perfection}<span style=\"float:right\">Level 17</span></h2>\n<p>You have perfected your perpetual infusions, allowing you to use Quick Alchemy to create even more powerful items at no cost. The items you can select depend on your research field and must be in your formula book.</p>\n<p>The greater versions of the bombs you chose for perpetual infusions.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": null,
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "predicate": [
+                            "alchemical",
+                            "bomb",
+                            "splash"
+                        ],
+                        "selector": "strike-damage",
+                        "text": "You can deal splash damage to only your primary target instead of the usual splash area.",
+                        "title": "{item|name}"
+                    },
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "flags.pf2e.alchemist",
+                        "value": {
+                            "fieldDiscovery": "Compendium.pf2e.classfeatures.Item.Field Discovery (Bomber)",
+                            "greaterFieldDiscovery": "Compendium.pf2e.classfeatures.Item.Greater Field Discovery (Bomber)",
+                            "perpetualInfusions": "Compendium.pf2e.classfeatures.Item.Perpetual Infusions (Bomber)",
+                            "perpetualPerfection": "Compendium.pf2e.classfeatures.Item.Perpetual Perfection (Bomber)",
+                            "perpetualPotency": "Compendium.pf2e.classfeatures.Item.Perpetual Potency (Bomber)"
+                        }
+                    }
+                ],
+                "slug": "bomber",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemist"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "xbU21Y26FU4rABvB",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.feats-srd.Item.is3Oz9wt11lNq62K"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "ZWizuSeQsKSY9Pnz",
+                        "onDelete": "cascade"
+                    }
+                }
+            },
+            "img": "icons/sundries/books/book-red-exclamation.webp",
+            "name": "Alchemical Crafting",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "skill",
+                "description": {
+                    "value": "<p>You can use the Craft activity to create alchemical items. When you select this feat, you immediately add the formulas for four common 1st-level alchemical items to your formula book.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": null,
+                "prerequisites": {
+                    "value": [
+                        {
+                            "value": "trained in Crafting"
+                        }
+                    ]
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [],
+                "slug": "alchemical-crafting",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "general",
+                        "skill"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "8EcOhH21sveNzK25",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.wySB9VHOW1v3TX1L"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "ZWizuSeQsKSY9Pnz",
+                        "onDelete": "cascade"
+                    }
+                }
+            },
+            "img": "icons/commodities/treasure/broach-pink-orbs.webp",
+            "name": "Infused Reagents",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>You infuse reagents with your own alchemical essence, allowing you to create alchemical items at no cost. Each day during your daily preparations, you gain a number of batches of infused reagents equal to your level + your Intelligence modifier. You can use these reagents for either advanced alchemy or Quick Alchemy, described below. Together, these infused reagents have light Bulk.</p>\n<p>As soon as you make your next daily preparations, your infused reagents from the previous day's preparations are instantly destroyed, and nonpermanent effects of your previous day's infused items immediately end. While infused reagents are physical objects, they can't be duplicated, preserved, or created in any way other than your daily preparations. Any such artificial reagents lack the infusion and are useless for advanced alchemy or Quick Alchemy.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": null,
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "upgrade",
+                        "path": "system.resources.crafting.infusedReagents.max",
+                        "predicate": [
+                            "class:alchemist"
+                        ],
+                        "value": "@actor.level + @actor.abilities.int.mod"
+                    },
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "upgrade",
+                        "path": "system.resources.crafting.infusedReagents.max",
+                        "predicate": [
+                            {
+                                "not": "class:alchemist"
+                            }
+                        ],
+                        "value": "@actor.level"
+                    }
+                ],
+                "slug": "infused-reagents",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemist"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "aT3Is6eQIGGVifAf",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.Pe0zmIqyTBc2Td0I"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "ZWizuSeQsKSY9Pnz",
+                        "onDelete": "cascade"
+                    }
+                }
+            },
+            "img": "icons/skills/toxins/poison-skull-herbs-bottle-pink.webp",
+            "name": "Advanced Alchemy",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>During your daily preparations, after producing new @UUID[Compendium.pf2e.classfeatures.Item.Infused Reagents], you can spend batches of those infused reagents to create infused alchemical items.</p>\n<p>You don't need to attempt a Crafting check to do this, and you ignore both the number of days typically required to create the items and any alchemical reagent requirements.</p>\n<p>Your advanced alchemy level is equal to your level. For each batch of infused reagents you spend, choose an alchemical item of your advanced alchemy level or lower that's in your formula book, and make a batch of two of that item.</p>\n<p>These items have the infused trait and remain potent for 24 hours or until your next daily preparations, whichever comes first.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": null,
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "craftableItems": [
+                            "item:trait:alchemical"
+                        ],
+                        "isAlchemical": true,
+                        "isDailyPrep": true,
+                        "key": "CraftingAbility",
+                        "label": "PF2E.TraitAlchemist",
+                        "predicate": [
+                            "class:alchemist"
+                        ],
+                        "slug": "alchemist"
+                    }
+                ],
+                "slug": "advanced-alchemy",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemist"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "oNL8NCs0Ae3wSlc3",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.actionspf2e.Item.yzNJgwzV9XqEhKc6"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "nrObVFkO5hCbezR4",
+                        "onDelete": "cascade"
+                    }
+                }
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Quick Alchemy",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p><strong>Cost</strong> 1 batch of infused reagents</p>\n<p><strong>Requirements</strong> You have the formula for the alchemical item you're creating, and you're either holding or wearing the @UUID[Compendium.pf2e.equipment-srd.Item.Alchemist's Toolkit].</p>\n<hr />\n<p>You swiftly mix up a short-lived alchemical item to use at a moment's notice. You create a single alchemical consumable item of your advanced alchemy level or lower that's in your formula book without having to spend the normal monetary cost in alchemical reagents or needing to attempt a Crafting check. This item has the infused trait, but it remains potent only until the start of your next turn.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [],
+                "slug": "quick-alchemy",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemist",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "nrObVFkO5hCbezR4",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.classfeatures.Item.sPtl05wwTpqFI0lL"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "ZWizuSeQsKSY9Pnz",
+                        "onDelete": "cascade"
+                    },
+                    "itemGrants": {
+                        "quickAlchemy": {
+                            "id": "oNL8NCs0Ae3wSlc3",
+                            "onDelete": "detach"
+                        }
+                    }
+                }
+            },
+            "img": "icons/tools/laboratory/vials-blue-pink.webp",
+            "name": "Quick Alchemy",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "classfeature",
+                "description": {
+                    "value": "<p>If you need a specific alchemical item on the fly, you can use your infused reagents to quickly create it with the @UUID[Compendium.pf2e.actionspf2e.Item.Quick Alchemy] action.</p>"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": null,
+                "prerequisites": {
+                    "value": []
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "rules": [
+                    {
+                        "flag": "quickAlchemy",
+                        "key": "GrantItem",
+                        "uuid": "Compendium.pf2e.actionspf2e.Item.Quick Alchemy"
+                    }
+                ],
+                "slug": "quick-alchemy",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "alchemist"
+                    ]
+                }
+            },
+            "type": "feat"
+        },
+        {
+            "_id": "rKcViPntNoKjcQhq",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.qCEOZ6109Yo34tRx"
+            },
+            "flags": {
+                "pf2e": {
+                    "grantedBy": {
+                        "id": "wd4RRmNdQo8T0MNs",
+                        "onDelete": "detach"
+                    }
+                }
+            },
+            "img": "icons/sundries/books/book-tooled-brass-brown.webp",
+            "name": "Formula Book (Blank)",
+            "sort": 0,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": null,
+                "description": {
+                    "value": "<p>A formula book holds the formulas necessary to make items other than the common equipment from this chapter; alchemists typically get one for free. Each formula book can hold the formulas for up to 100 different items. Formulas can also appear on parchment sheets, tablets, and almost any other medium; there's no need for you to copy them into a specific book as long as you can keep them on hand to reference them.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "med",
+                "slug": "formula-book-blank",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
+            "_id": "hDThY0DiNbjjjVcr",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.ancestries.Item.CYlfsYLJcBOgqKtD"
+            },
+            "img": "systems/pf2e/icons/default-icons/alternatives/ancestries/gnome.svg",
+            "name": "Gnome",
+            "sort": 0,
+            "system": {
+                "additionalLanguages": {
+                    "count": 0,
+                    "custom": "",
+                    "value": [
+                        "draconic",
+                        "dwarven",
+                        "elven",
+                        "goblin",
+                        "jotun",
+                        "orcish"
+                    ]
+                },
+                "boosts": {
+                    "0": {
+                        "value": [
+                            "cha"
+                        ]
+                    },
+                    "1": {
+                        "value": [
+                            "con"
+                        ]
+                    },
+                    "2": {
+                        "selected": "int",
+                        "value": [
+                            "str",
+                            "dex",
+                            "con",
+                            "int",
+                            "wis",
+                            "cha"
+                        ]
+                    }
+                },
+                "description": {
+                    "value": "<p><em>Long ago, early gnome ancestors emigrated from the First World, realm of the fey. While it's unclear why the first gnomes wandered to Golarion, this lineage manifests in modern gnomes as bizarre reasoning, eccentricity, obsessive tendencies, and what some see as naivete. These qualities are further reflected in their physical characteristics, such as spindly limbs, brightly colored hair, and childlike and extremely expressive facial features that further reflect their otherworldly origins.</em></p>\n<p><em>@UUID[Compendium.pf2e.journals.JournalEntry.45SK8rdbbxvEHfMn.JournalEntryPage.qIu10HByKeRaPPvD]{Gnome}</em></p>"
+                },
+                "flaws": {
+                    "0": {
+                        "value": [
+                            "str"
+                        ]
+                    }
+                },
+                "hp": 8,
+                "items": {},
+                "languages": {
+                    "custom": "",
+                    "value": [
+                        "common",
+                        "fey",
+                        "gnomish"
+                    ]
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "reach": 5,
+                "rules": [],
+                "size": "sm",
+                "slug": "gnome",
+                "speed": 25,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "gnome",
+                        "humanoid"
+                    ]
+                },
+                "vision": "low-light-vision"
+            },
+            "type": "ancestry"
+        }
+    ],
+    "name": "Jubilost (Level 1)",
+    "prototypeToken": {
+        "name": "Jubilost"
+    },
+    "system": {
+        "attributes": {
+            "hp": {
+                "temp": 0,
+                "value": 18
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 25
+            }
+        },
+        "build": {
+            "attributes": {
+                "boosts": {
+                    "1": [
+                        "int",
+                        "con",
+                        "dex",
+                        "wis"
+                    ]
+                }
+            }
+        },
+        "crafting": {
+            "entries": {},
+            "formulas": [
+                {
+                    "deletable": true,
+                    "uuid": "Compendium.pf2e.equipment-srd.Item.yd3kEK21YknZLlcT"
+                },
+                {
+                    "deletable": true,
+                    "uuid": "Compendium.pf2e.equipment-srd.Item.hDLbR56Id2OtU318"
+                },
+                {
+                    "deletable": true,
+                    "uuid": "Compendium.pf2e.equipment-srd.Item.M1k5QQc1qQLxzyCK"
+                },
+                {
+                    "deletable": true,
+                    "uuid": "Compendium.pf2e.equipment-srd.Item.ktjFOp3U0wQD9t0Z"
+                },
+                {
+                    "deletable": true,
+                    "uuid": "Compendium.pf2e.equipment-srd.Item.AFR01HVd7DcZvkpP"
+                },
+                {
+                    "deletable": true,
+                    "uuid": "Compendium.pf2e.equipment-srd.Item.T6Appwwl6nUl56Xj"
+                },
+                {
+                    "deletable": true,
+                    "uuid": "Compendium.pf2e.equipment-srd.Item.y4WJY8rCbY6d1MET"
+                },
+                {
+                    "uuid": "Item.JbkAk2j7h31izKyR"
+                }
+            ]
+        },
+        "details": {
+            "age": {
+                "value": ""
+            },
+            "alliance": "party",
+            "biography": {
+                "allies": "",
+                "anathema": [],
+                "appearance": "",
+                "attitude": "",
+                "backstory": "",
+                "beliefs": "",
+                "birthPlace": "",
+                "campaignNotes": "",
+                "catchphrases": "",
+                "dislikes": "",
+                "edicts": [],
+                "enemies": "",
+                "likes": "",
+                "organizations": ""
+            },
+            "ethnicity": {
+                "value": ""
+            },
+            "gender": {
+                "value": "Male"
+            },
+            "height": {
+                "value": ""
+            },
+            "keyability": {
+                "value": "str"
+            },
+            "languages": {
+                "details": "",
+                "value": [
+                    "draconic",
+                    "hallit",
+                    "jotun",
+                    "kelish"
+                ]
+            },
+            "level": {
+                "value": 1
+            },
+            "nationality": {
+                "value": ""
+            },
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Kingmaker"
+            },
+            "weight": {
+                "value": ""
+            },
+            "xp": {
+                "max": 1000,
+                "min": 0,
+                "pct": 0,
+                "value": 0
+            }
+        },
+        "exploration": [],
+        "initiative": {
+            "statistic": "perception"
+        },
+        "pfs": {
+            "characterNumber": null,
+            "currentFaction": "EA",
+            "levelBump": false,
+            "playerNumber": null,
+            "reputation": {
+                "EA": null,
+                "GA": null,
+                "HH": null,
+                "RO": null,
+                "VS": null,
+                "VW": null
+            },
+            "school": null
+        },
+        "resources": {
+            "crafting": {
+                "infusedReagents": {
+                    "value": 2
+                }
+            },
+            "focus": {},
+            "heroPoints": {
+                "max": 3,
+                "value": 1
+            }
+        },
+        "saves": {},
+        "skills": {
+            "acrobatics": {
+                "rank": 0
+            },
+            "arcana": {
+                "rank": 0
+            },
+            "athletics": {
+                "rank": 0
+            },
+            "crafting": {
+                "rank": 0
+            },
+            "deception": {
+                "rank": 0
+            },
+            "diplomacy": {
+                "rank": 0
+            },
+            "intimidation": {
+                "rank": 0
+            },
+            "medicine": {
+                "rank": 0
+            },
+            "nature": {
+                "rank": 0
+            },
+            "occultism": {
+                "rank": 0
+            },
+            "performance": {
+                "rank": 0
+            },
+            "religion": {
+                "rank": 0
+            },
+            "society": {
+                "rank": 1
+            },
+            "stealth": {
+                "rank": 0
+            },
+            "survival": {
+                "rank": 1
+            },
+            "thievery": {
+                "rank": 0
+            }
+        }
+    },
+    "type": "character"
+}

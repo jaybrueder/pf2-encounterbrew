@@ -1,0 +1,1401 @@
+{
+    "_id": "kNmRn3WfiWLsuwoe",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "pugIMNhBHc9VHl1z",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Divine Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "flexible": false,
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 33,
+                    "mod": 0,
+                    "value": 25
+                },
+                "tradition": {
+                    "value": "divine"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "F3sp5C7yZuZHmD4f",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.3puDanGfpEt6jK5k"
+            },
+            "img": "icons/magic/water/vortex-water-whirlpool.webp",
+            "name": "Cone of Cold",
+            "sort": 200000,
+            "system": {
+                "area": {
+                    "type": "cone",
+                    "value": 60
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "category": null,
+                        "formula": "12d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "cold"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
+                "description": {
+                    "value": "<p>Icy cold rushes forth from your hands. You deal 12d6 cold damage to creatures in the area.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "2d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "uses": {
+                        "max": 2,
+                        "value": 2
+                    },
+                    "value": "pugIMNhBHc9VHl1z"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "cone-of-cold",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "cold",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "E4N61jAx2p6gRkjQ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.Ucf8eynbZMfUucjE"
+            },
+            "img": "icons/environment/wilderness/cave-entrance-vulcano.webp",
+            "name": "Illusory Scene",
+            "sort": 300000,
+            "system": {
+                "area": {
+                    "type": "burst",
+                    "value": 30
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You form an imaginary scene that includes up to 10 discrete creatures or objects of various sizes, all of which must be within the spell's area. These elements generate appropriate sounds and smells, and they feel right to the touch. Elements of an illusory scene are incapable of speech. Unlike with the @UUID[Compendium.pf2e.spells-srd.Item.Illusory Creature] spell, creatures in your scene lack combat abilities and statistics. Your scene doesn't include changes to the environment around it, though you can place your scene within the illusory environment of a @UUID[Compendium.pf2e.spells-srd.Item.Mirage] spell.</p>\n<p>When you create the scene, you can choose to have it be static or follow a program. Though a static scene is stationary, it includes basic natural movement. For example, wind blowing on an illusory piece of paper would rustle it. A program can be up to 1 minute long and repeats when finished. For instance, you could create a scene of two orcs fighting each other, and the fight would go the same way for each repetition. If you create a loop, the two fighters end up in the same place at the start of the scene and at the end of it, but you can smooth the program so it's hard to tell when the loop ends and begins. Anyone observing the scene for more than a few minutes almost always notices it looping. You're unable to alter the program after you create the illusion.</p>\n<p>Any creature that touches any part of the image or uses the Seek action to examine it can attempt to disbelieve your illusion. If they interact with a portion of the illusion, they disbelieve only that portion. They disbelieve the entire scene only on a critical success.</p>\n<hr />\n<p><strong>Heightened (6th)</strong> Creatures or objects in your scene can speak. You must speak the specific lines for each actor when creating your program. The spell disguises your voice for each actor.</p>\n<p><strong>Heightened (8th)</strong> As the 6th-rank version, and the duration is unlimited.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 hour"
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "heightenedLevel": 6,
+                    "value": "pugIMNhBHc9VHl1z"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "500 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "illusory-scene",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "10 minutes"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "auditory",
+                        "concentrate",
+                        "illusion",
+                        "manipulate",
+                        "olfactory",
+                        "visual"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "ZhmbSr0PK7MFwglz",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t"
+            },
+            "img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+            "name": "Wall of Ice",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "category": null,
+                        "formula": "2d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "cold"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>You sculpt an ice barrier that blocks sight and, once shattered, freezes foes. You create either a 1-foot-thick wall of ice in a straight line up to 60 feet long and 10 feet high (the wall doesn't have to be vertical, but it must be anchored on both sides to a solid surface) or a 1-foot-thick, 10-foot radius hemisphere of ice. The ice that makes up the wall is opaque. If you wish, the wall can be of a smaller length, height, or radius.</p>\n<p>You must create the wall in an unbroken open space so its edges don't pass through any creatures or objects, or the spell is lost. Each 10-foot-by-10-foot section of the wall has AC 10, Hardness 10, and 40 Hit Points, and it's immune to critical hits, cold damage, and precision damage. A section also has weakness to fire 15; a section of the wall destroyed by fire melts, evaporating into water and steam. A section destroyed by means other than fire leaves behind a chilling mass of ice that is difficult terrain and deals 2d6 cold damage to any creature passing through it.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> The Hit Points of each section of the wall increase by 10, and the cold damage dealt to creatures crossing a destroyed section increases by 1d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "heightenedLevel": 5,
+                    "uses": {
+                        "max": 3,
+                        "value": 3
+                    },
+                    "value": "pugIMNhBHc9VHl1z"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "wall-of-ice",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "cold",
+                        "concentrate",
+                        "manipulate",
+                        "water"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "h7A1Ei4gUdWrFZLZ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.VlNcjmYyu95vOUe8"
+            },
+            "img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
+            "name": "Dimension Door",
+            "sort": 500000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>Opening a door that bypasses normal space, you instantly transport yourself and any items you're wearing and holding from your current space to a clear space within range you can see. If this would bring another creature with you-even if you're carrying it in an extradimensional container-the spell is lost.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The range increases to 1 mile. You don't need to be able to see your destination, as long as you have been there in the past and know its relative location and distance from you. You are temporarily immune for 1 hour.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "levels": {
+                        "5": {
+                            "range": {
+                                "value": "1 mile"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "heightenedLevel": 5,
+                    "value": "pugIMNhBHc9VHl1z"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "dimension-door",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "teleportation"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "YzVY8LfTkSAM0SMG",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.VlNcjmYyu95vOUe8"
+            },
+            "img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
+            "name": "Dimension Door (At Will)",
+            "sort": 600000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>Opening a door that bypasses normal space, you instantly transport yourself and any items you're wearing and holding from your current space to a clear space within range you can see. If this would bring another creature with you-even if you're carrying it in an extradimensional container-the spell is lost.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The range increases to 1 mile. You don't need to be able to see your destination, as long as you have been there in the past and know its relative location and distance from you. You are temporarily immune for 1 hour.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "levels": {
+                        "5": {
+                            "range": {
+                                "value": "1 mile"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "heightenedLevel": 4,
+                    "value": "pugIMNhBHc9VHl1z"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "dimension-door",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "teleportation"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "codfFNHqT8HXOyAY",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.A2JfEKe6BZcTG1S8"
+            },
+            "img": "icons/creatures/mammals/bats-movement-flying-black.webp",
+            "name": "Fly (Constant)",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>The target can soar through the air, gaining a fly Speed equal to its Speed or 20 feet, whichever is greater.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Fly]</p>\n<hr />\n<p><strong>Heightened (7th)</strong> The duration increases to 1 hour.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "5 minutes"
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "heightenedLevel": 4,
+                    "value": "pugIMNhBHc9VHl1z"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "fly",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "vglklEf8TCAKrrCF",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.30BBep9U4BDV0EgQ"
+            },
+            "img": "systems/pf2e/icons/spells/infernal-pact.webp",
+            "name": "Infernal Pact",
+            "sort": 800000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You make an appeal to a powerful devil, asking it to bind some of its subordinates to your service. If you succeed, the devil sends you its choice of one devil whose level is no more than double <em>infernal pact's</em> rank, two devils whose levels are each at least 2 less than double the spell rank, or three devils whose levels are each at least 3 less than double the spell rank.</p>\n<hr />\n<p><strong>Critical Success</strong> The devils are sent to you and serve you for [[/r 1d4 #weeks]]{1d4 weeks}.</p>\n<p><strong>Success</strong> The devils are sent to you and serve you for [[/r 1d4 #days]]{1d4 days}.</p>\n<p><strong>Failure</strong> Your request is denied.</p>\n<p><strong>Critical Failure</strong> Not only is your request denied, but the powerful devil sends word of its displeasure to your master.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": null
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "ritual": {
+                    "primary": {
+                        "check": "Religion (expert; you must be a devil)"
+                    },
+                    "secondary": {
+                        "casters": 0,
+                        "checks": ""
+                    }
+                },
+                "rules": [],
+                "slug": "infernal-pact",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "1 day"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": []
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "lKIyIhmw2ggXFEB0",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gYjPm7YwGtEa1oxh"
+            },
+            "img": "icons/magic/movement/trail-streak-impact-blue.webp",
+            "name": "Ray of Frost",
+            "sort": 900000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "2d4",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "cold"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a -10-foot status penalty to its Speeds for 1 round.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ray of Frost]</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d4"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "pugIMNhBHc9VHl1z"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "ray-of-frost",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "attack",
+                        "cantrip",
+                        "cold",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "Erlm9PRm5Sz22CZb",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.aXuJh4i8HqSu6NYV"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/longspear.webp",
+            "name": "Longspear",
+            "sort": 1000000,
+            "system": {
+                "baseItem": "longspear",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 2
+                },
+                "category": "simple",
+                "containerId": null,
+                "damage": {
+                    "damageType": "piercing",
+                    "dice": 1,
+                    "die": "d8"
+                },
+                "description": {
+                    "value": "<p>This very long spear, sometimes called a pike, is purely for thrusting rather than throwing. Used by many soldiers and city watch for crowd control and defense against charging enemies, it must be wielded with two hands.</p>"
+                },
+                "equipped": {
+                    "carryType": "held",
+                    "handsHeld": 2,
+                    "invested": null
+                },
+                "group": "spear",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "sp": 5
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 1,
+                "range": null,
+                "reload": {
+                    "value": ""
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 1,
+                    "property": [],
+                    "striking": 1
+                },
+                "size": "lg",
+                "slug": "longspear",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "reach"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-two-hands"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "yIloVqSs48TDwk9P",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "Erlm9PRm5Sz22CZb"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Frost Longspear",
+            "sort": 1100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "slowing-frost"
+                    ]
+                },
+                "bonus": {
+                    "value": 28
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "2d8+12",
+                        "damageType": "piercing"
+                    },
+                    "1": {
+                        "damage": "1d6",
+                        "damageType": "spirit"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "cold",
+                        "evil",
+                        "magical",
+                        "reach-15",
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "CHG9uWZmFmSExlPo",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Tail",
+            "sort": 1200000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "slowing-frost"
+                    ]
+                },
+                "bonus": {
+                    "value": 25
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "2d6+12",
+                        "damageType": "bludgeoning"
+                    },
+                    "1": {
+                        "damage": "2d6",
+                        "damageType": "cold"
+                    },
+                    "2": {
+                        "damage": "1d6",
+                        "damageType": "spirit"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "tail",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "cold",
+                        "evil",
+                        "magical",
+                        "reach-10",
+                        "unarmed",
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "209XT5BBx9vzGaVU",
+            "flags": {
+                "pf2e": {
+                    "linkedWeapon": "Erlm9PRm5Sz22CZb"
+                }
+            },
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Frost Longspear",
+            "sort": 1300000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": []
+                },
+                "bonus": {
+                    "value": 27
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "2d8+12",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "cold",
+                        "magical",
+                        "thrown-20",
+                        "unholy"
+                    ]
+                },
+                "weaponType": {
+                    "value": "ranged"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "COesoRf5oc4fLJhF",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.4Ho2xMPEC05aSxzr"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Greater Darkvision",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.GreaterDarkvision]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "greater-darkvision",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "xx2paGql0oW1VL3k",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.kdhbPaBMK1d1fpbA"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Telepathy 100 feet",
+            "sort": 1500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Telepathy]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "telepathy",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "magical"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "b8LAOUk743PuI1qO",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.kakyXBG5WA8c6Zfd"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Constant Spells",
+            "sort": 1600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.ConstantSpells]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "constant-spells",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "LmRU9VN6HvnRCcJO",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.kquBnQ0kObZztnBc"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "+1 Status to All Saves vs. Magic",
+            "sort": 1700000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "item:magical"
+                        ],
+                        "selector": "saving-throw",
+                        "type": "status",
+                        "value": 1
+                    }
+                ],
+                "slug": "1-status-to-all-saves-vs-magic",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "8H68KpZMl3WGb1NP",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.hFtNbo1LKYCoDy2O"
+            },
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Attack of Opportunity",
+            "sort": 1800000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.AttackOfOpportunity]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "attack-of-opportunity",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "pSpabH5fc53i9K81",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.etMnv73EIdEZrYYu"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Frightful Presence",
+            "sort": 1900000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>10 feet. @Check[will|dc:31]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 10,
+                        "slug": "frightful-presence",
+                        "traits": [
+                            "divine",
+                            "emotion",
+                            "fear",
+                            "mental"
+                        ]
+                    }
+                ],
+                "slug": "frightful-presence",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "aura",
+                        "divine",
+                        "emotion",
+                        "fear",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "LUZas9EK4qLmUsox",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Slowing Frost",
+            "sort": 2000000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The ice devil channels the extreme cold of its body through its appendages and weapons. A creature hit by an ice devil's weapon or unarmed attack in melee must attempt a @Check[fortitude|dc:32] save or be @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} for [[/gmr 1d4 #rounds]]{1d4 rounds}. A weapon used by an ice devil gains the effects of a <em>@UUID[Compendium.pf2e.equipment-srd.Item.Frost]</em> rune while the gelugon holds it, and the ice devil can throw any such weapon with a 20-foot range increment, trailing motes of frost.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "definition": [
+                            {
+                                "not": "item:category:unarmed"
+                            }
+                        ],
+                        "key": "AdjustStrike",
+                        "mode": "add",
+                        "property": "property-runes",
+                        "value": "frost"
+                    }
+                ],
+                "slug": "slowing-frost",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "cold",
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "RWLfly211783dq5i",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Tactician of Cocytus",
+            "sort": 2100000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>An ice devil's logical mind devises genius tactics from its perfect memory. It can telepathically send a tactical repositioning to its allies, allowing all commanded or allied evil creatures in the range of its telepathy to immediately Stride (or Burrow, Climb, Fly, or Swim, if the creature has the corresponding Speed).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "concentrate"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "CfnwLhzQDT3H69j1",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Warfare Lore",
+            "sort": 2200000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 30
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Gelugon",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 4
+            },
+            "con": {
+                "mod": 5
+            },
+            "dex": {
+                "mod": 5
+            },
+            "int": {
+                "mod": 8
+            },
+            "str": {
+                "mod": 6
+            },
+            "wis": {
+                "mod": 5
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 34
+            },
+            "allSaves": {
+                "value": "+1 status to all saves vs. magic"
+            },
+            "hp": {
+                "details": "",
+                "max": 215,
+                "temp": 0,
+                "value": 215
+            },
+            "immunities": [
+                {
+                    "type": "cold"
+                },
+                {
+                    "type": "fire"
+                }
+            ],
+            "resistances": [
+                {
+                    "exceptions": [
+                        "silver"
+                    ],
+                    "type": "physical",
+                    "value": 10
+                },
+                {
+                    "type": "poison",
+                    "value": 10
+                }
+            ],
+            "speed": {
+                "details": "from fly spell",
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 35
+                    }
+                ],
+                "value": 35
+            },
+            "weaknesses": [
+                {
+                    "type": "holy",
+                    "value": 10
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "telepathy 100 feet",
+                "value": [
+                    "common",
+                    "diabolic",
+                    "draconic",
+                    "empyrean"
+                ]
+            },
+            "level": {
+                "value": 13
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Insectile ice devils are strategists and masterminds in Hell's armies, using their superior intellect to strike against their enemies and spread Hell's influence throughout the planes. An ice devil rarely breaks their solitary contemplation of strategy save to pursue a plan they have devised. They can be enticed otherwise only by an exchange of services to be determined at a later time, adding to the pieces they can play on the board. Occasionally, a mortal strategist of outstanding skill might amuse an ice devil enough for the gelugon to agree to a contest of strategy, typically a strategic board game like chess, to decide a dispute. In the unlikely event the devil loses such a contest, they inevitably go to great lengths to later obtain that mortal's services for their own infernal ends.</p>\n<hr />\n<p>Masters of corruption and architects of conquest, devils seek both to tempt mortal life to join in their pursuit of all things profane and to spread tyranny throughout all worlds. The temptations they offer mortals range from great powers granted by the signing of an infernal contract to twisted favors following a whispered pledge to a diabolic patron, or any number of even subtler exchanges. Those who succumb to these temptations find themselves consigned to an afterlife of endless torment in the pits of Hell, wherein the only hope of escape lies in the chance of being promoted to become a devil in the infernal ranks. Every devil has a specific role to play in the upkeep of the remorseless bureaucratic machine that is Hell, from soldiers and scholars to inquisitors, lawyers, judges, and executioners. Lowly lemures and imps perform subservient labor to more powerful and specialized devils, such as contract devils and erinyes, while the greatest pit fiends command entire infernal armies.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 26,
+            "senses": [
+                {
+                    "type": "greater-darkvision"
+                }
+            ]
+        },
+        "resources": {
+            "focus": {
+                "max": 1,
+                "value": 1
+            }
+        },
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 24
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 24
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 26
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 22
+            },
+            "athletics": {
+                "base": 23
+            },
+            "deception": {
+                "base": 25
+            },
+            "diplomacy": {
+                "base": 25
+            },
+            "intimidation": {
+                "base": 23
+            },
+            "religion": {
+                "base": 26
+            },
+            "society": {
+                "base": 25
+            },
+            "stealth": {
+                "base": 22
+            }
+        },
+        "spellcasting": {
+            "rituals": {
+                "dc": 33
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "devil",
+                "evil",
+                "fiend",
+                "lawful",
+                "unholy"
+            ]
+        }
+    },
+    "type": "npc"
+}

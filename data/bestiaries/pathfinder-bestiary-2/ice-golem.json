@@ -1,0 +1,387 @@
+{
+    "_id": "tieZOKf2qX7GsL9H",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "fRtY0qdhDDIRBRWj",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Fist",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": []
+                },
+                "bonus": {
+                    "value": 15
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "2d6+7",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "damageType": "cold",
+                        "diceNumber": 1,
+                        "dieSize": "d6",
+                        "key": "DamageDice",
+                        "predicate": [
+                            {
+                                "not": "vulnerable-to-endure-elements"
+                            }
+                        ],
+                        "selector": "{item|id}-damage"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "magical",
+                        "unarmed",
+                        "versatile-p"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "1LmOy2NMwi2RqSKT",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Golem Antimagic",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>Harmed by fire (@Damage[4d6[untyped]], @Damage[1d10[untyped]] from areas or persistent damage); healed by cold (area @Damage[1d6[healing]] HP); slowed by water</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.GolemAntimagic]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "2svyNegNoV205Fbp",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Icy Demise",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "deathNote": true,
+                "description": {
+                    "value": "<p>When an ice golem is destroyed, its body explodes in a blast of frigid air and razor-sharp ice, dealing @Damage[2d6[slashing],2d6[cold]]{2d6 slashing damage and 2d6 cold damage} to creatures in a @Template[emanation|distance:20], with a @Check[reflex|dc:19|basic] save.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "arcane",
+                        "cold"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "CUl4eRbkbnzMJ2kZ",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Vulnerable to Endure Elements",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>An ice golem can be targeted with @UUID[Compendium.pf2e.spells-srd.Item.Environmental Endurance] even if it's not willing. If it is targeted, for 1 round it can't use Breath Weapon or benefit from creeping cold, and its fist attack doesn't deal cold damage.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "option": "vulnerable-to-endure-elements",
+                        "toggleable": true
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "W3rITonxbyLEARlP",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Breath Weapon",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The ice golem exhales a blast of freezing mist that deals @Damage[6d6[cold]|options:area-damage] damage in a @Template[cone|distance:30] (@Check[reflex|dc:22|basic|options:area-effect] save).</p>\n<p>It can't use Breath Weapon again for [[/gmr 1d4 #Recharge Breath Weapon]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "arcane",
+                        "cold"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "dj9YzVTLAtPASMHB",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Creeping Cold",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When the ice golem gets a critical hit with a fist Strike, the target also takes 2d6 persistent cold damage and is @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} for 1 round.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "category": "persistent",
+                        "critical": true,
+                        "damageType": "cold",
+                        "diceNumber": 2,
+                        "dieSize": "d6",
+                        "key": "DamageDice",
+                        "predicate": [
+                            {
+                                "not": "vulnerable-to-endure-elements"
+                            }
+                        ],
+                        "selector": "fist-damage"
+                    },
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "predicate": [
+                            {
+                                "not": "vulnerable-to-endure-elements"
+                            }
+                        ],
+                        "selector": "fist-attack",
+                        "text": "{item|system.description.value}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "arcane",
+                        "cold"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Ice Golem",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -5
+            },
+            "con": {
+                "mod": 4
+            },
+            "dex": {
+                "mod": 0
+            },
+            "int": {
+                "mod": -5
+            },
+            "str": {
+                "mod": 5
+            },
+            "wis": {
+                "mod": 0
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 21
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 80,
+                "temp": 0,
+                "value": 80
+            },
+            "immunities": [
+                {
+                    "type": "cold"
+                },
+                {
+                    "type": "electricity"
+                },
+                {
+                    "type": "magic"
+                }
+            ],
+            "resistances": [
+                {
+                    "exceptions": [
+                        "adamantine",
+                        "bludgeoning"
+                    ],
+                    "type": "physical",
+                    "value": 5
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [],
+                "value": 25
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 5
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Ice golems are either carved from massive blocks of ice, or pieced together from individual components that are then fused together through heat and refreezing. In most cases, the resulting shape is little more than a crude approximation of a humanoid form, but given the right talent, an ice golem could be an exquisitely carved statue of a mythical creature, famous persona, or even a deity.</p>\n<p>While ice golems most frequently serve as guardians in freezing climates, the magic that holds an ice golem together keeps it from melting in warmer temperatures. This, combined with the fact that ice golems lie on the lower end of the scale as far as cost and difficulty to create, gives these constructs unusual features that puts them in great demand. The rich and powerful in hot, arid regions often commission ice golems not only as guardians for their estates and vaults, but for comfort-the presence of an ice golem standing quietly sentinel in the corner of a room can help to keep the chamber at a comfortable temperature. The truly decadent use ice golems as servants to keep drinks cold.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary 2"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 9,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 15
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 11
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 9
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 15
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "cold",
+                "construct",
+                "golem",
+                "mindless"
+            ]
+        }
+    },
+    "type": "npc"
+}

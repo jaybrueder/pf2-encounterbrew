@@ -1,0 +1,271 @@
+{
+    "_id": "aepfNXXy2juozgzB",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "2xn05F1PZDFa3Es4",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "grab"
+                    ]
+                },
+                "bonus": {
+                    "value": 7
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "1d4+2",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "9RNFc8HCHuW9XJgm",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Lithe",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>A weasel treats any tight space it can barely fit its head in or wider as difficult terrain and doesn't need to @UUID[Compendium.pf2e.actionspf2e.Item.Squeeze] to move through it.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "RP2SeHrbTJkiKCCL",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.g26YiEIfSHCpLocV"
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Constrict",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>@Damage[1d4[piercing]], @Check[fortitude|dc:15|basic]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Constrict]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "constrict",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "H9YGbRcmWQV6mrYy",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Tkd8sH4pwFIPzqTr"
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Grab",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Grab]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "grab",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Weasel",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 1
+            },
+            "con": {
+                "mod": 2
+            },
+            "dex": {
+                "mod": 3
+            },
+            "int": {
+                "mod": -4
+            },
+            "str": {
+                "mod": 2
+            },
+            "wis": {
+                "mod": 0
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 15
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 7,
+                "temp": 0,
+                "value": 7
+            },
+            "speed": {
+                "otherSpeeds": [],
+                "value": 25
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": -1
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Despite their small stature, weasels are skilled hunters. Nearly fearless in pursuit of food, they frequently kill creatures up to five times their own size. Their preferred tactic is to latch onto the back of their victim's neck and constrict with their jaws until the target dies. To keep themselves well fed, weasels kill more creatures than they need and stuff their victims into hollow logs or empty dens to eat later.</p>\n<p>Scholars have observed weasels, both in the wild and captivity, perform a bizarre behavior in front of their prey. They rush about unpredictably, throw themselves to the ground, wriggle into and out of burrows, and generally appear to behave entirely irrationally. In response, their prey becomes confused or seemingly hypnotized, which gives the weasel an opportunity to dash forward and strike a killing blow.</p>\n<p>A typical weasel is 12 inches long and weighs less than a pound.</p>\n<hr />\n<p>Weasels are lithe, clever predators known for both their beautiful, sleek fur and their ability to crawl into tight spaces. Pound for pound, few animals are as voracious as weasels. Insatiably hungry, they eat almost half their own weight each day, leading them to constantly hunt for new prey to satisfy their hunger.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary 3"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 4,
+            "senses": [
+                {
+                    "type": "low-light-vision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 60,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 4
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 7
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 2
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 5,
+                "special": [
+                    {
+                        "base": 7,
+                        "label": "to Escape",
+                        "predicate": [
+                            "action:escape"
+                        ]
+                    }
+                ]
+            },
+            "athletics": {
+                "base": 4
+            },
+            "stealth": {
+                "base": 5
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "tiny"
+            },
+            "value": [
+                "animal"
+            ]
+        }
+    },
+    "type": "npc"
+}

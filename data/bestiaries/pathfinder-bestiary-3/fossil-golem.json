@@ -1,0 +1,335 @@
+{
+    "_id": "zGtfiKku0td5E0VJ",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "TTotdT50Y6eFIsHY",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "fossilization"
+                    ]
+                },
+                "bonus": {
+                    "value": 26
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "3d10 + 13",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "deadly-d10",
+                        "magical",
+                        "reach-15",
+                        "unarmed"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "LAhnCuHlBH3zJBoP",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-family-ability-glossary.Item.r34QDwKiWZoVymJa"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Golem Antimagic",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>Harmed by cold and water (@Damage[5d10[untyped]], @Damage[2d8[untyped]] from areas or persistent damage); healed by acid (area @Damage[2d8[healing]] HP); slowed by earth</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.GolemAntimagic]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "golem-golem-antimagic",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "ZZpXzxmtbX8o1MxN",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Vulnerable to Stone to Flesh",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>A @UUID[Compendium.pf2e.spells-srd.Item.Stone to Flesh] spell negates the golem's golem antimagic and its resistance to physical damage for 1 round. A @UUID[Compendium.pf2e.spells-srd.Item.Petrify] spell reverses this effect immediately.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "option": "vulnerable-to-stone-to-flesh",
+                        "toggleable": true
+                    },
+                    {
+                        "exceptions": [
+                            "adamantine",
+                            "bludgeoning"
+                        ],
+                        "key": "Resistance",
+                        "predicate": [
+                            {
+                                "not": "vulnerable-to-stone-to-flesh"
+                            }
+                        ],
+                        "type": "physical",
+                        "value": 10
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "nXUfkwitBNWhIe8d",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Fossilization",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The first time each round a creature takes damage from the fossil golem's jaws, the target must attempt a @Check[fortitude|dc:32] save.</p>\n<p>If it fails and has not already been slowed by this ability, it becomes @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} for 1 minute. If the creature was already slowed by this ability, a failed save causes it to be @UUID[Compendium.pf2e.conditionitems.Item.Petrified] permanently.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "fossilization",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "arcane",
+                        "incapacitation"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "sMOW7L2I7HwP3CtJ",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Reassemble",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The fossil golem reorganizes its bones, increasing its reach to 25 feet and reducing its Speed to 15 feet. It can revert to its original form by taking this action again.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "domain": "all",
+                        "key": "RollOption",
+                        "option": "reassemble",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "reassemble"
+                        ],
+                        "selector": "land-speed",
+                        "value": -10
+                    },
+                    {
+                        "itemType": "melee",
+                        "key": "ItemAlteration",
+                        "mode": "add",
+                        "predicate": [
+                            "reassemble"
+                        ],
+                        "property": "traits",
+                        "value": "reach-25"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Fossil Golem",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -5
+            },
+            "con": {
+                "mod": 6
+            },
+            "dex": {
+                "mod": 2
+            },
+            "int": {
+                "mod": -5
+            },
+            "str": {
+                "mod": 7
+            },
+            "wis": {
+                "mod": 0
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 33
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 195,
+                "temp": 0,
+                "value": 195
+            },
+            "immunities": [
+                {
+                    "type": "acid"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [],
+                "value": 25
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 12
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Fossil golems are typically made from the fossilized bones of dinosaurs and other ancient megafauna, though some crafters stretch the definition and instead use magically petrified bones of dragons or even giants. Not bound to any specific model, fossil golems are crafted to be as terrifying as possible instead of models of anatomic accuracy. As such, most fossil golems are nightmarish saurian amalgams whose massive arms end with the complete skulls of apex predators like tyrannosauruses, their bite enhanced to petrify flesh.</p>\n<p>The enchantments that animate fossil golems grant them a form of modular flexibility, letting them trade mobility for extended reach through the rapid rearrangement of their limbs. This also lets them appear like a jumbled mass of bones at rest, making them likely to be mistaken for decor rather than guardians.</p>\n<hr />\n<p>Powerful constructs that blend magic and raw material, golems make ideal guardians and bodyguards, with forms and functions as varied as the needs of those who employ them. As their crafters experiment with more exotic components and create new formulas, golems with surprising abilities emerge.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Bestiary 3"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 20,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 26
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 20
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 18
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 20
+            }
+        },
+        "traits": {
+            "rarity": "rare",
+            "size": {
+                "value": "huge"
+            },
+            "value": [
+                "construct",
+                "golem",
+                "mindless"
+            ]
+        }
+    },
+    "type": "npc"
+}

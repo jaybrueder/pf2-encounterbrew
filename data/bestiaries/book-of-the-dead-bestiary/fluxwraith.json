@@ -1,0 +1,1028 @@
+{
+    "_id": "hDQmEtisrgRmufUW",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "djU8N0rJuOlO9qqb",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Occult Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "flexible": false,
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 39,
+                    "mod": 0,
+                    "value": 31
+                },
+                "tradition": {
+                    "value": "occult"
+                }
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "OXZFM65THvR5udY2",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.1dsahW4g1ggXtypx"
+            },
+            "img": "systems/pf2e/icons/spells/time-stop.webp",
+            "name": "Time Stop",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You temporarily stop time for everything but yourself, allowing you to use several actions in what appears to others to be no time at all. Immediately after casting time stop, you can use up to 9 actions in 3 sets of up to 3 actions each.</p>\n<p>After each set of actions, 1 round passes, but only for you, effects specifically targeting or affecting you, and effects you create during the stoppage. All other creatures and objects are invulnerable to your attacks, and you can't target or affect them with anything.</p>\n<p>Once you have finished your actions, time begins to flow again for the rest of the world. If you created an effect with a duration that extends beyond the time stop's duration, such as wall of fire, it immediately affects others again, but it doesn't have any of the effects that happen only when you first cast the spell.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 10
+                },
+                "location": {
+                    "heightenedLevel": 10,
+                    "value": "djU8N0rJuOlO9qqb"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "time-stop",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "rOPoolsFaNKsLpOd",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.OdqM06M0wDUqZWiR"
+            },
+            "img": "icons/magic/time/hourglass-brown-orange.webp",
+            "name": "Cast into Time",
+            "sort": 300000,
+            "system": {
+                "area": {
+                    "type": "cone",
+                    "value": 15
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "5d8",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "type": "mental"
+                    },
+                    "1": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "5d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "type": "bludgeoning"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>You release a wave of temporal energy that sends creatures violently tumbling through time, scarring their thoughts with the information flowing around them. Although the journey can feel like it lasts for minutes or even days, the targets reappear instantly. Witnessing this chaotic flow of time and being bashed against objects from different times deals the targets 5d8 mental damage and 5d6 bludgeoning damage, with a Fortitude save. A creature that falls into time disappears until the end of your turn. It then reappears in the same space it left; if that space is occupied, it appears in the nearest empty space, chosen by the GM.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature falls into time. When it returns, it takes half damage.</p>\n<p><strong>Failure</strong> The creature falls into time. When it returns, it takes full damage and is @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1}.</p>\n<p><strong>Critical Failure</strong> The creature falls into time. When it returns, it takes double damage and is @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2}.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The bludgeoning damage increase by 2d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "",
+                        "1": "2d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 6
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "value": "djU8N0rJuOlO9qqb"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Secrets of Magic"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "cast-into-time",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "OTIIh5oAaX8i3S5L",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.Llx0xKvtu8S4z6TI"
+            },
+            "img": "icons/magic/time/clock-spinning-gold-pink.webp",
+            "name": "Day's Weight",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>You fast-forward time for a single creature, burdening it with the aches and pain of an entire day and making it temporarily tired and weak. The creature must attempt a Fortitude save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Fatigued] and @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1} for 1 round.</p>\n<p><strong>Failure</strong> The target is fatigued and enfeebled 1 for the duration.</p>\n<p><strong>Critical Failure</strong> The target is fatigued and @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2} for the duration. The fatigued condition doesn't end when the spell's duration does (but can still be removed with a night's rest or by similar means).</p>\n<hr />\n<p><strong>Heightened (6th)</strong> You can target up to 10 creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "value": "djU8N0rJuOlO9qqb"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Secrets of Magic"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "days-weight",
+                "target": {
+                    "value": "1 living creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "Oh9OzqtV1OnzNNN3",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.o6YCGx4lycsYpww4"
+            },
+            "img": "systems/pf2e/icons/spells/haste.webp",
+            "name": "Haste (Self Only)",
+            "sort": 500000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>Magic empowers the target to act faster. It gains the @UUID[Compendium.pf2e.conditionitems.Item.Quickened] condition and can use the extra action each round only for Strike and Stride actions.</p>\n<hr />\n<p><strong>Heightened (7th)</strong> You can target up to 6 creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "heightening": {
+                    "damage": {},
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "heightenedLevel": 3,
+                    "value": "djU8N0rJuOlO9qqb"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "self"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "haste",
+                "target": {
+                    "value": "self"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "4gfNAzskpPRoRwob",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.DCQHaLrYXMI37dvW"
+            },
+            "img": "systems/pf2e/icons/spells/paralyze.webp",
+            "name": "Paralyze",
+            "sort": 600000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You block the target's motor impulses before they can leave its mind, threatening to freeze the target in place. The target must attempt a Will save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1}.</p>\n<p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Paralyzed] for 1 round.</p>\n<p><strong>Critical Failure</strong> The target is Paralyzed for 4 rounds. At the end of each of its turns, it can attempt a new Will save to reduce the remaining duration by 1 round, or end it entirely on a critical success.</p>\n<hr />\n<p><strong>Heightened (7th)</strong> You can target up to 10 creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "varies"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "value": "djU8N0rJuOlO9qqb"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "paralyze",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "incapacitation",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "IqiMiC8c2NZYkTyW",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.j8vIoIEWElvpwkcI"
+            },
+            "img": "systems/pf2e/icons/spells/mirror-image.webp",
+            "name": "Mirror Image",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>Three illusory images of you swirl about your space, potentially causing those who attack you to hit one of the images instead of you. Any attack that would hit you has a random chance of hitting one of your images instead of you. If all three images remain, there is a 1 in 4 chance of hitting you (1 on [[/r 1d4]]). With two images remaining, there is a 1 in 3 chance of hitting you (1-2 on [[/r 1d6]]). With only one image, the chances are 1 in 2 (1-3 on [[/r 1d6]]).</p>\n<p>Once an image is hit, it is destroyed. If an attack roll fails to hit your AC but doesn't critically fail, it destroys an image but has no additional effect (even if the attack would normally have an effect on a failure). If an attack roll is a critical success and would hit one of the images, one of the images is destroyed and the attack roll becomes a success against you. Once all the images are destroyed, the spell ends.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Mirror Image]</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "heightenedLevel": 2,
+                    "value": "djU8N0rJuOlO9qqb"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "mirror-image",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "illusion",
+                        "manipulate",
+                        "visual"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "WNH38tikCHTTL92F",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.4gBIw4IDrSfFHik4"
+            },
+            "img": "systems/pf2e/icons/spells/daze.webp",
+            "name": "Daze",
+            "sort": 800000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": true,
+                        "category": null,
+                        "formula": "0",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "mental"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You cloud the target's mind and daze it with a mental jolt. The jolt deals mental damage equal to your spellcasting ability modifier; the target must attempt a basic Will save. If the target critically fails the save, it is also @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1}.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> The damage increases by 1d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 round"
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d6"
+                    },
+                    "interval": 2,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "djU8N0rJuOlO9qqb"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "60 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "daze",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "manipulate",
+                        "mental",
+                        "nonlethal"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "b2dqnLa8hK88Qb7g",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.rerNA6YZsdxuJYt3"
+            },
+            "img": "systems/pf2e/icons/spells/deja-vu.webp",
+            "name": "Déjà Vu (At Will)",
+            "sort": 900000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You loop a thought process in the target's mind, forcing it to repeat the same actions over again. The target must attempt a Will save. If the target fails, whatever actions the target uses on its next turn, it must repeat on its following turn. The actions must be repeated in the same order and as close to the same specifics as possible. For example, if the target makes an attack, it must repeat the attack against the same creature, if possible, and if the target moves, it must move the same distance and direction, if possible, on its next turn.</p>\n<p>If the target can't repeat an action, such as @UUID[Compendium.pf2e.actionspf2e.Item.Cast a Spell]{Casting a Spell} that has been exhausted or needing to target a creature that has died, it can act as it chooses for that action but becomes @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} until the end of its turn.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "2 rounds"
+                },
+                "heightening": {
+                    "damage": {},
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "heightenedLevel": 8,
+                    "value": "djU8N0rJuOlO9qqb"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Advanced Player's Guide"
+                },
+                "range": {
+                    "value": "100 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "déjà-vu",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "incapacitation",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "6h26o4rywcidme60",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Time-shifting Touch",
+            "sort": 1000000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "time-shift"
+                    ]
+                },
+                "bonus": {
+                    "value": 34
+                },
+                "damageRolls": {
+                    "cl4sDXbFLXFhBtFE": {
+                        "damage": "3d8+14",
+                        "damageType": "force"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "magical"
+                    ]
+                },
+                "weaponType": {
+                    "value": "melee"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "8lahe1p6o2mjwdip",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Temporal Fracturing Ray",
+            "sort": 1100000,
+            "system": {
+                "attack": {
+                    "value": ""
+                },
+                "attackEffects": {
+                    "custom": "",
+                    "value": [
+                        "terrible-foresight"
+                    ]
+                },
+                "bonus": {
+                    "value": 34
+                },
+                "damageRolls": {
+                    "boiGAoCkVQx5Y7Qf": {
+                        "damage": "3d6+14",
+                        "damageType": "mental"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "magical",
+                        "range-increment-30"
+                    ]
+                },
+                "weaponType": {
+                    "value": "ranged"
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "H3cDChRjDRA71MNI",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.sebk9XseMCRkDqRg"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Lifesense (Imprecise) 60 feet",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Lifesense]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "lifesense",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "YG1rDVP0SPT5NVZR",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.TTCw5NusiSSkJU1x"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Void Healing",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.NegativeHealing]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary 2"
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "system.attributes.hp.negativeHealing",
+                        "value": true
+                    }
+                ],
+                "slug": "negative-healing",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "fk6qtcr37ue5mbxw",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Terrible Foresight",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>A creature struck by the fluxwraith's temporal fracturing ray receives a glimpse of a possible tragic event in its future. It must succeed at a @Check[will|dc:35] save or become @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} (@UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 2} and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 2} on a critical failure). If the creature is already affected by terrible foresight, it increases its stupefied value by 1 on a failed save, to a maximum of stupefied 4. Each time the creature gets a full night's rest, its condition values from terrible foresight decrease by 1.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "terrible-foresight",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "mental",
+                        "occult",
+                        "prediction"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "3kzbeblthgly6zkx",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Time Shift",
+            "sort": 1500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>A creature struck by the fluxwraith's time-shifting touch must succeed at a @Check[will|dc:35] saving throw or be thrust forward in time, vanishing from its space. The target automatically reappears in the same location after [[/gmr 1d4 #Time Shift]]{1d4 rounds} but can attempt an additional Will save at the end of each of its turns to end the duration. If its original space is occupied when it returns, the creature appears in the nearest unoccupied space. Since the creature is shunted forward in time, it doesn't experience any of the intervening time. Likewise, any effects on the creature with a duration don't decrease their duration, resuming when the creature reappears. A creature that succeeds at any saving throw against time shift is temporarily immune for 1 hour.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "time-shift",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "occult"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Fluxwraith",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 6
+            },
+            "con": {
+                "mod": 0
+            },
+            "dex": {
+                "mod": 9
+            },
+            "int": {
+                "mod": 5
+            },
+            "str": {
+                "mod": -5
+            },
+            "wis": {
+                "mod": 7
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 39
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "void healing",
+                "max": 250,
+                "temp": 0,
+                "value": 250
+            },
+            "immunities": [
+                {
+                    "type": "death-effects"
+                },
+                {
+                    "type": "disease"
+                },
+                {
+                    "type": "paralyzed"
+                },
+                {
+                    "type": "poison"
+                },
+                {
+                    "type": "precision"
+                },
+                {
+                    "type": "unconscious"
+                }
+            ],
+            "resistances": [
+                {
+                    "doubleVs": [
+                        "non-magical"
+                    ],
+                    "exceptions": [
+                        "force",
+                        "ghost-touch",
+                        "vitality"
+                    ],
+                    "type": "all-damage",
+                    "value": 15
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 40
+                    }
+                ],
+                "special": "",
+                "value": 0
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "any four languages (typically ancient languages)",
+                "value": [
+                    "common",
+                    "necril"
+                ]
+            },
+            "level": {
+                "value": 17
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>To cheat mortality, the rare spellcaster turns to potent temporal stasis magic, or even cryogenic technology. However, such methods are highly unreliable and often fracture the sleeper's soul across the time stream as their physical body perishes. Such an individual can rise as a fluxwraith, an incorporeal undead with a kaleidoscopic consciousness.</p>",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Book of the Dead"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 35,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 60,
+                    "type": "lifesense"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 25
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 34
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 30
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 34
+            },
+            "arcana": {
+                "base": 30
+            },
+            "intimidation": {
+                "base": 29
+            },
+            "occultism": {
+                "base": 30
+            },
+            "stealth": {
+                "base": 28
+            }
+        },
+        "traits": {
+            "rarity": "rare",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "evil",
+                "incorporeal",
+                "spirit",
+                "undead",
+                "unholy"
+            ]
+        }
+    },
+    "type": "npc"
+}

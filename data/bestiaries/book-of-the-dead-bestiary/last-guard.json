@@ -1,0 +1,536 @@
+{
+    "_id": "abnTemoEnsqZPbKZ",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "9br1r4rn2iiosza8",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Battlefield Bound",
+            "sort": 100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>Without a call to war, a last guard can stray only a short distance from the location they failed to defend, typically 120 feet. Some last guards are instead bound to a province, kingdom, or nation, rather than a specific location.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "U34PxMHZ0fS0k12A",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.OvqohW9YuahnFaiX"
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Form Up",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.FormUp]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary 3"
+                },
+                "rules": [],
+                "slug": "form-up",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "X22kke8lGbonOyuE",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.sebk9XseMCRkDqRg"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Lifesense 60 feet",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Lifesense]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "lifesense",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "tOSvo39Ofu2f5ufu",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-family-ability-glossary.Item.unR8VVR4yyRnsmnB"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Rejuvenation",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "deathNote": true,
+                "description": {
+                    "value": "<p>When a last guard is destroyed, they re-form after [[/br 2d4 #days]]{2d4 days} within the location they're bound to, fully healed. A last guard can be permanently destroyed and move on to the afterlife only if they successfully defend the location they're bound to from large-scale attack, or fulfill a call to war.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "ghost-rejuvenation",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "ZRadUe9v3qyF3o2k",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.RJbI07QSiYp0SF9A"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Troop Defenses",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Thresholds</strong> 220 (3 segments), 110 (2 segments)</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.TroopDefenses]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary 3"
+                },
+                "rules": [],
+                "slug": "troop-defenses",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "cuvl6Xxa053PF1xX",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.TTCw5NusiSSkJU1x"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Void Healing",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.NegativeHealing]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary 2"
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "system.attributes.hp.negativeHealing",
+                        "value": true
+                    }
+                ],
+                "slug": "negative-healing",
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "om967vglnfob32of",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Frightful Battle Cry",
+            "sort": 700000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The last guards unleash a soul-shaking bellow in unison. All creatures in a @Template[cone|distance:60] take @Damage[7d6[sonic]] damage (@Check[will|dc:42|basic]). Any creature that fails its save is also @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3} (or @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 4} on a critical failure).</p>\n<p>If the troop occupies 8 or fewer squares, this area decreases to a @Template[cone|distance:30].</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "auditory",
+                        "divine",
+                        "emotion",
+                        "fear",
+                        "mental",
+                        "sonic"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "5mxcdpdeibtg3cig",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Ghostly Blades",
+            "sort": 800000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><span class=\"action-glyph\">1</span> to <span class=\"action-glyph\">3</span></p>\n<p><strong>Frequency</strong> once per round</p>\n<hr />\n<p><strong>Effect</strong> The last guards engage in a coordinated attack with their spectral curve blades against each enemy in a @Template[emanation|distance:5] (@Check[reflex|dc:40|basic]). The damage depends on the number of actions.</p>\n<p><span class=\"action-glyph\">1</span> @Damage[(1d8+2)[slashing],1d8[void]]{1d8+2 slashing and 1d8 void damage}</p>\n<p><span class=\"action-glyph\">2</span> @Damage[(2d8+14)[slashing],2d8[void]]{2d8+14 slashing and 2d8 void damage}</p>\n<p><span class=\"action-glyph\">3</span> @Damage[(3d8+14)[slashing],3d8[void]]{3d8+14 slashing and 3d8 void damage}</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "round",
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "uovpjaklzm8wgqbt",
+            "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+            "name": "Spectral Charge",
+            "sort": 900000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 3
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The last guards charge, swarming through their foes. The troop Flies up to double its Speed, dealing @Damage[4d8[void]] damage to each creature whose space it moves through (@Check[reflex|dc:40|basic]). Any creature that fails its save is also @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1} (or @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 2} on a critical failure). The troop can affect each creature only once in a single use of Spectral Charge.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "IvNNdk1lrY4Xyd5o",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Troop Movement",
+            "sort": 1000000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Whenever the troop Strides, they first Form Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then move up to their Speed. This works just like a Gargantuan creature moving.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "kg8pmvmx5h75yhea",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Warfare Lore",
+            "sort": 1100000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 35
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Last Guard",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 6
+            },
+            "con": {
+                "mod": 10
+            },
+            "dex": {
+                "mod": 10
+            },
+            "int": {
+                "mod": 7
+            },
+            "str": {
+                "mod": -5
+            },
+            "wis": {
+                "mod": 7
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 45
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "void healing, rejuvenation, troop defenses",
+                "max": 330,
+                "temp": 0,
+                "value": 330
+            },
+            "immunities": [
+                {
+                    "type": "death-effects"
+                },
+                {
+                    "type": "disease"
+                },
+                {
+                    "type": "paralyzed"
+                },
+                {
+                    "type": "poison"
+                },
+                {
+                    "type": "precision"
+                },
+                {
+                    "type": "unconscious"
+                }
+            ],
+            "resistances": [
+                {
+                    "doubleVs": [
+                        "non-magical"
+                    ],
+                    "exceptions": [
+                        "force",
+                        "ghost-touch",
+                        "vitality"
+                    ],
+                    "type": "all-damage",
+                    "value": 10
+                }
+            ],
+            "speed": {
+                "details": "troop movement",
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 40
+                    }
+                ],
+                "special": "",
+                "value": 0
+            },
+            "weaknesses": [
+                {
+                    "type": "area-damage",
+                    "value": 20
+                },
+                {
+                    "type": "splash-damage",
+                    "value": 20
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "elven",
+                    "necril"
+                ]
+            },
+            "level": {
+                "value": 20
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "OGL",
+                "remaster": false,
+                "title": "Pathfinder Book of the Dead"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 33,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "acuity": "precise",
+                    "range": 60,
+                    "type": "lifesense"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 34
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 36
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 31
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 38
+            },
+            "stealth": {
+                "base": 38
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "grg"
+            },
+            "value": [
+                "incorporeal",
+                "lawful",
+                "spirit",
+                "troop",
+                "undead"
+            ]
+        }
+    },
+    "type": "npc"
+}

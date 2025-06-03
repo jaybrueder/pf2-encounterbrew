@@ -1,53 +1,35 @@
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  encounterbrew-app:
+    image: jaybrueder/pf2-encounterbrew:latest
     ports:
-      - "8080:8080"
+      - "8081:8081"
     depends_on:
-      - postgres
+      - encounterbrew-db
     environment:
-      - PORT=8080
-      - DB_HOST=postgres
-      - DB_PORT=5432
+      - PORT=8081
+      - USERNAME=gamemaster
+      - PASSWORD=changeme123
+      - MIGRATIONS_PATH=migrations
+      - DB_HOST=encounterbrew-db
       - DB_USERNAME=admin
-      - DB_PASSWORD=admin
+      - DB_PASSWORD=changemetoo123
       - DB_DATABASE=encounterbrew
-      - DB_SCHEMA=public
+      - DB_URL=postgres://admin:changemetoo123@encounterbrew-db/encounterbrew?sslmode=disable
     restart: unless-stopped
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
-    profiles:
-      - prod
 
-  postgres:
+  encounterbrew-db:
     image: postgres:13
     environment:
       POSTGRES_DB: encounterbrew
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+      POSTGRES_PASSWORD: changemetoo123
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-    profiles:
-      - prod
-
-  # Development services (with port mapping)
-  postgres-dev:
-    image: postgres:13
-    environment:
-      POSTGRES_DB: encounterbrew
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    profiles:
-      - dev
+      - encounterbrew-db_data:/var/lib/postgresql/data
 
 volumes:
-  postgres_data:
+  encounterbrew-db_data:
