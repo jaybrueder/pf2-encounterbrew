@@ -49,16 +49,17 @@ USER appuser
 # Expose the port your app runs on
 EXPOSE 8081
 
-# Set environment variable to enable Go stack traces
+# Set environment variables
 ENV PORT=8081
-ENV USERNAME=dragon
-ENV PASSWORD=hobgoblin
 ENV MIGRATIONS_PATH=migrations
 ENV DB_HOST=postgres
 ENV DB_PORT=5432
 ENV DB_DATABASE=encounterbrew
 ENV DB_SCHEMA=public
 ENV GOTRACEBACK=all
+
+# Note: USERNAME and PASSWORD should be provided at runtime via docker run -e or docker-compose
+# for security reasons, not baked into the image
 
 # Run the binary
 CMD ["./main"]
