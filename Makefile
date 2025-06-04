@@ -5,7 +5,7 @@ build:
 	@echo "Building..."
 	@templ generate
 	@tailwindcss -i cmd/web/assets/css/input.css -o cmd/web/assets/css/output.css
-	@go build -o main cmd/api/main.go
+	@CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static" -s -w' -o main cmd/api/main.go
 
 # Run the application
 run:

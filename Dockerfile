@@ -1,16 +1,11 @@
 # Build stage
-FROM node:alpine AS node-builder
-
-# Install tailwindcss
-RUN npm install -g tailwindcss
-
 FROM golang:1.24.3-alpine AS builder
-
-# Install templ
-RUN go install github.com/a-h/templ/cmd/templ@v0.2.793
 
 # Install build dependencies
 RUN apk add --no-cache make nodejs npm
+
+# Install templ
+RUN go install github.com/a-h/templ/cmd/templ@v0.2.793
 
 # Set working directory
 WORKDIR /app
@@ -31,13 +26,25 @@ RUN make build
 # Final stage
 FROM alpine:latest
 
+RUN apk --no-cache add ca-certificates
+
 WORKDIR /app
+
+# Create a non-root user
+RUN addgroup -g 1001 -S appgroup && \
+    adduser -S appuser -u 1001 -G appgroup
 
 # Copy required assets
 COPY --from=builder /app/main .
 COPY --from=builder /app/cmd/web/assets/css/output.css ./cmd/web/assets/css/output.css
 COPY --from=builder /app/migrations ./migrations
 COPY --from=builder /app/data/ ./data/
+
+# Change ownership to non-root user
+RUN chown -R appuser:appgroup /app
+
+# Switch to non-root user
+USER appuser
 
 # Expose the port your app runs on
 EXPOSE 8081
@@ -51,7 +58,6 @@ ENV DB_HOST=postgres
 ENV DB_PORT=5432
 ENV DB_DATABASE=encounterbrew
 ENV DB_SCHEMA=public
-
 ENV GOTRACEBACK=all
 
 # Run the binary
