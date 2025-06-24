@@ -5,7 +5,11 @@ build:
 	@echo "Building..."
 	@templ generate
 	@tailwindcss -i cmd/web/assets/css/input.css -o cmd/web/assets/css/output.css
-	@CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static" -s -w' -o main cmd/api/main.go
+	@if [ "$$(uname -s)" = "Darwin" ]; then \
+		CGO_ENABLED=0 go build -a -installsuffix cgo -ldflags '-extldflags "-static" -s -w' -o main cmd/api/main.go; \
+	else \
+		CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static" -s -w' -o main cmd/api/main.go; \
+	fi
 
 # Run the application
 run:
