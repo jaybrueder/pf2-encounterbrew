@@ -262,9 +262,8 @@ func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
 		return Encounter{}, fmt.Errorf("error scanning encounter row: %v", err)
 	}
 
-	// Query for associated monsters (existing code)
 	rows, err := db.Query(`
-        SELECT m.id, m.data, em.level_adjustment, em.id, em.initiative, em.hp as current_hp
+        SELECT m.id, m.data, em.level_adjustment, em.id, em.initiative, em.hp as current_hp, em.enumeration
         FROM monsters m
         JOIN encounter_monsters em ON m.id = em.monster_id
         WHERE em.encounter_id = $1
@@ -285,6 +284,7 @@ func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
 			&m.AssociationID,
 			&m.Initiative,
 			&currentHp,
+			&m.Enumeration,
 		)
 		if err != nil {
 			return e, fmt.Errorf("error scanning monster row: %v", err)
@@ -371,18 +371,8 @@ func GetEncounterWithCombatants(db database.Service, encounterId int) (Encounter
         combatants = append(combatants, players[i])
     }
 
-    // Add monsters to combatants, respecting the count
-    counts := make(map[string]int)
-
+    // Add monsters to combatants
     for _, monster := range monsters {
-        exactName := monster.GetName()
-        counts[exactName]++
-
-        if counts[exactName] > 1 {
-            monster.SetEnumeration(counts[exactName])
-            fmt.Printf("%s %d", monster.GetName(), counts[exactName])
-        }
-
         combatants = append(combatants, monster)
     }
 
@@ -463,7 +453,7 @@ func AddMonsterToEncounter(db database.Service, encounterId int, monsterID int, 
 	//nolint:errcheck
 	defer tx.Rollback() // Rollback the transaction if it hasn't been committed
 
-	// Get the monster's initial HP from the data JSON field
+	// Get the monster's initial HP and name from the data JSON field
 	var monsterData []byte
 	err = db.QueryRow(`
         SELECT data FROM monsters WHERE id = $1
@@ -479,11 +469,28 @@ func AddMonsterToEncounter(db database.Service, encounterId int, monsterID int, 
 	}
 
 	monsterHP := monster.Data.System.Attributes.Hp.Value
+	monsterName := monster.Data.Name
+
+	// Find the highest enumeration value for monsters of the same type in this encounter
+	var maxEnumeration int
+	err = db.QueryRow(`
+		SELECT COALESCE(MAX(em.enumeration), 0)
+		FROM encounter_monsters em
+		JOIN monsters m ON em.monster_id = m.id
+		WHERE em.encounter_id = $1
+		AND m.data->>'name' = $2
+	`, encounterId, monsterName).Scan(&maxEnumeration)
+	if err != nil {
+		return Encounter{}, fmt.Errorf("Failed to get max enumeration: %v", err)
+	}
+
+	// Set the new enumeration to be one more than the highest existing enumeration
+	newEnumeration := maxEnumeration + 1
 
 	_, err = db.Exec(`
-        INSERT INTO encounter_monsters (encounter_id, monster_id, level_adjustment, initiative, hp)
-        VALUES ($1, $2, $3, $4, $5)
-    `, encounterId, monsterID, levelAdjustment, initiative, monsterHP)
+        INSERT INTO encounter_monsters (encounter_id, monster_id, level_adjustment, initiative, hp, enumeration)
+        VALUES ($1, $2, $3, $4, $5, $6)
+    `, encounterId, monsterID, levelAdjustment, initiative, monsterHP, newEnumeration)
 
 	if err != nil {
 		return Encounter{}, fmt.Errorf("Failed to add monster to encounter: %v", err)
