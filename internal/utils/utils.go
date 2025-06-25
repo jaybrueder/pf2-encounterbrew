@@ -128,3 +128,11 @@ func ModifyDamage(damageStr string, modifier int) string {
 	}
 	return fmt.Sprintf("%sd%s", numDice, diceType)
 }
+
+func PositiveOrNegative(input int) string {
+	if input > 0 {
+		return fmt.Sprintf("+%d", input)
+	} else {
+		return fmt.Sprintf("%d", input)
+	}
+}

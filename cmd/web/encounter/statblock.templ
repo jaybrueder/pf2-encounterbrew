@@ -2,6 +2,7 @@ package encounter
 
 import (
     "strconv"
+    "strings"
 
     "pf2.encounterbrew.com/internal/models"
     "pf2.encounterbrew.com/internal/utils"
@@ -140,7 +141,15 @@ templ Attack(i models.Item, modifier int) {
         if i.GetActionCost() != 0 {
             @ActionCost(strconv.Itoa(i.GetActionCost()))
         }
-        {i.GetName()} +{strconv.Itoa(i.GetAttackValue(modifier))}{i.GetTraits()},
+
+        {i.GetName()}
+        if strings.Contains(i.GetTraits(), "agile") {
+       		{utils.PositiveOrNegative(i.GetAttackValue(modifier))}/{utils.PositiveOrNegative(i.GetAttackValue(modifier) - 4)}/{utils.PositiveOrNegative(i.GetAttackValue(modifier) - 8)}
+        } else {
+       		{utils.PositiveOrNegative(i.GetAttackValue(modifier))}/{utils.PositiveOrNegative(i.GetAttackValue(modifier) - 5)}/{utils.PositiveOrNegative(i.GetAttackValue(modifier) - 10)}
+        }
+        {i.GetTraits()},
+
         if i.GetDamageValue(modifier) != "" {
             <b>Damage</b> {i.GetDamageValue(modifier)}
         }
