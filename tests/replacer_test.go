@@ -139,6 +139,16 @@ func TestReplacer(t *testing.T) {
 			expected: "1d20+10",
 		},
 		{
+			name:     "Formatted rolls - gmr",
+			input:    "[[/gmr 1d4 #Recharge Devastating Blast]]{1d4 rounds}",
+			expected: "1d4 rounds",
+		},
+		{
+			name:     "Formatted rolls - gmr with different content",
+			input:    "[[/gmr 2d6 #Fire Breath]]{2d6 damage}",
+			expected: "2d6 damage",
+		},
+		{
 			name:     "Unknown pattern with value",
 			input:    "@NewPattern[something|value:test]",
 			expected: "test",
@@ -167,6 +177,11 @@ func TestReplacer(t *testing.T) {
 			name:     "Mixed text with various patterns",
 			input:    "A @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1} creature takes a @Damage[1d4[mental]] penalty to @Check[will|dc:20] saves.",
 			expected: "A Frightened 1 creature takes a 1d4 mental penalty to DC 20 will saves.",
+		},
+		{
+			name:     "Complex text with gmr and other patterns",
+			input:    "The dragon recharges its breath weapon in [[/gmr 1d4 #Recharge Fire Breath]]{1d4 rounds} and deals @Damage[8d6[fire]] damage in a @Template[cone|distance:60].",
+			expected: "The dragon recharges its breath weapon in 1d4 rounds and deals 8d6 fire damage in a cone (60 feet).",
 		},
 	}
 

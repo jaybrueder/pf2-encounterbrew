@@ -21,6 +21,7 @@ func NewReplacer() *Replacer {
 			// Handle weird formatted rolls that don't follow standard pattern
 			"formatted_rolls_br":     regexp.MustCompile(`\[\[/br [^]]+\]\]{([^}]+)}`),
 			"formatted_rolls_r":      regexp.MustCompile(`\[\[/r [^]]+\]\]{([^}]+)}`),
+			"formatted_rolls_gmr":    regexp.MustCompile(`\[\[/gmr [^]]+\]\]{([^}]+)}`),
 			"formatted_rolls_simple": regexp.MustCompile(`\[\[/r ([^]]+)\]\]`),
 		},
 	}
@@ -30,6 +31,7 @@ func (r *Replacer) ProcessText(input string) string {
 	// Handle legacy patterns first (weird formatted rolls)
 	input = r.legacyPatterns["formatted_rolls_br"].ReplaceAllString(input, "$1")
 	input = r.legacyPatterns["formatted_rolls_r"].ReplaceAllString(input, "$1")
+	input = r.legacyPatterns["formatted_rolls_gmr"].ReplaceAllString(input, "$1")
 	input = r.legacyPatterns["formatted_rolls_simple"].ReplaceAllString(input, "$1")
 
 	// Handle all @ patterns with manual parsing
