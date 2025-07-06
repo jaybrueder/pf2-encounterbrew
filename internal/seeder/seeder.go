@@ -13,7 +13,7 @@ import (
 	"pf2.encounterbrew.com/internal/database"
 )
 
-type partiesData struct {
+type PartiesData struct {
 	Parties []struct {
 		Name    string `json:"name"`
 		Players []struct {
@@ -48,7 +48,7 @@ func Run(dbService database.Service) error {
 			return nil // Continue walking other parts if possible
 		}
 		if !info.IsDir() && filepath.Ext(path) == ".json" {
-			changed, seedErr := upsertSeedFile(dbService, path, "conditions")
+			changed, seedErr := UpsertSeedFile(dbService, path, "conditions")
 			if seedErr != nil {
 				log.Printf("ERROR seeding file %s: %v\n", path, seedErr)
 				// Collect the error but continue seeding other files
@@ -87,7 +87,7 @@ func Run(dbService database.Service) error {
 	// --- Seed parties ---
 	log.Println("Seeding parties...")
 	partiesFilePath := filepath.Join("data", "parties.json")
-	err = upsertSeedParties(dbService, partiesFilePath)
+	err = UpsertSeedParties(dbService, partiesFilePath)
 	if err != nil {
 		// Check if the error is specifically because the file doesn't exist
 		if errors.Is(err, os.ErrNotExist) {
@@ -114,7 +114,7 @@ func Run(dbService database.Service) error {
 			return nil // Continue walking
 		}
 		if !info.IsDir() && filepath.Ext(path) == ".json" && filepath.Base(path) != "_folders.json" {
-			changed, seedErr := upsertSeedFile(dbService, path, "monsters")
+			changed, seedErr := UpsertSeedFile(dbService, path, "monsters")
 			if seedErr != nil {
 				log.Printf("ERROR seeding file %s: %v\n", path, seedErr)
 				if finalErr == nil {
@@ -159,7 +159,7 @@ func Run(dbService database.Service) error {
 	return finalErr
 }
 
-func upsertSeedFile(db database.Service, filePath string, table string) (bool, error) {
+func UpsertSeedFile(db database.Service, filePath string, table string) (bool, error) {
 	data, err := os.ReadFile(filePath)
 	if err != nil {
 		return false, fmt.Errorf("unable to read file %s: %w", filePath, err)
@@ -220,13 +220,13 @@ func upsertSeedFile(db database.Service, filePath string, table string) (bool, e
 	return false, nil
 }
 
-func upsertSeedParties(db database.Service, filePath string) error {
+func UpsertSeedParties(db database.Service, filePath string) error {
 	data, err := os.ReadFile(filePath)
 	if err != nil {
 		return fmt.Errorf("unable to read parties file '%s': %w", filePath, err)
 	}
 
-	var partiesData partiesData
+	var partiesData PartiesData
 
 	if err := json.Unmarshal(data, &partiesData); err != nil {
 		var syntaxError *json.SyntaxError
