@@ -42,14 +42,14 @@ func FormatOrdinal(level string) string {
 	}
 }
 
-func ContainsCantrip(traits []string) bool {
-	for _, trait := range traits {
-		if trait == "cantrip" {
-			return true
-		}
-	}
-	return false
-}
+// func ContainsCantrip(traits []string) bool {
+// 	for _, trait := range traits {
+// 		if trait == "cantrip" {
+// 			return true
+// 		}
+// 	}
+// 	return false
+// }
 
 func RemoveHTML(input string) string {
 	//var output string
@@ -68,13 +68,13 @@ func Contains(slice []string, item string) bool {
 	return false
 }
 
-func DivideAndRoundUp(n int) int {
-	result := n / 2
-	if n%2 != 0 {
-		result++
-	}
-	return result
-}
+// func DivideAndRoundUp(n int) int {
+// 	result := n / 2
+// 	if n%2 != 0 {
+// 		result++
+// 	}
+// 	return result
+// }
 
 func ModifyDamage(damageStr string, modifier int) string {
 	// Split the string at 'd'
