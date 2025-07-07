@@ -85,6 +85,13 @@ func (l *Localizer) cleanText(text string) string {
 	return text
 }
 
+// ResetLocalizerForTesting resets the singleton instance for testing purposes
+// This function should only be used in tests
+func ResetLocalizerForTesting() {
+	instance = nil
+	once = sync.Once{}
+}
+
 // ProcessText replaces all @Localize patterns with their corresponding text
 func (l *Localizer) ProcessText(input interface{}) string {
 	// Handle nil input
