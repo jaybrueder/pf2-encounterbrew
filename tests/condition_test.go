@@ -10,122 +10,27 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
-// mockConditionDatabaseService implements the database.Service interface for testing
-type mockConditionDatabaseService struct {
-	db      *sql.DB
-	mock    sqlmock.Sqlmock
-	queryFn func(query string, args ...interface{}) *sql.Row
-}
 
-func (m *mockConditionDatabaseService) Health() map[string]string {
-	return make(map[string]string)
-}
-
-func (m *mockConditionDatabaseService) Close() error {
-	return m.db.Close()
-}
-
-func (m *mockConditionDatabaseService) Insert(table string, columns []string, values ...interface{}) (sql.Result, error) {
-	return nil, nil
-}
-
-func (m *mockConditionDatabaseService) Query(query string, args ...interface{}) (*sql.Rows, error) {
-	return m.db.Query(query, args...)
-}
-
-func (m *mockConditionDatabaseService) QueryRow(query string, args ...interface{}) *sql.Row {
-	if m.queryFn != nil {
-		return m.queryFn(query, args...)
-	}
-	return m.db.QueryRow(query, args...)
-}
-
-func (m *mockConditionDatabaseService) Exec(query string, args ...interface{}) (sql.Result, error) {
-	return nil, nil
-}
-
-func (m *mockConditionDatabaseService) Begin() (*sql.Tx, error) {
-	return nil, nil
-}
-
-func (m *mockConditionDatabaseService) InsertReturningID(table string, columns []string, values ...interface{}) (int, error) {
-	return 0, nil
-}
-
-func setupConditionMockDB(t *testing.T) (*mockConditionDatabaseService, func()) {
-	db, mock, err := sqlmock.New()
-	if err != nil {
-		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
-	}
-
-	mockService := &mockConditionDatabaseService{
-		db:   db,
-		mock: mock,
-	}
-
-	return mockService, func() {
-		db.Close()
-	}
-}
-
-func createSampleConditionData() map[string]interface{} {
-	return map[string]interface{}{
-		"_id":  "condition-test-id",
-		"img":  "path/to/condition.jpg",
-		"name": "Test Condition",
-		"system": map[string]interface{}{
-			"description": map[string]interface{}{
-				"value": "This is a test condition description",
-			},
-			"duration": map[string]interface{}{
-				"expiry": "turn-start",
-				"unit":   "rounds",
-				"value":  3,
-			},
-			"group": "status",
-			"overrides": []interface{}{},
-			"publication": map[string]interface{}{
-				"license":  "OGL",
-				"remaster": true,
-				"title":    "Test Publication",
-			},
-			"references": map[string]interface{}{
-				"children":     []interface{}{},
-				"immunityFrom": []interface{}{},
-				"overriddenBy": []interface{}{},
-				"overrides":    []interface{}{},
-			},
-			"rules": []interface{}{},
-			"traits": map[string]interface{}{
-				"value": []interface{}{},
-			},
-			"value": map[string]interface{}{
-				"isValued": true,
-				"value":    5,
-			},
-		},
-		"type": "condition",
-	}
-}
+// Use consolidated fixtures from mock_database.go
 
 func TestGetCondition_Success(t *testing.T) {
-	mockService, cleanup := setupConditionMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	conditionID := 1
-	conditionData := createSampleConditionData()
+	conditionData := CreateSampleConditionData()
 	jsonData, _ := json.Marshal(conditionData)
 
 	// Set up the mock expectation
 	rows := sqlmock.NewRows([]string{"id", "data"}).
 		AddRow(conditionID, jsonData)
 
-	mockService.mock.ExpectQuery(`SELECT id, data FROM conditions p WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, data FROM conditions p WHERE id = \$1`).
 		WithArgs(conditionID).
 		WillReturnRows(rows)
 
 	// Call the function
-	condition, err := models.GetCondition(mockService, conditionID)
+	condition, err := models.GetCondition(mockDB, conditionID)
 
 	// Assertions
 	if err != nil {
@@ -149,24 +54,24 @@ func TestGetCondition_Success(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
 	}
 }
 
 func TestGetCondition_NotFound(t *testing.T) {
-	mockService, cleanup := setupConditionMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	conditionID := 999
 
 	// Set up the mock expectation to return no rows
-	mockService.mock.ExpectQuery(`SELECT id, data FROM conditions p WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, data FROM conditions p WHERE id = \$1`).
 		WithArgs(conditionID).
 		WillReturnError(sql.ErrNoRows)
 
 	// Call the function
-	condition, err := models.GetCondition(mockService, conditionID)
+	condition, err := models.GetCondition(mockDB, conditionID)
 
 	// Assertions
 	if err == nil {
@@ -183,25 +88,25 @@ func TestGetCondition_NotFound(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
 	}
 }
 
 func TestGetCondition_DatabaseError(t *testing.T) {
-	mockService, cleanup := setupConditionMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	conditionID := 1
 	expectedError := errors.New("database connection failed")
 
 	// Set up the mock expectation to return an error
-	mockService.mock.ExpectQuery(`SELECT id, data FROM conditions p WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, data FROM conditions p WHERE id = \$1`).
 		WithArgs(conditionID).
 		WillReturnError(expectedError)
 
 	// Call the function
-	condition, err := models.GetCondition(mockService, conditionID)
+	condition, err := models.GetCondition(mockDB, conditionID)
 
 	// Assertions
 	if err == nil {
@@ -218,7 +123,7 @@ func TestGetCondition_DatabaseError(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
 	}
 }
@@ -243,7 +148,7 @@ func TestGetCondition_NilDatabase(t *testing.T) {
 }
 
 func TestGetCondition_InvalidJSON(t *testing.T) {
-	mockService, cleanup := setupConditionMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	conditionID := 1
@@ -253,12 +158,12 @@ func TestGetCondition_InvalidJSON(t *testing.T) {
 	rows := sqlmock.NewRows([]string{"id", "data"}).
 		AddRow(conditionID, invalidJSON)
 
-	mockService.mock.ExpectQuery(`SELECT id, data FROM conditions p WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, data FROM conditions p WHERE id = \$1`).
 		WithArgs(conditionID).
 		WillReturnRows(rows)
 
 	// Call the function
-	condition, err := models.GetCondition(mockService, conditionID)
+	condition, err := models.GetCondition(mockDB, conditionID)
 
 	// Assertions
 	if err == nil {
@@ -278,21 +183,21 @@ func TestGetCondition_InvalidJSON(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
 	}
 }
 
 func TestGetGroupedConditions_Success(t *testing.T) {
-	mockService, cleanup := setupConditionMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Create sample condition data for different groups
-	statusCondition := createSampleConditionData()
+	statusCondition := CreateSampleConditionData()
 	statusCondition["system"].(map[string]interface{})["group"] = "status"
 	statusJSON, _ := json.Marshal(statusCondition)
 
-	otherCondition := createSampleConditionData()
+	otherCondition := CreateSampleConditionData()
 	otherCondition["name"] = "Other Condition"
 	otherCondition["system"].(map[string]interface{})["group"] = nil
 	otherJSON, _ := json.Marshal(otherCondition)
@@ -302,11 +207,11 @@ func TestGetGroupedConditions_Success(t *testing.T) {
 		AddRow(1, statusJSON).
 		AddRow(2, otherJSON)
 
-	mockService.mock.ExpectQuery(`SELECT id, data FROM conditions`).
+	mockDB.Mock.ExpectQuery(`SELECT id, data FROM conditions`).
 		WillReturnRows(rows)
 
 	// Call the function
-	groupedConditions, err := models.GetGroupedConditions(mockService)
+	groupedConditions, err := models.GetGroupedConditions(mockDB)
 
 	// Assertions
 	if err != nil {
@@ -336,7 +241,7 @@ func TestGetGroupedConditions_Success(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
 	}
 }
@@ -361,17 +266,17 @@ func TestGetGroupedConditions_NilDatabase(t *testing.T) {
 }
 
 func TestGetGroupedConditions_DatabaseError(t *testing.T) {
-	mockService, cleanup := setupConditionMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	expectedError := errors.New("database query failed")
 
 	// Set up the mock expectation to return an error
-	mockService.mock.ExpectQuery(`SELECT id, data FROM conditions`).
+	mockDB.Mock.ExpectQuery(`SELECT id, data FROM conditions`).
 		WillReturnError(expectedError)
 
 	// Call the function
-	groupedConditions, err := models.GetGroupedConditions(mockService)
+	groupedConditions, err := models.GetGroupedConditions(mockDB)
 
 	// Assertions
 	if err == nil {
@@ -388,24 +293,24 @@ func TestGetGroupedConditions_DatabaseError(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
 	}
 }
 
 func TestGetGroupedConditions_ScanError(t *testing.T) {
-	mockService, cleanup := setupConditionMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Set up the mock expectation with incorrect number of columns
 	rows := sqlmock.NewRows([]string{"id"}).
 		AddRow(1) // Missing data column
 
-	mockService.mock.ExpectQuery(`SELECT id, data FROM conditions`).
+	mockDB.Mock.ExpectQuery(`SELECT id, data FROM conditions`).
 		WillReturnRows(rows)
 
 	// Call the function
-	groupedConditions, err := models.GetGroupedConditions(mockService)
+	groupedConditions, err := models.GetGroupedConditions(mockDB)
 
 	// Assertions
 	if err == nil {
@@ -425,13 +330,13 @@ func TestGetGroupedConditions_ScanError(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
 	}
 }
 
 func TestGetGroupedConditions_JSONUnmarshalError(t *testing.T) {
-	mockService, cleanup := setupConditionMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	invalidJSON := []byte(`{"invalid": json}`)
@@ -440,11 +345,11 @@ func TestGetGroupedConditions_JSONUnmarshalError(t *testing.T) {
 	rows := sqlmock.NewRows([]string{"id", "data"}).
 		AddRow(1, invalidJSON)
 
-	mockService.mock.ExpectQuery(`SELECT id, data FROM conditions`).
+	mockDB.Mock.ExpectQuery(`SELECT id, data FROM conditions`).
 		WillReturnRows(rows)
 
 	// Call the function
-	groupedConditions, err := models.GetGroupedConditions(mockService)
+	groupedConditions, err := models.GetGroupedConditions(mockDB)
 
 	// Assertions
 	if err == nil {
@@ -464,7 +369,7 @@ func TestGetGroupedConditions_JSONUnmarshalError(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
 	}
 }
@@ -525,11 +430,11 @@ func TestCondition_GetDescription(t *testing.T) {
 }
 
 func TestGetGroupedConditions_EmptyGroup(t *testing.T) {
-	mockService, cleanup := setupConditionMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Create condition with empty string group
-	conditionData := createSampleConditionData()
+	conditionData := CreateSampleConditionData()
 	conditionData["system"].(map[string]interface{})["group"] = ""
 	jsonData, _ := json.Marshal(conditionData)
 
@@ -537,11 +442,11 @@ func TestGetGroupedConditions_EmptyGroup(t *testing.T) {
 	rows := sqlmock.NewRows([]string{"id", "data"}).
 		AddRow(1, jsonData)
 
-	mockService.mock.ExpectQuery(`SELECT id, data FROM conditions`).
+	mockDB.Mock.ExpectQuery(`SELECT id, data FROM conditions`).
 		WillReturnRows(rows)
 
 	// Call the function
-	groupedConditions, err := models.GetGroupedConditions(mockService)
+	groupedConditions, err := models.GetGroupedConditions(mockDB)
 
 	// Assertions
 	if err != nil {
@@ -558,7 +463,7 @@ func TestGetGroupedConditions_EmptyGroup(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
 	}
 }

@@ -9,99 +9,8 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
-// mockPartyDatabaseService implements the database.Service interface for testing
-type mockPartyDatabaseService struct {
-	db   *sql.DB
-	mock sqlmock.Sqlmock
-}
 
-func (m *mockPartyDatabaseService) Health() map[string]string {
-	return make(map[string]string)
-}
-
-func (m *mockPartyDatabaseService) Close() error {
-	return m.db.Close()
-}
-
-func (m *mockPartyDatabaseService) Insert(table string, columns []string, values ...interface{}) (sql.Result, error) {
-	return nil, nil
-}
-
-func (m *mockPartyDatabaseService) Query(query string, args ...interface{}) (*sql.Rows, error) {
-	return m.db.Query(query, args...)
-}
-
-func (m *mockPartyDatabaseService) QueryRow(query string, args ...interface{}) *sql.Row {
-	return m.db.QueryRow(query, args...)
-}
-
-func (m *mockPartyDatabaseService) Exec(query string, args ...interface{}) (sql.Result, error) {
-	return m.db.Exec(query, args...)
-}
-
-func (m *mockPartyDatabaseService) Begin() (*sql.Tx, error) {
-	return m.db.Begin()
-}
-
-func (m *mockPartyDatabaseService) InsertReturningID(table string, columns []string, values ...interface{}) (int, error) {
-	return 1, nil
-}
-
-func setupPartyMockDB(t *testing.T) (*mockPartyDatabaseService, func()) {
-	db, mock, err := sqlmock.New()
-	if err != nil {
-		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
-	}
-
-	mockService := &mockPartyDatabaseService{
-		db:   db,
-		mock: mock,
-	}
-
-	return mockService, func() {
-		db.Close()
-	}
-}
-
-// Test data helpers
-
-func createSampleParty() models.Party {
-	return models.Party{
-		ID:     1,
-		Name:   "Test Party",
-		UserID: 1,
-		User: &models.User{
-			ID:   1,
-			Name: "Test User",
-		},
-		Players: []models.Player{
-			{
-				ID:         1,
-				Name:       "Player 1",
-				Level:      5,
-				Hp:         45,
-				Ac:         18,
-				Fort:       8,
-				Ref:        6,
-				Will:       7,
-				Perception: 5,
-				PartyID:    1,
-			},
-			{
-				ID:         2,
-				Name:       "Player 2",
-				Level:      4,
-				Hp:         35,
-				Ac:         16,
-				Fort:       6,
-				Ref:        8,
-				Will:       5,
-				Perception: 4,
-				PartyID:    1,
-			},
-		},
-	}
-}
+// Test data helpers - use consolidated fixtures from mock_database.go
 
 // Party Method Tests
 
@@ -113,7 +22,7 @@ func TestParty_GetLevel(t *testing.T) {
 	}{
 		{
 			name:          "party with players",
-			party:         createSampleParty(),
+			party:         CreateSampleParty(),
 			expectedLevel: 4.5, // (5 + 4) / 2
 		},
 		{
@@ -156,7 +65,7 @@ func TestParty_GetNumbersOfPlayer(t *testing.T) {
 	}{
 		{
 			name:           "party with players",
-			party:          createSampleParty(),
+			party:          CreateSampleParty(),
 			expectedNumber: 2,
 		},
 		{
@@ -188,7 +97,7 @@ func TestParty_GetNumbersOfPlayer(t *testing.T) {
 // Party.Create Tests
 
 func TestParty_Create_Success(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	party := models.Party{
@@ -197,14 +106,20 @@ func TestParty_Create_Success(t *testing.T) {
 	}
 
 	expectedID := 1
+	mockDB.SetupMockForPartyCreate(expectedID)
 
-	id, err := party.Create(mockService)
+	id, err := party.Create(mockDB)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
 
 	if id != expectedID {
 		t.Errorf("expected ID %d, got %d", expectedID, id)
+	}
+
+	// Verify all expectations were met
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
+		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
@@ -229,7 +144,7 @@ func TestParty_Create_NilDatabase(t *testing.T) {
 // GetAllParties Tests
 
 func TestGetAllParties_Success(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Mock parties query
@@ -237,7 +152,7 @@ func TestGetAllParties_Success(t *testing.T) {
 		AddRow(1, "Party 1", 1, "Test User").
 		AddRow(2, "Party 2", 1, "Test User")
 
-	mockService.mock.ExpectQuery("SELECT p.id, p.name, p.user_id, u.name AS user_name FROM parties p JOIN users u ON p.user_id = u.id WHERE p.user_id = \\$1 ORDER BY p.id").
+	mockDB.Mock.ExpectQuery("SELECT p.id, p.name, p.user_id, u.name AS user_name FROM parties p JOIN users u ON p.user_id = u.id WHERE p.user_id = \\$1 ORDER BY p.id").
 		WithArgs(1).
 		WillReturnRows(partyRows)
 
@@ -245,17 +160,17 @@ func TestGetAllParties_Success(t *testing.T) {
 	playerRows1 := sqlmock.NewRows([]string{"id", "name", "level", "hp", "ac", "fort", "ref", "will"}).
 		AddRow(1, "Player 1", 5, 45, 18, 8, 6, 7).
 		AddRow(2, "Player 2", 4, 35, 16, 6, 8, 5)
-	mockService.mock.ExpectQuery("SELECT id, name, level, hp, ac, fort, ref, will FROM players WHERE party_id = \\$1").
+	mockDB.Mock.ExpectQuery("SELECT id, name, level, hp, ac, fort, ref, will FROM players WHERE party_id = \\$1").
 		WithArgs(1).
 		WillReturnRows(playerRows1)
 
 	// Mock players query for party 2 (empty)
 	playerRows2 := sqlmock.NewRows([]string{"id", "name", "level", "hp", "ac", "fort", "ref", "will"})
-	mockService.mock.ExpectQuery("SELECT id, name, level, hp, ac, fort, ref, will FROM players WHERE party_id = \\$1").
+	mockDB.Mock.ExpectQuery("SELECT id, name, level, hp, ac, fort, ref, will FROM players WHERE party_id = \\$1").
 		WithArgs(2).
 		WillReturnRows(playerRows2)
 
-	parties, err := models.GetAllParties(mockService)
+	parties, err := models.GetAllParties(mockDB)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -276,7 +191,7 @@ func TestGetAllParties_Success(t *testing.T) {
 		t.Errorf("expected 0 players in second party, got %d", len(parties[1].Players))
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
@@ -298,14 +213,14 @@ func TestGetAllParties_NilDatabase(t *testing.T) {
 }
 
 func TestGetAllParties_QueryError(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	mockService.mock.ExpectQuery("SELECT p.id, p.name, p.user_id, u.name AS user_name FROM parties p JOIN users u ON p.user_id = u.id WHERE p.user_id = \\$1 ORDER BY p.id").
+	mockDB.Mock.ExpectQuery("SELECT p.id, p.name, p.user_id, u.name AS user_name FROM parties p JOIN users u ON p.user_id = u.id WHERE p.user_id = \\$1 ORDER BY p.id").
 		WithArgs(1).
 		WillReturnError(sql.ErrConnDone)
 
-	parties, err := models.GetAllParties(mockService)
+	parties, err := models.GetAllParties(mockDB)
 	if err == nil {
 		t.Error("expected error when query fails, got nil")
 	}
@@ -318,7 +233,7 @@ func TestGetAllParties_QueryError(t *testing.T) {
 		t.Errorf("expected query error, got: %v", err)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
@@ -326,7 +241,7 @@ func TestGetAllParties_QueryError(t *testing.T) {
 // GetParty Tests
 
 func TestGetParty_Success(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	partyID := 1
@@ -334,18 +249,18 @@ func TestGetParty_Success(t *testing.T) {
 	// Mock party query
 	partyRows := sqlmock.NewRows([]string{"id", "name", "user_id", "user_name"}).
 		AddRow(1, "Test Party", 1, "Test User")
-	mockService.mock.ExpectQuery("SELECT p.id, p.name, p.user_id, u.name AS user_name FROM parties p JOIN users u ON p.user_id = u.id WHERE p.user_id = \\$1 AND p.id = \\$2").
+	mockDB.Mock.ExpectQuery("SELECT p.id, p.name, p.user_id, u.name AS user_name FROM parties p JOIN users u ON p.user_id = u.id WHERE p.user_id = \\$1 AND p.id = \\$2").
 		WithArgs(1, partyID).
 		WillReturnRows(partyRows)
 
 	// Mock players query
 	playerRows := sqlmock.NewRows([]string{"id", "name", "level", "hp", "ac", "fort", "ref", "will", "perception"}).
 		AddRow(1, "Player 1", 5, 45, 18, 8, 6, 7, 5)
-	mockService.mock.ExpectQuery("SELECT id, name, level, hp, ac, fort, ref, will, perception FROM players WHERE party_id = \\$1").
+	mockDB.Mock.ExpectQuery("SELECT id, name, level, hp, ac, fort, ref, will, perception FROM players WHERE party_id = \\$1").
 		WithArgs(partyID).
 		WillReturnRows(playerRows)
 
-	party, err := models.GetParty(mockService, partyID)
+	party, err := models.GetParty(mockDB, partyID)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -366,22 +281,22 @@ func TestGetParty_Success(t *testing.T) {
 		t.Errorf("expected player party ID %d, got %d", partyID, party.Players[0].PartyID)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestGetParty_NotFound(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	partyID := 999
 
-	mockService.mock.ExpectQuery("SELECT p.id, p.name, p.user_id, u.name AS user_name FROM parties p JOIN users u ON p.user_id = u.id WHERE p.user_id = \\$1 AND p.id = \\$2").
+	mockDB.Mock.ExpectQuery("SELECT p.id, p.name, p.user_id, u.name AS user_name FROM parties p JOIN users u ON p.user_id = u.id WHERE p.user_id = \\$1 AND p.id = \\$2").
 		WithArgs(1, partyID).
 		WillReturnError(sql.ErrNoRows)
 
-	party, err := models.GetParty(mockService, partyID)
+	party, err := models.GetParty(mockDB, partyID)
 	if err == nil {
 		t.Error("expected error when party not found, got nil")
 	}
@@ -395,7 +310,7 @@ func TestGetParty_NotFound(t *testing.T) {
 		t.Errorf("expected error message '%s', got '%s'", expectedError, err.Error())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
@@ -419,16 +334,16 @@ func TestGetParty_NilDatabase(t *testing.T) {
 // PartyExists Tests
 
 func TestPartyExists_True(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	partyID := 1
 
-	mockService.mock.ExpectQuery("SELECT EXISTS\\(SELECT 1 FROM parties WHERE id = \\$1\\)").
+	mockDB.Mock.ExpectQuery("SELECT EXISTS\\(SELECT 1 FROM parties WHERE id = \\$1\\)").
 		WithArgs(partyID).
 		WillReturnRows(sqlmock.NewRows([]string{"exists"}).AddRow(true))
 
-	exists, err := models.PartyExists(mockService, partyID)
+	exists, err := models.PartyExists(mockDB, partyID)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -437,22 +352,22 @@ func TestPartyExists_True(t *testing.T) {
 		t.Error("expected party to exist")
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestPartyExists_False(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	partyID := 999
 
-	mockService.mock.ExpectQuery("SELECT EXISTS\\(SELECT 1 FROM parties WHERE id = \\$1\\)").
+	mockDB.Mock.ExpectQuery("SELECT EXISTS\\(SELECT 1 FROM parties WHERE id = \\$1\\)").
 		WithArgs(partyID).
 		WillReturnRows(sqlmock.NewRows([]string{"exists"}).AddRow(false))
 
-	exists, err := models.PartyExists(mockService, partyID)
+	exists, err := models.PartyExists(mockDB, partyID)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -461,20 +376,20 @@ func TestPartyExists_False(t *testing.T) {
 		t.Error("expected party to not exist")
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestPartyExists_QueryError(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	mockService.mock.ExpectQuery("SELECT EXISTS\\(SELECT 1 FROM parties WHERE id = \\$1\\)").
+	mockDB.Mock.ExpectQuery("SELECT EXISTS\\(SELECT 1 FROM parties WHERE id = \\$1\\)").
 		WithArgs(1).
 		WillReturnError(sql.ErrConnDone)
 
-	exists, err := models.PartyExists(mockService, 1)
+	exists, err := models.PartyExists(mockDB, 1)
 	if err == nil {
 		t.Error("expected error when query fails, got nil")
 	}
@@ -483,7 +398,7 @@ func TestPartyExists_QueryError(t *testing.T) {
 		t.Error("expected exists to be false when query fails")
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
@@ -491,28 +406,28 @@ func TestPartyExists_QueryError(t *testing.T) {
 // Party.Update Tests
 
 func TestParty_Update_Success(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	party := createSampleParty()
+	party := CreateSampleParty()
 	party.Name = "Updated Party Name"
 
-	mockService.mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
+	mockDB.Mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
 		WithArgs(party.Name, party.ID, party.UserID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
-	err := party.Update(mockService)
+	err := party.Update(mockDB)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestParty_Update_NilDatabase(t *testing.T) {
-	party := createSampleParty()
+	party := CreateSampleParty()
 	err := party.Update(nil)
 
 	if err == nil {
@@ -526,16 +441,16 @@ func TestParty_Update_NilDatabase(t *testing.T) {
 }
 
 func TestParty_Update_NoRowsAffected(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	party := createSampleParty()
+	party := CreateSampleParty()
 
-	mockService.mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
+	mockDB.Mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
 		WithArgs(party.Name, party.ID, party.UserID).
 		WillReturnResult(sqlmock.NewResult(1, 0))
 
-	err := party.Update(mockService)
+	err := party.Update(mockDB)
 	if err == nil {
 		t.Error("expected error when no rows affected, got nil")
 	}
@@ -545,7 +460,7 @@ func TestParty_Update_NoRowsAffected(t *testing.T) {
 		t.Errorf("expected error message '%s', got '%s'", expectedError, err.Error())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
@@ -553,27 +468,27 @@ func TestParty_Update_NoRowsAffected(t *testing.T) {
 // Party.Delete Tests
 
 func TestParty_Delete_Success(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	party := createSampleParty()
+	party := CreateSampleParty()
 
-	mockService.mock.ExpectExec("DELETE FROM parties WHERE id = \\$1 AND user_id = \\$2").
+	mockDB.Mock.ExpectExec("DELETE FROM parties WHERE id = \\$1 AND user_id = \\$2").
 		WithArgs(party.ID, party.UserID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
-	err := party.Delete(mockService)
+	err := party.Delete(mockDB)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestParty_Delete_NilDatabase(t *testing.T) {
-	party := createSampleParty()
+	party := CreateSampleParty()
 	err := party.Delete(nil)
 
 	if err == nil {
@@ -587,16 +502,16 @@ func TestParty_Delete_NilDatabase(t *testing.T) {
 }
 
 func TestParty_Delete_NoRowsAffected(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	party := createSampleParty()
+	party := CreateSampleParty()
 
-	mockService.mock.ExpectExec("DELETE FROM parties WHERE id = \\$1 AND user_id = \\$2").
+	mockDB.Mock.ExpectExec("DELETE FROM parties WHERE id = \\$1 AND user_id = \\$2").
 		WithArgs(party.ID, party.UserID).
 		WillReturnResult(sqlmock.NewResult(1, 0))
 
-	err := party.Delete(mockService)
+	err := party.Delete(mockDB)
 	if err == nil {
 		t.Error("expected error when no rows affected, got nil")
 	}
@@ -606,7 +521,7 @@ func TestParty_Delete_NoRowsAffected(t *testing.T) {
 		t.Errorf("expected error message '%s', got '%s'", expectedError, err.Error())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
@@ -614,10 +529,10 @@ func TestParty_Delete_NoRowsAffected(t *testing.T) {
 // Party.UpdateWithPlayers Tests
 
 func TestParty_UpdateWithPlayers_Success_NewPlayer(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	party := createSampleParty()
+	party := CreateSampleParty()
 	// Add a new player (ID = 0)
 	newPlayer := models.Player{
 		ID:         0, // New player
@@ -633,80 +548,80 @@ func TestParty_UpdateWithPlayers_Success_NewPlayer(t *testing.T) {
 	party.Players = append(party.Players, newPlayer)
 
 	// Mock transaction
-	mockService.mock.ExpectBegin()
+	mockDB.Mock.ExpectBegin()
 
 	// Mock party update
-	mockService.mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
+	mockDB.Mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
 		WithArgs(party.Name, party.ID, party.UserID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
 	// Mock existing player updates
 	for _, player := range party.Players[:2] { // First two are existing
-		mockService.mock.ExpectExec("UPDATE players SET name = \\$1, level = \\$2, ac = \\$3, hp = \\$4, fort = \\$5, ref = \\$6, will = \\$7, perception = \\$8 WHERE id = \\$9 AND party_id = \\$10").
+		mockDB.Mock.ExpectExec("UPDATE players SET name = \\$1, level = \\$2, ac = \\$3, hp = \\$4, fort = \\$5, ref = \\$6, will = \\$7, perception = \\$8 WHERE id = \\$9 AND party_id = \\$10").
 			WithArgs(player.Name, player.Level, player.Ac, player.Hp, player.Fort, player.Ref, player.Will, player.Perception, player.ID, party.ID).
 			WillReturnResult(sqlmock.NewResult(1, 1))
 	}
 
 	// Mock new player insert
-	mockService.mock.ExpectQuery("INSERT INTO players \\(name, level, ac, hp, fort, ref, will, perception, party_id\\) VALUES \\(\\$1, \\$2, \\$3, \\$4, \\$5, \\$6, \\$7, \\$8, \\$9\\) RETURNING id").
+	mockDB.Mock.ExpectQuery("INSERT INTO players \\(name, level, ac, hp, fort, ref, will, perception, party_id\\) VALUES \\(\\$1, \\$2, \\$3, \\$4, \\$5, \\$6, \\$7, \\$8, \\$9\\) RETURNING id").
 		WithArgs(newPlayer.Name, newPlayer.Level, newPlayer.Ac, newPlayer.Hp, newPlayer.Fort, newPlayer.Ref, newPlayer.Will, newPlayer.Perception, party.ID).
 		WillReturnRows(sqlmock.NewRows([]string{"id"}).AddRow(3))
 
 	// Mock transaction commit
-	mockService.mock.ExpectCommit()
+	mockDB.Mock.ExpectCommit()
 
-	err := party.UpdateWithPlayers(mockService, []int{})
+	err := party.UpdateWithPlayers(mockDB, []int{})
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestParty_UpdateWithPlayers_Success_DeletePlayers(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	party := createSampleParty()
+	party := CreateSampleParty()
 	playersToDelete := []int{3, 4}
 
 	// Mock transaction
-	mockService.mock.ExpectBegin()
+	mockDB.Mock.ExpectBegin()
 
 	// Mock party update
-	mockService.mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
+	mockDB.Mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
 		WithArgs(party.Name, party.ID, party.UserID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
 	// Mock player deletion
-	mockService.mock.ExpectExec("DELETE FROM players WHERE id IN \\(\\$1,\\$2\\)").
+	mockDB.Mock.ExpectExec("DELETE FROM players WHERE id IN \\(\\$1,\\$2\\)").
 		WithArgs(3, 4).
 		WillReturnResult(sqlmock.NewResult(1, 2))
 
 	// Mock existing player updates
 	for _, player := range party.Players {
-		mockService.mock.ExpectExec("UPDATE players SET name = \\$1, level = \\$2, ac = \\$3, hp = \\$4, fort = \\$5, ref = \\$6, will = \\$7, perception = \\$8 WHERE id = \\$9 AND party_id = \\$10").
+		mockDB.Mock.ExpectExec("UPDATE players SET name = \\$1, level = \\$2, ac = \\$3, hp = \\$4, fort = \\$5, ref = \\$6, will = \\$7, perception = \\$8 WHERE id = \\$9 AND party_id = \\$10").
 			WithArgs(player.Name, player.Level, player.Ac, player.Hp, player.Fort, player.Ref, player.Will, player.Perception, player.ID, party.ID).
 			WillReturnResult(sqlmock.NewResult(1, 1))
 	}
 
 	// Mock transaction commit
-	mockService.mock.ExpectCommit()
+	mockDB.Mock.ExpectCommit()
 
-	err := party.UpdateWithPlayers(mockService, playersToDelete)
+	err := party.UpdateWithPlayers(mockDB, playersToDelete)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestParty_UpdateWithPlayers_NilDatabase(t *testing.T) {
-	party := createSampleParty()
+	party := CreateSampleParty()
 	err := party.UpdateWithPlayers(nil, []int{})
 
 	if err == nil {
@@ -720,14 +635,14 @@ func TestParty_UpdateWithPlayers_NilDatabase(t *testing.T) {
 }
 
 func TestParty_UpdateWithPlayers_TransactionError(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	party := createSampleParty()
+	party := CreateSampleParty()
 
-	mockService.mock.ExpectBegin().WillReturnError(sql.ErrConnDone)
+	mockDB.Mock.ExpectBegin().WillReturnError(sql.ErrConnDone)
 
-	err := party.UpdateWithPlayers(mockService, []int{})
+	err := party.UpdateWithPlayers(mockDB, []int{})
 	if err == nil {
 		t.Error("expected error when transaction fails, got nil")
 	}
@@ -736,39 +651,39 @@ func TestParty_UpdateWithPlayers_TransactionError(t *testing.T) {
 		t.Errorf("expected transaction error, got: %v", err)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestParty_UpdateWithPlayers_PlayerNotFound(t *testing.T) {
-	mockService, cleanup := setupPartyMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	party := createSampleParty()
+	party := CreateSampleParty()
 
 	// Mock transaction
-	mockService.mock.ExpectBegin()
+	mockDB.Mock.ExpectBegin()
 
 	// Mock party update
-	mockService.mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
+	mockDB.Mock.ExpectExec("UPDATE parties SET name = \\$1 WHERE id = \\$2 AND user_id = \\$3").
 		WithArgs(party.Name, party.ID, party.UserID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
 	// Mock first player update (success)
-	mockService.mock.ExpectExec("UPDATE players SET name = \\$1, level = \\$2, ac = \\$3, hp = \\$4, fort = \\$5, ref = \\$6, will = \\$7, perception = \\$8 WHERE id = \\$9 AND party_id = \\$10").
+	mockDB.Mock.ExpectExec("UPDATE players SET name = \\$1, level = \\$2, ac = \\$3, hp = \\$4, fort = \\$5, ref = \\$6, will = \\$7, perception = \\$8 WHERE id = \\$9 AND party_id = \\$10").
 		WithArgs(party.Players[0].Name, party.Players[0].Level, party.Players[0].Ac, party.Players[0].Hp, party.Players[0].Fort, party.Players[0].Ref, party.Players[0].Will, party.Players[0].Perception, party.Players[0].ID, party.ID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
 	// Mock second player update (no rows affected)
-	mockService.mock.ExpectExec("UPDATE players SET name = \\$1, level = \\$2, ac = \\$3, hp = \\$4, fort = \\$5, ref = \\$6, will = \\$7, perception = \\$8 WHERE id = \\$9 AND party_id = \\$10").
+	mockDB.Mock.ExpectExec("UPDATE players SET name = \\$1, level = \\$2, ac = \\$3, hp = \\$4, fort = \\$5, ref = \\$6, will = \\$7, perception = \\$8 WHERE id = \\$9 AND party_id = \\$10").
 		WithArgs(party.Players[1].Name, party.Players[1].Level, party.Players[1].Ac, party.Players[1].Hp, party.Players[1].Fort, party.Players[1].Ref, party.Players[1].Will, party.Players[1].Perception, party.Players[1].ID, party.ID).
 		WillReturnResult(sqlmock.NewResult(1, 0))
 
 	// Mock transaction rollback
-	mockService.mock.ExpectRollback()
+	mockDB.Mock.ExpectRollback()
 
-	err := party.UpdateWithPlayers(mockService, []int{})
+	err := party.UpdateWithPlayers(mockDB, []int{})
 	if err == nil {
 		t.Error("expected error when player not found, got nil")
 	}
@@ -778,7 +693,7 @@ func TestParty_UpdateWithPlayers_PlayerNotFound(t *testing.T) {
 		t.Errorf("expected error message '%s', got '%s'", expectedError, err.Error())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }

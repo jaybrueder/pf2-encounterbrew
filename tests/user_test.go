@@ -9,90 +9,30 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
-// mockDatabaseService implements the database.Service interface for testing
-type mockDatabaseService struct {
-	db      *sql.DB
-	mock    sqlmock.Sqlmock
-	queryFn func(query string, args ...interface{}) *sql.Row
-}
-
-func (m *mockDatabaseService) Health() map[string]string {
-	return make(map[string]string)
-}
-
-func (m *mockDatabaseService) Close() error {
-	return m.db.Close()
-}
-
-func (m *mockDatabaseService) Insert(table string, columns []string, values ...interface{}) (sql.Result, error) {
-	return nil, nil
-}
-
-func (m *mockDatabaseService) Query(query string, args ...interface{}) (*sql.Rows, error) {
-	return nil, nil
-}
-
-func (m *mockDatabaseService) QueryRow(query string, args ...interface{}) *sql.Row {
-	if m.queryFn != nil {
-		return m.queryFn(query, args...)
-	}
-	return m.db.QueryRow(query, args...)
-}
-
-func (m *mockDatabaseService) Exec(query string, args ...interface{}) (sql.Result, error) {
-	return nil, nil
-}
-
-func (m *mockDatabaseService) Begin() (*sql.Tx, error) {
-	return nil, nil
-}
-
-func (m *mockDatabaseService) InsertReturningID(table string, columns []string, values ...interface{}) (int, error) {
-	return 0, nil
-}
-
-func setupUserMockDB(t *testing.T) (*mockDatabaseService, func()) {
-	db, mock, err := sqlmock.New()
-	if err != nil {
-		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
-	}
-
-	mockService := &mockDatabaseService{
-		db:   db,
-		mock: mock,
-	}
-
-	return mockService, func() {
-		db.Close()
-	}
-}
-
 func TestGetUserByID_Success(t *testing.T) {
-	mockService, cleanup := setupUserMockDB(t)
+	mockDB, cleanup := setupMockDB(t)
 	defer cleanup()
 
-	userID := 1
+	userID := TestUserID
 	expectedUser := &models.User{
-		ID:            1,
+		ID:            TestUserID,
 		Name:          "John Doe",
-		ActivePartyID: 5,
+		ActivePartyID: TestPartyID,
 	}
 
 	// Set up the mock expectation
 	rows := sqlmock.NewRows([]string{"id", "name", "active_party_id"}).
 		AddRow(expectedUser.ID, expectedUser.Name, expectedUser.ActivePartyID)
 
-	mockService.mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
 		WithArgs(userID).
 		WillReturnRows(rows)
 
 	// Call the function
-	user, err := models.GetUserByID(mockService, userID)
+	user, err := models.GetUserByID(mockDB, userID)
 
 	// Assertions
-	if err != nil {
-		t.Errorf("expected no error, got %v", err)
-	}
+	requireNoError(t, err)
 
 	if user == nil {
 		t.Fatal("expected user to be non-nil")
@@ -111,24 +51,22 @@ func TestGetUserByID_Success(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
-		t.Errorf("there were unfulfilled expectations: %s", err)
-	}
+	requireMockExpectationsMet(t, mockDB.Mock)
 }
 
 func TestGetUserByID_UserNotFound(t *testing.T) {
-	mockService, cleanup := setupUserMockDB(t)
+	mockDB, cleanup := setupMockDB(t)
 	defer cleanup()
 
 	userID := 999
 
 	// Set up the mock expectation to return no rows
-	mockService.mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
 		WithArgs(userID).
 		WillReturnError(sql.ErrNoRows)
 
 	// Call the function
-	user, err := models.GetUserByID(mockService, userID)
+	user, err := models.GetUserByID(mockDB, userID)
 
 	// Assertions
 	if err == nil {
@@ -145,25 +83,23 @@ func TestGetUserByID_UserNotFound(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
-		t.Errorf("there were unfulfilled expectations: %s", err)
-	}
+	requireMockExpectationsMet(t, mockDB.Mock)
 }
 
 func TestGetUserByID_DatabaseError(t *testing.T) {
-	mockService, cleanup := setupUserMockDB(t)
+	mockDB, cleanup := setupMockDB(t)
 	defer cleanup()
 
 	userID := 1
 	expectedError := errors.New("database connection failed")
 
 	// Set up the mock expectation to return an error
-	mockService.mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
 		WithArgs(userID).
 		WillReturnError(expectedError)
 
 	// Call the function
-	user, err := models.GetUserByID(mockService, userID)
+	user, err := models.GetUserByID(mockDB, userID)
 
 	// Assertions
 	if err == nil {
@@ -180,9 +116,7 @@ func TestGetUserByID_DatabaseError(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
-		t.Errorf("there were unfulfilled expectations: %s", err)
-	}
+	requireMockExpectationsMet(t, mockDB.Mock)
 }
 
 func TestGetUserByID_NilDatabase(t *testing.T) {
@@ -205,7 +139,7 @@ func TestGetUserByID_NilDatabase(t *testing.T) {
 }
 
 func TestGetUserByID_ScanError(t *testing.T) {
-	mockService, cleanup := setupUserMockDB(t)
+	mockDB, cleanup := setupMockDB(t)
 	defer cleanup()
 
 	userID := 1
@@ -214,12 +148,12 @@ func TestGetUserByID_ScanError(t *testing.T) {
 	rows := sqlmock.NewRows([]string{"id", "name"}).
 		AddRow(1, "John Doe") // Missing active_party_id column
 
-	mockService.mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
 		WithArgs(userID).
 		WillReturnRows(rows)
 
 	// Call the function
-	user, err := models.GetUserByID(mockService, userID)
+	user, err := models.GetUserByID(mockDB, userID)
 
 	// Assertions
 	if err == nil {
@@ -239,13 +173,11 @@ func TestGetUserByID_ScanError(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
-		t.Errorf("there were unfulfilled expectations: %s", err)
-	}
+	requireMockExpectationsMet(t, mockDB.Mock)
 }
 
 func TestGetUserByID_WithZeroActivePartyID(t *testing.T) {
-	mockService, cleanup := setupUserMockDB(t)
+	mockDB, cleanup := setupMockDB(t)
 	defer cleanup()
 
 	userID := 1
@@ -259,12 +191,12 @@ func TestGetUserByID_WithZeroActivePartyID(t *testing.T) {
 	rows := sqlmock.NewRows([]string{"id", "name", "active_party_id"}).
 		AddRow(expectedUser.ID, expectedUser.Name, expectedUser.ActivePartyID)
 
-	mockService.mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
 		WithArgs(userID).
 		WillReturnRows(rows)
 
 	// Call the function
-	user, err := models.GetUserByID(mockService, userID)
+	user, err := models.GetUserByID(mockDB, userID)
 
 	// Assertions
 	if err != nil {
@@ -288,24 +220,22 @@ func TestGetUserByID_WithZeroActivePartyID(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
-		t.Errorf("there were unfulfilled expectations: %s", err)
-	}
+	requireMockExpectationsMet(t, mockDB.Mock)
 }
 
 func TestGetUserByID_WithNegativeID(t *testing.T) {
-	mockService, cleanup := setupUserMockDB(t)
+	mockDB, cleanup := setupMockDB(t)
 	defer cleanup()
 
 	userID := -1
 
 	// Set up the mock expectation to return no rows for negative ID
-	mockService.mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
+	mockDB.Mock.ExpectQuery(`SELECT id, name, active_party_id FROM users WHERE id = \$1`).
 		WithArgs(userID).
 		WillReturnError(sql.ErrNoRows)
 
 	// Call the function
-	user, err := models.GetUserByID(mockService, userID)
+	user, err := models.GetUserByID(mockDB, userID)
 
 	// Assertions
 	if err == nil {
@@ -322,7 +252,5 @@ func TestGetUserByID_WithNegativeID(t *testing.T) {
 	}
 
 	// Verify all expectations were met
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
-		t.Errorf("there were unfulfilled expectations: %s", err)
-	}
+	requireMockExpectationsMet(t, mockDB.Mock)
 }

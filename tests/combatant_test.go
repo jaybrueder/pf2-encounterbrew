@@ -12,113 +12,8 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
-// mockCombatantDatabaseService implements the database.Service interface for testing
-type mockCombatantDatabaseService struct {
-	db   *sql.DB
-	mock sqlmock.Sqlmock
-}
 
-func (m *mockCombatantDatabaseService) Health() map[string]string {
-	return make(map[string]string)
-}
-
-func (m *mockCombatantDatabaseService) Close() error {
-	return m.db.Close()
-}
-
-func (m *mockCombatantDatabaseService) Insert(table string, columns []string, values ...interface{}) (sql.Result, error) {
-	return nil, nil
-}
-
-func (m *mockCombatantDatabaseService) Query(query string, args ...interface{}) (*sql.Rows, error) {
-	return m.db.Query(query, args...)
-}
-
-func (m *mockCombatantDatabaseService) QueryRow(query string, args ...interface{}) *sql.Row {
-	return m.db.QueryRow(query, args...)
-}
-
-func (m *mockCombatantDatabaseService) Exec(query string, args ...interface{}) (sql.Result, error) {
-	return m.db.Exec(query, args...)
-}
-
-func (m *mockCombatantDatabaseService) Begin() (*sql.Tx, error) {
-	return nil, nil
-}
-
-func (m *mockCombatantDatabaseService) InsertReturningID(table string, columns []string, values ...interface{}) (int, error) {
-	return 0, nil
-}
-
-func setupCombatantMockDB(t *testing.T) (*mockCombatantDatabaseService, func()) {
-	db, mock, err := sqlmock.New()
-	if err != nil {
-		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
-	}
-
-	mockService := &mockCombatantDatabaseService{
-		db:   db,
-		mock: mock,
-	}
-
-	return mockService, func() {
-		db.Close()
-	}
-}
-
-// Test data helpers
-
-func createSamplePlayer() models.Player {
-	return models.Player{
-		ID:            1,
-		AssociationID: 100,
-		Name:          "Test Player",
-		Level:         5,
-		Hp:            45,
-		Ac:            18,
-		Fort:          8,
-		Ref:           6,
-		Will:          7,
-		Perception:    5,
-		PartyID:       1,
-		Initiative:    12,
-		Conditions:    []models.Condition{},
-		Enumeration:   1,
-	}
-}
-
-func createSampleMonster() models.Monster {
-	var monster models.Monster
-	monster.ID = 1
-	monster.AssociationID = 200
-	monster.LevelAdjustment = 0
-	monster.Enumeration = 1
-	monster.Initiative = 15
-	monster.Conditions = []models.Condition{}
-
-	// Set up monster data structure
-	monster.Data.Name = "Test Monster"
-	monster.Data.System.Details.Level.Value = 3
-	monster.Data.System.Attributes.Hp.Value = 35
-	monster.Data.System.Attributes.Hp.Max = 35
-	monster.Data.System.Attributes.Ac.Value = 16
-	monster.Data.System.Attributes.Ac.Details = "natural armor"
-	monster.Data.System.Perception.Mod = 8
-	monster.Data.System.Abilities.Str.Mod = 4
-	monster.Data.System.Abilities.Dex.Mod = 2
-	monster.Data.System.Abilities.Con.Mod = 3
-	monster.Data.System.Abilities.Int.Mod = -1
-	monster.Data.System.Abilities.Wis.Mod = 1
-	monster.Data.System.Abilities.Cha.Mod = 0
-	monster.Data.System.Saves.Fortitude.Value = 12
-	monster.Data.System.Saves.Reflex.Value = 8
-	monster.Data.System.Saves.Will.Value = 6
-	monster.Data.System.Traits.Size.Value = "Medium"
-	monster.Data.System.Traits.Value = []string{"humanoid"}
-	monster.Data.System.Attributes.Speed.Value = 25
-
-	return monster
-}
+// Test data helpers - use consolidated fixtures from mock_database.go
 
 // Combatant Interface Compliance Tests
 
@@ -135,7 +30,7 @@ func TestMonster_ImplementsCombatant(t *testing.T) {
 // Player Tests
 
 func TestPlayer_GetName(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	name := player.GetName()
 	if name != "Test Player" {
 		t.Errorf("expected name 'Test Player', got '%s'", name)
@@ -143,7 +38,7 @@ func TestPlayer_GetName(t *testing.T) {
 }
 
 func TestPlayer_GetType(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	playerType := player.GetType()
 	if playerType != "player" {
 		t.Errorf("expected type 'player', got '%s'", playerType)
@@ -151,7 +46,7 @@ func TestPlayer_GetType(t *testing.T) {
 }
 
 func TestPlayer_GetInitiative(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	initiative := player.GetInitiative()
 	if initiative != 12 {
 		t.Errorf("expected initiative 12, got %d", initiative)
@@ -159,17 +54,17 @@ func TestPlayer_GetInitiative(t *testing.T) {
 }
 
 func TestPlayer_SetInitiative_Success(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	newInitiative := 20
 
-	mockService.mock.ExpectExec("UPDATE encounter_players").
+	mockDB.Mock.ExpectExec("UPDATE encounter_players").
 		WithArgs(newInitiative, player.AssociationID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
-	err := player.SetInitiative(mockService, newInitiative)
+	err := player.SetInitiative(mockDB, newInitiative)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -178,23 +73,23 @@ func TestPlayer_SetInitiative_Success(t *testing.T) {
 		t.Errorf("expected initiative %d, got %d", newInitiative, player.GetInitiative())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestPlayer_SetInitiative_DatabaseError(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	newInitiative := 20
 
-	mockService.mock.ExpectExec("UPDATE encounter_players").
+	mockDB.Mock.ExpectExec("UPDATE encounter_players").
 		WithArgs(newInitiative, player.AssociationID).
 		WillReturnError(sql.ErrConnDone)
 
-	err := player.SetInitiative(mockService, newInitiative)
+	err := player.SetInitiative(mockDB, newInitiative)
 	if err == nil {
 		t.Error("expected error when database fails, got nil")
 	}
@@ -203,13 +98,13 @@ func TestPlayer_SetInitiative_DatabaseError(t *testing.T) {
 		t.Errorf("expected initiative update error, got: %v", err)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestPlayer_GetHp(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	hp := player.GetHp()
 	if hp != 45 {
 		t.Errorf("expected HP 45, got %d", hp)
@@ -217,18 +112,18 @@ func TestPlayer_GetHp(t *testing.T) {
 }
 
 func TestPlayer_SetHp_Success(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	damage := 10
 	expectedNewHp := player.Hp - damage
 
-	mockService.mock.ExpectExec("UPDATE encounter_players").
+	mockDB.Mock.ExpectExec("UPDATE encounter_players").
 		WithArgs(expectedNewHp, player.ID, player.AssociationID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
-	err := player.SetHp(mockService, damage)
+	err := player.SetHp(mockDB, damage)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -237,13 +132,13 @@ func TestPlayer_SetHp_Success(t *testing.T) {
 		t.Errorf("expected HP %d, got %d", expectedNewHp, player.GetHp())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestPlayer_GetAc(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	ac := player.GetAc()
 	if ac != 18 {
 		t.Errorf("expected AC 18, got %d", ac)
@@ -251,7 +146,7 @@ func TestPlayer_GetAc(t *testing.T) {
 }
 
 func TestPlayer_GetLevel(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	level := player.GetLevel()
 	if level != 5 {
 		t.Errorf("expected level 5, got %d", level)
@@ -259,14 +154,14 @@ func TestPlayer_GetLevel(t *testing.T) {
 }
 
 func TestPlayer_IsMonster(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	if player.IsMonster() {
 		t.Error("expected player.IsMonster() to return false")
 	}
 }
 
 func TestPlayer_GenerateInitiative(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	initiative := player.GenerateInitiative()
 	
 	// Initiative should be between 1+perception (6) and 20+perception (25)
@@ -279,7 +174,7 @@ func TestPlayer_GenerateInitiative(t *testing.T) {
 }
 
 func TestPlayer_GetAssociationID(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	associationID := player.GetAssociationID()
 	if associationID != 100 {
 		t.Errorf("expected association ID 100, got %d", associationID)
@@ -287,27 +182,27 @@ func TestPlayer_GetAssociationID(t *testing.T) {
 }
 
 func TestPlayer_Update_Success(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 
-	mockService.mock.ExpectQuery("UPDATE players").
+	mockDB.Mock.ExpectQuery("UPDATE players").
 		WithArgs(player.Name, player.Level, player.Ac, player.Hp, player.Fort, player.Ref, player.Will, player.ID, player.PartyID).
 		WillReturnRows(sqlmock.NewRows([]string{"id"}).AddRow(player.ID))
 
-	err := player.Update(mockService)
+	err := player.Update(mockDB)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestPlayer_Update_NilDatabase(t *testing.T) {
-	player := createSamplePlayer()
+	player := CreateSamplePlayer()
 	err := player.Update(nil)
 	if err == nil {
 		t.Error("expected error when database is nil, got nil")
@@ -320,21 +215,21 @@ func TestPlayer_Update_NilDatabase(t *testing.T) {
 }
 
 func TestPlayerDelete_Success(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	playerID := 1
 
-	mockService.mock.ExpectExec("DELETE FROM players").
+	mockDB.Mock.ExpectExec("DELETE FROM players").
 		WithArgs(playerID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
-	err := models.PlayerDelete(mockService, playerID)
+	err := models.PlayerDelete(mockDB, playerID)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
@@ -361,13 +256,13 @@ func TestMonster_GetName(t *testing.T) {
 	}{
 		{
 			name:         "basic monster",
-			monster:      createSampleMonster(),
+			monster:      CreateSampleMonster(),
 			expectedName: "Test Monster 1",
 		},
 		{
 			name: "elite monster",
 			monster: func() models.Monster {
-				m := createSampleMonster()
+				m := CreateSampleMonster()
 				m.LevelAdjustment = 1
 				return m
 			}(),
@@ -376,7 +271,7 @@ func TestMonster_GetName(t *testing.T) {
 		{
 			name: "weak monster",
 			monster: func() models.Monster {
-				m := createSampleMonster()
+				m := CreateSampleMonster()
 				m.LevelAdjustment = -1
 				return m
 			}(),
@@ -385,7 +280,7 @@ func TestMonster_GetName(t *testing.T) {
 		{
 			name: "monster without enumeration",
 			monster: func() models.Monster {
-				m := createSampleMonster()
+				m := CreateSampleMonster()
 				m.Enumeration = 0
 				return m
 			}(),
@@ -404,7 +299,7 @@ func TestMonster_GetName(t *testing.T) {
 }
 
 func TestMonster_GetType(t *testing.T) {
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	monsterType := monster.GetType()
 	if monsterType != "monster" {
 		t.Errorf("expected type 'monster', got '%s'", monsterType)
@@ -419,13 +314,13 @@ func TestMonster_GetLevel(t *testing.T) {
 	}{
 		{
 			name:          "basic monster",
-			monster:       createSampleMonster(),
+			monster:       CreateSampleMonster(),
 			expectedLevel: 3,
 		},
 		{
 			name: "elite monster",
 			monster: func() models.Monster {
-				m := createSampleMonster()
+				m := CreateSampleMonster()
 				m.LevelAdjustment = 1
 				return m
 			}(),
@@ -434,7 +329,7 @@ func TestMonster_GetLevel(t *testing.T) {
 		{
 			name: "weak monster",
 			monster: func() models.Monster {
-				m := createSampleMonster()
+				m := CreateSampleMonster()
 				m.LevelAdjustment = -1
 				return m
 			}(),
@@ -460,13 +355,13 @@ func TestMonster_GetHp(t *testing.T) {
 	}{
 		{
 			name:       "basic monster",
-			monster:    createSampleMonster(),
+			monster:    CreateSampleMonster(),
 			expectedHp: 35,
 		},
 		{
 			name: "elite monster level 3",
 			monster: func() models.Monster {
-				m := createSampleMonster()
+				m := CreateSampleMonster()
 				m.LevelAdjustment = 1
 				return m
 			}(),
@@ -475,7 +370,7 @@ func TestMonster_GetHp(t *testing.T) {
 		{
 			name: "weak monster level 3",
 			monster: func() models.Monster {
-				m := createSampleMonster()
+				m := CreateSampleMonster()
 				m.LevelAdjustment = -1
 				return m
 			}(),
@@ -494,7 +389,7 @@ func TestMonster_GetHp(t *testing.T) {
 }
 
 func TestMonster_GetAc(t *testing.T) {
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	ac := monster.GetAc()
 	if ac != 16 {
 		t.Errorf("expected AC 16, got %d", ac)
@@ -502,7 +397,7 @@ func TestMonster_GetAc(t *testing.T) {
 }
 
 func TestMonster_GetAcDetails(t *testing.T) {
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	acDetails := monster.GetAcDetails()
 	expected := " natural armor"
 	if acDetails != expected {
@@ -511,14 +406,14 @@ func TestMonster_GetAcDetails(t *testing.T) {
 }
 
 func TestMonster_IsMonster(t *testing.T) {
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	if !monster.IsMonster() {
 		t.Error("expected monster.IsMonster() to return true")
 	}
 }
 
 func TestMonster_GetSize(t *testing.T) {
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	size := monster.GetSize()
 	if size != "Medium" {
 		t.Errorf("expected size 'Medium', got '%s'", size)
@@ -526,7 +421,7 @@ func TestMonster_GetSize(t *testing.T) {
 }
 
 func TestMonster_GetTraits(t *testing.T) {
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	traits := monster.GetTraits()
 	if len(traits) != 1 || traits[0] != "humanoid" {
 		t.Errorf("expected traits ['humanoid'], got %v", traits)
@@ -534,7 +429,7 @@ func TestMonster_GetTraits(t *testing.T) {
 }
 
 func TestMonster_GetSpeed(t *testing.T) {
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	speed := monster.GetSpeed()
 	expected := "25 feet"
 	if speed != expected {
@@ -543,17 +438,17 @@ func TestMonster_GetSpeed(t *testing.T) {
 }
 
 func TestMonster_SetInitiative_Success(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	newInitiative := 18
 
-	mockService.mock.ExpectExec("UPDATE encounter_monsters").
+	mockDB.Mock.ExpectExec("UPDATE encounter_monsters").
 		WithArgs(newInitiative, monster.AssociationID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
-	err := monster.SetInitiative(mockService, newInitiative)
+	err := monster.SetInitiative(mockDB, newInitiative)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -562,24 +457,24 @@ func TestMonster_SetInitiative_Success(t *testing.T) {
 		t.Errorf("expected initiative %d, got %d", newInitiative, monster.GetInitiative())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestMonster_SetHp_Success(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	damage := 10
 	expectedNewHp := monster.Data.System.Attributes.Hp.Value - damage
 
-	mockService.mock.ExpectExec("UPDATE encounter_monsters").
+	mockDB.Mock.ExpectExec("UPDATE encounter_monsters").
 		WithArgs(expectedNewHp, monster.AssociationID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
-	err := monster.SetHp(mockService, damage)
+	err := monster.SetHp(mockDB, damage)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -588,27 +483,27 @@ func TestMonster_SetHp_Success(t *testing.T) {
 		t.Errorf("expected HP %d, got %d", expectedNewHp, monster.Data.System.Attributes.Hp.Value)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestGetMonster_Success(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	monsterID := 1
-	monster := createSampleMonster()
+	monster := CreateSampleMonster()
 	jsonData, _ := json.Marshal(monster.Data)
 
 	rows := sqlmock.NewRows([]string{"id", "data"}).
 		AddRow(monsterID, jsonData)
 
-	mockService.mock.ExpectQuery("SELECT id, data FROM monsters WHERE id = \\$1").
+	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE id = \\$1").
 		WithArgs(monsterID).
 		WillReturnRows(rows)
 
-	result, err := models.GetMonster(mockService, monsterID)
+	result, err := models.GetMonster(mockDB, monsterID)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -621,22 +516,22 @@ func TestGetMonster_Success(t *testing.T) {
 		t.Errorf("expected monster name 'Test Monster', got '%s'", result.Data.Name)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestGetMonster_NotFound(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	monsterID := 999
 
-	mockService.mock.ExpectQuery("SELECT id, data FROM monsters WHERE id = \\$1").
+	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE id = \\$1").
 		WithArgs(monsterID).
 		WillReturnError(sql.ErrNoRows)
 
-	monster, err := models.GetMonster(mockService, monsterID)
+	monster, err := models.GetMonster(mockDB, monsterID)
 	if err == nil {
 		t.Error("expected error when monster not found, got nil")
 	}
@@ -650,7 +545,7 @@ func TestGetMonster_NotFound(t *testing.T) {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
@@ -672,7 +567,7 @@ func TestGetMonster_NilDatabase(t *testing.T) {
 }
 
 func TestGetMonster_InvalidJSON(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	monsterID := 1
@@ -681,11 +576,11 @@ func TestGetMonster_InvalidJSON(t *testing.T) {
 	rows := sqlmock.NewRows([]string{"id", "data"}).
 		AddRow(monsterID, invalidJSON)
 
-	mockService.mock.ExpectQuery("SELECT id, data FROM monsters WHERE id = \\$1").
+	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE id = \\$1").
 		WithArgs(monsterID).
 		WillReturnRows(rows)
 
-	monster, err := models.GetMonster(mockService, monsterID)
+	monster, err := models.GetMonster(mockDB, monsterID)
 	if err == nil {
 		t.Error("expected error when JSON is invalid, got nil")
 	}
@@ -699,21 +594,21 @@ func TestGetMonster_InvalidJSON(t *testing.T) {
 		t.Errorf("expected error message to start with '%s', got '%s'", expectedPrefix, err.Error())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestSearchMonsters_Success(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	searchTerm := "Test"
-	monster1 := createSampleMonster()
+	monster1 := CreateSampleMonster()
 	monster1.Data.Name = "Test Monster 1"
 	jsonData1, _ := json.Marshal(monster1.Data)
 
-	monster2 := createSampleMonster()
+	monster2 := CreateSampleMonster()
 	monster2.Data.Name = "Test Monster 2"
 	jsonData2, _ := json.Marshal(monster2.Data)
 
@@ -721,11 +616,11 @@ func TestSearchMonsters_Success(t *testing.T) {
 		AddRow(1, jsonData1).
 		AddRow(2, jsonData2)
 
-	mockService.mock.ExpectQuery("SELECT id, data FROM monsters WHERE LOWER\\(data->>'name'\\) LIKE LOWER\\(\\$1\\) LIMIT 20").
+	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE LOWER\\(data->>'name'\\) LIKE LOWER\\(\\$1\\) LIMIT 20").
 		WithArgs("%"+searchTerm+"%").
 		WillReturnRows(rows)
 
-	results, err := models.SearchMonsters(mockService, searchTerm)
+	results, err := models.SearchMonsters(mockDB, searchTerm)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -738,23 +633,23 @@ func TestSearchMonsters_Success(t *testing.T) {
 		t.Errorf("expected first monster name 'Test Monster 1', got '%s'", results[0].Data.Name)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestSearchMonsters_DatabaseError(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	searchTerm := "Test"
 	expectedError := errors.New("database connection failed")
 
-	mockService.mock.ExpectQuery("SELECT id, data FROM monsters WHERE LOWER\\(data->>'name'\\) LIKE LOWER\\(\\$1\\) LIMIT 20").
+	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE LOWER\\(data->>'name'\\) LIKE LOWER\\(\\$1\\) LIMIT 20").
 		WithArgs("%"+searchTerm+"%").
 		WillReturnError(expectedError)
 
-	results, err := models.SearchMonsters(mockService, searchTerm)
+	results, err := models.SearchMonsters(mockDB, searchTerm)
 	if err == nil {
 		t.Error("expected error when database fails, got nil")
 	}
@@ -768,19 +663,19 @@ func TestSearchMonsters_DatabaseError(t *testing.T) {
 		t.Errorf("expected error message to contain '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
 
 func TestGetAllMonsters_Success(t *testing.T) {
-	mockService, cleanup := setupCombatantMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
-	monster1 := createSampleMonster()
+	monster1 := CreateSampleMonster()
 	jsonData1, _ := json.Marshal(monster1.Data)
 
-	monster2 := createSampleMonster()
+	monster2 := CreateSampleMonster()
 	monster2.Data.Name = "Another Monster"
 	jsonData2, _ := json.Marshal(monster2.Data)
 
@@ -788,10 +683,10 @@ func TestGetAllMonsters_Success(t *testing.T) {
 		AddRow(1, jsonData1).
 		AddRow(2, jsonData2)
 
-	mockService.mock.ExpectQuery("SELECT id, data FROM monsters").
+	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters").
 		WillReturnRows(rows)
 
-	results, err := models.GetAllMonsters(mockService)
+	results, err := models.GetAllMonsters(mockDB)
 	if err != nil {
 		t.Errorf("expected no error, got %v", err)
 	}
@@ -808,7 +703,7 @@ func TestGetAllMonsters_Success(t *testing.T) {
 		t.Errorf("expected second monster name 'Another Monster', got '%s'", results[1].Data.Name)
 	}
 
-	if err := mockService.mock.ExpectationsWereMet(); err != nil {
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("unfulfilled expectations: %s", err)
 	}
 }
@@ -816,13 +711,13 @@ func TestGetAllMonsters_Success(t *testing.T) {
 // Combatant Interface Tests
 
 func TestSortCombatantsByInitiative(t *testing.T) {
-	player1 := createSamplePlayer()
+	player1 := CreateSamplePlayer()
 	player1.Initiative = 10
 
-	player2 := createSamplePlayer()
+	player2 := CreateSamplePlayer()
 	player2.Initiative = 15
 
-	monster1 := createSampleMonster()
+	monster1 := CreateSampleMonster()
 	monster1.Initiative = 12
 
 	combatants := []models.Combatant{&player1, &monster1, &player2}
@@ -851,14 +746,14 @@ func TestCombatant_ConditionManagement(t *testing.T) {
 		{
 			name: "player conditions",
 			combatant: func() models.Combatant {
-				player := createSamplePlayer()
+				player := CreateSamplePlayer()
 				return &player
 			}(),
 		},
 		{
 			name: "monster conditions",
 			combatant: func() models.Combatant {
-				monster := createSampleMonster()
+				monster := CreateSampleMonster()
 				return &monster
 			}(),
 		},
@@ -896,8 +791,8 @@ func TestCombatant_ConditionManagement(t *testing.T) {
 }
 
 func TestCombatant_InterfaceMethods(t *testing.T) {
-	player := createSamplePlayer()
-	monster := createSampleMonster()
+	player := CreateSamplePlayer()
+	monster := CreateSampleMonster()
 
 	combatants := []models.Combatant{&player, &monster}
 

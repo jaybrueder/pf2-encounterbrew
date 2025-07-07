@@ -1,7 +1,6 @@
 package tests
 
 import (
-	"database/sql"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -13,51 +12,8 @@ import (
 	"pf2.encounterbrew.com/internal/server"
 )
 
-// MockDatabase implements database.Service for testing
-type MockDatabase struct {
-	healthStatus map[string]string
-}
-
-func NewMockDatabase() *MockDatabase {
-	return &MockDatabase{
-		healthStatus: map[string]string{
-			"status":  "up",
-			"message": "It's healthy",
-		},
-	}
-}
-
-func (m *MockDatabase) Health() map[string]string {
-	return m.healthStatus
-}
-
-func (m *MockDatabase) Close() error {
-	return nil
-}
-
-func (m *MockDatabase) Insert(table string, columns []string, values ...interface{}) (sql.Result, error) {
-	return nil, nil
-}
-
-func (m *MockDatabase) Query(query string, args ...interface{}) (*sql.Rows, error) {
-	return nil, nil
-}
-
-func (m *MockDatabase) QueryRow(query string, args ...interface{}) *sql.Row {
-	return nil
-}
-
-func (m *MockDatabase) Exec(query string, args ...interface{}) (sql.Result, error) {
-	return nil, nil
-}
-
-func (m *MockDatabase) Begin() (*sql.Tx, error) {
-	return nil, nil
-}
-
-func (m *MockDatabase) InsertReturningID(table string, columns []string, values ...interface{}) (int, error) {
-	return 1, nil
-}
+// Use standardized mock database from mock_database.go
+// For server tests that need simple health checks, we'll use the MockDatabaseService
 
 func TestNewServer_MissingDBURL(t *testing.T) {
 	// Clear environment variables
@@ -165,7 +121,7 @@ func TestNewServer_CustomPort(t *testing.T) {
 func TestRouteRegistration(t *testing.T) {
 	// Create a test server with a mock database
 	testServer := &TestServer{
-		db: NewMockDatabase(),
+		db: &MockDatabaseService{},
 	}
 	
 	handler := testServer.RegisterRoutes()
@@ -201,7 +157,14 @@ func TestRouteRegistration(t *testing.T) {
 // Test health handler specifically
 func TestHealthHandler(t *testing.T) {
 	testServer := &TestServer{
-		db: NewMockDatabase(),
+		db: &MockDatabaseService{
+			HealthFunc: func() map[string]string {
+				return map[string]string{
+					"status": "up",
+					"database": "connected",
+				}
+			},
+		},
 	}
 	
 	handler := testServer.RegisterRoutes()
@@ -243,7 +206,7 @@ func TestBasicAuthMiddleware(t *testing.T) {
 	os.Setenv("PASSWORD", "testpass")
 	
 	testServer := &TestServer{
-		db: NewMockDatabase(),
+		db: &MockDatabaseService{},
 	}
 	
 	handler := testServer.RegisterRoutes()
@@ -284,7 +247,7 @@ func TestBasicAuthMiddleware(t *testing.T) {
 // Test that static file routes are registered
 func TestStaticFileRoutes(t *testing.T) {
 	testServer := &TestServer{
-		db: NewMockDatabase(),
+		db: &MockDatabaseService{},
 	}
 	
 	handler := testServer.RegisterRoutes()

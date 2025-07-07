@@ -11,67 +11,7 @@ import (
 	"pf2.encounterbrew.com/internal/seeder"
 )
 
-// SeederMockDatabase wraps sqlmock for our database.Service interface
-type SeederMockDatabase struct {
-	db   *sql.DB
-	mock sqlmock.Sqlmock
-}
-
-func (m *SeederMockDatabase) Health() map[string]string {
-	return map[string]string{"status": "ok"}
-}
-
-func (m *SeederMockDatabase) Close() error {
-	return m.db.Close()
-}
-
-func (m *SeederMockDatabase) Insert(table string, columns []string, values ...interface{}) (sql.Result, error) {
-	return nil, nil
-}
-
-func (m *SeederMockDatabase) Query(query string, args ...interface{}) (*sql.Rows, error) {
-	return m.db.Query(query, args...)
-}
-
-func (m *SeederMockDatabase) QueryRow(query string, args ...interface{}) *sql.Row {
-	return m.db.QueryRow(query, args...)
-}
-
-func (m *SeederMockDatabase) Exec(query string, args ...interface{}) (sql.Result, error) {
-	return m.db.Exec(query, args...)
-}
-
-func (m *SeederMockDatabase) Begin() (*sql.Tx, error) {
-	return m.db.Begin()
-}
-
-func (m *SeederMockDatabase) InsertReturningID(table string, columns []string, values ...interface{}) (int, error) {
-	return 1, nil
-}
-
-func setupMockDB(t *testing.T) (*SeederMockDatabase, func()) {
-	db, mock, err := sqlmock.New()
-	if err != nil {
-		t.Fatalf("Failed to create mock database: %v", err)
-	}
-	
-	mockDB := &SeederMockDatabase{
-		db:   db,
-		mock: mock,
-	}
-	
-	cleanup := func() {
-		// Only check expectations if test hasn't already failed
-		if !t.Failed() {
-			if err := mock.ExpectationsWereMet(); err != nil {
-				t.Errorf("Unfulfilled expectations: %v", err)
-			}
-		}
-		db.Close()
-	}
-	
-	return mockDB, cleanup
-}
+// Use standardized mock database from mock_database.go
 
 func TestRun_NilDatabase(t *testing.T) {
 	err := seeder.Run(nil)
@@ -104,7 +44,7 @@ func TestRun_MissingDirectories(t *testing.T) {
 	}
 
 	// Create mock database
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Run seeder - should succeed even with missing directories (they are handled gracefully)
@@ -134,11 +74,11 @@ func TestUpsertSeedFile_Success(t *testing.T) {
 	tempFile.Close()
 
 	// Create mock database
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Expect the upsert query
-	mockDB.mock.ExpectExec("INSERT INTO test_table").
+	mockDB.Mock.ExpectExec("INSERT INTO test_table").
 		WithArgs("Test Item", jsonData).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
@@ -165,7 +105,7 @@ func TestUpsertSeedFile_InvalidJSON(t *testing.T) {
 	}
 	tempFile.Close()
 
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Test upsert
@@ -195,7 +135,7 @@ func TestUpsertSeedFile_MissingName(t *testing.T) {
 	}
 	tempFile.Close()
 
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Test upsert
@@ -226,7 +166,7 @@ func TestUpsertSeedFile_EmptyName(t *testing.T) {
 	}
 	tempFile.Close()
 
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Test upsert
@@ -258,11 +198,11 @@ func TestUpsertSeedFile_DatabaseError(t *testing.T) {
 	tempFile.Close()
 
 	// Create mock database that returns error
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Expect the upsert query to fail
-	mockDB.mock.ExpectExec("INSERT INTO test_table").
+	mockDB.Mock.ExpectExec("INSERT INTO test_table").
 		WithArgs("Test Item", jsonData).
 		WillReturnError(sql.ErrConnDone)
 
@@ -295,11 +235,11 @@ func TestUpsertSeedFile_NoRowsAffected(t *testing.T) {
 	tempFile.Close()
 
 	// Create mock database that returns no rows affected
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Expect the upsert query to return 0 rows affected
-	mockDB.mock.ExpectExec("INSERT INTO test_table").
+	mockDB.Mock.ExpectExec("INSERT INTO test_table").
 		WithArgs("Test Item", jsonData).
 		WillReturnResult(sqlmock.NewResult(0, 0))
 
@@ -314,7 +254,7 @@ func TestUpsertSeedFile_NoRowsAffected(t *testing.T) {
 }
 
 func TestUpsertSeedFile_NonExistentFile(t *testing.T) {
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Test with non-existent file
@@ -382,29 +322,29 @@ func TestUpsertSeedParties_Success(t *testing.T) {
 	tempFile.Close()
 
 	// Create mock database with transaction support
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Expect transaction to begin
-	mockDB.mock.ExpectBegin()
+	mockDB.Mock.ExpectBegin()
 
 	// Expect party insert
-	mockDB.mock.ExpectExec("INSERT INTO parties").
+	mockDB.Mock.ExpectExec("INSERT INTO parties").
 		WithArgs("Test Party", 1).
 		WillReturnResult(sqlmock.NewResult(1, 0))
 
 	// Expect party ID query
-	mockDB.mock.ExpectQuery("SELECT id FROM parties").
+	mockDB.Mock.ExpectQuery("SELECT id FROM parties").
 		WithArgs("Test Party", 1).
 		WillReturnRows(sqlmock.NewRows([]string{"id"}).AddRow(1))
 
 	// Expect player insert
-	mockDB.mock.ExpectExec("INSERT INTO players").
+	mockDB.Mock.ExpectExec("INSERT INTO players").
 		WithArgs("Test Player", 1, 10, 15, 5, 5, 5, 5, 1).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
 	// Expect transaction to commit
-	mockDB.mock.ExpectCommit()
+	mockDB.Mock.ExpectCommit()
 
 	// Test upsert
 	err = seeder.UpsertSeedParties(mockDB, tempFile.Name())
@@ -414,7 +354,7 @@ func TestUpsertSeedParties_Success(t *testing.T) {
 }
 
 func TestUpsertSeedParties_FileNotFound(t *testing.T) {
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Test with non-existent file
@@ -440,7 +380,7 @@ func TestUpsertSeedParties_InvalidJSON(t *testing.T) {
 	}
 	tempFile.Close()
 
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Test upsert
@@ -508,11 +448,11 @@ func TestUpsertSeedParties_TransactionError(t *testing.T) {
 	tempFile.Close()
 
 	// Create mock database that fails to begin transaction
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Expect transaction to fail
-	mockDB.mock.ExpectBegin().WillReturnError(sql.ErrConnDone)
+	mockDB.Mock.ExpectBegin().WillReturnError(sql.ErrConnDone)
 
 	// Test upsert
 	err = seeder.UpsertSeedParties(mockDB, tempFile.Name())
@@ -579,12 +519,12 @@ func TestUpsertSeedParties_EmptyPartyName(t *testing.T) {
 	tempFile.Close()
 
 	// Create mock database
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Expect transaction to begin and commit (no actual operations)
-	mockDB.mock.ExpectBegin()
-	mockDB.mock.ExpectCommit()
+	mockDB.Mock.ExpectBegin()
+	mockDB.Mock.ExpectCommit()
 
 	// Test upsert - should succeed but skip empty party
 	err = seeder.UpsertSeedParties(mockDB, tempFile.Name())
@@ -648,29 +588,29 @@ func TestUpsertSeedParties_PlayerInsertError(t *testing.T) {
 	tempFile.Close()
 
 	// Create mock database
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Expect transaction to begin
-	mockDB.mock.ExpectBegin()
+	mockDB.Mock.ExpectBegin()
 
 	// Expect party insert
-	mockDB.mock.ExpectExec("INSERT INTO parties").
+	mockDB.Mock.ExpectExec("INSERT INTO parties").
 		WithArgs("Test Party", 1).
 		WillReturnResult(sqlmock.NewResult(1, 0))
 
 	// Expect party ID query
-	mockDB.mock.ExpectQuery("SELECT id FROM parties").
+	mockDB.Mock.ExpectQuery("SELECT id FROM parties").
 		WithArgs("Test Party", 1).
 		WillReturnRows(sqlmock.NewRows([]string{"id"}).AddRow(1))
 
 	// Expect player insert to fail
-	mockDB.mock.ExpectExec("INSERT INTO players").
+	mockDB.Mock.ExpectExec("INSERT INTO players").
 		WithArgs("Test Player", 1, 10, 15, 5, 5, 5, 5, 1).
 		WillReturnError(sql.ErrConnDone)
 
 	// Expect transaction rollback
-	mockDB.mock.ExpectRollback()
+	mockDB.Mock.ExpectRollback()
 
 	// Test upsert
 	err = seeder.UpsertSeedParties(mockDB, tempFile.Name())
@@ -700,7 +640,7 @@ func TestUpsertSeedFile_NameFieldWrongType(t *testing.T) {
 	}
 	tempFile.Close()
 
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Test upsert
@@ -768,25 +708,25 @@ func TestUpsertSeedParties_EmptyPlayerName(t *testing.T) {
 	tempFile.Close()
 
 	// Create mock database
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Expect transaction to begin
-	mockDB.mock.ExpectBegin()
+	mockDB.Mock.ExpectBegin()
 
 	// Expect party insert
-	mockDB.mock.ExpectExec("INSERT INTO parties").
+	mockDB.Mock.ExpectExec("INSERT INTO parties").
 		WithArgs("Test Party", 1).
 		WillReturnResult(sqlmock.NewResult(1, 0))
 
 	// Expect party ID query
-	mockDB.mock.ExpectQuery("SELECT id FROM parties").
+	mockDB.Mock.ExpectQuery("SELECT id FROM parties").
 		WithArgs("Test Party", 1).
 		WillReturnRows(sqlmock.NewRows([]string{"id"}).AddRow(1))
 
 	// No player insert expected since player name is empty
 	// Expect transaction to commit
-	mockDB.mock.ExpectCommit()
+	mockDB.Mock.ExpectCommit()
 
 	// Test upsert - should succeed but skip empty player name
 	err = seeder.UpsertSeedParties(mockDB, tempFile.Name())
@@ -852,24 +792,24 @@ func TestUpsertSeedParties_PartyQueryError(t *testing.T) {
 	tempFile.Close()
 
 	// Create mock database
-	mockDB, cleanup := setupMockDB(t)
+	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
 
 	// Expect transaction to begin
-	mockDB.mock.ExpectBegin()
+	mockDB.Mock.ExpectBegin()
 
 	// Expect party insert
-	mockDB.mock.ExpectExec("INSERT INTO parties").
+	mockDB.Mock.ExpectExec("INSERT INTO parties").
 		WithArgs("Test Party", 1).
 		WillReturnResult(sqlmock.NewResult(1, 0))
 
 	// Expect party ID query to fail
-	mockDB.mock.ExpectQuery("SELECT id FROM parties").
+	mockDB.Mock.ExpectQuery("SELECT id FROM parties").
 		WithArgs("Test Party", 1).
 		WillReturnError(sql.ErrNoRows)
 
 	// Expect transaction rollback
-	mockDB.mock.ExpectRollback()
+	mockDB.Mock.ExpectRollback()
 
 	// Test upsert
 	err = seeder.UpsertSeedParties(mockDB, tempFile.Name())
