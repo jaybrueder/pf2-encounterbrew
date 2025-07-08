@@ -231,11 +231,15 @@ func DeleteEncounter(db database.Service, id int) error {
 	}
 
 	_, err := db.Exec(`
-        DELETE FROM encounters
-        WHERE id = $1
-    `, id)
+		DELETE FROM encounters
+		WHERE id = $1
+	`, id)
 
-	return err
+	if err != nil {
+		return fmt.Errorf("error deleting encounter: %v", err)
+	}
+
+	return nil
 }
 
 func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
