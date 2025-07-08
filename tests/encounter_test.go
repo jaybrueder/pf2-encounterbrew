@@ -330,6 +330,13 @@ func TestUpdateTurnAndRound_InvalidTurnOrRound(t *testing.T) {
 }
 
 // DeleteEncounter Tests
+//
+// NOTE: These tests use sqlmock which cannot simulate real database constraints
+// like foreign keys or CASCADE deletes. In a real database, deleting an encounter
+// that has related records in combatant_conditions (without CASCADE) would fail
+// with a foreign key constraint violation. This limitation of sqlmock means that
+// CASCADE delete behavior cannot be properly tested without an integration test
+// against a real database.
 
 func TestDeleteEncounter_Success(t *testing.T) {
 	mockDB, cleanup := NewStandardMockDB(t)
@@ -337,6 +344,11 @@ func TestDeleteEncounter_Success(t *testing.T) {
 
 	encounterID := 1
 
+	// In the real implementation after migration 000013, the database will
+	// automatically CASCADE delete related records in:
+	// - encounter_monsters (has CASCADE)
+	// - encounter_players (has CASCADE)
+	// - combatant_conditions (has CASCADE after migration 000013)
 	mockDB.Mock.ExpectExec("DELETE FROM encounters WHERE id = \\$1").
 		WithArgs(encounterID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
