@@ -1,6 +1,6 @@
 services:
   encounterbrew-app:
-    image: jaybrueder/pf2-encounterbrew:latest
+    image: ghcr.io/jaybrueder/pf2-encounterbrew:latest
     ports:
       - "8081:8081"
     depends_on:
