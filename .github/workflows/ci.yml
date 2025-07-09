@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Set up Go
+          uses: actions/setup-go@v5
+          with:
+            go-version: '1.24.3'
+
+        - name: Install dependencies
+          run: |
+            go mod download
+            go install github.com/a-h/templ/cmd/templ@v0.2.793
+
+        - name: Install Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+
+        - name: Generate templates
+          run: templ generate
+
+        - name: Install and run TailwindCSS
+          run: |
+            npm init -y
+            npm install tailwindcss@^3.4.0
+            npx tailwindcss -i cmd/web/assets/css/input.css -o cmd/web/assets/css/output.css
+
+        - name: Run linting
+          run: make lint
+
+        - name: Run tests
+          run: make test
