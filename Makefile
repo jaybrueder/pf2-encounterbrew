@@ -42,5 +42,44 @@ watch:
             fi; \
         fi
 
+# Lint all code
+lint: imports golangci-lint tidy
+
+# Format Go code
+fmt:
+	@echo "Running go fmt..."
+	@go fmt ./...
+
+# Run go vet
+vet:
+	@echo "Running go vet..."
+	@go vet ./...
+
+# Fix imports
+imports:
+	@echo "Running goimports..."
+	@if command -v goimports > /dev/null; then \
+		goimports -w .; \
+	else \
+		echo "goimports not installed. Installing..."; \
+		go install golang.org/x/tools/cmd/goimports@latest; \
+		goimports -w .; \
+	fi
+
+# Run golangci-lint
+golangci-lint:
+	@echo "Running golangci-lint..."
+	@if command -v golangci-lint > /dev/null; then \
+		golangci-lint run; \
+	else \
+		echo "golangci-lint not installed. Installing..."; \
+		curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin; \
+		golangci-lint run; \
+	fi
+
+# Tidy go modules
+tidy:
+	@echo "Running go mod tidy..."
+	@go mod tidy
 
 .PHONY: all build run test clean watch
