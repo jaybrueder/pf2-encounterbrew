@@ -359,41 +359,41 @@ func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
 }
 
 func GetEncounterWithCombatants(db database.Service, encounterId int) (Encounter, error) {
-    encounter, err := GetEncounter(db, encounterId)
-    if err != nil {
-        return Encounter{}, fmt.Errorf("error fetching encounter: %w", err)
-    }
+	encounter, err := GetEncounter(db, encounterId)
+	if err != nil {
+		return Encounter{}, fmt.Errorf("error fetching encounter: %w", err)
+	}
 
-    // Get party's players and encounter's monsters
-    players := encounter.Players
-    monsters := encounter.Monsters
+	// Get party's players and encounter's monsters
+	players := encounter.Players
+	monsters := encounter.Monsters
 
-    combatants := make([]Combatant, 0, len(players)+len(monsters))
+	combatants := make([]Combatant, 0, len(players)+len(monsters))
 
-    // Add players to combatants
-    for i := range players {
-        combatants = append(combatants, players[i])
-    }
+	// Add players to combatants
+	for i := range players {
+		combatants = append(combatants, players[i])
+	}
 
-    // Add monsters to combatants
-    for _, monster := range monsters {
-        combatants = append(combatants, monster)
-    }
+	// Add monsters to combatants
+	for _, monster := range monsters {
+		combatants = append(combatants, monster)
+	}
 
-    // Add combatants to the encounter
-    encounter.Combatants = combatants
+	// Add combatants to the encounter
+	encounter.Combatants = combatants
 
-    // Fetch conditions for each combatant
-    for i := range encounter.Combatants {
-        isMonster := encounter.Combatants[i].IsMonster()
-        conditions, err := GetCombatantConditions(db, encounterId, encounter.Combatants[i].GetAssociationID(), isMonster)
-        if err != nil {
-            return Encounter{}, fmt.Errorf("error fetching conditions for combatant: %w", err)
-        }
-        encounter.Combatants[i].SetConditions(conditions)
-    }
+	// Fetch conditions for each combatant
+	for i := range encounter.Combatants {
+		isMonster := encounter.Combatants[i].IsMonster()
+		conditions, err := GetCombatantConditions(db, encounterId, encounter.Combatants[i].GetAssociationID(), isMonster)
+		if err != nil {
+			return Encounter{}, fmt.Errorf("error fetching conditions for combatant: %w", err)
+		}
+		encounter.Combatants[i].SetConditions(conditions)
+	}
 
-    return encounter, nil
+	return encounter, nil
 }
 
 func GetAllEncounters(db database.Service) ([]Encounter, error) {
@@ -622,49 +622,49 @@ func (e Encounter) GetDifficulty() int {
 }
 
 func GetCombatantConditions(db database.Service, encounterID int, associationID int, isMonster bool) ([]Condition, error) {
-    var query string
-    if isMonster {
-        query = `
+	var query string
+	if isMonster {
+		query = `
             SELECT c.id, c.data, cc.condition_value
             FROM combatant_conditions cc
             JOIN conditions c ON cc.condition_id = c.id
             WHERE cc.encounter_id = $1 AND cc.encounter_monster_id = $2
         `
-    } else {
-        query = `
+	} else {
+		query = `
             SELECT c.id, c.data, cc.condition_value
             FROM combatant_conditions cc
             JOIN conditions c ON cc.condition_id = c.id
             WHERE cc.encounter_id = $1 AND cc.encounter_player_id = $2
         `
-    }
+	}
 
-    rows, err := db.Query(query, encounterID, associationID)
-    if err != nil {
-        return nil, fmt.Errorf("error querying combatant conditions: %v", err)
-    }
-    defer rows.Close()
+	rows, err := db.Query(query, encounterID, associationID)
+	if err != nil {
+		return nil, fmt.Errorf("error querying combatant conditions: %v", err)
+	}
+	defer rows.Close()
 
-    var conditions []Condition
-    for rows.Next() {
-        var c Condition
-        var jsonData []byte
-        var conditionValue int
-        err := rows.Scan(&c.ID, &jsonData, &conditionValue)
-        if err != nil {
-            return nil, fmt.Errorf("error scanning condition row: %v", err)
-        }
-        err = json.Unmarshal(jsonData, &c.Data)
-        if err != nil {
-            return nil, fmt.Errorf("error unmarshaling condition data: %v", err)
-        }
-        c.Data.System.Value.Value = conditionValue
-        conditions = append(conditions, c)
-    }
+	var conditions []Condition
+	for rows.Next() {
+		var c Condition
+		var jsonData []byte
+		var conditionValue int
+		err := rows.Scan(&c.ID, &jsonData, &conditionValue)
+		if err != nil {
+			return nil, fmt.Errorf("error scanning condition row: %v", err)
+		}
+		err = json.Unmarshal(jsonData, &c.Data)
+		if err != nil {
+			return nil, fmt.Errorf("error unmarshaling condition data: %v", err)
+		}
+		c.Data.System.Value.Value = conditionValue
+		conditions = append(conditions, c)
+	}
 
-    if err = rows.Err(); err != nil {
-        return nil, fmt.Errorf("error iterating condition rows: %v", err)
-    }
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("error iterating condition rows: %v", err)
+	}
 
-    return conditions, nil
+	return conditions, nil
 }

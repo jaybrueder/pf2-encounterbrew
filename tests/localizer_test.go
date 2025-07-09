@@ -12,7 +12,7 @@ import (
 )
 
 // TestSuite: Localizer Module Tests
-// 
+//
 // This test suite provides comprehensive testing for the localizer.go module,
 // which handles internationalization and localization of text using JSON data.
 // The localizer uses a singleton pattern and processes @Localize[...] patterns
@@ -38,47 +38,47 @@ var testLocalizationData = map[string]interface{}{
 		"NPC": map[string]interface{}{
 			"Abilities": map[string]interface{}{
 				"Glossary": map[string]interface{}{
-					"NegativeHealing": "A creature with void healing draws health from void energy rather than vitality energy.",
+					"NegativeHealing":     "A creature with void healing draws health from void energy rather than vitality energy.",
 					"AttackOfOpportunity": "The monster can make an opportunity attack when a foe provokes.",
-					"Tremorsense": "The monster can sense the vibrations in the ground.",
-					"AllAroundVision": "The monster can see in all directions simultaneously.",
-					"LightBlindness": "When first exposed to bright light, the monster is blinded.",
-					"Rend": "The monster tears at its foe with multiple attacks.",
-					"Grab": "The monster can grab creatures with its attacks.",
+					"Tremorsense":         "The monster can sense the vibrations in the ground.",
+					"AllAroundVision":     "The monster can see in all directions simultaneously.",
+					"LightBlindness":      "When first exposed to bright light, the monster is blinded.",
+					"Rend":                "The monster tears at its foe with multiple attacks.",
+					"Grab":                "The monster can grab creatures with its attacks.",
 				},
 			},
 		},
 		"Item": map[string]interface{}{
 			"Weapon": map[string]interface{}{
 				"Base": map[string]interface{}{
-					"club": "club",
+					"club":   "club",
 					"dagger": "dagger",
-					"sword": "sword",
+					"sword":  "sword",
 				},
 			},
 		},
 		"TraitDescription": map[string]interface{}{
-			"fire": "This effect deals fire damage.",
-			"cold": "This effect deals cold damage.",
+			"fire":    "This effect deals fire damage.",
+			"cold":    "This effect deals cold damage.",
 			"magical": "This effect is magical in nature.",
 		},
 		"Action": map[string]interface{}{
 			"Strike": map[string]interface{}{
-				"Label": "Strike",
+				"Label":       "Strike",
 				"Description": "Make a melee or ranged attack.",
 			},
 		},
 	},
 	"COMBAT": map[string]interface{}{
-		"Begin": "Begin Encounter",
-		"End": "End Encounter",
+		"Begin":    "Begin Encounter",
+		"End":      "End Encounter",
 		"Settings": "Encounter Tracker Settings",
 	},
 	"TestData": map[string]interface{}{
-		"Simple": "Simple test value",
-		"WithNewlines": "Line 1\\nLine 2\\nLine 3",
+		"Simple":              "Simple test value",
+		"WithNewlines":        "Line 1\\nLine 2\\nLine 3",
 		"WithExtraWhitespace": "  Text with spaces  \\n\\n\\n  More text  ",
-		"ComplexText": "This is a complex text with @Localize[PF2E.Item.Weapon.Base.club] and other content.",
+		"ComplexText":         "This is a complex text with @Localize[PF2E.Item.Weapon.Base.club] and other content.",
 	},
 }
 
@@ -86,16 +86,16 @@ var testLocalizationData = map[string]interface{}{
 func createTestJSONFile(tb testing.TB, data map[string]interface{}) string {
 	tmpDir := tb.TempDir()
 	jsonFile := filepath.Join(tmpDir, "test_localization.json")
-	
+
 	jsonData, err := json.MarshalIndent(data, "", "  ")
 	if err != nil {
 		tb.Fatalf("Failed to marshal test data: %v", err)
 	}
-	
+
 	if err := os.WriteFile(jsonFile, jsonData, 0644); err != nil {
 		tb.Fatalf("Failed to write test JSON file: %v", err)
 	}
-	
+
 	return jsonFile
 }
 
@@ -110,25 +110,25 @@ func resetSingleton() {
 func TestGetLocalizer(t *testing.T) {
 	// Reset singleton before test
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(t, testLocalizationData)
-	
+
 	// Test first call
 	localizer1, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		t.Fatalf("Failed to get localizer: %v", err)
 	}
-	
+
 	if localizer1 == nil {
 		t.Fatal("Localizer should not be nil")
 	}
-	
+
 	// Test second call should return same instance
 	localizer2, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		t.Fatalf("Failed to get localizer second time: %v", err)
 	}
-	
+
 	if localizer1 != localizer2 {
 		t.Error("GetLocalizer should return the same instance (singleton pattern)")
 	}
@@ -136,7 +136,7 @@ func TestGetLocalizer(t *testing.T) {
 
 func TestGetLocalizerWithInvalidFile(t *testing.T) {
 	resetSingleton()
-	
+
 	// Test with non-existent file
 	_, err := utils.GetLocalizer("/non/existent/file.json")
 	if err == nil {
@@ -146,16 +146,16 @@ func TestGetLocalizerWithInvalidFile(t *testing.T) {
 
 func TestGetLocalizerWithInvalidJSON(t *testing.T) {
 	resetSingleton()
-	
+
 	// Create invalid JSON file
 	tmpDir := t.TempDir()
 	invalidJSONFile := filepath.Join(tmpDir, "invalid.json")
 	invalidJSON := `{"invalid": json}`
-	
+
 	if err := os.WriteFile(invalidJSONFile, []byte(invalidJSON), 0644); err != nil {
 		t.Fatalf("Failed to write invalid JSON file: %v", err)
 	}
-	
+
 	_, err := utils.GetLocalizer(invalidJSONFile)
 	if err == nil {
 		t.Error("Expected error when loading invalid JSON")
@@ -164,13 +164,13 @@ func TestGetLocalizerWithInvalidJSON(t *testing.T) {
 
 func TestProcessTextWithValidPaths(t *testing.T) {
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(t, testLocalizationData)
 	localizer, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		t.Fatalf("Failed to get localizer: %v", err)
 	}
-	
+
 	testCases := []struct {
 		name     string
 		input    string
@@ -207,7 +207,7 @@ func TestProcessTextWithValidPaths(t *testing.T) {
 			expected: "Text with spaces  \n\n  More text",
 		},
 	}
-	
+
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := localizer.ProcessText(tc.input)
@@ -220,13 +220,13 @@ func TestProcessTextWithValidPaths(t *testing.T) {
 
 func TestProcessTextWithInvalidPaths(t *testing.T) {
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(t, testLocalizationData)
 	localizer, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		t.Fatalf("Failed to get localizer: %v", err)
 	}
-	
+
 	testCases := []struct {
 		name     string
 		input    string
@@ -253,7 +253,7 @@ func TestProcessTextWithInvalidPaths(t *testing.T) {
 			expected: "@Localize[PF2E.NPC.Abilities.Glossary.Non Existent]", // Should return original pattern
 		},
 	}
-	
+
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := localizer.ProcessText(tc.input)
@@ -266,13 +266,13 @@ func TestProcessTextWithInvalidPaths(t *testing.T) {
 
 func TestProcessTextWithDifferentInputTypes(t *testing.T) {
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(t, testLocalizationData)
 	localizer, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		t.Fatalf("Failed to get localizer: %v", err)
 	}
-	
+
 	testCases := []struct {
 		name     string
 		input    interface{}
@@ -304,7 +304,7 @@ func TestProcessTextWithDifferentInputTypes(t *testing.T) {
 			expected: "",
 		},
 	}
-	
+
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := localizer.ProcessText(tc.input)
@@ -317,13 +317,13 @@ func TestProcessTextWithDifferentInputTypes(t *testing.T) {
 
 func TestProcessTextEdgeCases(t *testing.T) {
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(t, testLocalizationData)
 	localizer, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		t.Fatalf("Failed to get localizer: %v", err)
 	}
-	
+
 	testCases := []struct {
 		name     string
 		input    string
@@ -375,7 +375,7 @@ func TestProcessTextEdgeCases(t *testing.T) {
 			expected: "@Localize[PF2E.Item[test]]",
 		},
 	}
-	
+
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := localizer.ProcessText(tc.input)
@@ -388,13 +388,13 @@ func TestProcessTextEdgeCases(t *testing.T) {
 
 func TestCleanText(t *testing.T) {
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(t, testLocalizationData)
 	localizer, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		t.Fatalf("Failed to get localizer: %v", err)
 	}
-	
+
 	// Test the text cleaning functionality through ProcessText
 	testCases := []struct {
 		name     string
@@ -412,7 +412,7 @@ func TestCleanText(t *testing.T) {
 			expected: "Text with spaces  \n\n  More text", // Should reduce multiple newlines to double
 		},
 	}
-	
+
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := localizer.ProcessText(tc.input)
@@ -425,14 +425,14 @@ func TestCleanText(t *testing.T) {
 
 func TestConcurrentAccess(t *testing.T) {
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(t, testLocalizationData)
-	
+
 	// Test concurrent access to singleton
 	var wg sync.WaitGroup
 	localizers := make([]*utils.Localizer, 100)
 	errors := make([]error, 100)
-	
+
 	for i := 0; i < 100; i++ {
 		wg.Add(1)
 		go func(index int) {
@@ -440,16 +440,16 @@ func TestConcurrentAccess(t *testing.T) {
 			localizers[index], errors[index] = utils.GetLocalizer(jsonFile)
 		}(i)
 	}
-	
+
 	wg.Wait()
-	
+
 	// Check that all calls succeeded
 	for i, err := range errors {
 		if err != nil {
 			t.Errorf("Concurrent call %d failed: %v", i, err)
 		}
 	}
-	
+
 	// Check that all instances are the same
 	firstLocalizer := localizers[0]
 	for i, localizer := range localizers {
@@ -461,7 +461,7 @@ func TestConcurrentAccess(t *testing.T) {
 
 func TestComplexNestedStructure(t *testing.T) {
 	resetSingleton()
-	
+
 	// Create more complex nested structure
 	complexData := map[string]interface{}{
 		"Level1": map[string]interface{}{
@@ -477,13 +477,13 @@ func TestComplexNestedStructure(t *testing.T) {
 			"Not a map", // This should cause an error if accessed
 		},
 	}
-	
+
 	jsonFile := createTestJSONFile(t, complexData)
 	localizer, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		t.Fatalf("Failed to get localizer: %v", err)
 	}
-	
+
 	testCases := []struct {
 		name     string
 		input    string
@@ -500,7 +500,7 @@ func TestComplexNestedStructure(t *testing.T) {
 			expected: "@Localize[Array.invalid]", // Should return original pattern
 		},
 	}
-	
+
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := localizer.ProcessText(tc.input)
@@ -513,15 +513,15 @@ func TestComplexNestedStructure(t *testing.T) {
 
 func BenchmarkProcessText(b *testing.B) {
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(b, testLocalizationData)
 	localizer, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		b.Fatalf("Failed to get localizer: %v", err)
 	}
-	
+
 	testText := "The creature has @Localize[PF2E.NPC.Abilities.Glossary.NegativeHealing] and @Localize[PF2E.NPC.Abilities.Glossary.AttackOfOpportunity]."
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		localizer.ProcessText(testText)
@@ -530,17 +530,17 @@ func BenchmarkProcessText(b *testing.B) {
 
 func BenchmarkProcessTextLong(b *testing.B) {
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(b, testLocalizationData)
 	localizer, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		b.Fatalf("Failed to get localizer: %v", err)
 	}
-	
+
 	longText := "This is a very long text with multiple @Localize[PF2E.NPC.Abilities.Glossary.NegativeHealing] patterns and @Localize[PF2E.NPC.Abilities.Glossary.AttackOfOpportunity] abilities. " +
 		"It also includes @Localize[PF2E.NPC.Abilities.Glossary.Tremorsense] and @Localize[PF2E.NPC.Abilities.Glossary.AllAroundVision]. " +
 		"This simulates a real-world scenario with multiple localizations in a single text block like @Localize[COMBAT.Begin] and @Localize[COMBAT.End]."
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		localizer.ProcessText(longText)
@@ -549,9 +549,9 @@ func BenchmarkProcessTextLong(b *testing.B) {
 
 func BenchmarkGetLocalizer(b *testing.B) {
 	resetSingleton()
-	
+
 	jsonFile := createTestJSONFile(b, testLocalizationData)
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		utils.GetLocalizer(jsonFile)
@@ -560,14 +560,14 @@ func BenchmarkGetLocalizer(b *testing.B) {
 
 func TestIntegrationWithRealJSON(t *testing.T) {
 	resetSingleton()
-	
+
 	// Test with the actual en.json file
 	jsonFile := "../data/lang/en.json"
 	localizer, err := utils.GetLocalizer(jsonFile)
 	if err != nil {
 		t.Skipf("Skipping integration test - could not load %s: %v", jsonFile, err)
 	}
-	
+
 	// Test some real localization patterns that exist in the JSON file
 	testCases := []struct {
 		name     string
@@ -580,7 +580,7 @@ func TestIntegrationWithRealJSON(t *testing.T) {
 			contains: "Begin",
 		},
 		{
-			name:     "Combat End", 
+			name:     "Combat End",
 			input:    "@Localize[COMBAT.End]",
 			contains: "End",
 		},
@@ -602,14 +602,14 @@ func TestIntegrationWithRealJSON(t *testing.T) {
 	//
 	// The test suite includes 11 test functions covering 50+ individual test cases
 	// plus 3 benchmark functions for performance validation.
-	
+
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := localizer.ProcessText(tc.input)
 			if !strings.Contains(result, tc.contains) {
 				t.Errorf("Test %s failed:\nInput: %s\nResult: %s\nExpected to contain: %s", tc.name, tc.input, result, tc.contains)
 			}
-			
+
 			// Make sure we didn't just return the original pattern
 			if result == tc.input {
 				t.Errorf("Test %s failed: returned original pattern unchanged", tc.name)
@@ -617,5 +617,3 @@ func TestIntegrationWithRealJSON(t *testing.T) {
 		})
 	}
 }
-
-

@@ -10,7 +10,6 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
-
 // Use consolidated fixtures from mock_database.go
 
 func TestGetCondition_Success(t *testing.T) {

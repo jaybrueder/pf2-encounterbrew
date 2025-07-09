@@ -60,7 +60,7 @@ func TestEncounterNewHandler(t *testing.T) {
 			c := e.NewContext(req, rec)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -164,7 +164,7 @@ func TestEncounterCreateHandler(t *testing.T) {
 			c := e.NewContext(req, rec)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -248,7 +248,7 @@ func TestEncounterEditHandler(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -294,12 +294,12 @@ func TestEncounterUpdateHandler(t *testing.T) {
 				mockDB.Mock.ExpectQuery("SELECT EXISTS").
 					WithArgs(1).
 					WillReturnRows(sqlmock.NewRows([]string{"exists"}).AddRow(true))
-				
+
 				// Mock current party ID check second
 				mockDB.Mock.ExpectQuery("SELECT party_id").
 					WithArgs(1).
 					WillReturnRows(sqlmock.NewRows([]string{"party_id"}).AddRow(1))
-				
+
 				// Mock the name-only update
 				mockDB.Mock.ExpectExec("UPDATE encounters").
 					WithArgs("Updated Encounter", 1).
@@ -346,12 +346,12 @@ func TestEncounterUpdateHandler(t *testing.T) {
 				mockDB.Mock.ExpectQuery("SELECT EXISTS").
 					WithArgs(1).
 					WillReturnRows(sqlmock.NewRows([]string{"exists"}).AddRow(true))
-				
+
 				// Mock current party ID check
 				mockDB.Mock.ExpectQuery("SELECT party_id").
 					WithArgs(1).
 					WillReturnRows(sqlmock.NewRows([]string{"party_id"}).AddRow(1))
-				
+
 				// Mock update to fail
 				mockDB.Mock.ExpectExec("UPDATE encounters").
 					WithArgs("Updated Encounter", 1).
@@ -381,7 +381,7 @@ func TestEncounterUpdateHandler(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -464,7 +464,7 @@ func TestEncounterDeleteHandler(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -535,7 +535,7 @@ func TestEncounterListHandler(t *testing.T) {
 			c := e.NewContext(req, rec)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -571,7 +571,7 @@ func TestEncounterShowHandler(t *testing.T) {
 			mockSetup: func(mockDB *StandardMockDB) {
 				encounter := CreateSampleEncounter()
 				mockDB.SetupMockForGetEncounterWithCombatants(encounter)
-				
+
 				// Mock GetGroupedConditions query
 				conditionData := CreateSampleConditionData()
 				jsonData, _ := json.Marshal(conditionData)
@@ -613,7 +613,7 @@ func TestEncounterShowHandler(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -693,7 +693,7 @@ func TestEncounterSearchMonster(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -778,7 +778,7 @@ func TestEncounterAddMonster(t *testing.T) {
 			c.SetParamValues(tt.encounterID, tt.monsterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -804,18 +804,18 @@ func TestEncounterHandlersIntegration(t *testing.T) {
 	t.Skip("Skipping complex integration test for now")
 	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
-	
+
 	// Set up expectations for the integration test workflow
 	parties := []models.Party{CreateSampleParty()}
 	mockDB.SetupMockForGetAllParties(parties)
-	
+
 	mockDB.SetupMockForPartyExists(1, true)
 	party := CreateSampleParty()
 	mockDB.SetupMockForCreateEncounter(1, 1, party.Players)
-	
+
 	encounters := []models.Encounter{CreateSampleEncounter()}
 	mockDB.SetupMockForGetAllEncounters(encounters)
-	
+
 	sampleEncounter := CreateSampleEncounter()
 	mockDB.SetupMockForGetEncounter(sampleEncounter)
 
@@ -863,7 +863,7 @@ func TestEncounterHandlersIntegration(t *testing.T) {
 
 		// Test edit (add parties mock again)
 		mockDB.SetupMockForGetAllParties(parties)
-		
+
 		editReq := httptest.NewRequest(http.MethodGet, "/encounter/1/edit", nil)
 		editReq = editReq.WithContext(context.Background())
 		editRec := httptest.NewRecorder()

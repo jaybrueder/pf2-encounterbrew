@@ -115,7 +115,7 @@ func TestService_Health_DatabaseDown(t *testing.T) {
 
 	// This would normally call log.Fatalf, so we can't test it directly
 	// Instead, we'll test the ping failure scenario through a modified approach
-	
+
 	// For this test, we'll verify that the ping method fails as expected
 	err = db.Ping()
 	if err == nil {
@@ -346,7 +346,7 @@ func TestService_QueryRow(t *testing.T) {
 		WillReturnRows(sqlmock.NewRows([]string{"name"}).AddRow("John"))
 
 	row := service.QueryRow("SELECT name FROM users WHERE id = $1", 1)
-	
+
 	var name string
 	err = row.Scan(&name)
 	if err != nil {
@@ -553,10 +553,10 @@ func TestService_Interface_Compliance(t *testing.T) {
 
 func TestInsertQueryBuilding(t *testing.T) {
 	tests := []struct {
-		name           string
-		table          string
-		columns        []string
-		expectedRegex  string
+		name          string
+		table         string
+		columns       []string
+		expectedRegex string
 	}{
 		{
 			name:          "single column",
@@ -631,7 +631,7 @@ func (m *mockService) Insert(table string, columns []string, values ...interface
 	}
 
 	query := "INSERT INTO " + table + " (" + strings.Join(columns, ", ") + ") VALUES (" + strings.Join(placeholders, ", ") + ")"
-	
+
 	// Convert placeholders
 	query = convertToPostgresPlaceholdersTest(query)
 
@@ -668,7 +668,7 @@ func (m *mockService) InsertReturningID(table string, columns []string, values .
 	}
 
 	query := "INSERT INTO " + table + " (" + strings.Join(columns, ", ") + ") VALUES (" + strings.Join(placeholders, ", ") + ") RETURNING id"
-	
+
 	// Convert placeholders
 	query = convertToPostgresPlaceholdersTest(query)
 

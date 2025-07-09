@@ -10,7 +10,6 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
-
 // Test data helpers - use consolidated fixtures from mock_database.go
 
 // CreateEncounter Tests
@@ -679,7 +678,7 @@ func TestEncounter_GetPartyName(t *testing.T) {
 
 func TestEncounter_GetDifficulty(t *testing.T) {
 	encounter := CreateSampleEncounter()
-	
+
 	// Add players
 	player1 := models.Player{ID: 1, Level: 5}
 	player2 := models.Player{ID: 2, Level: 5}

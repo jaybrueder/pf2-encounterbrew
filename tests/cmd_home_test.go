@@ -23,12 +23,12 @@ func TestHomeHandler(t *testing.T) {
 				monsters := []models.Monster{CreateSampleMonster()}
 				monsters[0].ID = 1
 				monsters[0].Data.Name = "Goblin"
-				
+
 				orc := CreateSampleMonster()
 				orc.ID = 2
 				orc.Data.Name = "Orc"
 				monsters = append(monsters, orc)
-				
+
 				mockDB.SetupMockForGetAllMonsters(monsters)
 			},
 			expectedStatus: http.StatusOK,
@@ -95,7 +95,7 @@ func TestHomeHandlerIntegration(t *testing.T) {
 	monsters := []models.Monster{CreateSampleMonster()}
 	monsters[0].ID = 1
 	monsters[0].Data.Name = "Goblin"
-	
+
 	orc := CreateSampleMonster()
 	orc.ID = 2
 	orc.Data.Name = "Orc"

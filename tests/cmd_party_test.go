@@ -94,7 +94,7 @@ func TestPartyCreateHandler(t *testing.T) {
 			c := e.NewContext(req, rec)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil {
 					t.Error("Expected error but got none")
@@ -166,7 +166,7 @@ func TestPartyListHandler(t *testing.T) {
 			c := e.NewContext(req, rec)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -237,7 +237,7 @@ func TestPartyEditHandler(t *testing.T) {
 			c.SetParamValues(tt.partyID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -272,35 +272,35 @@ func TestPartyUpdateHandler(t *testing.T) {
 			name:    "successful party update",
 			partyID: "1",
 			formData: url.Values{
-				"party_name":             {"Updated Party"},
-				"players[]id":            {"1", "2"},
-				"players[]name":          {"Player 1", "Player 2"},
-				"players[]level":         {"5", "6"},
-				"players[]ac":            {"18", "19"},
-				"players[]hp":            {"45", "50"},
-				"players[]fort":          {"8", "9"},
-				"players[]ref":           {"6", "7"},
-				"players[]will":          {"7", "8"},
-				"players[]perception":    {"10", "11"},
+				"party_name":          {"Updated Party"},
+				"players[]id":         {"1", "2"},
+				"players[]name":       {"Player 1", "Player 2"},
+				"players[]level":      {"5", "6"},
+				"players[]ac":         {"18", "19"},
+				"players[]hp":         {"45", "50"},
+				"players[]fort":       {"8", "9"},
+				"players[]ref":        {"6", "7"},
+				"players[]will":       {"7", "8"},
+				"players[]perception": {"10", "11"},
 			},
 			mockSetup: func(mockDB *StandardMockDB) {
 				party := CreateSampleParty()
 				mockDB.SetupMockForGetParty(party)
-				
+
 				// Mock the UpdateWithPlayers operation
 				mockDB.Mock.ExpectBegin()
 				// Party update query uses 3 arguments: name, id, user_id
 				mockDB.Mock.ExpectExec(`UPDATE parties SET name = \$1 WHERE id = \$2 AND user_id = \$3`).
 					WithArgs("Updated Party", party.ID, party.UserID).
 					WillReturnResult(sqlmock.NewResult(1, 1))
-				
+
 				// Mock player updates for existing players
 				for _, player := range party.Players {
 					mockDB.Mock.ExpectExec(`UPDATE players SET name = \$1, level = \$2, ac = \$3, hp = \$4, fort = \$5, ref = \$6, will = \$7, perception = \$8 WHERE id = \$9 AND party_id = \$10`).
 						WithArgs(sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), player.ID, party.ID).
 						WillReturnResult(sqlmock.NewResult(1, 1))
 				}
-				
+
 				mockDB.Mock.ExpectCommit()
 			},
 			expectedStatus: http.StatusOK,
@@ -341,7 +341,7 @@ func TestPartyUpdateHandler(t *testing.T) {
 			c.SetParamValues(tt.partyID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil {
 					t.Error("Expected error but got none")
@@ -424,7 +424,7 @@ func TestDeletePartyHandler(t *testing.T) {
 			c.SetParamValues(tt.partyID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil {
 					t.Error("Expected error but got none")
@@ -484,7 +484,7 @@ func TestPlayerNewHandler(t *testing.T) {
 			c := e.NewContext(req, rec)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil {
 					t.Error("Expected error but got none")
@@ -518,7 +518,7 @@ func TestPlayerDeleteHandler(t *testing.T) {
 				mockDB.Mock.ExpectExec("DELETE FROM players").
 					WithArgs(1).
 					WillReturnResult(sqlmock.NewResult(1, 1))
-				
+
 				party := CreateSampleParty()
 				mockDB.SetupMockForGetParty(party)
 			},
@@ -557,7 +557,7 @@ func TestPlayerDeleteHandler(t *testing.T) {
 			c.SetParamValues(tt.partyID, tt.playerID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil {
 					t.Error("Expected error but got none")
@@ -582,13 +582,13 @@ func TestPlayerDeleteHandler(t *testing.T) {
 func TestPartyHandlersIntegration(t *testing.T) {
 	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
-	
+
 	// Set up expectations for the integration test workflow
 	mockDB.SetupMockForPartyCreate(1)
-	
+
 	parties := []models.Party{CreateSampleParty()}
 	mockDB.SetupMockForGetAllParties(parties)
-	
+
 	sampleParty := CreateSampleParty()
 	mockDB.SetupMockForGetParty(sampleParty)
 

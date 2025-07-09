@@ -12,7 +12,6 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
-
 // Test data helpers - use consolidated fixtures from mock_database.go
 
 // Combatant Interface Compliance Tests
@@ -163,11 +162,11 @@ func TestPlayer_IsMonster(t *testing.T) {
 func TestPlayer_GenerateInitiative(t *testing.T) {
 	player := CreateSamplePlayer()
 	initiative := player.GenerateInitiative()
-	
+
 	// Initiative should be between 1+perception (6) and 20+perception (25)
 	expectedMin := 1 + player.GetPerceptionMod()
 	expectedMax := 20 + player.GetPerceptionMod()
-	
+
 	if initiative < expectedMin || initiative > expectedMax {
 		t.Errorf("expected initiative between %d and %d, got %d", expectedMin, expectedMax, initiative)
 	}
@@ -250,9 +249,9 @@ func TestPlayerDelete_NilDatabase(t *testing.T) {
 
 func TestMonster_GetName(t *testing.T) {
 	tests := []struct {
-		name            string
-		monster         models.Monster
-		expectedName    string
+		name         string
+		monster      models.Monster
+		expectedName string
 	}{
 		{
 			name:         "basic monster",
@@ -308,9 +307,9 @@ func TestMonster_GetType(t *testing.T) {
 
 func TestMonster_GetLevel(t *testing.T) {
 	tests := []struct {
-		name            string
-		monster         models.Monster
-		expectedLevel   int
+		name          string
+		monster       models.Monster
+		expectedLevel int
 	}{
 		{
 			name:          "basic monster",
@@ -349,9 +348,9 @@ func TestMonster_GetLevel(t *testing.T) {
 
 func TestMonster_GetHp(t *testing.T) {
 	tests := []struct {
-		name        string
-		monster     models.Monster
-		expectedHp  int
+		name       string
+		monster    models.Monster
+		expectedHp int
 	}{
 		{
 			name:       "basic monster",
@@ -617,7 +616,7 @@ func TestSearchMonsters_Success(t *testing.T) {
 		AddRow(2, jsonData2)
 
 	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE LOWER\\(data->>'name'\\) LIKE LOWER\\(\\$1\\) LIMIT 20").
-		WithArgs("%"+searchTerm+"%").
+		WithArgs("%" + searchTerm + "%").
 		WillReturnRows(rows)
 
 	results, err := models.SearchMonsters(mockDB, searchTerm)
@@ -646,7 +645,7 @@ func TestSearchMonsters_DatabaseError(t *testing.T) {
 	expectedError := errors.New("database connection failed")
 
 	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE LOWER\\(data->>'name'\\) LIKE LOWER\\(\\$1\\) LIMIT 20").
-		WithArgs("%"+searchTerm+"%").
+		WithArgs("%" + searchTerm + "%").
 		WillReturnError(expectedError)
 
 	results, err := models.SearchMonsters(mockDB, searchTerm)
@@ -721,7 +720,7 @@ func TestSortCombatantsByInitiative(t *testing.T) {
 	monster1.Initiative = 12
 
 	combatants := []models.Combatant{&player1, &monster1, &player2}
-	
+
 	models.SortCombatantsByInitiative(combatants)
 
 	// Should be sorted by initiative descending: player2 (15), monster1 (12), player1 (10)

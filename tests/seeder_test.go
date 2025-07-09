@@ -735,8 +735,6 @@ func TestUpsertSeedParties_EmptyPlayerName(t *testing.T) {
 	}
 }
 
-
-
 func TestUpsertSeedParties_PartyQueryError(t *testing.T) {
 	// Create temporary parties file
 	tempFile, err := os.CreateTemp("", "parties_*.json")

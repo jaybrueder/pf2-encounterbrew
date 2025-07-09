@@ -2,6 +2,7 @@ package tests
 
 import (
 	"testing"
+
 	"pf2.encounterbrew.com/internal/utils"
 )
 
@@ -258,7 +259,7 @@ func TestReplacerEdgeCases(t *testing.T) {
 func BenchmarkReplacer(b *testing.B) {
 	replacer := utils.NewReplacer()
 	testText := "The creature must make a @Check[reflex|dc:19] save or take @Damage[2d6[fire]] damage and become @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}."
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		replacer.ProcessText(testText)
@@ -270,7 +271,7 @@ func BenchmarkReplacerLongText(b *testing.B) {
 	longText := "This is a very long text with multiple patterns: @Check[will|dc:20], @Damage[8d6[fire]], @UUID[Compendium.pf2e.spells-srd.Item.Fireball], @Template[burst|distance:20], and more patterns like @Check[reflex|dc:15|basic] and @Damage[(3d8+5)[bludgeoning]]. " +
 		"It also includes @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 2} and @Template[line|distance:60|traits:force,evocation]. " +
 		"This simulates a real-world scenario with multiple replacements in a single text block."
-	
+
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		replacer.ProcessText(longText)

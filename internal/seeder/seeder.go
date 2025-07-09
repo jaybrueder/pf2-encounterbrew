@@ -299,7 +299,6 @@ func UpsertSeedParties(db database.Service, filePath string) error {
 		}
 		// --- End Party Upsert Logic ---
 
-
 		log.Printf("Processing party '%s' (ID: %d)\n", trimmedPartyName, partyID) // Log consistently
 
 		// --- Player Upserts within Transaction ---
