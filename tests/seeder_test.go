@@ -29,14 +29,14 @@ func TestRun_MissingDirectories(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp dir: %v", err)
 	}
-	defer os.RemoveAll(tempDir)
+	defer func() { _ = os.RemoveAll(tempDir) }()
 
 	// Save current working directory
 	originalWd, err := os.Getwd()
 	if err != nil {
 		t.Fatalf("Failed to get current working directory: %v", err)
 	}
-	defer os.Chdir(originalWd)
+	defer func() { _ = os.Chdir(originalWd) }()
 
 	// Change to temp directory
 	if err := os.Chdir(tempDir); err != nil {
@@ -60,7 +60,7 @@ func TestUpsertSeedFile_Success(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	// Write test data
 	testData := map[string]interface{}{
@@ -71,7 +71,7 @@ func TestUpsertSeedFile_Success(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write test data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	// Create mock database
 	mockDB, cleanup := NewStandardMockDB(t)
@@ -98,12 +98,12 @@ func TestUpsertSeedFile_InvalidJSON(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	if _, err := tempFile.WriteString("invalid json"); err != nil {
 		t.Fatalf("Failed to write invalid JSON: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
@@ -124,7 +124,7 @@ func TestUpsertSeedFile_MissingName(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	testData := map[string]interface{}{
 		"description": "A test item without name",
@@ -133,7 +133,7 @@ func TestUpsertSeedFile_MissingName(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write test data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
@@ -154,7 +154,7 @@ func TestUpsertSeedFile_EmptyName(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	testData := map[string]interface{}{
 		"name":        "   ",
@@ -164,7 +164,7 @@ func TestUpsertSeedFile_EmptyName(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write test data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
@@ -185,7 +185,7 @@ func TestUpsertSeedFile_DatabaseError(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	testData := map[string]interface{}{
 		"name":        "Test Item",
@@ -195,7 +195,7 @@ func TestUpsertSeedFile_DatabaseError(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write test data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	// Create mock database that returns error
 	mockDB, cleanup := NewStandardMockDB(t)
@@ -222,7 +222,7 @@ func TestUpsertSeedFile_NoRowsAffected(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	testData := map[string]interface{}{
 		"name":        "Test Item",
@@ -232,7 +232,7 @@ func TestUpsertSeedFile_NoRowsAffected(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write test data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	// Create mock database that returns no rows affected
 	mockDB, cleanup := NewStandardMockDB(t)
@@ -273,7 +273,7 @@ func TestUpsertSeedParties_Success(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	partiesData := seeder.PartiesData{
 		Parties: []struct {
@@ -319,7 +319,7 @@ func TestUpsertSeedParties_Success(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write parties data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	// Create mock database with transaction support
 	mockDB, cleanup := NewStandardMockDB(t)
@@ -373,12 +373,12 @@ func TestUpsertSeedParties_InvalidJSON(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	if _, err := tempFile.WriteString("invalid json"); err != nil {
 		t.Fatalf("Failed to write invalid JSON: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
@@ -399,7 +399,7 @@ func TestUpsertSeedParties_TransactionError(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	partiesData := seeder.PartiesData{
 		Parties: []struct {
@@ -445,7 +445,7 @@ func TestUpsertSeedParties_TransactionError(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write parties data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	// Create mock database that fails to begin transaction
 	mockDB, cleanup := NewStandardMockDB(t)
@@ -470,7 +470,7 @@ func TestUpsertSeedParties_EmptyPartyName(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	partiesData := seeder.PartiesData{
 		Parties: []struct {
@@ -516,7 +516,7 @@ func TestUpsertSeedParties_EmptyPartyName(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write parties data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	// Create mock database
 	mockDB, cleanup := NewStandardMockDB(t)
@@ -539,7 +539,7 @@ func TestUpsertSeedParties_PlayerInsertError(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	partiesData := seeder.PartiesData{
 		Parties: []struct {
@@ -585,7 +585,7 @@ func TestUpsertSeedParties_PlayerInsertError(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write parties data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	// Create mock database
 	mockDB, cleanup := NewStandardMockDB(t)
@@ -628,7 +628,7 @@ func TestUpsertSeedFile_NameFieldWrongType(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	testData := map[string]interface{}{
 		"name":        123, // Name as number instead of string
@@ -638,7 +638,7 @@ func TestUpsertSeedFile_NameFieldWrongType(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write test data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
@@ -659,7 +659,7 @@ func TestUpsertSeedParties_EmptyPlayerName(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	partiesData := seeder.PartiesData{
 		Parties: []struct {
@@ -705,7 +705,7 @@ func TestUpsertSeedParties_EmptyPlayerName(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write parties data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	// Create mock database
 	mockDB, cleanup := NewStandardMockDB(t)
@@ -741,7 +741,7 @@ func TestUpsertSeedParties_PartyQueryError(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() { _ = os.Remove(tempFile.Name()) }()
 
 	partiesData := seeder.PartiesData{
 		Parties: []struct {
@@ -787,7 +787,7 @@ func TestUpsertSeedParties_PartyQueryError(t *testing.T) {
 	if _, err := tempFile.Write(jsonData); err != nil {
 		t.Fatalf("Failed to write parties data: %v", err)
 	}
-	tempFile.Close()
+	_ = tempFile.Close()
 
 	// Create mock database
 	mockDB, cleanup := NewStandardMockDB(t)

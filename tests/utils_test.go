@@ -106,8 +106,8 @@ func TestRemoveTrailingCommaBug(t *testing.T) {
 			}
 		}()
 
-		// This will panic
-		utils.RemoveTrailingComma("a")
+		// This will panic - we're testing panic behavior, not the return value
+		_ = utils.RemoveTrailingComma("a")
 	})
 
 	t.Run("Empty string does not panic", func(t *testing.T) {

@@ -117,7 +117,11 @@ func GetGroupedConditions(db database.Service) (map[string][]ConditionInfo, erro
 	if err != nil {
 		return nil, fmt.Errorf("error querying conditions: %w", err)
 	}
-	defer rows.Close()
+	defer func() {
+		if err := rows.Close(); err != nil {
+			fmt.Printf("error closing rows: %v\n", err)
+		}
+	}()
 
 	// Initialize the result map
 	groupedConditions := make(map[string][]ConditionInfo)

@@ -71,7 +71,11 @@ func GetAllParties(db database.Service) ([]Party, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error querying parties: %v", err)
 	}
-	defer rows.Close()
+	defer func() {
+		if err := rows.Close(); err != nil {
+			fmt.Printf("error closing rows: %v\n", err)
+		}
+	}()
 
 	var parties []Party
 	for rows.Next() {
@@ -92,7 +96,11 @@ func GetAllParties(db database.Service) ([]Party, error) {
 		if err != nil {
 			return nil, fmt.Errorf("error querying players: %v", err)
 		}
-		defer playerRows.Close()
+		defer func() {
+			if err := playerRows.Close(); err != nil {
+				fmt.Printf("error closing playerRows: %v\n", err)
+			}
+		}()
 
 		var players []Player
 		for playerRows.Next() {
@@ -151,7 +159,11 @@ func GetParty(db database.Service, partyID int) (Party, error) {
 	if err != nil {
 		return Party{}, fmt.Errorf("error querying players: %v", err)
 	}
-	defer rows.Close()
+	defer func() {
+		if err := rows.Close(); err != nil {
+			fmt.Printf("error closing rows: %v\n", err)
+		}
+	}()
 
 	var players []Player
 	for rows.Next() {

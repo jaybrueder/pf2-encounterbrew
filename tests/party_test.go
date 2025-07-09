@@ -9,6 +9,8 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
+// Constants moved to mock_database.go for sharing
+
 // Test data helpers - use consolidated fixtures from mock_database.go
 
 // Party Method Tests
@@ -134,7 +136,7 @@ func TestParty_Create_NilDatabase(t *testing.T) {
 		t.Errorf("expected ID 0, got %d", id)
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -205,7 +207,7 @@ func TestGetAllParties_NilDatabase(t *testing.T) {
 		t.Error("expected nil parties when database is nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -324,7 +326,7 @@ func TestGetParty_NilDatabase(t *testing.T) {
 		t.Error("expected empty party when database is nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -433,7 +435,7 @@ func TestParty_Update_NilDatabase(t *testing.T) {
 		t.Error("expected error when database is nil, got nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -494,7 +496,7 @@ func TestParty_Delete_NilDatabase(t *testing.T) {
 		t.Error("expected error when database is nil, got nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -627,7 +629,7 @@ func TestParty_UpdateWithPlayers_NilDatabase(t *testing.T) {
 		t.Error("expected error when database is nil, got nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}

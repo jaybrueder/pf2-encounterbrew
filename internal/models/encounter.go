@@ -51,7 +51,11 @@ func CreateEncounter(db database.Service, name string, partyId int) (Encounter, 
 	if err != nil {
 		return Encounter{}, fmt.Errorf("error getting party players: %v", err)
 	}
-	defer rows.Close()
+	defer func() {
+		if err := rows.Close(); err != nil {
+			fmt.Printf("error closing rows: %v\n", err)
+		}
+	}()
 
 	// Collect all player IDs and their HP
 	var playerIDs []int
@@ -140,7 +144,11 @@ func UpdateEncounter(db database.Service, encounterId int, name string, partyId 
 		if err != nil {
 			return fmt.Errorf("error getting party players: %v", err)
 		}
-		defer rows.Close()
+		defer func() {
+			if err := rows.Close(); err != nil {
+				fmt.Printf("error closing rows: %v\n", err)
+			}
+		}()
 
 		// Collect all player IDs and their HP
 		var playerIDs []int
@@ -275,7 +283,11 @@ func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
 	if err != nil {
 		return e, fmt.Errorf("error querying monsters: %v", err)
 	}
-	defer rows.Close()
+	defer func() {
+		if err := rows.Close(); err != nil {
+			fmt.Printf("error closing rows: %v\n", err)
+		}
+	}()
 
 	for rows.Next() {
 		var m Monster
@@ -326,7 +338,11 @@ func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
 	if err != nil {
 		return e, fmt.Errorf("error querying players: %v", err)
 	}
-	defer playerRows.Close()
+	defer func() {
+		if err := playerRows.Close(); err != nil {
+			fmt.Printf("error closing playerRows: %v\n", err)
+		}
+	}()
 
 	for playerRows.Next() {
 		var player Player
@@ -418,7 +434,11 @@ func GetAllEncounters(db database.Service) ([]Encounter, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer rows.Close()
+	defer func() {
+		if err := rows.Close(); err != nil {
+			fmt.Printf("error closing rows: %v\n", err)
+		}
+	}()
 
 	var encounters []Encounter
 	for rows.Next() {
@@ -452,7 +472,7 @@ func AddMonsterToEncounter(db database.Service, encounterId int, monsterID int, 
 	// Use a transaction to ensure atomicity
 	tx, err := db.Begin()
 	if err != nil {
-		return Encounter{}, fmt.Errorf("Error starting transaction: %v", err)
+		return Encounter{}, fmt.Errorf("error starting transaction: %v", err)
 	}
 	//nolint:errcheck
 	defer tx.Rollback() // Rollback the transaction if it hasn't been committed
@@ -463,13 +483,13 @@ func AddMonsterToEncounter(db database.Service, encounterId int, monsterID int, 
         SELECT data FROM monsters WHERE id = $1
     `, monsterID).Scan(&monsterData)
 	if err != nil {
-		return Encounter{}, fmt.Errorf("Failed to get monster's data: %v", err)
+		return Encounter{}, fmt.Errorf("failed to get monster's data: %v", err)
 	}
 
 	var monster Monster
 	err = json.Unmarshal(monsterData, &monster.Data)
 	if err != nil {
-		return Encounter{}, fmt.Errorf("Failed to unmarshal monster data: %v", err)
+		return Encounter{}, fmt.Errorf("failed to unmarshal monster data: %v", err)
 	}
 
 	monsterHP := monster.Data.System.Attributes.Hp.Value
@@ -485,7 +505,7 @@ func AddMonsterToEncounter(db database.Service, encounterId int, monsterID int, 
 		AND m.data->>'name' = $2
 	`, encounterId, monsterName).Scan(&maxEnumeration)
 	if err != nil {
-		return Encounter{}, fmt.Errorf("Failed to get max enumeration: %v", err)
+		return Encounter{}, fmt.Errorf("failed to get max enumeration: %v", err)
 	}
 
 	// Set the new enumeration to be one more than the highest existing enumeration
@@ -497,12 +517,12 @@ func AddMonsterToEncounter(db database.Service, encounterId int, monsterID int, 
     `, encounterId, monsterID, levelAdjustment, initiative, monsterHP, newEnumeration)
 
 	if err != nil {
-		return Encounter{}, fmt.Errorf("Failed to add monster to encounter: %v", err)
+		return Encounter{}, fmt.Errorf("failed to add monster to encounter: %v", err)
 	}
 
 	// Commit the transaction
 	if err = tx.Commit(); err != nil {
-		return Encounter{}, fmt.Errorf("Error committing transaction: %v", err)
+		return Encounter{}, fmt.Errorf("error committing transaction: %v", err)
 	}
 
 	encounter, _ := GetEncounter(db, encounterId)
@@ -643,7 +663,11 @@ func GetCombatantConditions(db database.Service, encounterID int, associationID 
 	if err != nil {
 		return nil, fmt.Errorf("error querying combatant conditions: %v", err)
 	}
-	defer rows.Close()
+	defer func() {
+		if err := rows.Close(); err != nil {
+			fmt.Printf("error closing rows: %v\n", err)
+		}
+	}()
 
 	var conditions []Condition
 	for rows.Next() {

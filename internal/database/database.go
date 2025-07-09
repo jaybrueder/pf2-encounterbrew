@@ -149,7 +149,12 @@ func (s *service) Insert(table string, columns []string, values ...interface{}) 
 	if err != nil {
 		return nil, fmt.Errorf("error preparing statement: %w", err)
 	}
-	defer stmt.Close()
+	defer func() {
+		if err := stmt.Close(); err != nil {
+			// Log error but don't return it since we're in a defer
+			fmt.Printf("error closing statement: %v\n", err)
+		}
+	}()
 
 	// Execute the statement
 	return stmt.Exec(values...)

@@ -16,6 +16,11 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
+const (
+	invalidEncounterIDStr = "invalid encounter ID"
+	goblinName            = "Goblin"
+)
+
 func TestEncounterNewHandler(t *testing.T) {
 	tests := []struct {
 		name           string
@@ -209,7 +214,7 @@ func TestEncounterEditHandler(t *testing.T) {
 			expectError:    false,
 		},
 		{
-			name:        "invalid encounter ID",
+			name:        invalidEncounterIDStr,
 			encounterID: "invalid",
 			mockSetup: func(mockDB *StandardMockDB) {
 				// No mock setup needed for this test
@@ -263,7 +268,7 @@ func TestEncounterEditHandler(t *testing.T) {
 			}
 
 			// Verify mock expectations were met (but only if we set up expectations)
-			if tt.name != "invalid encounter ID" {
+			if tt.name != invalidEncounterIDStr {
 				if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 					t.Errorf("unfulfilled expectations: %s", err)
 				}
@@ -309,7 +314,7 @@ func TestEncounterUpdateHandler(t *testing.T) {
 			expectError:    false,
 		},
 		{
-			name:        "invalid encounter ID",
+			name:        invalidEncounterIDStr,
 			encounterID: "invalid",
 			formData: url.Values{
 				"name":     {"Updated Encounter"},
@@ -396,7 +401,7 @@ func TestEncounterUpdateHandler(t *testing.T) {
 			}
 
 			// Verify mock expectations were met (but only if we set up expectations)
-			if tt.name != "invalid encounter ID" {
+			if tt.name != invalidEncounterIDStr {
 				if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 					t.Errorf("unfulfilled expectations: %s", err)
 				}
@@ -425,7 +430,7 @@ func TestEncounterDeleteHandler(t *testing.T) {
 			expectError:    false,
 		},
 		{
-			name:        "invalid encounter ID",
+			name:        invalidEncounterIDStr,
 			encounterID: "invalid",
 			mockSetup: func(mockDB *StandardMockDB) {
 				// No mock setup needed for this test
@@ -479,7 +484,7 @@ func TestEncounterDeleteHandler(t *testing.T) {
 			}
 
 			// Verify mock expectations were met (but only if we set up expectations)
-			if tt.name != "invalid encounter ID" {
+			if tt.name != invalidEncounterIDStr {
 				if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 					t.Errorf("unfulfilled expectations: %s", err)
 				}
@@ -652,7 +657,7 @@ func TestEncounterSearchMonster(t *testing.T) {
 			encounterID: "1",
 			mockSetup: func(mockDB *StandardMockDB) {
 				monsters := []models.Monster{CreateSampleMonster()}
-				monsters[0].Data.Name = "Goblin"
+				monsters[0].Data.Name = goblinName
 				mockDB.SetupMockForSearchMonsters(monsters)
 			},
 			expectedStatus: http.StatusOK,
@@ -734,7 +739,7 @@ func TestEncounterAddMonster(t *testing.T) {
 			},
 			mockSetup: func(mockDB *StandardMockDB) {
 				monster := CreateSampleMonster()
-				monster.Data.Name = "Goblin"
+				monster.Data.Name = goblinName
 				mockDB.SetupMockForGetMonster(monster)
 				encounter := CreateSampleEncounter()
 				mockDB.SetupMockForAddMonsterToEncounter(encounter)

@@ -13,12 +13,15 @@ import (
 
 // Test constants to avoid duplication across files
 const (
-	TestUserID      = 1
-	TestPartyID     = 1
-	TestEncounterID = 1
-	TestMonsterID   = 1
-	TestPlayerID    = 1
-	TestConditionID = 1
+	TestUserID        = 1
+	TestPartyID       = 1
+	TestEncounterID   = 1
+	TestMonsterID     = 1
+	TestPlayerID      = 1
+	TestMonsterName   = "Test Monster"
+	TestConditionName = "Test Condition"
+	TestConditionID   = 1
+	DBServiceNilError = "database service is nil"
 )
 
 var ErrNotFound = errors.New("not found")
@@ -335,7 +338,7 @@ func NewStandardMockDB(t *testing.T) (*StandardMockDB, func()) {
 			DB:   db,
 			Mock: mock,
 		}, func() {
-			db.Close()
+			_ = db.Close()
 		}
 }
 
@@ -371,7 +374,7 @@ func (s *StandardMockDB) Begin() (*sql.Tx, error) {
 func (s *StandardMockDB) InsertReturningID(table string, columns []string, values ...interface{}) (int, error) {
 	// Build the same query as the real implementation
 	// Build the query string with RETURNING id (same as real implementation)
-	query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s) RETURNING id",
+	query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s) RETURNING id", // #nosec G201 - Test code with controlled inputs
 		table,
 		strings.Join(columns, ", "),
 		strings.Join(strings.Split(strings.Repeat("?", len(columns)), ""), ", "))
@@ -612,11 +615,11 @@ func (s *StandardMockDB) SetupMockForAddMonsterToEncounter(encounter models.Enco
 	// 2. Get monster data query
 	s.Mock.ExpectQuery(`SELECT data FROM monsters WHERE id = \$1`).
 		WithArgs(sqlmock.AnyArg()).
-		WillReturnRows(sqlmock.NewRows([]string{"data"}).AddRow(`{"name":"Test Monster","system":{"attributes":{"hp":{"max":25,"value":25}}}}`))
+		WillReturnRows(sqlmock.NewRows([]string{"data"}).AddRow(`{"name":"` + TestMonsterName + `","system":{"attributes":{"hp":{"max":25,"value":25}}}}`))
 
 	// 3. Get max enumeration query
 	s.Mock.ExpectQuery(`SELECT COALESCE\(MAX\(em\.enumeration\), 0\)`).
-		WithArgs(encounter.ID, "Test Monster").
+		WithArgs(encounter.ID, TestMonsterName).
 		WillReturnRows(sqlmock.NewRows([]string{"max"}).AddRow(0))
 
 	// 4. Insert into encounter_monsters
@@ -713,7 +716,7 @@ func CreateSampleMonster() models.Monster {
 		Initiative:      15,
 		Conditions:      []models.Condition{},
 	}
-	monster.Data.Name = "Test Monster"
+	monster.Data.Name = TestMonsterName
 	monster.Data.System.Details.Level.Value = 3
 	monster.Data.System.Attributes.Hp.Value = 35
 	monster.Data.System.Attributes.Hp.Max = 35
@@ -750,7 +753,7 @@ func CreateSampleCondition() models.Condition {
 	condition := models.Condition{
 		ID: TestConditionID,
 	}
-	condition.Data.Name = "Test Condition"
+	condition.Data.Name = TestConditionName
 	condition.Data.System.Value.Value = 0
 	return condition
 }
@@ -760,7 +763,7 @@ func CreateSampleConditionData() map[string]interface{} {
 	return map[string]interface{}{
 		"_id":  "condition-test-id",
 		"img":  "path/to/condition.jpg",
-		"name": "Test Condition",
+		"name": TestConditionName,
 		"system": map[string]interface{}{
 			"description": map[string]interface{}{
 				"value": "Test condition description",

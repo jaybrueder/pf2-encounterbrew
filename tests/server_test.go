@@ -18,9 +18,9 @@ import (
 func TestNewServer_MissingDBURL(t *testing.T) {
 	// Clear environment variables
 	originalDBURL := os.Getenv("DB_URL")
-	defer os.Setenv("DB_URL", originalDBURL)
+	defer func() { _ = os.Setenv("DB_URL", originalDBURL) }()
 
-	os.Unsetenv("DB_URL")
+	_ = os.Unsetenv("DB_URL")
 
 	_, err := server.NewServer()
 	if err == nil {
@@ -37,12 +37,12 @@ func TestNewServer_MissingMigrationsPath(t *testing.T) {
 	originalDBURL := os.Getenv("DB_URL")
 	originalMigrationsPath := os.Getenv("MIGRATIONS_PATH")
 	defer func() {
-		os.Setenv("DB_URL", originalDBURL)
-		os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
+		_ = os.Setenv("DB_URL", originalDBURL)
+		_ = os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
 	}()
 
-	os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
-	os.Unsetenv("MIGRATIONS_PATH")
+	_ = os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
+	_ = os.Unsetenv("MIGRATIONS_PATH")
 
 	_, err := server.NewServer()
 	if err == nil {
@@ -63,18 +63,18 @@ func TestNewServer_DefaultPort(t *testing.T) {
 	originalDisableSeed := os.Getenv("DISABLE_SEED")
 
 	defer func() {
-		os.Setenv("PORT", originalPort)
-		os.Setenv("DB_URL", originalDBURL)
-		os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
-		os.Setenv("DISABLE_MIGRATIONS", originalDisableMigrations)
-		os.Setenv("DISABLE_SEED", originalDisableSeed)
+		_ = os.Setenv("PORT", originalPort)
+		_ = os.Setenv("DB_URL", originalDBURL)
+		_ = os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
+		_ = os.Setenv("DISABLE_MIGRATIONS", originalDisableMigrations)
+		_ = os.Setenv("DISABLE_SEED", originalDisableSeed)
 	}()
 
-	os.Unsetenv("PORT")
-	os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
-	os.Setenv("MIGRATIONS_PATH", "/tmp/migrations")
-	os.Setenv("DISABLE_MIGRATIONS", "true")
-	os.Setenv("DISABLE_SEED", "true")
+	_ = os.Unsetenv("PORT")
+	_ = os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
+	_ = os.Setenv("MIGRATIONS_PATH", "/tmp/migrations")
+	_ = os.Setenv("DISABLE_MIGRATIONS", "true")
+	_ = os.Setenv("DISABLE_SEED", "true")
 
 	// This test would fail in a real environment due to database connection
 	// but demonstrates the port configuration logic
@@ -94,18 +94,18 @@ func TestNewServer_CustomPort(t *testing.T) {
 	originalDisableSeed := os.Getenv("DISABLE_SEED")
 
 	defer func() {
-		os.Setenv("PORT", originalPort)
-		os.Setenv("DB_URL", originalDBURL)
-		os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
-		os.Setenv("DISABLE_MIGRATIONS", originalDisableMigrations)
-		os.Setenv("DISABLE_SEED", originalDisableSeed)
+		_ = os.Setenv("PORT", originalPort)
+		_ = os.Setenv("DB_URL", originalDBURL)
+		_ = os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
+		_ = os.Setenv("DISABLE_MIGRATIONS", originalDisableMigrations)
+		_ = os.Setenv("DISABLE_SEED", originalDisableSeed)
 	}()
 
-	os.Setenv("PORT", "9090")
-	os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
-	os.Setenv("MIGRATIONS_PATH", "/tmp/migrations")
-	os.Setenv("DISABLE_MIGRATIONS", "true")
-	os.Setenv("DISABLE_SEED", "true")
+	_ = os.Setenv("PORT", "9090")
+	_ = os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
+	_ = os.Setenv("MIGRATIONS_PATH", "/tmp/migrations")
+	_ = os.Setenv("DISABLE_MIGRATIONS", "true")
+	_ = os.Setenv("DISABLE_SEED", "true")
 
 	// This test would fail in a real environment due to database connection
 	// but demonstrates the port configuration logic
@@ -198,12 +198,12 @@ func TestBasicAuthMiddleware(t *testing.T) {
 	originalUsername := os.Getenv("USERNAME")
 	originalPassword := os.Getenv("PASSWORD")
 	defer func() {
-		os.Setenv("USERNAME", originalUsername)
-		os.Setenv("PASSWORD", originalPassword)
+		_ = os.Setenv("USERNAME", originalUsername)
+		_ = os.Setenv("PASSWORD", originalPassword)
 	}()
 
-	os.Setenv("USERNAME", "testuser")
-	os.Setenv("PASSWORD", "testpass")
+	_ = os.Setenv("USERNAME", "testuser")
+	_ = os.Setenv("PASSWORD", "testpass")
 
 	testServer := &TestServer{
 		db: &MockDatabaseService{},

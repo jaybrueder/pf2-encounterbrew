@@ -160,7 +160,7 @@ func Run(dbService database.Service) error {
 }
 
 func UpsertSeedFile(db database.Service, filePath string, table string) (bool, error) {
-	data, err := os.ReadFile(filePath)
+	data, err := os.ReadFile(filePath) // #nosec G304 - file path is controlled and validated
 	if err != nil {
 		return false, fmt.Errorf("unable to read file %s: %w", filePath, err)
 	}
@@ -221,7 +221,7 @@ func UpsertSeedFile(db database.Service, filePath string, table string) (bool, e
 }
 
 func UpsertSeedParties(db database.Service, filePath string) error {
-	data, err := os.ReadFile(filePath)
+	data, err := os.ReadFile(filePath) // #nosec G304 - file path is controlled and validated
 	if err != nil {
 		return fmt.Errorf("unable to read parties file '%s': %w", filePath, err)
 	}

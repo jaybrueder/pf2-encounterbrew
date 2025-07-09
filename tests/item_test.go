@@ -7,6 +7,11 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
+const (
+	reactionTime    = "reaction"
+	testSwordPrefix = "Test sword, "
+)
+
 func createSampleItem() models.Item {
 	return models.Item{
 		ID: "test-item-id",
@@ -509,7 +514,7 @@ func TestItem_HasCastTime_False_OneToThree(t *testing.T) {
 
 func TestItem_HasCastTime_False_Reaction(t *testing.T) {
 	item := createSampleItem()
-	item.System.Time.Value = "reaction"
+	item.System.Time.Value = reactionTime
 
 	if item.HasCastTime() {
 		t.Error("expected HasCastTime to return false for 'reaction'")
@@ -549,10 +554,10 @@ func TestItem_GetSpellTime_OneToThree(t *testing.T) {
 
 func TestItem_GetSpellTime_Other(t *testing.T) {
 	item := createSampleItem()
-	item.System.Time.Value = "reaction"
+	item.System.Time.Value = reactionTime
 	time := item.GetSpellTime()
 
-	expected := "reaction"
+	expected := reactionTime
 	if time != expected {
 		t.Errorf("expected '%s', got '%s'", expected, time)
 	}
@@ -704,7 +709,7 @@ func TestItem_FormatEquipmentName(t *testing.T) {
 	item := createSampleItem()
 	formatted := item.FormatEquipmentName()
 
-	expected := "Test sword, "
+	expected := testSwordPrefix
 	if formatted != expected {
 		t.Errorf("expected '%s', got '%s'", expected, formatted)
 	}
@@ -750,7 +755,7 @@ func TestItem_FormatWeaponName_NoRunes(t *testing.T) {
 	item.System.Runes.Striking = 0
 	formatted := item.FormatWeaponName()
 
-	expected := "Test sword, "
+	expected := testSwordPrefix
 	if formatted != expected {
 		t.Errorf("expected '%s', got '%s'", expected, formatted)
 	}
@@ -760,7 +765,7 @@ func TestItem_FormatConsumableName(t *testing.T) {
 	item := createSampleItem()
 	formatted := item.FormatConsumableName()
 
-	expected := "Test sword, "
+	expected := testSwordPrefix
 	if formatted != expected {
 		t.Errorf("expected '%s', got '%s'", expected, formatted)
 	}

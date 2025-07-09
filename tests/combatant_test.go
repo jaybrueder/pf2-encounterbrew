@@ -207,7 +207,7 @@ func TestPlayer_Update_NilDatabase(t *testing.T) {
 		t.Error("expected error when database is nil, got nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -239,7 +239,7 @@ func TestPlayerDelete_NilDatabase(t *testing.T) {
 		t.Error("expected error when database is nil, got nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -559,7 +559,7 @@ func TestGetMonster_NilDatabase(t *testing.T) {
 		t.Error("expected empty monster when database is nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}

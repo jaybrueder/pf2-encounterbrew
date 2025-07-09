@@ -132,7 +132,7 @@ func TestGetUserByID_NilDatabase(t *testing.T) {
 		t.Error("expected user to be nil when database is nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}

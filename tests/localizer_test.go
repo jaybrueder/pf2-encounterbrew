@@ -92,7 +92,7 @@ func createTestJSONFile(tb testing.TB, data map[string]interface{}) string {
 		tb.Fatalf("Failed to marshal test data: %v", err)
 	}
 
-	if err := os.WriteFile(jsonFile, jsonData, 0644); err != nil {
+	if err := os.WriteFile(jsonFile, jsonData, 0600); err != nil {
 		tb.Fatalf("Failed to write test JSON file: %v", err)
 	}
 
@@ -152,7 +152,7 @@ func TestGetLocalizerWithInvalidJSON(t *testing.T) {
 	invalidJSONFile := filepath.Join(tmpDir, "invalid.json")
 	invalidJSON := `{"invalid": json}`
 
-	if err := os.WriteFile(invalidJSONFile, []byte(invalidJSON), 0644); err != nil {
+	if err := os.WriteFile(invalidJSONFile, []byte(invalidJSON), 0600); err != nil {
 		t.Fatalf("Failed to write invalid JSON file: %v", err)
 	}
 
@@ -554,7 +554,7 @@ func BenchmarkGetLocalizer(b *testing.B) {
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		utils.GetLocalizer(jsonFile)
+		_, _ = utils.GetLocalizer(jsonFile)
 	}
 }
 

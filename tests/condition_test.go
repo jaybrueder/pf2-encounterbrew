@@ -40,8 +40,8 @@ func TestGetCondition_Success(t *testing.T) {
 		t.Errorf("expected condition ID %d, got %d", conditionID, condition.ID)
 	}
 
-	if condition.Data.Name != "Test Condition" {
-		t.Errorf("expected condition name 'Test Condition', got '%s'", condition.Data.Name)
+	if condition.Data.Name != TestConditionName {
+		t.Errorf("expected condition name '%s', got '%s'", TestConditionName, condition.Data.Name)
 	}
 
 	if condition.Data.System.Value.Value != 5 {
@@ -140,7 +140,7 @@ func TestGetCondition_NilDatabase(t *testing.T) {
 		t.Error("expected empty condition when database is nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -258,7 +258,7 @@ func TestGetGroupedConditions_NilDatabase(t *testing.T) {
 		t.Error("expected nil grouped conditions when database is nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
