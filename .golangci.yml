@@ -1,18 +1,18 @@
+version: 2
+
 linters:
   enable:
-    - gofmt
     - govet
     - gocyclo
     - ineffassign
     - staticcheck
-    - gosimple
     - goconst
     - errcheck
     - gosec
     - misspell
 
 run:
-  deadline: 5m
+  timeout: 5m
 
 issues:
   exclude-rules:
