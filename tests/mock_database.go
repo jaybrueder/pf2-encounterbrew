@@ -13,12 +13,15 @@ import (
 
 // Test constants to avoid duplication across files
 const (
-	TestUserID      = 1
-	TestPartyID     = 1
-	TestEncounterID = 1
-	TestMonsterID   = 1
-	TestPlayerID    = 1
-	TestConditionID = 1
+	TestUserID        = 1
+	TestPartyID       = 1
+	TestEncounterID   = 1
+	TestMonsterID     = 1
+	TestPlayerID      = 1
+	TestMonsterName   = "Test Monster"
+	TestConditionName = "Test Condition"
+	TestConditionID   = 1
+	DBServiceNilError = "database service is nil"
 )
 
 var ErrNotFound = errors.New("not found")
@@ -32,60 +35,60 @@ type GroupedCondition struct {
 // MockDatabaseService implements the database.Service interface for testing
 type MockDatabaseService struct {
 	// Basic database operations
-	HealthFunc           func() map[string]string
-	CloseFunc            func() error
-	InsertFunc           func(table string, columns []string, values ...interface{}) (sql.Result, error)
-	QueryFunc            func(query string, args ...interface{}) (*sql.Rows, error)
-	QueryRowFunc         func(query string, args ...interface{}) *sql.Row
-	ExecFunc             func(query string, args ...interface{}) (sql.Result, error)
-	BeginFunc            func() (*sql.Tx, error)
+	HealthFunc            func() map[string]string
+	CloseFunc             func() error
+	InsertFunc            func(table string, columns []string, values ...interface{}) (sql.Result, error)
+	QueryFunc             func(query string, args ...interface{}) (*sql.Rows, error)
+	QueryRowFunc          func(query string, args ...interface{}) *sql.Row
+	ExecFunc              func(query string, args ...interface{}) (sql.Result, error)
+	BeginFunc             func() (*sql.Tx, error)
 	InsertReturningIDFunc func(table string, columns []string, values ...interface{}) (int, error)
 
 	// Model-specific operations
-	GetAllPartiesFunc             func() ([]models.Party, error)
-	GetPartyFunc                  func(partyID int) (models.Party, error)
-	PartyExistsFunc               func(partyID int) (bool, error)
-	UpdateWithPlayersFunc         func(party models.Party, playersToDelete []int) error
-	DeleteFunc                    func(party models.Party) error
-	PlayerDeleteFunc              func(playerID int) error
-	GetAllEncountersFunc          func() ([]models.Encounter, error)
-	GetEncounterFunc              func(encounterID int) (models.Encounter, error)
+	GetAllPartiesFunc              func() ([]models.Party, error)
+	GetPartyFunc                   func(partyID int) (models.Party, error)
+	PartyExistsFunc                func(partyID int) (bool, error)
+	UpdateWithPlayersFunc          func(party models.Party, playersToDelete []int) error
+	DeleteFunc                     func(party models.Party) error
+	PlayerDeleteFunc               func(playerID int) error
+	GetAllEncountersFunc           func() ([]models.Encounter, error)
+	GetEncounterFunc               func(encounterID int) (models.Encounter, error)
 	GetEncounterWithCombatantsFunc func(encounterID int) (models.Encounter, error)
-	CreateEncounterFunc           func(name string, partyID int) (int, error)
-	UpdateEncounterFunc           func(encounterID int, name string, partyID int) error
-	DeleteEncounterFunc           func(encounterID int) error
-	SearchMonstersFunc            func(search string) ([]models.Monster, error)
-	GetMonsterFunc                func(monsterID int) (models.Monster, error)
-	GetAllMonstersFunc            func() ([]models.Monster, error)
-	AddMonsterToEncounterFunc     func(encounterID, monsterID, levelAdjustment, initiative int) (models.Encounter, error)
+	CreateEncounterFunc            func(name string, partyID int) (int, error)
+	UpdateEncounterFunc            func(encounterID int, name string, partyID int) error
+	DeleteEncounterFunc            func(encounterID int) error
+	SearchMonstersFunc             func(search string) ([]models.Monster, error)
+	GetMonsterFunc                 func(monsterID int) (models.Monster, error)
+	GetAllMonstersFunc             func() ([]models.Monster, error)
+	AddMonsterToEncounterFunc      func(encounterID, monsterID, levelAdjustment, initiative int) (models.Encounter, error)
 	RemoveMonsterFromEncounterFunc func(encounterID, associationID int) error
 	RemovePlayerFromEncounterFunc  func(encounterID, associationID int) error
-	GetGroupedConditionsFunc      func() ([]GroupedCondition, error)
-	GetConditionFunc              func(conditionID int) (models.Condition, error)
-	UpdateTurnAndRoundFunc        func(turn, round, encounterID int) error
+	GetGroupedConditionsFunc       func() ([]GroupedCondition, error)
+	GetConditionFunc               func(conditionID int) (models.Condition, error)
+	UpdateTurnAndRoundFunc         func(turn, round, encounterID int) error
 
 	// Call counters for testing
-	GetAllPartiesCallCount             int
-	GetPartyCallCount                  int
-	PartyExistsCallCount               int
-	UpdateWithPlayersCallCount         int
-	DeleteCallCount                    int
-	PlayerDeleteCallCount              int
-	GetAllEncountersCallCount          int
-	GetEncounterCallCount              int
+	GetAllPartiesCallCount              int
+	GetPartyCallCount                   int
+	PartyExistsCallCount                int
+	UpdateWithPlayersCallCount          int
+	DeleteCallCount                     int
+	PlayerDeleteCallCount               int
+	GetAllEncountersCallCount           int
+	GetEncounterCallCount               int
 	GetEncounterWithCombatantsCallCount int
-	CreateEncounterCallCount           int
-	UpdateEncounterCallCount           int
-	DeleteEncounterCallCount           int
-	SearchMonstersCallCount            int
-	GetMonsterCallCount                int
-	GetAllMonstersCallCount            int
-	AddMonsterToEncounterCallCount     int
+	CreateEncounterCallCount            int
+	UpdateEncounterCallCount            int
+	DeleteEncounterCallCount            int
+	SearchMonstersCallCount             int
+	GetMonsterCallCount                 int
+	GetAllMonstersCallCount             int
+	AddMonsterToEncounterCallCount      int
 	RemoveMonsterFromEncounterCallCount int
 	RemovePlayerFromEncounterCallCount  int
-	GetGroupedConditionsCallCount      int
-	GetConditionCallCount              int
-	UpdateTurnAndRoundCallCount        int
+	GetGroupedConditionsCallCount       int
+	GetConditionCallCount               int
+	UpdateTurnAndRoundCallCount         int
 }
 
 // Basic database operations
@@ -332,11 +335,11 @@ func NewStandardMockDB(t *testing.T) (*StandardMockDB, func()) {
 	}
 
 	return &StandardMockDB{
-		DB:   db,
-		Mock: mock,
-	}, func() {
-		db.Close()
-	}
+			DB:   db,
+			Mock: mock,
+		}, func() {
+			_ = db.Close()
+		}
 }
 
 // Implement database.Service interface for StandardMockDB
@@ -371,16 +374,16 @@ func (s *StandardMockDB) Begin() (*sql.Tx, error) {
 func (s *StandardMockDB) InsertReturningID(table string, columns []string, values ...interface{}) (int, error) {
 	// Build the same query as the real implementation
 	// Build the query string with RETURNING id (same as real implementation)
-	query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s) RETURNING id",
+	query := fmt.Sprintf("INSERT INTO %s (%s) VALUES (%s) RETURNING id", // #nosec G201 - Test code with controlled inputs
 		table,
 		strings.Join(columns, ", "),
 		strings.Join(strings.Split(strings.Repeat("?", len(columns)), ""), ", "))
-	
+
 	// Replace ? with $1, $2, etc. for PostgreSQL (same as real implementation)
 	for i := 1; strings.Contains(query, "?"); i++ {
 		query = strings.Replace(query, "?", fmt.Sprintf("$%d", i), 1)
 	}
-	
+
 	row := s.DB.QueryRow(query, values...)
 	var id int
 	err := row.Scan(&id)
@@ -401,11 +404,11 @@ func (s *StandardMockDB) SetupMockForGetAllParties(parties []models.Party) {
 		}
 		rows.AddRow(party.ID, party.Name, party.UserID, userName)
 	}
-	
+
 	s.Mock.ExpectQuery(`SELECT p\.id, p\.name, p\.user_id, u\.name AS user_name FROM parties p JOIN users u ON p\.user_id = u\.id WHERE p\.user_id = \$1 ORDER BY p\.id`).
 		WithArgs(1).
 		WillReturnRows(rows)
-	
+
 	// For each party, mock the player query
 	for _, party := range parties {
 		playerRows := sqlmock.NewRows([]string{"id", "name", "level", "hp", "ac", "fort", "ref", "will"})
@@ -426,14 +429,14 @@ func (s *StandardMockDB) SetupMockForGetParty(party models.Party) {
 		userName = party.User.Name
 		userID = party.User.ID
 	}
-	
+
 	rows := sqlmock.NewRows([]string{"id", "name", "user_id", "user_name"}).
 		AddRow(party.ID, party.Name, userID, userName)
-	
+
 	s.Mock.ExpectQuery(`SELECT p.id, p.name, p.user_id, u.name AS user_name`).
 		WithArgs(1, party.ID).
 		WillReturnRows(rows)
-	
+
 	// Mock the players query - include perception column
 	playerRows := sqlmock.NewRows([]string{"id", "name", "level", "hp", "ac", "fort", "ref", "will", "perception"})
 	for _, player := range party.Players {
@@ -488,7 +491,7 @@ func (s *StandardMockDB) SetupMockForCreateEncounter(encounterID int, partyID in
 	s.Mock.ExpectQuery(`INSERT INTO encounters \(name, party_id, user_id\) VALUES \(\$1, \$2, \$3\) RETURNING id`).
 		WithArgs(sqlmock.AnyArg(), partyID, 1).
 		WillReturnRows(sqlmock.NewRows([]string{"id"}).AddRow(encounterID))
-	
+
 	// Mock getting players for the party
 	playerRows := sqlmock.NewRows([]string{"id", "hp"})
 	for _, player := range players {
@@ -497,7 +500,7 @@ func (s *StandardMockDB) SetupMockForCreateEncounter(encounterID int, partyID in
 	s.Mock.ExpectQuery(`SELECT id, hp FROM players WHERE party_id = \$1`).
 		WithArgs(partyID).
 		WillReturnRows(playerRows)
-	
+
 	// Mock inserting each player into the encounter
 	for _, player := range players {
 		s.Mock.ExpectExec(`INSERT INTO encounter_players \(encounter_id, player_id, initiative, hp\) VALUES \(\$1, \$2, \$3, \$4\)`).
@@ -516,10 +519,10 @@ func (s *StandardMockDB) SetupMockForGetEncounter(encounter models.Encounter) {
 	if encounter.Party != nil {
 		partyName = encounter.Party.Name
 	}
-	
+
 	rows := sqlmock.NewRows([]string{"id", "name", "user_id", "party_id", "turn", "round", "user_name", "party_name"}).
 		AddRow(encounter.ID, encounter.Name, encounter.UserID, encounter.PartyID, encounter.Turn, encounter.Round, userName, partyName)
-	
+
 	s.Mock.ExpectQuery(`SELECT e\.id, e\.name, e\.user_id, e\.party_id, e\.turn, e\.round, u\.name AS user_name, p\.name AS party_name FROM encounters e JOIN users u ON e\.user_id = u\.id JOIN parties p ON e\.party_id = p\.id WHERE e\.user_id = \$1 AND e\.id = \$2`).
 		WithArgs(1, encounter.ID).
 		WillReturnRows(rows)
@@ -536,20 +539,20 @@ func (s *StandardMockDB) SetupMockForGetEncounterWithCombatants(encounter models
 	if encounter.Party != nil {
 		partyName = encounter.Party.Name
 	}
-	
+
 	rows := sqlmock.NewRows([]string{"id", "name", "user_id", "party_id", "turn", "round", "user_name", "party_name"}).
 		AddRow(encounter.ID, encounter.Name, encounter.UserID, encounter.PartyID, encounter.Turn, encounter.Round, userName, partyName)
-	
+
 	s.Mock.ExpectQuery(`SELECT e\.id, e\.name, e\.user_id, e\.party_id, e\.turn, e\.round, u\.name AS user_name, p\.name AS party_name FROM encounters e JOIN users u ON e\.user_id = u\.id JOIN parties p ON e\.party_id = p\.id WHERE e\.user_id = \$1 AND e\.id = \$2`).
 		WithArgs(1, encounter.ID).
 		WillReturnRows(rows)
-	
+
 	// Mock the monsters query
 	monsterRows := sqlmock.NewRows([]string{"id", "data", "level_adjustment", "id", "initiative", "current_hp", "enumeration"})
 	s.Mock.ExpectQuery(`SELECT m\.id, m\.data, em\.level_adjustment, em\.id, em\.initiative, em\.hp as current_hp, em\.enumeration FROM monsters m JOIN encounter_monsters em ON m\.id = em\.monster_id WHERE em\.encounter_id = \$1`).
 		WithArgs(encounter.ID).
 		WillReturnRows(monsterRows)
-	
+
 	// Mock the players query
 	playerRows := sqlmock.NewRows([]string{"id", "name", "level", "hp", "ac", "fort", "ref", "will", "initiative", "association_id", "current_hp"})
 	s.Mock.ExpectQuery(`SELECT p\.id, p\.name, p\.level, p\.hp, p\.ac, p\.fort, p\.ref, p\.will, ep\.initiative, ep\.id as association_id, ep\.hp as current_hp FROM players p JOIN encounter_players ep ON p\.id = ep\.player_id WHERE ep\.encounter_id = \$1`).
@@ -563,12 +566,12 @@ func (s *StandardMockDB) SetupMockForUpdateEncounter(partyID int, encounterID in
 	s.Mock.ExpectQuery("SELECT EXISTS").
 		WithArgs(partyID).
 		WillReturnRows(sqlmock.NewRows([]string{"exists"}).AddRow(true))
-	
+
 	// Then expect the current party ID check
 	s.Mock.ExpectQuery("SELECT party_id FROM encounters").
 		WithArgs(encounterID).
 		WillReturnRows(sqlmock.NewRows([]string{"party_id"}).AddRow(partyID))
-	
+
 	// Since party_id is the same, expect only name update
 	s.Mock.ExpectExec("UPDATE encounters SET name").
 		WithArgs(name, encounterID).
@@ -608,25 +611,25 @@ func (s *StandardMockDB) SetupMockForGetMonster(monster models.Monster) {
 func (s *StandardMockDB) SetupMockForAddMonsterToEncounter(encounter models.Encounter) {
 	// 1. Transaction begin (though the code doesn't use it properly)
 	s.Mock.ExpectBegin()
-	
+
 	// 2. Get monster data query
 	s.Mock.ExpectQuery(`SELECT data FROM monsters WHERE id = \$1`).
 		WithArgs(sqlmock.AnyArg()).
-		WillReturnRows(sqlmock.NewRows([]string{"data"}).AddRow(`{"name":"Test Monster","system":{"attributes":{"hp":{"max":25,"value":25}}}}`))
-	
+		WillReturnRows(sqlmock.NewRows([]string{"data"}).AddRow(`{"name":"` + TestMonsterName + `","system":{"attributes":{"hp":{"max":25,"value":25}}}}`))
+
 	// 3. Get max enumeration query
 	s.Mock.ExpectQuery(`SELECT COALESCE\(MAX\(em\.enumeration\), 0\)`).
-		WithArgs(encounter.ID, "Test Monster").
+		WithArgs(encounter.ID, TestMonsterName).
 		WillReturnRows(sqlmock.NewRows([]string{"max"}).AddRow(0))
-	
+
 	// 4. Insert into encounter_monsters
 	s.Mock.ExpectExec(`INSERT INTO encounter_monsters \(encounter_id, monster_id, level_adjustment, initiative, hp, enumeration\) VALUES \(\$1, \$2, \$3, \$4, \$5, \$6\)`).
 		WithArgs(encounter.ID, sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg(), sqlmock.AnyArg()).
 		WillReturnResult(sqlmock.NewResult(1, 1))
-	
+
 	// 5. Transaction commit
 	s.Mock.ExpectCommit()
-	
+
 	// 6. Mock the return encounter query
 	s.SetupMockForGetEncounterWithCombatants(encounter)
 }
@@ -713,7 +716,7 @@ func CreateSampleMonster() models.Monster {
 		Initiative:      15,
 		Conditions:      []models.Condition{},
 	}
-	monster.Data.Name = "Test Monster"
+	monster.Data.Name = TestMonsterName
 	monster.Data.System.Details.Level.Value = 3
 	monster.Data.System.Attributes.Hp.Value = 35
 	monster.Data.System.Attributes.Hp.Max = 35
@@ -750,7 +753,7 @@ func CreateSampleCondition() models.Condition {
 	condition := models.Condition{
 		ID: TestConditionID,
 	}
-	condition.Data.Name = "Test Condition"
+	condition.Data.Name = TestConditionName
 	condition.Data.System.Value.Value = 0
 	return condition
 }
@@ -760,7 +763,7 @@ func CreateSampleConditionData() map[string]interface{} {
 	return map[string]interface{}{
 		"_id":  "condition-test-id",
 		"img":  "path/to/condition.jpg",
-		"name": "Test Condition",
+		"name": TestConditionName,
 		"system": map[string]interface{}{
 			"description": map[string]interface{}{
 				"value": "Test condition description",

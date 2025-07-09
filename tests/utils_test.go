@@ -7,7 +7,7 @@ import (
 )
 
 // TestSuite: Utils Module Tests
-// 
+//
 // This test suite provides comprehensive testing for the utils.go module,
 // which contains various utility functions for formatting and text manipulation.
 // These utilities are used throughout the application for string processing,
@@ -22,7 +22,7 @@ import (
 // - ModifyDamage: Modifies damage strings with modifiers
 // - PositiveOrNegative: Formats integers with appropriate signs
 //
-// The module is used extensively in items.go, statblock.templ, 
+// The module is used extensively in items.go, statblock.templ,
 // condition.go, and monster.go for various formatting purposes.
 //
 // Note: Some functions in utils.go have bugs that are documented in the tests.
@@ -80,7 +80,6 @@ func TestRemoveTrailingComma(t *testing.T) {
 			input:    "fire, cold, , ",
 			expected: "fire, cold, ",
 		},
-
 	}
 
 	for _, tc := range testCases {
@@ -106,11 +105,11 @@ func TestRemoveTrailingCommaBug(t *testing.T) {
 				t.Error("Expected panic on single character input, but function didn't panic")
 			}
 		}()
-		
-		// This will panic
-		utils.RemoveTrailingComma("a")
+
+		// This will panic - we're testing panic behavior, not the return value
+		_ = utils.RemoveTrailingComma("a")
 	})
-	
+
 	t.Run("Empty string does not panic", func(t *testing.T) {
 		// Empty string should not panic because the function checks len(s) > 0
 		result := utils.RemoveTrailingComma("")
@@ -190,7 +189,7 @@ func TestCapitalizeFirst(t *testing.T) {
 				t.Skip("Skipping test that would cause panic due to bug in CapitalizeFirst function")
 				return
 			}
-			
+
 			result := utils.CapitalizeFirst(tc.input)
 			if result != tc.expected {
 				t.Errorf("CapitalizeFirst(%q) = %q, expected %q", tc.input, result, tc.expected)
@@ -212,7 +211,7 @@ func TestCapitalizeFirstBug(t *testing.T) {
 				t.Error("Expected panic on empty string input, but function didn't panic")
 			}
 		}()
-		
+
 		// This will panic
 		utils.CapitalizeFirst("")
 	})

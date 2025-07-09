@@ -10,7 +10,6 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
-
 // Test data helpers - use consolidated fixtures from mock_database.go
 
 // CreateEncounter Tests
@@ -76,7 +75,7 @@ func TestCreateEncounter_NilDatabase(t *testing.T) {
 		t.Error("expected empty encounter when database is nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -232,7 +231,7 @@ func TestUpdateEncounter_NilDatabase(t *testing.T) {
 		t.Error("expected error when database is nil, got nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -369,7 +368,7 @@ func TestDeleteEncounter_NilDatabase(t *testing.T) {
 		t.Error("expected error when database is nil, got nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -463,7 +462,7 @@ func TestGetEncounter_NilDatabase(t *testing.T) {
 		t.Error("expected empty encounter when database is nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -511,7 +510,7 @@ func TestGetAllEncounters_NilDatabase(t *testing.T) {
 		t.Error("expected nil encounters when database is nil")
 	}
 
-	expectedErrorMsg := "database service is nil"
+	expectedErrorMsg := DBServiceNilError
 	if err.Error() != expectedErrorMsg {
 		t.Errorf("expected error message '%s', got '%s'", expectedErrorMsg, err.Error())
 	}
@@ -598,7 +597,7 @@ func TestAddMonsterToEncounter_TransactionError(t *testing.T) {
 		t.Error("expected empty encounter when transaction fails")
 	}
 
-	if !strings.Contains(err.Error(), "Error starting transaction") {
+	if !strings.Contains(err.Error(), "error starting transaction") {
 		t.Errorf("expected transaction error, got: %v", err)
 	}
 
@@ -679,7 +678,7 @@ func TestEncounter_GetPartyName(t *testing.T) {
 
 func TestEncounter_GetDifficulty(t *testing.T) {
 	encounter := CreateSampleEncounter()
-	
+
 	// Add players
 	player1 := models.Player{ID: 1, Level: 5}
 	player2 := models.Player{ID: 2, Level: 5}

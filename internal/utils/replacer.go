@@ -41,7 +41,7 @@ func (r *Replacer) ProcessText(input string) string {
 func (r *Replacer) parseAndReplacePatterns(input string) string {
 	result := ""
 	i := 0
-	
+
 	for i < len(input) {
 		// Find next @ symbol
 		atPos := strings.Index(input[i:], "@")
@@ -50,11 +50,11 @@ func (r *Replacer) parseAndReplacePatterns(input string) string {
 			result += input[i:]
 			break
 		}
-		
+
 		// Append text before @
 		result += input[i : i+atPos]
 		i += atPos
-		
+
 		// Try to parse @ pattern
 		pattern, patternLen := r.parsePattern(input[i:])
 		if patternLen > 0 {
@@ -67,7 +67,7 @@ func (r *Replacer) parseAndReplacePatterns(input string) string {
 			i++
 		}
 	}
-	
+
 	return result
 }
 
@@ -75,28 +75,28 @@ func (r *Replacer) parsePattern(input string) (replacement string, length int) {
 	if len(input) < 2 || input[0] != '@' {
 		return "", 0
 	}
-	
+
 	// Find pattern type (word after @)
 	wordStart := 1
 	wordEnd := wordStart
-	for wordEnd < len(input) && ((input[wordEnd] >= 'a' && input[wordEnd] <= 'z') || 
-		(input[wordEnd] >= 'A' && input[wordEnd] <= 'Z') || 
-		(input[wordEnd] >= '0' && input[wordEnd] <= '9') || 
+	for wordEnd < len(input) && ((input[wordEnd] >= 'a' && input[wordEnd] <= 'z') ||
+		(input[wordEnd] >= 'A' && input[wordEnd] <= 'Z') ||
+		(input[wordEnd] >= '0' && input[wordEnd] <= '9') ||
 		input[wordEnd] == '_') {
 		wordEnd++
 	}
-	
+
 	if wordEnd == wordStart || wordEnd >= len(input) || input[wordEnd] != '[' {
 		return "", 0 // No valid pattern type or no opening bracket
 	}
-	
+
 	patternType := input[wordStart:wordEnd]
-	
+
 	// Find matching closing bracket
 	bracketStart := wordEnd
 	bracketLevel := 0
 	contentEnd := -1
-	
+
 	for i := bracketStart; i < len(input); i++ {
 		if input[i] == '[' {
 			bracketLevel++
@@ -108,17 +108,17 @@ func (r *Replacer) parsePattern(input string) (replacement string, length int) {
 			}
 		}
 	}
-	
+
 	if contentEnd == -1 {
 		return "", 0 // No matching bracket
 	}
-	
+
 	content := input[bracketStart+1 : contentEnd]
-	
+
 	// Check for custom text in {}
 	customText := ""
 	totalLength := contentEnd + 1
-	
+
 	if contentEnd+1 < len(input) && input[contentEnd+1] == '{' {
 		braceEnd := strings.Index(input[contentEnd+1:], "}")
 		if braceEnd != -1 {
@@ -126,12 +126,10 @@ func (r *Replacer) parsePattern(input string) (replacement string, length int) {
 			totalLength = contentEnd + 1 + braceEnd + 1
 		}
 	}
-	
+
 	originalMatch := input[:totalLength]
 	replacement = r.handlePattern(patternType, content, customText, originalMatch)
-	
 
-	
 	return replacement, totalLength
 }
 
@@ -159,22 +157,22 @@ func (r *Replacer) handleCheck(content, customText string) string {
 	if content == "" {
 		return ""
 	}
-	
+
 	// If content contains @ symbols, it's likely a nested pattern - return original
 	if strings.Contains(content, "@") {
 		return fmt.Sprintf("@Check[%s]", content)
 	}
-	
+
 	parts := strings.Split(content, "|")
 	if len(parts) < 1 {
 		return content // Fallback
 	}
-	
+
 	checkType := parts[0]
 	dc := ""
 	isBasic := false
 	showDC := false
-	
+
 	for _, part := range parts[1:] {
 		if strings.HasPrefix(part, "dc:") {
 			dc = strings.TrimPrefix(part, "dc:")
@@ -184,11 +182,11 @@ func (r *Replacer) handleCheck(content, customText string) string {
 			showDC = true
 		}
 	}
-	
+
 	if dc == "" {
 		return checkType // Fallback if no DC found
 	}
-	
+
 	if isBasic {
 		return fmt.Sprintf("DC %s basic %s", dc, checkType)
 	}
@@ -200,12 +198,12 @@ func (r *Replacer) handleCheck(content, customText string) string {
 
 func (r *Replacer) handleDamage(content, customText string) string {
 	// Handle patterns like "11d6[acid]" or "(2d8 + 5)[bludgeoning]" or "(@item.level)[bleed]"
-	
+
 	// If content contains @ symbols (except @item), it's likely a nested pattern - return original
 	if strings.Contains(content, "@") && !strings.Contains(content, "@item.level") {
 		return fmt.Sprintf("@Damage[%s]", content)
 	}
-	
+
 	// Special case for (@item.level) pattern
 	if strings.Contains(content, "@item.level") {
 		damageTypeRegex := regexp.MustCompile(`\[([^\]]+)\]$`)
@@ -214,23 +212,23 @@ func (r *Replacer) handleDamage(content, customText string) string {
 			return matches[1] // Return just the damage type
 		}
 	}
-	
+
 	// Find the last bracket pair which should contain the damage type
 	lastBracketStart := strings.LastIndex(content, "[")
 	lastBracketEnd := strings.LastIndex(content, "]")
-	
+
 	if lastBracketStart != -1 && lastBracketEnd != -1 && lastBracketEnd > lastBracketStart {
 		damageType := content[lastBracketStart+1 : lastBracketEnd]
 		damageFormula := strings.TrimSpace(content[:lastBracketStart])
-		
+
 		// Clean up the formula (remove extra parentheses if they wrap the whole thing)
 		if strings.HasPrefix(damageFormula, "(") && strings.HasSuffix(damageFormula, ")") {
 			damageFormula = strings.Trim(damageFormula, "()")
 		}
-		
+
 		return fmt.Sprintf("%s %s", damageFormula, damageType)
 	}
-	
+
 	// Fallback for patterns without clear damage type
 	return content
 }
@@ -240,7 +238,7 @@ func (r *Replacer) handleUUID(content, customText string) string {
 	if strings.Contains(content, "@") {
 		return fmt.Sprintf("@UUID[%s]", content)
 	}
-	
+
 	// If there's custom text, use that
 	if customText != "" {
 		// If custom text contains a number, it's likely a condition level
@@ -249,14 +247,14 @@ func (r *Replacer) handleUUID(content, customText string) string {
 		}
 		return customText
 	}
-	
+
 	// Parse UUID content like "Compendium.pf2e.spells-srd.Item.Bind Undead"
 	// or "Compendium.pf2e.conditionitems.Item.kWc1fhmv9LBiTuei"
 	parts := strings.Split(content, ".")
 	if len(parts) < 4 {
 		return content // Fallback
 	}
-	
+
 	// For Actor UUIDs, extract last word
 	if strings.Contains(content, "Actor") {
 		actorName := parts[len(parts)-1]
@@ -266,14 +264,14 @@ func (r *Replacer) handleUUID(content, customText string) string {
 		}
 		return actorName
 	}
-	
+
 	// For Item UUIDs, get the item name (last part)
 	itemName := parts[len(parts)-1]
-	
+
 	// Replace hyphens and underscores with spaces
 	itemName = strings.ReplaceAll(itemName, "-", " ")
 	itemName = strings.ReplaceAll(itemName, "_", " ")
-	
+
 	// If it looks like an ID (contains random characters), return a generic name
 	if len(itemName) > 10 && r.isLikelyID(itemName) {
 		// Try to get a meaningful name from the compendium type
@@ -293,7 +291,7 @@ func (r *Replacer) handleUUID(content, customText string) string {
 			}
 		}
 	}
-	
+
 	return itemName
 }
 
@@ -302,17 +300,17 @@ func (r *Replacer) handleTemplate(content, customText string) string {
 	if strings.Contains(content, "@") {
 		return fmt.Sprintf("@Template[%s]", content)
 	}
-	
+
 	// Parse content like "line|distance:100" or "emanation|distance:30|traits:arcane,transmutation"
 	parts := strings.Split(content, "|")
 	if len(parts) < 2 {
 		return content // Fallback
 	}
-	
+
 	template := parts[0]
 	distance := ""
 	traits := ""
-	
+
 	for _, part := range parts[1:] {
 		if strings.HasPrefix(part, "distance:") {
 			distance = strings.TrimPrefix(part, "distance:")
@@ -320,17 +318,17 @@ func (r *Replacer) handleTemplate(content, customText string) string {
 			traits = strings.TrimPrefix(part, "traits:")
 		}
 	}
-	
+
 	if distance == "" {
 		return template // Fallback
 	}
-	
+
 	if traits != "" {
 		// Format traits by replacing commas with ", "
 		formattedTraits := strings.ReplaceAll(traits, ",", ", ")
 		return fmt.Sprintf("%s (%s feet, %s)", template, distance, formattedTraits)
 	}
-	
+
 	return fmt.Sprintf("%s (%s feet)", template, distance)
 }
 
@@ -339,7 +337,7 @@ func (r *Replacer) handleLocalize(content, customText string) string {
 	if customText != "" {
 		return customText
 	}
-	
+
 	// Try to extract meaningful text from localization keys
 	parts := strings.Split(content, ".")
 	if len(parts) > 0 {
@@ -349,18 +347,18 @@ func (r *Replacer) handleLocalize(content, customText string) string {
 		lastPart = strings.ReplaceAll(lastPart, "_", " ")
 		return lastPart
 	}
-	
+
 	return content
 }
 
 func (r *Replacer) handleUnknown(patternType, content, customText, originalMatch string) string {
 	// For unknown patterns, try to extract something meaningful
-	
+
 	// If there's custom text, use it
 	if customText != "" {
 		return customText
 	}
-	
+
 	// Try to extract a meaningful value from the content
 	// Look for simple patterns like "value:something"
 	if strings.Contains(content, ":") {
@@ -374,12 +372,12 @@ func (r *Replacer) handleUnknown(patternType, content, customText, originalMatch
 			}
 		}
 	}
-	
+
 	// If content looks simple enough, return it
 	if !strings.Contains(content, "|") && len(content) < 50 {
 		return content
 	}
-	
+
 	// Last resort: return the pattern type
 	return strings.ToLower(patternType)
 }
@@ -397,7 +395,7 @@ func (r *Replacer) isLikelyID(s string) bool {
 	// Check if string looks like a random ID (contains mix of letters and numbers)
 	hasLetter := false
 	hasNumber := false
-	
+
 	for _, r := range s {
 		if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') {
 			hasLetter = true
@@ -405,6 +403,6 @@ func (r *Replacer) isLikelyID(s string) bool {
 			hasNumber = true
 		}
 	}
-	
+
 	return hasLetter && hasNumber && len(s) > 8
 }

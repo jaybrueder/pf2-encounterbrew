@@ -18,15 +18,15 @@ import (
 func TestNewServer_MissingDBURL(t *testing.T) {
 	// Clear environment variables
 	originalDBURL := os.Getenv("DB_URL")
-	defer os.Setenv("DB_URL", originalDBURL)
-	
-	os.Unsetenv("DB_URL")
-	
+	defer func() { _ = os.Setenv("DB_URL", originalDBURL) }()
+
+	_ = os.Unsetenv("DB_URL")
+
 	_, err := server.NewServer()
 	if err == nil {
 		t.Error("Expected error when DB_URL is not set, got nil")
 	}
-	
+
 	if !strings.Contains(err.Error(), "DB_URL environment variable not set") {
 		t.Errorf("Expected error message about DB_URL, got: %v", err)
 	}
@@ -37,18 +37,18 @@ func TestNewServer_MissingMigrationsPath(t *testing.T) {
 	originalDBURL := os.Getenv("DB_URL")
 	originalMigrationsPath := os.Getenv("MIGRATIONS_PATH")
 	defer func() {
-		os.Setenv("DB_URL", originalDBURL)
-		os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
+		_ = os.Setenv("DB_URL", originalDBURL)
+		_ = os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
 	}()
-	
-	os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
-	os.Unsetenv("MIGRATIONS_PATH")
-	
+
+	_ = os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
+	_ = os.Unsetenv("MIGRATIONS_PATH")
+
 	_, err := server.NewServer()
 	if err == nil {
 		t.Error("Expected error when MIGRATIONS_PATH is not set, got nil")
 	}
-	
+
 	if !strings.Contains(err.Error(), "MIGRATIONS_PATH environment variable not set") {
 		t.Errorf("Expected error message about MIGRATIONS_PATH, got: %v", err)
 	}
@@ -61,25 +61,25 @@ func TestNewServer_DefaultPort(t *testing.T) {
 	originalMigrationsPath := os.Getenv("MIGRATIONS_PATH")
 	originalDisableMigrations := os.Getenv("DISABLE_MIGRATIONS")
 	originalDisableSeed := os.Getenv("DISABLE_SEED")
-	
+
 	defer func() {
-		os.Setenv("PORT", originalPort)
-		os.Setenv("DB_URL", originalDBURL)
-		os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
-		os.Setenv("DISABLE_MIGRATIONS", originalDisableMigrations)
-		os.Setenv("DISABLE_SEED", originalDisableSeed)
+		_ = os.Setenv("PORT", originalPort)
+		_ = os.Setenv("DB_URL", originalDBURL)
+		_ = os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
+		_ = os.Setenv("DISABLE_MIGRATIONS", originalDisableMigrations)
+		_ = os.Setenv("DISABLE_SEED", originalDisableSeed)
 	}()
-	
-	os.Unsetenv("PORT")
-	os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
-	os.Setenv("MIGRATIONS_PATH", "/tmp/migrations")
-	os.Setenv("DISABLE_MIGRATIONS", "true")
-	os.Setenv("DISABLE_SEED", "true")
-	
+
+	_ = os.Unsetenv("PORT")
+	_ = os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
+	_ = os.Setenv("MIGRATIONS_PATH", "/tmp/migrations")
+	_ = os.Setenv("DISABLE_MIGRATIONS", "true")
+	_ = os.Setenv("DISABLE_SEED", "true")
+
 	// This test would fail in a real environment due to database connection
 	// but demonstrates the port configuration logic
 	_, err := server.NewServer()
-	
+
 	// We expect an error due to database connection failure, not port configuration
 	if err != nil && !strings.Contains(err.Error(), "database") {
 		t.Errorf("Expected database-related error, got: %v", err)
@@ -92,25 +92,25 @@ func TestNewServer_CustomPort(t *testing.T) {
 	originalMigrationsPath := os.Getenv("MIGRATIONS_PATH")
 	originalDisableMigrations := os.Getenv("DISABLE_MIGRATIONS")
 	originalDisableSeed := os.Getenv("DISABLE_SEED")
-	
+
 	defer func() {
-		os.Setenv("PORT", originalPort)
-		os.Setenv("DB_URL", originalDBURL)
-		os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
-		os.Setenv("DISABLE_MIGRATIONS", originalDisableMigrations)
-		os.Setenv("DISABLE_SEED", originalDisableSeed)
+		_ = os.Setenv("PORT", originalPort)
+		_ = os.Setenv("DB_URL", originalDBURL)
+		_ = os.Setenv("MIGRATIONS_PATH", originalMigrationsPath)
+		_ = os.Setenv("DISABLE_MIGRATIONS", originalDisableMigrations)
+		_ = os.Setenv("DISABLE_SEED", originalDisableSeed)
 	}()
-	
-	os.Setenv("PORT", "9090")
-	os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
-	os.Setenv("MIGRATIONS_PATH", "/tmp/migrations")
-	os.Setenv("DISABLE_MIGRATIONS", "true")
-	os.Setenv("DISABLE_SEED", "true")
-	
+
+	_ = os.Setenv("PORT", "9090")
+	_ = os.Setenv("DB_URL", "postgres://test:test@localhost:5432/test")
+	_ = os.Setenv("MIGRATIONS_PATH", "/tmp/migrations")
+	_ = os.Setenv("DISABLE_MIGRATIONS", "true")
+	_ = os.Setenv("DISABLE_SEED", "true")
+
 	// This test would fail in a real environment due to database connection
 	// but demonstrates the port configuration logic
 	_, err := server.NewServer()
-	
+
 	// We expect an error due to database connection failure, not port configuration
 	if err != nil && !strings.Contains(err.Error(), "database") {
 		t.Errorf("Expected database-related error, got: %v", err)
@@ -123,9 +123,9 @@ func TestRouteRegistration(t *testing.T) {
 	testServer := &TestServer{
 		db: &MockDatabaseService{},
 	}
-	
+
 	handler := testServer.RegisterRoutes()
-	
+
 	// Test cases for different routes
 	testCases := []struct {
 		method       string
@@ -138,16 +138,16 @@ func TestRouteRegistration(t *testing.T) {
 		{"GET", "/encounters", http.StatusUnauthorized, "Encounters endpoint (no auth)"},
 		{"GET", "/parties", http.StatusUnauthorized, "Parties endpoint (no auth)"},
 	}
-	
+
 	for _, tc := range testCases {
 		t.Run(tc.description, func(t *testing.T) {
 			req := httptest.NewRequest(tc.method, tc.path, nil)
 			rec := httptest.NewRecorder()
-			
+
 			handler.ServeHTTP(rec, req)
-			
+
 			if rec.Code != tc.expectedCode {
-				t.Errorf("Expected status code %d for %s %s, got %d", 
+				t.Errorf("Expected status code %d for %s %s, got %d",
 					tc.expectedCode, tc.method, tc.path, rec.Code)
 			}
 		})
@@ -160,31 +160,31 @@ func TestHealthHandler(t *testing.T) {
 		db: &MockDatabaseService{
 			HealthFunc: func() map[string]string {
 				return map[string]string{
-					"status": "up",
+					"status":   "up",
 					"database": "connected",
 				}
 			},
 		},
 	}
-	
+
 	handler := testServer.RegisterRoutes()
-	
+
 	req := httptest.NewRequest("GET", "/health", nil)
 	rec := httptest.NewRecorder()
-	
+
 	handler.ServeHTTP(rec, req)
-	
+
 	if rec.Code != http.StatusOK {
-		t.Errorf("Expected status code %d for health endpoint, got %d", 
+		t.Errorf("Expected status code %d for health endpoint, got %d",
 			http.StatusOK, rec.Code)
 	}
-	
+
 	// Check that response contains JSON
 	contentType := rec.Header().Get("Content-Type")
 	if !strings.Contains(contentType, "application/json") {
 		t.Errorf("Expected JSON content type, got %s", contentType)
 	}
-	
+
 	// Check that response body contains expected health status
 	body := rec.Body.String()
 	if !strings.Contains(body, "up") {
@@ -198,48 +198,48 @@ func TestBasicAuthMiddleware(t *testing.T) {
 	originalUsername := os.Getenv("USERNAME")
 	originalPassword := os.Getenv("PASSWORD")
 	defer func() {
-		os.Setenv("USERNAME", originalUsername)
-		os.Setenv("PASSWORD", originalPassword)
+		_ = os.Setenv("USERNAME", originalUsername)
+		_ = os.Setenv("PASSWORD", originalPassword)
 	}()
-	
-	os.Setenv("USERNAME", "testuser")
-	os.Setenv("PASSWORD", "testpass")
-	
+
+	_ = os.Setenv("USERNAME", "testuser")
+	_ = os.Setenv("PASSWORD", "testpass")
+
 	testServer := &TestServer{
 		db: &MockDatabaseService{},
 	}
-	
+
 	handler := testServer.RegisterRoutes()
-	
+
 	// Test without auth
 	req := httptest.NewRequest("GET", "/encounters", nil)
 	rec := httptest.NewRecorder()
 	handler.ServeHTTP(rec, req)
-	
+
 	if rec.Code != http.StatusUnauthorized {
-		t.Errorf("Expected status code %d for request without auth, got %d", 
+		t.Errorf("Expected status code %d for request without auth, got %d",
 			http.StatusUnauthorized, rec.Code)
 	}
-	
+
 	// Test with correct auth
 	req = httptest.NewRequest("GET", "/encounters", nil)
 	req.SetBasicAuth("testuser", "testpass")
 	rec = httptest.NewRecorder()
 	handler.ServeHTTP(rec, req)
-	
+
 	// Should not be unauthorized (might be other errors due to missing data)
 	if rec.Code == http.StatusUnauthorized {
 		t.Error("Expected authorized request to not return 401")
 	}
-	
+
 	// Test with incorrect auth
 	req = httptest.NewRequest("GET", "/encounters", nil)
 	req.SetBasicAuth("wrong", "credentials")
 	rec = httptest.NewRecorder()
 	handler.ServeHTTP(rec, req)
-	
+
 	if rec.Code != http.StatusUnauthorized {
-		t.Errorf("Expected status code %d for request with wrong auth, got %d", 
+		t.Errorf("Expected status code %d for request with wrong auth, got %d",
 			http.StatusUnauthorized, rec.Code)
 	}
 }
@@ -249,14 +249,14 @@ func TestStaticFileRoutes(t *testing.T) {
 	testServer := &TestServer{
 		db: &MockDatabaseService{},
 	}
-	
+
 	handler := testServer.RegisterRoutes()
-	
+
 	req := httptest.NewRequest("GET", "/assets/style.css", nil)
 	rec := httptest.NewRecorder()
-	
+
 	handler.ServeHTTP(rec, req)
-	
+
 	// Should not return 404 (route should be registered even if file doesn't exist)
 	if rec.Code == http.StatusNotFound {
 		t.Error("Static file route /assets/* should be registered")
@@ -276,20 +276,20 @@ func (s *TestServer) RegisterRoutes() http.Handler {
 			if c.Path() == "/health" {
 				return next(c)
 			}
-			
+
 			// Simple basic auth check for testing
 			username := os.Getenv("USERNAME")
 			password := os.Getenv("PASSWORD")
-			
+
 			if username == "" || password == "" {
 				return echo.NewHTTPError(http.StatusUnauthorized, "Auth not configured")
 			}
-			
+
 			auth := c.Request().Header.Get("Authorization")
 			if auth == "" {
 				return echo.NewHTTPError(http.StatusUnauthorized, "Missing Authorization header")
 			}
-			
+
 			// Check basic auth
 			if strings.HasPrefix(auth, "Basic ") {
 				// For testing, we'll do a simple check
@@ -299,31 +299,31 @@ func (s *TestServer) RegisterRoutes() http.Handler {
 					return echo.NewHTTPError(http.StatusUnauthorized, "Invalid credentials")
 				}
 			}
-			
+
 			return next(c)
 		}
 	})
-	
+
 	// Register a few key routes for testing
 	e.GET("/health", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, s.db.Health())
 	})
-	
+
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Home")
 	})
-	
+
 	e.GET("/encounters", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Encounters")
 	})
-	
+
 	e.GET("/parties", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Parties")
 	})
-	
+
 	e.GET("/assets/*", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Static file")
 	})
-	
+
 	return e
 }

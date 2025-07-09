@@ -24,20 +24,20 @@ func setupDatabaseEnv(t *testing.T) func() {
 	}
 
 	// Set test environment variables
-	os.Setenv("DB_DATABASE", "testdb")
-	os.Setenv("DB_PASSWORD", "testpass")
-	os.Setenv("DB_USERNAME", "testuser")
-	os.Setenv("DB_PORT", "5432")
-	os.Setenv("DB_HOST", "localhost")
-	os.Setenv("DB_SCHEMA", "public")
+	_ = os.Setenv("DB_DATABASE", "testdb")
+	_ = os.Setenv("DB_PASSWORD", "testpass")
+	_ = os.Setenv("DB_USERNAME", "testuser")
+	_ = os.Setenv("DB_PORT", "5432")
+	_ = os.Setenv("DB_HOST", "localhost")
+	_ = os.Setenv("DB_SCHEMA", "public")
 
 	return func() {
 		// Restore original environment
 		for key, value := range originalEnv {
 			if value == "" {
-				os.Unsetenv(key)
+				_ = os.Unsetenv(key)
 			} else {
-				os.Setenv(key, value)
+				_ = os.Setenv(key, value)
 			}
 		}
 	}
@@ -108,14 +108,14 @@ func TestService_Health_DatabaseDown(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	// Expect ping to fail
 	mock.ExpectPing().WillReturnError(sql.ErrConnDone)
 
 	// This would normally call log.Fatalf, so we can't test it directly
 	// Instead, we'll test the ping failure scenario through a modified approach
-	
+
 	// For this test, we'll verify that the ping method fails as expected
 	err = db.Ping()
 	if err == nil {
@@ -132,7 +132,7 @@ func TestService_Health_DatabaseUp(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	// Expect successful ping
 	mock.ExpectPing()
@@ -159,7 +159,7 @@ func TestService_Insert(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -189,7 +189,7 @@ func TestService_Insert_PrepareError(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -216,7 +216,7 @@ func TestService_Insert_ExecError(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -241,7 +241,7 @@ func TestService_InsertReturningID(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -269,7 +269,7 @@ func TestService_InsertReturningID_Error(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -297,7 +297,7 @@ func TestService_Query(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -314,7 +314,7 @@ func TestService_Query(t *testing.T) {
 	if err != nil {
 		t.Errorf("Expected no error, got: %v", err)
 	}
-	defer result.Close()
+	defer func() { _ = result.Close() }()
 
 	// Verify we can iterate through results
 	count := 0
@@ -336,7 +336,7 @@ func TestService_QueryRow(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -346,7 +346,7 @@ func TestService_QueryRow(t *testing.T) {
 		WillReturnRows(sqlmock.NewRows([]string{"name"}).AddRow("John"))
 
 	row := service.QueryRow("SELECT name FROM users WHERE id = $1", 1)
-	
+
 	var name string
 	err = row.Scan(&name)
 	if err != nil {
@@ -367,7 +367,7 @@ func TestService_Exec(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -396,7 +396,7 @@ func TestService_Begin(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -422,7 +422,7 @@ func TestService_Begin_Error(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to create mock database: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	service := &mockService{db: db}
 
@@ -553,10 +553,10 @@ func TestService_Interface_Compliance(t *testing.T) {
 
 func TestInsertQueryBuilding(t *testing.T) {
 	tests := []struct {
-		name           string
-		table          string
-		columns        []string
-		expectedRegex  string
+		name          string
+		table         string
+		columns       []string
+		expectedRegex string
 	}{
 		{
 			name:          "single column",
@@ -584,7 +584,7 @@ func TestInsertQueryBuilding(t *testing.T) {
 			if err != nil {
 				t.Fatalf("Failed to create mock database: %v", err)
 			}
-			defer db.Close()
+			defer func() { _ = db.Close() }()
 
 			service := &mockService{db: db}
 
@@ -630,8 +630,8 @@ func (m *mockService) Insert(table string, columns []string, values ...interface
 		placeholders[i] = "?"
 	}
 
-	query := "INSERT INTO " + table + " (" + strings.Join(columns, ", ") + ") VALUES (" + strings.Join(placeholders, ", ") + ")"
-	
+	query := "INSERT INTO " + table + " (" + strings.Join(columns, ", ") + ") VALUES (" + strings.Join(placeholders, ", ") + ")" // #nosec G202 - Test code with controlled inputs
+
 	// Convert placeholders
 	query = convertToPostgresPlaceholdersTest(query)
 
@@ -639,7 +639,7 @@ func (m *mockService) Insert(table string, columns []string, values ...interface
 	if err != nil {
 		return nil, fmt.Errorf("error preparing statement: %w", err)
 	}
-	defer stmt.Close()
+	defer func() { _ = stmt.Close() }()
 
 	return stmt.Exec(values...)
 }
@@ -668,7 +668,7 @@ func (m *mockService) InsertReturningID(table string, columns []string, values .
 	}
 
 	query := "INSERT INTO " + table + " (" + strings.Join(columns, ", ") + ") VALUES (" + strings.Join(placeholders, ", ") + ") RETURNING id"
-	
+
 	// Convert placeholders
 	query = convertToPostgresPlaceholdersTest(query)
 

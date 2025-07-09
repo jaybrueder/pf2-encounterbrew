@@ -699,7 +699,11 @@ func GetAllMonsters(db database.Service) ([]Monster, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer rows.Close()
+	defer func() {
+		if err := rows.Close(); err != nil {
+			fmt.Printf("error closing rows: %v\n", err)
+		}
+	}()
 
 	var monsters []Monster
 	for rows.Next() {
@@ -728,7 +732,11 @@ func SearchMonsters(db database.Service, search string) ([]Monster, error) {
 		log.Printf("Error executing query: %v", err)
 		return nil, fmt.Errorf("database query error: %w", err)
 	}
-	defer rows.Close()
+	defer func() {
+		if err := rows.Close(); err != nil {
+			fmt.Printf("error closing rows: %v\n", err)
+		}
+	}()
 
 	var monsters []Monster
 	for rows.Next() {

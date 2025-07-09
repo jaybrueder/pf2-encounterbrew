@@ -16,6 +16,11 @@ import (
 	"pf2.encounterbrew.com/internal/models"
 )
 
+const (
+	invalidEncounterIDStr = "invalid encounter ID"
+	goblinName            = "Goblin"
+)
+
 func TestEncounterNewHandler(t *testing.T) {
 	tests := []struct {
 		name           string
@@ -60,7 +65,7 @@ func TestEncounterNewHandler(t *testing.T) {
 			c := e.NewContext(req, rec)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -164,7 +169,7 @@ func TestEncounterCreateHandler(t *testing.T) {
 			c := e.NewContext(req, rec)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -209,7 +214,7 @@ func TestEncounterEditHandler(t *testing.T) {
 			expectError:    false,
 		},
 		{
-			name:        "invalid encounter ID",
+			name:        invalidEncounterIDStr,
 			encounterID: "invalid",
 			mockSetup: func(mockDB *StandardMockDB) {
 				// No mock setup needed for this test
@@ -248,7 +253,7 @@ func TestEncounterEditHandler(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -263,7 +268,7 @@ func TestEncounterEditHandler(t *testing.T) {
 			}
 
 			// Verify mock expectations were met (but only if we set up expectations)
-			if tt.name != "invalid encounter ID" {
+			if tt.name != invalidEncounterIDStr {
 				if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 					t.Errorf("unfulfilled expectations: %s", err)
 				}
@@ -294,12 +299,12 @@ func TestEncounterUpdateHandler(t *testing.T) {
 				mockDB.Mock.ExpectQuery("SELECT EXISTS").
 					WithArgs(1).
 					WillReturnRows(sqlmock.NewRows([]string{"exists"}).AddRow(true))
-				
+
 				// Mock current party ID check second
 				mockDB.Mock.ExpectQuery("SELECT party_id").
 					WithArgs(1).
 					WillReturnRows(sqlmock.NewRows([]string{"party_id"}).AddRow(1))
-				
+
 				// Mock the name-only update
 				mockDB.Mock.ExpectExec("UPDATE encounters").
 					WithArgs("Updated Encounter", 1).
@@ -309,7 +314,7 @@ func TestEncounterUpdateHandler(t *testing.T) {
 			expectError:    false,
 		},
 		{
-			name:        "invalid encounter ID",
+			name:        invalidEncounterIDStr,
 			encounterID: "invalid",
 			formData: url.Values{
 				"name":     {"Updated Encounter"},
@@ -346,12 +351,12 @@ func TestEncounterUpdateHandler(t *testing.T) {
 				mockDB.Mock.ExpectQuery("SELECT EXISTS").
 					WithArgs(1).
 					WillReturnRows(sqlmock.NewRows([]string{"exists"}).AddRow(true))
-				
+
 				// Mock current party ID check
 				mockDB.Mock.ExpectQuery("SELECT party_id").
 					WithArgs(1).
 					WillReturnRows(sqlmock.NewRows([]string{"party_id"}).AddRow(1))
-				
+
 				// Mock update to fail
 				mockDB.Mock.ExpectExec("UPDATE encounters").
 					WithArgs("Updated Encounter", 1).
@@ -381,7 +386,7 @@ func TestEncounterUpdateHandler(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -396,7 +401,7 @@ func TestEncounterUpdateHandler(t *testing.T) {
 			}
 
 			// Verify mock expectations were met (but only if we set up expectations)
-			if tt.name != "invalid encounter ID" {
+			if tt.name != invalidEncounterIDStr {
 				if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 					t.Errorf("unfulfilled expectations: %s", err)
 				}
@@ -425,7 +430,7 @@ func TestEncounterDeleteHandler(t *testing.T) {
 			expectError:    false,
 		},
 		{
-			name:        "invalid encounter ID",
+			name:        invalidEncounterIDStr,
 			encounterID: "invalid",
 			mockSetup: func(mockDB *StandardMockDB) {
 				// No mock setup needed for this test
@@ -464,7 +469,7 @@ func TestEncounterDeleteHandler(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -479,7 +484,7 @@ func TestEncounterDeleteHandler(t *testing.T) {
 			}
 
 			// Verify mock expectations were met (but only if we set up expectations)
-			if tt.name != "invalid encounter ID" {
+			if tt.name != invalidEncounterIDStr {
 				if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
 					t.Errorf("unfulfilled expectations: %s", err)
 				}
@@ -535,7 +540,7 @@ func TestEncounterListHandler(t *testing.T) {
 			c := e.NewContext(req, rec)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -571,7 +576,7 @@ func TestEncounterShowHandler(t *testing.T) {
 			mockSetup: func(mockDB *StandardMockDB) {
 				encounter := CreateSampleEncounter()
 				mockDB.SetupMockForGetEncounterWithCombatants(encounter)
-				
+
 				// Mock GetGroupedConditions query
 				conditionData := CreateSampleConditionData()
 				jsonData, _ := json.Marshal(conditionData)
@@ -613,7 +618,7 @@ func TestEncounterShowHandler(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -652,7 +657,7 @@ func TestEncounterSearchMonster(t *testing.T) {
 			encounterID: "1",
 			mockSetup: func(mockDB *StandardMockDB) {
 				monsters := []models.Monster{CreateSampleMonster()}
-				monsters[0].Data.Name = "Goblin"
+				monsters[0].Data.Name = goblinName
 				mockDB.SetupMockForSearchMonsters(monsters)
 			},
 			expectedStatus: http.StatusOK,
@@ -693,7 +698,7 @@ func TestEncounterSearchMonster(t *testing.T) {
 			c.SetParamValues(tt.encounterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -734,7 +739,7 @@ func TestEncounterAddMonster(t *testing.T) {
 			},
 			mockSetup: func(mockDB *StandardMockDB) {
 				monster := CreateSampleMonster()
-				monster.Data.Name = "Goblin"
+				monster.Data.Name = goblinName
 				mockDB.SetupMockForGetMonster(monster)
 				encounter := CreateSampleEncounter()
 				mockDB.SetupMockForAddMonsterToEncounter(encounter)
@@ -778,7 +783,7 @@ func TestEncounterAddMonster(t *testing.T) {
 			c.SetParamValues(tt.encounterID, tt.monsterID)
 
 			err := handler(c)
-			
+
 			if tt.expectError {
 				if err == nil && rec.Code != tt.expectedStatus {
 					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
@@ -804,18 +809,18 @@ func TestEncounterHandlersIntegration(t *testing.T) {
 	t.Skip("Skipping complex integration test for now")
 	mockDB, cleanup := NewStandardMockDB(t)
 	defer cleanup()
-	
+
 	// Set up expectations for the integration test workflow
 	parties := []models.Party{CreateSampleParty()}
 	mockDB.SetupMockForGetAllParties(parties)
-	
+
 	mockDB.SetupMockForPartyExists(1, true)
 	party := CreateSampleParty()
 	mockDB.SetupMockForCreateEncounter(1, 1, party.Players)
-	
+
 	encounters := []models.Encounter{CreateSampleEncounter()}
 	mockDB.SetupMockForGetAllEncounters(encounters)
-	
+
 	sampleEncounter := CreateSampleEncounter()
 	mockDB.SetupMockForGetEncounter(sampleEncounter)
 
@@ -863,7 +868,7 @@ func TestEncounterHandlersIntegration(t *testing.T) {
 
 		// Test edit (add parties mock again)
 		mockDB.SetupMockForGetAllParties(parties)
-		
+
 		editReq := httptest.NewRequest(http.MethodGet, "/encounter/1/edit", nil)
 		editReq = editReq.WithContext(context.Background())
 		editRec := httptest.NewRecorder()

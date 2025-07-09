@@ -31,7 +31,7 @@ func GetLocalizer(jsonPath string) (*Localizer, error) {
 // initLocalizer is the actual initialization function
 func initLocalizer(jsonPath string) (*Localizer, error) {
 	// Read JSON file
-	content, err := os.ReadFile(jsonPath)
+	content, err := os.ReadFile(jsonPath) // #nosec G304 - file path is controlled and validated
 	if err != nil {
 		return nil, err
 	}
