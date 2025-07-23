@@ -249,7 +249,7 @@ func TestGetParty_Success(t *testing.T) {
 
 	// Mock party query
 	partyRows := sqlmock.NewRows([]string{"id", "name", "user_id", "user_name"}).
-		AddRow(1, "Test Party", 1, "Test User")
+		AddRow(1, TestPartyName, 1, "Test User")
 	mockDB.Mock.ExpectQuery("SELECT p.id, p.name, p.user_id, u.name AS user_name FROM parties p JOIN users u ON p.user_id = u.id WHERE p.user_id = \\$1 AND p.id = \\$2").
 		WithArgs(1, partyID).
 		WillReturnRows(partyRows)
@@ -270,8 +270,8 @@ func TestGetParty_Success(t *testing.T) {
 		t.Errorf("expected party ID %d, got %d", partyID, party.ID)
 	}
 
-	if party.Name != "Test Party" {
-		t.Errorf("expected party name 'Test Party', got '%s'", party.Name)
+	if party.Name != TestPartyName {
+		t.Errorf("expected party name '%s', got '%s'", TestPartyName, party.Name)
 	}
 
 	if len(party.Players) != 1 {

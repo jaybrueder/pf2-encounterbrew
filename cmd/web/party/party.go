@@ -263,7 +263,11 @@ func PartyImportHandler(db database.Service) echo.HandlerFunc {
 			log.Printf("Error opening file: %v", err)
 			return echo.NewHTTPError(http.StatusBadRequest, "Failed to open file")
 		}
-		defer src.Close()
+		defer func() {
+			if err := src.Close(); err != nil {
+				log.Printf("Error closing file: %v", err)
+			}
+		}()
 
 		// Read the file contents
 		data, err := io.ReadAll(src)
