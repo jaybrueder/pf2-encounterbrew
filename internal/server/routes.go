@@ -58,6 +58,8 @@ func (s *Server) RegisterRoutes() http.Handler {
 	// Party routes
 	e.GET("/parties", party.PartyListHandler(s.db))
 	e.GET("/parties/new", party.PartyNewHandler)
+	e.GET("/parties/export", party.PartyExportHandler(s.db))
+	e.POST("/parties/import", party.PartyImportHandler(s.db))
 	e.POST("/parties", party.PartyCreateHandler(s.db))
 	e.GET("/parties/:party_id/edit", party.PartyEditHandler(s.db))
 	e.PATCH("/parties/:party_id", party.PartyUpdateHandler(s.db))
