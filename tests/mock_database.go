@@ -18,6 +18,7 @@ const (
 	TestEncounterID   = 1
 	TestMonsterID     = 1
 	TestPlayerID      = 1
+	TestPartyName     = "Test Party"
 	TestMonsterName   = "Test Monster"
 	TestConditionName = "Test Condition"
 	TestConditionID   = 1

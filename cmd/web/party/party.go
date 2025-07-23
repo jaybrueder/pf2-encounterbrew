@@ -1,10 +1,13 @@
 package party
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/labstack/echo/v4"
 
@@ -207,4 +210,97 @@ func PlayerDeleteHandler(db database.Service) echo.HandlerFunc {
 		component := PartyEdit(party)
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
+}
+
+func PartyExportHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		userID := 1 // TODO: Get from session
+
+		// Export all parties for the user
+		exportData, err := models.ExportAllParties(db, userID)
+		if err != nil {
+			log.Printf("Error exporting parties: %v", err)
+			return echo.NewHTTPError(http.StatusInternalServerError, "Failed to export parties")
+		}
+
+		// Convert to JSON
+		jsonData, err := json.MarshalIndent(exportData, "", "  ")
+		if err != nil {
+			log.Printf("Error marshaling export data: %v", err)
+			return echo.NewHTTPError(http.StatusInternalServerError, "Failed to encode export data")
+		}
+
+		// Set headers for file download
+		filename := fmt.Sprintf("parties_export_%s.json", time.Now().Format("2006-01-02"))
+		c.Response().Header().Set("Content-Type", "application/json")
+		c.Response().Header().Set("Content-Disposition", fmt.Sprintf(`attachment; filename="%s"`, filename))
+
+		return c.Blob(http.StatusOK, "application/json", jsonData)
+	}
+}
+
+func PartyImportHandler(db database.Service) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		userID := 1 // TODO: Get from session
+		log.Printf("Party import started for user %d", userID)
+
+		// Get the uploaded file
+		file, err := c.FormFile("import_file")
+		if err != nil {
+			log.Printf("Error getting file from form: %v", err)
+			return echo.NewHTTPError(http.StatusBadRequest, "No file uploaded")
+		}
+		log.Printf("Received file: %s (size: %d bytes)", file.Filename, file.Size)
+
+		// Limit file size to 10MB
+		if file.Size > 10*1024*1024 {
+			return echo.NewHTTPError(http.StatusBadRequest, "File too large (max 10MB)")
+		}
+
+		// Open the file
+		src, err := file.Open()
+		if err != nil {
+			log.Printf("Error opening file: %v", err)
+			return echo.NewHTTPError(http.StatusBadRequest, "Failed to open file")
+		}
+		defer func() {
+			if err := src.Close(); err != nil {
+				log.Printf("Error closing file: %v", err)
+			}
+		}()
+
+		// Read the file contents
+		data, err := io.ReadAll(src)
+		if err != nil {
+			log.Printf("Error reading file: %v", err)
+			return echo.NewHTTPError(http.StatusBadRequest, "Failed to read file")
+		}
+		log.Printf("Read %d bytes from file", len(data))
+
+		// Parse the JSON
+		var importData models.PartiesExportData
+		if err := json.Unmarshal(data, &importData); err != nil {
+			log.Printf("Error parsing JSON: %v", err)
+			log.Printf("JSON content (first 500 chars): %s", string(data[:min(500, len(data))]))
+			return echo.NewHTTPError(http.StatusBadRequest, "Invalid JSON format")
+		}
+		log.Printf("Parsed JSON successfully, found %d parties", len(importData.Parties))
+
+		// Import the parties (this will replace all existing parties)
+		if err := models.ImportParties(db, userID, &importData); err != nil {
+			log.Printf("Error importing parties: %v", err)
+			return echo.NewHTTPError(http.StatusInternalServerError, "Failed to import parties")
+		}
+
+		log.Printf("Successfully imported %d parties for user %d", len(importData.Parties), userID)
+		// Redirect back to the party list
+		return c.Redirect(http.StatusSeeOther, "/parties")
+	}
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
