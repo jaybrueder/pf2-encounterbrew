@@ -15,6 +15,9 @@ func RemoveTrailingComma(s string) string {
 }
 
 func CapitalizeFirst(s string) string {
+	if len(s) == 0 {
+		return s
+	}
 	return strings.ToUpperSpecial(unicode.TurkishCase, s[:1]) + s[1:]
 }
 
