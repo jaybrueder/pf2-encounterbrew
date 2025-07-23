@@ -611,12 +611,12 @@ func TestSearchMonsters_Success(t *testing.T) {
 	monster2.Data.Name = "Test Monster 2"
 	jsonData2, _ := json.Marshal(monster2.Data)
 
-	rows := sqlmock.NewRows([]string{"id", "data"}).
-		AddRow(1, jsonData1).
-		AddRow(2, jsonData2)
+	rows := sqlmock.NewRows([]string{"id", "data", "priority", "name_lower"}).
+		AddRow(1, jsonData1, 1, "test monster 1").
+		AddRow(2, jsonData2, 2, "test monster 2")
 
-	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE LOWER\\(data->>'name'\\) LIKE LOWER\\(\\$1\\) LIMIT 20").
-		WithArgs("%" + searchTerm + "%").
+	mockDB.Mock.ExpectQuery("WITH search_results AS").
+		WithArgs(searchTerm).
 		WillReturnRows(rows)
 
 	results, err := models.SearchMonsters(mockDB, searchTerm)
@@ -644,8 +644,8 @@ func TestSearchMonsters_DatabaseError(t *testing.T) {
 	searchTerm := "Test"
 	expectedError := errors.New("database connection failed")
 
-	mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE LOWER\\(data->>'name'\\) LIKE LOWER\\(\\$1\\) LIMIT 20").
-		WithArgs("%" + searchTerm + "%").
+	mockDB.Mock.ExpectQuery("WITH search_results AS").
+		WithArgs(searchTerm).
 		WillReturnError(expectedError)
 
 	results, err := models.SearchMonsters(mockDB, searchTerm)
@@ -660,6 +660,63 @@ func TestSearchMonsters_DatabaseError(t *testing.T) {
 	expectedErrorMsg := "database query error:"
 	if !strings.Contains(err.Error(), expectedErrorMsg) {
 		t.Errorf("expected error message to contain '%s', got '%s'", expectedErrorMsg, err.Error())
+	}
+
+	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
+		t.Errorf("unfulfilled expectations: %s", err)
+	}
+}
+
+func TestSearchMonsters_PriorityOrdering(t *testing.T) {
+	mockDB, cleanup := NewStandardMockDB(t)
+	defer cleanup()
+
+	const searchTerm = "Shadow"
+	const exactMatchName = "Shadow"
+	const prefixMatchName = "Shadow Giant"
+	const containsMatchName = "Deep Shadow"
+
+	// Create monsters with different match types
+	shadowExact := CreateSampleMonster()
+	shadowExact.Data.Name = exactMatchName
+	jsonDataExact, _ := json.Marshal(shadowExact.Data)
+
+	shadowPrefix := CreateSampleMonster()
+	shadowPrefix.Data.Name = prefixMatchName
+	jsonDataPrefix, _ := json.Marshal(shadowPrefix.Data)
+
+	shadowContains := CreateSampleMonster()
+	shadowContains.Data.Name = containsMatchName
+	jsonDataContains, _ := json.Marshal(shadowContains.Data)
+
+	// Expected order: exact match first, then prefix, then contains
+	rows := sqlmock.NewRows([]string{"id", "data", "priority", "name_lower"}).
+		AddRow(1, jsonDataExact, 1, "shadow").
+		AddRow(2, jsonDataPrefix, 2, "shadow giant").
+		AddRow(3, jsonDataContains, 3, "deep shadow")
+
+	mockDB.Mock.ExpectQuery("WITH search_results AS").
+		WithArgs(searchTerm).
+		WillReturnRows(rows)
+
+	results, err := models.SearchMonsters(mockDB, searchTerm)
+	if err != nil {
+		t.Errorf("expected no error, got %v", err)
+	}
+
+	if len(results) != 3 {
+		t.Errorf("expected 3 monsters, got %d", len(results))
+	}
+
+	// Verify the order
+	if results[0].Data.Name != exactMatchName {
+		t.Errorf("expected exact match '%s' first, got '%s'", exactMatchName, results[0].Data.Name)
+	}
+	if results[1].Data.Name != prefixMatchName {
+		t.Errorf("expected prefix match '%s' second, got '%s'", prefixMatchName, results[1].Data.Name)
+	}
+	if results[2].Data.Name != containsMatchName {
+		t.Errorf("expected contains match '%s' third, got '%s'", containsMatchName, results[2].Data.Name)
 	}
 
 	if err := mockDB.Mock.ExpectationsWereMet(); err != nil {

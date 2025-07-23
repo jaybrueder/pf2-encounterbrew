@@ -587,12 +587,17 @@ func (s *StandardMockDB) SetupMockForDeleteEncounter() {
 
 // SetupMockForSearchMonsters sets up mock expectations for models.SearchMonsters
 func (s *StandardMockDB) SetupMockForSearchMonsters(monsters []models.Monster) {
-	rows := sqlmock.NewRows([]string{"id", "data"})
-	for _, monster := range monsters {
+	rows := sqlmock.NewRows([]string{"id", "data", "priority", "name_lower"})
+	for i, monster := range monsters {
 		data := `{"name":"` + monster.Data.Name + `"}`
-		rows.AddRow(monster.ID, data)
+		// Simulate priority ordering: first monster gets priority 1, others get priority 2 or 3
+		priority := i + 1
+		if priority > 3 {
+			priority = 3
+		}
+		rows.AddRow(monster.ID, data, priority, strings.ToLower(monster.Data.Name))
 	}
-	s.Mock.ExpectQuery("SELECT id, data FROM monsters").
+	s.Mock.ExpectQuery("WITH search_results AS").
 		WithArgs(sqlmock.AnyArg()).
 		WillReturnRows(rows)
 }
