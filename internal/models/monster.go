@@ -724,10 +724,37 @@ func GetAllMonsters(db database.Service) ([]Monster, error) {
 }
 
 func SearchMonsters(db database.Service, search string) ([]Monster, error) {
-	query := "SELECT id, data FROM monsters WHERE LOWER(data->>'name') LIKE LOWER($1) LIMIT 20"
+	// Use a more sophisticated search that prioritizes exact matches, then prefix matches, then partial matches
+	query := `
+		WITH search_results AS (
+			-- Exact match (case-insensitive)
+			SELECT id, data, 1 as priority, LOWER(data->>'name') as name_lower
+			FROM monsters
+			WHERE LOWER(name) = LOWER($1)
 
-	// Search for the monster in the database and return the 10 most relevant results
-	rows, err := db.Query(query, "%"+search+"%")
+			UNION
+
+			-- Prefix match (case-insensitive)
+			SELECT id, data, 2 as priority, LOWER(data->>'name') as name_lower
+			FROM monsters
+			WHERE LOWER(name) LIKE LOWER($1 || '%')
+			AND LOWER(name) != LOWER($1)
+
+			UNION
+
+			-- Contains match (case-insensitive)
+			SELECT id, data, 3 as priority, LOWER(data->>'name') as name_lower
+			FROM monsters
+			WHERE LOWER(name) LIKE LOWER('%' || $1 || '%')
+			AND LOWER(name) NOT LIKE LOWER($1 || '%')
+		)
+		SELECT id, data, priority, name_lower
+		FROM search_results
+		ORDER BY priority, name_lower
+		LIMIT 10
+	`
+
+	rows, err := db.Query(query, search)
 	if err != nil {
 		log.Printf("Error executing query: %v", err)
 		return nil, fmt.Errorf("database query error: %w", err)
@@ -742,7 +769,9 @@ func SearchMonsters(db database.Service, search string) ([]Monster, error) {
 	for rows.Next() {
 		var m Monster
 		var jsonData []byte
-		err := rows.Scan(&m.ID, &jsonData)
+		var priority int
+		var nameLower string
+		err := rows.Scan(&m.ID, &jsonData, &priority, &nameLower)
 		if err != nil {
 			log.Printf("Error scanning row: %v", err)
 			return nil, fmt.Errorf("error scanning row: %w", err)

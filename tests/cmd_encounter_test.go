@@ -670,7 +670,7 @@ func TestEncounterSearchMonster(t *testing.T) {
 			},
 			encounterID: "1",
 			mockSetup: func(mockDB *StandardMockDB) {
-				mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters").
+				mockDB.Mock.ExpectQuery("WITH search_results AS").
 					WithArgs(sqlmock.AnyArg()).
 					WillReturnError(ErrNotFound)
 			},
@@ -755,7 +755,8 @@ func TestEncounterAddMonster(t *testing.T) {
 				"level_adjustment": {"0"},
 			},
 			mockSetup: func(mockDB *StandardMockDB) {
-				mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters").
+				// Expecting GetMonster query, not SearchMonsters
+				mockDB.Mock.ExpectQuery("SELECT id, data FROM monsters WHERE id = \\$1").
 					WithArgs(999).
 					WillReturnError(ErrNotFound)
 			},
