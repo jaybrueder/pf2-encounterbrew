@@ -184,12 +184,6 @@ func TestCapitalizeFirst(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			// Skip the test case that would cause a panic due to the bug in CapitalizeFirst
-			if tc.name == "Empty string - will panic (known bug)" {
-				t.Skip("Skipping test that would cause panic due to bug in CapitalizeFirst function")
-				return
-			}
-
 			result := utils.CapitalizeFirst(tc.input)
 			if result != tc.expected {
 				t.Errorf("CapitalizeFirst(%q) = %q, expected %q", tc.input, result, tc.expected)
@@ -198,22 +192,22 @@ func TestCapitalizeFirst(t *testing.T) {
 	}
 }
 
-// TestCapitalizeFirstBug documents the bug in CapitalizeFirst function
-// The function panics on empty strings because it doesn't check bounds
+// TestCapitalizeFirstBugFixed verifies that the bug in CapitalizeFirst function has been fixed
+// The function used to panic on empty strings because it didn't check bounds
 // before accessing s[:1] and s[1:]
-func TestCapitalizeFirstBug(t *testing.T) {
-	t.Run("Empty string causes panic", func(t *testing.T) {
+func TestCapitalizeFirstBugFixed(t *testing.T) {
+	t.Run("Empty string no longer causes panic", func(t *testing.T) {
 		defer func() {
 			if r := recover(); r != nil {
-				// Expected panic due to bug in function
-				t.Log("Function correctly panics on empty string input due to bounds checking bug")
-			} else {
-				t.Error("Expected panic on empty string input, but function didn't panic")
+				t.Errorf("Function panicked on empty string input: %v", r)
 			}
 		}()
 
-		// This will panic
-		utils.CapitalizeFirst("")
+		// This should not panic anymore
+		result := utils.CapitalizeFirst("")
+		if result != "" {
+			t.Errorf("CapitalizeFirst(\"\") = %q, expected \"\"", result)
+		}
 	})
 }
 
