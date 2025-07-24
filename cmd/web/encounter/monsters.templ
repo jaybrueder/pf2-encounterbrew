@@ -12,25 +12,32 @@ import (
 templ MonstersModal(encounter models.Encounter) {
 	<div x-show="isMonstersOpen"
         x-transition
-        class="fixed inset-0 flex items-center justify-center bg-black/50"
-        style="z-index: 50;"
+        x-data="monsterSearchFilters"
+        data-encounter-id={strconv.Itoa(encounter.ID)}
+        class="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
         aria-labelledby="modal-title" role="dialog" aria-modal="true"
     >
 
         <div @click.outside="isMonstersOpen = false"
-        	class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-red-900 rounded-lg shadow-lg max-w-4xl max-h-[80vh] overflow-y-auto">
-            <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">
-                <b>Add Monsters</b>
-            </h3>
+        	class="p-4 m-2 text-sm bg-white font-normal text-left border-solid border-4 border-red-900 rounded-lg shadow-lg max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize" id="modal-title">
+                    <b>Add Monsters</b>
+                </h3>
+                if encounter.Party != nil {
+                    <span class="text-sm text-gray-600">Party Level: <b>{strconv.FormatFloat(encounter.Party.GetLevel(), 'f', 1, 64)}</b></span>
+                }
+            </div>
 
-       	    <form hx-patch={"/encounters/" + strconv.Itoa(encounter.ID)} hx-target="body">
-		        <div class="grid grid-cols-1 gap-6 mt-4">
+       	    <form hx-patch={"/encounters/" + strconv.Itoa(encounter.ID)} hx-target="body" class="flex flex-col flex-1 min-h-0">
+		        <div class="mb-4 flex-shrink-0">
 		            <div id="monsters-added">
 		                @MonstersAdded(encounter)
 		            </div>
 		        </div>
 
-		        <div class="grid grid-cols-1 gap-6 mt-4">
+		        <div class="flex flex-col flex-1 min-h-0 overflow-y-auto">
+		            <div class="space-y-4 p-1">
 		            <div>
 		                <input
 		                    id="search"
@@ -42,14 +49,96 @@ templ MonstersModal(encounter models.Encounter) {
 		                    hx-trigger="input changed delay:500ms, search"
 		                    hx-target="#search-results"
 		                    hx-swap="innerHTML"
-		                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
+		                    hx-include="[name^='min_level'], [name^='max_level'], [name^='excluded_']"
+		                    class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
 		            </div>
-		            <div id="search-results">
+
+		            <!-- Filter Toggle Button -->
+		            <button type="button" @click="showFilters = !showFilters" class="text-sm text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2">
+		                <span x-text="showFilters ? 'Hide' : 'Show'">Show</span> Filters
+		                <i class="fas fa-chevron-down transition-transform" :class="showFilters ? 'rotate-180' : ''"></i>
+		            </button>
+
+		            <!-- Advanced Filters Section -->
+		            <div x-show="showFilters" x-transition x-cloak class="bg-gray-50 p-4 rounded-lg space-y-4">
+		                <!-- Level Range Filter -->
+		                <div>
+		                    <label class="block text-sm font-medium text-gray-700 mb-2">Level Range</label>
+		                    <div class="flex gap-2 items-center">
+		                        <input
+		                            type="number"
+		                            name="min_level"
+		                            x-model="filters.minLevel"
+		                            min="-1"
+		                            max="30"
+		                            placeholder="Min"
+		                            @change="triggerSearch()"
+		                            class="w-20 px-2 py-1 text-sm border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none">
+		                        <span class="text-gray-500">to</span>
+		                        <input
+		                            type="number"
+		                            name="max_level"
+		                            x-model="filters.maxLevel"
+		                            min="-1"
+		                            max="30"
+		                            placeholder="Max"
+		                            @change="triggerSearch()"
+		                            class="w-20 px-2 py-1 text-sm border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none">
+		                    </div>
+		                </div>
+
+		                <!-- Size Exclusion Filter -->
+		                <div>
+		                    <label class="block text-sm font-medium text-gray-700 mb-2">Exclude Sizes</label>
+		                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+		                        <template x-for="size in ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan']" :key="size">
+		                            <label class="flex items-center space-x-2 text-sm">
+		                                <input
+		                                    type="checkbox"
+		                                    :name="'excluded_sizes[]'"
+		                                    :value="size"
+		                                    x-model="filters.excludedSizes"
+		                                    @change="triggerSearch()"
+		                                    class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+		                                <span x-text="size.charAt(0).toUpperCase() + size.slice(1)"></span>
+		                            </label>
+		                        </template>
+		                    </div>
+		                </div>
+
+		                <!-- Source Exclusion Filter -->
+		                <div>
+		                    <label class="block text-sm font-medium text-gray-700 mb-2">Exclude Sources</label>
+		                    <div class="text-xs text-gray-500 mb-2">Common sources - check to exclude</div>
+		                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-32 overflow-y-auto">
+		                        <template x-for="source in commonSources" :key="source">
+		                            <label class="flex items-center space-x-2 text-sm">
+		                                <input
+		                                    type="checkbox"
+		                                    :name="'excluded_sources[]'"
+		                                    :value="source"
+		                                    x-model="filters.excludedSources"
+		                                    @change="triggerSearch()"
+		                                    class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+		                                <span x-text="source" class="truncate"></span>
+		                            </label>
+		                        </template>
+		                    </div>
+		                </div>
+
+		                <!-- Reset Filters Button -->
+		                <button type="button" @click="resetFilters()" class="text-sm text-red-600 hover:text-red-800 transition-colors">
+		                    <i class="fas fa-undo"></i> Reset All Filters
+		                </button>
+		            </div>
+
+		            <div id="search-results" class="mt-4">
+		            </div>
 		            </div>
 		        </div>
 			</form>
 
-			<div class="mt-4 sm:flex sm:items-center sm:-mx-2">
+			<div class="mt-4 sm:flex sm:items-center sm:-mx-2 border-t pt-4">
              <button type="button" @click="isMonstersOpen = false" class="w-full px-4 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:w-1/2 sm:mx-2 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
                 Cancel
              </button>
@@ -60,9 +149,71 @@ templ MonstersModal(encounter models.Encounter) {
          </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('monsterSearchFilters', () => ({
+                showFilters: false,
+                filters: {
+                    minLevel: '',
+                    maxLevel: '',
+                    excludedSizes: [],
+                    excludedSources: []
+                },
+                commonSources: [
+                    'Pathfinder Bestiary',
+                    'Pathfinder Bestiary 2',
+                    'Pathfinder Bestiary 3',
+                    'Pathfinder Monster Core',
+                    'Other'
+                ],
+
+                init() {
+                    // Get encounter ID from data attribute
+                    const encounterId = this.$el.dataset.encounterId;
+                    this.storageKey = 'monsterSearchFilters_' + encounterId;
+
+                    // Load filters from localStorage
+                    const saved = localStorage.getItem(this.storageKey);
+                    if (saved) {
+                        try {
+                            const parsed = JSON.parse(saved);
+                            this.filters = { ...this.filters, ...parsed };
+                        } catch (e) {
+                            console.error('Failed to load saved filters:', e);
+                        }
+                    }
+                },
+
+                saveFilters() {
+                    localStorage.setItem(this.storageKey, JSON.stringify(this.filters));
+                },
+
+                triggerSearch() {
+                    this.saveFilters();
+                    // Trigger the search input event
+                    const searchInput = document.getElementById('search');
+                    if (searchInput) {
+                        searchInput.dispatchEvent(new Event('search'));
+                    }
+                },
+
+                resetFilters() {
+                    this.filters = {
+                        minLevel: '',
+                        maxLevel: '',
+                        excludedSizes: [],
+                        excludedSources: []
+                    };
+                    this.saveFilters();
+                    this.triggerSearch();
+                }
+            }))
+        });
+    </script>
 }
 
-templ MonsterSearchResults(encounterID string, monsters []models.Monster) {
+templ MonsterSearchResults(encounterID string, monsters []models.Monster, partyLevel float64) {
     <div id="monster-search-results">
         if len(monsters) == 0 {
             <p>No monsters found.</p>

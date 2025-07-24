@@ -615,7 +615,7 @@ func TestSearchMonsters_Success(t *testing.T) {
 		AddRow(1, jsonData1, 1, "test monster 1").
 		AddRow(2, jsonData2, 2, "test monster 2")
 
-	mockDB.Mock.ExpectQuery("WITH search_results AS").
+	mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
 		WithArgs(searchTerm).
 		WillReturnRows(rows)
 
@@ -644,7 +644,7 @@ func TestSearchMonsters_DatabaseError(t *testing.T) {
 	searchTerm := "Test"
 	expectedError := errors.New("database connection failed")
 
-	mockDB.Mock.ExpectQuery("WITH search_results AS").
+	mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
 		WithArgs(searchTerm).
 		WillReturnError(expectedError)
 
@@ -695,7 +695,7 @@ func TestSearchMonsters_PriorityOrdering(t *testing.T) {
 		AddRow(2, jsonDataPrefix, 2, "shadow giant").
 		AddRow(3, jsonDataContains, 3, "deep shadow")
 
-	mockDB.Mock.ExpectQuery("WITH search_results AS").
+	mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
 		WithArgs(searchTerm).
 		WillReturnRows(rows)
 

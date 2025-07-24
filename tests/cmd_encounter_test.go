@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"github.com/lib/pq"
 	"context"
 	"encoding/json"
 	"net/http"
@@ -656,9 +657,15 @@ func TestEncounterSearchMonster(t *testing.T) {
 			},
 			encounterID: "1",
 			mockSetup: func(mockDB *StandardMockDB) {
+				// Mock the search
 				monsters := []models.Monster{CreateSampleMonster()}
 				monsters[0].Data.Name = goblinName
 				mockDB.SetupMockForSearchMonsters(monsters)
+				
+				// Mock the encounter fetch (includes party)
+				encounter := CreateSampleEncounter()
+				encounter.PartyID = 1
+				mockDB.SetupMockForGetEncounter(encounter)
 			},
 			expectedStatus: http.StatusOK,
 			expectError:    false,
@@ -670,12 +677,158 @@ func TestEncounterSearchMonster(t *testing.T) {
 			},
 			encounterID: "1",
 			mockSetup: func(mockDB *StandardMockDB) {
-				mockDB.Mock.ExpectQuery("WITH search_results AS").
+				mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
 					WithArgs(sqlmock.AnyArg()).
 					WillReturnError(ErrNotFound)
 			},
 			expectedStatus: http.StatusInternalServerError,
 			expectError:    true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			mockDB, cleanup := NewStandardMockDB(t)
+			defer cleanup()
+
+			tt.mockSetup(mockDB)
+
+			handler := encounter.EncounterSearchMonster(mockDB)
+
+			e := echo.New()
+			req := httptest.NewRequest(http.MethodPost, "/encounter/"+tt.encounterID+"/search", strings.NewReader(tt.formData.Encode()))
+			req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationForm)
+			req = req.WithContext(context.Background())
+			rec := httptest.NewRecorder()
+			c := e.NewContext(req, rec)
+			c.SetParamNames("encounter_id")
+			c.SetParamValues(tt.encounterID)
+
+			err := handler(c)
+
+			if tt.expectError {
+				if err == nil && rec.Code != tt.expectedStatus {
+					t.Errorf("Expected error status %d, got %d", tt.expectedStatus, rec.Code)
+				}
+			} else {
+				if err != nil {
+					t.Errorf("Unexpected error: %v", err)
+				}
+				if rec.Code != tt.expectedStatus {
+					t.Errorf("Expected status %d, got %d", tt.expectedStatus, rec.Code)
+				}
+			}
+
+			// Verify mock expectations were met
+			if err := mockDB.Mock.ExpectationsWereMet(); err != nil {
+				t.Errorf("unfulfilled expectations: %s", err)
+			}
+		})
+	}
+}
+
+func TestEncounterSearchMonsterWithFilters(t *testing.T) {
+	tests := []struct {
+		name           string
+		formData       url.Values
+		encounterID    string
+		mockSetup      func(*StandardMockDB)
+		expectedStatus int
+		expectError    bool
+	}{
+		{
+			name: "search with level range filter",
+			formData: url.Values{
+				"search":    {"goblin"},
+				"min_level": {"1"},
+				"max_level": {"5"},
+			},
+			encounterID: "1",
+			mockSetup: func(mockDB *StandardMockDB) {
+				// Mock the filtered search query first
+				monsters := []models.Monster{CreateSampleMonster()}
+				monsters[0].Data.Name = goblinName
+				mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
+					WithArgs("goblin", 1, 5).
+					WillReturnRows(CreateMonsterRows(monsters))
+					
+				// Then mock the encounter fetch
+				encounter := CreateSampleEncounter()
+				encounter.PartyID = 1
+				mockDB.SetupMockForGetEncounter(encounter)
+			},
+			expectedStatus: http.StatusOK,
+			expectError:    false,
+		},
+		{
+			name: "search with excluded sources",
+			formData: url.Values{
+				"search":              {"dragon"},
+				"excluded_sources[]":  {"Pathfinder Bestiary", "Pathfinder Bestiary 2"},
+			},
+			encounterID: "1",
+			mockSetup: func(mockDB *StandardMockDB) {
+				// Mock the filtered search query first
+				monsters := []models.Monster{CreateSampleMonster()}
+				monsters[0].Data.Name = "Red Dragon"
+				mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
+					WithArgs("dragon", pq.Array([]string{"Pathfinder Bestiary", "Pathfinder Bestiary 2"})).
+					WillReturnRows(CreateMonsterRows(monsters))
+					
+				// Then mock the encounter fetch
+				encounter := CreateSampleEncounter()
+				encounter.PartyID = 1
+				mockDB.SetupMockForGetEncounter(encounter)
+			},
+			expectedStatus: http.StatusOK,
+			expectError:    false,
+		},
+		{
+			name: "search with excluded sizes",
+			formData: url.Values{
+				"search":            {"creature"},
+				"excluded_sizes[]":  {"tiny", "small"},
+			},
+			encounterID: "1",
+			mockSetup: func(mockDB *StandardMockDB) {
+				// Mock the filtered search query first
+				monsters := []models.Monster{CreateSampleMonster()}
+				mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
+					WithArgs("creature", pq.Array([]string{"tiny", "small"})).
+					WillReturnRows(CreateMonsterRows(monsters))
+					
+				// Then mock the encounter fetch
+				encounter := CreateSampleEncounter()
+				encounter.PartyID = 1
+				mockDB.SetupMockForGetEncounter(encounter)
+			},
+			expectedStatus: http.StatusOK,
+			expectError:    false,
+		},
+		{
+			name: "search with all filters combined",
+			formData: url.Values{
+				"search":              {"monster"},
+				"min_level":           {"3"},
+				"max_level":           {"10"},
+				"excluded_sources[]":  {"Pathfinder Bestiary 3"},
+				"excluded_sizes[]":    {"huge", "gargantuan"},
+			},
+			encounterID: "1",
+			mockSetup: func(mockDB *StandardMockDB) {
+				// Mock the filtered search query first
+				monsters := []models.Monster{}
+				mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
+					WithArgs("monster", 3, 10, pq.Array([]string{"Pathfinder Bestiary 3"}), pq.Array([]string{"huge", "gargantuan"})).
+					WillReturnRows(CreateMonsterRows(monsters))
+					
+				// Then mock the encounter fetch
+				encounter := CreateSampleEncounter()
+				encounter.PartyID = 1
+				mockDB.SetupMockForGetEncounter(encounter)
+			},
+			expectedStatus: http.StatusOK,
+			expectError:    false,
 		},
 	}
 

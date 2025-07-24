@@ -8,7 +8,9 @@ import (
 	"log"
 	"math/rand"
 	"strconv"
+	"strings"
 
+	"github.com/lib/pq"
 	"pf2.encounterbrew.com/internal/database"
 	"pf2.encounterbrew.com/internal/utils"
 )
@@ -723,38 +725,121 @@ func GetAllMonsters(db database.Service) ([]Monster, error) {
 	return monsters, nil
 }
 
+type MonsterSearchFilters struct {
+	MinLevel        *int     `json:"min_level"`
+	MaxLevel        *int     `json:"max_level"`
+	ExcludedSources []string `json:"excluded_sources"`
+	ExcludedSizes   []string `json:"excluded_sizes"`
+}
+
 func SearchMonsters(db database.Service, search string) ([]Monster, error) {
+	return SearchMonstersWithFilters(db, search, MonsterSearchFilters{})
+}
+
+func SearchMonstersWithFilters(db database.Service, search string, filters MonsterSearchFilters) ([]Monster, error) {
+	// Build dynamic query with filters
+	queryArgs := []interface{}{search}
+	argCounter := 1
+
+	whereConditions := []string{}
+
+	// Level filter conditions
+	if filters.MinLevel != nil {
+		argCounter++
+		whereConditions = append(whereConditions, fmt.Sprintf("(data->'system'->'details'->'level'->>'value')::int >= $%d", argCounter))
+		queryArgs = append(queryArgs, *filters.MinLevel)
+	}
+
+	if filters.MaxLevel != nil {
+		argCounter++
+		whereConditions = append(whereConditions, fmt.Sprintf("(data->'system'->'details'->'level'->>'value')::int <= $%d", argCounter))
+		queryArgs = append(queryArgs, *filters.MaxLevel)
+	}
+
+	// Check if "Other" is in excluded sources
+	hasOther := false
+	otherIndex := -1
+	for i, source := range filters.ExcludedSources {
+		if source == "Other" {
+			hasOther = true
+			otherIndex = i
+			break
+		}
+	}
+
+	// If "Other" is checked, handle it specially
+	if hasOther {
+		// Remove "Other" from the excluded sources
+		filters.ExcludedSources = append(filters.ExcludedSources[:otherIndex], filters.ExcludedSources[otherIndex+1:]...)
+		
+		// Include ONLY the core books (excluding all other sources)
+		coreBooks := []string{
+			"Pathfinder Bestiary",
+			"Pathfinder Bestiary 2",
+			"Pathfinder Bestiary 3",
+			"Pathfinder Monster Core",
+		}
+		argCounter++
+		whereConditions = append(whereConditions, fmt.Sprintf("(data->'system'->'details'->'publication'->>'title' = ANY($%d))", argCounter))
+		queryArgs = append(queryArgs, pq.Array(coreBooks))
+	}
+
+	// Source exclusion filter (for remaining sources)
+	if len(filters.ExcludedSources) > 0 {
+		argCounter++
+		whereConditions = append(whereConditions, fmt.Sprintf("NOT (data->'system'->'details'->'publication'->>'title' = ANY($%d))", argCounter))
+		queryArgs = append(queryArgs, pq.Array(filters.ExcludedSources))
+	}
+
+	// Size exclusion filter
+	if len(filters.ExcludedSizes) > 0 {
+		argCounter++
+		whereConditions = append(whereConditions, fmt.Sprintf("NOT (data->'system'->'traits'->'size'->>'value' = ANY($%d))", argCounter))
+		queryArgs = append(queryArgs, pq.Array(filters.ExcludedSizes))
+	}
+
+	// Build WHERE clause for filters
+	filterClause := ""
+	if len(whereConditions) > 0 {
+		filterClause = " WHERE " + strings.Join(whereConditions, " AND ")
+	}
+
 	// Use a more sophisticated search that prioritizes exact matches, then prefix matches, then partial matches
-	query := `
-		WITH search_results AS (
-			-- Exact match (case-insensitive)
-			SELECT id, data, 1 as priority, LOWER(data->>'name') as name_lower
+	query := fmt.Sprintf(`
+		WITH filtered_monsters AS (
+			SELECT id, data, LOWER(data->>'name') as name_lower
 			FROM monsters
-			WHERE LOWER(name) = LOWER($1)
+			%s
+		),
+		search_results AS (
+			-- Exact match (case-insensitive)
+			SELECT id, data, 1 as priority, name_lower
+			FROM filtered_monsters
+			WHERE name_lower = LOWER($1)
 
 			UNION
 
 			-- Prefix match (case-insensitive)
-			SELECT id, data, 2 as priority, LOWER(data->>'name') as name_lower
-			FROM monsters
-			WHERE LOWER(name) LIKE LOWER($1 || '%')
-			AND LOWER(name) != LOWER($1)
+			SELECT id, data, 2 as priority, name_lower
+			FROM filtered_monsters
+			WHERE name_lower LIKE LOWER($1 || '%%')
+			AND name_lower != LOWER($1)
 
 			UNION
 
 			-- Contains match (case-insensitive)
-			SELECT id, data, 3 as priority, LOWER(data->>'name') as name_lower
-			FROM monsters
-			WHERE LOWER(name) LIKE LOWER('%' || $1 || '%')
-			AND LOWER(name) NOT LIKE LOWER($1 || '%')
+			SELECT id, data, 3 as priority, name_lower
+			FROM filtered_monsters
+			WHERE name_lower LIKE LOWER('%%' || $1 || '%%')
+			AND name_lower NOT LIKE LOWER($1 || '%%')
 		)
 		SELECT id, data, priority, name_lower
 		FROM search_results
 		ORDER BY priority, name_lower
 		LIMIT 10
-	`
+	`, filterClause)
 
-	rows, err := db.Query(query, search)
+	rows, err := db.Query(query, queryArgs...)
 	if err != nil {
 		log.Printf("Error executing query: %v", err)
 		return nil, fmt.Errorf("database query error: %w", err)
