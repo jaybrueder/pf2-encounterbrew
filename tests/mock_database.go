@@ -527,6 +527,21 @@ func (s *StandardMockDB) SetupMockForGetEncounter(encounter models.Encounter) {
 	s.Mock.ExpectQuery(`SELECT e\.id, e\.name, e\.user_id, e\.party_id, e\.turn, e\.round, u\.name AS user_name, p\.name AS party_name FROM encounters e JOIN users u ON e\.user_id = u\.id JOIN parties p ON e\.party_id = p\.id WHERE e\.user_id = \$1 AND e\.id = \$2`).
 		WithArgs(1, encounter.ID).
 		WillReturnRows(rows)
+
+	// Mock the monsters query
+	monsterRows := sqlmock.NewRows([]string{"id", "data", "level_adjustment", "id", "initiative", "current_hp", "enumeration"})
+	s.Mock.ExpectQuery(`SELECT m\.id, m\.data, em\.level_adjustment, em\.id, em\.initiative, em\.hp as current_hp, em\.enumeration FROM monsters m JOIN encounter_monsters em ON m\.id = em\.monster_id WHERE em\.encounter_id = \$1`).
+		WithArgs(encounter.ID).
+		WillReturnRows(monsterRows)
+
+	// Mock the players query
+	playerRows := sqlmock.NewRows([]string{"id", "name", "level", "hp", "ac", "fort", "ref", "will", "initiative", "association_id", "current_hp"})
+	s.Mock.ExpectQuery(`SELECT p\.id, p\.name, p\.level, p\.hp, p\.ac, p\.fort, p\.ref, p\.will, ep\.initiative, ep\.id as association_id, ep\.hp as current_hp FROM players p JOIN encounter_players ep ON p\.id = ep\.player_id WHERE ep\.encounter_id = \$1`).
+		WithArgs(encounter.ID).
+		WillReturnRows(playerRows)
+	
+	// Mock the GetParty query for party level calculation
+	s.SetupMockForGetParty(models.Party{ID: encounter.PartyID, Name: partyName})
 }
 
 // SetupMockForGetEncounterWithCombatants sets up mock expectations for models.GetEncounterWithCombatants
@@ -598,9 +613,36 @@ func (s *StandardMockDB) SetupMockForSearchMonsters(monsters []models.Monster) {
 		}
 		rows.AddRow(monster.ID, data, priority, strings.ToLower(monster.Data.Name))
 	}
-	s.Mock.ExpectQuery("WITH search_results AS").
+	// Now the query includes WITH filtered_monsters AS
+	s.Mock.ExpectQuery("WITH filtered_monsters AS").
 		WithArgs(sqlmock.AnyArg()).
 		WillReturnRows(rows)
+}
+
+// CreateMonsterRows creates mock rows for filtered monster search results
+func CreateMonsterRows(monsters []models.Monster) *sqlmock.Rows {
+	rows := sqlmock.NewRows([]string{"id", "data", "priority", "name_lower"})
+	for i, monster := range monsters {
+		data := `{
+			"name":"` + monster.Data.Name + `",
+			"system": {
+				"details": {
+					"level": {"value": 3},
+					"publication": {"title": "Pathfinder Monster Core"}
+				},
+				"traits": {
+					"size": {"value": "medium"}
+				}
+			}
+		}`
+		// Simulate priority ordering: first monster gets priority 1, others get priority 2 or 3
+		priority := i + 1
+		if priority > 3 {
+			priority = 3
+		}
+		rows.AddRow(monster.ID, data, priority, strings.ToLower(monster.Data.Name))
+	}
+	return rows
 }
 
 // SetupMockForGetMonster sets up mock expectations for models.GetMonster

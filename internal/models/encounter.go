@@ -371,6 +371,15 @@ func GetEncounter(db database.Service, encounterId int) (Encounter, error) {
 		return e, fmt.Errorf("error iterating player rows: %v", err)
 	}
 
+	// Load full party data for party level calculation
+	party, err := GetParty(db, e.Party.ID)
+	if err != nil {
+		// Log error but don't fail the whole operation
+		fmt.Printf("Warning: could not load full party data: %v\n", err)
+	} else {
+		e.Party = &party
+	}
+
 	return e, nil
 }
 

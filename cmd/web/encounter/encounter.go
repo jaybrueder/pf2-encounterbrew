@@ -197,13 +197,59 @@ func EncounterSearchMonster(db database.Service) echo.HandlerFunc {
 		search := c.FormValue("search")
 		encounterID := c.Param("encounter_id")
 
-		monsters, err := models.SearchMonsters(db, search)
+		// Parse the form to get array values
+		if err := c.Request().ParseForm(); err != nil {
+			log.Printf("Error parsing form: %v", err)
+		}
+
+		// Parse filter parameters
+		filters := models.MonsterSearchFilters{}
+
+		// Level range filter
+		if minLevelStr := c.FormValue("min_level"); minLevelStr != "" {
+			if minLevel, err := strconv.Atoi(minLevelStr); err == nil {
+				filters.MinLevel = &minLevel
+			}
+		}
+
+		if maxLevelStr := c.FormValue("max_level"); maxLevelStr != "" {
+			if maxLevel, err := strconv.Atoi(maxLevelStr); err == nil {
+				filters.MaxLevel = &maxLevel
+			}
+		}
+
+		// Excluded sources filter
+		if excludedSources := c.Request().Form["excluded_sources[]"]; len(excludedSources) > 0 {
+			filters.ExcludedSources = excludedSources
+		}
+
+		// Excluded sizes filter
+		if excludedSizes := c.Request().Form["excluded_sizes[]"]; len(excludedSizes) > 0 {
+			filters.ExcludedSizes = excludedSizes
+		}
+
+		monsters, err := models.SearchMonstersWithFilters(db, search, filters)
 		if err != nil {
 			log.Printf("Error searching for monster: %v", err)
 			return c.String(http.StatusInternalServerError, "Error searching for monster")
 		}
 
-		component := MonsterSearchResults(encounterID, monsters)
+		// Get the encounter to access party level
+		encID, _ := strconv.Atoi(encounterID)
+		encounter, err := models.GetEncounter(db, encID)
+		if err != nil {
+			log.Printf("Error getting encounter: %v", err)
+			return c.String(http.StatusInternalServerError, "Error getting encounter")
+		}
+
+		// Get party
+		party, err := models.GetParty(db, encounter.PartyID)
+		if err != nil {
+			log.Printf("Error getting party: %v", err)
+			party = models.Party{} // Use empty party if error
+		}
+
+		component := MonsterSearchResults(encounterID, monsters, party.GetLevel())
 		return component.Render(c.Request().Context(), c.Response().Writer)
 	}
 }
