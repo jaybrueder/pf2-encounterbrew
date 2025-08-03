@@ -1,4 +1,4 @@
-# PF2 Encounterbrew
+# PF2 Encounterbrew (BETA)
 
 PF2 Encounterbrew is a self-hosted, mobile-browser friendly encounter tracker for the Pathfinder 2 TTRPG system by Paizo Inc.
 
