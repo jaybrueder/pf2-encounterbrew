@@ -1,5 +1,16 @@
 # PF2 Encounterbrew (BETA)
 
+<div align="center">
+
+[![CI](https://github.com/jaybrueder/pf2-encounterbrew/actions/workflows/ci.yml/badge.svg)](https://github.com/jaybrueder/pf2-encounterbrew/actions/workflows/ci.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/jaybrueder/pf2-encounterbrew)](https://github.com/jaybrueder/pf2-encounterbrew/releases)
+[![Docker Hub Version](https://img.shields.io/docker/v/jaybrueder/pf2-encounterbrew?label=docker%20hub)](https://hub.docker.com/r/jaybrueder/pf2-encounterbrew)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jaybrueder/pf2-encounterbrew)](https://hub.docker.com/r/jaybrueder/pf2-encounterbrew)
+[![Go Version](https://img.shields.io/github/go-mod/go-version/jaybrueder/pf2-encounterbrew)](https://go.dev/)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/jaybrueder/pf2-encounterbrew/blob/main/LICENSE)
+
+</div>
+
 PF2 Encounterbrew is a self-hosted, mobile-browser friendly encounter tracker for the Pathfinder 2 TTRPG system by Paizo Inc.
 
 ## Features
