@@ -47,7 +47,7 @@ jobs:
       # --- Build and Push ---
       - name: Build and push Docker image
         id: build-push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
