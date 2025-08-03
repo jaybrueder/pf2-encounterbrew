@@ -70,7 +70,7 @@ PF2 Encounterbrew is a self-hosted, mobile-browser friendly encounter tracker fo
 - **Import/Export Parties** - Share parties between campaigns or backup your data
 - **Multi-Party Support** - Manage multiple parties for different campaigns
 
-## How do I run this
+## How can I run this?
 
 - Install [Docker](https://www.docker.com/)
 - Download the [docker-compose.yml](./docker-compose.yml) file from this repository
