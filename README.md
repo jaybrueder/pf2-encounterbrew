@@ -93,13 +93,25 @@ PF2 Encounterbrew is a self-hosted, mobile-browser friendly encounter tracker fo
 docker compose up
 ```
 
-You should now be able to access the application on [http://localhost:8080](http://localhost:8080)
+You should now be able to access the application on [http://localhost:8081](http://localhost:8081)
 
 If you have not changed the default username and password in the `docker-compose.yml` file, your can login with username `gamemaster` and password `changeme123`.
 
 If you are done using the application, you can shut it down with typing `CTRL+C` in the terminal window.
 
 All your encounters, parties and players will be stored inside a database and will still be there once your restart the application.
+
+## Creating your first encounter
+
+Before creating your **first encounter**, you need to create your first party.
+Navigate to the parties screen by choosing "Parties" from the menu (top-right corner). Create your first party there.
+
+Once you have a party, head back to "Encounters" and create your **first encounter**. Choose the party you created earlier as the encounter's party.
+
+Once you created the encounter, select it from the list of available encounters.
+You should see your party members already added as "green" combatants.
+
+Click the "+" icon on the bottom of the screen to add a monster. Enter the name of the monster you want to add in the search input and click the green "+" icon appearing next to it. Once you added all your desired monsters, click the blue "save" button. You can now see the monsters added to the encounter, with initiative already rolled, as "red" combatants.
 
 ## Legal & copyright
 
