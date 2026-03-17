@@ -539,7 +539,7 @@ func (s *StandardMockDB) SetupMockForGetEncounter(encounter models.Encounter) {
 	s.Mock.ExpectQuery(`SELECT p\.id, p\.name, p\.level, p\.hp, p\.ac, p\.fort, p\.ref, p\.will, ep\.initiative, ep\.id as association_id, ep\.hp as current_hp FROM players p JOIN encounter_players ep ON p\.id = ep\.player_id WHERE ep\.encounter_id = \$1`).
 		WithArgs(encounter.ID).
 		WillReturnRows(playerRows)
-	
+
 	// Mock the GetParty query for party level calculation
 	s.SetupMockForGetParty(models.Party{ID: encounter.PartyID, Name: partyName})
 }
