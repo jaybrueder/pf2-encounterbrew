@@ -1,7 +1,6 @@
 package tests
 
 import (
-	"github.com/lib/pq"
 	"context"
 	"encoding/json"
 	"net/http"
@@ -9,6 +8,8 @@ import (
 	"net/url"
 	"strings"
 	"testing"
+
+	"github.com/lib/pq"
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/labstack/echo/v4"
@@ -661,7 +662,7 @@ func TestEncounterSearchMonster(t *testing.T) {
 				monsters := []models.Monster{CreateSampleMonster()}
 				monsters[0].Data.Name = goblinName
 				mockDB.SetupMockForSearchMonsters(monsters)
-				
+
 				// Mock the encounter fetch (includes party)
 				encounter := CreateSampleEncounter()
 				encounter.PartyID = 1
@@ -751,7 +752,7 @@ func TestEncounterSearchMonsterWithFilters(t *testing.T) {
 				mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
 					WithArgs("goblin", 1, 5).
 					WillReturnRows(CreateMonsterRows(monsters))
-					
+
 				// Then mock the encounter fetch
 				encounter := CreateSampleEncounter()
 				encounter.PartyID = 1
@@ -763,8 +764,8 @@ func TestEncounterSearchMonsterWithFilters(t *testing.T) {
 		{
 			name: "search with excluded sources",
 			formData: url.Values{
-				"search":              {"dragon"},
-				"excluded_sources[]":  {"Pathfinder Bestiary", "Pathfinder Bestiary 2"},
+				"search":             {"dragon"},
+				"excluded_sources[]": {"Pathfinder Bestiary", "Pathfinder Bestiary 2"},
 			},
 			encounterID: "1",
 			mockSetup: func(mockDB *StandardMockDB) {
@@ -774,7 +775,7 @@ func TestEncounterSearchMonsterWithFilters(t *testing.T) {
 				mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
 					WithArgs("dragon", pq.Array([]string{"Pathfinder Bestiary", "Pathfinder Bestiary 2"})).
 					WillReturnRows(CreateMonsterRows(monsters))
-					
+
 				// Then mock the encounter fetch
 				encounter := CreateSampleEncounter()
 				encounter.PartyID = 1
@@ -786,8 +787,8 @@ func TestEncounterSearchMonsterWithFilters(t *testing.T) {
 		{
 			name: "search with excluded sizes",
 			formData: url.Values{
-				"search":            {"creature"},
-				"excluded_sizes[]":  {"tiny", "small"},
+				"search":           {"creature"},
+				"excluded_sizes[]": {"tiny", "small"},
 			},
 			encounterID: "1",
 			mockSetup: func(mockDB *StandardMockDB) {
@@ -796,7 +797,7 @@ func TestEncounterSearchMonsterWithFilters(t *testing.T) {
 				mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
 					WithArgs("creature", pq.Array([]string{"tiny", "small"})).
 					WillReturnRows(CreateMonsterRows(monsters))
-					
+
 				// Then mock the encounter fetch
 				encounter := CreateSampleEncounter()
 				encounter.PartyID = 1
@@ -808,11 +809,11 @@ func TestEncounterSearchMonsterWithFilters(t *testing.T) {
 		{
 			name: "search with all filters combined",
 			formData: url.Values{
-				"search":              {"monster"},
-				"min_level":           {"3"},
-				"max_level":           {"10"},
-				"excluded_sources[]":  {"Pathfinder Bestiary 3"},
-				"excluded_sizes[]":    {"huge", "gargantuan"},
+				"search":             {"monster"},
+				"min_level":          {"3"},
+				"max_level":          {"10"},
+				"excluded_sources[]": {"Pathfinder Bestiary 3"},
+				"excluded_sizes[]":   {"huge", "gargantuan"},
 			},
 			encounterID: "1",
 			mockSetup: func(mockDB *StandardMockDB) {
@@ -821,7 +822,7 @@ func TestEncounterSearchMonsterWithFilters(t *testing.T) {
 				mockDB.Mock.ExpectQuery("WITH filtered_monsters AS").
 					WithArgs("monster", 3, 10, pq.Array([]string{"Pathfinder Bestiary 3"}), pq.Array([]string{"huge", "gargantuan"})).
 					WillReturnRows(CreateMonsterRows(monsters))
-					
+
 				// Then mock the encounter fetch
 				encounter := CreateSampleEncounter()
 				encounter.PartyID = 1

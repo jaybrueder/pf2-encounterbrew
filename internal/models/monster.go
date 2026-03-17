@@ -771,7 +771,7 @@ func SearchMonstersWithFilters(db database.Service, search string, filters Monst
 	if hasOther {
 		// Remove "Other" from the excluded sources
 		filters.ExcludedSources = append(filters.ExcludedSources[:otherIndex], filters.ExcludedSources[otherIndex+1:]...)
-		
+
 		// Include ONLY the core books (excluding all other sources)
 		coreBooks := []string{
 			"Pathfinder Bestiary",

@@ -128,6 +128,6 @@ func runMigrations(databaseURL string, migrationsURL string) error {
 		return fmt.Errorf("migration check failed: database is in dirty state at version %d", version)
 	}
 
-	log.Printf("Database migrated to version %d", version)
+	log.Printf("Database migrated to version %d", version) //nolint:gosec // version is a uint from the migrate library, not user input
 	return nil
 }
