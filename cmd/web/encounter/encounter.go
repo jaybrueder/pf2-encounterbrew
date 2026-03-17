@@ -388,8 +388,8 @@ func BulkUpdateInitiative(db database.Service) echo.HandlerFunc {
 		}
 
 		// Update the each combatant's initiative
-		for i, combatant := range encounter.Combatants {
-			newInitiative, _ := strconv.Atoi(c.FormValue("initiative-" + strconv.Itoa(i)))
+		for _, combatant := range encounter.Combatants {
+			newInitiative, _ := strconv.Atoi(c.FormValue("initiative-" + strconv.Itoa(combatant.GetAssociationID())))
 			if err := combatant.SetInitiative(db, newInitiative); err != nil {
 				log.Printf("Error updating initiative: %v", err)
 			}

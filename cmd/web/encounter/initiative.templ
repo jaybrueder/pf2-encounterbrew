@@ -73,9 +73,9 @@ templ AllInitiativeModal(encounter models.Encounter) {
 
             <form class="mt-4" hx-patch={"/encounters/" + strconv.Itoa(encounter.ID) + "/bulk_update_initiative"} hx-target="#combatants">
 
-                for i, combatant := range encounter.Combatants {
+                for _, combatant := range encounter.Combatants {
                     <div class="flex items-center mb-2">
-                        <input type="number" min="0" autocomplete="off" name={"initiative-" + strconv.Itoa(i)} id={"initiative-" + strconv.Itoa(i)} value={strconv.Itoa(combatant.GetInitiative())} class="px-4 py-3 mr-2 w-24 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                        <input type="number" min="0" autocomplete="off" name={"initiative-" + strconv.Itoa(combatant.GetAssociationID())} id={"initiative-" + strconv.Itoa(combatant.GetAssociationID())} value={strconv.Itoa(combatant.GetInitiative())} class="px-4 py-3 mr-2 w-24 text-sm text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
                         <p>{combatant.GetName()}</p>
                     </div>
                 }
