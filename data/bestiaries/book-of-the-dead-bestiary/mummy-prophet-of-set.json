@@ -374,31 +374,14 @@
                     "value": ""
                 },
                 "counteraction": false,
-                "damage": {
-                    "0": {
-                        "category": null,
-                        "formula": "5d8",
-                        "kinds": [
-                            "damage"
-                        ],
-                        "materials": [],
-                        "type": "untyped"
-                    }
-                },
+                "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shape the quasi-real substance of the Shadow Plane into a blast. Choose acid, bludgeoning, cold, electricity, fire, force, piercing, slashing, or sonic damage, and choose a 30-foot cone, a 15-foot burst within 120 feet, or a 50-foot line. The blast deals 5d8 damage of the type you chose to each creature in the area.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d8.</p>"
+                    "value": "<p><strong>Area</strong> varies</p>\n<p><strong>Defense</strong> @Check[reflex|basic|options:area-effect] or @Check[will|basic|options:area-effect] (target's choice)</p><hr /><p>You shape the shadow substance of the Netherworld into a blast. Choose @Damage[(@item.rank+1)d8[acid]|options:area-damage], @Damage[(@item.rank+1)d8[bludgeoning]|options:area-damage], @Damage[(@item.rank+1)d8[cold]|options:area-damage], @Damage[(@item.rank+1)d8[electricity]|options:area-damage], @Damage[(@item.rank+1)d8[fire]|options:area-damage], @Damage[(@item.rank+1)d8[force]|options:area-damage], @Damage[(@item.rank+1)d8[piercing]|options:area-damage], @Damage[(@item.rank+1)d8[slashing]|options:area-damage], @Damage[(@item.rank+1)d8[sonic]|options:area-damage], or @Damage[(@item.rank+1)d8[spirit]|options:area-damage] damage, and choose a @Template[cone|distance:30], a @Template[burst|distance:15] within 120 feet, or a @Template[line|distance:50]. The blast deals 6d8 damage of the type you chose to each creature in the area.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 1d8.</p>"
                 },
                 "duration": {
                     "sustained": false,
                     "value": ""
-                },
-                "heightening": {
-                    "damage": {
-                        "0": "1d8"
-                    },
-                    "interval": 1,
-                    "type": "interval"
                 },
                 "level": {
                     "value": 5
@@ -407,9 +390,9 @@
                     "value": "ioRiyfYOVSBwJU1I"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "varies"
@@ -781,7 +764,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.sRfSBHWHdbIa0aGc"
             },
-            "img": "systems/pf2e/icons/spells/chilling-darkness.webp",
+            "img": "icons/magic/light/beam-explosion-pink-purple.webp",
             "name": "Chilling Darkness",
             "sort": 1000000,
             "system": {
@@ -1983,6 +1966,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -2039,7 +2023,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
             },
-            "img": "icons/commodities/treasure/broach-jeweled-green.webp",
+            "img": "icons/commodities/treasure/brooch-jeweled-green.webp",
             "name": "Religious Symbol of Set",
             "sort": 2600000,
             "system": {
@@ -2130,6 +2114,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2137,9 +2122,6 @@
                     "value": [
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2176,6 +2158,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2184,9 +2167,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2228,6 +2208,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2236,9 +2217,6 @@
                         "magical",
                         "thrown-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -2433,7 +2411,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> The prophet's Sandstorm is active</p>\n<hr />\n<p><strong>Effect</strong> The prophet inhales its Sandstorm, suppressing the effect until the end of the prophet's next turn. It then exhales a @Template[cone|distance:120] of negatively charged sand that deals @Damage[7d6[void],7d6[slashing]]{7d6 void and 7d6 slashing damage} (@Check[reflex|dc:33|basic]).</p>"
+                    "value": "<p><strong>Requirements</strong> The prophet's Sandstorm is active</p>\n<hr />\n<p><strong>Effect</strong> The prophet inhales its Sandstorm, suppressing the effect until the end of the prophet's next turn. It then exhales a @Template[cone|distance:120] of negatively charged sand that deals @Damage[7d6[void],7d6[slashing]|options:area-damage]{7d6 void and 7d6 slashing damage} (@Check[reflex|dc:33|basic|options:area-effect]).</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -2514,7 +2492,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "sand-form",
                         "toggleable": true
@@ -2570,7 +2547,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>This affliction can't be reduced below stage 1, nor can damage from it be healed, until successfully treated with @UUID[Compendium.pf2e.spells-srd.Item.Cleanse Affliction] or a similar effect; the affliction can then be removed as normal for a disease. A creature killed by sand rot turns to sand and can't be resurrected except by a 7th-rank @UUID[Compendium.pf2e.spells-srd.Item.Resurrect] ritual or similar magic</p>\n<p><strong>Saving Throw</strong>@Check[fortitude|dc:31]</p>\n<hr />\n<p><strong>Stage 1</strong> carrier with no ill effect (1 minute)</p>\n<p><strong>Stage 2</strong> @Damage[12d6[void]] damage, @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1}, and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 2} (1 day)</p>"
+                    "value": "<p>This affliction can't be reduced below stage 1, nor can damage from it be healed, until successfully treated with @UUID[Compendium.pf2e.spells-srd.Item.Cleanse Affliction] or a similar effect; the affliction can then be removed as normal for a disease. A creature killed by sand rot turns to sand and can't be resurrected except by a 7th-rank @UUID[Compendium.pf2e.spells-srd.Item.Resurrect] ritual or similar magic</p>\n<p><strong>Saving Throw</strong> @Check[fortitude|dc:31]</p>\n<hr />\n<p><strong>Stage 1</strong> carrier with no ill effect (1 minute)</p>\n<p><strong>Stage 2</strong> @Damage[12d6[void]] damage, @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1}, and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 2} (1 day)</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -2604,7 +2581,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> The mummy creates a temporary sandstorm in a @Template[emanation|distance:30] that lasts for 1 minute. Creatures within the emanation take a -4 circumstance penalty to Perception checks and must succeed at a @Check[fortitude|dc:33] save or be forced to hold their breath or start suffocating. A creature within the sandstorm at the end of its turn takes @Damage[2d6[void],1d6[slashing]]{2d6 void and 1d6 slashing damage}.</p>"
+                    "value": "<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> The mummy creates a temporary sandstorm in a @Template[emanation|distance:30] that lasts for 1 minute. Creatures within the emanation take a –4 circumstance penalty to Perception checks and must succeed at a @Check[fortitude|dc:33|options:area-effect] save or be forced to hold their breath or start suffocating. A creature within the sandstorm at the end of its turn takes @Damage[2d6[void],1d6[slashing]|options:area-damage]{2d6 void and 1d6 slashing damage}.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Sandstorm]</p>"
                 },
                 "frequency": {
                     "max": 1,
@@ -2666,6 +2643,9 @@
                 "value": 250
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

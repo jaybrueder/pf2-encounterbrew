@@ -36,13 +36,11 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -78,6 +76,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -85,9 +84,6 @@
                         "agile",
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -138,6 +134,10 @@
                 "description": {
                     "value": "<p><strong>Trigger</strong> The tardigrade would be reduced to 0 Hit Points or would die due to starvation, suffocation, or similar environmental causes</p>\n<p><strong>Frequency</strong> once per week</p>\n<p><strong>Requirements</strong> The tardigrade isn't already in tun state</p>\n<hr />\n<p><strong>Effect</strong> The giant tardigrade doesn't die but instead remains at 1 Hit Point and curls into a dry ball, called a tun. While in this tun state, the giant tardigrade is @UUID[Compendium.pf2e.conditionitems.Item.Unconscious], doesn't need to eat, drink, or breathe, and doubles its resistance to 20. It remains in tun state indefinitely until covered in significant amounts of water, at which point it begins to rehydrate, gaining regeneration 5. The regeneration persists until it reaches maximum Hit Points. The giant tardigrade then exits its tun state.</p>"
                 },
+                "frequency": {
+                    "max": 1,
+                    "per": "P1W"
+                },
                 "publication": {
                     "license": "OGL",
                     "remaster": false,
@@ -145,7 +145,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "tun-state",
                         "suboptions": [
@@ -318,7 +317,7 @@
                 "value": 9
             },
             "privateNotes": "",
-            "publicNotes": "",
+            "publicNotes": "<p>Tardigrades grow no larger than the width of a hair, but when their riverside environments are exposed to heightened levels of magic, these eight-legged omnivores can grow to tremendous sizes.</p>",
             "publication": {
                 "license": "ORC",
                 "remaster": true,

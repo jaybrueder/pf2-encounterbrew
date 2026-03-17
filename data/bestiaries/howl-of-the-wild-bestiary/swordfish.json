@@ -31,15 +31,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -96,6 +94,10 @@
                 "category": "offensive",
                 "description": {
                     "value": "<p><strong>Frequency</strong> once per turn</p>\n<hr />\n<p><strong>Effect</strong> The swordfish makes two bill Strikes against two adjacent targets, with a +1 circumstance bonus to its attack rolls.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "turn"
                 },
                 "publication": {
                     "license": "OGL",

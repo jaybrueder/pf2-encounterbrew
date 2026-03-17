@@ -516,6 +516,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -525,9 +526,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -564,6 +562,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -572,9 +571,6 @@
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -689,7 +685,7 @@
                 "compendiumSource": "Compendium.pf2e.bestiary-family-ability-glossary.Item.IOk0MRs3f9FrarKL"
             },
             "img": "systems/pf2e/icons/actions/Passive.webp",
-            "name": "Protean Anatomy",
+            "name": "Protean Anatomy 5",
             "sort": 1400000,
             "system": {
                 "actionType": {
@@ -711,7 +707,7 @@
                     {
                         "key": "ActiveEffectLike",
                         "mode": "upgrade",
-                        "path": "flags.pf2e.proteanResistance",
+                        "path": "flags.system.proteanResistance",
                         "value": 5
                     }
                 ],

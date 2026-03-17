@@ -1484,6 +1484,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -1510,7 +1511,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1682,13 +1683,13 @@
                     "value": 16
                 },
                 "damageRolls": {
-                    "2zZlN6AZXdA3CEFx": {
-                        "damage": "2d8",
-                        "damageType": "void"
-                    },
-                    "Sw9dWvwUdkLJM0wD": {
+                    "0": {
                         "damage": "1d6+6",
                         "damageType": "piercing"
+                    },
+                    "1": {
+                        "damage": "2d8",
+                        "damageType": "void"
                     }
                 },
                 "description": {
@@ -1699,6 +1700,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "key": "RollOption",
@@ -1735,9 +1737,6 @@
         },
         {
             "_id": "xnY8jJSCNYEMSEph",
-            "_stats": {
-                "compendiumSource": "Actor.OnQ779U03HyImPcw.Item.0vVEiwK17dpFzgYu"
-            },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Fist",
             "sort": 2600000,
@@ -1762,6 +1761,7 @@
                     "remaster": true,
                     "title": "Pathfinder NPC Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {

@@ -389,7 +389,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shape the shadow substance of the Netherworld into a blast. Choose acid, bludgeoning, cold, electricity, fire, force, piercing, slashing, sonic, or spirit damage, and choose a @Template[cone|distance:30], a @Template[burst|distance:15] within 120 feet, or a @Template[line|distance:50]. The blast deals 6d8 damage of the type you chose to each creature in the area (@Damage[(@item.rank+1)d8[acid]], @Damage[(@item.rank+1)d8[bludgeoning]], @Damage[(@item.rank+1)d8[cold]], @Damage[(@item.rank+1)d8[electricity]], @Damage[(@item.rank+1)d8[fire]], @Damage[(@item.rank+1)d8[force]], @Damage[(@item.rank+1)d8[piercing]], @Damage[(@item.rank+1)d8[slashing]], @Damage[(@item.rank+1)d8[sonic]], or @Damage[(@item.rank+1)d8[spirit]]).</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 1d8.</p>"
+                    "value": "<p><strong>Area</strong> varies</p>\n<p><strong>Defense</strong> @Check[reflex|basic|options:area-effect] or @Check[will|basic|options:area-effect] (target's choice)</p><hr /><p>You shape the shadow substance of the Netherworld into a blast. Choose @Damage[(@item.rank+1)d8[acid]|options:area-damage], @Damage[(@item.rank+1)d8[bludgeoning]|options:area-damage], @Damage[(@item.rank+1)d8[cold]|options:area-damage], @Damage[(@item.rank+1)d8[electricity]|options:area-damage], @Damage[(@item.rank+1)d8[fire]|options:area-damage], @Damage[(@item.rank+1)d8[force]|options:area-damage], @Damage[(@item.rank+1)d8[piercing]|options:area-damage], @Damage[(@item.rank+1)d8[slashing]|options:area-damage], @Damage[(@item.rank+1)d8[sonic]|options:area-damage], or @Damage[(@item.rank+1)d8[spirit]|options:area-damage] damage, and choose a @Template[cone|distance:30], a @Template[burst|distance:15] within 120 feet, or a @Template[line|distance:50]. The blast deals 6d8 damage of the type you chose to each creature in the area.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 1d8.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -400,44 +400,6 @@
                 },
                 "location": {
                     "value": "BvzdqhzHWggNHFEw"
-                },
-                "overlays": {
-                    "UTMlHk0o5FXLlwwM": {
-                        "name": "Shadow Blast (Will)",
-                        "overlayType": "override",
-                        "sort": 2,
-                        "system": {
-                            "damage": {
-                                "0": {
-                                    "category": null
-                                }
-                            },
-                            "defense": {
-                                "save": {
-                                    "basic": true,
-                                    "statistic": "will"
-                                }
-                            }
-                        }
-                    },
-                    "zjyfdrWBaUVi4O7b": {
-                        "name": "Shadow Blast (Reflex)",
-                        "overlayType": "override",
-                        "sort": 1,
-                        "system": {
-                            "damage": {
-                                "0": {
-                                    "category": null
-                                }
-                            },
-                            "defense": {
-                                "save": {
-                                    "basic": true,
-                                    "statistic": "reflex"
-                                }
-                            }
-                        }
-                    }
                 },
                 "publication": {
                     "license": "ORC",
@@ -2129,6 +2091,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -2155,7 +2118,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -2515,6 +2478,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "sword-cane",
                 "traits": {
@@ -2555,6 +2519,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2792,11 +2757,11 @@
                     "value": "action"
                 },
                 "actions": {
-                    "value": 1
+                    "value": 2
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Nizca siphons death through a melee attack and into their foe. Nizca expends a harm spell and makes a melee Strike. On a hit, they cast the 1-action version of the expended spell to damage the target, in addition to the normal damage from the Strike. The target automatically gets a failure on its save (or a critical failure if Nizca's Strike was a critical hit). The spell doesn't have the manipulate trait when cast this way.</p>"
+                    "value": "<p>Nizca siphons death through a melee attack and into their foe. Nizca expends a @UUID[Compendium.pf2e.spells-srd.Item.Harm] spell and makes a melee Strike. On a hit, they cast the 1-action version of the expended spell to damage the target, in addition to the normal damage from the Strike. The target automatically gets a failure on its save (or a critical failure if Nizca's Strike was a critical hit). The spell doesn't have the manipulate trait when cast this way.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -2901,7 +2866,17 @@
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 20,
+                        "slug": "roiling-shades",
+                        "traits": [
+                            "divine",
+                            "shadow"
+                        ]
+                    }
+                ],
                 "slug": null,
                 "traits": {
                     "value": [
@@ -3070,7 +3045,7 @@
                 "mod": 7
             },
             "str": {
-                "mod": 21
+                "mod": 5
             },
             "wis": {
                 "mod": 7
@@ -3119,8 +3094,8 @@
                         "silver",
                         "weapons-shedding-bright-light"
                     ],
-                    "type": "all-damage",
-                    "value": 100
+                    "type": "physical",
+                    "value": 10
                 }
             ],
             "speed": {

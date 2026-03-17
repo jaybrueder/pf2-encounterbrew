@@ -34,6 +34,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -44,9 +45,6 @@
                         "reach",
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -327,6 +325,9 @@
                 "value": 330
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "disease"
                 },

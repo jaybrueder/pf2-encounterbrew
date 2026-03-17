@@ -1071,6 +1071,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "flail",
                 "hardness": 0,
                 "hp": {
@@ -1097,7 +1098,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1228,6 +1229,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1237,9 +1239,6 @@
                         "sweep",
                         "trip"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1358,7 +1357,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When Dulac dies, her body is destroyed in a burst of chilling shadows. All creatures in a @Template[burst|distance:20] take @Damage[8d8[cold]] damage (@Check[reflex|dc:28|basic] save).</p>\n<p>Dulac's gear and treasure are unaffected by the shadows and are left in a pile where she died.</p>"
+                    "value": "<p>When Dulac dies, her body is destroyed in a burst of chilling shadows. All creatures in a @Template[burst|distance:20] take @Damage[8d8[cold]|options:area-damage] damage (@Check[reflex|dc:28|basic|options:area-effect] save).</p>\n<p>Dulac's gear and treasure are unaffected by the shadows and are left in a pile where she died.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1473,7 +1472,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

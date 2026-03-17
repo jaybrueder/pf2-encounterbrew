@@ -34,6 +34,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -41,9 +42,6 @@
                     "value": [
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -78,6 +76,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -86,9 +85,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -107,7 +103,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> The rider is targeted with an attack.</p>\n<p><strong>Requirements</strong> A creature must be mounted on the triceratops.</p>\n<hr />\n<p><strong>Effect</strong> The triceratops intercepts the attack with its bony frill. The rider gains a +2 circumstance bonus to its AC against the triggering attack.</p>"
+                    "value": "<p><strong>Trigger</strong> The rider is targeted with an attack.</p>\n<p><strong>Requirements</strong> A creature must be mounted on the triceratops.</p><hr /><p><strong>Effect</strong> The triceratops intercepts the attack with its bony frill. The rider gains a +2 circumstance bonus to its AC against the triggering attack.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Frill Defense]</p>"
                 },
                 "publication": {
                     "license": "ORC",

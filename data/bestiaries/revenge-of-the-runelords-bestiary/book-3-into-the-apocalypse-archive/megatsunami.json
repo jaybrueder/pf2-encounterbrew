@@ -1,0 +1,65 @@
+{
+    "_id": "EkotP7bqpIjOW6tN",
+    "folder": "rl5REaDECQmW6sqA",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [],
+    "name": "Megatsunami",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": null
+            },
+            "emitsSound": "encounter",
+            "hardness": 0,
+            "hp": {
+                "details": "",
+                "max": 0,
+                "temp": 0,
+                "value": 0
+            },
+            "immunities": [],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>@Check[ocean-lore|dc:36] (expert), @Check[nature|dc:38] (expert), or @Check[survival|dc:40] (master) to notice anomalies in wave patterns</p>",
+                "value": null
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>A tsunami can be a devastating disaster but pales in comparison to the daunting wall of water created by a megatsunami. When a megatsunami begins, ocean water often recedes far away from the shore, much more dramatically than it would during low tide. This warning sign might occur only seconds or minutes before the full force of the megatsunami crashes onto the land in the form of a wave whose height can exceed a hundred feet.</p>",
+            "disable": "<p>@Check[ocean-lore|dc:36] (expert) or @Check[nature|dc:38] or @Check[survival|dc:38] (master) to chart the flood path, @Check[crafting|dc:38] (master) to reinforce a shelter, or @Check[athletics|dc:40] (expert) to quickly ferry people or supplies to higher ground,</p>",
+            "isComplex": true,
+            "level": {
+                "value": 18
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #221: Into the Apocalypse Archive"
+            },
+            "reset": "",
+            "routine": "<p>(5+ minutes, @Check[flat|dc:18]) The megatsunami's wave overtakes and crushes everything in its path. It rips buildings off their foundations and tears up trees by their roots. Prepared creatures have managed to reach an area of high ground or another form of safety, but unprepared creatures in the area are caught up in the flood and battered by a combination of water and debris.</p><p>Unprepared creatures take @Damage[(5d12+30)[bludgeoning]] damage (@Check[fortitude|dc:43|basic] save) when the megatsunami hits and are thereafter surrounded by water. If they can't breathe water, they must hold their breath or begin to drown. Each round, a creature can attempt a @Check[athletics|dc:40] check to Swim up near the surface or to keep their head above water for the remainder of the minute once they reach the surface.</p><p>At the start of the next four minutes, the megatsunami has carried each unprepared character 250 feet inland. At this time, each unprepared character takes @Damage[(3d12+20)[bludgeoning]] damage (@Check[reflex|dc:40|basic] save). A character who managed that minute to remain near the surface gains a result one degree of success better than their actual rolled result, with a critical success indicating they've managed to clamber out of the surge onto high ground and are now prepared.</p><p>At the end of the five minutes, attempt a @Check[flat|dc:18] to determine if a new wave repeats the routine. Characters already swept inland only become affected by these following waves once the rushing water reaches them, but until then they can Swim in the choppy floodwaters with a successful @Check[athletics|dc:30] check, potentially reaching safety or high ground before the next wave hits. Once a region is flooded by a megatsunami, it typically remains flooded for several hours.</p>"
+        },
+        "saves": {
+            "fortitude": {
+                "value": 0
+            },
+            "reflex": {
+                "value": 0
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "environmental"
+            ]
+        }
+    },
+    "type": "hazard"
+}

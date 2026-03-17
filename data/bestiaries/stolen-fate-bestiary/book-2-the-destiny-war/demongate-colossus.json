@@ -335,6 +335,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -344,9 +345,6 @@
                         "reach-15",
                         "shove"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -384,17 +382,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 15
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "magical",
-                        "range-15",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -485,7 +483,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>If the Demongate Colossus is destroyed or its belly portal is deactivated, demons that used the colossus's portal within a @Template[emanation|distance:40] take @Damage[7d10[spirit]] damage (@Check[fortitude|dc:30|basic] save). A creature that takes full or double damage is @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2} for 1 minute. If the Demongate Colossus is still active when it suffers a link collapse, it becomes @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 3} and loses its gatewarper aura.</p>"
+                    "value": "<p>If the Demongate Colossus is destroyed or its belly portal is deactivated, demons that used the colossus's portal within a @Template[emanation|distance:40] take @Damage[7d10[spirit]|options:area-damage] damage (@Check[fortitude|dc:30|basic|options:area-effect] save). A creature that takes full or double damage is @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2} for 1 minute. If the Demongate Colossus is still active when it suffers a link collapse, it becomes @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 3} and loses its gatewarper aura.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -514,7 +512,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The Demongate Colossus releases a @Template[cone|distance:50] of crimson energy that deals @Damage[4d12[force],4d12[spirit]]{4d12 force damage and 4d12 spirit damage} (@Check[reflex|dc:34|basic] save). The Demongate Colossus can't use Corrupted Radiant Blast again for [[/gmr 1d4 #Recharge Corrupted Radiant Blast]]{1d4 rounds}.</p>"
+                    "value": "<p>The Demongate Colossus releases a @Template[cone|distance:50] of crimson energy that deals @Damage[4d12[force],4d12[spirit]|options:area-damage]{4d12 force damage and 4d12 spirit damage} (@Check[reflex|dc:34|basic|options:area-effect] save). The Demongate Colossus can't use Corrupted Radiant Blast again for [[/gmr 1d4 #Recharge Corrupted Radiant Blast]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",

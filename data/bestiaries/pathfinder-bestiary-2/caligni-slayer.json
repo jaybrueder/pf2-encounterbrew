@@ -660,6 +660,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -686,7 +687,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -819,6 +820,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -828,9 +830,6 @@
                         "finesse",
                         "trip"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -916,7 +915,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the caligni slayer dies, their body implodes violently into nothingness, dealing @Damage[3d10[sonic]] damage to creatures in a @Template[emanation|distance:10]. Each creature in the area must attempt a @Check[fortitude|dc:20|traits:damaging-effect] save.</p>\n<p>The slayer's gear and treasure are unaffected by the implosion and are left in a pile where they died.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage.</p>\n<p><strong>Failure</strong> The creature takes full damage and is @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 minute.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage and is deafened for 24 hours.</p>"
+                    "value": "<p>When the caligni slayer dies, their body implodes violently into nothingness, dealing @Damage[3d10[sonic]|options:area-damage] damage to creatures in a @Template[emanation|distance:10]. Each creature in the area must attempt a @Check[fortitude|dc:20|options:area-effect,damaging-effect] save.</p>\n<p>The slayer's gear and treasure are unaffected by the implosion and are left in a pile where they died.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage.</p>\n<p><strong>Failure</strong> The creature takes full damage and is @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 minute.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage and is deafened for 24 hours.</p>"
                 },
                 "publication": {
                     "license": "OGL",

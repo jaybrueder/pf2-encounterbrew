@@ -686,6 +686,7 @@
                 "counteraction": false,
                 "damage": {
                     "0": {
+                        "applyMod": false,
                         "category": null,
                         "formula": "12d6",
                         "kinds": [
@@ -702,13 +703,14 @@
                     }
                 },
                 "description": {
-                    "value": "<p>You draw in the blood and life force of other creatures through your outstretched arms. You deal 12d6 void damage to living creatures in the area. You gain temporary Hit Points equal to half the damage a single creature takes from this spell; calculate these temporary Hit Points using the creature that took the most damage. You lose any remaining temporary Hit Points after 1 minute.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
+                    "value": "<p>You draw in the blood and life force of other creatures through your outstretched arms. You deal 12d6 void damage to living creatures in the area with a basic Fortitude save.</p>\n<p>You gain temporary Hit Points equal to half the damage a single creature takes from this spell; calculate these temporary Hit Points using the creature that took the most damage. You lose any remaining temporary Hit Points after 1 minute.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
                 },
                 "duration": {
                     "sustained": false,
                     "value": ""
                 },
                 "heightening": {
+                    "area": 0,
                     "damage": {
                         "0": "2d6"
                     },
@@ -724,9 +726,9 @@
                     "value": "VNiOGGKc54QUfVbN"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": ""
@@ -1133,7 +1135,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.OyFCwQuw8XRazsNr"
             },
-            "img": "systems/pf2e/icons/spells/remove-curse.webp",
+            "img": "icons/magic/control/buff-flight-wings-runes-blue-white.webp",
             "name": "Remove Curse",
             "sort": 1600000,
             "system": {
@@ -1330,7 +1332,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.sRfSBHWHdbIa0aGc"
             },
-            "img": "systems/pf2e/icons/spells/chilling-darkness.webp",
+            "img": "icons/magic/light/beam-explosion-pink-purple.webp",
             "name": "Chilling Darkness",
             "sort": 1900000,
             "system": {
@@ -1755,7 +1757,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.FzAtX8yXBjTaisJK"
             },
-            "img": "systems/pf2e/icons/spells/undetectable-alignment.webp",
+            "img": "icons/magic/control/silhouette-aura-energy.webp",
             "name": "Undetectable Alignment",
             "sort": 2500000,
             "system": {
@@ -3077,7 +3079,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
             },
-            "img": "icons/commodities/treasure/broach-jeweled-green.webp",
+            "img": "icons/commodities/treasure/brooch-jeweled-green.webp",
             "name": "Religious Symbol (Wooden)",
             "sort": 4000000,
             "system": {
@@ -3161,6 +3163,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -3170,9 +3173,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -3302,7 +3302,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>With a wave of its hand, the strigoi calls fourth vile ruination from the surrounding shadows, causing coils of darkness and shadowy bats, rats, and wolves to lash out at living targets in a @Template[emanation|distance:30]. Living creatures in this area take @Damage[7d6[void]] damage (@Check[fortitude|dc:31|basic] save against the DC of the strigoi's level). A creature that fails this save is also @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] for 1 round (or @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round and then dazzled for 1 round)</p>"
+                    "value": "<p>With a wave of its hand, the strigoi calls fourth vile ruination from the surrounding shadows, causing coils of darkness and shadowy bats, rats, and wolves to lash out at living targets in a @Template[emanation|distance:30]. Living creatures in this area take @Damage[7d6[void]|options:area-damage] damage (@Check[fortitude|dc:31|basic|options:area-effect] save against the DC of the strigoi's level). A creature that fails this save is also @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] for 1 round (or @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round and then dazzled for 1 round)</p>"
                 },
                 "publication": {
                     "license": "OGL",

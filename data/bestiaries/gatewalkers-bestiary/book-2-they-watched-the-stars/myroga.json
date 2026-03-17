@@ -163,15 +163,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -205,15 +203,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
                     "value": [
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -247,6 +243,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -254,9 +251,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -291,12 +285,12 @@
             "type": "action"
         },
         {
-            "_id": "o2qJKf7HlLVk6YRX",
+            "_id": "rvkUENe3nzhqFAYf",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.hFtNbo1LKYCoDy2O"
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.W7SbTykXrNwxDzJc"
             },
             "img": "systems/pf2e/icons/actions/Reaction.webp",
-            "name": "Attack of Opportunity (Fangs Only)",
+            "name": "Reactive Strike (Fangs Only)",
             "sort": 700000,
             "system": {
                 "actionType": {
@@ -307,17 +301,16 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.AttackOfOpportunity]</p>"
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.ReactiveStrike]</p>"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Bestiary"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Monster Core"
                 },
                 "rules": [],
-                "slug": "attack-of-opportunity",
+                "slug": "reactive-strike",
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -346,7 +339,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SkillVariant.LeyLine",
                         "option": "terrain:ley-line",
@@ -420,7 +412,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "ley-line-empowerment",
                         "toggleable": true
@@ -551,9 +542,9 @@
             "privateNotes": "",
             "publicNotes": "<p>Myrogas are avaricious, simple-minded dragons with supernatural occult powers. They draw their amazing abilities from ley lines—loci of intense magical energy often associated with psychic phenomena.</p>\n<p>A myroga encountered away from a ley line is far less dangerous, a fact which myrogas recognize and take great pains to mitigate. Upon discovering an unoccupied ley line, a myroga is apt to roost nearby and guard the site ferociously. All the while, it sups on the ley line's nearly inexhaustible ambient magic to grow stronger and expand its repertoire of brutal powers.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #188: They Watched the Stars"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -608,8 +599,7 @@
                 "value": "lg"
             },
             "value": [
-                "dragon",
-                "evil"
+                "dragon"
             ]
         }
     },

@@ -143,6 +143,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -151,9 +152,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -191,6 +189,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -199,9 +198,6 @@
                         "agile",
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -242,6 +238,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -249,9 +246,6 @@
                     "value": [
                         "reach-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -289,16 +283,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 150
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-150"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -390,7 +383,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet. @Damage[5d6[cold]] damage (@Check[reflex|dc:41|basic]). On a failure, the creature takes a –15-foot status penalty to its Speeds for 1 round.</p>"
+                    "value": "<p>30 feet. @Damage[5d6[cold]|options:area-damage] damage (@Check[reflex|dc:41|basic|options:area-effect]). On a failure, the creature takes a –15-foot status penalty to its Speeds for 1 round.</p>"
                 },
                 "publication": {
                     "license": "OGL",

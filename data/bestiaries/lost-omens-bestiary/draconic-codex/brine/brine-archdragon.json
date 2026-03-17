@@ -1,0 +1,817 @@
+{
+    "_id": "GS0xs8kgKrwHEX3u",
+    "folder": "wB0i4tII8Lb1S0eV",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "Io8OqlmJEUv4gRtA",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 100000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": [
+                        "benthic-bite"
+                    ]
+                },
+                "bonus": {
+                    "value": 38
+                },
+                "damageRolls": {
+                    "eZ6eFAaCkRZs59m0": {
+                        "damage": "4d10+21",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-15",
+                        "unarmed"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "JyfcAgjHNlPtkwzS",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Claw",
+            "sort": 200000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 38
+                },
+                "damageRolls": {
+                    "mux5sLYaDx3JnOr9": {
+                        "damage": "4d8+21",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "magical",
+                        "reach-10",
+                        "unarmed"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "casFoLsmnpju6Xqx",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Tail",
+            "sort": 300000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 36
+                },
+                "damageRolls": {
+                    "wLTWPUMFvsM3YUMn": {
+                        "damage": "4d12+21",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-20",
+                        "unarmed"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "FAjgzGoeKTFlXJ6g",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Caustic Spit",
+            "sort": 400000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 36
+                },
+                "damageRolls": {
+                    "0I4mRJaegm1MrgUJ": {
+                        "damage": "4d12+10",
+                        "damageType": "acid"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "acid"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "qdQTHhFUrTGawASy",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Aquatic Echolocation",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>A brine dragon can use their hearing as a precise sense at the listed range, but only underwater.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "RollOption",
+                        "label": "PF2E.SkillVariant.Underwater",
+                        "option": "terrain:underwater",
+                        "toggleable": true
+                    },
+                    {
+                        "acuity": "precise",
+                        "key": "Sense",
+                        "predicate": [
+                            "terrain:underwater"
+                        ],
+                        "range": 120,
+                        "selector": "echolocation"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "YMbDbwf7ecSe2Pzk",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.kquBnQ0kObZztnBc"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "+2 Status to All Saves Vs. Primal",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Monster Core"
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "item:trait:primal"
+                        ],
+                        "selector": "saving-throw",
+                        "type": "status",
+                        "value": 2
+                    }
+                ],
+                "slug": "2-status-to-all-saves-vs-primal",
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "TSkELwGsQ8PGZZHt",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.kquBnQ0kObZztnBc"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "+2 to Sense Motive",
+            "sort": 700000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Monster Core"
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "action:sense-motive"
+                        ],
+                        "selector": "perception",
+                        "value": 2
+                    }
+                ],
+                "slug": "2-to-sense-motive",
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "jUcFKMsbU2YNCb6h",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Decompression Sickness",
+            "sort": 800000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>20 feet. After the dragon uses their Crushing Breath, the pressure of the depths surrounds them for 1 round. Any creature that leaves the aura during this time must succeed at a @Check[fortitude|dc:39] save or become dizzy and unbalanced from the sudden change in pressure, treating all squares as difficult terrain until the end of their next turn. Incorporeal creatures are immune to this aura.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "RollOption",
+                        "option": "decompression-sickness",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "Aura",
+                        "predicate": [
+                            "decompression-sickness"
+                        ],
+                        "radius": 20,
+                        "traits": [
+                            "primal",
+                            "water"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "aura",
+                        "primal",
+                        "water"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "cUtNYZ935fPsgj8x",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Regent's Glower",
+            "sort": 900000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The dragon is critically hit with a melee attack</p><hr /><p><strong>Effect</strong> The dragon focuses their weighty gaze upon their assailant, filling their foe with dread. The triggering creature takes @Damage[9d6[mental]] damage with a @Check[will|dc:42|basic|options:inflicts:frightened] save. Any creature who fails the save also becomes @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1} (@UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} on a critical failure).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "emotion",
+                        "fear",
+                        "mental",
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "CMNW1v0OIyvhzPLA",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Bathygenic Barrage",
+            "sort": 1000000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> The dragon uses Pressurized Pool three times. None of the bursts can overlap.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "day"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "CAz0y1bHeuUkucO1",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Benthic Bite",
+            "sort": 1100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>A creature who takes damage from a brine dragon's jaws Strike must succeed at a @Check[fortitude|dc:39|options:inflicts:enfeebled] save or be @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 3} for 1 round.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "rCCO1uInouBztVoX",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Crushing Breath",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon spews a @Template[type:line|distance:120] of pressurized water that deals @Damage[21d6[bludgeoning]|options:area-damage] damage with a @Check[reflex|dc:42|basic|options:area-effect,inflicts:clumsy] save. A creature that fails the save is also @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1} (@UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 2} on a critical failure) for 1 minute. The dragon can't use Crushing Breath again for [[/gmr 1d4 #Recharge Crushing Breath]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "2Xn956ojmWrfSKlv",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Draconic Frenzy",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon makes two claw Strikes and one tail Strike in any order.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "5gdnIQL3Cpvq6ZeC",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Draconic Momentum",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When the dragon scores a critical hit with a Strike, they recharge Crushing Breath.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "nWEiNzJVO4NSKZA8",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Pressurized Pool",
+            "sort": 1500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon expels a @Template[type:burst|distance:10] of pressurized water within 120 feet that lasts for 1 minute. A creature other than a brine dragon that enters or begins their turn within a burst must succeed at a @Check[fortitude|dc:42|options:area-effect,inflicts:encumbered] save or become @UUID[Compendium.pf2e.conditionitems.Item.Encumbered] until the beginning of their next turn.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "oiW2Z0YQvzSur4Yk",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Tidal Surge",
+            "sort": 1600000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon sweeps their wings, creating a @Template[type:cone|distance:30] of buffeting water that deals @Damage[14d8[bludgeoning]|options:area-damage] damage with a @Check[fortitude|dc:42|basic|options:area-effect,forced-movement,inflicts:prone] save. Each unattended object and each creature that fails the save is also pushed away from the dragon 20 feet (30 feet on a critical failure) and is knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone]. The dragon can't use Tidal Surge again for [[/gmr 1d4 #Recharge Tidal Surge]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "M0QnveiZspd1JHcD",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Settlement Lore (one settlement the dragon controls)",
+            "sort": 1700000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 38
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {}
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Brine Archdragon",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 7
+            },
+            "con": {
+                "mod": 7
+            },
+            "dex": {
+                "mod": 6
+            },
+            "int": {
+                "mod": 6
+            },
+            "str": {
+                "mod": 11
+            },
+            "wis": {
+                "mod": 6
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 44
+            },
+            "allSaves": {
+                "value": "+2 status to all saves vs. primal"
+            },
+            "hp": {
+                "details": "",
+                "max": 460,
+                "temp": 0,
+                "value": 460
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "paralyzed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "sleep"
+                },
+                {
+                    "exceptions": [],
+                    "type": "clumsy"
+                },
+                {
+                    "exceptions": [],
+                    "type": "controlled"
+                }
+            ],
+            "resistances": [
+                {
+                    "doubleVs": [],
+                    "exceptions": [],
+                    "type": "acid",
+                    "value": 15
+                },
+                {
+                    "doubleVs": [],
+                    "exceptions": [],
+                    "type": "force",
+                    "value": 15
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 180
+                    },
+                    {
+                        "type": "swim",
+                        "value": 180
+                    }
+                ],
+                "value": 40
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "draconic",
+                    "thalassic"
+                ]
+            },
+            "level": {
+                "value": 20
+            },
+            "privateNotes": "",
+            "publicNotes": "",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Lost Omens Draconic Codex"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "(+38 to Sense Motive); aquatic echolocation 120 feet",
+            "mod": 36,
+            "senses": [
+                {
+                    "type": "greater-darkvision"
+                }
+            ]
+        },
+        "resources": {
+            "focus": {
+                "max": 1,
+                "value": 1
+            }
+        },
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 37
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 33
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 35
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 34
+            },
+            "athletics": {
+                "base": 40
+            },
+            "deception": {
+                "base": 34
+            },
+            "diplomacy": {
+                "base": 40
+            },
+            "intimidation": {
+                "base": 38
+            },
+            "nature": {
+                "base": 34
+            },
+            "society": {
+                "base": 34
+            },
+            "stealth": {
+                "base": 32
+            }
+        },
+        "traits": {
+            "rarity": "rare",
+            "size": {
+                "value": "grg"
+            },
+            "value": [
+                "aquatic",
+                "dragon",
+                "elemental",
+                "primal",
+                "water"
+            ]
+        }
+    },
+    "type": "npc"
+}

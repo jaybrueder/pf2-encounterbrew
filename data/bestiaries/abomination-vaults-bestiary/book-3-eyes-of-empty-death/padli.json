@@ -1029,6 +1029,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -1379,6 +1380,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1388,9 +1390,6 @@
                         "finesse",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1476,7 +1475,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When Padli dies, his body combusts in a flash of white-hot flame. All creatures in a @Template[burst|distance:20] take @Damage[6d10[fire]] damage (@Check[reflex|dc:28|basic] save).</p>\n<p>His gear is unaffected by the flames and is left in a pile where he died.</p>"
+                    "value": "<p>When Padli dies, his body combusts in a flash of white-hot flame. All creatures in a @Template[burst|distance:20] take @Damage[6d10[fire]|options:area-damage] damage (@Check[reflex|dc:28|basic|options:area-effect] save).</p>\n<p>His gear is unaffected by the flames and is left in a pile where he died.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1526,7 +1525,6 @@
                         "value": 2
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "occult-ward",
                         "toggleable": true
@@ -1576,7 +1574,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

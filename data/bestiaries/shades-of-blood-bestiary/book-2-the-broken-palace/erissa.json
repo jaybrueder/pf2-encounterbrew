@@ -261,6 +261,10 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [
                     {
                         "alwaysActive": true,
@@ -287,7 +291,7 @@
                     {
                         "key": "DamageDice",
                         "override": {
-                            "damageType": "{item|flags.pf2e.rulesSelections.telekineticObject}"
+                            "damageType": "{item|flags.system.rulesSelections.telekineticObject}"
                         },
                         "selector": "{item|id}-damage"
                     },
@@ -301,15 +305,14 @@
                         "selectors": [
                             "inline-damage"
                         ],
-                        "value": "{item|flags.pf2e.rulesSelections.telekineticObject}"
+                        "value": "{item|flags.system.rulesSelections.telekineticObject}"
                     }
                 ],
                 "slug": "telekinetic-object",
                 "traits": {
                     "value": [
                         "magical",
-                        "occult",
-                        "range-increment-60"
+                        "occult"
                     ]
                 }
             },
@@ -531,7 +534,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "telekinetic-storm",
                         "suboptions": [

@@ -201,6 +201,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [
                     {
                         "alwaysActive": true,
@@ -227,7 +231,7 @@
                     {
                         "key": "DamageDice",
                         "override": {
-                            "damageType": "{item|flags.pf2e.rulesSelections.telekineticObject}"
+                            "damageType": "{item|flags.system.rulesSelections.telekineticObject}"
                         },
                         "selector": "{item|id}-damage"
                     },
@@ -241,7 +245,7 @@
                         "selectors": [
                             "inline-damage"
                         ],
-                        "value": "{item|flags.pf2e.rulesSelections.telekineticObject}"
+                        "value": "{item|flags.system.rulesSelections.telekineticObject}"
                     }
                 ],
                 "slug": null,
@@ -249,12 +253,8 @@
                     "rarity": "common",
                     "value": [
                         "magical",
-                        "occult",
-                        "range-increment-60"
+                        "occult"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -447,7 +447,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "telekinetic-storm",
                         "suboptions": [
@@ -537,6 +536,9 @@
                 "value": 190
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

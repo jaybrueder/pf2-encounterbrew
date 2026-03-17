@@ -1,0 +1,171 @@
+{
+    "_id": "Tj6Cg4siklByMKLd",
+    "folder": "TK7ZSMCuElK7Dn5u",
+    "img": "systems/pf2e/icons/default-icons/vehicle.svg",
+    "items": [
+        {
+            "_id": "WSGgyrVZBiFeTe7O",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Koukouvagian Figurehead",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Yasmenei is attuned to the ship's figurehead and can activate Warning Cry.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "dbviayynkxgjLbxQ",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Warning Cry",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Frequency</strong> once per day</p>\n<p><strong>Trigger</strong> The pilot or a crew member critically fails a check that would result in the ship being damaged</p><hr /><p><strong>Effect</strong> The figurehead hoots a timely warning. The triggering creature rerolls the check and uses the new result.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "day"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "fortune"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "DPxWLpbHNvvUowxF",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Maneuverable",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>With a crew of 20 or more skilled rowers, the Tide Hunter can turn swiftly, turn in place, or row backward. Each 90-degree turn made while moving less than 150 feet costs 5 extra feet of movement. It can row backward at half speed, and it can't turn while rowing backward. With a crew of at least 40 rowers, the Tide Hunter's rowed speed increases to 40 feet.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Tide Hunter",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": 24
+            },
+            "collisionDC": {
+                "value": 25
+            },
+            "collisionDamage": {
+                "value": "6d10"
+            },
+            "emitsSound": "encounter",
+            "hardness": 15,
+            "hp": {
+                "details": "",
+                "max": 150,
+                "temp": 0,
+                "value": 150
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "critical-hits"
+                },
+                {
+                    "exceptions": [],
+                    "type": "precision"
+                }
+            ],
+            "resistances": [],
+            "weaknesses": []
+        },
+        "details": {
+            "AC": 0,
+            "crew": "1 pilot, 20 rowers",
+            "description": "",
+            "level": {
+                "value": 8
+            },
+            "passengers": "6",
+            "pilotingCheck": "Sailing Lore (DC 25), Diplomacy (DC 27), or Intimidation (DC 27)",
+            "price": 1500,
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #216: The Acropolis Pyre"
+            },
+            "space": {
+                "high": 20,
+                "long": 50,
+                "wide": 30
+            },
+            "speed": "swim 30 feet (rowed, wind)"
+        },
+        "saves": {
+            "fortitude": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "grg"
+            },
+            "value": []
+        }
+    },
+    "type": "vehicle"
+}

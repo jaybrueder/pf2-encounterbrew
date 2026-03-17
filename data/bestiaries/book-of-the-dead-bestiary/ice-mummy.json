@@ -36,6 +36,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -60,7 +61,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -126,6 +127,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -155,9 +157,6 @@
                         "magical",
                         "two-hand-d8"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -198,6 +197,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -207,9 +207,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -428,7 +425,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The ice mummy exhales a @Template[cone|distance:60] of razor-sharp ice that deals @Damage[5d6[cold],4d6[slashing]]{5d6 cold and 4d6 slashing damage} (@Check[reflex|dc:26|basic]).</p>\n<p>The ice mummy can't use Frozen Breath again for [[/gmr 1d4 #Recharge Frozen Breath]]{1d4 rounds}.</p>"
+                    "value": "<p>The ice mummy exhales a @Template[cone|distance:60] of razor-sharp ice that deals @Damage[5d6[cold],4d6[slashing]|options:area-damage]{5d6 cold and 4d6 slashing damage} (@Check[reflex|dc:26|basic|options:area-effect]).</p>\n<p>The ice mummy can't use Frozen Breath again for [[/gmr 1d4 #Recharge Frozen Breath]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -486,6 +483,9 @@
                 "value": 130
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

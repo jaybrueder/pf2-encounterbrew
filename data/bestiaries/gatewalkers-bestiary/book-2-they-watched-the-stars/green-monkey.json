@@ -48,7 +48,7 @@
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.SwUiVavHKMWG7t5K"
             },
             "img": "systems/pf2e/icons/spells/tongues.webp",
-            "name": "Tongues (Constant)",
+            "name": "Truespeech (Constant)",
             "sort": 200000,
             "system": {
                 "area": null,
@@ -73,16 +73,16 @@
                     "value": "ZWgQtYSPKB3Hj7WW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "tongues",
+                "slug": "truespeech",
                 "target": {
                     "value": "1 creature"
                 },
@@ -110,7 +110,7 @@
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.5KobTMrZeZxuXMgl"
             },
             "img": "icons/creatures/invertebrates/spider-striped-web-red.webp",
-            "name": "Spider Climb",
+            "name": "Gecko Grip",
             "sort": 300000,
             "system": {
                 "area": null,
@@ -121,7 +121,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>Tiny clinging hairs sprout across the creature's hands and feet, offering purchase on nearly any surface. The target gains a climb Speed equal to its Speed.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The duration increases to 1 hour.</p>"
+                    "value": "<p>Tiny clinging hairs sprout across the creature's hands and feet, offering purchase on nearly any surface. The target gains a climb Speed equal to its Speed.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The duration increases to 1 hour.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Gecko Grip]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -135,16 +135,16 @@
                     "value": "ZWgQtYSPKB3Hj7WW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "spider-climb",
+                "slug": "gecko-grip",
                 "target": {
                     "value": "1 creature"
                 },
@@ -171,7 +171,7 @@
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.KcLVELhCUcKXxiKE"
             },
             "img": "systems/pf2e/icons/spells/longstrider.webp",
-            "name": "Longstrider",
+            "name": "Tailwind",
             "sort": 400000,
             "system": {
                 "area": null,
@@ -182,7 +182,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You lengthen your stride beyond what should be possible. You gain a +10-foot status bonus to your Speed.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tailwind]</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The duration increases to 8 hours.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tailwind (8 hours)]</p>"
+                    "value": "<p>The wind at your back pushes you to find new horizons. You gain a +10-foot status bonus to your Speed.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tailwind]</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The duration increases to 8 hours.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tailwind (8 hours)]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -196,16 +196,16 @@
                     "value": "ZWgQtYSPKB3Hj7WW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": ""
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "longstrider",
+                "slug": "tailwind",
                 "target": {
                     "value": ""
                 },
@@ -219,6 +219,7 @@
                         "primal"
                     ],
                     "value": [
+                        "air",
                         "concentrate",
                         "manipulate"
                     ]
@@ -255,6 +256,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -264,9 +266,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -433,7 +432,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "bond-with-mortal",
                         "toggleable": true
@@ -462,7 +460,7 @@
                         "exceptions": [
                             "force",
                             "ghost-touch",
-                            "vitality"
+                            "spirit"
                         ],
                         "key": "Resistance",
                         "predicate": [
@@ -589,11 +587,11 @@
                 "value": 3
             },
             "privateNotes": "",
-            "publicNotes": "<p>Nimble spirit guides are small and discreet, using their diminutive size and natural agility to dart from hiding place to hiding place. They tend to be much shyer than other spirit guides, at least initially, preferring to watch nearby mortals from a distance before deciding whether to trust them. When their trust is so earned, nimble spirit guides are often playful and contagiously exuberant. These spirit guides can often be found entertaining lost children with antics until they are rescued or freeing prisoners by stealing keys and picking locks. The green monkey is a nimble spirit guide who takes the appearance of a tiny primate with green fur that, on closer inspection, turns out to be fine blades of grass.</p>\n<hr />\n<p>Spirit guides are ghostly creatures that manifest as primordial animals on the Material Plane. Many Sarkorian cultures believe that spirit guides came into being at the same time as the first mortal hunting bands. In this time before time, spirit guides took on the most elemental shapes of animals, and they taught humanoid communities about important aspects of nature. As they imparted their wisdom, these spirit guides took physical forms, becoming the wild animals that exist today. Though spirit guides bestowed most of their gifts unto mortals in ancient times, a rare few continue to lurk in forgotten or as-of-yet-undiscovered corners of the physical world.</p>",
+            "publicNotes": "<p>Nimble spirit guides are small and discreet, using their diminutive size and natural agility to dart from hiding place to hiding place. They tend to be much shyer than other spirit guides, at least initially, preferring to watch nearby mortals from a distance before deciding whether to trust them. When their trust is so earned, nimble spirit guides are often playful and contagiously exuberant. These spirit guides can often be found entertaining lost children with antics until they are rescued or freeing prisoners by stealing keys and picking locks.</p>\n<p>The green monkey is a nimble spirit guide who takes the appearance of a tiny primate with green fur that, on closer inspection, turns out to be fine blades of grass.</p><hr /><p>Spirit guides are ghostly creatures that manifest as primordial animals in the Universe. Many Sarkorian cultures believe that spirit guides came into being as the first mortal hunting bands began to form. In this time before time, spirit guides adopted the most elemental shapes of animals, and they taught humanoid communities about important aspects of nature, such as where to find fresh water, which plants were safe to eat, and how to live in harmony with their environment. As they imparted their wisdom, spirit guides took more physical forms, eventually becoming the wild animals that exist today. Though spirit guides bestowed most of their gifts unto mortals in ancient times, a rare few continue to lurk in forgotten or as-of-yet-undiscovered corners of the physical world.</p><h2>Spirit Guide Companions</h2><p>One way to gain the aid of a spirit guide is to take the @UUID[Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.J0AfK0jJgS5WxhCE]{scion of Domora} archetype. This archetype allows character to choose a spirit guide to accompany them on their adventures—provided they first prove themselves worthy of the honor.</p><h2>The Sarkoris Scar</h2><p>Some spirit guides encountered in the haunted badlands now known as the Sarkoris Scar are remnants of god calling, an ancient tradition practiced by many Sarkorian cultures. Severed from their callers by the demonic war that devastated the land for over a century, such gods now roam the blasted landscape, occasionally helping those they find worthy.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #188: They Watched the Stars"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {

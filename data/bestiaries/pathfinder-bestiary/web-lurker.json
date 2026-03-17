@@ -34,6 +34,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -41,9 +42,6 @@
                     "value": [
                         "poison"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -78,6 +76,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -86,9 +85,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -120,14 +116,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -271,7 +265,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>A creature hit by the web lurker's web attack is immobilized and stuck to the nearest surface until it succeeds at @Check[acrobatics|dc:20|traits:action:escape] check to @UUID[Compendium.pf2e.actionspf2e.Item.Escape].</p>"
+                    "value": "<p>A creature hit by the web lurker's web attack is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] and stuck to the nearest surface until it succeeds at DC 20 Acrobatics check to [[/act escape statistic=acrobatics dc=20]].</p>"
                 },
                 "publication": {
                     "license": "OGL",

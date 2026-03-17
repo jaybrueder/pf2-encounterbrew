@@ -1240,6 +1240,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1248,9 +1249,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1286,6 +1284,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1294,9 +1293,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1330,6 +1326,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1337,9 +1334,6 @@
                         "magical",
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1373,16 +1367,16 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 90,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "brutal",
-                        "range-increment-90"
+                        "brutal"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1540,7 +1534,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>90 feet @Check[will|dc:26]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>90 feet. @Check[will|dc:26|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -1657,7 +1651,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The dragon belches a mass of boulders that deals @Damage[8d8[bludgeoning]|options:area-damage] damage in a @Template[cone|distance:30] (@Check[reflex|dc:28|basic|options:area-effect] save).</p>\n<p>They can't use Avalanche Breath again for [[/gmr 1d4 #Recharge use Avalanche Breath]]{1d4 rounds}.</p>"
+                    "value": "<p>The dragon belches a mass of boulders that deals @Damage[8d8[bludgeoning]|options:area-damage] damage in a @Template[cone|distance:30] (@Check[reflex|dc:28|basic|options:area-effect] save).</p>\n<p>They can't use Avalanche Breath again for [[/gmr 1d4 #Recharge Avalanche Breath]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "ORC",

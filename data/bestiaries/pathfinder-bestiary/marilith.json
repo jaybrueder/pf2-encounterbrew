@@ -567,6 +567,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -593,7 +594,7 @@
                 "quantity": 6,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -653,6 +654,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -664,9 +666,6 @@
                         "unholy",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -703,6 +702,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -714,9 +714,6 @@
                         "unarmed",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1075,7 +1072,7 @@
                         "toggleable": true
                     },
                     {
-                        "diceNumber": "{item|flags.pf2e.rulesSelections.focusedAssault}",
+                        "diceNumber": "{item|flags.system.rulesSelections.focusedAssault}",
                         "dieSize": "d8",
                         "key": "DamageDice",
                         "selector": "cold-iron-silver-longsword-damage"

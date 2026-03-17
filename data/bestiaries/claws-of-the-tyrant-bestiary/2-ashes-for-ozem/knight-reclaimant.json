@@ -37,6 +37,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -63,7 +64,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -247,9 +248,9 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "Bastard Sword - Hand Grip",
                         "option": "bastard-sword",
@@ -412,6 +413,10 @@
                 "category": "offensive",
                 "description": {
                     "value": "<p><strong>Frequency</strong> once per turn</p><hr /><p><strong>Effect</strong> The knight Strides twice. If they end their movement within melee reach of at least one enemy, the knight can make a melee Strike against that enemy.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "turn"
                 },
                 "publication": {
                     "license": "OGL",

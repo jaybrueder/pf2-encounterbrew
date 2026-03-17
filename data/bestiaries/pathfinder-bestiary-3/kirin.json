@@ -609,6 +609,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -616,9 +617,6 @@
                     "value": [
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -653,6 +651,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -662,9 +661,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -877,7 +873,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The kirin rushes forward, rears up on their hind legs, and descends upon their target with their horn. The kirin Strides and makes a horn Strike. If this Strike hits, it deals an additional [[/r 1d8]] damage, and the target is knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"
+                    "value": "<p>The kirin rushes forward, rears up on their hind legs, and descends upon their target with their horn. The kirin Strides and makes a horn Strike. If this Strike hits, it deals an additional 1d8 damage, and the target is knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -886,7 +882,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "rearing-thrust",
                         "toggleable": true

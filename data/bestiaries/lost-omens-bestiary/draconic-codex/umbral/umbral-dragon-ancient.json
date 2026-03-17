@@ -1,0 +1,1112 @@
+{
+    "_id": "UHsHUlFmXMZ6XN9l",
+    "folder": "XgkZeznOYs2vH4l3",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "IJlt9kWHwtLHHZ4i",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Occult Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": 9
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 39,
+                    "value": 0
+                },
+                "tradition": {
+                    "value": "occult"
+                },
+                "traits": {}
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "ilRawPPF62bkV6Ew",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.rxvS7EMJ7qmexAyA"
+            },
+            "folder": "iDjm2cXyRAe4VZ35",
+            "img": "icons/creatures/mammals/bat-giant-tattered-purple.webp",
+            "name": "Umbral Journey",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You move partially into the Netherworld, using its warped nature to speed your travels. Each hour, you cover roughly as much ground as you normally would in 3 days. The landmarks are vague and symbolic rather than concrete, leaving you within a mile of your intended destination when you Dismiss the spell or its duration ends.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "8 hours"
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "heightenedLevel": 9,
+                    "value": "IJlt9kWHwtLHHZ4i"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "umbral-journey",
+                "target": {
+                    "value": "you and up to 10 willing creatures touched"
+                },
+                "time": {
+                    "value": "1 minute"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "shadow",
+                        "teleportation"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "K7C8bKNZsoTdOcpZ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.h5UqEdeqK8iTcU0J"
+            },
+            "folder": "6JF73zNhT8zbp1qC",
+            "img": "icons/creatures/magical/humanoid-giant-forest-blue.webp",
+            "name": "Shadow Double",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": "a small item of personal significance to the creature to be duplicated (such as an item of clothing they wear everyday or a memento of a romantic tryst), plus rare oils, minerals, and pigments with a total value of 300 gp"
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You create an illusory duplicate of the target creature by drawing shadowy material from the Netherworld and sculpting it into a semi-solid form. The shadow double is a 4th-level creature with no special abilities. If it needs to attempt a roll or use a DC, use the moderate number for a monster, except as noted below. It doesn't have any specific memories from the target, but it can use information about the creature gained from any of the casters to Impersonate the target. It looks exactly like the target and has a Deception modifier to Impersonate that creature equal to the modifier of the secondary spellcaster who rolled the Deception check, with a +4 status bonus. Though it doesn't have any of the original's special abilities, like a dragon's breath, illusions allow it to appear to use those abilities; they just never seem to have an effect. For instance, against a double's dragon's breath, all creatures in the area seem to critically succeed at their saving throws and take no damage. Creatures can attempt to disbelieve the illusion by attempting a Perception check against the Deception DC of the secondary spellcaster who rolled the Deception check.</p><hr /><p><strong>Critical Success</strong> You create the shadow double. It has the minion trait and is under your absolute control. You gain a direct mental link with the shadow double and can spend an action to command the shadow double via this link, even at a distance.</p>\n<p><strong>Success</strong> As a critical success, but there is no special link between you and the shadow double. You must spend an action to command it verbally or by some other means.</p>\n<p><strong>Failure</strong> The ritual fails and has no effect.</p>\n<p><strong>Critical Failure</strong> The shadow double is created, but it isn't your minion and is hostile to all the casters. It does everything it can to destroy them, but if it can't immediately slay them, the shadow double tries to escape and plots their demise.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "value": null
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core 2"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "ritual": {
+                    "primary": {
+                        "check": "Arcana or Occultism (master, the check has the secret trait)"
+                    },
+                    "secondary": {
+                        "casters": 3,
+                        "checks": "Arcana, Nature, Occultism, Religion, or Society (whichever is required to Recall Knowledge about the creature being duplicated); Crafting; Deception"
+                    }
+                },
+                "rules": [],
+                "slug": "shadow-double",
+                "target": {
+                    "value": "1 living creature"
+                },
+                "time": {
+                    "value": "1 day"
+                },
+                "traits": {
+                    "rarity": "rare",
+                    "traditions": [],
+                    "value": [
+                        "illusion"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "lkSlQrC9V1FP2hmF",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.c3b6LdLlQDPngNIb"
+            },
+            "folder": "6JF73zNhT8zbp1qC",
+            "img": "systems/pf2e/icons/spells/create-undead.webp",
+            "name": "Create Undead (Shadows Only)",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": "black onyx, see Creature Creation Rituals table"
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You transform the target into an undead creature with a level up to that allowed in the Creature Creation Rituals table. There are many versions of this ritual, each specific to a particular type of undead (one ritual for all zombies, one for skeletons, one for ghouls, and so on), and the rituals that create rare undead are also rare. Some forms of undead, such as liches, form using their own unique methods and can't be created with a version of <em>create undead</em>.</p><hr /><p><strong>Critical Success</strong> The target becomes an undead creature of the appropriate type. If it's at least 4 levels lower than you, you can make it a minion. This gives it the minion trait, meaning it can use 2 actions when you command it, and commanding it is a single action that has the auditory and concentrate traits. You can have a maximum of four minions under your control. If it's intelligent and doesn't become a minion, the undead is helpful to you for awakening it, though it's still a horrid and evil creature. If it's unintelligent and doesn't become a minion, you can give it one simple command. It pursues that goal single-mindedly, ignoring any of your subsequent commands.</p>\n<p><strong>Success</strong> As critical success, except an intelligent undead that doesn't become your minion is only friendly to you, and an unintelligent undead that doesn't become your minion leaves you alone unless you attack it. It marauds the local area rather than following your command.</p>\n<p><strong>Failure</strong> You fail to create the undead.</p>\n<p><strong>Critical Failure</strong> You create the undead, but its soul, tortured by your foul necromancy, is full of nothing but hatred for you. It attempts to destroy you.</p><h2>Creatures Creation Rituals</h2><table class=\"pf2e remaster\"><thead><tr><th>Creature Level</th><th>Spell Rank Required</th><th>Cost</th></tr></thead><tbody><tr><td>-1 or 0</td><td>2</td><td>15 gp</td></tr><tr><td>1</td><td>2</td><td>60 gp</td></tr><tr><td>2</td><td>3</td><td>105 gp</td></tr><tr><td>3</td><td>3</td><td>180 gp</td></tr><tr><td>4</td><td>4</td><td>300 gp</td></tr><tr><td>5</td><td>4</td><td>480 gp</td></tr><tr><td>6</td><td>5</td><td>750 gp</td></tr><tr><td>7</td><td>5</td><td>1,080 gp</td></tr><tr><td>8</td><td>6</td><td>1,500 gp</td></tr><tr><td>9</td><td>6</td><td>2,100 gp</td></tr><tr><td>10</td><td>7</td><td>3,000 gp</td></tr><tr><td>11</td><td>7</td><td>4,200 gp</td></tr><tr><td>12</td><td>8</td><td>6,000 gp</td></tr><tr><td>13</td><td>8</td><td>9,000 gp</td></tr><tr><td>14</td><td>9</td><td>13,500 gp</td></tr><tr><td>15</td><td>9</td><td>19,500 gp</td></tr><tr><td>16</td><td>10</td><td>30,000 gp</td></tr><tr><td>17</td><td>10</td><td>45,000 gp</td></tr></tbody></table>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "value": null
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "10 feet"
+                },
+                "requirements": "",
+                "ritual": {
+                    "primary": {
+                        "check": "Arcana (expert), Occultism (expert), or Religion (expert)"
+                    },
+                    "secondary": {
+                        "casters": 1,
+                        "checks": "Religion"
+                    }
+                },
+                "rules": [],
+                "slug": "create-undead",
+                "target": {
+                    "value": "1 dead creature"
+                },
+                "time": {
+                    "value": "1 day"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": [
+                        "unholy"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "njewWoMHilbewOwH",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.4GE2ZdODgIQtg51c"
+            },
+            "folder": "lPzcDrjGDFbzuF2r",
+            "img": "systems/pf2e/icons/spells/darkness.webp",
+            "name": "Darkness (At Will)",
+            "sort": 500000,
+            "system": {
+                "area": {
+                    "type": "burst",
+                    "value": 20
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You create a shroud of darkness that prevents light from penetrating or emanating within the area. Light does not enter the area and any non-magical light sources, such as a torch or lantern, do not emanate any light while inside the area, even if their light radius would extend beyond the darkness. This also suppresses magical light of your darkness spell's rank or lower. Light can't pass through, so creatures in the area can't see outside. From outside, it appears as a globe of pure darkness.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> Even creatures with darkvision (but not greater darkvision) can barely see through the darkness. They treat targets seen through the darkness as @UUID[Compendium.pf2e.conditionitems.Item.Concealed].</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "heightenedLevel": 9,
+                    "value": "IJlt9kWHwtLHHZ4i"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "darkness",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "darkness",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "bfnfAoTPcC5d89OL",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gpzpAAAJ1Lza2JVl"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "systems/pf2e/icons/spells/detect-magic.webp",
+            "name": "Detect Magic",
+            "sort": 600000,
+            "system": {
+                "area": {
+                    "type": "emanation",
+                    "value": 30
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You send out a pulse that registers the presence of magic. You receive no information beyond the presence or absence of magic. You can choose to ignore magic you're fully aware of, such as the magic items and ongoing spells of you and your allies. You detect illusion magic only if that magic's effect has a lower rank than the rank of your <em>detect magic</em> spell. However, items that have an illusion aura but aren't deceptive in appearance (such as an @UUID[Compendium.pf2e.equipment-srd.Item.Invisibility Potion]) typically are detected normally.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You learn the rank or level of the most powerful magical effect the spell detects, as determined by the GM.</p>\n<p><strong>Heightened (4th)</strong> As 3rd rank, but you also pinpoint the source of the highest-rank magic. Like for an imprecise sense, you don't learn the exact location, but can narrow down the source to within a 5-foot cube (or the nearest if larger than that).</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "IJlt9kWHwtLHHZ4i"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "detect-magic",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "detection",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "yU3b3iNQO9YHdkxa",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.OhD2Z6rIGGD5ocZA"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+            "name": "Read Aura",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You focus on the target object, opening your mind to perceive magical auras. When the casting is complete, you know whether that item is magical. You or anyone you advise about the aura gains a +2 circumstance bonus to @UUID[Compendium.pf2e.actionspf2e.Item.Identify Magic] on the item. If the object is illusory, you detect this only if the effect's rank is lower than the rank of your <em>read aura</em> spell.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Read Aura]</p><hr /><p><strong>Heightened (3rd)</strong> You can target up to 10 objects.</p>\n<p><strong>Heightened (6th)</strong> You can target any number of objects.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "levels": {
+                        "3": {
+                            "target": {
+                                "value": "10 objects"
+                            }
+                        },
+                        "6": {
+                            "target": {
+                                "value": "any number of objects"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "IJlt9kWHwtLHHZ4i"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "read-aura",
+                "target": {
+                    "value": "1 object"
+                },
+                "time": {
+                    "value": "1 minute"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "detection",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "kod2v018ZiJFvUX4",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 800000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 38
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "4d8+18",
+                        "damageType": "piercing"
+                    },
+                    "1": {
+                        "damage": "2d8",
+                        "damageType": "void"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-20",
+                        "void"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "BusdDO3iNy23iOyQ",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Claw",
+            "sort": 900000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 38
+                },
+                "damageRolls": {
+                    "v7BDxD5UyoJluhr3": {
+                        "damage": "4d6+18",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "magical",
+                        "reach-15"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "YUmrnz5GJd18QRrM",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Tail",
+            "sort": 1000000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 36
+                },
+                "damageRolls": {
+                    "MEvVcPpMHIgGvUc5": {
+                        "damage": "4d10+18",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-25"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "CFRwSrKlYZnL62KX",
+            "_stats": {
+                "compendiumSource": "Actor.gj4q9rWuaqU0gbKN.Item.CFRwSrKlYZnL62KX"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Hide in Shadows",
+            "sort": 1100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>The dragon can [[/act hide]] in dim light even if they don't have cover.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "3SD3mqoQaMLgqid1",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Voidsense",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>The dragon can taste animating void energy, allowing them to sense creatures with void healing as a precise sense. It can also sense incorporeal creatures with void healing, like shadows, when they are inside solid objects.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "RLrrIwEOLeFfp7SD",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "+2 to All Saves vs. Shadow",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "item:trait:shadow"
+                        ],
+                        "selector": "saving-throw",
+                        "type": "status",
+                        "value": 2
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "q9AuQoYYKBOBXKhJ",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Pin Shadow",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A creature within reach of the dragon's claw uses a move action or leaves a square during a move action it's using</p>\n<p><strong>Requirements</strong> The triggering creature is in bright light or dim light and has a shadow</p><hr /><p><strong>Effect</strong> The dragon makes a claw Strike against the triggering creature. On a hit, the trigger creature also has its shadow pinned in place, restricting its movement. The creature treats the area of the dragon's aura as difficult terrain until it uses an Interact action to unpin its shadow. If the area was already difficult terrain, the creature treats it as greater difficult terrain.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "shadow"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "CteZyO678VjPR5zo",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Umbral Pall",
+            "sort": 1500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>120 feet. Shadows surround the dragon. The radius of all light from light sources and the areas of light spells in the aura are halved. The shadows also cling to creatures, making areas of dim light difficult terrain.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 120,
+                        "traits": [
+                            "occult",
+                            "shadow"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "aura",
+                        "occult",
+                        "shadow"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Pglflm8OdRd3KSSB",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Devour Undead",
+            "sort": 1600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon's jaws Strikes have the benefit of a @UUID[Compendium.pf2e.equipment-srd.Item.Ghost Touch] property rune and deal an additional 7d6 force damage to undead.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "AdjustStrike",
+                        "mode": "add",
+                        "property": "property-runes",
+                        "selector": "jaws-damage",
+                        "value": "ghost-touch"
+                    },
+                    {
+                        "damageType": "force",
+                        "diceNumber": 7,
+                        "dieSize": "d6",
+                        "key": "DamageDice",
+                        "predicate": [
+                            "target:mode:undead"
+                        ],
+                        "selector": "jaws-damage"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "kmZXfW1iu2HT5zLg",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Draconic Frenzy",
+            "sort": 1700000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon makes two claw Strikes and one tail Strike in any order.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "VOcg98K0SBZduYe8",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Draconic Momentum",
+            "sort": 1800000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon recharges its Tenebrous Breath whenever it scores a critical hit with a Strike.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "N3UVaMl8kh5T8Pcu",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Drain Vigor",
+            "sort": 1900000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When the dragon deals void damage to a living creature with its jaws Strike, the umbral dragon gains 20 temporary HP that last for 1 minute and the creature must succeed at a @Check[fortitude|dc:40|options:inflicts:drained] save or become @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1} (@UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 2} on a critical failure). Further damage dealt by the dragon's jaws Strike increases the drained condition value by 1 on a failed save (2 on a critical failure), to a maximum of drained 4.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Drain Vigor]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "predicate": [
+                            "target:mode:living"
+                        ],
+                        "selector": "jaws-damage",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "occult"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "1drI3xMICR2V66Kl",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Tenebrous Breath",
+            "sort": 2000000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The umbral dragon exhales in one of two ways. They can't use Tenebrous Breath again for [[/gmr 1d4 #Recharge Tenebrous Breath]]{1d4 rounds}.</p><ul><li><strong>Darkness</strong> (occult, void) The dragon breathes a blast of darkness that deals @Damage[21d6[void]|options:area-damage] damage in a @Template[type:cone|distance:50] (@Check[reflex|dc:42|basic|traits:occult,void] save). Undead creatures take @Damage[21d6[force]|options:area-damage]{force} damage instead of void damage.</li><li><p><strong>Shadows</strong> (occult, shadow) The dragon breathes a blast of shadows in a @Template[type:cone|distance:50]. Each creature within the cone must attempt a @Check[fortitude|dc:42|options:inflicts:enfeebled,inflicts:blinded|traits:occult,shadow] save.</p>\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 3} for 1 round.</p>\n<p><strong>Failure</strong> The creature is enfeebled 3 for 1 minute.</p>\n<p><strong>Critical Failure</strong> The creature is enfeebled 3 for 1 minute and @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round.</p></li></ul>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "DUba8HROYZMX7aGa",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Netherworld Lore",
+            "sort": 2100000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 34
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {}
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Umbral Dragon (Ancient)",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 5
+            },
+            "con": {
+                "mod": 7
+            },
+            "dex": {
+                "mod": 6
+            },
+            "int": {
+                "mod": 5
+            },
+            "str": {
+                "mod": 10
+            },
+            "wis": {
+                "mod": 7
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 44
+            },
+            "allSaves": {
+                "value": "+2 to all saves vs. shadow"
+            },
+            "hp": {
+                "details": "",
+                "max": 375,
+                "temp": 0,
+                "value": 375
+            },
+            "immunities": [
+                {
+                    "type": "enfeebled"
+                },
+                {
+                    "type": "paralyzed"
+                },
+                {
+                    "type": "sleep"
+                },
+                {
+                    "type": "void"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 200
+                    }
+                ],
+                "value": 60
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "diabolic",
+                    "draconic",
+                    "dziriak",
+                    "jotun",
+                    "shadowtongue"
+                ]
+            },
+            "level": {
+                "value": 20
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Stories across Golarion warn children about the monsters that dwell in the shadows, but no story captures the reality of the umbral dragon. Natives of the Netherworld, these occult dragons are at home in the darkness, using it to their advantage both in and out of battle. Umbral dragons rarely worry about fighting fairly, emerging from hiding to strike unwary foes and using their magical breath without compunction. Similarly, in social situations, they often remain in the shadows, operating through other creatures. Even in direct conversation, they frequently obscure their true intent, preferring to avoid ever being pinned down with a solid answer.</p>\n<p>While umbral dragons are rarely altruistic, their preferred diet creates a strange dichotomy that attracts other creatures to them as a potential source of safety, especially in the Netherworld. While much of the multiverse sees undead as a dire threat, for umbral dragons, undead are a tasty snack. Umbral dragons find the flavor of necrotic flesh irresistible and the void energy of incorporeal undead a potent spice, making them one of the few creatures in existence known to hunt the unliving as a source of food.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Lost Omens Draconic Codex"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "voidsense (precise) 60 feet",
+            "mod": 33,
+            "senses": [
+                {
+                    "type": "greater-darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 34
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 31
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 34
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 34
+            },
+            "athletics": {
+                "base": 38
+            },
+            "deception": {
+                "base": 34
+            },
+            "intimidation": {
+                "base": 37
+            },
+            "stealth": {
+                "base": 38
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "grg"
+            },
+            "value": [
+                "dragon",
+                "occult",
+                "shadow"
+            ]
+        }
+    },
+    "type": "npc"
+}

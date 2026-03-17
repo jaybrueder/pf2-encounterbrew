@@ -1034,6 +1034,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1045,9 +1046,6 @@
                         "reach-20",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1091,6 +1089,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1103,9 +1102,6 @@
                         "reach-20",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1145,17 +1141,17 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 40,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
-                        "fire",
-                        "range-increment-40"
+                        "fire"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1332,7 +1328,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>20 feet. @Damage[4d6[fire]], @Check[reflex|dc:37|basic] save.</p>\n<p>While this aura is active, any adjacent creature that hits the phoenix with a melee attack or otherwise touches them takes @Damage[2d6[fire]] damage. The phoenix can activate or deactivate the aura with a single action, which has the concentrate trait.</p>"
+                    "value": "<p>20 feet. @Damage[4d6[fire]|options:area-damage], @Check[reflex|dc:37|basic|options:area-effect] save.</p>\n<p>While this aura is active, any adjacent creature that hits the phoenix with a melee attack or otherwise touches them takes @Damage[2d6[fire]] damage. The phoenix can activate or deactivate the aura with a single action, which has the concentrate trait.</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -1353,7 +1349,6 @@
                         ]
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "shrouded",
                         "toggleable": true,
@@ -1482,7 +1477,7 @@
                 "value": 15
             },
             "privateNotes": "",
-            "publicNotes": "<p>The phoenix is a primordial bird made of heat and flame that dwells in the most inhospitable regions of the desert. Though highly intelligent and brimming with compassion, the phoenix is best-known for its iconic ability to resurrect itself when slain, emerging reborn from the ashes of its own corpse. Phoenixes are often sought out for their knowledge or healing abilities, as they cannot abide the sight of suffering and deny their succor only to the most foul and irredeemable of creatures.</p>\n<p>Phoenixes enjoy the company of metallic dragons, and when the two dwell in close proximity, they can forge lifelong friendships, sharing their resources and words of wisdom while keeping each other updated on regional news.</p>\n<p>While most phoenixes are benevolent, they are not infallible. When a phoenix loses its way or falls under the influence of evil, it still retains its strong appetite for knowledge. Evil phoenixes are known to assault universities and libraries in their pursuit for power-not only to gain new information, but also to set fire to the texts and thus hoard that knowledge for themselves.</p>",
+            "publicNotes": "<p>The phoenix is a primordial bird made of heat and flame that dwells in the most inhospitable regions of the desert. Though highly intelligent and usually brimming with compassion, phoenixes are best known for their iconic ability to resurrect themselves when slain, emerging reborn from the ashes of their own corpses. Phoenixes are often sought out for their knowledge of healing abilities, as they cannot abide the sight of suffering and deny their succor only to the most foul and irredeemable of creatures.</p>\n<p>Phoenixes enjoy the company of peaceful dragons, and the two can forge lifelong friendships, keeping each other updated on regional news.</p>\n<p>While most phoenixes are benevolent, they are not infallible. When a phoenix loses their way, they still retain their strong appetite for knowledge. Malevolent phoenixes are known to assault universities and libraries in their pursuit for power—not only to gain new information, but also to set fire to the texts and thus hoard that knowledge for themselves.</p>",
             "publication": {
                 "license": "ORC",
                 "remaster": true,

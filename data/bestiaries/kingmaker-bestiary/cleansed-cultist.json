@@ -36,6 +36,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -124,6 +125,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -150,7 +152,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -337,6 +339,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -347,9 +350,6 @@
                         "magical",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -388,6 +388,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -398,9 +399,6 @@
                         "thrown-10",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -439,6 +437,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -449,9 +448,6 @@
                         "thrown-10",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -470,7 +466,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The cleansed cultist makes fists with both hands, pressing them to their temples so that their outward pointing thumbs extend to the left and right while they cry out in painful religious rapture. The hourglass-shaped scar on their forehead bulges briefly before a bloody worm is expelled from the center of the scar. This worm shoots through the air to target a single creature within 30 feet, who must then attempt a @Check[fortitude|dc:24] save. The cultist can't Release the Inmost Worm again for [[/gmr 1d4 #rounds]]{1d4 rounds}.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The worm lands on the target and causes agonizing pain before dropping to the floor and fading away. The target takes @Damage[3d6[mental]] damage.</p>\n<p><strong>Failure</strong> The worm lands on the target and burrows into their flesh, leaving no trace of a hole. The target seems to age rapidly for a moment, takes @Damage[6d6[mental]] damage, and is @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} for 1 round before the pain fades and the target returns to its actual age.</p>\n<p><strong>Critical Failure</strong> As failure, but the target also takes @Damage[6d6[persistent,mental]] damage. The target remains stupefied 1 as long as the mental damage persists, during which they appear to be aging rapidly. Once the persistent damage ends, the target's appearance reverts to normal.</p>"
+                    "value": "<p>The cleansed cultist makes fists with both hands, pressing them to their temples so that their outward pointing thumbs extend to the left and right while they cry out in painful religious rapture. The hourglass-shaped scar on their forehead bulges briefly before a bloody worm is expelled from the center of the scar. This worm shoots through the air to target a single creature within 30 feet, who must then attempt a @Check[fortitude|dc:24] save. The cultist can't Release the Inmost Worm again for [[/gmr 1d4 #Recharge Release the Inmost Worm]]{1d4 rounds}.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The worm lands on the target and causes agonizing pain before dropping to the floor and fading away. The target takes @Damage[3d6[mental]] damage.</p>\n<p><strong>Failure</strong> The worm lands on the target and burrows into their flesh, leaving no trace of a hole. The target seems to age rapidly for a moment, takes @Damage[6d6[mental]] damage, and is @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} for 1 round before the pain fades and the target returns to its actual age.</p>\n<p><strong>Critical Failure</strong> As failure, but the target also takes @Damage[6d6[persistent,mental]] damage. The target remains stupefied 1 as long as the mental damage persists, during which they appear to be aging rapidly. Once the persistent damage ends, the target's appearance reverts to normal.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -525,7 +521,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

@@ -1,0 +1,603 @@
+{
+    "_id": "DDHWqs85wxelvkg5",
+    "folder": "upzHnO0Ta9hcmfdH",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "Vfk5dHg5ZTqlianK",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 100000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": [
+                        "grab"
+                    ]
+                },
+                "bonus": {
+                    "value": 33
+                },
+                "damageRolls": {
+                    "Om0eGUnLxyn4elAR": {
+                        "damage": "3d8+14",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "finesse",
+                        "magical",
+                        "reach-15"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "F1kve49aUBQVMIgo",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Claw",
+            "sort": 200000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 33
+                },
+                "damageRolls": {
+                    "bEwGgG1lghLM3WvF": {
+                        "damage": "3d6+14",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "finesse",
+                        "magical",
+                        "reach-10"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "50sY0gy1fl5AxRVQ",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Tail",
+            "sort": 300000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 31
+                },
+                "damageRolls": {
+                    "oJAX2cjSteINZKtr": {
+                        "damage": "3d10+14",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-20"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "pZDJs9dYUh273kdX",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Force Ball",
+            "sort": 400000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 33
+                },
+                "damageRolls": {
+                    "xncb9450Jl0lGls3": {
+                        "damage": "3d10+10",
+                        "damageType": "force"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "force"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "co37xva1D2qnrgRM",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Ironsense",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>The dragon can detect the presence of iron and other ferrous metals as a precise sense at the listed range.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "a34AbbQiCSaKY7Ma",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Arcane Whirlwind",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>15 feet.</p>\n<p>A vortex of fist-sized balls of pure magic swirls around the dragon. Air within the emanation is difficult terrain for Flying creatures other than the dragon. A creature that enters the aura or begins its turn within the aura takes @Damage[7d6[force]|options:area-damage] damage (@Check[reflex|dc:35|basic|options:area-effect] save).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 15,
+                        "traits": [
+                            "arcane",
+                            "force"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "aura",
+                        "force"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "FJi5y96N6uPEWcu1",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Ray Displacement",
+            "sort": 700000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The dragon is targeted with a ranged spell attack</p><hr /><p><strong>Effect</strong> The dragon creates a field of distorted space between themself and the caster. The creature targeting the barrage dragon must roll the spell attack twice and take the worse result.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "misfortune"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "PQbhhdKHzMa8gvY0",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Shrapnel Splash",
+            "sort": 800000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The dragon is critically hit with a melee weapon or unarmed attack</p><hr /><p><strong>Effect</strong> The dragon's blood forms into hard spheres as it erupts from the wound, battering the attacker. The creature who dealt the triggering damage takes @Damage[8d6[bludgeoning]] damage with a @Check[reflex|dc:38|basic] save.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "soPUBUIqvlJzdCSS",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.actionspf2e.Item.uMFB3uw8WTWL0LZD"
+            },
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Draconic Frenzy",
+            "sort": 900000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon makes two claw Strikes and one tail Strike in any order.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "tnLQV2YA9LsUchfe",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Draconic Momentum",
+            "sort": 1000000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When the dragon scores a critical hit with a Strike, they recharge Scattershot.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "rIqgy9OMrY4VkEy0",
+            "img": "systems/pf2e/icons/actions/OneThreeActions.webp",
+            "name": "Force Pulse",
+            "sort": 1100000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><span class=\"action-glyph\">1</span> to <span class=\"action-glyph\">3</span></p><hr /><p>The dragon emits pulses of energy that radiates outward in a @Template[type:emanation|distance:20], dealing @Damage[(2d8+2)[force]|options:area-damage] damage (@Check[reflex|dc:40|basic|options:area-effect] save).</p>\n<p>For each action spent, a new pulse of energy is created and each subsequent pulse after the first is 5 feet larger than the previous one.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "force"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "usLHqRH7bTKXnfd3",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Scattershot",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon exhales a cloud of small balls of pure energy that deal @Damage[(9d4+9)[force]|options:area-damage] damage in a @Template[type:cone|distance:50] with no save. The dragon can't use Scattershot again for [[/gmr 1d4 #Recharge Scattershot]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "force"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "6BYaDxq8Mcx8lk7f",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Pushing Pulse",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The barrage dragon performs a 2-action Force Pulse. Each creature who fails its save is pushed 10 feet away from the dragon (20 feet on a critical failure).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Barrage Dragon (Ancient)",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 5
+            },
+            "con": {
+                "mod": 5
+            },
+            "dex": {
+                "mod": 9
+            },
+            "int": {
+                "mod": 4
+            },
+            "str": {
+                "mod": 4
+            },
+            "wis": {
+                "mod": 6
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 39
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 340,
+                "temp": 0,
+                "value": 340
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "force"
+                },
+                {
+                    "exceptions": [],
+                    "type": "paralyzed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "sleep"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 120
+                    }
+                ],
+                "value": 50
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "draconic"
+                ]
+            },
+            "level": {
+                "value": 17
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>To the uninitiated, spellcasting is an art for those with iron wills, people who reach out and grab hold of the fundamental laws of the universe and bend them to their whim. It takes discipline, study, and above all else, it takes control. Fail to control the very building blocks of reality and everything could fall apart.</p>\n<p>Those who have even dabbled in the arcane arts know that this is nonsense. Magic is chaos, and channeling arcane forces is less akin to exerting one's will over the world and more like surfing on a bolt of lightning through a world-shaking storm and hoping to steer it without falling off. Spellcasting is barely contained panic, a lance of adrenaline, the constant danger of burning oneself out of existence. And the more powerful someone becomes, the more real this danger is.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Lost Omens Draconic Codex"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "ironsense (precise) 30 feet",
+            "mod": 29,
+            "senses": []
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 26
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 32
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 29
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 30
+            },
+            "arcana": {
+                "base": 33
+            },
+            "athletics": {
+                "base": 30
+            },
+            "intimidation": {
+                "base": 30
+            },
+            "survival": {
+                "base": 33
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "huge"
+            },
+            "value": [
+                "arcane",
+                "dragon"
+            ]
+        }
+    },
+    "type": "npc"
+}

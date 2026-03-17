@@ -32,6 +32,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "jaws",
                 "traits": {
@@ -39,9 +40,6 @@
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -76,6 +74,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -83,9 +82,6 @@
                     "value": [
                         "agile"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -195,7 +191,7 @@
                     {
                         "key": "ActiveEffectLike",
                         "mode": "add",
-                        "path": "flags.pf2e.frenzyMod",
+                        "path": "flags.system.frenzyMod",
                         "value": 1
                     }
                 ],
@@ -225,7 +221,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The bunyip lets out a loud and horrifying roar. Other creatures within @Template[emanation|distance:100]{100 feet} must succeed at a @Check[will|dc:21] save or become @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} (@UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3} on a critical failure,@UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1} on a success, or unaffected on a critical success).</p>\n<p>No matter the result, the creature is temporarily immune to the effect for 1 minute.</p>"
+                    "value": "<p>The bunyip lets out a loud and horrifying roar. Other creatures within @Template[emanation|distance:100]{100 feet} must succeed at a @Check[will|dc:21] save or become @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} (@UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3} on a critical failure, @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1} on a success, or unaffected on a critical success).</p>\n<p>No matter the result, the creature is temporarily immune to the effect for 1 minute.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -271,7 +267,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "shift-form",
                         "suboptions": [

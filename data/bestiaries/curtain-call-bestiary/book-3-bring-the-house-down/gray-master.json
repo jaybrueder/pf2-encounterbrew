@@ -122,7 +122,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Undetected], not just to sight but to all senses, allowing the target to count as @UUID[Compendium.pf2e.conditionitems.Item.Invisible] no matter what precise and imprecise senses an observer might have. It's still possible for a creature to find the target by Seeking, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of an otherwise-undetectable creature.</p>"
+                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Invisible], but not merely to vision. The invisibility granted by <em>disappearance</em> applies to all precise senses an observer might have. It's still possible for a creature to find the target by Seeking using various senses, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of a creature that is otherwise undetectable.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -456,6 +456,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -551,7 +552,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "power-of-the-haunt",
                         "toggleable": true
@@ -675,7 +675,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Gray Master Flies once and makes a Strike against up to three targets he passes through at his current attack modifier. Each attack counts toward his multiple attack penalty, but he does not increase his penalty until he has made all three attacks. Gray Master cannot use Brushed by Death again for [[/gmr 1d4 #rounds]]{1d4 rounds}.</p>"
+                    "value": "<p>Gray Master Flies once and makes a Strike against up to three targets he passes through at his current attack modifier. Each attack counts toward his multiple attack penalty, but he does not increase his penalty until he has made all three attacks. Gray Master cannot use Brushed by Death again for [[/gmr 1d4 #Recharge Brushed by Death]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -761,7 +761,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",
@@ -790,7 +789,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Frequency</strong> once per round</p>\n<p><strong>Requirements</strong> Gray Master is within 100 feet of an active complex trap</p><hr /><p><strong>Effect</strong> Gray Master absorbs the power of the complex trap. It becomes inactive until the end of his next turn, and Power of the Trap deactivates until the complex trap becomes active again. The edges of Gray Master's cloak transform into knife-like blades that stab out at all nearby creatures. Any living creature within @Template[type:emanation|distance:10]{10 feet} of Gray Master takes @Damage[8d10[slashing],8d6[void]]{8d10 slashing damage and 8d6 void} damage (@Check[reflex|dc:40|basic] save).</p>"
+                    "value": "<p><strong>Frequency</strong> once per round</p>\n<p><strong>Requirements</strong> Gray Master is within 100 feet of an active complex trap</p><hr /><p><strong>Effect</strong> Gray Master absorbs the power of the complex trap. It becomes inactive until the end of his next turn, and Power of the Trap deactivates until the complex trap becomes active again. The edges of Gray Master's cloak transform into knife-like blades that stab out at all nearby creatures. Any living creature within @Template[type:emanation|distance:10]{10 feet} of Gray Master takes @Damage[8d10[slashing],8d6[void]|options:area-damage]{8d10 slashing damage and 8d6 void} damage (@Check[reflex|dc:40|basic|options:area-effect] save).</p>"
                 },
                 "frequency": {
                     "max": 1,
@@ -902,6 +901,13 @@
             },
             "immunities": [
                 {
+                    "type": "bleed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "confused"
+                },
+                {
                     "exceptions": [],
                     "type": "death-effects"
                 },
@@ -920,10 +926,6 @@
                 {
                     "exceptions": [],
                     "type": "unconscious"
-                },
-                {
-                    "exceptions": [],
-                    "type": "confused"
                 }
             ],
             "resistances": [
@@ -1006,9 +1008,6 @@
             "deception": {
                 "base": 36,
                 "special": []
-            },
-            "intimidate": {
-                "base": 38
             },
             "intimidation": {
                 "base": 38,

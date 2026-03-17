@@ -1,0 +1,96 @@
+{
+    "_id": "dEoy71LWNM5rSQu1",
+    "folder": "TK7ZSMCuElK7Dn5u",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [
+        {
+            "_id": "6HTRDyvSpIx7y1kt",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Inflame Battle",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A creature rolls initiative for combat within 100 feet of the crater</p><hr /><p><strong>Effect</strong> An infectious battle frenzy threatens to overtake all creatures within 100 feet of the crater, driving them to lash out at anything nearby. Affected creatures must attempt a @Check[will|dc:18] save.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature resists the battle frenzy, but takes @Damage[1d6[fire]] damage from the roiling fury coursing through its blood.</p>\n<p><strong>Failure</strong> As success, and the creature is @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} as it fights off the frenzy.</p>\n<p><strong>Critical Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Confused] for 1 round.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Shard's Fury",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": null
+            },
+            "emitsSound": "encounter",
+            "hardness": 0,
+            "hp": {
+                "details": "",
+                "max": 0,
+                "temp": 0,
+                "value": 0
+            },
+            "immunities": [],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>(trained)</p>",
+                "value": 5
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>Wisps of red energy and violent urges emanate from the crater.</p>",
+            "disable": "<p>@Check[intimidation|dc:18] to overpower the warshard's will, @Check[religion|dc:18] to calm the belligerent miasma</p>",
+            "isComplex": false,
+            "level": {
+                "value": 2
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #216: The Acropolis Pyre"
+            },
+            "reset": "<p>The residual energies reset after 1 hour.</p>",
+            "routine": ""
+        },
+        "saves": {
+            "fortitude": {
+                "value": 0
+            },
+            "reflex": {
+                "value": 0
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "environmental",
+                "magical"
+            ]
+        }
+    },
+    "type": "hazard"
+}

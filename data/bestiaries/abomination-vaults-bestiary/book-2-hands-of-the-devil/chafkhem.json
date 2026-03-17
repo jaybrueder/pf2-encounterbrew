@@ -208,17 +208,7 @@
                     "value": ""
                 },
                 "counteraction": false,
-                "damage": {
-                    "0": {
-                        "category": null,
-                        "formula": "8d6",
-                        "kinds": [
-                            "damage"
-                        ],
-                        "materials": [],
-                        "type": "mental"
-                    }
-                },
+                "damage": {},
                 "defense": {
                     "save": {
                         "basic": false,
@@ -226,18 +216,11 @@
                     }
                 },
                 "description": {
-                    "value": "<p>You create a phantasmal image of the most fearsome creature imaginable to the target. Only the spell's target can see the killer, though you can see the vague shape of the illusion as it races forth to attack. The effect of the killer is based on the outcome of the target's Will save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target takes 4d6 mental damage and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The target takes 8d6 mental damage and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The target is so afraid it might die. It must attempt a Fortitude save; if the target fails, it dies. On a successful Fortitude save, the target takes 12d6 mental damage, is @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] until the end of its next turn, and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 4}. This effect has the incapacitation trait.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6 on a failure and by 3d6 on a critical failure.</p>"
+                    "value": "<p>You create a phantasmal image of the most fearsome creature imaginable to the target. Only the spell's target can see the killer, though you can see the vague shape of the illusion as it races forth to attack. The effect of the killer is based on the outcome of the target's Will save.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target takes @Damage[4d6[mental]] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The target takes @Damage[(max(8,@item.rank*2))d6[mental]] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The target is so afraid it might die. It must attempt a @Check[fortitude|traits:incapacitation] save; if the target fails, it dies. On a successful Fortitude save, the target takes @Damage[(max(12,@item.rank*3))d6[mental]] damage, is @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] until the end of its next turn, and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 4}. This effect has the incapacitation trait.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 2d6 on a failure and by 3d6 on a critical failure.</p>"
                 },
                 "duration": {
                     "sustained": false,
                     "value": ""
-                },
-                "heightening": {
-                    "damage": {
-                        "0": "2d6"
-                    },
-                    "interval": 1,
-                    "type": "interval"
                 },
                 "level": {
                     "value": 4
@@ -359,7 +342,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "gm": "<p>The DC required to successfully awaken a portal varies based on the strength and distance between its end points. For the portals found in the Abomination Vaults Adventure Path, the DC varies according to the dungeon level on which it is located. Use the @UUID[Compendium.pf2e.journals.JournalEntry.S55aqwWIzpQRFhcq.JournalEntryPage.pBS3DUjlzVuFgapv]{DCs by Spell Rank section} of Table 10-5 to determine the DC for a portal, using the dungeon level in place of spell rank. Thus, activating the portal on the first level of the Abomination Vaults requires a successful DC 15 check, while activating the portal on the fourth level requires a successful DC 23 check.</p><p>In the Abomination Vaults, the creature conjured depends on the dungeon level where the ritual was attempted, as listed below.</p><ul><li><strong>First Level</strong> @UUID[Compendium.pf2e.pathfinder-bestiary-2.Actor.Vampiric Mist]</li><li><strong>Second Level</strong> @UUID[Compendium.pf2e.abomination-vaults-bestiary.Actor.Scalathrax]</li><li><strong>Third Level</strong> @UUID[Compendium.pf2e.pathfinder-bestiary.Actor.Gibbering Mouther]</li><li><strong>Fourth Level</strong> @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Will-o'-Wisp]</li><li><strong>Fifth Level</strong> @UUID[Compendium.pf2e.pathfinder-bestiary-2.Actor.Soul Eater]</li><li><strong>Sixth Level</strong> @UUID[Compendium.pf2e.abomination-vaults-bestiary.Actor.Voidglutton]</li><li><strong>Seventh Level</strong> @UUID[Compendium.pf2e.pathfinder-bestiary-2.Actor.Dread Wraith]</li><li><strong>Eighth Level</strong> @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Ghost Mage]</li><li><strong>Ninth Level</strong> @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Gosreg]</li><li><strong>Tenth Level</strong> @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Shining Child]</li></ul>",
+                    "gm": "<p>The DC required to successfully awaken a portal varies based on the strength and distance between its end points. For the portals found in the Abomination Vaults Adventure Path, the DC varies according to the dungeon level on which it is located. Use the @UUID[Compendium.pf2e.journals.JournalEntry.S55aqwWIzpQRFhcq.JournalEntryPage.pBS3DUjlzVuFgapv]{DCs by Spell Rank section} of Table 10-5 to determine the DC for a portal, using the dungeon level in place of spell rank. Thus, activating the portal on the first level of the Abomination Vaults requires a successful DC 15 check, while activating the portal on the fourth level requires a successful DC 23 check.</p><p>In the Abomination Vaults, the creature conjured depends on the dungeon level where the ritual was attempted, as listed below.</p><ul><li><strong>First Level</strong> @UUID[Compendium.pf2e.pathfinder-bestiary-2.Actor.Vampiric Mist]</li><li><strong>Second Level</strong> @UUID[Compendium.pf2e.abomination-vaults-bestiary.Actor.Scalathrax]</li><li><strong>Third Level</strong> @UUID[Compendium.pf2e.pathfinder-bestiary.Actor.Gibbering Mouther]</li><li><strong>Fourth Level</strong> @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Will-o'-Wisp]</li><li><strong>Fifth Level</strong> @UUID[Compendium.pf2e.pathfinder-bestiary-2.Actor.Soul Eater]</li><li><strong>Sixth Level</strong> @UUID[Compendium.pf2e.abomination-vaults-bestiary.Actor.Voidglutton]</li><li><strong>Seventh Level</strong> @UUID[Compendium.pf2e.pathfinder-monster-core-2.Actor.War Wraith]</li><li><strong>Eighth Level</strong> @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Ghost Mage]</li><li><strong>Ninth Level</strong> @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Gosreg]</li><li><strong>Tenth Level</strong> @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Shining Child]</li></ul>",
                     "value": "<p>You attempt to reactivate a dormant gate, portal, or @UUID[Compendium.pf2e.spells-srd.Item.Teleportation Circle] by infusing it with magical energies. This ritual must be successfully performed twice, once at each location the portal connects. While the teleportation circles and portals found in the Abomination Vaults require no additional cost to awaken, other portals might require rare items or specific materials as a cost for this ritual at the GM's discretion—some portals might even be so powerful that this ritual cannot awaken them at all.</p>\n<hr />\n<p><strong>Critical Success</strong> You awaken the portal. If its other side is awakened, the portal can be used normally and won't deactivate naturally. If its other side is not awakened, this side remains awakened for 1 year, possibly allowing you enough time to find and awaken the connecting portal.</p>\n<p><strong>Success</strong> As critical success, but if the portal's other side is not awakened, this side remains awakened for only [[/r 1d6 #days]]{1d6 days} before it fades and falls dormant again.</p>\n<p><strong>Failure</strong> You fail to activate the portal, and magical backlash leaves you @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} for 24 hours.</p>\n<p><strong>Critical Failure</strong> As failure, but in addition, a hostile creature is drawn through the portal and immediately attacks anyone present. The creature drawn through the portal varies, according to the portal's nature</p>"
                 },
                 "duration": {
@@ -1679,7 +1662,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>A vine covered in sticky sap appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack against the target.</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty and the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition.</p>\n<p><strong>Success</strong> The target takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
+                    "value": "<p>A vine covered in sticky sap appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack against the target.</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty and the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition.</p>\n<p><strong>Success</strong> The target takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -1820,6 +1803,7 @@
                     "invested": null,
                     "slot": ""
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -1846,7 +1830,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [
                     {
@@ -1916,6 +1900,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1925,9 +1910,6 @@
                         "finesse",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1967,6 +1949,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -1995,9 +1978,6 @@
                     "value": [
                         "two-hand-d8"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2195,7 +2175,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> A creature Chafkhem can see makes a melee Strike against Chafkhem</p>\n<hr />\n<p><strong>Effect</strong> Chafkhem traces a magical glyph in the air that glows and fades. The triggering creature must attempt a @Check[fortitude|dc:25] save.</p>\n<hr />\n<p><strong>Success</strong> The target is unaffected.</p>\n<p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Blinded] until the start of its next turn.</p>\n<p><strong>Critical Failure</strong> The target is blinded for 1 minute.</p>"
+                    "value": "<p><strong>Trigger</strong> A creature Chafkhem can see makes a melee Strike against Chafkhem</p><hr /><p><strong>Effect</strong> Chafkhem traces a magical glyph in the air that glows and fades. The triggering creature must attempt a @Check[fortitude|dc:25|options:inflicts:blinded] save.</p><hr /><p><strong>Success</strong> The target is unaffected.</p>\n<p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Blinded] until the start of its next turn.</p>\n<p><strong>Critical Failure</strong> The target is blinded for 1 minute.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -2286,6 +2266,9 @@
                 "value": 135
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

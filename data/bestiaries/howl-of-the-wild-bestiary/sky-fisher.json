@@ -34,6 +34,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -41,9 +42,6 @@
                         "agile",
                         "reach-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -122,7 +120,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The sky fisher vents flesh-eating enzymes into the air, dealing @Damage[3d6[persistent,acid],3d6[bleed]]{3d6 persistent acid damage and 3d6 persistent bleed damage} in a @Template[emanation|distance:20] (@Check[reflex|dc:25|basic] save). It can't use Enzymic Vent again for [[/gmr 1d4 #Recharge Enzymic Vent]]{1d4 rounds}.</p>"
+                    "value": "<p>The sky fisher vents flesh-eating enzymes into the air, dealing @Damage[3d6[persistent,acid],3d6[bleed]|options:area-damage]{3d6 persistent acid damage and 3d6 persistent bleed damage} in a @Template[emanation|distance:20] (@Check[reflex|dc:25|basic|options:area-effect] save). It can't use Enzymic Vent again for [[/gmr 1d4 #Recharge Enzymic Vent]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -323,7 +321,7 @@
                 "value": 11
             },
             "privateNotes": "",
-            "publicNotes": "",
+            "publicNotes": "<p>The sky fisher is an unusual aerial predator, mostly found in tropical jungle regions but occasionally seen as far north as Varisia. Naturalists believe it's a distant relative of the jellyfish that has evolved into a new ecological niche through prolonged exposure to elemental energies from the Plane of Air. That the biggest, most aggressive sky fishers are found (and thought to have originated) near powerful loci of elemental air, such as in Garund's Terwa Uplands or around the Eye of Abendego, lends further credence to this theory.</p>\n<p>In appearance, a sky fisher resembles an enormous jellyfish, its many dangling tendrils hanging beneath a clear bulbous body. Although its appearance is quite difficult to accurately determine, as its natural transparent form is almost completely @UUID[Compendium.pf2e.conditionitems.Item.Invisible], its inside contain a complex chemical factory that produces lighter-than-air gases, paralyzing toxins, and flesh-eating enzymes. These enzymes are highly potent and often desired by toxicologists due to their unique properties. The creature hunts by hovering just above the forest canopy, using eye-like clusters on the ends of its tentacles as a kind of inverted periscope. When it spots prey, it floats close and waits for an opportune moment to sting. Then, as paralysis takes hold, the sky fisher hoists its meal into the sky to slowly consume it. Inside, enzymes break down the dead or paralyzed victims into a bloody slurry.</p>\n<p>A recently fed sky fisher can always be quickly identified by the looping coils of blood that circulate through its body—a beautiful, if terrible, sight.</p>",
             "publication": {
                 "license": "ORC",
                 "remaster": true,

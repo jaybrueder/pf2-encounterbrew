@@ -37,6 +37,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -46,9 +47,6 @@
                         "finesse",
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -83,16 +81,15 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-increment-60"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -142,7 +139,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the living wildfire dies, it explodes, dealing @Damage[3d6[fire]] damage to each creature in a @Template[emanation|distance:10|traits:fire,damaging-effect] (@Check[reflex|dc:19|basic] save).</p>"
+                    "value": "<p>When the living wildfire dies, it explodes, dealing @Damage[3d6[fire]|options:area-damage] damage to each creature in a @Template[emanation|distance:10|traits:fire,damaging-effect] (@Check[reflex|dc:19|basic|options:area-effect] save).</p>"
                 },
                 "publication": {
                     "license": "ORC",

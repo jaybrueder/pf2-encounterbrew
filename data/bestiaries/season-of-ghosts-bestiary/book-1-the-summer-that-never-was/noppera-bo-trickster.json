@@ -12,6 +12,11 @@
             "name": "Shortbow",
             "sort": 100000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "shortbow",
                 "bonus": {
                     "value": 0
@@ -37,6 +42,8 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
+                "grade": null,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -56,9 +63,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "range": 60,
@@ -97,6 +104,7 @@
             "name": "Shortsword",
             "sort": 200000,
             "system": {
+                "ammo": null,
                 "baseItem": "shortsword",
                 "bonus": {
                     "value": 0
@@ -122,6 +130,8 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
+                "grade": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -141,14 +151,14 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -198,8 +208,11 @@
                 "dexCap": 4,
                 "equipped": {
                     "carryType": "worn",
+                    "handsHeld": 0,
+                    "inSlot": true,
                     "invested": null
                 },
+                "grade": null,
                 "group": "leather",
                 "hardness": 0,
                 "hp": {
@@ -219,9 +232,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "rules": [],
@@ -250,13 +263,12 @@
             "name": "Arrows",
             "sort": 400000,
             "system": {
-                "baseItem": null,
+                "baseItem": "arrows",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. It is stabilized in flight by fletching at one end and bears a metal head on the other.</p>"
                 },
@@ -283,21 +295,19 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 20,
                 "rules": [],
                 "size": "med",
                 "slug": "arrows",
-                "stackGroup": "arrows",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -305,7 +315,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "dB9ug8oGTlK8QZoH",
@@ -321,9 +331,8 @@
             "name": "Shortsword",
             "sort": 500000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
+                "action": "strike",
+                "area": null,
                 "attackEffects": {
                     "value": []
                 },
@@ -344,6 +353,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -352,9 +362,6 @@
                         "finesse",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -370,9 +377,8 @@
             "name": "Shortbow",
             "sort": 600000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
+                "action": "strike",
+                "area": null,
                 "attackEffects": {
                     "value": []
                 },
@@ -393,17 +399,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "deadly-d10",
-                        "range-increment-60",
                         "reload-0"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -435,7 +441,6 @@
                 "rules": [],
                 "slug": "telepathy",
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "aura",
                         "magical",
@@ -503,6 +508,15 @@
                             "self:condition:deafened"
                         ],
                         "uuid": "Compendium.pf2e.conditionitems.Item.Slowed"
+                    },
+                    {
+                        "definition": [
+                            "self:effect:deafened"
+                        ],
+                        "key": "Weakness",
+                        "label": "{item|name}",
+                        "type": "custom",
+                        "value": 1
                     }
                 ],
                 "slug": null,
@@ -535,7 +549,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "impersonate-shape",
                         "toggleable": true
@@ -646,7 +659,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",
@@ -655,7 +667,6 @@
                 ],
                 "slug": "sneak-attack",
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -718,9 +729,9 @@
             "privateNotes": "",
             "publicNotes": "<p>These noppera-bos have mastered the art of disguise.</p>\n<hr />\n<p>Noppera-bos appear to be regular humans from behind, and might even resemble someone you know, until they turn to reveal a featureless face.</p>\n<h2>Consummate Professionals</h2>\n<p>While the typical noppera-bo is cruel and revels in the act of frightening or tormenting humanoid creatures, not all of them wallow in evil. Neutral noppera-bos tend to be pranksters who use their abilities to trick and tease, while the rare good noppera- bos instead use their abilities to honor and idolize those they admire while focusing their own time on developing their skills at art or crafting.</p>\n<h2>Noppera-bo Origins</h2>\n<p>There are many theories on the origins of noppera-bos—from tanuki whose change shape ability went wrong, to humanoids who were warped by curses, to naturally spawning yokai. Some even theorize this condition is a transmissible curse like lycanthropy. Most noppera-bos don't recall their origins, and are often more interested in pretending to be someone else entirely.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #196: The Summer That Never Was"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Season of Ghosts Hardcover Compilation"
             }
         },
         "initiative": {
@@ -728,7 +739,7 @@
         },
         "perception": {
             "details": "no face",
-            "mod": 8,
+            "mod": 5,
             "senses": []
         },
         "resources": {},

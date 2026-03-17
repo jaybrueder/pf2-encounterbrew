@@ -1,0 +1,100 @@
+{
+    "_id": "6gSbmVKbdUSIluMR",
+    "folder": "2VQaEXhhRIIFuAIx",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [
+        {
+            "_id": "JEXj6WkaqB0iscnL",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Reflection of Malice",
+            "sort": 100000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A creature is reflected in the mirror</p><hr /><p><strong>Effect</strong> The mirror absorbs the creature, replacing it with a malicious mirror duplicate (@Check[reflex|dc:34] to avoid being absorbed into the mirror), and rolls initiative.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "teleportation"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Darkside Mirror",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": 34
+            },
+            "emitsSound": "encounter",
+            "hardness": 1,
+            "hp": {
+                "details": "The mirror can't be damaged while any mirror duplicate is alive",
+                "max": 4,
+                "temp": 0,
+                "value": 4
+            },
+            "immunities": [],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>(master) to notice it isn't a regular mirror</p>",
+                "value": 24
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>A magic mirror replaces characters with malicious mirror duplicates from another dimension.</p>",
+            "disable": "<p>@Check[thievery|dc:34] (legendary) to retrieve a creature from the other dimension within 10 minutes of the switch (possible only if their mirror duplicate is dead), @Check[thievery|dc:39] (master) to permanently disable the mirror once all mirror duplicates are dead, or @UUID[Compendium.pf2e.spells-srd.Item.Dispel Magic] (7th rank; counteract DC 32) to counteract the mirror for 1 minute and prevent additional replacements during that time.</p>",
+            "isComplex": true,
+            "level": {
+                "value": 14
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Dark Archive (Remastered)"
+            },
+            "reset": "<p>The mirror is always ready to absorb creatures into the other dimension. Ten minutes after a creature is sucked into the mirror, if an ally doesn't rescue the creature, it reaches the other dimension. In the mirror dimension, it counts as a mirror duplicate. These dimensions are alternate realities, not planes, so even spells like @UUID[Compendium.pf2e.spells-srd.Item.Interplanar Teleport]<em> </em>can't reach them.</p>",
+            "routine": "<p>(1 action) The mirror absorbs another reflected creature and replaces it with a mirror duplicate. A mirror duplicate attacks on their own initiative, using the same statistics as the original creature, but they hate all other non-duplicate creatures. A mirror duplicate can spend 3 actions in contact with the mirror to return to their original dimension and release the duplicated creature.</p>"
+        },
+        "saves": {
+            "fortitude": {
+                "value": 25
+            },
+            "reflex": {
+                "value": 20
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "magical",
+                "mechanical",
+                "trap"
+            ]
+        }
+    },
+    "type": "hazard"
+}

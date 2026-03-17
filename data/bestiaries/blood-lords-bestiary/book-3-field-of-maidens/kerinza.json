@@ -1100,6 +1100,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -1126,7 +1127,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1246,6 +1247,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1256,9 +1258,6 @@
                         "magical",
                         "shove"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1295,14 +1294,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1351,7 +1348,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet. When a creature ends its turn in the aura, it must attempt a @Check[fortitude|dc:32] save. If the creature fails, it becomes @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} for 1 minute. Kerinza can activate or deactivate this aura by using a single action, which has the concentrate trait, but deactivating it is painful for her; she gains weakness 15 to physical damage while her petrifying gaze is deactivated.</p>"
+                    "value": "<p>30 feet. When a creature ends its turn in the aura, it must attempt a @Check[fortitude|dc:32|options:area-effect,inflicts:slowed] save. If the creature fails, it becomes @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} for 1 minute. Kerinza can activate or deactivate this aura by using a single action, which has the concentrate trait, but deactivating it is painful for her; she gains weakness 15 to physical damage while her petrifying gaze is deactivated.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1382,7 +1379,6 @@
                         "value": 15
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "petrifying",
                         "toggleable": true,
@@ -1415,7 +1411,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Kerinza fixes her glare on a creature she can see within 30 feet. The target must attempt a @Check[fortitude|dc:32] save against Kerinza's petrifying gaze. If the target was already @UUID[Compendium.pf2e.conditionitems.Item.Slowed] before attempting its save, a failed save causes it to be @UUID[Compendium.pf2e.conditionitems.Item.Petrified] permanently. After attempting its save, the creature is then temporarily immune until the start of Kerinza's next turn.</p>"
+                    "value": "<p>Kerinza fixes her glare on a creature she can see within 30 feet. The target must attempt a @Check[fortitude|dc:32|options:area-effect,inflicts:slowed,inflicts:petrified] save against Kerinza's petrifying gaze. If the target was already @UUID[Compendium.pf2e.conditionitems.Item.Slowed] before attempting its save, a failed save causes it to be @UUID[Compendium.pf2e.conditionitems.Item.Petrified] permanently. After attempting its save, the creature is then temporarily immune until the start of Kerinza's next turn.</p>"
                 },
                 "publication": {
                     "license": "OGL",

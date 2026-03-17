@@ -593,7 +593,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You drive mental contamination from the target's mind. Attempt to counteract an effect of your choice imposing one of these conditions on the target: @UUID[Compendium.pf2e.conditionitems.Item.Fleeing], @UUID[Compendium.pf2e.conditionitems.Item.Frightened], and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]. If you failed to counteract the effect but you would have if its counteract rank were 2 lower, instead suppress the effect until the beginning of your next turn. The effect's duration doesn't elapse while it's suppressed. This spell can't counteract or suppress conditions that are part of curses, diseases, or a natural state of the target.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Confused], @UUID[Compendium.pf2e.conditionitems.Item.Controlled], and @UUID[Compendium.pf2e.conditionitems.Item.Slowed] to the list of conditions.</p>\n<p><strong>Heightened (6th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Doomed] to the list of conditions.</p>\n<p><strong>Heightened (8th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Stunned] to the list of conditions.</p>"
+                    "value": "<p>You drive mental contamination from the target's mind. Attempt to counteract an effect of your choice imposing one of these conditions on the target: @UUID[Compendium.pf2e.conditionitems.Item.Fleeing], @UUID[Compendium.pf2e.conditionitems.Item.Frightened], and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]. If you failed to counteract the effect but you would have if its counteract rank were 2 lower, instead suppress the effect until the beginning of your next turn. The effect's duration doesn't elapse while it's suppressed. This spell can't counteract or suppress conditions that are part of curses, diseases, or a natural state of the target.</p><hr /><p><strong>Heightened (4th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Confused], @UUID[Compendium.pf2e.conditionitems.Item.Controlled], and @UUID[Compendium.pf2e.conditionitems.Item.Slowed] to the list of conditions.</p>\n<p><strong>Heightened (6th)</strong> As 4th rank, plus add @UUID[Compendium.pf2e.conditionitems.Item.Doomed].</p>\n<p><strong>Heightened (8th)</strong> As 4th rank, plus add doomed and @UUID[Compendium.pf2e.conditionitems.Item.Stunned].</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -840,7 +840,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You send a surge of healing energy to restore the target's body. Attempt to counteract an effect of your choice imposing one of these conditions on the target: @UUID[Compendium.pf2e.conditionitems.Item.Blinded], @UUID[Compendium.pf2e.conditionitems.Item.Dazzled], @UUID[Compendium.pf2e.conditionitems.Item.Deafened], @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled], or @UUID[Compendium.pf2e.conditionitems.Item.Sickened]. If you didn't counteract the effect, but you would have if its counteract rank were 2 lower, instead suppress the effect until the beginning of your next turn. The effect's duration doesn't elapse while it's suppressed.</p>\n<p>This spell can't counteract or suppress curses, diseases, or conditions that are part of the target's normal state.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Drained] and @UUID[Compendium.pf2e.conditionitems.Item.Slowed] to the list of conditions.</p>\n<p><strong>Heightened (8th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Stunned] to the list of conditions.</p>"
+                    "value": "<p>You send a surge of healing energy to restore the target's body. Attempt to counteract an effect of your choice imposing one of these conditions on the target: @UUID[Compendium.pf2e.conditionitems.Item.Blinded], @UUID[Compendium.pf2e.conditionitems.Item.Dazzled], @UUID[Compendium.pf2e.conditionitems.Item.Deafened], @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled], or @UUID[Compendium.pf2e.conditionitems.Item.Sickened]. If you didn't counteract the effect, but you would have if its counteract rank were 2 lower, instead suppress the effect until the beginning of your next turn. The effect's duration doesn't elapse while it's suppressed.</p>\n<p>This spell can't counteract or suppress curses, diseases, or conditions that are part of the target's normal state.</p><hr /><p><strong>Heightened (4th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Drained] and @UUID[Compendium.pf2e.conditionitems.Item.Slowed] to the list of conditions.</p>\n<p><strong>Heightened (6th)</strong> As 4th rank, plus add @UUID[Compendium.pf2e.conditionitems.Item.Petrified].</p>\n<p><strong>Heightened (8th)</strong> As 4th rank, plus add petrified and @UUID[Compendium.pf2e.conditionitems.Item.Stunned].</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -1653,6 +1653,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1662,9 +1663,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1702,6 +1700,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1710,9 +1709,6 @@
                         "holy",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1750,6 +1746,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1758,9 +1755,6 @@
                         "magical",
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1798,6 +1792,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1806,9 +1801,6 @@
                         "magical",
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1945,7 +1937,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "divine-deflection",
                         "toggleable": true
@@ -2042,7 +2033,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "direct-halo",
                         "toggleable": true
@@ -2105,7 +2095,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The dragon unleashes a blast of holy fire that deals @Damage[9d8[spirit]|options:area-damage] damage in a @Template[cone|distance:40] (@Check[reflex|dc:29|basic|options:area-effect] save).</p>\n<p>The dragon can't use Spirit Breath again for [[/gmr 1d4 #rounds]]{1d4 rounds}.</p>"
+                    "value": "<p>The dragon unleashes a blast of holy fire that deals @Damage[9d8[spirit]|options:area-damage] damage in a @Template[cone|distance:40] (@Check[reflex|dc:29|basic|options:area-effect] save).</p>\n<p>The dragon can't use Spirit Breath again for [[/gmr 1d4 #Recharge Spirit Breath]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "ORC",

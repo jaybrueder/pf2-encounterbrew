@@ -1,0 +1,216 @@
+{
+    "_id": "9LBOEO6v3fu3vApz",
+    "folder": "rl5REaDECQmW6sqA",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [
+        {
+            "_id": "QHDJZtmootsvnGQD",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Deathly Terror",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The stampede's approach inflicts overwhelming fear upon those who can't escape its path. This ability might represent exposure to frightful presence auras, terrifying howls, or simply the sheer presence of the advancing army. All creatures that start their turn in the area must attempt a @Check[will|dc:42] save, with the following effects. An affected creature can't reduce the value of its frightened condition while it remains in the aura.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected and is temporarily immune to deathly terror for 10 minutes.</p>\n<p><strong>Success</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 4}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "aura",
+                        "emotion",
+                        "fear",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "u58emKZUj6GdSX9A",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Dust Shroud",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The stampede fills the air with an impenetrable cloud, blocking all vision. This cloud might arise from a dust storm churned up by massive stomping feet, debris from countless ruined buildings, or a magical ability to summon cloying mist. The cloud blocks all vision, making unprepared creatures @UUID[Compendium.pf2e.conditionitems.Item.Blinded] until they leave the area, and imparting a –4 circumstance penalty to vision-based Perception checks for prepared creatures. Creatures outside the area can't see into the cloud.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "RtjIKDiotLJv2xOO",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Energy Burst",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Overlapping blasts of energy or other effects carpet the area. This ability might represent the energy breaths of creatures like dragons, or the overlapping auras of creatures wreathed in fire or other elements. It might also represent the combined effects of numerous spellcasters to cover the region, whether they are part of the stampede itself or defenders attempting to slow the stampede with indiscriminate magic. All creatures in the area take 4d10+12 acid, cold, electricity, fire, sonic, or void damage (@Check[reflex|dc:42|basic|options:area-effect] save). The damage type depends upon the nature of the magic (or can be randomly determined).</p>\n<p>@Damage[(4d10+12)[acid]|options:area-damage]</p>\n<p>@Damage[(4d10+12)[cold]|options:area-damage]</p>\n<p>@Damage[(4d10+12)[electricity]|options:area-damage]</p>\n<p>@Damage[(4d10+12)[fire]|options:area-damage]</p>\n<p>@Damage[(4d10+12)[sonic]|options:area-damage]</p>\n<p>@Damage[(4d10+12)[void]|options:area-damage]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "aegV4uUDQOBaRFP5",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Flying Shards",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The stampede crushes through buildings and rends the ground in its wake. As it does, rocks, trees, metal fragments, and all manner of other dangerous objects soar through the air at perilous speeds. All creatures in the area take 4d10+12 bludgeoning, piercing, or slashing damage (@Check[fortitude|dc:42|basic|options:area-effect] save). The damage type depends upon the nature of what the stampede is currently destroying (or can be randomly determined).</p>\n<p>@Damage[(4d10+12)[bludgeoning]|options:area-damage]</p>\n<p>@Damage[(4d10+12)[piercing]|options:area-damage]</p>\n<p>@Damage[(4d10+12)[slashing]|options:area-damage]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "AETMxE6ZQpqrOFGU",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Toxic Miasma",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Poison fills the air, infiltrating the bodies of all who are unfortunate enough to enter its reach. This ability most often represents the effect of a congregation of poisonous monsters, but it could also come about from more unusual circumstances like the destruction of a site used to mass-produce toxic compounds. By default, the miasma exposes all creatures in the area to cerulean scourge, with Fortitude DC of 42. If the creatures in the stampede have their own specific poison with no onset, you can replace cerulean scourge with their poison effect. Use a Fortitude DC of 42 or the poison's normal DC, whichever is higher.</p><hr /><p><strong>Cerulean Scourge</strong> This poison is infamous for making the victim's blood vessels glow with a bright blue light before painfully bursting.</p>\n<p><strong>Saving Throw</strong> @Check[fortitude|dc:42|traits:alchemical,injury,poison]</p>\n<p><strong>Maximum Duration</strong> 6 rounds</p>\n<p><strong>Stage 1</strong> @Damage[10d6[poison]] damage (1 round)</p>\n<p><strong>Stage 2</strong> @Damage[12d6[poison]] damage (1 round)</p>\n<p><strong>Stage 3</strong> @Damage[14d6[poison]] damage (1 round)</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Colossus Rampage",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": null
+            },
+            "emitsSound": "encounter",
+            "hardness": 0,
+            "hp": {
+                "details": "",
+                "max": 0,
+                "temp": 0,
+                "value": 0
+            },
+            "immunities": [],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>DC 32 (master) skill check with a skill typically used to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge] about the rampaging creatures to notice subtle signs of their proximity in the surrounding landscape (DC 30 if it's a Lore skill) or @Check[survival|dc:38] (master) to notice the ground trembling from immense footfalls</p>",
+                "value": null
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>Monsters of titanic proportions awaken and stampede across the land, crushing everything in their wake. These might be a group of battling kaiju, an army of titanic constructs, or another onslaught of oversized creatures. This hazard works best when combined with combat against one or more massive monsters. These creatures might notice the PCs' strength and decide to get rid of them before the PCs have a chance to interfere with their onslaught.</p>",
+            "disable": "<p>@Check[crafting|dc:48] (master) or Thievery (master) to lay traps to hamper the approaching rampage; DC 50 (master) skill check with a skill typically used to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge] about the creature's type to make targeted preparations (DC 46 if it's a Lore skill); or @Check[warfare-lore|dc:46] (master), @Check[intimidation|dc:48] (master), or @Check[diplomacy|dc:50] (master) to rally nearby troops to prepare for battle</p>",
+            "isComplex": true,
+            "level": {
+                "value": 20
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #221: Into the Apocalypse Archive"
+            },
+            "reset": "",
+            "routine": "<p>(10+ minutes, @Check[flat|dc:15]) The colossus rampage affects the entire area, but whether or not the affected area remains static, moves, expands, or otherwise changes is left to you to determine as the story needs. At the start of each minute, unprepared creatures in the area take @Damage[(3d10+10)[bludgeoning]] damage (@Check[fortitude|dc:47|basic] save). A creature that fails the save is jostled enough that they're @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] for that minute, while a creature that critically fails is pinned under fallen debris and becomes @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] until they [[/act escape dc=47]].</p><p>Two additional effects, based on the nature of the creatures and the battlefield, take place during that minute. Roll [[/gmr 1d10]] for each to determine on which round during that minute each effect takes place (rerolling duplicate rounds). You can create alternative abilities to better fit the nature of the creatures in the stampede, but in general, consider selecting one ability that imposes a condition or battlefield effect and one that deals damage. Note that these effects can affect prepared and unprepared creatures in the area, but when a prepared creature attempts a save against any of these effects, they increase their result by one degree of success.</p>"
+        },
+        "saves": {
+            "fortitude": {
+                "value": 0
+            },
+            "reflex": {
+                "value": 0
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "environmental"
+            ]
+        }
+    },
+    "type": "hazard"
+}

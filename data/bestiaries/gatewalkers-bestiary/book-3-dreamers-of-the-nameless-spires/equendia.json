@@ -78,9 +78,9 @@
                     "value": "vxqyJq266lgurXiW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -98,6 +98,7 @@
                     "rarity": "uncommon",
                     "traditions": [
                         "arcane",
+                        "divine",
                         "occult"
                     ],
                     "value": [
@@ -196,7 +197,7 @@
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.SwUiVavHKMWG7t5K"
             },
             "img": "systems/pf2e/icons/spells/tongues.webp",
-            "name": "Tongues",
+            "name": "Truespeech",
             "sort": 400000,
             "system": {
                 "area": null,
@@ -221,16 +222,16 @@
                     "value": "vxqyJq266lgurXiW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "tongues",
+                "slug": "truespeech",
                 "target": {
                     "value": "1 creature"
                 },
@@ -258,7 +259,7 @@
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.JyxTmqjYYn63V5LY"
             },
             "img": "systems/pf2e/icons/spells/glibness.webp",
-            "name": "Glibness",
+            "name": "Honeyed Words",
             "sort": 500000,
             "system": {
                 "area": null,
@@ -269,7 +270,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>Falsehoods pass your lips as smoothly as silk. You gain a +4 status bonus to Deception checks to Lie and against Perception checks to discern if you are telling the truth, and you add your level even if you're untrained. If the implausibility of your lies prompts a circumstance penalty or a DC increase, reduce that penalty or increase by half.</p>"
+                    "value": "<p>Falsehoods pass your lips as smoothly as silk. You gain a +4 status bonus to Deception checks to Lie and against Perception checks to discern if you are telling the truth, and you add your level even if untrained. If the implausibility of your lies prompts a circumstance penalty or a DC increase, reduce that penalty by half or increase it by half.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -283,16 +284,16 @@
                     "value": "vxqyJq266lgurXiW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": ""
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "glibness",
+                "slug": "honeyed-words",
                 "target": {
                     "value": ""
                 },
@@ -300,7 +301,7 @@
                     "value": "2"
                 },
                 "traits": {
-                    "rarity": "uncommon",
+                    "rarity": "common",
                     "traditions": [
                         "occult"
                     ],
@@ -335,7 +336,7 @@
                     }
                 },
                 "description": {
-                    "value": "<p>Your honeyed words are difficult for creatures to resist. You suggest a course of action to the target, which must be phrased in such a way as to seem like a logical course of action to the target and can't be self-destructive or obviously against the target's self-interest. The target must attempt a Will save.</p>\n<hr /><p><strong>Critical Success</strong> The target is unaffected and knows you tried to control it.</p>\n<p><strong>Success</strong> The target is unaffected and thinks you were talking to them normally, not casting a spell on them.</p>\n<p><strong>Failure</strong> The target immediately follows your suggestion. The spell has a duration of 1 minute, or until the target has completed a finite suggestion or the suggestion becomes self-destructive or has other obvious negative effects.</p>\n<p><strong>Critical Failure</strong> As failure, but the base duration is 1 hour.</p>\n<hr /><p><strong>Heightened (8th)</strong> You can target up to 10 creatures.</p>"
+                    "value": "<p>Your honeyed words are difficult for creatures to resist. You suggest a course of action to the target, which must be phrased in such a way as to seem like a logical course of action to the target and can't be self-destructive or obviously against the target's self-interest. The target must attempt a Will save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected and knows you tried to control it.</p>\n<p><strong>Success</strong> The target is unaffected.</p>\n<p><strong>Failure</strong> The target immediately follows your suggestion. The spell has a duration of 1 minute, or until the target has completed a finite suggestion or the suggestion becomes self-destructive or has other obvious negative effects.</p>\n<p><strong>Critical Failure</strong> As failure, but the base duration is 1 hour.</p>\n<hr />\n<p><strong>Heightened (8th)</strong> You can target up to 10 creatures.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -359,9 +360,9 @@
                     "value": "vxqyJq266lgurXiW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -386,7 +387,8 @@
                         "incapacitation",
                         "linguistic",
                         "manipulate",
-                        "mental"
+                        "mental",
+                        "subtle"
                     ]
                 }
             },
@@ -414,7 +416,7 @@
                     }
                 },
                 "description": {
-                    "value": "<p>Your words fascinate your targets. You speak or sing without interruption throughout the casting and duration. Targets who notice your speech or song might give their undivided attention; each target must attempt a Will save. The GM might grant a circumstance bonus (to a maximum of +4) if the target is of an opposing religion, ancestry, or political leaning, or is otherwise unlikely to agree with what you're saying.</p>\n<p>Each creature that comes within range has to attempt a save when you Sustain the Spell. If you're speaking, enthrall gains the linguistic trait.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected and notices that you tried to use magic.</p>\n<p><strong>Success</strong> The target needn't pay attention but doesn't notice you tried to use magic (it might notice others are enthralled).</p>\n<p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Fascinated] with you. It can attempt another Will save if it witnesses actions or speech with which it disagrees. If it succeeds, it's no longer Fascinated and is temporarily immune for 1 hour. If the target is subject to a hostile act, or if another creature succeeds at a Diplomacy or Intimidation check against it, the fascination ends immediately.</p>\n<p><strong>Critical Failure</strong> As failure, but the target can't attempt a save to end the fascination if it disagrees with you.</p>"
+                    "value": "<p>Your words fascinate your targets. You speak or sing without interruption throughout the casting and duration. Targets who notice your speech or song might give their undivided attention; each target must attempt a Will save. The GM might grant a circumstance bonus (to a maximum of +4) if the target is of an opposing religion, ancestry, or political leaning, or is otherwise unlikely to agree with what you're saying.</p>\n<p>Each creature that comes within range has to attempt a save when you Sustain the spell. If you're speaking, enthrall gains the linguistic trait.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected and notices that you tried to use magic.</p>\n<p><strong>Success</strong> The target needn't pay attention but doesn't notice you tried to use magic (it might notice others are enthralled).</p>\n<p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Fascinated] with you. It can attempt another Will save if it witnesses actions or speech with which it disagrees. If it succeeds, it's no longer fascinated and is temporarily immune for 1 hour. If the target is subject to a hostile act, or if another creature succeeds at a Diplomacy or Intimidation check against it, the fascination ends immediately.</p>\n<p><strong>Critical Failure</strong> As failure, but the target can't attempt a save to end the fascination if it disagrees with you.</p>"
                 },
                 "duration": {
                     "sustained": true,
@@ -428,9 +430,9 @@
                     "value": "vxqyJq266lgurXiW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "120 feet"
@@ -482,7 +484,7 @@
                     }
                 },
                 "description": {
-                    "value": "<p>You shout a command that's hard to ignore. You can command the target to approach you, run away (as if it had the @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] condition), release what it's holding, drop @UUID[Compendium.pf2e.conditionitems.Item.Prone], or stand in place. It can't Delay or take any reactions until it has obeyed your command. The effects depend on the target's Will save.</p>\n<hr /><p><strong>Success</strong> The creature is unaffected.</p>\n<p><strong>Failure</strong> For the first action on its next turn, the creature must use a single action to do as you command.</p>\n<p><strong>Critical Failure</strong> The target must use all its actions on its next turn to obey your command.</p>\n<hr /><p><strong>Heightened (5th)</strong> You can target up to 10 creatures.</p>"
+                    "value": "<p>You shout a command that's hard to ignore. You can command the target to approach you, run away (as if it had the @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] condition), release what it's holding, drop @UUID[Compendium.pf2e.conditionitems.Item.Prone], or stand in place. It can't @UUID[Compendium.pf2e.actionspf2e.Item.Delay] or take any reactions until it has obeyed your command. The effects depend on the target's Will save.</p>\n<hr />\n<p><strong>Success</strong> The creature is unaffected.</p>\n<p><strong>Failure</strong> For the first action on its next turn, the creature must use a single action to do as you command.</p>\n<p><strong>Critical Failure</strong> The target must use all its actions on its next turn to obey your command.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> You can target up to 10 creatures.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -506,9 +508,9 @@
                     "value": "vxqyJq266lgurXiW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -545,10 +547,15 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.dUC8Fsa6FZtVikS3"
             },
-            "img": "systems/pf2e/icons/equipment/weapons/composite-longbow.webp",
+            "img": "icons/weapons/bows/longbow-recurve-brown.webp",
             "name": "Composite Longbow",
             "sort": 900000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "composite-longbow",
                 "bonus": {
                     "value": 0
@@ -574,6 +581,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -581,7 +589,7 @@
                     "value": 0
                 },
                 "level": {
-                    "value": 0
+                    "value": 1
                 },
                 "material": {
                     "grade": null,
@@ -593,9 +601,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "range": 100,
@@ -605,7 +613,9 @@
                 "rules": [],
                 "runes": {
                     "potency": 1,
-                    "property": [],
+                    "property": {
+                        "0": ""
+                    },
                     "striking": 1
                 },
                 "size": "med",
@@ -628,34 +638,38 @@
             "type": "weapon"
         },
         {
-            "_id": "HIIXOdyDKpUbtQ9V",
+            "_id": "ORevyjvOhXHRYnpb",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.dipcMOtBFxtmsjkS"
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.r0ifJfoz8aqf0mwk"
             },
-            "img": "systems/pf2e/icons/equipment/worn-items/other-worn-items/cloak-of-the-bat.webp",
-            "name": "Cloak of the Bat",
+            "img": "icons/equipment/chest/breastplate-collared-steel.webp",
+            "name": "Breastplate",
             "sort": 1000000,
             "system": {
-                "baseItem": null,
+                "acBonus": 4,
+                "baseItem": "breastplate",
                 "bulk": {
-                    "value": 0.1
+                    "value": 2
                 },
+                "category": "medium",
+                "checkPenalty": -2,
                 "containerId": null,
                 "description": {
-                    "value": "<p>Sewn from several long strips of luxurious brown and black silk, this cloak grants you a +2 item bonus to Stealth checks as well as to Acrobatics checks to @UUID[Compendium.pf2e.actionspf2e.Item.Maneuver in Flight]. You can also use your feet to hang from any surface that can support your weight, without requiring any check, though you still must attempt Athletics checks to @UUID[Compendium.pf2e.actionspf2e.Item.Climb] in order to move around while inverted.</p>\n<hr />\n<p><strong>Activate</strong> <span class=\"action-glyph\">2</span> command, Interact</p>\n<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> You can either transform the cloak into bat-like wings that grant you a fly Speed of 30 feet for 10 minutes, or have the cloak turn you into a bat by casting a 4th-rank @UUID[Compendium.pf2e.spells-srd.Item.Pest Form] spell on you.</p>\n<p>@UUID[Compendium.pf2e.equipment-effects.Item.Effect: Cloak of the Bat]</p>"
+                    "value": "<p>Though referred to as a breastplate, this type of armor consists of several pieces of plate or @UUID[Compendium.pf2e.equipment-srd.Item.Half Plate] armor that protect the torso, chest, neck, and sometimes the hips and lower legs. It strategically grants some of the protection of plate while allowing greater flexibility and speed.</p>"
                 },
+                "dexCap": 1,
                 "equipped": {
                     "carryType": "worn",
-                    "inSlot": false,
                     "invested": null
                 },
+                "group": "plate",
                 "hardness": 0,
                 "hp": {
                     "max": 0,
                     "value": 0
                 },
                 "level": {
-                    "value": 10
+                    "value": 0
                 },
                 "material": {
                     "grade": null,
@@ -663,81 +677,54 @@
                 },
                 "price": {
                     "value": {
-                        "gp": 950
+                        "gp": 8
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
-                "rules": [
-                    {
-                        "key": "FlatModifier",
-                        "predicate": [
-                            "action:maneuver-in-flight"
-                        ],
-                        "selector": "acrobatics",
-                        "type": "item",
-                        "value": 2
-                    },
-                    {
-                        "key": "FlatModifier",
-                        "selector": "stealth",
-                        "type": "item",
-                        "value": 2
-                    }
-                ],
+                "rules": [],
+                "runes": {
+                    "potency": 1,
+                    "property": [
+                        "winged"
+                    ],
+                    "resilient": 0
+                },
                 "size": "med",
-                "slug": "cloak-of-the-bat",
+                "slug": "breastplate",
+                "speedPenalty": -5,
+                "strength": 3,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "invested",
-                        "magical"
-                    ]
-                },
-                "usage": {
-                    "value": "worncloak"
+                    "value": []
                 }
             },
-            "type": "equipment"
+            "type": "armor"
         },
         {
             "_id": "CD5OZAmv3LgnVztJ",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.w2ENw2VMPcsbif8g"
             },
-            "img": "systems/pf2e/icons/equipment/weapons/arrows.webp",
+            "img": "icons/weapons/ammunition/arrows-broadhead-white.webp",
             "name": "Arrows",
             "sort": 1100000,
             "system": {
-                "baseItem": null,
+                "baseItem": "arrows",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. It is stabilized in flight by fletching at one end and bears a metal head on the other.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn",
-                    "handsHeld": 0
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -746,21 +733,19 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 20,
                 "rules": [],
                 "size": "med",
                 "slug": "arrows",
-                "stackGroup": "arrows",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -768,7 +753,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "wbmhtkddtggv5bgk",
@@ -806,6 +791,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -815,9 +801,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -856,6 +839,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -863,13 +850,9 @@
                         "deadly-d10",
                         "magical",
                         "propulsive",
-                        "range-increment-100",
                         "reload-0",
                         "volley-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1058,7 +1041,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Equendia exhales a @Template[cone|distance:60] of icy shards that deal @Damage[6d6[cold],6d6[slashing]]{6d6 cold and 6d6 slashing} (@Check[reflex|dc:30|basic]). She can't use Frozen Breath again for [[/gmr 1d4 #Recharge Frozen Breath]]{1d4 rounds}.</p>"
+                    "value": "<p>Equendia exhales a @Template[cone|distance:60] of icy shards that deal @Damage[6d6[cold],6d6[slashing]|options:area-damage]{6d6 cold and 6d6 slashing} (@Check[reflex|dc:30|basic|options:area-effect]). She can't use Frozen Breath again for [[/gmr 1d4 #Recharge Frozen Breath]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1213,6 +1196,13 @@
             },
             "immunities": [
                 {
+                    "type": "bleed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "cold"
+                },
+                {
                     "exceptions": [],
                     "type": "death-effects"
                 },
@@ -1231,10 +1221,6 @@
                 {
                     "exceptions": [],
                     "type": "unconscious"
-                },
-                {
-                    "exceptions": [],
-                    "type": "cold"
                 }
             ],
             "resistances": [],
@@ -1269,9 +1255,9 @@
             "privateNotes": "",
             "publicNotes": "<p>The cold of high places coupled with strong winds and less oxygen creates an effect that can preserve bodies, mummifying them through natural processes. Many are created deliberately by cults, and a rare few voluntarily transform.</p>\n<hr />\n<p>The versatility of mummification allows the creation of mummies through a wide range of methods—nature, ritual, alchemy, and combinations of all these.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #189: Dreamers of the Nameless Spires"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -1325,7 +1311,6 @@
             },
             "value": [
                 "cold",
-                "evil",
                 "mummy",
                 "undead",
                 "unholy"

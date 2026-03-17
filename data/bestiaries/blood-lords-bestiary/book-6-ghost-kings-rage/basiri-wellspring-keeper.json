@@ -636,7 +636,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.OyFCwQuw8XRazsNr"
             },
-            "img": "systems/pf2e/icons/spells/remove-curse.webp",
+            "img": "icons/magic/control/buff-flight-wings-runes-blue-white.webp",
             "name": "Remove Curse (At Will)",
             "sort": 1100000,
             "system": {
@@ -1198,6 +1198,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1206,9 +1207,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1469,6 +1467,9 @@
                 "value": 400
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

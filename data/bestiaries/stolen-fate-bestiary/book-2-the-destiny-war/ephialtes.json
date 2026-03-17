@@ -368,7 +368,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.sRfSBHWHdbIa0aGc"
             },
-            "img": "systems/pf2e/icons/spells/chilling-darkness.webp",
+            "img": "icons/magic/light/beam-explosion-pink-purple.webp",
             "name": "Chilling Darkness",
             "sort": 700000,
             "system": {
@@ -673,6 +673,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -682,9 +683,6 @@
                         "unarmed",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -726,6 +724,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -736,9 +735,6 @@
                         "reach-15",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1021,7 +1017,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The ephialtes exhales a tangle of barbed chains. All creatures in a @Template[cone|distance:50] must attempt a @Check[reflex|dc:37] save. The ephialtes can't Exhale Chains for [[/gmr 1d4 #Recharge Exhale Chains]]{1d4 rounds}.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> It takes @Damage[8d6[piercing]] damage.</p>\n<p><strong>Failure</strong> It takes @Damage[15d6[piercing]] damage, @Damage[2d6[persistent,bleed]] damage, and is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] for 1 round.</p>\n<p><strong>Critical Failure</strong> As failure, but @Damage[30d6[piercing]] damage, @Damage[2d6[persistent,bleed]] damage, and is @UUID[Compendium.pf2e.conditionitems.Item.Restrained] until they @UUID[Compendium.pf2e.actionspf2e.Item.Escape] (DC 37).</p>"
+                    "value": "<p>The ephialtes exhales a tangle of barbed chains. All creatures in a @Template[cone|distance:50] must attempt a @Check[reflex|dc:37|options:area-effect,damaging-effect] save. The ephialtes can't Exhale Chains for [[/gmr 1d4 #Recharge Exhale Chains]]{1d4 rounds}.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> It takes @Damage[8d6[piercing]|options:area-damage] damage.</p>\n<p><strong>Failure</strong> It takes @Damage[15d6[piercing],2d6[bleed]|options:area-damage]{15d6 piercing damage, 2d6 persistent bleed damage}, and is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] for 1 round.</p>\n<p><strong>Critical Failure</strong> As failure, but @Damage[30d6[piercing],2d6[bleed]]{30d6 piercing damage, 2d6 persistent bleed damage}, and is @UUID[Compendium.pf2e.conditionitems.Item.Restrained] until they @UUID[Compendium.pf2e.actionspf2e.Item.Escape] ([[/act escape dc=37]]).</p>"
                 },
                 "publication": {
                     "license": "OGL",

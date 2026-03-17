@@ -915,6 +915,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -1071,6 +1072,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1116,6 +1118,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1141,7 +1144,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>Valkyries can detect the souls of those recently slain in combat. A valkyrie spends 10 minutes praying over the body of a creature who has been dead for no more than 12 hours; if that creature is worthy of becoming an @UUID[Compendium.pf2e.pathfinder-bestiary-3.Actor.Einherji] and of the appropriate alignment, the valkyrie transforms that creature into an einherji.</p>"
+                    "value": "<p>Valkyries can detect the souls of those recently slain in combat. A valkyrie spends 10 minutes praying over the body of a creature who has been dead for no more than 12 hours; if that creature is worthy of becoming an @UUID[Compendium.pf2e.pathfinder-monster-core-2.Actor.Einherji] and of the appropriate alignment, the valkyrie transforms that creature into an einherji.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1150,7 +1153,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "self:deity:slug:gorum"
                     }
@@ -1315,7 +1317,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The valkyrie hurls her spear into the air, creating a massive storm in a @Template[burst|distance:100]. Spears of lightning rain down upon enemies in the area, dealing @Damage[4d12[electricity]] damage (@Check[reflex|dc:32|basic] save).</p>"
+                    "value": "<p>The valkyrie hurls her spear into the air, creating a massive storm in a @Template[burst|distance:100]. Spears of lightning rain down upon enemies in the area, dealing @Damage[4d12[electricity]|options:area-damage] damage (@Check[reflex|dc:32|basic|options:area-effect] save).</p>"
                 },
                 "publication": {
                     "license": "OGL",

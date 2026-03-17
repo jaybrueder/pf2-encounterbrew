@@ -389,6 +389,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -413,7 +414,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -539,6 +540,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -567,9 +569,6 @@
                         "magical",
                         "two-hand-d8"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -603,15 +602,14 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "value": [
-                        "range-increment-30"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -634,7 +632,7 @@
                 "category": "offensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the woodblessed dies, the planar portal inside of them collapses, causing them to explode in a @Template[burst|distance:20] of vines that deal @Damage[7d6[bludgeoning]] damage to all creatures with a @Check[reflex|dc:25|basic] save. The woodblessed's body is completely consumed, though their root network and gear remain behind.</p>"
+                    "value": "<p>When the woodblessed dies, the planar portal inside of them collapses, causing them to explode in a @Template[burst|distance:20] of vines that deal @Damage[7d6[bludgeoning]|options:area-damage] damage to all creatures with a @Check[reflex|dc:25|basic|options:area-effect] save. The woodblessed's body is completely consumed, though their root network and gear remain behind.</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -760,7 +758,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "tap-planar-gate",
                         "toggleable": true

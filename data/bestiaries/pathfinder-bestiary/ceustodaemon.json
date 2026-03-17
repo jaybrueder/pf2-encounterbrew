@@ -485,6 +485,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -494,9 +495,6 @@
                         "unarmed",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -537,6 +535,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -548,9 +547,6 @@
                         "unarmed",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -638,7 +634,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The ceustodaemon breathes flames in a @Template[cone|distance:30]. Creatures in the cone take @Damage[7d6[fire]|options:area-damage] damage (@Check[reflex|dc:24|basic|options:area-effect] save).</p>\n<p>The ceustodaemon and each creature that fails the save catch fire, taking @Damage[2d6[persistent,fire]] damage.</p>\n<p>The breath weapon can't be used again for [[/gmr 1d4 #rounds]]{1d4 rounds}.</p>"
+                    "value": "<p>The ceustodaemon breathes flames in a @Template[cone|distance:30]. Creatures in the cone take @Damage[7d6[fire]|options:area-damage] damage (@Check[reflex|dc:24|basic|options:area-effect] save).</p>\n<p>The ceustodaemon and each creature that fails the save catch fire, taking @Damage[2d6[persistent,fire]] damage.</p>\n<p>The breath weapon can't be used again for [[/gmr 1d4 #Recharge Breath Weapon]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -701,7 +697,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>On a successful jaws or claw Strike, the ceustodaemon viciously tears into its victim as similar wounds appear on its own body. The target takes an extra [[/r {1d6}]]{1d6 amount of damage}, and the ceustodaemon takes the same extra damage.</p>\n<p>If this extra damage to the target is doubled, due to a critical hit, the ceustodaemon takes double damage as well.</p>"
+                    "value": "<p>On a successful jaws or claw Strike, the ceustodaemon viciously tears into its victim as similar wounds appear on its own body. The target takes an extra 1d6 amount of damage, and the ceustodaemon takes the same extra damage.</p>\n<p>If this extra damage to the target is doubled, due to a critical hit, the ceustodaemon takes double damage as well.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -713,7 +709,10 @@
                         "diceNumber": 1,
                         "dieSize": "d6",
                         "key": "DamageDice",
-                        "selector": "strike-damage"
+                        "selector": [
+                            "claw-damage",
+                            "jaws-damage"
+                        ]
                     }
                 ],
                 "slug": "vicious-wounds",

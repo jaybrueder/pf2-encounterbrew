@@ -764,6 +764,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -853,6 +854,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "dagger",
                 "traits": {
@@ -861,9 +863,6 @@
                         "finesse",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -902,6 +901,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "dagger",
                 "traits": {
@@ -910,9 +910,6 @@
                         "thrown-10",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -931,7 +928,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The elementalist unleashes powerful static electricity in a @Template[emanation|distance:20] that lasts for 1 minute. All squares in the area become hazardous terrain for other creatures. A creature takes @Damage[1[electricity]] damage each time it moves into one of these squares. While in the area, creatures take a –1 status penalty to saves against electricity spells.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Elemental Field]</p>"
+                    "value": "<p>The elementalist unleashes powerful static electricity in a @Template[emanation|distance:20] that lasts for 1 minute. All squares in the area become hazardous terrain for other creatures. A creature takes @Damage[1[electricity]|options:area-damage] damage each time it moves into one of these squares. While in the area, creatures take a –1 status penalty to saves against electricity spells.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Elemental Field]</p>"
                 },
                 "publication": {
                     "license": "ORC",

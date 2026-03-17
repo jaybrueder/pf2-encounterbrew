@@ -394,7 +394,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.ZwwIUavMbEwcZz35"
             },
-            "img": "systems/pf2e/icons/spells/create-demiplane.webp",
+            "img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
             "name": "Create Demiplane",
             "sort": 700000,
             "system": {
@@ -1934,7 +1934,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "lantern-kings-glow",
                         "toggleable": true,
@@ -2092,7 +2091,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "Temperature is Hot",
                         "option": "fire-not-cold",
@@ -2200,7 +2198,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "change-shape",
                         "toggleable": true
@@ -2292,13 +2289,13 @@
                             }
                         ],
                         "range": {
+                            "increment": null,
                             "max": 100
                         },
                         "traits": [
                             "fire",
                             "magical",
-                            "mental",
-                            "range-100"
+                            "mental"
                         ]
                     },
                     {
@@ -2323,13 +2320,13 @@
                             }
                         ],
                         "range": {
+                            "increment": null,
                             "max": 100
                         },
                         "traits": [
                             "cold",
                             "magical",
-                            "mental",
-                            "range-100"
+                            "mental"
                         ]
                     },
                     {

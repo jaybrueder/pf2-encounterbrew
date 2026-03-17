@@ -141,6 +141,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -149,9 +150,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -189,6 +187,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -198,9 +197,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -485,19 +481,22 @@
             },
             "immunities": [
                 {
-                    "type": "paralyzed"
-                },
-                {
-                    "type": "unconscious"
-                },
-                {
-                    "type": "poison"
+                    "type": "bleed"
                 },
                 {
                     "type": "death-effects"
                 },
                 {
                     "type": "disease"
+                },
+                {
+                    "type": "paralyzed"
+                },
+                {
+                    "type": "poison"
+                },
+                {
+                    "type": "unconscious"
                 }
             ],
             "speed": {

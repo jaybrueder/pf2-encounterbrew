@@ -36,6 +36,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -62,7 +63,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -124,6 +125,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "category": "precision",
@@ -142,9 +144,6 @@
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -390,6 +389,9 @@
             },
             "immunities": [
                 {
+                    "type": "bleed"
+                },
+                {
                     "type": "death-effects"
                 },
                 {
@@ -467,7 +469,10 @@
                 "special": [
                     {
                         "base": 21,
-                        "label": "to Disarm"
+                        "label": "to Disarm",
+                        "predicate": [
+                            "action:disarm"
+                        ]
                     }
                 ]
             },

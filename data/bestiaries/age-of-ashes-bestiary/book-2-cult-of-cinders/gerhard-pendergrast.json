@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -125,6 +126,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "flail",
                 "hardness": 0,
                 "hp": {
@@ -151,7 +153,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -260,7 +262,7 @@
                 },
                 "containerId": null,
                 "description": {
-                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">2</span></p>\n<p>The blunderbuss fires an explosive shot that deals @Damage[4d6[bludgeoning],2d10[fire]]{4d6 bludgeoning damage plus 2d10 fire damage} to all creatures in a @Template[cone|distance:30] (@Check[reflex|dc:26|basic|name:Shoddy Blunderbuss Reflex Save|showDC:owner] save).</p>\n<p>When firing the blunderbuss, you must critically succeed at a @Check[crafting|dc:20|name:Shoddy Blunderbuss Crafting] or @Check[engineering|dc:20|name:Shoddy Blunderbuss Engineering Lore|showDC:owner]{Engineering Lore} check or the weapon explodes, damaging you for the same amount as the creatures in the cone and destroying itself. A successful @Check[crafting|dc:22|name:Shoddy Blunderbuss Reveal Unstable Nature|showDC:owner] check is enough to confirm the weapon's unstable nature if someone examines it beforehand.</p>\n<p>Reloading the blunderbuss takes 3 Interact actions: adding 1 dose of gunpowder, adding 1 grapeshot canister, and packing the contents.</p>"
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">2</span></p>\n<p>The blunderbuss fires an explosive shot that deals @Damage[4d6[bludgeoning],2d10[fire]|options:area-damage]{4d6 bludgeoning damage plus 2d10 fire damage} to all creatures in a @Template[cone|distance:30] (@Check[reflex|dc:26|basic|name:Shoddy Blunderbuss Reflex Save|options:area-effect|showDC:owner] save).</p>\n<p>When firing the blunderbuss, you must critically succeed at a @Check[crafting|dc:20|name:Shoddy Blunderbuss Crafting] or @Check[engineering-lore|dc:20|name:Shoddy Blunderbuss Engineering Lore|showDC:owner]{Engineering Lore} check or the weapon explodes, damaging you for the same amount as the creatures in the cone and destroying itself. A successful @Check[crafting|dc:22|name:Shoddy Blunderbuss Reveal Unstable Nature|showDC:owner] check is enough to confirm the weapon's unstable nature if someone examines it beforehand.</p>\n<p>Reloading the blunderbuss takes 3 Interact actions: adding 1 dose of gunpowder, adding 1 grapeshot canister, and packing the contents.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
@@ -371,7 +373,7 @@
                 "containerId": "hetb6HQzsfpikrYo",
                 "damage": null,
                 "description": {
-                    "value": "<p>A black powder keg explodes if it takes any fire damage, inflicting @Damage[5d6[fire]] damage on all creatures in a @Template[emanation|distance:20] (@Check[reflex|dc:24|basic|name:Gunpowder Detonation] save).</p>"
+                    "value": "<p>A black powder keg explodes if it takes any fire damage, inflicting @Damage[5d6[fire]|options:area-damage] damage on all creatures in a @Template[emanation|distance:20] (@Check[reflex|dc:24|basic|options:area-effect|name:Gunpowder Detonation] save).</p>"
                 },
                 "equipped": {
                     "carryType": "stowed",
@@ -424,7 +426,7 @@
         {
             "_id": "YdZT3Ed6Vo7vzA6W",
             "img": "systems/pf2e/icons/equipment/consumables/other-consumables/black-powder-dose.webp",
-            "name": "Gunpower",
+            "name": "Gunpowder",
             "sort": 700000,
             "system": {
                 "baseItem": null,
@@ -481,72 +483,13 @@
             "type": "consumable"
         },
         {
-            "_id": "UicWUJ68tR3WgGLD",
-            "img": "icons/weapons/ammunition/shot-round-lead.webp",
-            "name": "Grapeshot",
-            "sort": 800000,
-            "system": {
-                "baseItem": null,
-                "bulk": {
-                    "value": 0
-                },
-                "category": "ammo",
-                "containerId": null,
-                "damage": null,
-                "description": {
-                    "value": ""
-                },
-                "equipped": {
-                    "carryType": "worn",
-                    "handsHeld": 0
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
-                "level": {
-                    "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
-                },
-                "price": {
-                    "value": {}
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder #146: Cult of Cinders"
-                },
-                "quantity": 10,
-                "rules": [],
-                "size": "med",
-                "slug": null,
-                "traits": {
-                    "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
-                },
-                "uses": {
-                    "autoDestroy": true,
-                    "max": 1,
-                    "value": 1
-                }
-            },
-            "type": "consumable"
-        },
-        {
             "_id": "QqLnG9gM1Dn0GQRq",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.ylUdMTsfOQGJ3MN3"
             },
             "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-tools/tindertwig.webp",
             "name": "Tindertwig",
-            "sort": 900000,
+            "sort": 800000,
             "system": {
                 "baseItem": null,
                 "bulk": {
@@ -606,6 +549,48 @@
                 }
             },
             "type": "consumable"
+        },
+        {
+            "_id": "UicWUJ68tR3WgGLD",
+            "img": "icons/weapons/ammunition/shot-round-lead.webp",
+            "name": "Grapeshot",
+            "sort": 900000,
+            "system": {
+                "baseItem": "arrows",
+                "bulk": {
+                    "value": 0
+                },
+                "containerId": null,
+                "craftableAs": null,
+                "description": {
+                    "value": ""
+                },
+                "level": {
+                    "value": 0
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder #146: Cult of Cinders"
+                },
+                "quantity": 10,
+                "rules": [],
+                "size": "med",
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 1,
+                    "value": 1
+                }
+            },
+            "type": "ammo"
         },
         {
             "_id": "hetb6HQzsfpikrYo",
@@ -707,6 +692,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -719,9 +705,6 @@
                         "reach-10",
                         "trip"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -758,6 +741,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -767,9 +751,6 @@
                         "finesse",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -808,6 +789,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -817,9 +799,6 @@
                         "finesse",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -858,6 +837,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -867,9 +847,6 @@
                         "thrown-10",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -948,7 +925,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Gerhard fires an explosive shot from his blunderbuss that deals @Damage[4d6[bludgeoning],2d10[fire]]{4d6 bludgeoning damage plus 2d10 fire damage} to all creatures in a @Template[cone|distance:30] (@Check[reflex|dc:26|basic]).</p>\n<p>When firing the blunderbuss, Gerhard must succeed at a @Check[crafting|dc:20] or @Check[engineering-lore|dc:20]{Engineering Lore} check or the weapon explodes, damaging him for the same amount as the creatures in the cone and destroying itself. If someone other than Gerhard uses the weapon, they must critically succeed at the check. A successful @Check[crafting|dc:22] check is enough to confirm the weapon's unstable nature if someone examines it beforehand.</p>\n<p>Reloading the blunderbuss takes 3 Interact actions: adding 1 dose of gunpowder, adding 1 grapeshot canister, and packing the contents.</p>"
+                    "value": "<p>Gerhard fires an explosive shot from his blunderbuss that deals @Damage[4d6[bludgeoning],2d10[fire]|options:area-damage]{4d6 bludgeoning damage plus 2d10 fire damage} to all creatures in a @Template[cone|distance:30] (@Check[reflex|dc:26|basic|options:area-effect]).</p>\n<p>When firing the blunderbuss, Gerhard must succeed at a @Check[crafting|dc:20] or @Check[engineering-lore|dc:20]{Engineering Lore} check or the weapon explodes, damaging him for the same amount as the creatures in the cone and destroying itself. If someone other than Gerhard uses the weapon, they must critically succeed at the check. A successful @Check[crafting|dc:22] check is enough to confirm the weapon's unstable nature if someone examines it beforehand.</p>\n<p>Reloading the blunderbuss takes 3 Interact actions: adding 1 dose of gunpowder, adding 1 grapeshot canister, and packing the contents.</p>"
                 },
                 "publication": {
                     "license": "OGL",

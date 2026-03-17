@@ -38,6 +38,7 @@
                     "inSlot": true,
                     "invested": false
                 },
+                "expend": null,
                 "group": "brawling",
                 "hardness": 0,
                 "hp": {
@@ -64,7 +65,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -128,6 +129,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "dart",
                 "hardness": 0,
                 "hp": {
@@ -261,6 +263,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -270,54 +273,6 @@
                         "finesse",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
-                }
-            },
-            "type": "melee"
-        },
-        {
-            "_id": "Cth0VtGbtTcGpsAR",
-            "img": "systems/pf2e/icons/default-icons/melee.svg",
-            "name": "Red Claw",
-            "sort": 500000,
-            "system": {
-                "attack": {
-                    "value": ""
-                },
-                "attackEffects": {
-                    "value": []
-                },
-                "bonus": {
-                    "value": 20
-                },
-                "damageRolls": {
-                    "r3gbczt5ubrop68y1v99": {
-                        "damage": "2d10+7",
-                        "damageType": "slashing"
-                    }
-                },
-                "description": {
-                    "value": "<p>Red Ruin Stance only</p>"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": ""
-                },
-                "rules": [],
-                "slug": null,
-                "traits": {
-                    "rarity": "common",
-                    "value": [
-                        "finesse",
-                        "sweep",
-                        "unarmed"
-                    ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -331,7 +286,7 @@
             },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Shuriken",
-            "sort": 600000,
+            "sort": 500000,
             "system": {
                 "attack": {
                     "value": ""
@@ -356,17 +311,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
-                        "agile",
-                        "range-increment-20"
+                        "agile"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -375,7 +330,7 @@
             "_id": "W7NJfdI36Wt2pLfo",
             "img": "systems/pf2e/icons/actions/Passive.webp",
             "name": "Camouflaged Step",
-            "sort": 700000,
+            "sort": 600000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -405,7 +360,7 @@
             "_id": "9xQRUNNxUssnoy4j",
             "img": "systems/pf2e/icons/actions/Passive.webp",
             "name": "Chameleon Skin",
-            "sort": 800000,
+            "sort": 700000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -452,7 +407,7 @@
             "_id": "Usk5KyF9A2RQaJt2",
             "img": "systems/pf2e/icons/actions/OneAction.webp",
             "name": "Flurry of Blows",
-            "sort": 900000,
+            "sort": 800000,
             "system": {
                 "actionType": {
                     "value": "action"
@@ -487,7 +442,7 @@
             "_id": "ZfdrndtEZTKXbrq0",
             "img": "systems/pf2e/icons/actions/OneAction.webp",
             "name": "Red Ruin Stance",
-            "sort": 1000000,
+            "sort": 900000,
             "system": {
                 "actionType": {
                     "value": "action"
@@ -504,7 +459,37 @@
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "key": "RollOption",
+                        "option": "red-ruin-stance",
+                        "toggleable": true
+                    },
+                    {
+                        "attackModifier": 20,
+                        "category": "unarmed",
+                        "damage": {
+                            "base": {
+                                "damageType": "slashing",
+                                "dice": 2,
+                                "die": "d10",
+                                "modifier": 7
+                            }
+                        },
+                        "group": "brawling",
+                        "key": "Strike",
+                        "label": "PF2E.NPCAbility.Murschen.RedRuinStance.RedClawLabel",
+                        "predicate": [
+                            "red-ruin-stance"
+                        ],
+                        "slug": "red-claw",
+                        "traits": [
+                            "finesse",
+                            "sweep",
+                            "unarmed"
+                        ]
+                    }
+                ],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
@@ -522,7 +507,7 @@
             },
             "img": "systems/pf2e/icons/actions/Passive.webp",
             "name": "Sneak Attack",
-            "sort": 1100000,
+            "sort": 1000000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -551,7 +536,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

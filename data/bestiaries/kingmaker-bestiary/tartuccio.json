@@ -1135,6 +1135,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -1161,7 +1162,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1366,24 +1367,7 @@
                         "selector": "ac",
                         "slug": "mage-armor",
                         "type": "item",
-                        "value": {
-                            "brackets": [
-                                {
-                                    "end": 5,
-                                    "value": 1
-                                },
-                                {
-                                    "end": 9,
-                                    "start": 6,
-                                    "value": 2
-                                },
-                                {
-                                    "start": 10,
-                                    "value": 3
-                                }
-                            ],
-                            "field": "item|system.level.value"
-                        }
+                        "value": "match(when(lte(@item.level, 5), 1), when(btwn(@item.level, 6, 9), 2), when(gte(@item.level, 10), 3))"
                     },
                     {
                         "fromEquipment": false,
@@ -1392,25 +1376,7 @@
                         "selector": "saving-throw",
                         "slug": "mage-armor",
                         "type": "item",
-                        "value": {
-                            "brackets": [
-                                {
-                                    "end": 7,
-                                    "start": 4,
-                                    "value": 1
-                                },
-                                {
-                                    "end": 9,
-                                    "start": 8,
-                                    "value": 2
-                                },
-                                {
-                                    "start": 10,
-                                    "value": 3
-                                }
-                            ],
-                            "field": "item|system.level.value"
-                        }
+                        "value": "match(when(btwn(@item.level, 4, 7), 1), when(btwn(@item.level, 8, 9), 2), when(gte(@item.level, 10), 3))"
                     },
                     {
                         "key": "DexterityModifierCap",
@@ -1467,6 +1433,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1476,9 +1443,6 @@
                         "finesse",
                         "trip"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"

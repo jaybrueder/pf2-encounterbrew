@@ -662,6 +662,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -688,7 +689,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -820,6 +821,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -828,9 +830,6 @@
                         "magical",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -867,6 +866,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -875,9 +875,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -914,6 +911,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -923,9 +921,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1046,7 +1041,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet. @Check[will|dc:41]</p>\n<p>As @UUID[Compendium.pf2e.bestiary-ability-glossary-srd.Item.Frightful Presence], plus a creature frightened by the aura becomes suspicious: it doesn't count any other creature as its ally and can't @UUID[Compendium.pf2e.actionspf2e.Item.Aid] or flank. On a critical failure, the creature also can't be a willing target for harmless or helpful magic.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Aura of Disquietude]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>30 feet. @Check[will|dc:41|options:area-effect,inflicts:frightened]</p>\n<p>As @UUID[Compendium.pf2e.bestiary-ability-glossary-srd.Item.Frightful Presence], plus a creature frightened by the aura becomes suspicious: it doesn't count any other creature as its ally and can't @UUID[Compendium.pf2e.actionspf2e.Item.Aid] or flank. On a critical failure, the creature also can't be a willing target for harmless or helpful magic.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Aura of Disquietude]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",

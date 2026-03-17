@@ -267,6 +267,7 @@
                     "handsHeld": 2,
                     "invested": null
                 },
+                "expend": null,
                 "group": "polearm",
                 "hardness": 0,
                 "hp": {
@@ -293,7 +294,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -354,6 +355,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -363,9 +365,6 @@
                         "magical",
                         "reach-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -400,6 +399,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -409,9 +409,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -524,7 +521,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The cloud giant Strikes a creature with their ranseur, surrounded in a roar of rushing air. On a hit, the target takes an additional 4d8 bludgeoning damage and is @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 minute. Whether or not the Strike hits, each non-cloud giant within a @Template[emanation|distance:20], including the target of the Strike, is buffeted by roaring winds and must attempt a @Check[fortitude|dc:30] saving throw.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes @Damage[2d8[sonic]] damage.</p>\n<p><strong>Failure</strong> The creature takes @Damage[4d8[sonic]] damage and is deafened until the end of its next turn.</p>\n<p><strong>Critical Failure</strong> As failure, but double damage and also knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"
+                    "value": "<p>The cloud giant Strikes a creature with their ranseur, surrounded in a roar of rushing air. On a hit, the target takes an additional 4d8 bludgeoning damage and is @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 minute. Whether or not the Strike hits, each non-cloud giant within a @Template[emanation|distance:20], including the target of the Strike, is buffeted by roaring winds and must attempt a @Check[fortitude|dc:30|options:area-effect,damaging-effect,inflicts:deafened,inflicts:prone] saving throw.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes @Damage[2d8[sonic]|options:area-damage] damage.</p>\n<p><strong>Failure</strong> The creature takes @Damage[4d8[sonic]|options:area-damage] damage and is deafened until the end of its next turn.</p>\n<p><strong>Critical Failure</strong> As failure, but double damage and also knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"
                 },
                 "publication": {
                     "license": "ORC",

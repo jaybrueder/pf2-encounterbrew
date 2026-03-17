@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "dart",
                 "hardness": 0,
                 "hp": {
@@ -123,6 +124,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -347,6 +349,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -396,6 +399,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "javelin",
                 "traits": {
@@ -443,6 +447,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "longsword",
                 "traits": {
@@ -725,7 +730,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The graveknight unleashes a @Template[cone|distance:30] of energy. Creatures in the area take @Damage[11d12[fire]] damage for a creature of the graveknight's level with a @Check[reflex|dc:39|basic|traits:area-damage] based on a high DC of the graveknight's level.</p>\n<p>The graveknight can use this ability once every [[/gmr 1d4 #Rounds]] rounds.</p>\n<p>This energy damage is of the same type as that of their ruinous weapons, and Devastating Blast gains the associated trait.</p>"
+                    "value": "<p>Seldeg Bheldis unleashes a @Template[cone|distance:30] of energy. Creatures in the area take @Damage[11d12[fire]|options:area-damage] damage with a @Check[reflex|dc:39|basic|options:area-effect].</p>\n<p>Seldeg can use this ability once every [[/gmr 1d4 #Recharge Devastating Blast]] rounds.</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -870,6 +875,10 @@
                 "category": "offensive",
                 "description": {
                     "value": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Seldeg switches the fates of two creatures within 500 feet. The two creatures teleport into each other's spaces. Each creature then attempts a @Check[will|dc:39] save.</p><hr /><p><strong>Critical Success</strong> The target becomes temporarily immune to Swap Fates for 24 hours.</p>\n<p><strong>Success</strong> The target takes @Damage[3d6[mental]] damage.</p>\n<p><strong>Failure</strong> The target takes @Damage[6d6[mental]] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1}.</p>\n<p><strong>Critical Failure</strong> The target takes @Damage[12d6[mental]] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 4}.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "round"
                 },
                 "publication": {
                     "license": "OGL",

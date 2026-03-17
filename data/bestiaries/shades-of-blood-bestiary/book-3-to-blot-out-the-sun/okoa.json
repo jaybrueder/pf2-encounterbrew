@@ -139,6 +139,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "brawling",
                 "hardness": 0,
                 "hp": {
@@ -165,7 +166,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -203,6 +204,11 @@
             "name": "Shortbow",
             "sort": 400000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "shortbow",
                 "bonus": {
                     "value": 0
@@ -228,6 +234,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -347,7 +354,7 @@
         },
         {
             "_id": "clcBXuY5I7HmG2D6",
-            "img": "icons/commodities/treasure/broach-pink-orbs.webp",
+            "img": "icons/commodities/treasure/brooch-pink-orbs.webp",
             "name": "Beaded Earrings",
             "sort": 600000,
             "system": {
@@ -423,6 +430,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -466,12 +474,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": "shortbow",
                 "traits": {
                     "value": [
                         "deadly-d10",
-                        "range-increment-60",
                         "reload-0"
                     ]
                 }

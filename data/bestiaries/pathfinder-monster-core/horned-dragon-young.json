@@ -228,6 +228,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -237,9 +238,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -273,6 +271,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -281,9 +280,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -317,6 +313,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -324,9 +321,6 @@
                         "magical",
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -360,6 +354,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -368,9 +363,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -392,7 +384,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>90 feet @Check[will|dc:24]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>90 feet. @Check[will|dc:24|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -535,7 +527,7 @@
                         "outcome": [
                             "criticalSuccess"
                         ],
-                        "selector": "attack-roll",
+                        "selector": "strike-attack-roll",
                         "text": "{item|description}",
                         "title": "{item|name}",
                         "visibility": "owner"
@@ -620,7 +612,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The dragon breathes a toxic cloud that deals @Damage[9d6[poison]] damage in a @Template[cone|distance:40] (@Check[fortitude|dc:25|basic] save).</p>\n<p>They can't use Poison Breath again for [[/gmr 1d4 #Recharge Poison Breath]]{1d4 rounds}.</p>"
+                    "value": "<p>The dragon breathes a toxic cloud that deals @Damage[9d6[poison]|options:area-damage] damage in a @Template[cone|distance:40] (@Check[fortitude|dc:25|basic|options:area-effect] save).</p>\n<p>They can't use Poison Breath again for [[/gmr 1d4 #Recharge Poison Breath]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "ORC",

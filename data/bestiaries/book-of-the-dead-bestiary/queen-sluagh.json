@@ -365,6 +365,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -372,9 +373,6 @@
                     "value": [
                         "reach-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -409,6 +407,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -418,9 +417,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -455,18 +451,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "magical",
-                        "range-increment-100",
                         "void"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -521,7 +517,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>120 feet. @Check[will|dc:37]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>120 feet. @Check[will|dc:37|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -599,7 +595,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>A sluagh queen knows any language of a creature whose soul they've devoured and can perfectly mimic its voice by attempting a Deception check to Lie, with a +4 circumstance bonus.</p>"
+                    "value": "<p>A sluagh queen knows any language of a creature whose soul they've devoured and can perfectly mimic its voice by attempting a Deception check to [[/act lie options=voice-of-the-soul]], with a +4 circumstance bonus.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -744,7 +740,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The queen sluagh becomes incorporeal until the start of their next turn, and Flies up to their fly Speed. While incorporeal, they are immune to precision damage, and have resistance 10 to all damage (except force, ghost touch, or vitality); this resistance is doubled against non-magical damage.</p>\n<p>After using Ghostly Swoop, the queen sluagh can't use it again for [[/gmr 1d4 #Recharge]]{1d4 rounds}.</p>"
+                    "value": "<p>The queen sluagh becomes incorporeal until the start of their next turn, and Flies up to their fly Speed. While incorporeal, they are immune to precision damage, and have resistance 10 to all damage (except force, <em>@UUID[Compendium.pf2e.equipment-srd.Item.Ghost Touch]</em>, or vitality); this resistance is doubled against non-magical damage.</p>\n<p>After using Ghostly Swoop, the queen sluagh can't use it again for [[/gmr 1d4 #Recharge Ghostly Swoop]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -753,12 +749,30 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "ghostly-swoop",
                         "toggleable": true
                     },
                     {
+                        "add": [
+                            "incorporeal"
+                        ],
+                        "key": "ActorTraits",
+                        "predicate": [
+                            "ghostly-swoop"
+                        ]
+                    },
+                    {
+                        "key": "Immunity",
+                        "predicate": [
+                            "ghostly-swoop"
+                        ],
+                        "type": "precision"
+                    },
+                    {
+                        "doubleVs": [
+                            "non-magical"
+                        ],
                         "exceptions": [
                             "force",
                             "ghost-touch",
@@ -884,6 +898,9 @@
                 "value": 417
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

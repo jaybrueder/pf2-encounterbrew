@@ -268,6 +268,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -387,7 +388,7 @@
             "type": "armor"
         },
         {
-            "_id": "8zIAec8NlrwPEbab",
+            "_id": "73xHB5nhtWbsTeoT",
             "flags": {
                 "pf2e": {
                     "linkedWeapon": "gdzY20kTS2w1CyAU"
@@ -397,9 +398,8 @@
             "name": "Trident",
             "sort": 700000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
+                "action": "strike",
+                "area": null,
                 "attackEffects": {
                     "value": []
                 },
@@ -407,7 +407,7 @@
                     "value": 7
                 },
                 "damageRolls": {
-                    "r6u7lcrh9MP99Iyc": {
+                    "SeyWiDYM3hbarHp8": {
                         "damage": "1d8+3",
                         "damageType": "piercing"
                     }
@@ -420,22 +420,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
-                "slug": null,
+                "slug": "trident",
                 "traits": {
-                    "rarity": "common",
-                    "value": [
-                        "thrown-20"
-                    ]
-                },
-                "weaponType": {
-                    "value": "melee"
+                    "value": []
                 }
             },
             "type": "melee"
         },
         {
-            "_id": "4z1JD9bhf1R5wpmX",
+            "_id": "uaeH7EbvbtjJL99s",
             "flags": {
                 "pf2e": {
                     "linkedWeapon": "gdzY20kTS2w1CyAU"
@@ -445,9 +440,8 @@
             "name": "Trident",
             "sort": 800000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
+                "action": "strike",
+                "area": null,
                 "attackEffects": {
                     "value": []
                 },
@@ -455,7 +449,7 @@
                     "value": 10
                 },
                 "damageRolls": {
-                    "jCSLS4ZGmDqvpjXw": {
+                    "DKPwoFjWdbRJwxLc": {
                         "damage": "1d8+3",
                         "damageType": "piercing"
                     }
@@ -468,16 +462,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
-                "slug": null,
+                "slug": "trident",
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "thrown-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -545,7 +536,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>Mitflits can use Diplomacy to @UUID[Compendium.pf2e.actionspf2e.Item.Make an Impression] on and @UUID[Compendium.pf2e.actionspf2e.Item.Request] things of arthropods (insects, spiders, scorpions, crabs, and similar invertebrate animals). Most arthropods have a starting attitude of @UUID[Compendium.pf2e.conditionitems.Item.Indifferent] to mitflits.</p>"
+                    "value": "<p>Mitflits can use Diplomacy to [[/act make-an-impression]] on and [[/act request]] things of arthropods (insects, spiders, scorpions, crabs, and similar invertebrate animals). Most arthropods have a starting attitude of @UUID[Compendium.pf2e.conditionitems.Item.Indifferent] to mitflits.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -575,7 +566,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Grabbles can use Diplomacy to Command an Animal when riding Tickleback.</p>"
+                    "value": "<p>Grabbles can use Diplomacy to [[/act command-an-animal skill=diplomacy]] when riding Tickleback.</p>"
                 },
                 "publication": {
                     "license": "OGL",

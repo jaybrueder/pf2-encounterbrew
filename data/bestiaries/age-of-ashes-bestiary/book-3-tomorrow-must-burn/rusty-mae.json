@@ -99,6 +99,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -109,9 +110,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -206,7 +204,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Once per day, Rusty Mae can cause a cage built of cold iron fingernails to spring out of nothingness at a range of up to 30 feet, attempting an Athletics check to [[/act grapple]] against the target's Fortitude DC; if the target has a weakness to cold iron, Rusty Mae gains a +2 circumstance bonus to this check. Unlike a normal Grapple, Rusty Mae doesn't need to be within reach and can move as she pleases, and a successful attempt lasts until the creature [[/act escape dc=29]]{Escapes} (DC 29), causing the cage to crumble into rust. Any creature can attempt to destroy the cage by attacking it. It has an AC of 25, Hardness 14, and 56 Hit Points.</p>"
+                    "value": "<p>Once per day, Rusty Mae can cause a cage built of cold iron fingernails to spring out of nothingness at a range of up to 30 feet, attempting an Athletics check to [[/act grapple]] against the target's Fortitude DC; if the target has a weakness to cold iron, Rusty Mae gains a +2 circumstance bonus to this check. Unlike a normal Grapple, Rusty Mae doesn't need to be within reach and can move as she pleases, and a successful attempt lasts until the creature [[/act escape dc=29]]{Escapes}, causing the cage to crumble into rust. Any creature can attempt to destroy the cage by attacking it. It has an AC of 25, Hardness 14, and 56 Hit Points.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -323,7 +321,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Rusty Mae's claws cause metal to rapidly rust and corrode. If she succeeds at a claws Strike or @UUID[Compendium.pf2e.actionspf2e.Item.Disarm] attempt, she deals [[/r {2d6}]]{2d6 damage} (doubled on a critical hit) to a metal item the target is wearing or holding, ignoring its Hardness, in addition to the damage she deals to the target with her claws. If she hits an unattended metal item, the item takes [[/r {2d6}]]{2d6 damage} automatically. If a creature uses the Shield Block reaction with a metal shield against Rusty Mae's claw attack, the shield is automatically @UUID[Compendium.pf2e.conditionitems.Item.Broken], but no other item is affected on that attack.</p>"
+                    "value": "<p>Rusty Mae's claws cause metal to rapidly rust and corrode. If she succeeds at a claws Strike or @UUID[Compendium.pf2e.actionspf2e.Item.Disarm] attempt, she deals @Damage[2d6[untyped]] damage (doubled on a critical hit) to a metal item the target is wearing or holding, ignoring its Hardness, in addition to the damage she deals to the target with her claws. If she hits an unattended metal item, the item takes 2d6 damage automatically. If a creature uses the Shield Block reaction with a metal shield against Rusty Mae's claw attack, the shield is automatically @UUID[Compendium.pf2e.conditionitems.Item.Broken], but no other item is affected on that attack.</p>"
                 },
                 "publication": {
                     "license": "OGL",

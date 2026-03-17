@@ -36,6 +36,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "axe",
                 "hardness": 0,
                 "hp": {
@@ -124,6 +125,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -150,7 +152,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -282,6 +284,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "adjustment": {
@@ -302,14 +305,14 @@
                     {
                         "key": "Note",
                         "outcome": [
-                            "success"
+                            "criticalSuccess"
                         ],
                         "predicate": [
                             "check:total:natural:19"
                         ],
                         "selector": "{item|_id}-attack",
                         "text": "PF2E.AttackEffects.IncreasedCriticalChance",
-                        "title": "PF2E.WeaponPropertyRune.keen",
+                        "title": "PF2E.WeaponPropertyRune.keen.Name",
                         "visibility": "gm"
                     }
                 ],
@@ -320,9 +323,6 @@
                         "magical",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -364,6 +364,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "adjustment": {
@@ -384,14 +385,14 @@
                     {
                         "key": "Note",
                         "outcome": [
-                            "success"
+                            "criticalSuccess"
                         ],
                         "predicate": [
                             "check:total:natural:19"
                         ],
                         "selector": "{item|_id}-attack",
                         "text": "PF2E.AttackEffects.IncreasedCriticalChance",
-                        "title": "PF2E.WeaponPropertyRune.keen",
+                        "title": "PF2E.WeaponPropertyRune.keen.Name",
                         "visibility": "gm"
                     }
                 ],
@@ -402,9 +403,6 @@
                         "agile",
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -439,6 +437,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -448,9 +447,6 @@
                         "nonlethal",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -492,6 +488,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "adjustment": {
@@ -512,14 +509,14 @@
                     {
                         "key": "Note",
                         "outcome": [
-                            "success"
+                            "criticalSuccess"
                         ],
                         "predicate": [
                             "check:total:natural:19"
                         ],
                         "selector": "{item|_id}-attack",
                         "text": "PF2E.AttackEffects.IncreasedCriticalChance",
-                        "title": "PF2E.WeaponPropertyRune.keen",
+                        "title": "PF2E.WeaponPropertyRune.keen.Name",
                         "visibility": "gm"
                     }
                 ],
@@ -530,9 +527,6 @@
                         "agile",
                         "thrown-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -625,7 +619,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet. @Check[will|dc:23]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>30 feet. @Check[will|dc:23|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "ORC",

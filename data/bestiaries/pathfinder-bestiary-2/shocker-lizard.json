@@ -31,6 +31,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -40,9 +41,6 @@
                         "finesse",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -76,17 +74,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 5,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
-                        "nonlethal",
-                        "range-increment-5"
+                        "nonlethal"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -146,7 +144,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "amplify-voltage",
                         "toggleable": true
@@ -193,7 +190,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The shocker lizard releases a blast of lightning from its body. Creatures within a @Template[emanation|distance:10] take @Damage[3d6[electricity]] damage (@Check[reflex|dc:18|basic] save).</p>\n<p>The shocker lizard can't use Discharge for [[/gmr 1d4 #rounds]]{1d4 rounds}.</p>"
+                    "value": "<p>The shocker lizard releases a blast of lightning from its body. Creatures within a @Template[emanation|distance:10] take @Damage[3d6[electricity]|options:area-damage] damage (@Check[reflex|dc:18|basic|options:area-effect] save).</p>\n<p>The shocker lizard can't use Discharge for [[/gmr 1d4 #Recharge Discharge]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -225,7 +222,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The shocker lizard hunkers down and begins to spark with electricity, which it releases in a @Template[emanation|distance:10] that deals @Damage[3d8[electricity]] damage (@Check[reflex|dc:18|basic] save).</p>\n<p>The shocker lizard can't use Shocking Burst again for 1 minute.</p>\n<p>Up to four shocker lizards can combine their Shocking Bursts. In this case, the lizards can delay the release of their electricity until any other shocker lizard within 30 feet completes its Shocking Burst. The combined Shocking Bursts create an emanation with the combined area from all participating shocker lizards. For each additional shocker lizard that joins the burst, the damage increases by 3d8 and the save DC increases by 1 (to a maximum of four lizards dealing 12d8 damage with a DC 21 save).</p>"
+                    "value": "<p>The shocker lizard hunkers down and begins to spark with electricity, which it releases in a @Template[emanation|distance:10] that deals @Damage[3d8[electricity]|options:area-damage] damage (@Check[reflex|dc:18|basic|options:area-effect] save).</p>\n<p>The shocker lizard can't use Shocking Burst again for 1 minute.</p>\n<p>Up to four shocker lizards can combine their Shocking Bursts. In this case, the lizards can delay the release of their electricity until any other shocker lizard within 30 feet completes its Shocking Burst. The combined Shocking Bursts create an emanation with the combined area from all participating shocker lizards. For each additional shocker lizard that joins the burst, the damage increases by 3d8 and the save DC increases by 1 (to a maximum of four lizards dealing 12d8 damage with a DC 21 save).</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -235,7 +232,6 @@
                 "rules": [
                     {
                         "alwaysActive": true,
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "shocking-burst",
                         "suboptions": [
@@ -262,14 +258,14 @@
                     {
                         "key": "DamageDice",
                         "override": {
-                            "diceNumber": "3*@item.flags.pf2e.rulesSelections.shockingBurst"
+                            "diceNumber": "3*@item.flags.system.rulesSelections.shockingBurst"
                         },
                         "selector": "{item|id}-inline-damage"
                     },
                     {
                         "key": "FlatModifier",
                         "selector": "{item|id}-inline-dc",
-                        "value": "@item.flags.pf2e.rulesSelections.shockingBurst -1"
+                        "value": "@item.flags.system.rulesSelections.shockingBurst -1"
                     }
                 ],
                 "slug": null,

@@ -779,6 +779,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -789,9 +790,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -826,6 +824,10 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 100
+                },
                 "rules": [
                     {
                         "damageType": "vitality",
@@ -843,12 +845,8 @@
                     "rarity": "common",
                     "value": [
                         "arcane",
-                        "magical",
-                        "range-100"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

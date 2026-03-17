@@ -30,13 +30,15 @@
                     "die": "d6"
                 },
                 "description": {
-                    "value": "<p>This fan-shaped sword, designed by members of the tengu ancestry, has five broad blades that join at its hilt. Tengu sailors also use gale blades as makeshift weather vanes, as the sword spins to show the wind's direction when loosely held aloft.</p>"
+                    "value": "<p>This fan-shaped sword designed by tengu smiths has five broad blades that join at its hilt. Tengu sailors use them as makeshift weather vanes, for the sword spins in the wind's direction when loosely held aloft.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
+                "grade": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -56,14 +58,14 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": ""
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core 2"
                 },
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -102,9 +104,6 @@
             "name": "Tengu Gale Blade",
             "sort": 200000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
                 "attackEffects": {
                     "value": []
                 },
@@ -125,19 +124,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "agile",
                         "disarm",
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -148,9 +144,6 @@
             "name": "Vacuum Slash",
             "sort": 300000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
                 "attackEffects": {
                     "value": []
                 },
@@ -171,17 +164,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 120,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
-                        "air",
-                        "range-increment-120"
+                        "air"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -189,7 +181,7 @@
         {
             "_id": "JO3mcH2vMLFBPCFB",
             "img": "systems/pf2e/icons/actions/Passive.webp",
-            "name": "+2 status to all saves vs. air and electricity",
+            "name": "+2 Status to All Saves vs. Air and Electricity",
             "sort": 400000,
             "system": {
                 "actionType": {
@@ -211,8 +203,12 @@
                     {
                         "key": "FlatModifier",
                         "predicate": [
-                            "air",
-                            "electricity"
+                            {
+                                "or": [
+                                    "air",
+                                    "electricity"
+                                ]
+                            }
                         ],
                         "selector": "saving-throw",
                         "type": "status",
@@ -221,7 +217,6 @@
                 ],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -254,7 +249,6 @@
                 "rules": [],
                 "slug": "attack-of-opportunity",
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -284,7 +278,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "air"
                     ]
@@ -316,7 +309,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "air"
                     ]
@@ -348,7 +340,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -378,7 +369,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "flourish"
                     ]
@@ -434,7 +424,7 @@
             }
         },
         "details": {
-            "blurb": "",
+            "blurb": "Dimensional superposition form of Takatorra",
             "languages": {
                 "details": "(can't speak any language)",
                 "value": [

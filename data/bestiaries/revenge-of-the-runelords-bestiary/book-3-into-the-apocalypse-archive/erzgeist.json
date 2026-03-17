@@ -1,0 +1,423 @@
+{
+    "_id": "j4hKLFhLQrvC96EN",
+    "folder": "rl5REaDECQmW6sqA",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "S7QaOJ6Vdl55Mbj4",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Primal Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 38,
+                    "value": 30
+                },
+                "tradition": {
+                    "value": "primal"
+                },
+                "traits": {}
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "P3xHpVBoGl2j5bvQ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.YIMampGpij4Y30yE"
+            },
+            "folder": "iDjm2cXyRAe4VZ35",
+            "img": "icons/commodities/stone/stone-porous-blue.webp",
+            "name": "Speak with Stones",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You can ask questions of and receive answers from natural or worked stone. While stone is not intelligent, you speak with the natural spirits of the stone, which have a personality colored by the type of stone, as well as by the type of structure the stone is part of, for worked stone. A stone's perspective, perception, and knowledge give it a worldview different enough from a human's that it doesn't consider the same details important. Stones can mostly answer questions about creatures that touched them in the past and what is concealed beneath or behind them.</p>\n<hr />\n<p><strong>Heightened (6th)</strong> The duration is 8 hours.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 hour"
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "heightenedLevel": 9,
+                    "value": "S7QaOJ6Vdl55Mbj4"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "speak-with-stones",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "earth",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "98vPCAGJQWXnQSop",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Gilded Hand",
+            "sort": 300000,
+            "system": {
+                "attackEffects": {
+                    "value": [
+                        "aurify"
+                    ]
+                },
+                "bonus": {
+                    "value": 35
+                },
+                "damageRolls": {
+                    "1HFklRJXvdD3qGLK": {
+                        "damage": "4d8+8",
+                        "damageType": "void"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "finesse",
+                        "magical",
+                        "unarmed"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "4ypo1eseeyIjZpmK",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Cavern Dependent",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>An erzgeist is bonded to a single cavern or complex of underground tunnels (such as the Prosperity Vault in this adventure) and must remain within them (or within their walls). If the erzgeist moves outside their bonded caverns, they're immediately destroyed.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "sPneEae0RNooKN1U",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Fey Avenger",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>Even when a fey creature doesn't want their aid or finds their nature unsettling, an erzgeist is eager to inflict pain on anyone in return for perceived injustices to fey creatures. As long as an erzgeist is within 30 feet of a fey creature that's suffering from a negative condition, the erzgeist gains a +2 status bonus to all attack rolls.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "RollOption",
+                        "option": "fey-avenger",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "fey-avenger"
+                        ],
+                        "selector": "attack",
+                        "type": "status",
+                        "value": 2
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "xC2MJwerFtVs8gJk",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Aurify",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The touch of an erzgeist transforms flesh into gold. When a living creature is damaged by the erzgeist's gilded hand Strike, that creature must attempt a @Check[fortitude|dc:41] save or become @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1} (or @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 2} on a critical failure) for 1 minute. Further failed saves against aurify increase the clumsy condition. Once a creature becomes @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 5}, they become petrified, except they're transformed into gold instead of stone for 24 hours, after which the creature (or any gold harvested from it) crumbles to worthless dust and dies.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "incapacitation",
+                        "morph",
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Erzgeist",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 4
+            },
+            "con": {
+                "mod": 3
+            },
+            "dex": {
+                "mod": 6
+            },
+            "int": {
+                "mod": 3
+            },
+            "str": {
+                "mod": -5
+            },
+            "wis": {
+                "mod": 6
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 42
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 270,
+                "temp": 0,
+                "value": 270
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "bleed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "death-effects"
+                },
+                {
+                    "exceptions": [],
+                    "type": "disease"
+                },
+                {
+                    "exceptions": [],
+                    "type": "paralyzed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "poison"
+                },
+                {
+                    "exceptions": [],
+                    "type": "precision"
+                },
+                {
+                    "exceptions": [],
+                    "type": "unconscious"
+                }
+            ],
+            "resistances": [
+                {
+                    "doubleVs": [
+                        "non-magical"
+                    ],
+                    "exceptions": [
+                        "force",
+                        "ghost-touch",
+                        "spirit",
+                        "vitality"
+                    ],
+                    "type": "all-damage",
+                    "value": 15
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 30
+                    }
+                ],
+                "value": null
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "Speak with stones",
+                "value": [
+                    "fey",
+                    "talican",
+                    "thassilonian"
+                ]
+            },
+            "level": {
+                "value": 19
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Verdorites don't rise from the unquiet spirits of humanoids, or even from the souls of sapient creatures at all. Instead, these vengeful undead manifest when disaster befalls the natural world. When enough life is lost, be it plant or animal life, those anguished souls can accrete into a singularity of sorts—a verdorite.</p>\n<p>While many verdorites rose in the aftermath of Earthfall, one type of these brutal spirits was already well-established in the heartland of the nation of Shalast—the erzgeist. First spawned in response to the devastation wreaked on the underground environments of the central Storval Plateau by Runelord Kaladurnae's greed, these creatures persist today in various parts of north-central Varisia—particularly in the region surrounding Spindlehorn.</p>\n<p>Erzgeists look like large bats, but they're ghostly and semitransparent. Instead of fur, their bodies show growths of crystals and jagged shards of rock shot through with gold ore—all of it shimmering and phantasmal. Their eyes are glittering rubies, the membrane in their wings is like pale gold smoke, and their teeth and fangs are made of gold—all reflections of one man's environment-destroying greed.</p><h2>An Erzgeist's Anger</h2><p>Erzgeists often latch onto specific examples of mortal cruelty against the natural world—but in particular, cruelty against fey. While they aren't and never were from the First World, they're drawn to the pains of tormented fey—not to seek their release, but to lie in wait for others who might be drawn to the same torments. Even those who seek to free the tormented fey find themselves targets of erzgeists' anger.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #221: Into the Apocalypse Archive"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 33,
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 28
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 35
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 31
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 35
+            },
+            "intimidation": {
+                "base": 33
+            },
+            "nature": {
+                "base": 37
+            },
+            "stealth": {
+                "base": 35
+            }
+        },
+        "traits": {
+            "rarity": "rare",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "incorporeal",
+                "spirit",
+                "undead"
+            ]
+        }
+    },
+    "type": "npc"
+}

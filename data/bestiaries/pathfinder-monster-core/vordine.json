@@ -212,6 +212,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "flail",
                 "hardness": 0,
                 "hp": {
@@ -238,7 +239,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -301,6 +302,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -455,6 +457,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "trident",
                 "traits": {
@@ -462,9 +465,6 @@
                         "magical",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -503,6 +503,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "whip",
                 "traits": {
@@ -515,9 +516,6 @@
                         "trip",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -555,6 +553,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -563,9 +562,6 @@
                         "magical",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -604,6 +600,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "trident",
                 "traits": {
@@ -612,9 +609,6 @@
                         "thrown-20",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -821,7 +815,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "trident-of-dis",
                         "suboptions": [
@@ -837,17 +830,15 @@
                         "toggleable": true
                     },
                     {
-                        "definition": [
-                            "item:slug:trident",
-                            {
-                                "not": "item:ranged"
-                            }
-                        ],
                         "itemType": "melee",
                         "key": "ItemAlteration",
                         "mode": "add",
                         "predicate": [
-                            "trident-of-dis"
+                            "item:slug:trident",
+                            "trident-of-dis",
+                            {
+                                "not": "item:ranged"
+                            }
                         ],
                         "property": "traits",
                         "value": "reach-10"

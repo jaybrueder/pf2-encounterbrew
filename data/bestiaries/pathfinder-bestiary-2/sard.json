@@ -409,6 +409,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -417,9 +418,6 @@
                         "fatal-d12",
                         "reach-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -456,6 +454,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -464,9 +463,6 @@
                         "agile",
                         "reach-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -504,6 +500,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -511,9 +508,6 @@
                     "value": [
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -550,6 +544,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 180,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -557,12 +555,8 @@
                     "value": [
                         "deadly-d10",
                         "primal",
-                        "propulsive",
-                        "range-increment-180"
+                        "propulsive"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -687,7 +681,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the sard dies, its body explodes in a @Template[emanation|distance:30]. All creatures in the area take @Damage[10d6[electricity]] damage and @Damage[10d6[piercing]] damage (@Check[reflex|dc:43|basic] save). Any creature that takes piercing damage is also exposed to sard venom.</p>"
+                    "value": "<p>When the sard dies, its body explodes in a @Template[emanation|distance:30]. All creatures in the area take @Damage[10d6[electricity],10d6[piercing]|options:area-damage]{10d6 electricity damage and 10d6 piercing damage} (@Check[reflex|dc:43|basic|options:area-effect] save). Any creature that takes piercing damage is also exposed to sard venom.</p>"
                 },
                 "publication": {
                     "license": "OGL",

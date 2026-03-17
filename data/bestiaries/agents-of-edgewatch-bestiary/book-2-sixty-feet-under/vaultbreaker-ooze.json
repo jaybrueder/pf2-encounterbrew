@@ -37,6 +37,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -44,9 +45,6 @@
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -125,7 +123,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> A creature Strikes the vaultbreaker ooze</p>\n<hr />\n<p><strong>Effect</strong> The ooze's outer plasm hardens into a protective shell of precious metals. Until the start of its next turn, it gains resistance 5 to physical damage (except adamantine), it has a -5-foot penalty to its Speed, and its pseudopod Strikes gain the versatile S or P weapon trait.</p>"
+                    "value": "<p><strong>Trigger</strong> A creature Strikes the vaultbreaker ooze</p>\n<hr />\n<p><strong>Effect</strong> The ooze's outer plasm hardens into a protective shell of precious metals. Until the start of its next turn, it gains resistance 5 to physical damage (except adamantine), it has a –5-foot penalty to its Speed, and its pseudopod Strikes gain the versatile S or P weapon trait.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -165,7 +163,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>@Check[reflex|dc:23|traits:damaging-effect], @Damage[(2d8+9)[acid]] damage, Escape DC 23, Rupture 14 (19 when using Metallify)</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Engulf]</p>"
+                    "value": "<p>@Check[reflex|dc:23|traits:damaging-effect], @Damage[(2d8+9)[acid]] damage, [[/act escape dc=23]], Rupture 14 (19 when using Metallify)</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Engulf]</p>"
                 },
                 "publication": {
                     "license": "OGL",

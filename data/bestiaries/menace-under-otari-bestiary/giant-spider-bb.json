@@ -34,14 +34,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -73,16 +71,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-increment-30"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -165,7 +162,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>A creature hit by the giant spider's web Strike gets stuck to the nearest surface. It can't move until it successfully @UUID[Compendium.pf2e.actionspf2e.Item.Escape]{Escapes} (DC 17).</p>"
+                    "value": "<p>A creature hit by the giant spider's web Strike gets stuck to the nearest surface. It can't move until it successfully [[/act escape dc=17]]{Escapes}.</p>"
                 },
                 "publication": {
                     "license": "OGL",

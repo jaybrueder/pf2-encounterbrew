@@ -38,15 +38,17 @@
                 },
                 "tradition": {
                     "value": "occult"
-                }
+                },
+                "traits": {}
             },
             "type": "spellcastingEntry"
         },
         {
-            "_id": "jA8mb1qHRMG9G976",
+            "_id": "8tai4O5NXcSWNxzO",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.tpLTLbJUrYcMWGld"
             },
+            "folder": "iDjm2cXyRAe4VZ35",
             "img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
             "name": "Telekinetic Haul",
             "sort": 200000,
@@ -59,7 +61,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You move the target up to 20 feet, potentially suspending it in midair. When you Sustain the Spell, you can do so again, or you can choose a different eligible target to move.</p>"
+                    "value": "<p>You move the target up to 20 feet, potentially suspending it in midair. When you Sustain the Spell, you can do so again, or you can shift your telekinetic focus to a different eligible target within range, moving it instead.</p>"
                 },
                 "duration": {
                     "sustained": true,
@@ -73,9 +75,9 @@
                     "value": "ZLVh3Pzn36fb4kir"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "120 feet"
@@ -104,10 +106,11 @@
             "type": "spell"
         },
         {
-            "_id": "iNqrRqvjqPIcDaaZ",
+            "_id": "ouZzHgLyVlUNJNuf",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.Uqj344bezBq3ESdq"
             },
+            "folder": "7cyoYPoPYA01mErU",
             "img": "icons/magic/control/encase-creature-spider-hold.webp",
             "name": "Nightmare",
             "sort": 300000,
@@ -139,9 +142,9 @@
                     "value": "ZLVh3Pzn36fb4kir"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "planetary"
@@ -172,12 +175,13 @@
             "type": "spell"
         },
         {
-            "_id": "Ur1rgDrQ8pHFDMNR",
+            "_id": "tKEL49xBmTzVHLdv",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.tlcrVRqW1MSKJ5IC"
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.Jmxru8zMdYMRuO5n"
             },
+            "folder": "7cyoYPoPYA01mErU",
             "img": "systems/pf2e/icons/spells/phantasmal-killer.webp",
-            "name": "Phantasmal Killer",
+            "name": "Vision of Death",
             "sort": 400000,
             "system": {
                 "area": null,
@@ -187,6 +191,7 @@
                 "counteraction": false,
                 "damage": {
                     "0": {
+                        "applyMod": false,
                         "category": null,
                         "formula": "8d6",
                         "kinds": [
@@ -203,7 +208,7 @@
                     }
                 },
                 "description": {
-                    "value": "<p>You create a phantasmal image of the most fearsome creature imaginable to the target. Only the spell's target can see the killer, though you can see the vague shape of the illusion as it races forth to attack. The effect of the killer is based on the outcome of the target's Will save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target takes 4d6 mental damage and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The target takes 8d6 mental damage and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The target is so afraid it might die. It must attempt a Fortitude save; if the target fails, it dies. On a successful Fortitude save, the target takes 12d6 mental damage, is @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] until the end of its next turn, and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 4}. This effect has the incapacitation trait.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6 on a failure and by 3d6 on a critical failure.</p>"
+                    "value": "<p>You force the target to see a vision of its own death. It takes 8d6 mental damage with a Will save. If the target is reduced to 0 HP by this spell, its vision becomes reality and kills it instantly.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target takes half damage and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The target takes full damage and is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The target takes double damage, is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 4} and is @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] for as long as it's frightened.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -224,16 +229,16 @@
                     "value": "ZLVh3Pzn36fb4kir"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "120 feet"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "phantasmal-killer",
+                "slug": "vision-of-death",
                 "target": {
                     "value": "1 living creature"
                 },
@@ -251,7 +256,6 @@
                         "death",
                         "emotion",
                         "fear",
-                        "illusion",
                         "manipulate",
                         "mental"
                     ]
@@ -260,10 +264,11 @@
             "type": "spell"
         },
         {
-            "_id": "nXzBoxTTD1HnrUZJ",
+            "_id": "r9MCDtR8C0hSfBev",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.yM3KTTSAIHhyuP14"
             },
+            "folder": "4fJHnYFqH0VjZXPv",
             "img": "icons/skills/trades/music-singing-voice-blue.webp",
             "name": "Dream Message",
             "sort": 500000,
@@ -276,11 +281,11 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You send a message to your target's dream. The message is one-way, up to 1 minute of speech (roughly 150 words). If the target is asleep, they receive the message instantly. If not, they receive it the next time they sleep. As soon as they receive it, the spell ends, and you know the message was sent.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> You can target up to 10 creatures you know by name and have met in person. You must send the same message to all of them; the spell ends for each creature individually.</p>"
+                    "value": "<p>You send a message to your target's dream. The message is one-way, up to 1 minute of speech (roughly 150 words). If the target is asleep, they receive the message instantly. If not, they receive it the next time they sleep. As soon as they receive it, the spell ends, and you know the message was sent.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> You can target up to 10 creatures you know by name and have met in person. You must send the same message to all of them; the spell ends for each creature individually</p>"
                 },
                 "duration": {
                     "sustained": false,
-                    "value": "until the next time you make your daily preparations"
+                    "value": "until your next daily preparations"
                 },
                 "heightening": {
                     "levels": {
@@ -300,9 +305,9 @@
                     "value": "ZLVh3Pzn36fb4kir"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "planetary"
@@ -382,7 +387,7 @@
                 "rules": [],
                 "slug": "inveigle",
                 "target": {
-                    "value": "1 creature of a level no greater than double the inveigle ritual's level"
+                    "value": "1 creature of a level no greater than double the inveigle ritual's rank"
                 },
                 "time": {
                     "value": "1 day"
@@ -398,10 +403,11 @@
             "type": "spell"
         },
         {
-            "_id": "eahSh1mcSkfwPNss",
+            "_id": "1LVGCtHz8Rco1GyO",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.mrDi3v933gsmnw25"
             },
+            "folder": "lPzcDrjGDFbzuF2r",
             "img": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp",
             "name": "Telekinetic Maneuver",
             "sort": 700000,
@@ -414,7 +420,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>With a rush of telekinetic power, you move a foe or something they carry. You can attempt to Disarm, Shove, or Trip the target using a spell attack roll instead of an Athletics check.</p>"
+                    "value": "<p>With a rush of telekinetic power, you move a foe or something they carry. You can attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Disarm], @UUID[Compendium.pf2e.actionspf2e.Item.Shove], @UUID[Compendium.pf2e.actionspf2e.Item.Reposition], or @UUID[Compendium.pf2e.actionspf2e.Item.Trip] the target using a spell attack roll instead of an Athletics check.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -425,16 +431,12 @@
                 },
                 "location": {
                     "heightenedLevel": 2,
-                    "uses": {
-                        "max": 3,
-                        "value": 3
-                    },
                     "value": "ZLVh3Pzn36fb4kir"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "60 feet"
@@ -465,10 +467,11 @@
             "type": "spell"
         },
         {
-            "_id": "lRWdrpzIDZA9zjDb",
+            "_id": "tHkABPUWX68JCDur",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.4gBIw4IDrSfFHik4"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "systems/pf2e/icons/spells/daze.webp",
             "name": "Daze",
             "sort": 800000,
@@ -480,9 +483,9 @@
                 "counteraction": false,
                 "damage": {
                     "0": {
-                        "applyMod": true,
+                        "applyMod": false,
                         "category": null,
-                        "formula": "0",
+                        "formula": "1d6",
                         "kinds": [
                             "damage"
                         ],
@@ -497,7 +500,7 @@
                     }
                 },
                 "description": {
-                    "value": "<p>You cloud the target's mind and daze it with a mental jolt. The jolt deals mental damage equal to your spellcasting ability modifier; the target must attempt a basic Will save. If the target critically fails the save, it is also @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1}.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> The damage increases by 1d6.</p>"
+                    "value": "<p>You push into the target's mind and daze it with a mental jolt. The jolt deals 1d6 mental damage, with a basic Will save. If the target critically fails the save, it is also @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1}.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> The damage increases by 1d6.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -517,9 +520,9 @@
                     "value": "ZLVh3Pzn36fb4kir"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "60 feet"
@@ -552,10 +555,11 @@
             "type": "spell"
         },
         {
-            "_id": "jkj2fPIL8cLtTu93",
+            "_id": "FN4HKSMu0A0JnnRI",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.gpzpAAAJ1Lza2JVl"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "systems/pf2e/icons/spells/detect-magic.webp",
             "name": "Detect Magic",
             "sort": 900000,
@@ -571,7 +575,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You send out a pulse that registers the presence of magic. You receive no information beyond the presence or absence of magic. You can choose to ignore magic you're fully aware of, such as the magic items and ongoing spells of you and your allies.</p>\n<p>You detect illusion magic only if that magic's effect has a lower level than the rank of your detect magic spell. However, items that have an illusion aura but aren't deceptive in appearance (such as an invisibility potion) typically are detected normally.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You learn the school of magic for the highest-level effect within range that the spell detects. If multiple effects are equally strong, the GM determines which you learn.</p>\n<p><strong>Heightened (4th)</strong> As 3rd level, but you also pinpoint the source of the highest-level magic. Like for an imprecise sense, you don't learn the exact location, but can narrow down the source to within a 5-foot cube (or the nearest if larger than that).</p>"
+                    "value": "<p>You send out a pulse that registers the presence of magic. You receive no information beyond the presence or absence of magic. You can choose to ignore magic you're fully aware of, such as the magic items and ongoing spells of you and your allies. You detect illusion magic only if that magic's effect has a lower rank than the rank of your <em>detect magic</em> spell. However, items that have an illusion aura but aren't deceptive in appearance (such as an @UUID[Compendium.pf2e.equipment-srd.Item.Invisibility Potion]) typically are detected normally.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You learn the rank or level of the most powerful magical effect the spell detects, as determined by the GM.</p>\n<p><strong>Heightened (4th)</strong> As 3rd rank, but you also pinpoint the source of the highest-rank magic. Like for an imprecise sense, you don't learn the exact location, but can narrow down the source to within a 5-foot cube (or the nearest if larger than that).</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -584,9 +588,9 @@
                     "value": "ZLVh3Pzn36fb4kir"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": ""
@@ -619,10 +623,11 @@
             "type": "spell"
         },
         {
-            "_id": "K5TsfmJhzv3m21I6",
+            "_id": "BdZ8FLn8jz0v5ZA9",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.OhD2Z6rIGGD5ocZA"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
             "name": "Read Aura",
             "sort": 1000000,
@@ -635,7 +640,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You focus on the target object, opening your mind to perceive magical auras. When the casting is complete, you know whether that item is magical, and if it is, you learn the school of magic.</p>\n<p>If the object is illusory, you detect this only if the effect's level is lower than the rank of your read aura spell.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You can target up to 10 objects.</p>\n<p><strong>Heightened (6th)</strong> You can target any number of objects.</p>"
+                    "value": "<p>You focus on the target object, opening your mind to perceive magical auras. When the casting is complete, you know whether that item is magical. You or anyone you advise about the aura gains a +2 circumstance bonus to @UUID[Compendium.pf2e.actionspf2e.Item.Identify Magic] on the item. If the object is illusory, you detect this only if the effect's rank is lower than the rank of your <em>read aura</em> spell.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Read Aura]</p><hr /><p><strong>Heightened (3rd)</strong> You can target up to 10 objects.</p>\n<p><strong>Heightened (6th)</strong> You can target any number of objects.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -663,9 +668,9 @@
                     "value": "ZLVh3Pzn36fb4kir"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -698,10 +703,11 @@
             "type": "spell"
         },
         {
-            "_id": "HjrtbZgWNLYzvaRP",
+            "_id": "JgcOIP9k51psxNRT",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.60sgbuMWN0268dB7"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "icons/skills/ranged/bullets-triple-ball-yellow.webp",
             "name": "Telekinetic Projectile",
             "sort": 1100000,
@@ -713,9 +719,9 @@
                 "counteraction": false,
                 "damage": {
                     "0": {
-                        "applyMod": true,
+                        "applyMod": false,
                         "category": null,
-                        "formula": "1d6",
+                        "formula": "2d6",
                         "kinds": [
                             "damage"
                         ],
@@ -725,7 +731,7 @@
                 },
                 "defense": null,
                 "description": {
-                    "value": "<p>You hurl a loose, unattended object that is within range and that has 1 Bulk or less at the target. Make a spell attack roll against the target. If you hit, you deal bludgeoning, piercing, or slashing damage-as appropriate for the object you hurled-equal to 1d6 plus your spellcasting ability modifier. No specific traits or magic properties of the hurled item affect the attack or the damage.</p>\n<hr />\n<p><strong>Critical Success</strong> You deal double damage.</p>\n<p><strong>Success</strong> You deal full damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d6.</p>"
+                    "value": "<p>You hurl a loose, unattended object that is within range and that has 1 Bulk or less at the target. Make a spell attack roll against the target. If you hit, you deal 2d6 bludgeoning, piercing, or slashing damage—as appropriate for the object you hurled. No specific traits or magic properties of the hurled item affect the attack or the damage.</p>\n<hr />\n<p><strong>Critical Success</strong> You deal double damage.</p>\n<p><strong>Success</strong> You deal full damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d6.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -789,9 +795,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -826,7 +832,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.rQWaJhI5Bko5x14Z"
             },
-            "img": "systems/pf2e/icons/equipment/weapons/dagger.webp",
+            "img": "icons/weapons/daggers/dagger-straight-blue.webp",
             "name": "Dagger",
             "sort": 1200000,
             "system": {
@@ -855,6 +861,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -874,9 +881,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "range": null,
@@ -886,7 +893,9 @@
                 "rules": [],
                 "runes": {
                     "potency": 1,
-                    "property": [],
+                    "property": {
+                        "0": ""
+                    },
                     "striking": 1
                 },
                 "size": "med",
@@ -904,6 +913,7 @@
                     ]
                 },
                 "usage": {
+                    "canBeAmmo": false,
                     "value": "held-in-one-hand"
                 }
             },
@@ -915,7 +925,7 @@
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.gWr4q4HiyGhETA8H"
             },
             "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/alchemists-fire.webp",
-            "name": "Alchemist's Fire (Moderate) (Infused)",
+            "name": "Alchemist's Fire (Moderate)",
             "sort": 1300000,
             "system": {
                 "baseItem": "alchemical-bomb",
@@ -941,13 +951,14 @@
                     }
                 },
                 "description": {
-                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p>\n<p>Alchemist's fire is a combination of volatile liquids that ignite when exposed to air. Alchemist's fire deals 2d8 fire damage, 2 persistent fire damage, and 2 fire splash damage. You gain a +1 item bonus to attack rolls.</p>"
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p>\n<hr />\n<p>Alchemist's fire is a combination of volatile liquids that ignite when exposed to air. Alchemist's fire deals 2d8 fire damage, 2 persistent fire damage, and 2 fire splash damage. You gain a +1 item bonus to attack rolls.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -967,9 +978,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder GM Core"
                 },
                 "quantity": 8,
                 "range": 20,
@@ -999,6 +1010,7 @@
                     ]
                 },
                 "usage": {
+                    "canBeAmmo": false,
                     "value": "held-in-one-hand"
                 }
             },
@@ -1145,10 +1157,11 @@
                 },
                 "containerId": null,
                 "description": {
-                    "value": "<p>This amulet is hollow and shaped in the form of an unblinking eye. Its cavity typically holds some fragment of occult text. While wearing the pendant, you gain a +2 item bonus to Occultism checks, and you can cast the @UUID[Compendium.pf2e.spells-srd.Item.Guidance] cantrip as an occult innate spell.</p>\n<p>The pendant can be activated.</p>\n<p><strong>Activate</strong> 10 minutes (Cast a Spell)</p>\n<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> You cast a 4th-rank @UUID[Compendium.pf2e.spells-srd.Item.Dream Message] spell.</p>"
+                    "value": "<p>This amulet is hollow and shaped in the form of an unblinking eye. Its cavity typically holds some fragment of occult text. While wearing the pendant, you gain a +2 item bonus to Occultism checks, and you can cast the @UUID[Compendium.pf2e.spells-srd.Item.Guidance] cantrip as an occult innate spell.</p>\n<p>The pendant can be activated.</p>\n<p><strong>Activate—Dream Message</strong> 10 minutes (concentrate, manipulate)</p>\n<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> You cast a 4th-rank @UUID[Compendium.pf2e.spells-srd.Item.Dream Message] spell.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
+                    "handsHeld": 0,
                     "invested": null
                 },
                 "hardness": 0,
@@ -1169,9 +1182,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder GM Core"
                 },
                 "quantity": 1,
                 "rules": [
@@ -1688,7 +1701,7 @@
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.qpzL9UnTi4cDhy6J"
             },
             "img": "icons/consumables/potions/potion-vial-corked-purple.webp",
-            "name": "Cognitive Mutagen (Moderate) (Infused)",
+            "name": "Cognitive Mutagen (Moderate)",
             "sort": 2100000,
             "system": {
                 "baseItem": null,
@@ -1699,7 +1712,7 @@
                 "containerId": null,
                 "damage": null,
                 "description": {
-                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Interact</p>\n<hr />\n<p>Your mind becomes clear and cognition flows freely, but physical matters seem ephemeral.</p>\n<p><strong>Benefit</strong> You gain a +2 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge]. Your critical failures on Recall Knowledge checks become failures instead.</p>\n<p><strong>Drawback</strong> You take a -2 penalty to weapon and unarmed attack rolls, Athletics checks, and acrobatics checks. You can carry 2 less Bulk than normal before becoming encumbered, and the maximum Bulk you can carry is reduced by 4.</p>\n<p><strong>Duration</strong> 10 minutes.</p>\n<p>@UUID[Compendium.pf2e.equipment-effects.Item.Effect: Cognitive Mutagen (Moderate)]</p>"
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> (manipulate)</p><hr /><p>Your mind becomes clear, but physical matters seem ephemeral.</p>\n<p><strong>Benefit</strong> You gain a +2 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge]. Your critical failures on Recall Knowledge checks become failures instead.</p>\n<p><strong>Drawback</strong> You take a -2 penalty to weapon and unarmed attack rolls, Athletics checks, and acrobatics checks. You can carry 2 less Bulk than normal before becoming encumbered, and the maximum Bulk you can carry is reduced by 4.</p>\n<p><strong>Duration</strong> 10 minutes.</p>\n<p>@UUID[Compendium.pf2e.equipment-effects.Item.Effect: Cognitive Mutagen (Moderate)]</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
@@ -1723,9 +1736,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core 2"
                 },
                 "quantity": 1,
                 "rules": [],
@@ -1759,7 +1772,7 @@
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.OcBPjVplvy2GbQ8P"
             },
             "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/comprehension-elixir.webp",
-            "name": "Comprehension Elixir (Greater) (Infused)",
+            "name": "Comprehension Elixir (Greater)",
             "sort": 2200000,
             "system": {
                 "baseItem": null,
@@ -1770,7 +1783,7 @@
                 "containerId": null,
                 "damage": null,
                 "description": {
-                    "value": "<p>This bitter draught opens your mind to the potential of the written word. For the listed duration after drinking this elixir, you can understand any words you read, so long as they are written in a common language. This elixir doesn't automatically allow you to understand codes or extremely esoteric passages-you still need to attempt a skill check to Decipher Writing. The duration is 10 minutes.</p>"
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> (manipulate)</p><hr /><p>This bitter draught opens your mind to the potential of the written word. For the listed duration after drinking this elixir, you can understand any words you read, so long as they are written in a common language. This elixir doesn't automatically allow you to understand codes or extremely esoteric passages-you still need to attempt a skill check to Decipher Writing. The duration is 10 minutes.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
@@ -1794,9 +1807,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core 2"
                 },
                 "quantity": 2,
                 "rules": [],
@@ -1829,7 +1842,7 @@
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.c21stU5rhN4F2fZl"
             },
             "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/elixir-of-life.webp",
-            "name": "Elixir of Life (Moderate) (Infused)",
+            "name": "Elixir of Life (Moderate)",
             "sort": 2300000,
             "system": {
                 "baseItem": null,
@@ -1844,7 +1857,7 @@
                     "type": "untyped"
                 },
                 "description": {
-                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Interact</p>\n<p>Elixirs of life accelerate a living creature's natural healing processes and immune system. Upon drinking this elixir, you regain @Damage[(5d6+12)[healing]] Hit Points and gain +2 item bonus to saving throws against diseases and poisons for 10 minutes.</p>\n<p>@UUID[Compendium.pf2e.equipment-effects.Item.Effect: Elixir of Life]</p>"
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> (manipulate)</p><hr /><p>Elixirs of life accelerate a living creature's natural healing processes and immune system. Upon drinking this elixir, you regain @Damage[(5d6+12)[healing]] Hit Points and gain +2 item bonus to saving throws against diseases and poisons for 10 minutes.</p>\n<p>@UUID[Compendium.pf2e.equipment-effects.Item.Effect: Elixir of Life]</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
@@ -1868,9 +1881,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder GM Core"
                 },
                 "quantity": 6,
                 "rules": [],
@@ -1903,7 +1916,7 @@
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.KsAygNRyR2FdwuOm"
             },
             "img": "systems/pf2e/icons/equipment/consumables/oils/anointing-oil.webp",
-            "name": "Psychic Colors Elixir (Infused)",
+            "name": "Psychic Colors Elixir",
             "sort": 2400000,
             "system": {
                 "baseItem": null,
@@ -1914,7 +1927,7 @@
                 "containerId": null,
                 "damage": null,
                 "description": {
-                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> Interact</p>\n<p>This orange liquid lets you visibly detect the psychic energies that enable telekinesis and telepathy. For the next minute, you can sense if a creature you can see is using a telepathic or telekinetic ability, such as the telepathy monster ability, spells like @UUID[Compendium.pf2e.spells-srd.Item.Telekinetic Projectile] or @UUID[Compendium.pf2e.spells-srd.Item.Telepathic Bond], or similar abilities. You also can sense if an object or creature you can see is being manipulated or contacted by such an ability. Both the user and the target of the ability are outlined in faint shimmers of matching color.</p>"
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> Interact</p><hr /><p>This orange liquid lets you visibly detect the psychic energies that enable telekinesis and telepathy. For the next minute, you can sense if a creature you can see is using a telepathic or telekinetic ability, such as the telepathy monster ability, a spell like @UUID[Compendium.pf2e.spells-srd.Item.Telekinetic Projectile], or similar abilities. You also can sense if an object or creature you can see is being manipulated or contacted by such an ability. Both the user and the target of the ability are outlined in faint shimmers of matching color.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
@@ -1938,9 +1951,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder #189: Dreamers of the Nameless Spires"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Adventure Path: Gatewalkers"
                 },
                 "quantity": 5,
                 "rules": [],
@@ -1972,7 +1985,7 @@
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.IzniYBi8QYxHnffr"
             },
             "img": "systems/pf2e/icons/spells/brain-drain.webp",
-            "name": "Vat-Grown Brain (Infused)",
+            "name": "Vat-Grown Brain",
             "sort": 2500000,
             "system": {
                 "baseItem": null,
@@ -1983,7 +1996,7 @@
                 "containerId": null,
                 "damage": null,
                 "description": {
-                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">3</span> Interact</p>\n<p>A malformed, artificial brain pulses with alchemical life inside a nutrient-rich vat. When the vat-grown brain is activated, it attempts to counteract one condition of your choice that was gained from an ability with the mental trait, which it does by drawing the negative mental impressions into itself. However, the artificial brain is not robust, and the strain of the transfer quickly destroys it. The vat-grown brain has a counteract rank of 5 and a [[/r 1d20+17 #Counteract]]{+17} modifier on the roll.</p>"
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">3</span> Interact</p><hr /><p>A malformed, artificial brain pulses with alchemical life inside a nutrient-rich vat. When the vat-grown brain is activated, it attempts to counteract one condition of your choice that was gained from an ability with the mental trait, which it does by drawing the negative mental impressions into itself. However, the artificial brain is not robust, and the strain of the transfer quickly destroys it. The vat-grown brain has a counteract rank of 5 and a [[/r 1d20+17 #Counteract]]{+17} modifier on the roll.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
@@ -2007,9 +2020,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder #189: Dreamers of the Nameless Spires"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Adventure Path: Gatewalkers"
                 },
                 "quantity": 1,
                 "rules": [],
@@ -2040,7 +2053,7 @@
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.n9VrmK9Us0viv20P"
             },
             "img": "icons/consumables/potions/bottle-round-ring-teal.webp",
-            "name": "Winter Wolf Elixir (Lesser) (Infused)",
+            "name": "Witchwarg Elixir (Lesser)",
             "sort": 2600000,
             "system": {
                 "baseItem": null,
@@ -2051,7 +2064,7 @@
                 "containerId": null,
                 "damage": null,
                 "description": {
-                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> Interact</p>\n<p>This elixir warms your core and improves your circulation. For 24 hours, you are protected from the effects of severe cold.</p>"
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> (manipulate)</p><hr /><p>This elixir warms your core and improves your circulation. For 24 hours, you are protected from the effects of severe cold.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
@@ -2075,14 +2088,14 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core 2"
                 },
                 "quantity": 2,
                 "rules": [],
                 "size": "med",
-                "slug": "winter-wolf-elixir-lesser",
+                "slug": "witchwarg-elixir-lesser",
                 "traits": {
                     "rarity": "common",
                     "value": [
@@ -2137,6 +2150,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2146,9 +2160,6 @@
                         "magical",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2187,6 +2198,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2196,9 +2208,6 @@
                         "thrown-10",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -2247,16 +2256,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "range-increment-30",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -2345,7 +2354,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "nightmarish-attack",
                         "toggleable": true
@@ -2487,9 +2495,9 @@
             "privateNotes": "",
             "publicNotes": "",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #189: Dreamers of the Nameless Spires"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -2544,7 +2552,6 @@
                 "value": "med"
             },
             "value": [
-                "evil",
                 "human",
                 "humanoid"
             ]

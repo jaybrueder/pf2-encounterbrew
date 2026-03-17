@@ -332,7 +332,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Undetected], not just to sight but to all senses, allowing the target to count as @UUID[Compendium.pf2e.conditionitems.Item.Invisible] no matter what precise and imprecise senses an observer might have. It's still possible for a creature to find the target by Seeking, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of an otherwise-undetectable creature.</p>"
+                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Invisible], but not merely to vision. The invisibility granted by <em>disappearance</em> applies to all precise senses an observer might have. It's still possible for a creature to find the target by Seeking using various senses, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of a creature that is otherwise undetectable.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -2351,6 +2351,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "flail",
                 "hardness": 0,
                 "hp": {
@@ -2377,7 +2378,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -2713,6 +2714,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "flail",
                 "traits": {
@@ -2752,6 +2754,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2777,7 +2780,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>Stored Items Brumesgarth can store items inside his body, as detailed below. Brumesgarth can Interact to remove or store an item. If Brumesgarth's body is destroyed, any stored items appear among his bones.</p><ul><li><p>Arm Wands (extradimensional) Brumesgarth can store up to two wands in the radius and ulna of one of his arms. These wands can be used as if wielded, and they can't be disarmed. If an arm wand is overcharged, Brumesgarth takes @Damage[20] damage if the wand is broken or @Damage[40] damage if it's destroyed.</p></li><li><p>Spell Tome Brumesgarth has a carefully crafted tome, filled with magical power, placed inside his ribcage. This tome can hold up to three spells stolen by the Spellstealing Counter ability.</p></li><li><p>Stored Weapon (extradimensional) Brumesgarth can store a single one-haded weapon of 1 Bulk or less, linked to special runes carved into the bones of one of his arms. Brumesgarth has the flail listed in his items. A weapon Brumesgarth wields deals additional damage equal to half the number of dice from his Hand strike.</p></li></ul>"
+                    "value": "<p>Stored Items Brumesgarth can store items inside his body, as detailed below. Brumesgarth can Interact to remove or store an item. If Brumesgarth's body is destroyed, any stored items appear among his bones.</p><ul><li><p>Arm Wands (extradimensional) Brumesgarth can store up to two wands in the radius and ulna of one of his arms. These wands can be used as if wielded, and they can't be disarmed. If an arm wand is overcharged, Brumesgarth takes @Damage[20[untyped]] damage if the wand is broken or @Damage[40[untyped]] damage if it's destroyed.</p></li><li><p>Spell Tome Brumesgarth has a carefully crafted tome, filled with magical power, placed inside his ribcage. This tome can hold up to three spells stolen by the Spellstealing Counter ability.</p></li><li><p>Stored Weapon (extradimensional) Brumesgarth can store a single one-haded weapon of 1 Bulk or less, linked to special runes carved into the bones of one of his arms. Brumesgarth has the flail listed in his items. A weapon Brumesgarth wields deals additional damage equal to half the number of dice from his Hand strike.</p></li></ul>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -2851,7 +2854,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>60 feet @Check[will|dc:38]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>60 feet. @Check[will|dc:38|options:area-effect,inflicts:frightened]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -2861,7 +2864,7 @@
                 "rules": [
                     {
                         "key": "Aura",
-                        "radius": 0,
+                        "radius": 60,
                         "slug": "frightful-presence",
                         "traits": [
                             "emotion",
@@ -3002,6 +3005,10 @@
                 "category": "offensive",
                 "description": {
                     "value": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> Brumesgarth causes the pages of his spell tome to flip open, revealing an occult spell of 9th rank or lower of his choice. For the remainder of the day, Brumesgarth can cast that spell as if it were one of his spells known for every rank of its base rank up to 9th.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "day"
                 },
                 "publication": {
                     "license": "OGL",

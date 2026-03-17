@@ -79,9 +79,9 @@
                     "value": "1EYcnayZrJgCFXca"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
@@ -143,6 +143,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -151,9 +152,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -282,7 +280,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The guecubu stomps, and the ground breaks and ripples in a @Template[emanation|distance:30], erupting in razor-sharp, crisscrossing spikes of rock that deal @Damage[3d8[piercing]] damage to creatures in the area (@Check[reflex|dc:26|basic] save).</p>\n<p>The area becomes difficult terrain and hazardous terrain, with each square dealing @Damage[3[piercing]] damage to a creature that moves through it. A guecubu is immune to these effects.</p>\n<p>Ground under the effects of a @UUID[Compendium.pf2e.spells-srd.Item.Consecrate] ritual or a @UUID[Compendium.pf2e.spells-srd.Item.Circle of Protection] spell tuned against evil or chaos can't be affected by this ability.</p>"
+                    "value": "<p>The guecubu stomps, and the ground breaks and ripples in a @Template[emanation|distance:30], erupting in razor-sharp, crisscrossing spikes of rock that deal @Damage[3d8[piercing]|options:area-damage] damage to creatures in the area (@Check[reflex|dc:26|basic|options:area-effect] save).</p>\n<p>The area becomes difficult terrain and hazardous terrain, with each square dealing @Damage[3[piercing]] damage to a creature that moves through it. A guecubu is immune to these effects.</p>\n<p>Ground under the effects of a @UUID[Compendium.pf2e.spells-srd.Item.Consecrate] ritual or a @UUID[Compendium.pf2e.spells-srd.Item.Circle of Protection] spell tuned against evil or chaos can't be affected by this ability.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -319,7 +317,7 @@
                 "category": "offensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the blackfrost guecubu is destroyed, it shatters and fills the air around it with a cloud of razor-sharp shards of ice. Creatures in a @Template[emanation|distance:10] take @Damage[8d8[cold]] (@Check[reflex|dc:26|basic]). Creatures that critically fail this save also take @Damage[1d6[bleed]].</p>"
+                    "value": "<p>When the blackfrost guecubu is destroyed, it shatters and fills the air around it with a cloud of razor-sharp shards of ice. Creatures in a @Template[emanation|distance:10] take @Damage[8d8[cold]|options:area-damage] (@Check[reflex|dc:26|basic|options:area-effect,inflicts:bleed]). Creatures that critically fail this save also take @Damage[1d6[bleed]].</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -350,14 +348,29 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>When the blackfrost guecubu successfully @UUID[Compendium.pf2e.actionspf2e.Item.Shove]{Shoves} a creature into an ice or frozen earth barrier, the target must succeed at a @Check[reflex|dc:26] save or become merged with the barrier, with the effects of @UUID[Compendium.pf2e.spells-srd.Item.One with Stone] until the target escapes (DC 26).</p>"
+                    "value": "<p>When the blackfrost guecubu successfully [[/act shove]]{Shoves} a creature into an ice or frozen earth barrier, the target must succeed at a @Check[reflex|dc:26] save or become merged with the barrier, with the effects of @UUID[Compendium.pf2e.spells-srd.Item.One with Stone] until the target [[/act escape dc=26]]{Escapes}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess",
+                            "success"
+                        ],
+                        "predicate": [
+                            "action:shove"
+                        ],
+                        "selector": "skill-check",
+                        "text": "{item|system.description.value}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
@@ -471,6 +484,9 @@
             },
             "immunities": [
                 {
+                    "type": "bleed"
+                },
+                {
                     "type": "death-effects"
                 },
                 {
@@ -524,9 +540,9 @@
             "privateNotes": "",
             "publicNotes": "<p>Sometimes an individual performs acts of horror so unspeakable that the earth they walk on becomes imprinted by their evil. With such villains, even slaying them and scattering their bones can't rid the world of their vile presence. Their souls rise again as guecubus, gruesome skeletons made of scorched bones, rotting flesh, and befouled earth. Guecubus roams the land seeking those they deem responsible for their death.</p>\n<p>A guecubu remembers what was done to them, and the memories of their supposed mistreatment fuel their quest for revenge. Guecubus are well-equipped to exact such vengeance. Along with monstrous power and the ability to move through earth, they retain all the cunning they had in life. These creatures are known to kill their enemies one by one, leaving no trace of their presence behind save pebbles and dust.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #189: Dreamers of the Nameless Spires"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -586,12 +602,9 @@
                 "value": "med"
             },
             "value": [
-                "chaotic",
                 "cold",
                 "earth",
-                "evil",
-                "undead",
-                "unholy"
+                "undead"
             ]
         }
     },

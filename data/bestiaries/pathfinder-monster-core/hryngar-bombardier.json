@@ -304,6 +304,7 @@
                     "invested": null,
                     "slot": ""
                 },
+                "expend": null,
                 "group": "hammer",
                 "hardness": 0,
                 "hp": {
@@ -330,7 +331,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -394,6 +395,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -483,6 +485,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -572,6 +575,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -785,6 +789,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -792,9 +797,6 @@
                     "value": [
                         "shove"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -828,6 +830,10 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [
                     {
                         "alwaysActive": true,
@@ -856,7 +862,7 @@
                     {
                         "key": "DamageDice",
                         "override": {
-                            "damageType": "{item|flags.pf2e.rulesSelections.alchemicalGrenade}",
+                            "damageType": "{item|flags.system.rulesSelections.alchemicalGrenade}",
                             "diceNumber": 1,
                             "dieSize": "d6"
                         },
@@ -864,7 +870,7 @@
                     },
                     {
                         "damageCategory": "splash",
-                        "damageType": "{item|flags.pf2e.rulesSelections.alchemicalGrenade}",
+                        "damageType": "{item|flags.system.rulesSelections.alchemicalGrenade}",
                         "key": "FlatModifier",
                         "label": "PF2E.TraitSplash",
                         "selector": "{item|_id}-damage",
@@ -872,7 +878,7 @@
                     },
                     {
                         "damageCategory": "persistent",
-                        "damageType": "{item|flags.pf2e.rulesSelections.alchemicalGrenade}",
+                        "damageType": "{item|flags.system.rulesSelections.alchemicalGrenade}",
                         "key": "FlatModifier",
                         "label": "PF2E.ConditionTypePersistent",
                         "selector": "{item|_id}-damage",
@@ -882,12 +888,8 @@
                 "slug": null,
                 "traits": {
                     "value": [
-                        "range-increment-20",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

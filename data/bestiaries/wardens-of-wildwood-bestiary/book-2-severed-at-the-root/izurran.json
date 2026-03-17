@@ -2099,6 +2099,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -2125,7 +2126,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -2261,6 +2262,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "claw-blade",
                 "traits": {
@@ -2271,9 +2273,6 @@
                         "finesse",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2293,6 +2292,10 @@
                 "category": "defensive",
                 "description": {
                     "value": "<p><strong>Trigger</strong> Izurran fails or critically fails a Reflex saving throw</p>\n<p><strong>Frequency</strong> Once per day</p>\n<hr />\n<p><strong>Effect</strong> Izurran rerolls that saving throw and takes the better result.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "day"
                 },
                 "publication": {
                     "license": "OGL",

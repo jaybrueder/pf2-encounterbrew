@@ -12,6 +12,11 @@
             "name": "Sling",
             "sort": 100000,
             "system": {
+                "ammo": {
+                    "baseType": "sling-bullets",
+                    "builtIn": false,
+                    "capacity": 1
+                },
                 "baseItem": "sling",
                 "bonus": {
                     "value": 0
@@ -37,6 +42,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "sling",
                 "hardness": 0,
                 "hp": {
@@ -120,6 +126,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -144,7 +151,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -356,30 +363,17 @@
             "name": "Sling Bullets",
             "sort": 600000,
             "system": {
-                "baseItem": null,
+                "baseItem": "sling-bullets",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>These are small metal balls, typically either iron or lead, designed to be used as ammunition in slings.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn"
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -396,13 +390,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": "sling-bullets",
-                "stackGroup": "slingBullets",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -410,7 +402,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "l8gDoi7DC0J4Jm2q",
@@ -443,6 +435,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -500,6 +493,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -542,12 +536,14 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 50,
+                    "max": null
+                },
                 "rules": [],
                 "slug": "sling",
                 "traits": {
-                    "value": [
-                        "range-increment-50"
-                    ]
+                    "value": []
                 }
             },
             "type": "melee"
@@ -615,7 +611,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>Inizkar's academic skills allow her to discover information on almost any subject. Inizkar can spend 1 week of downtime to automatically succeed at a check to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge]{Recall Knowledge} about a subject. If the subject is a creature, she learns the name, basic description, general behavior, and one specific ability of that creature. If the subject is a different topic, she learns general information that's always at least mildly informational and helpful.</p>\n<p>Inizkar can use this ability to learn about any common topic of 8th level or lower, or any uncommon topic of 6th level or lower. She can't learn about rare topics, though the GM has the final decision on determining whether a given topic is something that Inizkar can learn about. If the topic is lower than 5th level, she reduces the time it takes to learn about the subject by 1 day per level below 5th, to a minimum of 1 day.</p>"
+                    "value": "<p>Inizkar's academic skills allow her to discover information on almost any subject. Inizkar can spend 1 week of downtime to automatically succeed at a check to @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge] about a subject. If the subject is a creature, she learns the name, basic description, general behavior, and one specific ability of that creature. If the subject is a different topic, she learns general information that's always at least mildly informational and helpful.</p>\n<p>Inizkar can use this ability to learn about any common topic of 8th level or lower, or any uncommon topic of 6th level or lower. She can't learn about rare topics, though the GM has the final decision on determining whether a given topic is something that Inizkar can learn about. If the topic is lower than 5th level, she reduces the time it takes to learn about the subject by 1 day per level below 5th, to a minimum of 1 day.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -722,7 +718,7 @@
                 },
                 "category": "familiar",
                 "description": {
-                    "value": "<p>Inizkar looks to the stars and calls upon the power of the perfect alignment to protect her allies or threaten her foes. She chooses a creature within 30 feet and attempts an @Check[Astrology Lore|against:will] check against the creature's Will DC. On a success, she finds the right alignment of stars for her goals. If the creature is an ally, that creature gains a +2 circumstance bonus to AC for 1 minute. If the creature is an enemy, other creatures gain a +4 circumstance bonus to damage rolls against that enemy for 1 minute. An enemy can use a single action, which has the concentrate trait, to attempt a @Check[will|dc:22] save to realign their own stars and end the effect on a success.</p>\n<p>Inizkar can maintain this effect on only one creature at a time; if she succeeds at Aligning the Stars for a different creature, the original effect ends. Inizkar can Dismiss the effect. Regardless of Inizkar's result when attempting her check, the target becomes immune to Align the Stars for 1 day.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Align the Stars]</p>"
+                    "value": "<p>Inizkar looks to the stars and calls upon the power of the perfect alignment to protect her allies or threaten her foes. She chooses a creature within 30 feet and attempts an @Check[astrology-lore|against:will] check against the creature's Will DC. On a success, she finds the right alignment of stars for her goals. If the creature is an ally, that creature gains a +2 circumstance bonus to AC for 1 minute. If the creature is an enemy, other creatures gain a +4 circumstance bonus to damage rolls against that enemy for 1 minute. An enemy can use a single action, which has the concentrate trait, to attempt a @Check[will|dc:22] save to realign their own stars and end the effect on a success.</p>\n<p>Inizkar can maintain this effect on only one creature at a time; if she succeeds at Aligning the Stars for a different creature, the original effect ends. Inizkar can Dismiss the effect. Regardless of Inizkar's result when attempting her check, the target becomes immune to Align the Stars for 1 day.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Align the Stars]</p>"
                 },
                 "publication": {
                     "license": "OGL",

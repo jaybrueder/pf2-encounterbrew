@@ -1,0 +1,361 @@
+{
+    "_id": "u1VUKkC4mBDhi7YZ",
+    "folder": "BYTwbOGTmUFlkCFZ",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "Ynn5wnmGjAflUHgU",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Pseudopod",
+            "sort": 100000,
+            "system": {
+                "attackEffects": {
+                    "value": [
+                        "grab"
+                    ]
+                },
+                "bonus": {
+                    "value": 20
+                },
+                "damageRolls": {
+                    "Uvgc6Q8FXl73bHPz": {
+                        "damage": "2d8+9",
+                        "damageType": "bludgeoning"
+                    },
+                    "Z0v4xz3TceQ0OIGG": {
+                        "damage": "2d6",
+                        "damageType": "void"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "qOaTnSO1URRWxRs7",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Motion Sense",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>A creeping evil can feel nearby motion through vibration and air movement.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Nl7xPrZ4zxUW6lFb",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Slithering Strike",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The creeping evil Strides twice, then makes a pseudopod Strike. The target is @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] against this Strike unless it has seen a Slithering Strike before.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "WKMCfK6NXrpI7jgs",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Stir Doubts",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The creeping evil reaches psychically into a creature's innermost thoughts, taking hold of that creature's insecurities and bringing them to front of mind. One creature @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] or @UUID[Compendium.pf2e.conditionitems.Item.Restrained] by the creeping evil takes @Damage[4d8[mental]] damage (@Check[will|dc:28|basic] save). A creature that fails the save is also @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1} (or @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} on a critical failure).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "concentrate",
+                        "emotion",
+                        "fear",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "bdjrqxHpD8n2Illr",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Variable Volume",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The creeping evil squeezes itself into a container or other space large enough to fit a Tiny creature. It can exit the container by taking this action again, immediately returning to its normal size. If creatures or objects would occupy the creeping evil's space, it automatically pushes those creatures and objects out of the way to fill a space.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "concentrate",
+                        "move"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "BAqaM4HvLayHGhDR",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.Tkd8sH4pwFIPzqTr"
+            },
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Grab",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Grab]</p>"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Monster Core"
+                },
+                "rules": [],
+                "slug": "grab",
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Creeping Evil",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": -5
+            },
+            "con": {
+                "mod": 6
+            },
+            "dex": {
+                "mod": 0
+            },
+            "int": {
+                "mod": -4
+            },
+            "str": {
+                "mod": 6
+            },
+            "wis": {
+                "mod": 1
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 16
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 185,
+                "temp": 0,
+                "value": 185
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "visual"
+                },
+                {
+                    "exceptions": [],
+                    "type": "bleed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "critical-hits"
+                },
+                {
+                    "exceptions": [],
+                    "type": "mental"
+                },
+                {
+                    "exceptions": [],
+                    "type": "precision"
+                },
+                {
+                    "exceptions": [],
+                    "type": "unconscious"
+                }
+            ],
+            "resistances": [
+                {
+                    "doubleVs": [],
+                    "exceptions": [
+                        "bludgeoning"
+                    ],
+                    "type": "physical",
+                    "value": 10
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "climb",
+                        "value": 20
+                    }
+                ],
+                "value": 20
+            },
+            "weaknesses": [
+                {
+                    "exceptions": [],
+                    "type": "holy",
+                    "value": 10
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 8
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Religious philosophers have noted that while the virtuous are often filled with a righteous conviction that inures them from hopelessness and fear, the wicked are beset by constant doubt, driving them to commit even greater atrocities in an effort to stave off their insecurities. Sometimes, when this cycle reaches a crisis point, persistent doubt can even break from the psyche that created it, adopting a physical form known as a creeping evil.</p>\n<p>While demons, devils, and other fiends are those most likely to spawn a creeping evil, a mortal tyrant gripped by constant fear of rebellion or a murderer compelled to kill again in order to cover up their previous crimes can manifest one as well. Often, a creeping evil will linger near the creature that created it, sparing their life but lurking in the shadows as a constant reminder of their failures. Only when the creature summons their courage and finally confronts their fear head-on does the creeping evil turn on them. Other creeping evils abandon their creators as soon as they spawn, slithering down lightless alleyways or into abandoned sewer tunnels to search for new souls to corrupt.</p>\n<p>Though its body has the consistency of flowing tar, a creeping evil's predator-like cunning and unnatural ability to vary its volume at a whim set it apart from the living oozes often encountered by adventurers.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 11,
+            "senses": [
+                {
+                    "acuity": "precise",
+                    "range": 60,
+                    "type": "motion-sense"
+                }
+            ],
+            "vision": false
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 20
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 12
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 13
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 20
+            },
+            "stealth": {
+                "base": 17
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "mindless",
+                "ooze",
+                "unholy"
+            ]
+        }
+    },
+    "type": "npc"
+}

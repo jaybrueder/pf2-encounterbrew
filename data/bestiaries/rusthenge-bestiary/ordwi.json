@@ -660,7 +660,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.yHujiDQPdtXW797e"
             },
-            "img": "systems/pf2e/icons/spells/spirit-link.webp",
+            "img": "icons/magic/control/energy-stream-link-teal.webp",
             "name": "Spirit Link",
             "sort": 900000,
             "system": {
@@ -889,6 +889,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -915,7 +916,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1057,7 +1058,6 @@
                 "quantity": 1,
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "has-religious-symbol",
                         "requiresEquipped": false
@@ -1247,6 +1247,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1255,9 +1256,6 @@
                         "disarm",
                         "finesse"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"

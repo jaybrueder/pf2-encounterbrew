@@ -44,11 +44,12 @@
             "type": "spellcastingEntry"
         },
         {
-            "_id": "KjJm9crUyeFMT6av",
+            "_id": "DQLvS2ga2UuVhL9G",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.yM3KTTSAIHhyuP14"
             },
-            "img": "systems/pf2e/icons/spells/dream-message.webp",
+            "folder": "4fJHnYFqH0VjZXPv",
+            "img": "icons/skills/trades/music-singing-voice-blue.webp",
             "name": "Dream Message",
             "sort": 200000,
             "system": {
@@ -60,11 +61,11 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You send a message to your target's dream. The message is one-way, up to 1 minute of speech (roughly 150 words). If the target is asleep, they receive the message instantly. If not, they receive it the next time they sleep. As soon as they receive it, the spell ends, and you know the message was sent.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> You can target up to 10 creatures you know by name and have met in person. You must send the same message to all of them; the spell ends for each creature individually.</p>"
+                    "value": "<p>You send a message to your target's dream. The message is one-way, up to 1 minute of speech (roughly 150 words). If the target is asleep, they receive the message instantly. If not, they receive it the next time they sleep. As soon as they receive it, the spell ends, and you know the message was sent.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> You can target up to 10 creatures you know by name and have met in person. You must send the same message to all of them; the spell ends for each creature individually</p>"
                 },
                 "duration": {
                     "sustained": false,
-                    "value": "until the next time you make your daily preparations"
+                    "value": "until your next daily preparations"
                 },
                 "heightening": {
                     "levels": {
@@ -84,9 +85,9 @@
                     "value": "FvIDxJDfR51ezrdD"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "planetary"
@@ -117,18 +118,16 @@
             "type": "spell"
         },
         {
-            "_id": "GWffl0NQTM5UNxzQ",
+            "_id": "Wm6SxkBZ8hlt01Cy",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.QnTtGCAvdWRU4spv"
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.RA7VKcen3p56rVyZ"
             },
-            "img": "systems/pf2e/icons/spells/detect-alignment.webp",
-            "name": "Detect Alignment (At Will, Evil Only)",
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "systems/pf2e/icons/spells/forbidding-ward.webp",
+            "name": "Forbidding Ward",
             "sort": 300000,
             "system": {
-                "area": {
-                    "type": "emanation",
-                    "value": 30
-                },
+                "area": null,
                 "cost": {
                     "value": ""
                 },
@@ -136,43 +135,122 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>Your eyes glow as you sense aligned auras. Choose chaotic, evil, good, or lawful. You detect auras of that alignment. You receive no information beyond presence or absence. You can choose not to detect creatures or effects you're aware have that alignment.</p>\n<p>Only creatures of 6th level or higher-unless divine spellcasters, undead, or beings from the Outer Sphere-have alignment auras.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> You learn each aura's location and strength.</p>"
+                    "value": "<p>You ward an ally against the attacks and hostile spells from the target enemy. The target ally gains a +1 status bonus to Armor Class and saving throws against the target enemy's attacks, spells, and other effects.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Forbidding Ward]</p>\n<hr />\n<p><strong>Heightened (6th)</strong> The status bonus increases to +2.</p>"
                 },
                 "duration": {
-                    "sustained": false,
-                    "value": ""
+                    "sustained": true,
+                    "value": "1 minute"
                 },
                 "level": {
                     "value": 1
                 },
                 "location": {
-                    "heightenedLevel": 1,
                     "value": "FvIDxJDfR51ezrdD"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
-                    "value": ""
+                    "value": "30 feet"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "detect-alignment",
+                "slug": "forbidding-ward",
                 "target": {
-                    "value": ""
+                    "value": "1 ally and 1 enemy"
                 },
                 "time": {
                     "value": "2"
                 },
                 "traits": {
-                    "rarity": "uncommon",
+                    "rarity": "common",
                     "traditions": [
                         "divine",
                         "occult"
                     ],
                     "value": [
+                        "cantrip",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "A8uKqaMkHQcDxCPA",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.OhD2Z6rIGGD5ocZA"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+            "name": "Read Aura",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You focus on the target object, opening your mind to perceive magical auras. When the casting is complete, you know whether that item is magical. You or anyone you advise about the aura gains a +2 circumstance bonus to @UUID[Compendium.pf2e.actionspf2e.Item.Identify Magic] on the item. If the object is illusory, you detect this only if the effect's rank is lower than the rank of your <em>read aura</em> spell.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Read Aura]</p><hr /><p><strong>Heightened (3rd)</strong> You can target up to 10 objects.</p>\n<p><strong>Heightened (6th)</strong> You can target any number of objects.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "levels": {
+                        "3": {
+                            "target": {
+                                "value": "10 objects"
+                            }
+                        },
+                        "6": {
+                            "target": {
+                                "value": "any number of objects"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "FvIDxJDfR51ezrdD"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "read-aura",
+                "target": {
+                    "value": "1 object"
+                },
+                "time": {
+                    "value": "1 minute"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
                         "concentrate",
                         "detection",
                         "manipulate"
@@ -185,13 +263,11 @@
             "_id": "DHVWbPUuX7RvM0fl",
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Spirit Web",
-            "sort": 400000,
+            "sort": 500000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
+                "action": "strike",
+                "area": null,
                 "attackEffects": {
-                    "custom": "",
                     "value": [
                         "spirit-web-trap"
                     ]
@@ -208,16 +284,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "holy",
-                        "range-increment-30"
+                        "holy"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -229,7 +305,7 @@
             },
             "img": "systems/pf2e/icons/actions/Passive.webp",
             "name": "Telepathy 60 feet",
-            "sort": 500000,
+            "sort": 600000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -249,7 +325,6 @@
                 "rules": [],
                 "slug": "telepathy",
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "aura",
                         "magical",
@@ -263,7 +338,7 @@
             "_id": "GWyYTcgpLzewF29W",
             "img": "systems/pf2e/icons/default-icons/action.svg",
             "name": "Anchored Soul",
-            "sort": 600000,
+            "sort": 700000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -292,7 +367,7 @@
             "_id": "3eYwtwiBIQGluSqW",
             "img": "systems/pf2e/icons/default-icons/action.svg",
             "name": "Bonded Vessel",
-            "sort": 700000,
+            "sort": 800000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -321,7 +396,7 @@
             "_id": "xVwJywDXZMlzfndB",
             "img": "systems/pf2e/icons/default-icons/action.svg",
             "name": "Reconstitution",
-            "sort": 800000,
+            "sort": 900000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -330,8 +405,9 @@
                     "value": null
                 },
                 "category": "defensive",
+                "deathNote": true,
                 "description": {
-                    "value": "<p>When the stone spider reaches 0 Hit Points, its spirit dissipates. If its bonded vessel is intact, the stone spider re-forms in this vessel after [[/br 2d4 #days]]{2d4 days}, fully healed. If the vessel is broken, it must first be Repaired, after which the stone spider re-forms in [[/br 3d4 #days]]{3d4 days}.</p>"
+                    "value": "<p>When the stone spider reaches 0 Hit Points, their spirit dissipates. If their bonded vessel is intact, the stone spider re-forms in this vessel after [[/br 2d4 #days]]{2d4 days}, fully healed. If the vessel is broken, they must first be Repaired, after which the stone spider re-forms in [[/br 3d4 #days]]{3d4 days}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -352,7 +428,7 @@
             "_id": "CikDJevASd9TCpeX",
             "img": "systems/pf2e/icons/default-icons/action.svg",
             "name": "Inhabit Vessel",
-            "sort": 900000,
+            "sort": 1000000,
             "system": {
                 "actionType": {
                     "value": "action"
@@ -362,7 +438,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The spider touches and melds with its bonded vessel, bringing it to life. It can cease Inhabiting its Vessel by spending a single action, which has the concentrate trait. While Inhabiting the Vessel, it loses its fly Speed and gains</p>\n<p><strong>Immunities</strong> healing, nonlethal</p>\n<p><strong>Resistances</strong> physical 6 (except bludgeoning)</p>\n<p><strong>Speed</strong> 25 feet, climb 25 feet</p>\n<p>and the following Strike.</p>\n<ul>\n<li>Melee <span class=\"action-glyph\">1</span> stone fangs +14 (finesse), Damage 2d8+7 piercing</li>\n</ul>"
+                    "value": "<p>The spider touches and melds with their bonded vessel, bringing it to life. It can cease Inhabiting its Vessel by spending a single action, which has the concentrate trait. While Inhabiting the Vessel, it loses its fly Speed and gains</p>\n<p><strong>Immunities</strong> healing, nonlethal</p>\n<p><strong>Resistances</strong> physical 6 (except bludgeoning)</p>\n<p><strong>Speed</strong> 25 feet, climb 25 feet</p>\n<p>and the following Strike.</p><ul><li><strong>Melee</strong> <span class=\"action-glyph\">1</span> stone fangs +14 (finesse), <strong>Damage</strong> 2d8+7 piercing</li></ul>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -371,7 +447,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "inhabit-vessel",
                         "toggleable": true
@@ -457,7 +532,7 @@
             "_id": "sfxXCjNGQMgTIZlK",
             "img": "systems/pf2e/icons/default-icons/action.svg",
             "name": "Spirit Body",
-            "sort": 1000000,
+            "sort": 1100000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -467,7 +542,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>When not Inhabiting its Vessel, the stone spider is incorporeal and gains resistance 6 to all damage (except force damage and ghost touch; double resistance against non-magical).</p>"
+                    "value": "<p>When not Inhabiting their Vessel, the stone spider is incorporeal and gains resistance 6 to all damage (except force damage, <em>@UUID[Compendium.pf2e.equipment-srd.Item.Ghost Touch]</em>, spirit, and vitality; double resistance against non-magical).</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -476,12 +551,24 @@
                 },
                 "rules": [
                     {
+                        "add": [
+                            "incorporeal"
+                        ],
+                        "key": "ActorTraits",
+                        "predicate": [
+                            {
+                                "not": "inhabit-vessel"
+                            }
+                        ]
+                    },
+                    {
                         "doubleVs": [
                             "non-magical"
                         ],
                         "exceptions": [
                             "force",
-                            "ghost-touch"
+                            "ghost-touch",
+                            "spirit"
                         ],
                         "key": "Resistance",
                         "predicate": [
@@ -504,7 +591,7 @@
             "_id": "ggTbU7O0V8a6XUGB",
             "img": "systems/pf2e/icons/default-icons/action.svg",
             "name": "Spirit Web Trap",
-            "sort": 1100000,
+            "sort": 1200000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -514,7 +601,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>A creature hit by the stone spider's web attack is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] and stuck to the nearest surface until it Escapes (DC 22).</p>"
+                    "value": "<p>A creature hit by the stone spider's web attack is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] and stuck to the nearest surface until it [[/act escape dc=22]]{Escapes}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -525,6 +612,7 @@
                 "slug": null,
                 "traits": {
                     "value": [
+                        "divine",
                         "force"
                     ]
                 }
@@ -535,7 +623,7 @@
             "_id": "SGNABonOynwMEJWt",
             "img": "systems/pf2e/icons/default-icons/lore.svg",
             "name": "Settlement Lore (Regarding their Home Settlement)",
-            "sort": 1200000,
+            "sort": 1300000,
             "system": {
                 "description": {
                     "value": ""
@@ -634,9 +722,9 @@
             "privateNotes": "",
             "publicNotes": "<p>The tradition of venerating spiders as wards against vermin, pests, and evil in general far predates the modern jorogumo rule, with stone spiders filling a role similar to stone lions. Stone spider guardian beasts can be found perched on plinths near town and village entrances, standing motionless—for generations in some cases—so that many locals have forgotten their local guardian is anything more than a decoration.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #196: The Summer That Never Was"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Season of Ghosts Hardcover Compilation"
             }
         },
         "initiative": {
@@ -689,9 +777,7 @@
                 "value": "lg"
             },
             "value": [
-                "celestial",
-                "good",
-                "holy"
+                "celestial"
             ]
         }
     },

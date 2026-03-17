@@ -35,6 +35,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -68,7 +69,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.ConstructArmor.CriticalHit",
                         "option": "construct-armor",
@@ -134,7 +134,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The animated furnace opens its door and fans its flames in a @Template[cone|distance:30] that deals @Damage[5d6[fire]] damage (@Check[reflex|dc:28|basic|traits:fire] save).</p>"
+                    "value": "<p>The animated furnace opens its door and fans its flames in a @Template[cone|distance:30] that deals @Damage[5d6[fire]|options:area-damage] damage (@Check[reflex|dc:28|basic|options:area-effect] save).</p>"
                 },
                 "publication": {
                     "license": "OGL",

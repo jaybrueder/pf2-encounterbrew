@@ -38,6 +38,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -45,9 +46,6 @@
                     "value": [
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -82,16 +80,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-increment-60"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -141,7 +138,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the elemental inferno dies, it explodes, dealing @Damage[7d6[fire]] damage to each creature in a @Template[emanation|distance:10|traits:fire,damaging-effect] (@Check[reflex|dc:30|basic] save).</p>"
+                    "value": "<p>When the elemental inferno dies, it explodes, dealing @Damage[7d6[fire]|options:area-damage] damage to each creature in a @Template[emanation|distance:10|traits:fire,damaging-effect] (@Check[reflex|dc:30|basic|options:area-effect] save).</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -173,7 +170,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>10 feet. @Damage[7d6[fire]] damage @Check[reflex|dc:28|basic]</p>"
+                    "value": "<p>10 feet. @Damage[7d6[fire]|options:area-damage] damage @Check[reflex|dc:28|basic|options:area-effect]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -215,14 +212,44 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>When the elemental inferno scores a critical hit, its body surges with blue flames, increasing the damage of its intense heat and Inferno Leap by @Damage[3d6[fire]]{3d6} until the start of its next turn.</p>"
+                    "value": "<p>When the elemental inferno scores a critical hit, its body surges with blue flames, increasing the damage of its intense heat and Inferno Leap by 3d6 until the start of its next turn.</p>"
                 },
                 "publication": {
                     "license": "OGL",
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    },
+                    {
+                        "domain": "damage",
+                        "key": "RollOption",
+                        "option": "blue-flames",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "DamageAlteration",
+                        "mode": "add",
+                        "predicate": [
+                            "blue-flames"
+                        ],
+                        "property": "dice-number",
+                        "selectors": [
+                            "inferno-leap-inline-damage",
+                            "intense-heat-inline-damage"
+                        ],
+                        "value": 3
+                    }
+                ],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
@@ -245,7 +272,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The elemental inferno jumps horizontally and vertically with a maximum height and distance each equal to its Speed. Its intense heat is suppressed until the end of the jump. At any point during the jump, flames explode from the elemental in a @Template[emanation|distance:20], dealing @Damage[12d6[fire]] damage to each creature within the area (@Check[reflex|dc:30|basic] save).</p>\n<p>The elemental inferno can't Inferno Leap again for [[/gmr 1d4 #Recharge Inferno Leap]]{1d4 rounds}.</p>"
+                    "value": "<p>The elemental inferno jumps horizontally and vertically with a maximum height and distance each equal to its Speed. Its intense heat is suppressed until the end of the jump. At any point during the jump, flames explode from the elemental in a @Template[emanation|distance:20], dealing @Damage[12d6[fire]|options:area-damage] damage to each creature within the area (@Check[reflex|dc:30|basic|options:area-effect] save).</p>\n<p>The elemental inferno can't Inferno Leap again for [[/gmr 1d4 #Recharge Inferno Leap]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",

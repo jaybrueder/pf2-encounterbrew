@@ -1,0 +1,243 @@
+{
+    "_id": "u6WyDjPRey2G79tf",
+    "folder": "TK7ZSMCuElK7Dn5u",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "pV5jZwvRYcpE7toP",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Camouflage",
+            "sort": 100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>In wet environments like open water, tide pools, and even wet ship decks, a riptide octopus swarm can @UUID[Compendium.pf2e.actionspf2e.Item.Hide] and @UUID[Compendium.pf2e.actionspf2e.Item.Sneak] without cover or being @UUID[Compendium.pf2e.conditionitems.Item.Concealed].</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "qkrFgGUiwzSNSuha",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Compression",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>A riptide octopus swarm can move through a gap at least 6 inches wide without Squeezing and can Squeeze through a gap at least 1 inch wide.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Otyyh8UUQ4IZBbwU",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Swarming Bites",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Each enemy in the swarm's space takes @Damage[1d4[piercing]|options:area-damage] damage and must attempt a @Check[reflex|dc:16|basic|options:area-effect] save. A creature that fails its save takes @Damage[1d4[persistent,piercing]] damage as octopuses cling to and continue biting the creature.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Riptide Octopus Swarm",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 0
+            },
+            "con": {
+                "mod": 3
+            },
+            "dex": {
+                "mod": 3
+            },
+            "int": {
+                "mod": -4
+            },
+            "str": {
+                "mod": 2
+            },
+            "wis": {
+                "mod": 3
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 16
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 14,
+                "temp": 0,
+                "value": 14
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "precision"
+                },
+                {
+                    "exceptions": [],
+                    "type": "swarm-mind"
+                }
+            ],
+            "resistances": [
+                {
+                    "doubleVs": [],
+                    "exceptions": [
+                        "slashing"
+                    ],
+                    "type": "physical",
+                    "value": 5
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "swim",
+                        "value": 30
+                    }
+                ],
+                "value": 15
+            },
+            "weaknesses": [
+                {
+                    "exceptions": [],
+                    "type": "area-damage",
+                    "value": 3
+                },
+                {
+                    "exceptions": [],
+                    "type": "splash-damage",
+                    "value": 3
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 0
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Riptide octopuses have adapted to these isolated hunting grounds with their strength, pulling themselves hundreds of feet across dry land to check their territory's pools for prey. Under most circumstances, such mollusks are solitary. However, massive scavenging opportunities like a beached whale or a wounded mammal can draw hundreds of these creatures to one place.</p><h2>Eater of Toes</h2><p>The riptide octopus didn't get its name from living in tidal zones but from being more stubborn than a riptide pulling someone out to sea. Beachcombers know not to dip their toes into tidal pools lest a riptide octopus mistake them for prey, and many bear scars that remind them of the dangers of ignoring such advice. Dislodging a hungry riptide octopus sometimes takes extreme measures in the form of a crowbar; fortunately, the octopus's skin is sensitive to fermented fluids like vinegar and wine, and dousing the creature with such concoctions usually encourages it to detach and flee.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #216: The Acropolis Pyre"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 6,
+            "senses": [
+                {
+                    "type": "low-light-vision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 8
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 7
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 4
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 6
+            },
+            "athletics": {
+                "base": 5
+            },
+            "stealth": {
+                "base": 6
+            },
+            "thievery": {
+                "base": 4
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "animal",
+                "aquatic",
+                "swarm"
+            ]
+        }
+    },
+    "type": "npc"
+}

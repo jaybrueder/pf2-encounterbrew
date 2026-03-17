@@ -1,0 +1,270 @@
+{
+    "_id": "InXSzKdj4MgbciIb",
+    "folder": "TK7ZSMCuElK7Dn5u",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "NoFKsHipvt3yAgbg",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Peck",
+            "sort": 100000,
+            "system": {
+                "attackEffects": {
+                    "value": [
+                        "pyrebite"
+                    ]
+                },
+                "bonus": {
+                    "value": 7
+                },
+                "damageRolls": {
+                    "Tl1F9VbtXQlfsmdt": {
+                        "damage": "1d6+1",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "finesse"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "5TDgEP83WIAMCwkU",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Smoldering Convalescence",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "deathNote": true,
+                "description": {
+                    "value": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> When a pyrefowl dies, its wounds ignite and smolder as its body tries to heal. After [[/gmr 1d4 #rounds]]{1d4 rounds}, the pyrefowl attempts a @Check[flat|dc:9]. The check automatically fails if the smoldering pyrefowl is doused with water, sand, or other fire suppressant while recovering.</p><hr /><p><strong>Critical Success</strong> As success, but the pyrefowl regains 10 Hit Points, Stands, and deals @Damage[1d6[fire]] damage to adjacent creatures and objects (@Check[reflex|dc:16|basic] save).</p>\n<p><strong>Success</strong> The pyrefowl is returned to life with 5 Hit Points.</p>\n<p><strong>Failure</strong> The pyrefowl remains dead.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "day"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "fire",
+                        "healing"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "6BNRycNmoXdjZnle",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Flame Flutter",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The pyrefowl Steps before or after using this ability. With a flap of its wings, the pyrefowl blows sparks in a @Template[type:cone|distance:15], dealing @Damage[2d4[fire]|options:area-damage] damage to creatures in the area (@Check[reflex|dc:16|basic|options:area-effect]).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "fire",
+                        "move"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "GKMeXPuK69pjciWk",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Pyrebite",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The pyrefowl hits a target with its peck Strike on its turn</p><hr /><p><strong>Effect</strong> The target must attempt a @Check[reflex|dc:16] save or take @Damage[1d4[persistent,fire]] damage.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "fire"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Pyrefowl",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 1
+            },
+            "con": {
+                "mod": 4
+            },
+            "dex": {
+                "mod": 3
+            },
+            "int": {
+                "mod": -3
+            },
+            "str": {
+                "mod": 1
+            },
+            "wis": {
+                "mod": 2
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 15
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 24,
+                "temp": 0,
+                "value": 24
+            },
+            "resistances": [
+                {
+                    "doubleVs": [],
+                    "exceptions": [],
+                    "type": "fire",
+                    "value": 3
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 25
+                    }
+                ],
+                "value": 20
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "cannot speak",
+                "value": [
+                    "pyric"
+                ]
+            },
+            "level": {
+                "value": 1
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Though sometimes dubbed \"lesser phoenixes,\" the pyrefowl resembles the legendary firebirds in appearance and abilities, yet any direct connection between the two species is entirely anecdotal. A typical specimen resembles a bustard or peafowl with brown, red, and orange feathers. When it's excited, the feathers flicker with incandescence, and an irate pyrefowl can create sparks with a click of its beak or blow burning embers down at a foe with a wingbeat.</p>\n<p>Pyrefowl travel in small flocks for protection, and some hunt collectively by fanning out in a crescent and beating their wings. The resulting heat wave scatters insects and small mammals into the waiting beaks of other fowl. When threatened, a flock might turn this tactic against aggressors, even starting a brush fire to chase off intruders.</p>\n<p>Though they often roost in high places like rooftops in cities or on rocky bluffs and are certainly capable of flight, pyrefowl spend much of their time on the ground standing on their sturdy legs. Though these creatures are protected in some places, in others they're seen as a dangerous nuisance for their tendency to start or spread fires. In these locales, pyrefowl nests are hunted down, and the birds are either scattered or slain. Their beautiful feathers are sometimes harvested for artistic purposes, often decorating fancy clothing and adornments. Pyrefowl lay few eggs, far less than a typical chicken or duck, and in a few regions their eggs are seen as a delicacy and prized by elite cooks who feature them in baked egg dishes or incorporate them into baked goods. Most note the warm and smoky taste, with a slight hint of almond.</p><h2>Fortune and Fireproofing</h2><p>Thanks to their association with its patron phoenix, the city-state of Pol-Bailax extends legal protections to its resident pyrefowl. Harassing or killing the birds is prohibited, though licensed wardens are allowed to harvest naturally shed feathers. Pyrefowl roosting atop one's roof is said to bring good luck to a household, so the Bailaxians build roofs out of clay tiles, slate, or other fire-resistant materials to protect themselves while hoping to lure luck to their homes with small, built-in troughs of grains.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #216: The Acropolis Pyre"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 7,
+            "senses": [
+                {
+                    "type": "low-light-vision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 10
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 8
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 6
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 6
+            },
+            "performance": {
+                "base": 5
+            },
+            "stealth": {
+                "base": 6
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "sm"
+            },
+            "value": [
+                "beast",
+                "fire"
+            ]
+        }
+    },
+    "type": "npc"
+}

@@ -36,6 +36,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -62,7 +63,7 @@
                 "quantity": 2,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -123,6 +124,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "shortsword",
                 "traits": {
@@ -131,9 +133,6 @@
                         "finesse",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -167,13 +166,11 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -209,6 +206,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -216,9 +214,6 @@
                         "agile",
                         "finesse"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -249,15 +244,14 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 30
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "value": [
-                        "range-30"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -312,6 +306,10 @@
                 "description": {
                     "value": "<p><strong>Frequency</strong> once per round</p>\n<hr />\n<p><strong>Effect</strong> The zecui makes two shortsword Strikes against an @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] or @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] target. These strikes count towards the zecui's multiple attack penalty, but it doesn't increase until after the second attack.</p>"
                 },
+                "frequency": {
+                    "max": 1,
+                    "per": "round"
+                },
                 "publication": {
                     "license": "ORC",
                     "remaster": true,
@@ -348,7 +346,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "harden-chitin",
                         "toggleable": true
@@ -387,7 +384,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>A creature hit by the zecui's spit attack is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] by the larva-infested mucus and stuck to the nearest surface until it [[/act escape dc=25]]{Escapes (DC 25)}. While that creature is immobilized, it is exposed to zecui larvae at the end of each of its turns.</p>"
+                    "value": "<p>A creature hit by the zecui's spit attack is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] by the larva-infested mucus and stuck to the nearest surface until it [[/act escape dc=25]]{Escapes}. While that creature is immobilized, it is exposed to zecui larvae at the end of each of its turns.</p>"
                 },
                 "publication": {
                     "license": "ORC",

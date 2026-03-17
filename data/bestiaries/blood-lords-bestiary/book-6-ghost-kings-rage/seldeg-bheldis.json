@@ -193,6 +193,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "dart",
                 "hardness": 0,
                 "hp": {
@@ -278,6 +279,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -304,7 +306,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -510,6 +512,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -518,9 +521,6 @@
                         "magical",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -558,6 +558,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -569,9 +570,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -614,6 +612,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -622,9 +621,6 @@
                         "magical",
                         "thrown-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -701,7 +697,7 @@
                         "toggleable": true
                     },
                     {
-                        "damageType": "{item|flags.pf2e.rulesSelections.ironCommand}",
+                        "damageType": "{item|flags.system.rulesSelections.ironCommand}",
                         "key": "FlatModifier",
                         "predicate": [
                             "iron-command"
@@ -890,7 +886,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Seldeg unleashes a @Template[cone|distance:30] of fire. Creatures in the area take @Damage[9d12[fire]] damage (@Check[reflex|dc:35|basic]). Seldeg can use this ability once every [[/gmr 1d4 #Recharge Devastating Blast]]{1d4 rounds}.</p>"
+                    "value": "<p>Seldeg unleashes a @Template[cone|distance:30] of fire. Creatures in the area take @Damage[9d12[fire]|options:area-damage] damage (@Check[reflex|dc:35|basic|options:area-effect]). Seldeg can use this ability once every [[/gmr 1d4 #Recharge Devastating Blast]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1143,6 +1139,9 @@
                 "value": 390
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "cold"
                 },

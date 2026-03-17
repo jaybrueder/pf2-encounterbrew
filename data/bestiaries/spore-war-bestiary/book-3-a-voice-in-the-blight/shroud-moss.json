@@ -33,6 +33,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -69,12 +70,14 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "value": [
-                        "range-increment-60"
-                    ]
+                    "value": []
                 }
             },
             "type": "melee"
@@ -154,7 +157,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> Assume Shape is active.</p>\n<p>60 feet @Check[will|dc:37]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p><strong>Requirements</strong> Assume Shape is active.</p>\n<p>60 feet. @Check[will|dc:37|options:area-effect,inflicts:frightened]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -165,7 +168,7 @@
                     {
                         "key": "Aura",
                         "predicate": [
-                            "assume-form"
+                            "assume-shape"
                         ],
                         "radius": 60,
                         "slug": "frightful-presence",
@@ -209,7 +212,33 @@
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "alwaysActive": true,
+                        "key": "RollOption",
+                        "option": "sporecloud-radius",
+                        "suboptions": [
+                            {
+                                "label": "PF2E.Foot.Preformatted.60",
+                                "value": "60"
+                            },
+                            {
+                                "label": "PF2E.Foot.Preformatted.5",
+                                "value": "5"
+                            }
+                        ],
+                        "toggleable": true,
+                        "value": true
+                    },
+                    {
+                        "key": "Aura",
+                        "radius": "@item.flags.system.rulesSelections.sporecloudRadius",
+                        "slug": "sporecloud",
+                        "traits": [
+                            "primal"
+                        ]
+                    }
+                ],
                 "slug": null,
                 "traits": {
                     "value": [
@@ -243,13 +272,11 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "assume-shape",
                         "toggleable": true
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.ShroudMoss.AssumeShapeTargetLabel",
                         "option": "assume-shape:targeting-source",
