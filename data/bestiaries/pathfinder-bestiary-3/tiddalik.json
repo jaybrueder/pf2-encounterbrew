@@ -34,6 +34,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -41,9 +42,6 @@
                     "value": [
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -78,16 +76,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-increment-30"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -106,7 +103,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>A creature can provoke a waterlogged tiddalik into laughing and releasing its stored water with a successful check to @Check[performance|dc:25] a joke or funny story. The tiddalik also disgorges its water automatically if it dies while waterlogged, or can voluntarily Deluge as a three-action activity that has the concentrate trait. The mass of stored water swamps a @Template[emanation|distance:10], dealing @Damage[8d6[bludgeoning]] damage to creatures in the area (@Check[reflex|dc:25|basic] save) and making the area difficult terrain for 1 day. The tiddalik can't use its spit Strike or Expel Wave until it next Drinks in Abundance.</p>"
+                    "value": "<p>A creature can provoke a waterlogged tiddalik into laughing and releasing its stored water with a successful check to @Check[performance|dc:25] a joke or funny story. The tiddalik also disgorges its water automatically if it dies while waterlogged, or can voluntarily Deluge as a three-action activity that has the concentrate trait. The mass of stored water swamps a @Template[emanation|distance:10], dealing @Damage[8d6[bludgeoning]|options:area-damage] damage to creatures in the area (@Check[reflex|dc:25|basic|options:area-effect] save) and making the area difficult terrain for 1 day. The tiddalik can't use its spit Strike or Expel Wave until it next Drinks in Abundance.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -168,7 +165,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> The tiddalik is waterlogged</p>\n<hr />\n<p><strong>Effect</strong> The tiddalik expels a wave of water in a @Template[cone|distance:60] that deals @Damage[6d6[bludgeoning]] damage (@Check[reflex|dc:25|basic] save). Creatures that fail the save are pushed back 5 feet (10 feet on a critical failure).</p>\n<p>The tiddalik can't use Expel Wave again for [[/gmr 1d4 #Recharge Expel Wave]]{1d4 rounds}.</p>"
+                    "value": "<p><strong>Requirements</strong> The tiddalik is waterlogged</p>\n<hr />\n<p><strong>Effect</strong> The tiddalik expels a wave of water in a @Template[cone|distance:60] that deals @Damage[6d6[bludgeoning]|options:area-damage] damage (@Check[reflex|dc:25|basic|options:area-effect] save). Creatures that fail the save are pushed back 5 feet (10 feet on a critical failure).</p>\n<p>The tiddalik can't use Expel Wave again for [[/gmr 1d4 #Recharge Expel Wave]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",

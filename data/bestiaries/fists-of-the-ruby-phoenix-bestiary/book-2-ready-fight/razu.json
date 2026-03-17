@@ -189,7 +189,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.FEsuyf203wTNE2et"
             },
-            "img": "systems/pf2e/icons/spells/wail-of-the-banshee.webp",
+            "img": "systems/pf2e/icons/spells/fatal-aria.webp",
             "name": "Wail of the Banshee",
             "sort": 400000,
             "system": {
@@ -283,7 +283,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Undetected], not just to sight but to all senses, allowing the target to count as @UUID[Compendium.pf2e.conditionitems.Item.Invisible] no matter what precise and imprecise senses an observer might have. It's still possible for a creature to find the target by Seeking, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of an otherwise-undetectable creature.</p>"
+                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Invisible], but not merely to vision. The invisibility granted by <em>disappearance</em> applies to all precise senses an observer might have. It's still possible for a creature to find the target by Seeking using various senses, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of a creature that is otherwise undetectable.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -297,9 +297,9 @@
                     "value": "flhx8BOplUKqlBal"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
@@ -321,7 +321,8 @@
                     ],
                     "value": [
                         "illusion",
-                        "manipulate"
+                        "manipulate",
+                        "subtle"
                     ]
                 }
             },
@@ -855,31 +856,14 @@
                     "value": ""
                 },
                 "counteraction": false,
-                "damage": {
-                    "0": {
-                        "category": null,
-                        "formula": "5d8",
-                        "kinds": [
-                            "damage"
-                        ],
-                        "materials": [],
-                        "type": "untyped"
-                    }
-                },
+                "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shape the quasi-real substance of the Shadow Plane into a blast. Choose acid, bludgeoning, cold, electricity, fire, force, piercing, slashing, or sonic damage, and choose a 30-foot cone, a 15-foot burst within 120 feet, or a 50-foot line. The blast deals 5d8 damage of the type you chose to each creature in the area.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d8.</p>"
+                    "value": "<p><strong>Area</strong> varies</p>\n<p><strong>Defense</strong> @Check[reflex|basic|options:area-effect] or @Check[will|basic|options:area-effect] (target's choice)</p><hr /><p>You shape the shadow substance of the Netherworld into a blast. Choose @Damage[(@item.rank+1)d8[acid]|options:area-damage], @Damage[(@item.rank+1)d8[bludgeoning]|options:area-damage], @Damage[(@item.rank+1)d8[cold]|options:area-damage], @Damage[(@item.rank+1)d8[electricity]|options:area-damage], @Damage[(@item.rank+1)d8[fire]|options:area-damage], @Damage[(@item.rank+1)d8[force]|options:area-damage], @Damage[(@item.rank+1)d8[piercing]|options:area-damage], @Damage[(@item.rank+1)d8[slashing]|options:area-damage], @Damage[(@item.rank+1)d8[sonic]|options:area-damage], or @Damage[(@item.rank+1)d8[spirit]|options:area-damage] damage, and choose a @Template[cone|distance:30], a @Template[burst|distance:15] within 120 feet, or a @Template[line|distance:50]. The blast deals 6d8 damage of the type you chose to each creature in the area.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 1d8.</p>"
                 },
                 "duration": {
                     "sustained": false,
                     "value": ""
-                },
-                "heightening": {
-                    "damage": {
-                        "0": "1d8"
-                    },
-                    "interval": 1,
-                    "type": "interval"
                 },
                 "level": {
                     "value": 5
@@ -889,9 +873,9 @@
                     "value": "flhx8BOplUKqlBal"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "varies"
@@ -2705,6 +2689,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -3076,6 +3061,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -3087,9 +3073,6 @@
                         "thrown-20",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"

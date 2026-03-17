@@ -384,6 +384,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -394,9 +395,6 @@
                         "reach-20",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -430,6 +428,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -440,9 +439,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -476,6 +472,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -484,9 +481,6 @@
                         "magical",
                         "reach-25"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -520,6 +514,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -529,9 +524,6 @@
                         "magical",
                         "reach-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -550,7 +542,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>Smoke doesn't impair a red dragon's vision; it ignores the concealed condition from smoke.</p>"
+                    "value": "<p>Smoke doesn't impair a red dragon's vision; it ignores the @UUID[Compendium.pf2e.conditionitems.Item.Concealed] condition from smoke.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -656,7 +648,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>10 feet. @Damage[6d6[fire]] damage (@Check[reflex|dc:42|basic] save)</p>"
+                    "value": "<p>10 feet. @Damage[6d6[fire]|options:area-damage] damage (@Check[reflex|dc:42|basic|options:area-effect] save)</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -703,7 +695,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>90 feet. @Check[will|dc:42]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>90 feet. @Check[will|dc:42|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -856,9 +848,10 @@
                         "outcome": [
                             "criticalSuccess"
                         ],
-                        "selector": "attack",
-                        "text": "{item|system.description.value}",
-                        "title": "{item|name}"
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
                     }
                 ],
                 "slug": null,

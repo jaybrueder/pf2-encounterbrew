@@ -929,7 +929,7 @@
                 },
                 "defense": null,
                 "description": {
-                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a -10-foot status penalty to its Speeds for 1 round.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ray of Frost]</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
+                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a –10-foot status penalty to its Speeds for 1 round.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ray of Frost]</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -1222,6 +1222,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "axe",
                 "hardness": 0,
                 "hp": {
@@ -1248,7 +1249,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1452,6 +1453,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1461,9 +1463,6 @@
                         "reach-10",
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1554,7 +1553,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "arcane-cascade",
                         "toggleable": true
@@ -1660,7 +1658,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Ivarsa channels a spell into a punch or axe swing to deliver a magically charged attack. She casts @UUID[Compendium.pf2e.spells-srd.Item.Ignition] or @UUID[Compendium.pf2e.spells-srd.Item.Ray of Frost]. The effects of the spell don't occur immediately but are imbued into her attack instead. She makes a melee Strike with a weapon or unarmed attack, which gains the arcane trait. Her spell is coupled with the attack, using her attack roll to determine the effects of both the Strike and the spell. This counts as two attacks for her multiple attack penalty, but the penalty isn't applied until after she has completed the Spellstrike. After she uses Spellstrike, Ivarsa can't do so again until she recharges this ability as a single action, which has the concentrate trait. She also recharges her Spellstrike when she casts thunderous strike.</p>"
+                    "value": "<p>Ivarsa channels a spell into a punch or axe swing to deliver a magically charged attack. She casts @UUID[Compendium.pf2e.spells-srd.Item.Ignition] or @UUID[Compendium.pf2e.spells-srd.Item.Ray of Frost]. The effects of the spell don't occur immediately but are imbued into her attack instead. She makes a melee Strike with a weapon or unarmed attack, which gains the arcane trait. Her spell is coupled with the attack, using her attack roll to determine the effects of both the Strike and the spell. This counts as two attacks for her multiple attack penalty, but the penalty isn't applied until after she has completed the Spellstrike. After she uses Spellstrike, Ivarsa can't do so again until she recharges this ability as a single action, which has the concentrate trait. She also recharges her Spellstrike when she casts @UUID[Compendium.pf2e.spells-srd.Item.Thunderous Strike].</p>"
                 },
                 "publication": {
                     "license": "OGL",

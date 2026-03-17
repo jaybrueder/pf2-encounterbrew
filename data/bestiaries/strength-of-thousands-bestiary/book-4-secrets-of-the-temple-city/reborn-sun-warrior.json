@@ -78,7 +78,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.y6rAdMK6EFlV6U0t"
             },
-            "img": "systems/pf2e/icons/spells/burning-hands.webp",
+            "img": "icons/magic/fire/flame-burning-hand-orange.webp",
             "name": "Burning Hands",
             "sort": 200000,
             "system": {
@@ -463,6 +463,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -539,7 +540,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
             },
-            "img": "icons/commodities/treasure/broach-jeweled-green.webp",
+            "img": "icons/commodities/treasure/brooch-jeweled-green.webp",
             "name": "Religious Symbol of Walkena",
             "sort": 800000,
             "system": {
@@ -631,6 +632,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -638,9 +640,6 @@
                     "value": [
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -681,6 +680,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -691,9 +691,6 @@
                         "nonlethal",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -737,6 +734,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -745,9 +743,6 @@
                         "magical",
                         "thrown-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -767,7 +762,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the sun warrior is destroyed, they explode in a blast of flame that deals @Damage[6d6[fire]] damage in a @Template[emanation|distance:10] (@Check[reflex|dc:27|basic] save). Creatures that critically fail their saves are marked with Walkena's religious symbol on a visible area of their body, which remains for 1 day. This mark allows Walkena to treat the creature as if he knew the creature's identity but not having met them for the purposes of @UUID[Compendium.pf2e.spells-srd.Item.Scrying], lowering the spell's DC by 2. The sun warrior's gear and treasure are unaffected by the explosion and left in a pile where they die.</p>"
+                    "value": "<p>When the sun warrior is destroyed, they explode in a blast of flame that deals @Damage[6d6[fire]|options:area-damage] damage in a @Template[emanation|distance:10] (@Check[reflex|dc:27|basic|options:area-effect] save). Creatures that critically fail their saves are marked with Walkena's religious symbol on a visible area of their body, which remains for 1 day. This mark allows Walkena to treat the creature as if he knew the creature's identity but not having met them for the purposes of @UUID[Compendium.pf2e.spells-srd.Item.Scrying], lowering the spell's DC by 2. The sun warrior's gear and treasure are unaffected by the explosion and left in a pile where they die.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -908,7 +903,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The sun warrior attempts to drive their spear through a foe to pin them in place. The sun warrior makes a spear Strike. On a hit, the target's clothes, armor, or other piece of equipment becomes pinned to the ground. The sun warrior Releases the spear, and the target is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] until they can remove the spear (Escape DC 27). If the Strike was a critical hit, the DC increases by 2.</p>"
+                    "value": "<p>The sun warrior attempts to drive their spear through a foe to pin them in place. The sun warrior makes a spear Strike. On a hit, the target's clothes, armor, or other piece of equipment becomes pinned to the ground. The sun warrior Releases the spear, and the target is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] until they can remove the spear ([[/act escape dc=27]]). If the Strike was a critical hit, the DC increases by 2.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1001,6 +996,9 @@
                 "value": 245
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

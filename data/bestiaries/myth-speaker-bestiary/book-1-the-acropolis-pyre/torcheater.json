@@ -1,0 +1,341 @@
+{
+    "_id": "VfL5YJzRiUxldUTg",
+    "folder": "TK7ZSMCuElK7Dn5u",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "Q8VadknuskjIAxX7",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Claw",
+            "sort": 100000,
+            "system": {
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 11
+                },
+                "damageRolls": {
+                    "1iVQIQbhQbmHoONM": {
+                        "damage": "1d8+2",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "finesse"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "z36dIxGv3CDIizVl",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 200000,
+            "system": {
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 11
+                },
+                "damageRolls": {
+                    "2MUTC96vR1kLdHOB": {
+                        "damage": "1d8+2",
+                        "damageType": "piercing"
+                    },
+                    "8xWjjOXUWqICEn7P": {
+                        "damage": "1d4",
+                        "damageType": "cold"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "finesse"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "Q2Zw9PZTYmcbJ6hK",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Shelter Within the Shadow Cast",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>When a torcheater succeeds at a saving throw against a fire or light effect, it gets a critical success instead.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "adjustment": {
+                            "success": "one-degree-better"
+                        },
+                        "key": "AdjustDegreeOfSuccess",
+                        "predicate": [
+                            {
+                                "or": [
+                                    "item:trait:fire",
+                                    "item:trait:light"
+                                ]
+                            }
+                        ],
+                        "selector": "saving-throw"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Ak4i5OqahkxZNFZw",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Inhale Light",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The torcheater sharply inhales to consume a source of light within its reach, such as a torch's flame, a light spell, or another effect no larger than a human. It automatically extinguishes a non-magical flame, and it attempts to counteract a magical fire or light effect at 2nd-rank with a counteract modifier of [[/r 1d20+8 #Counteract]]{+8}. If the torcheater successfully counteracts an effect, it gains a reach of 10 feet, a +5 foot status bonus to Speed, and fast healing 2 until the end of its next turn, plus an additional number of rounds equal to the counteracted effect's rank. During this time, the creature's body solidifies, reducing its resistance to physical damage to 2.</p>\n<p>The torcheater can spend two actions to instead affect a light source it can perceive within 30 feet.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "exceptions": [
+                            {
+                                "definition": [
+                                    "damage:material:bronze"
+                                ],
+                                "label": "PF2E.IWR.Custom.Bronze"
+                            }
+                        ],
+                        "key": "Resistance",
+                        "predicate": [
+                            {
+                                "not": "self:effect:inhale-light"
+                            }
+                        ],
+                        "type": "physical",
+                        "value": 5
+                    }
+                ],
+                "selfEffect": {
+                    "name": "Effect: Inhale Light",
+                    "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Inhale Light"
+                },
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "darkness",
+                        "healing"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Sp4CzC4plQGwra3U",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Shadow Stairs",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>A torcheater can create and climb wispy steps made of shadow. While in dim light or darkness, a torcheater gains a fly Speed equal to its Speed. If it's airborne and enters an area of bright light, the torcheater immediately falls without taking falling damage.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Torcheater",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 3
+            },
+            "con": {
+                "mod": 1
+            },
+            "dex": {
+                "mod": 4
+            },
+            "int": {
+                "mod": -1
+            },
+            "str": {
+                "mod": 0
+            },
+            "wis": {
+                "mod": 1
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 18
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 30,
+                "temp": 0,
+                "value": 30
+            },
+            "resistances": [
+                {
+                    "doubleVs": [],
+                    "exceptions": [],
+                    "type": "fire",
+                    "value": 5
+                }
+            ],
+            "speed": {
+                "details": " shadow stairs",
+                "otherSpeeds": [],
+                "value": 25
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "shadowtongue"
+                ]
+            },
+            "level": {
+                "value": 2
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>When bright lights or large fires illuminate terrible crimes, the perpetrators' shadows can animate and take on a life of their own. However, such an existence is temporary; the spirit slowly fades over the course of days or weeks unless it can rest in shadows and consume light, both of which restore its shadowy body.</p>\n<p>Known as torcheaters, these spirits often haunt settlements and play pranks on nighttime travelers by stealing their lamps. They're also a threat to travelers, especially those traversing the roads after dark. An encounter with a torcheater on a dark and winding road through the mountains can be deadly if they snuff the traveler's light. However, torcheaters can't stand being the subject of pranks in turn. If caught or taunted, a torcheater can quickly turn violent and attack their tormentor.</p>\n<p>In rare places of near-constant light where shadows don't fall, a torcheater can still exist in a sort of limbo where they're aware of their surroundings but unable manifest enough to affect the world around them. They can only hope for some shade to fall across them so they can then begin to restore their shadowy forms.</p><h2>Shadowy Witnesses</h2><p>A torcheater's first glimpse of the world is whatever crime created it. Most of these spirits treat the event as inspiration, teaching them that tormenting others is acceptable. However, a placated torcheater might provide unique testimony about what they witnessed, helping investigators track down an otherwise unstoppable criminal.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #216: The Acropolis Pyre"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 8,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "type": "low-light-vision"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 5
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 10
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 9
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 6
+            },
+            "occultism": {
+                "base": 5
+            },
+            "stealth": {
+                "base": 8
+            },
+            "thievery": {
+                "base": 6
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "sm"
+            },
+            "value": [
+                "incorporeal",
+                "spirit"
+            ]
+        }
+    },
+    "type": "npc"
+}

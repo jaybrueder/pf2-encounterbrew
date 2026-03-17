@@ -32,6 +32,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "jaws",
                 "traits": {
@@ -40,9 +41,6 @@
                         "finesse",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -79,6 +77,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -88,9 +87,6 @@
                         "finesse",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -112,7 +108,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>10 feet, @Check[fortitude|dc:14]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Stench]</p>"
+                    "value": "<p>10 feet. @Check[fortitude|dc:14|options:area-effect,inflicts:sickened,inflicts:slowed]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Stench]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -268,6 +264,10 @@
                 "category": "offensive",
                 "description": {
                     "value": "<p>[[/r 1d20+7]]{+7} skill modifier</p>\n<hr />\n<p><strong>Frequency</strong> once per hour</p>\n<hr />\n<p><strong>Effect</strong> The ghoul calls upon knowledge it retains from one creature it has consumed in the past 7 days. The ghoul attempts a skill check using a skill in which the consumed creature was trained (if it's unclear whether the creature was trained, the GM decides). The ghoul is treated as trained and uses the high skill modifier for the ghoul's level. This takes the same amount of actions or time as usual for the check.</p>\n<p>The ghoul can instead automatically learn something specific known by a creature it consumed in the last 7 days, like the location of a @UUID[Compendium.pf2e.conditionitems.Item.Hidden] treasure or the name of a loved one. The ghoul can do this only once for a given creature, no matter how much of its flesh the ghoul consumed.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "PT1H"
                 },
                 "publication": {
                     "license": "ORC",

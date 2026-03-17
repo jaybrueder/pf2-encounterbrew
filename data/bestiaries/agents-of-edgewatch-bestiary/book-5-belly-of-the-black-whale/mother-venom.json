@@ -2146,7 +2146,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>A vine covered in sticky sap appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack against the target.</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty and the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition.</p>\n<p><strong>Success</strong> The target takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
+                    "value": "<p>A vine covered in sticky sap appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack against the target.</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty and the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition.</p>\n<p><strong>Success</strong> The target takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -2224,6 +2224,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2231,9 +2232,6 @@
                     "value": [
                         "agile"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2268,6 +2266,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2276,9 +2275,6 @@
                         "magical",
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2310,17 +2306,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": "spit",
                 "traits": {
                     "rarity": "common",
                     "value": [
-                        "agile",
-                        "range-increment-30"
+                        "agile"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -2401,7 +2397,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>A creature hit by Mother Venom's spit attack is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] and stuck to the nearest surface (Escape DC 38).</p>"
+                    "value": "<p>A creature hit by Mother Venom's spit attack is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] and stuck to the nearest surface ([[/act escape dc=38]]).</p>"
                 },
                 "publication": {
                     "license": "OGL",

@@ -31,6 +31,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -40,9 +41,6 @@
                         "reach-0",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -76,15 +74,14 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "value": [
-                        "range-increment-30"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"

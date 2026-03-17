@@ -132,7 +132,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Undetected], not just to sight but to all senses, allowing the target to count as @UUID[Compendium.pf2e.conditionitems.Item.Invisible] no matter what precise and imprecise senses an observer might have. It's still possible for a creature to find the target by Seeking, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of an otherwise-undetectable creature.</p>"
+                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Invisible], but not merely to vision. The invisibility granted by <em>disappearance</em> applies to all precise senses an observer might have. It's still possible for a creature to find the target by Seeking using various senses, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of a creature that is otherwise undetectable.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -145,9 +145,9 @@
                     "value": "3sUb7J0bD92GSjki"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": ""
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
@@ -169,7 +169,8 @@
                     ],
                     "value": [
                         "illusion",
-                        "manipulate"
+                        "manipulate",
+                        "subtle"
                     ]
                 }
             },
@@ -769,6 +770,9 @@
         },
         {
             "_id": "ZfiEVipzehZo1cei",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.KFfM3Y8SbhdxpbQI"
+            },
             "img": "systems/pf2e/icons/equipment/worn-items/other-worn-items/robe-of-eyes.webp",
             "name": "Robe of Eyes",
             "sort": 1300000,
@@ -857,6 +861,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -868,9 +873,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"

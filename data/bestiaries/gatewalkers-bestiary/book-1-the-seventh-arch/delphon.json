@@ -33,16 +33,16 @@
                         "max": 4,
                         "prepared": [
                             {
-                                "id": "xnQtqi2Vr9mtv5Ms"
+                                "id": "AFMGObpFxy5yFj3S"
                             },
                             {
-                                "id": "KcyCfm1XSEi1SqJx"
+                                "id": "1bdywqnO7KiCv7Bt"
                             },
                             {
-                                "id": "GICIBrVUr98TrhUs"
+                                "id": "olNq6wN2p1O3jKxE"
                             },
                             {
-                                "id": "eCnHuMITB4BvNZJL"
+                                "id": "UFYEOe296yDMArDm"
                             }
                         ]
                     },
@@ -50,10 +50,10 @@
                         "max": 2,
                         "prepared": [
                             {
-                                "id": "wCqOjriCC8u11LoM"
+                                "id": "hn8BXbVJXJrhG8wN"
                             },
                             {
-                                "id": "XyWVXSqgGYMSmYO8"
+                                "id": "hadbfOSblZJgmHh3"
                             }
                         ]
                     }
@@ -65,18 +65,187 @@
                 },
                 "tradition": {
                     "value": "primal"
-                }
+                },
+                "traits": {}
             },
             "type": "spellcastingEntry"
         },
         {
-            "_id": "xnQtqi2Vr9mtv5Ms",
+            "_id": "hn8BXbVJXJrhG8wN",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.4koZzrnMXhhosn0D"
+            },
+            "folder": "T8AzYUgNIAgTJ9Iz",
+            "img": "systems/pf2e/icons/spells/fear.webp",
+            "name": "Fear",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You plant fear in the target; it must attempt a Will save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3} and @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] for 1 round.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You can target up to five creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "varies"
+                },
+                "heightening": {
+                    "levels": {
+                        "3": {
+                            "target": {
+                                "value": "5 creatures"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "VypjDV3jlcnVFHxH"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "fear",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "emotion",
+                        "fear",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "AFMGObpFxy5yFj3S",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.IxhGEKl63R4QBvkj"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "icons/magic/movement/trail-streak-impact-blue.webp",
+            "name": "Frostbite",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "3bsJUDEgedKhPx6T": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "2d4",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "cold"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>An orb of biting cold coalesces around your target, freezing its body. The target takes 2d4 cold damage with a basic Fortitude save. On a critical failure, the target also gains weakness 1 to bludgeoning until the start of your next turn.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Frostbite]</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4 and the weakness on a critical failure increases by 1.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "3bsJUDEgedKhPx6T": "1d4"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "VypjDV3jlcnVFHxH"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "60 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "frostbite",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "cold",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "1bdywqnO7KiCv7Bt",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "systems/pf2e/icons/spells/light.webp",
             "name": "Light",
-            "sort": 200000,
+            "sort": 400000,
             "system": {
                 "area": null,
                 "cost": {
@@ -86,11 +255,11 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>The object glows, casting bright light in a 20-foot radius (and dim light for the next 20 feet) like a torch. If you cast this spell again on a second object, the light spell on the first object ends.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Light]</p>\n<hr />\n<p><strong>Heightened (4th)</strong> The object sheds bright light in a 60-foot radius (and dim light for the next 60 feet).</p>"
+                    "value": "<p>You create an orb of light that sheds bright light in a 20-foot radius (and dim light for the next 20 feet) in a color you choose. If you create the light in the same space as a willing creature, you can attach the light to the creature, causing it to float near that creature as it moves. You can Sustain the spell to move the light up to 60 feet; you can attach or detach it from a creature as part of this movement.</p>\n<p>You can Dismiss the spell. If you Cast the Spell while you already have four <em>light</em> spells active, you must choose one of the existing spells to end.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Light]</p>\n<hr />\n<p><strong>Heightened (4th)</strong> The orb sheds light in a 60-foot radius (and dim light for the next 60 feet).</p>"
                 },
                 "duration": {
                     "sustained": false,
-                    "value": "until the next time you make your daily preparations"
+                    "value": "until your next daily preparations"
                 },
                 "level": {
                     "value": 1
@@ -99,18 +268,18 @@
                     "value": "VypjDV3jlcnVFHxH"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
-                    "value": "touch"
+                    "value": "120 feet"
                 },
                 "requirements": "",
                 "rules": [],
                 "slug": "light",
                 "target": {
-                    "value": "1 object of 1 Bulk or less, either unattended or possessed by you or a willing ally"
+                    "value": ""
                 },
                 "time": {
                     "value": "2"
@@ -134,152 +303,13 @@
             "type": "spell"
         },
         {
-            "_id": "wCqOjriCC8u11LoM",
+            "_id": "hadbfOSblZJgmHh3",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.EE7Q5BHIrfWNCPtT"
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.TFitdEOpQC4SzKQQ"
             },
-            "img": "systems/pf2e/icons/spells/magic-fang.webp",
-            "name": "Magic Fang",
-            "sort": 300000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {},
-                "defense": null,
-                "description": {
-                    "value": "<p>Choose one of the target's unarmed attacks. You cause that unarmed attack to shine with primal energy. The unarmed attack becomes a +1 striking unarmed attack, gaining a +1 item bonus to attack rolls and increasing the number of damage dice to two if it had only one.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Runic Body]</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": "1 minute"
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "value": "VypjDV3jlcnVFHxH"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "touch"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "magic-fang",
-                "target": {
-                    "value": "1 willing creature"
-                },
-                "time": {
-                    "value": "2"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
-                        "primal"
-                    ],
-                    "value": [
-                        "concentrate",
-                        "manipulate"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "KcyCfm1XSEi1SqJx",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gYjPm7YwGtEa1oxh"
-            },
-            "img": "icons/magic/movement/trail-streak-impact-blue.webp",
-            "name": "Ray of Frost",
-            "sort": 400000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {
-                    "0": {
-                        "applyMod": false,
-                        "category": null,
-                        "formula": "2d4",
-                        "kinds": [
-                            "damage"
-                        ],
-                        "materials": [],
-                        "type": "cold"
-                    }
-                },
-                "defense": null,
-                "description": {
-                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a -10-foot status penalty to its Speeds for 1 round.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ray of Frost]</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": ""
-                },
-                "heightening": {
-                    "damage": {
-                        "0": "1d4"
-                    },
-                    "interval": 1,
-                    "type": "interval"
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "value": "VypjDV3jlcnVFHxH"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "120 feet"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "ray-of-frost",
-                "target": {
-                    "value": "1 creature"
-                },
-                "time": {
-                    "value": "2"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
-                        "arcane",
-                        "primal"
-                    ],
-                    "value": [
-                        "attack",
-                        "cantrip",
-                        "cold",
-                        "concentrate",
-                        "manipulate"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "XyWVXSqgGYMSmYO8",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.s3abwDbTV43pGFFW"
-            },
-            "img": "systems/pf2e/icons/spells/shillelagh.webp",
-            "name": "Shillelagh",
+            "folder": "T8AzYUgNIAgTJ9Iz",
+            "img": "systems/pf2e/icons/spells/magic-weapon.webp",
+            "name": "Runic Weapon",
             "sort": 500000,
             "system": {
                 "area": null,
@@ -290,7 +320,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>The target grows vines and leaves, brimming with primal energy. The target becomes a <em>+1 striking weapon</em> while in your hands, gaining a +1 item bonus to attack rolls and increasing the number of weapon damage dice to two. Additionally, as long as you are on your home plane, attacks you make with the target against aberrations, extraplanar creatures, and undead increase the number of weapon damage dice to three.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Shillelagh]</p>"
+                    "value": "<p>The weapon glimmers with magic as temporary runes carve down its length. The target becomes a <em>+1 striking weapon</em>, gaining a +1 item bonus to attack rolls and increasing the number of weapon damage dice to two.</p>\n<hr />\n<p><strong>Heightened (6th)</strong> The weapon is <em>+2 greater striking</em>.</p>\n<p><strong>Heightened (9th)</strong> The weapon is <em>+3 major striking</em>.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Runic Weapon]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -303,18 +333,18 @@
                     "value": "VypjDV3jlcnVFHxH"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "shillelagh",
+                "slug": "runic-weapon",
                 "target": {
-                    "value": "1 club or staff you hold"
+                    "value": "1 weapon that is unattended or wielded by a willing creature"
                 },
                 "time": {
                     "value": "2"
@@ -322,22 +352,25 @@
                 "traits": {
                     "rarity": "common",
                     "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
                         "primal"
                     ],
                     "value": [
                         "concentrate",
-                        "manipulate",
-                        "plant"
+                        "manipulate"
                     ]
                 }
             },
             "type": "spell"
         },
         {
-            "_id": "GICIBrVUr98TrhUs",
+            "_id": "olNq6wN2p1O3jKxE",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.SnjhtQYexDtNDdEg"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "icons/magic/control/debuff-energy-hold-yellow.webp",
             "name": "Stabilize",
             "sort": 600000,
@@ -350,7 +383,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>Vitality energy shuts death's door. The target loses the @UUID[Compendium.pf2e.conditionitems.Item.Dying] condition, though it remains @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] at 0 Hit Points.</p>"
+                    "value": "<p>Life energy shuts death's door. The target loses the @UUID[Compendium.pf2e.conditionitems.Item.Dying] condition, though it remains @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] at 0 Hit Points.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -363,9 +396,9 @@
                     "value": "VypjDV3jlcnVFHxH"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -397,12 +430,13 @@
             "type": "spell"
         },
         {
-            "_id": "eCnHuMITB4BvNZJL",
+            "_id": "UFYEOe296yDMArDm",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.uZK2BYzPnxUBnDjr"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "icons/magic/nature/root-vine-entangled-hand.webp",
-            "name": "Tanglefoot",
+            "name": "Tangle Vine",
             "sort": 700000,
             "system": {
                 "area": null,
@@ -413,7 +447,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>A vine covered in sticky sap appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack against the target.</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty and the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition.</p>\n<p><strong>Success</strong> The target takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
+                    "value": "<p>A vine appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack roll against the target.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Escape] against your spell DC to remove the penalty and the immobilized condition.</p>\n<p><strong>Success</strong> The target takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -426,16 +460,16 @@
                     "value": "VypjDV3jlcnVFHxH"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "tanglefoot",
+                "slug": "tangle-vine",
                 "target": {
                     "value": "1 creature"
                 },
@@ -453,7 +487,8 @@
                         "cantrip",
                         "concentrate",
                         "manipulate",
-                        "plant"
+                        "plant",
+                        "wood"
                     ]
                 }
             },
@@ -493,6 +528,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -517,7 +553,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -581,6 +617,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -790,6 +827,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -818,9 +856,6 @@
                     "value": [
                         "two-hand-d8"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -864,6 +899,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -871,12 +910,8 @@
                     "value": [
                         "bomb",
                         "consumable",
-                        "range-increment-30",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -884,7 +919,7 @@
         {
             "_id": "aySHJHzMJYDg2R4h",
             "img": "systems/pf2e/icons/actions/TwoActions.webp",
-            "name": "Wild Shape",
+            "name": "Untamed Shift",
             "sort": 1400000,
             "system": {
                 "actionType": {
@@ -895,7 +930,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> The Oaksteward's hands transform into wild claws for 1 minute.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Wild Shape (Oaksteward)]</p>"
+                    "value": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> The Oaksteward's hands transform into wild claws for 1 minute. The Oaksteward gains the following Strike.</p>\n<p><strong>Melee</strong> <span class=\"action-glyph\">1</span> claw +7 (agile, finesse), <strong>Damage</strong> 1d6+2 slashing</p>"
                 },
                 "frequency": {
                     "max": 1,
@@ -908,10 +943,16 @@
                     "title": ""
                 },
                 "rules": [],
+                "selfEffect": {
+                    "name": "Effect: Untamed Shift (Oaksteward)",
+                    "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Untamed Shift (Oaksteward)"
+                },
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
+                        "concentrate",
+                        "manipulate",
                         "morph",
                         "primal"
                     ]
@@ -976,9 +1017,9 @@
             "privateNotes": "",
             "publicNotes": "",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #187: The Seventh Arch"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -1019,7 +1060,6 @@
             },
             "value": [
                 "dwarf",
-                "evil",
                 "humanoid"
             ]
         }

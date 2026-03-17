@@ -536,6 +536,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -562,7 +563,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -695,6 +696,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -706,9 +708,6 @@
                         "reach-10",
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -747,6 +746,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -757,9 +757,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -909,7 +906,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The ifrit grows flaming wings from their back. They gain a fly Speed of 35 feet for 1 minute. The flames also create an aura in a @Template[emanation|distance:5] around the ifrit.</p>\n<p>Any creature that ends its turn in the aura takes @Damage[2d6[fire]] damage with a @Check[reflex|dc:25|basic] save.</p>"
+                    "value": "<p>The ifrit grows flaming wings from their back. They gain a fly Speed of 35 feet for 1 minute. The flames also create an aura in a 5-foot emanation around the ifrit.</p>\n<p>Any creature that ends its turn in the aura takes @Damage[2d6[fire]|options:area-damage] damage with a @Check[reflex|dc:25|basic|options:area-effect] save.</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -918,7 +915,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "wings-of-flame",
                         "toggleable": true

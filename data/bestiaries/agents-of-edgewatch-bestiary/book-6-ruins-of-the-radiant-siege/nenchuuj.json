@@ -669,6 +669,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -680,9 +681,6 @@
                         "unarmed",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -721,6 +719,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -729,12 +731,8 @@
                         "auditory",
                         "magical",
                         "mental",
-                        "range-increment-100",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

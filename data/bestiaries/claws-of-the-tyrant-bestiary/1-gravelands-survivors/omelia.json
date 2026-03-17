@@ -12,6 +12,11 @@
             "name": "Composite Longbow",
             "sort": 100000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "composite-longbow",
                 "bonus": {
                     "value": 0
@@ -37,6 +42,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -182,6 +188,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -221,6 +228,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -263,6 +271,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": "composite-longbow",
                 "traits": {
@@ -270,7 +282,6 @@
                         "deadly-d10",
                         "magical",
                         "propulsive",
-                        "range-increment-100",
                         "reload-0",
                         "volley-30"
                     ]
@@ -295,7 +306,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>10 feet, @Check[fortitude|dc:22]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.Stench]</p>"
+                    "value": "<p>10 feet. @Check[fortitude|dc:22|options:area-effect,inflicts:sickened,inflicts:slowed]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.Stench]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -495,14 +506,12 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.HuntPrey.TargetHuntedPrey",
                         "option": "hunted-prey",
                         "toggleable": true
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.Ranger.HuntersEdge.FirstAttack",
                         "option": "first-attack",

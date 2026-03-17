@@ -1,0 +1,1009 @@
+{
+    "_id": "X0Ldsvfw0NnRywZm",
+    "folder": "RPPLcIAxVyQknttP",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "nJhiLMRSJ5Kp2l4t",
+            "_stats": {
+                "compendiumSource": "Actor.NL8UxKaRh7IJgv4J.Item.nJhiLMRSJ5Kp2l4t"
+            },
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Arcane Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 40,
+                    "value": 0
+                },
+                "tradition": {
+                    "value": "arcane"
+                },
+                "traits": {}
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "rwj2JK58zsTMkxFJ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.dKWc83KKiXoIJkhp"
+            },
+            "folder": "xqlqJ6eeiNtWb7bq",
+            "img": "icons/environment/traps/saw-steel-grey.webp",
+            "name": "Beheading Buzz Saw",
+            "sort": 200000,
+            "system": {
+                "area": {
+                    "type": "line",
+                    "value": 60
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "5d10",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "slashing"
+                    },
+                    "1": {
+                        "applyMod": false,
+                        "category": "persistent",
+                        "formula": "4d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "bleed"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "reflex"
+                    }
+                },
+                "description": {
+                    "value": "<p>You compress molten scraps pulled from the Plane of Metal into a spinning disc with gruesome blades protruding from its edges. It wheels forward, slicing through anyone in its path. Each creature in the area takes 5d10 slashing damage and 4d6 persistent bleed damage, with a Reflex save.</p>\n<p><strong>Success</strong> The creature is unaffected.</p>\n<p><strong>Failure</strong> The creature takes full damage.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage. If the creature has a head, it must succeed at a @Check[fortitude|against:spell|traits:death,incapacitation] save or be decapitated; this kills any creature except ones that don't require a head to live. For creatures with multiple heads, this usually kills the creature only if you sever its last head. This second save has the death and incapacitation traits.</p><hr /><p><strong>Heightened (+1)</strong> The slashing damage increases by 1d10, and the persistent bleed damage increases by 1d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "area": 0,
+                    "damage": {
+                        "0": "1d10",
+                        "1": "1d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 7
+                },
+                "location": {
+                    "heightenedLevel": 8,
+                    "value": "nJhiLMRSJ5Kp2l4t"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": true,
+                    "title": "Pathfinder Rage of Elements"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "beheading-buzz-saw",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "metal"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "2bABMGye11tUMFsR",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.5bTt2CvYHPvaR7QQ"
+            },
+            "folder": "xqlqJ6eeiNtWb7bq",
+            "img": "icons/magic/lightning/bolt-strike-explosion-purple.webp",
+            "name": "Interplanar Teleport (First World and the Universe only)",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p><strong>Requirements</strong> You have a planar key for the destination plane, used as a locus</p>\n<hr />\n<p>You and your allies traverse the barriers between planes of existence. The targets move to another plane, such as the Plane of Fire, the Netherworld, or the Outer Rifts. You must know the destination plane exists and use a magic planar key created from material from that plane as a locus for the spell. While the planar keys for most prominent planes are uncommon, just like the spell <em>interplanar teleport</em>, more obscure planes and demiplanes often have rare or possibly even unique planar keys.</p>\n<p>The spell is highly imprecise, and you appear 1d20×25 miles from the last place one of the targets (of your choice) was located the last time that target traveled to the plane. If it's the first time traveling to a particular plane for all targets, you appear at a random location on the plane. <em>Interplanar teleport</em> doesn't provide a means of return travel, though casting <em>interplanar teleport</em> again allows you to return to your previous plane unless there are extenuating circumstances.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 7
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "value": "nJhiLMRSJ5Kp2l4t"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "5 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "interplanar-teleport",
+                "target": {
+                    "value": "up to 8 willing creatures"
+                },
+                "time": {
+                    "value": "10 minutes"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "teleportation"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "QyVffSbdHPZRbQkc",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.MLYTWHfewOpI3Cz7"
+            },
+            "folder": "zDlxATrLAlbYA2Mv",
+            "img": "systems/pf2e/icons/spells/field-of-razors.webp",
+            "name": "Field of Razors",
+            "sort": 400000,
+            "system": {
+                "area": {
+                    "type": "burst",
+                    "value": 20
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "fiGNEgajuvkIMj7d": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "5",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "slashing"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
+                "description": {
+                    "value": "<p>You grind a chunk of your choice of metal to fine dust between your hands and blow it into the air, where it grows into a tangle of wires covered in razor-sharp prongs. The metal must be of a type you currently have in your possession. The covered area is difficult terrain. A creature that moves through the area takes @Damage[5[slashing]] damage per square traversed.</p>\n<p>If a creature takes slashing, piercing, or persistent bleed damage while inside the thicket, you can spend a reaction to grow the iron in the shed blood into additional wires, expanding the burst by 5 feet. You can grow the area four times in this way, to a maximum of a @Template[burst|distance:40].</p>\n<p>The barbed wires are made of the metal you chose and activate resistances, weaknesses, and the like normally. The metal reforms in your possession when the spell ends.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage per square increases by 2.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "fiGNEgajuvkIMj7d": "2"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 6
+                },
+                "location": {
+                    "heightenedLevel": 8,
+                    "value": "nJhiLMRSJ5Kp2l4t"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": true,
+                    "title": "Pathfinder Rage of Elements"
+                },
+                "range": {
+                    "value": "60 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "field-of-razors",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "metal"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "6wyLyc93oFJSlOEr",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gfKhtVsXF3HKSdmY"
+            },
+            "folder": "7cyoYPoPYA01mErU",
+            "img": "systems/pf2e/icons/spells/seal-fate.webp",
+            "name": "Seal Fate",
+            "sort": 500000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>You utter a curse that a creature will meet a certain end—a death by freezing, stabbing, or another means you devise. Choose one type of damage from the following list: acid, bludgeoning, cold, electricity, fire, piercing, slashing, sonic, or void. The effect is based on the target's Fortitude save.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target gains weakness 2 to the chosen damage type until the end of your next turn.</p>\n<p><strong>Failure</strong> As success, but the duration is 1 minute. If the creature is reduced to 0 Hit Points by the chosen damage and its level is 7 or less, it dies.</p>\n<p><strong>Critical Failure</strong> As failure, but the duration is unlimited.</p><hr /><p><strong>Heightened (+2)</strong> The weakness increases by 1, and the maximum level of creature that can be automatically killed increases by 4.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Seal Fate]</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "varies"
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "heightenedLevel": 6,
+                    "uses": {
+                        "max": 3,
+                        "value": 3
+                    },
+                    "value": "nJhiLMRSJ5Kp2l4t"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core 2"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "seal-fate",
+                "target": {
+                    "value": "1 living creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "curse",
+                        "death",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "Rlnd6khGyYdpmRIc",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Chin Blade",
+            "sort": 600000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": [
+                        "vorpal-binding"
+                    ]
+                },
+                "bonus": {
+                    "value": 35
+                },
+                "damageRolls": {
+                    "fF2I8LbntZevMk60": {
+                        "damage": "3d8+17",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-20"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "aaqMD0Jo3VHScm8N",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Claw",
+            "sort": 700000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 35
+                },
+                "damageRolls": {
+                    "v1QqQCKxfOjjqhal": {
+                        "damage": "3d6+17",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "magical",
+                        "reach-15"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "p8y0WDQ538PhdjiD",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Tail",
+            "sort": 800000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 33
+                },
+                "damageRolls": {
+                    "2ANYQHrrrUs8zAYt": {
+                        "damage": "3d12+17",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-25",
+                        "sweep"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "yU9NIU8eioV0CBDG",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Pinion",
+            "sort": 900000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 31
+                },
+                "damageRolls": {
+                    "oiLHNfSHGmMAN4iq": {
+                        "damage": "3d8+13",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": {
+                    "increment": 120,
+                    "max": null
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "magical",
+                        "propulsive",
+                        "versatile-p"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "0vZnWjLs4Iz8bbQo",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "+2 Status to All Saves vs. Arcane",
+            "sort": 1000000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "item:trait:arcane"
+                        ],
+                        "selector": "saving-throw",
+                        "type": "status",
+                        "value": 2
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "ORerUNYbuvmUoKCT",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Cutting Rebuke",
+            "sort": 1100000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A creature within reach of the dragon's chin blade that the dragon can see makes a Strike against the dragon</p><hr /><p><strong>Effect</strong> The dragon makes a chin blade Strike against the triggering creature.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "JomXyHc1dKwvzSrG",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Draconic Frenzy",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon makes two claw Strikes and one tail Strike in any order.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "jmjrJbY635KlTgw1",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Draconic Momentum",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon recharges their Feast of Blood whenever they score a critical hit with a Strike.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "DjGSu7yFt95n3wbX",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Feast of Blood",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon inhales sharply, pulling blood from wounds and into the dragon's maw. Each creature in a @Template[type:emanation|distance:20] takes their current persistent bleed damage plus @Damage[14d6[void]|options:area-damage] damage (@Check[will|dc:40|basic] save). The dragon gains temporary Hit Points equal to half the greatest amount of void damage dealt to a single creature this way. The dragon can't use Feast of Blood again for [[/gmr 1d4 #Recharge Feast of Blood]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "void"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "cc86LSb1Ej327HKf",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Gruesome Cuts",
+            "sort": 1500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>Persistent bleed damage inflicted by the dragon, even magically, carries a poison that inhibits clotting. Healing the creature to full HP doesn't end the bleeding, the DC of any flat check to recover is 2 higher, and the DC to stop the bleeding using Administer First Aid is 40. This poison can be counteracted (DC 40), and successfully doing so ends the bleeding.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "poison"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "GFncoXGwaNuMs7ix",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Heads Will Roll!",
+            "sort": 1600000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Frequency</strong> once per minute</p><hr /><p><strong>Effect</strong> The vorpal dragon swoops across the battlefield, sweeping their axe-bladed tail through their foes. The dragon Flies twice; at any point during this movement, the dragon makes up to two chin blade Strikes, each against a different creature within reach. The dragon's multiple attack penalty doesn't increase until all Strikes are made.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "PT1M"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "CYDV79TqVa8o4jHd",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Vorpal Binding",
+            "sort": 1700000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The vorpal dragon beheads its foes—sometimes without killing them. A vorpal dragon's chin blade Strikes count as having the vorpal weapon property rune for the purpose of weaknesses. Whenever the vorpal dragon critically succeeds on a chin blade Strike, it deals an additional 4d6 persistent bleed damage, which can be ended normally.</p>\n<p>When a vorpal dragon rolls a natural 20 on a chin blade Strike, the target must attempt a @Check[fortitude|dc:40|traits:incapacitation] save; this has the incapacitation trait. On a failure, the creature is beheaded. A creature beheaded this way does not automatically die; instead, their head and body live on, disconnected but mystically linked, with the head controlling the body from afar. A beheaded creature is @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 2} and @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] as they attempt to coordinate movements from an unusual perspective, or @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 4} and @UUID[Compendium.pf2e.conditionitems.Item.Blinded] and @UUID[Compendium.pf2e.conditionitems.Item.Deafened] if their head can't perceive their body from its location. These conditions are suppressed if the body holds its head, and don't apply to actions performed exclusively by the head, mind, or voice. If the body is killed, the head can live on, but destroying the head kills the body as well. This effect can be ended only by @UUID[Compendium.pf2e.spells-srd.Item.Regenerate], @UUID[Compendium.pf2e.spells-srd.Item.Breath of Life], or any effect that restores life to the dead; only effects that restore an incomplete corpse will replace an absent or destroyed body, however. The dragon can choose to instantly kill a creature when beheading them, as per the vorpal weapon property rune's activation.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "exceptions": [
+                            {
+                                "definition": [
+                                    "item:damage:type:bludgeoning",
+                                    "damage:material:adamantine"
+                                ],
+                                "label": "PF2E.IWR.Custom.AdamantineBludgeoning"
+                            }
+                        ],
+                        "key": "Resistance",
+                        "type": "physical",
+                        "value": 15
+                    },
+                    {
+                        "definition": [
+                            "decapitation"
+                        ],
+                        "key": "Immunity",
+                        "label": "PF2E.IWR.Custom.Decapitation",
+                        "type": "custom"
+                    },
+                    {
+                        "critical": true,
+                        "damageType": "bleed",
+                        "diceNumber": 4,
+                        "dieSize": "d6",
+                        "key": "DamageDice",
+                        "selector": "chin-blade-damage"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Vorpal Dragon (Ancient)",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 5
+            },
+            "con": {
+                "mod": 6
+            },
+            "dex": {
+                "mod": 5
+            },
+            "int": {
+                "mod": 6
+            },
+            "str": {
+                "mod": 9
+            },
+            "wis": {
+                "mod": 5
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 42
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 330,
+                "temp": 0,
+                "value": 330
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "confused"
+                },
+                {
+                    "exceptions": [],
+                    "type": "doomed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "sleep"
+                },
+                {
+                    "exceptions": [],
+                    "type": "paralyzed"
+                }
+            ],
+            "resistances": [
+                {
+                    "doubleVs": [],
+                    "exceptions": [],
+                    "type": "fire",
+                    "value": 20
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 150
+                    }
+                ],
+                "value": 30
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "aklo",
+                    "draconic",
+                    "fey",
+                    "talican"
+                ]
+            },
+            "level": {
+                "value": 18
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Vorpal dragons were not created by some ancient divinity nor born of a specific realm or force. Their birth was an arcane accident, the result of unstoppable magic contacting immovable beast. In unknowable ancient ages, the first jabberwock was wrought by the Eldest and the first vorpal sword was wrought in turn to slay the beast. When that very first blade went snicker-snack for the very first time, tasting the primeval lifeblood of the draconic Tane, the first vorpal dragon was born.</p>\n<p>Vorpal dragons are most notorious for their keen vorpal magic. Even the least of these dragons can sever a foe's head in a single lucky stroke. Unusually, however, the subject survives as a bipartite creature: a headless body controlled by a detached head that still thinks and speaks, and which can outlive said body's destruction. It's not uncommon for would-be dragonslayers to be sent home carrying their own heads under one arm as a lesson in humility. The unluckier ones, alas, may be kept as trophies—and, in a very literal sense, conversation pieces—while the dragon devours their greater portion. Some might even wear their favorite severed heads as a macabre necklace.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Lost Omens Draconic Codex"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 33,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 120,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 36
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 30
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 33
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 31,
+                "special": []
+            },
+            "arcana": {
+                "base": 35,
+                "special": []
+            },
+            "athletics": {
+                "base": 35,
+                "special": []
+            },
+            "diplomacy": {
+                "base": 29,
+                "special": []
+            },
+            "intimidation": {
+                "base": 31,
+                "special": []
+            },
+            "nature": {
+                "base": 31,
+                "special": []
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "grg"
+            },
+            "value": [
+                "arcane",
+                "dragon",
+                "metal"
+            ]
+        }
+    },
+    "type": "npc"
+}

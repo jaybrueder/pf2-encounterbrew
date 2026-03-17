@@ -713,6 +713,11 @@
             "name": "Shortbow",
             "sort": 1000000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "shortbow",
                 "bonus": {
                     "value": 0
@@ -738,6 +743,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -823,6 +829,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -849,7 +856,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -877,79 +884,13 @@
             "type": "weapon"
         },
         {
-            "_id": "spq3dKvrOBW8HjRD",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.w2ENw2VMPcsbif8g"
-            },
-            "img": "systems/pf2e/icons/equipment/weapons/arrows.webp",
-            "name": "Arrows",
-            "sort": 1200000,
-            "system": {
-                "baseItem": null,
-                "bulk": {
-                    "value": 0.1
-                },
-                "category": "ammo",
-                "containerId": null,
-                "damage": null,
-                "description": {
-                    "value": "<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. It is stabilized in flight by fletching at one end and bears a metal head on the other.</p>"
-                },
-                "equipped": {
-                    "carryType": "worn",
-                    "handsHeld": 0
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
-                "level": {
-                    "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
-                },
-                "price": {
-                    "per": 10,
-                    "value": {
-                        "sp": 1
-                    }
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "quantity": 20,
-                "rules": [],
-                "size": "med",
-                "slug": "arrows",
-                "stackGroup": "arrows",
-                "traits": {
-                    "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
-                },
-                "uses": {
-                    "autoDestroy": true,
-                    "max": 1,
-                    "value": 1
-                }
-            },
-            "type": "consumable"
-        },
-        {
             "_id": "XAykh0IYI1ghHEsI",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.INyiWvehFuo8nGaa"
             },
             "img": "systems/pf2e/icons/default-icons/consumable.svg",
             "name": "Glowing Lantern Fruit",
-            "sort": 1300000,
+            "sort": 1200000,
             "system": {
                 "baseItem": null,
                 "bulk": {
@@ -1010,6 +951,56 @@
             "type": "consumable"
         },
         {
+            "_id": "spq3dKvrOBW8HjRD",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.w2ENw2VMPcsbif8g"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/arrows.webp",
+            "name": "Arrows",
+            "sort": 1300000,
+            "system": {
+                "baseItem": "arrows",
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": null,
+                "craftableAs": null,
+                "description": {
+                    "value": "<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. It is stabilized in flight by fletching at one end and bears a metal head on the other.</p>"
+                },
+                "level": {
+                    "value": 0
+                },
+                "price": {
+                    "per": 10,
+                    "value": {
+                        "sp": 1
+                    }
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "quantity": 20,
+                "rules": [],
+                "size": "med",
+                "slug": "arrows",
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "consumable"
+                    ]
+                },
+                "uses": {
+                    "autoDestroy": true,
+                    "max": 1,
+                    "value": 1
+                }
+            },
+            "type": "ammo"
+        },
+        {
             "_id": "w7EuUyubgdMkrfeY",
             "flags": {
                 "pf2e": {
@@ -1043,6 +1034,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1051,9 +1043,6 @@
                         "finesse",
                         "trip"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1092,17 +1081,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "deadly-d10",
-                        "range-increment-60",
                         "reload-0"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1121,7 +1110,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>The ardande gardener can use Diplomacy to Make an Impression and make very simple requests of plants.</p>"
+                    "value": "<p>The ardande gardener can use Diplomacy to [[/act make-an-impression]] and make very simple [[/act request]]{Requests} of plants.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1150,7 +1139,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> Void energy seeps out of the ardande gardener, decaying everything within a @Template[emanation|distance:5] and causing plants and foliage to age and decompose. Natural difficult terrain is destroyed, and creatures in the area with the plant or wood trait take @Damage[1d6[void]] damage (@Check[fortitude|dc:16|basic]).</p>"
+                    "value": "<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> Void energy seeps out of the ardande gardener, decaying everything within a @Template[emanation|distance:5] and causing plants and foliage to age and decompose. Natural difficult terrain is destroyed, and creatures in the area with the plant or wood trait take @Damage[1d6[void]|options:area-damage] damage (@Check[fortitude|dc:16|basic|options:area-effect]).</p>"
                 },
                 "frequency": {
                     "max": 1,

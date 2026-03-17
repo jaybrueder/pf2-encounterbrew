@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -61,7 +62,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -232,6 +233,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "key": "DamageDice",
@@ -290,6 +292,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -333,13 +336,16 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 10,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "fungus",
-                        "poison",
-                        "range-increment-10"
+                        "poison"
                     ]
                 }
             },

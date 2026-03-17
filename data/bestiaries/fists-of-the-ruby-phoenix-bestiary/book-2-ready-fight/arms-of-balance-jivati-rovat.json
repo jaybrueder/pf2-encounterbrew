@@ -194,6 +194,7 @@
                     "inSlot": false,
                     "invested": null
                 },
+                "expend": null,
                 "group": "brawling",
                 "hardness": 0,
                 "hp": {
@@ -220,7 +221,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -363,6 +364,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -372,9 +374,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -415,6 +414,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -424,9 +424,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -464,6 +461,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -472,12 +473,8 @@
                         "agile",
                         "nonlethal",
                         "propulsive",
-                        "range-increment-30",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

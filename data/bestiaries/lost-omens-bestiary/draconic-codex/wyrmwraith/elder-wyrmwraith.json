@@ -1,0 +1,1606 @@
+{
+    "_id": "xcnM6RMbA2ROniM7",
+    "folder": "ambMtW6WSUBKyj0P",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "aOeCz4c09QMbgoTG",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Divine Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 46,
+                    "value": 38
+                },
+                "tradition": {
+                    "value": "divine"
+                },
+                "traits": {}
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "Xw9Xt8FEhBCg5tvA",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.AuIiqc7jjiy1GZ75"
+            },
+            "folder": "x5tjEh1N0FHzbHkv",
+            "img": "systems/pf2e/icons/spells/astral-labyrinth.webp",
+            "name": "Manifestation",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You spin secrets from the fundaments of magic, shaping them into a power with nearly unlimited potential. You duplicate a spell of 9th rank or lower of the tradition from which you cast <em>manifestation</em>, or a spell of 7th rank or lower from any tradition. Though you can normally choose only spells that are common or to which you have access, the GM might allow broader options.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 10
+                },
+                "location": {
+                    "heightenedLevel": 10,
+                    "value": "aOeCz4c09QMbgoTG"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "manifestation",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "jMsGnRwO5Awyk0NA",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.2CNqkt2s2IYkVnv6"
+            },
+            "img": "icons/magic/control/debuff-chains-shackles-movement-purple.webp",
+            "name": "Imprisonment",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": "reagents to construct the magical prison worth a total value of 800 gp × the target's level"
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You perform a ritual to imprison a creature in one of several forms. While some versions of this ritual offer all the forms, others include only a single form or only a few of them. Whichever form you use, the effect can't be counteracted, though it can be ended by @UUID[Compendium.pf2e.spells-srd.Item.Freedom]. Some forms of <em>imprisonment</em> can be ended by other means. Because the ritual requires the target to remain within 10 feet at all times, it typically requires you to subdue the target first.</p><ul><li><strong>Chains</strong> You bind the creature with chains, rendering it unable to use any actions other than to speak. Other creatures that attempt to approach, harm the chains, or free the trapped creature in any way must succeed at a Will save or be unable to do so forever. The chains have Hardness equal to 5 × the <em>imprisonment</em> ritual's spell rank and double that many Hit Points. Destroying the chains frees the target.</li><li><strong>Prison</strong> You render the creature completely unable to leave a particular confined area or structure of your choice, such as a jail cell or sealed cave. The magic also prevents the creature from damaging its prison, either directly or indirectly, to break free. If the creature's prison is entirely destroyed by some external force, the creature is freed, though for some larger or natural prisons, this might be unfeasible.</li><li><strong>Slumber</strong> You put the creature into an eternal sleep. This is a sleep effect. The creature ceases aging and doesn't require food or drink. A single sincere physical display of affection from a creature who genuinely loves the target—whether romantically, filially, or otherwise—frees it from the slumber.</li><li><strong>Temporal Stasis</strong> You send the creature into a state of suspended animation outside the flow of time. The creature doesn't grow older and can't be affected by any effect from within the normal timestream. While casting this ritual, you can optionally name any amount of time for the stasis; after this duration elapses, the stasis ends. Unlike other forms of <em>imprisonment</em>, temporal stasis can be counteracted by a @UUID[Compendium.pf2e.spells-srd.Item.Dispel Magic] or @UUID[Compendium.pf2e.spells-srd.Item.Haste] spell.</li><li><strong>Object (9th or 10th rank)</strong> You either shrink the creature to an inch in height or transform it into an insubstantial form whose body trails away into wisps below its head. Either way, you trap it inside a bottle, gem, jar, lamp, or similar container. The creature ceases aging and doesn't require food or drink. The creature is still aware of its surroundings and can move within the container and speak, but it can't use any other actions. Destroying the container kills the target rather than freeing it.</li><li><p><strong>Oubliette (10th rank only)</strong> You entomb the target in a state of suspended animation deep beneath the surface of the ground and out of tune with reality so that it can't be reached by any means. You also prevent most magic from revealing the location where the <em>imprisonment</em> occurred. Powerful magic, such as the @UUID[Compendium.pf2e.spells-srd.Item.Wish] ritual, can reveal the location of the <em>imprisonment</em>, but even such magic can't free the target from the oubliette; only a 10th-rank <em>freedom</em> ritual can do so.</p></li></ul><hr /><p><strong>Critical Success</strong> You imprison the target. You can either use a form of <em>imprisonment</em> that usually requires a spell rank 1 higher than your ritual or impose an –2 circumstance penalty to any checks for <em>freedom</em> rituals that would free the creature.</p>\n<p><strong>Success</strong> You imprison the target.</p>\n<p><strong>Failure</strong> You fail to imprison the target.</p>\n<p><strong>Critical Failure</strong> You imprison yourself and the secondary casters in the same way you intended to imprison the target.</p><hr /><p><strong>Heightened (9th)</strong> You can use the object form of <em>imprisonment</em> in addition to the other options, and you can target a creature of up to 18th level. The base cost increases to 2,000 gp.</p>\n<p><strong>Heightened (10th)</strong> You can use the object and oubliette forms of <em>imprisonment</em> in addition to the other options, and you can target a creature of up to 20th level. The base cost increases to 6,000 gp.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 8
+                },
+                "location": {
+                    "value": null
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder War of Immortals"
+                },
+                "range": {
+                    "value": "10 feet"
+                },
+                "requirements": "",
+                "ritual": {
+                    "primary": {
+                        "check": "Arcana (mythic) or Occultism (mythic)"
+                    },
+                    "secondary": {
+                        "casters": 6,
+                        "checks": "Crafting, Society"
+                    }
+                },
+                "rules": [],
+                "slug": "imprisonment",
+                "target": {
+                    "value": "1 creature of up to 16th level"
+                },
+                "time": {
+                    "value": "1 day"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": [
+                        "mythic"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "o8gDj1Y2a7NH8HbG",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.Z9OrRXKgAPv6Hn5l"
+            },
+            "img": "icons/magic/unholy/hand-claw-fog-green.webp",
+            "name": "Execute",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "70",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "void"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>You point at a creature and invoke the demise of all things. The target takes 70 void damage with a basic Fortitude save. If the target is undead or otherwise has void healing, the spell loses the death and void traits and gains the vitality trait, and the target takes 70 vitality damage with a basic Fortitude save.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 10.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "10"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 7
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "value": "aOeCz4c09QMbgoTG"
+                },
+                "overlays": {
+                    "WTeek6DuuUC5uXiv": {
+                        "_id": "WTeek6DuuUC5uXiv",
+                        "name": "Execute (Void)",
+                        "overlayType": "override",
+                        "sort": 1,
+                        "system": {}
+                    },
+                    "rZUgF7LFHu7N5MFK": {
+                        "_id": "rZUgF7LFHu7N5MFK",
+                        "name": "Execute (Vitality)",
+                        "overlayType": "override",
+                        "sort": 2,
+                        "system": {
+                            "damage": {
+                                "0": {
+                                    "category": null,
+                                    "type": "vitality"
+                                }
+                            },
+                            "traits": {
+                                "value": [
+                                    "concentrate",
+                                    "manipulate",
+                                    "vitality"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "execute",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "death",
+                        "manipulate",
+                        "void"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "Wdqj12kxco06q2Uq",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.fd31tAHSSGXyOxW6"
+            },
+            "img": "systems/pf2e/icons/spells/vampiric-exsanguination.webp",
+            "name": "Vampiric Exsanguination",
+            "sort": 500000,
+            "system": {
+                "area": {
+                    "type": "cone",
+                    "value": 30
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "12d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "void"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>You draw in the blood and life force of other creatures through your outstretched arms. You deal 12d6 void damage to living creatures in the area with a basic Fortitude save.</p>\n<p>You gain temporary Hit Points equal to half the damage a single creature takes from this spell; calculate these temporary Hit Points using the creature that took the most damage. You lose any remaining temporary Hit Points after 1 minute.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "area": 0,
+                    "damage": {
+                        "0": "2d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 6
+                },
+                "location": {
+                    "heightenedLevel": 6,
+                    "value": "aOeCz4c09QMbgoTG"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "vampiric-exsanguination",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "death",
+                        "manipulate",
+                        "void"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "eeSN1zkMJeHXE3nt",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.hVU9msO9yGkxKZ3J"
+            },
+            "img": "icons/magic/light/projectile-beam-yellow.webp",
+            "name": "Divine Wrath",
+            "sort": 600000,
+            "system": {
+                "area": {
+                    "type": "burst",
+                    "value": 20
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "4d10",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "spirit"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>You channel the fury of divinity against your foes. You deal 4d10 spirit damage to enemies in the area, depending on their Fortitude save.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage.</p>\n<p><strong>Failure</strong> The creature takes full damage and is @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1}.</p>\n<p><strong>Critical Failure</strong> The creature takes full damage and is @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2}; while it's sickened, it's also @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1}.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d10.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "area": 0,
+                    "damage": {
+                        "0": "1d10"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 4
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "uses": {
+                        "max": 3,
+                        "value": 3
+                    },
+                    "value": "aOeCz4c09QMbgoTG"
+                },
+                "overlays": {},
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "divine-wrath",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "sanctified",
+                        "spirit"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "YLG2dq3uetOa36Vb",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.GUeRTriJkMlMlVrk"
+            },
+            "img": "systems/pf2e/icons/spells/bind-undead.webp",
+            "name": "Bind Undead (at will)",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>With a word of power, you seize control of the target. It gains the minion trait. If you or an ally uses any hostile actions against the target, the spell ends.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Bind Undead]</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 day"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "heightenedLevel": 3,
+                    "value": "aOeCz4c09QMbgoTG"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "bind-undead",
+                "target": {
+                    "value": "1 mindless undead creature with a level no greater than bind undead's spell rank"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "eVLDBRnpAwtcWdOD",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.c3b6LdLlQDPngNIb"
+            },
+            "img": "systems/pf2e/icons/spells/create-undead.webp",
+            "name": "Create Undead",
+            "sort": 800000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": "black onyx, see Creature Creation Rituals table"
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You transform the target into an undead creature with a level up to that allowed in the Creature Creation Rituals table. There are many versions of this ritual, each specific to a particular type of undead (one ritual for all zombies, one for skeletons, one for ghouls, and so on), and the rituals that create rare undead are also rare. Some forms of undead, such as liches, form using their own unique methods and can't be created with a version of <em>create undead</em>.</p><hr /><p><strong>Critical Success</strong> The target becomes an undead creature of the appropriate type. If it's at least 4 levels lower than you, you can make it a minion. This gives it the minion trait, meaning it can use 2 actions when you command it, and commanding it is a single action that has the auditory and concentrate traits. You can have a maximum of four minions under your control. If it's intelligent and doesn't become a minion, the undead is helpful to you for awakening it, though it's still a horrid and evil creature. If it's unintelligent and doesn't become a minion, you can give it one simple command. It pursues that goal single-mindedly, ignoring any of your subsequent commands.</p>\n<p><strong>Success</strong> As critical success, except an intelligent undead that doesn't become your minion is only friendly to you, and an unintelligent undead that doesn't become your minion leaves you alone unless you attack it. It marauds the local area rather than following your command.</p>\n<p><strong>Failure</strong> You fail to create the undead.</p>\n<p><strong>Critical Failure</strong> You create the undead, but its soul, tortured by your foul necromancy, is full of nothing but hatred for you. It attempts to destroy you.</p><h2>Creatures Creation Rituals</h2><table class=\"pf2e remaster\"><thead><tr><th>Creature Level</th><th>Spell Rank Required</th><th>Cost</th></tr></thead><tbody><tr><td>-1 or 0</td><td>2</td><td>15 gp</td></tr><tr><td>1</td><td>2</td><td>60 gp</td></tr><tr><td>2</td><td>3</td><td>105 gp</td></tr><tr><td>3</td><td>3</td><td>180 gp</td></tr><tr><td>4</td><td>4</td><td>300 gp</td></tr><tr><td>5</td><td>4</td><td>480 gp</td></tr><tr><td>6</td><td>5</td><td>750 gp</td></tr><tr><td>7</td><td>5</td><td>1,080 gp</td></tr><tr><td>8</td><td>6</td><td>1,500 gp</td></tr><tr><td>9</td><td>6</td><td>2,100 gp</td></tr><tr><td>10</td><td>7</td><td>3,000 gp</td></tr><tr><td>11</td><td>7</td><td>4,200 gp</td></tr><tr><td>12</td><td>8</td><td>6,000 gp</td></tr><tr><td>13</td><td>8</td><td>9,000 gp</td></tr><tr><td>14</td><td>9</td><td>13,500 gp</td></tr><tr><td>15</td><td>9</td><td>19,500 gp</td></tr><tr><td>16</td><td>10</td><td>30,000 gp</td></tr><tr><td>17</td><td>10</td><td>45,000 gp</td></tr></tbody></table>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "value": null
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "10 feet"
+                },
+                "requirements": "",
+                "ritual": {
+                    "primary": {
+                        "check": "Arcana (expert), Occultism (expert), or Religion (expert)"
+                    },
+                    "secondary": {
+                        "casters": 1,
+                        "checks": "Religion"
+                    }
+                },
+                "rules": [],
+                "slug": "create-undead",
+                "target": {
+                    "value": "1 dead creature"
+                },
+                "time": {
+                    "value": "1 day"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": [
+                        "unholy"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "hOS79ubhMHEVeSap",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.4GE2ZdODgIQtg51c"
+            },
+            "img": "systems/pf2e/icons/spells/darkness.webp",
+            "name": "Darkness",
+            "sort": 900000,
+            "system": {
+                "area": {
+                    "type": "burst",
+                    "value": 20
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You create a shroud of darkness that prevents light from penetrating or emanating within the area. Light does not enter the area and any non-magical light sources, such as a torch or lantern, do not emanate any light while inside the area, even if their light radius would extend beyond the darkness. This also suppresses magical light of your darkness spell's rank or lower. Light can't pass through, so creatures in the area can't see outside. From outside, it appears as a globe of pure darkness.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> Even creatures with darkvision (but not greater darkvision) can barely see through the darkness. They treat targets seen through the darkness as @UUID[Compendium.pf2e.conditionitems.Item.Concealed].</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "heightenedLevel": 4,
+                    "value": "aOeCz4c09QMbgoTG"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "darkness",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "darkness",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "O4uO0WyOyJlypiSX",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.vLA0q0WOK2YPuJs6"
+            },
+            "img": "systems/pf2e/icons/spells/charm.webp",
+            "name": "Charm (undead only)",
+            "sort": 1000000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>To the target, your words are honey and your visage seems bathed in a dreamy haze. It must attempt a Will save, with a +4 circumstance bonus if you or your allies recently threatened it or used hostile actions against it.</p>\n<p>You can Dismiss the spell. If you use hostile actions against the target, the spell ends. When the spell ends, the target doesn't necessarily realize it was charmed unless its friendship with you or the actions you convinced it to take clash with its expectations, meaning you could potentially convince the target to continue being your friend via mundane means.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected and aware you tried to charm it.</p>\n<p><strong>Success</strong> The target is unaffected but thinks your spell was something harmless instead of charm, unless it identifies the spell.</p>\n<p><strong>Failure</strong> The target's attitude becomes @UUID[Compendium.pf2e.conditionitems.Item.Friendly] toward you. If it was Friendly, it becomes @UUID[Compendium.pf2e.conditionitems.Item.Helpful]. It can't use hostile actions against you.</p>\n<p><strong>Critical Failure</strong> The target's attitude becomes Helpful toward you, and it can't use hostile actions against you.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> The duration lasts until the next time you make your daily preparations.</p>\n<p><strong>Heightened (8th)</strong> The duration lasts until the next time you make your daily preparations, and you can target up to 10 creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 hour"
+                },
+                "heightening": {
+                    "levels": {
+                        "8": {
+                            "target": {
+                                "value": "10 creatures"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "heightenedLevel": 8,
+                    "value": "aOeCz4c09QMbgoTG"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "charm",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "emotion",
+                        "incapacitation",
+                        "manipulate",
+                        "mental",
+                        "subtle"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "HMAJFIpbicpFe1je",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.vLA0q0WOK2YPuJs6"
+            },
+            "img": "systems/pf2e/icons/spells/charm.webp",
+            "name": "Charm (undead only)",
+            "sort": 1100000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>To the target, your words are honey and your visage seems bathed in a dreamy haze. It must attempt a Will save, with a +4 circumstance bonus if you or your allies recently threatened it or used hostile actions against it.</p>\n<p>You can Dismiss the spell. If you use hostile actions against the target, the spell ends. When the spell ends, the target doesn't necessarily realize it was charmed unless its friendship with you or the actions you convinced it to take clash with its expectations, meaning you could potentially convince the target to continue being your friend via mundane means.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected and aware you tried to charm it.</p>\n<p><strong>Success</strong> The target is unaffected but thinks your spell was something harmless instead of charm, unless it identifies the spell.</p>\n<p><strong>Failure</strong> The target's attitude becomes @UUID[Compendium.pf2e.conditionitems.Item.Friendly] toward you. If it was Friendly, it becomes @UUID[Compendium.pf2e.conditionitems.Item.Helpful]. It can't use hostile actions against you.</p>\n<p><strong>Critical Failure</strong> The target's attitude becomes Helpful toward you, and it can't use hostile actions against you.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> The duration lasts until the next time you make your daily preparations.</p>\n<p><strong>Heightened (8th)</strong> The duration lasts until the next time you make your daily preparations, and you can target up to 10 creatures.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 hour"
+                },
+                "heightening": {
+                    "levels": {
+                        "8": {
+                            "target": {
+                                "value": "10 creatures"
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "heightenedLevel": 4,
+                    "uses": {
+                        "max": 3,
+                        "value": 3
+                    },
+                    "value": "aOeCz4c09QMbgoTG"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Core Rulebook"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "charm",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "emotion",
+                        "incapacitation",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "ZSyd5tDHWnYAj8zD",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Spectral Jaws",
+            "sort": 1200000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": [
+                        "drain-life"
+                    ]
+                },
+                "bonus": {
+                    "value": 42
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "4d12+23",
+                        "damageType": "void"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "reach-20"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "se2uQ9cHOTmmlxON",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Spectral Claw",
+            "sort": 1300000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": [
+                        "divine-dispelling",
+                        "drain-life"
+                    ]
+                },
+                "bonus": {
+                    "value": 42
+                },
+                "damageRolls": {
+                    "857sbtp841exhxa60v9o": {
+                        "damage": "4d8+23",
+                        "damageType": "acid"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "reach-15"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "jqQAuZsUGFs0m1uI",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.sebk9XseMCRkDqRg"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Lifesense 120 feet",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.Lifesense]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "lifesense",
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "ZLvVuoT7wsCVMtYC",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.etMnv73EIdEZrYYu"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Frightful Presence",
+            "sort": 1500000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>90 feet. @Check[will|dc:46|options:area-effect,inflicts:frightened,inflicts:paralyzed]</p>\n<p>On a critical failure, a creature is also @UUID[Compendium.pf2e.conditionitems.Item.Paralyzed] until the start of their next turn.</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 90,
+                        "slug": "frightful-presence",
+                        "traits": [
+                            "emotion",
+                            "fear",
+                            "mental"
+                        ]
+                    }
+                ],
+                "slug": "frightful-presence",
+                "traits": {
+                    "value": [
+                        "aura",
+                        "emotion",
+                        "fear",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "ZxPGNj1JDdTfH2vH",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Sunlight Powerlessness",
+            "sort": 1600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>An elder wyrmwraith in sunlight is @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 2} and @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 2}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "NtoApZINNb0XOSCK",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Vitality Transfer",
+            "sort": 1700000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The wyrmwraith succeeds at a saving throw to resist vitality damage but still takes damage</p>\n<hr />\n<p><strong>Effect</strong> The wyrmwraith transfers all vitality damage from the effect to a single undead creature of their choice within 120 feet that they control or that's @UUID[Compendium.pf2e.conditionitems.Item.Friendly] or @UUID[Compendium.pf2e.conditionitems.Item.Helpful] to them.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "N4NhBjgFg8WdpS84",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.TTCw5NusiSSkJU1x"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Void Healing",
+            "sort": 1800000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.NegativeHealing]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary 2"
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "system.attributes.hp.negativeHealing",
+                        "value": true
+                    }
+                ],
+                "slug": "negative-healing",
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "k3dgXH9CegWMvwQi",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Consume Souls",
+            "sort": 1900000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The elder wyrmwraith inhales sharply, sucking in the souls of nearby creatures. Each creature in a @Template[cone|distance:60] must attempt a @Check[will|dc:46|options:area-effect,damaging-effect] save.</p>\n<p>The elder wyrmwraith can't Consume Souls again for [[/gmr 1d4 #Recharge Consume Souls]]{1d4 rounds}.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature becomes @UUID[Compendium.pf2e.conditionitems.Item.Doomed]{Doomed 1}.</p>\n<p><strong>Failure</strong> The creature becomes @UUID[Compendium.pf2e.conditionitems.Item.Doomed]{Doomed 2} and takes @Damage[100[void]|options:area-damage] damage.</p>\n<p><strong>Critical Failure</strong> The creature is slain. As long as the wyrmwraith still exists, the slain creature can't be returned to life through any means.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "death",
+                        "divine",
+                        "incapacitation"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "oVjrC7X48FBIjCug",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Decaying Breath",
+            "sort": 2000000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The wyrmwraith unleashes a torrent of void energy that deals @Damage[24d6[void]|options:area-damage] damage to all creatures in a @Template[type:cone|distance:90] (@Check[reflex|dc:46|basic] save). They can't use Decaying Breath again for [[/gmr 1d4 #Recharge Decaying Breath]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "divine",
+                        "void"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "IO9iVIVpEfBjrcmw",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Divine Dispelling",
+            "sort": 2100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>An elder wyrmwraith's claws rend divine magic. Whenever an elder wyrmwraith hits a creature with a spectral claws Strike, the elder wyrmwraith can attempt a @Check[religion] check to counteract an ongoing divine spell effect on the creature.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "divine-dispelling",
+                "traits": {
+                    "value": [
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "9bnT3kvF7tmt4OdX",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Draconic Frenzy",
+            "sort": 2200000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The elder wyrmwraith makes two claw Strikes and one jaws Strike in any order.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "sT9rrvUVQPaZDRMI",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Drain Life",
+            "sort": 2300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When a wyrmwraith deals damage to a living creature with a spectral jaws or spectral claw Strike, the wyrmwraith gains 20 temporary Hit Points and the target's maximum Hit Points (but not current Hit Points) are reduced by 20. The target's maximum Hit Points are restored after a full night's rest.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Drain Life]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "flags.system.drainLifeTempHP",
+                        "value": 20
+                    }
+                ],
+                "slug": "drain-life",
+                "traits": {
+                    "value": [
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "7osAd2va2Xd7Jqmw",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Ectoplasmic Form",
+            "sort": 2400000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>An elder wyrmwraith can push through the ectoplasmic veil to temporarily assume a physical form made of ectoplasm. The elder wyrmwraith loses the incorporeal trait for [[/gmr 1d4 #Duration Physical Form]]{1d4 rounds}, though they can return to their incorporeal form as a free action before then. Once this ability ends, the elder wyrmwraith can't use this ability again for [[/gmr 1d4 #Recharge Ectoplasmatic Form]]{1d4 rounds}. While in their ectoplasmic form, the elder wyrmwraith's AC increases to 52 and they gain 125 temporary Hit Points. They lose their immunity to precision damage and all of their resistances. Their melee Strikes deal slashing and piercing damage, respectively, instead of void damage.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Immunity",
+                        "predicate": [
+                            {
+                                "not": "self:effect:ectoplasmic-form-physical"
+                            }
+                        ],
+                        "type": "precision"
+                    },
+                    {
+                        "doubleVs": [
+                            "non-magical"
+                        ],
+                        "exceptions": [
+                            "force",
+                            "ghost-touch",
+                            "vitality"
+                        ],
+                        "key": "Resistance",
+                        "predicate": [
+                            {
+                                "not": "self:effect:ectoplasmic-form-physical"
+                            }
+                        ],
+                        "type": "all-damage",
+                        "value": 25
+                    },
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "add",
+                        "path": "flags.system.ectoplasmicFormAC",
+                        "value": 52
+                    },
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "add",
+                        "path": "flags.system.ectoplasmicFormTempHP",
+                        "value": 125
+                    }
+                ],
+                "selfEffect": {
+                    "name": "Effect: Ectoplasmic Form (Physical)",
+                    "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Ectoplasmic Form (Physical)"
+                },
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "divine"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "EDn6PkdwmLETtSlD",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Phase Lurch",
+            "sort": 2500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Requirements</strong> The wyrmwraith is in their ectoplasmic form</p>\n<hr />\n<p><strong>Effect</strong> As the Stride action, but the wyrmwraith can pass through walls or material obstacles as though they were incorporeal. They must begin and end their movement outside of any physical obstacles, and passing through solid material is difficult terrain.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "divine",
+                        "move"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "iMQcSvSzn6xT0YMu",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Void's Embrace",
+            "sort": 2600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>If a victim succeeds at a saving throw against this curse while in sunlight, the curse ends. While a creature has this curse, they bypass the resistances of the wyrmwraith that cursed them</p>\n<p><strong>Saving Throw</strong> @Check[will|dc:46]</p>\n<p><strong>Stage 1</strong> @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] in any light (1 hour)</p>\n<p><strong>Stage 2</strong> gains lifesense 30 feet but is @UUID[Compendium.pf2e.conditionitems.Item.Blinded] in any light (1 hour)</p>\n<p><strong>Stage 3</strong> as stage 2, but also has void healing (1 hour)</p>\n<p><strong>Stage 4</strong> @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] and can't awaken (1 day)</p>\n<p><strong>Stage 5</strong> dead and becomes a @UUID[Compendium.pf2e.pathfinder-monster-core.Actor.Wraith], its body crumbling to ash.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "curse",
+                        "death",
+                        "divine",
+                        "void"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "g3DpsF6IvZSMWkQZ",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Wings of Shadow",
+            "sort": 2700000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> The wyrmwraith spreads its spectral wings wide covering all near it in shadow. Each living creature within a @Template[type:emanation|distance:10] is exposed to void's embrace.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "round"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "divine",
+                        "void"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Elder Wyrmwraith",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 11
+            },
+            "con": {
+                "mod": 0
+            },
+            "dex": {
+                "mod": 11
+            },
+            "int": {
+                "mod": 9
+            },
+            "str": {
+                "mod": -5
+            },
+            "wis": {
+                "mod": 9
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 48
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "void healing",
+                "max": 400,
+                "temp": 0,
+                "value": 400
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "death-effects"
+                },
+                {
+                    "exceptions": [],
+                    "type": "disease"
+                },
+                {
+                    "exceptions": [],
+                    "type": "paralyzed"
+                },
+                {
+                    "exceptions": [],
+                    "type": "poison"
+                },
+                {
+                    "exceptions": [],
+                    "type": "unconscious"
+                },
+                {
+                    "exceptions": [],
+                    "type": "bleed"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 100
+                    }
+                ],
+                "value": 50
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "draconic",
+                    "necril"
+                ]
+            },
+            "level": {
+                "value": 23
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>TDahak's defiance and his hatred for all of creation brought loss to dragonkind. It is said that the first wyrmwraiths rose from the souls of dragons hurled into the Void by Dahak, but whether this is true or not is still a matter of debate. What is undeniable is that the wyrmwraiths are unliving conduits of the Void, shaped but unshackled by the plane's hunger for indiscriminate destruction.</p>\n<p>Wyrmwraiths dwell in remote areas marred by catastrophes and death, where they can better hide their undead nature or indulge in their grim research. Their lairs often have a single, hidden and highly defensible antechamber where the wyrmwraith confers with its agents as it engages in a war with distant rivals through expendable proxies. This dimly lit antechamber is usually filled with death and many undead servants, some raised from the bodies of those whose usefulness has come to an end.</p>\n<p>Wyrmwraiths might enter temporary alliances with other undead, cults, or necromancers, especially when it comes to unearthing powerful secrets or striking a blow against a common powerful threat. While wyrmwraiths take great pleasure in acting against those who wield the power of the gods, often targeting them first in battle to rend their flesh and protective spells with their claws, they are often very cautious, striking only after stacking the odds in their favor.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Lost Omens Draconic Codex"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 40,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "acuity": "precise",
+                    "range": 120,
+                    "type": "lifesense"
+                }
+            ]
+        },
+        "resources": {
+            "focus": {
+                "max": 1,
+                "value": 1
+            }
+        },
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 37
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 40
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 45
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 38
+            },
+            "arcana": {
+                "base": 38
+            },
+            "intimidation": {
+                "base": 43
+            },
+            "religion": {
+                "base": 46
+            },
+            "stealth": {
+                "base": 43
+            }
+        },
+        "spellcasting": {
+            "rituals": {
+                "dc": 46
+            }
+        },
+        "traits": {
+            "rarity": "rare",
+            "size": {
+                "value": "grg"
+            },
+            "value": [
+                "dragon",
+                "incorporeal",
+                "undead",
+                "unholy",
+                "wraith"
+            ]
+        }
+    },
+    "type": "npc"
+}

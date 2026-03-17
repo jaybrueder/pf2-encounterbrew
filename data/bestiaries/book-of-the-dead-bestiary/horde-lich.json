@@ -2769,6 +2769,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2777,9 +2778,6 @@
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -3157,6 +3155,9 @@
                 "value": 250
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

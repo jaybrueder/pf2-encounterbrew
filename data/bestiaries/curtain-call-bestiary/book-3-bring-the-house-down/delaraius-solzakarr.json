@@ -3260,6 +3260,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -3286,7 +3287,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -3760,6 +3761,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "shortsword",
                 "traits": {
@@ -3816,7 +3818,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>Delaraius takes 50 damage for every hour he's exposed to sunlight.</p>"
+                    "value": "<p>Delaraius takes @Damage[50[untyped]] damage for every hour he's exposed to sunlight.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -3854,7 +3856,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "terrain:vyre",
                         "toggleable": true
@@ -3948,7 +3949,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

@@ -31,6 +31,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -38,9 +39,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -148,7 +146,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> The magnegor is @UUID[Compendium.pf2e.conditionitems.Item.Prone]</p>\n<hr />\n<p><strong>Effect</strong> The magnegor rolls on its spine-covered back, up to its Speed, furrowing the earth and crushing any Large or smaller creatures in its path. This deals @Damage[4d10[piercing]] damage with a @Check[reflex|dc:24|basic] save; on a failed save, a creature wearing metal armor or made of metal is @UUID[Compendium.pf2e.conditionitems.Item.Restrained] by the magnegor's magnetized coat (@UUID[Compendium.pf2e.actionspf2e.Item.Escape] DC 24). For each metal object or piece of equipment a restrained creature chooses to leave stuck to the magnegor, it gains a +1 circumstance bonus to its attempts to Escape. A creature that relinquishes all its metal Escapes automatically. The magnegor can move at its full Speed while it has a creature restrained in this way, bringing the creature along.</p>"
+                    "value": "<p><strong>Requirements</strong> The magnegor is @UUID[Compendium.pf2e.conditionitems.Item.Prone]</p>\n<hr />\n<p><strong>Effect</strong> The magnegor rolls on its spine-covered back, up to its Speed, furrowing the earth and crushing any Large or smaller creatures in its path. This deals @Damage[4d10[piercing]] damage with a @Check[reflex|dc:24|basic] save; on a failed save, a creature wearing metal armor or made of metal is @UUID[Compendium.pf2e.conditionitems.Item.Restrained] by the magnegor's magnetized coat ([[/act escape dc=24]]). For each metal object or piece of equipment a restrained creature chooses to leave stuck to the magnegor, it gains a +1 circumstance bonus to its attempts to Escape. A creature that relinquishes all its metal Escapes automatically. The magnegor can move at its full Speed while it has a creature restrained in this way, bringing the creature along.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -218,7 +216,7 @@
                 "value": 6
             },
             "privateNotes": "",
-            "publicNotes": "",
+            "publicNotes": "<p>Magnegors roam the mountains of Golarion, grazing on wild berries, edible roots, and other plants that favor iron-rich soil and high elevations. These hulking, woolly bovines have four curved horns—two extending from behind their ears, and two from below their jaws—that frame their skulls in an X shape. Their bodies are covered in thick, stringy hair with a texture akin to copper wire, parted only by massive neural spines of dense, nearly indestructible keratin.</p>\n<p>Magnegors display a unique ability to manipulate magnetic fields through their coats and spines and have a strange predilection for crushing metals and precious ores by wallowing over them back and forth. As a result, unwary adventurers who accidentally wander into the middle of a magnegor herd rarely, if ever, make it out alive.</p>",
             "publication": {
                 "license": "ORC",
                 "remaster": true,

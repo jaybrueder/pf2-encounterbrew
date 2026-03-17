@@ -814,6 +814,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "polearm",
                 "hardness": 0,
                 "hp": {
@@ -840,7 +841,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1016,6 +1017,7 @@
                 "bulk": {
                     "value": 1
                 },
+                "category": "coin",
                 "containerId": null,
                 "description": {
                     "value": ""
@@ -1041,15 +1043,14 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 136,
                 "rules": [],
                 "size": "med",
                 "slug": "gold-pieces",
-                "stackGroup": "coins",
                 "traits": {
                     "rarity": "common",
                     "value": []
@@ -1159,6 +1160,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1167,9 +1169,6 @@
                         "deadly-d10",
                         "trip"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1203,6 +1202,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1210,9 +1210,6 @@
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1475,6 +1472,9 @@
                 "value": 80
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

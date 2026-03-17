@@ -311,6 +311,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -320,9 +321,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -377,7 +375,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet. @Check[will|dc:26]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>30 feet. @Check[will|dc:26|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -499,7 +497,7 @@
                 "category": "offensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the woodblessed dies, the planar portal inside of them collapses, causing them to explode in a @Template[burst|distance:20] of vines that deal @Damage[10d6[bludgeoning]] damage to all creatures with a @Check[reflex|dc:26|basic] save. The woodblessed's body is completely consumed, though their root network and gear remain behind.</p>"
+                    "value": "<p>When the woodblessed dies, the planar portal inside of them collapses, causing them to explode in a @Template[burst|distance:20] of vines that deal @Damage[10d6[bludgeoning]|options:area-damage] damage to all creatures with a @Check[reflex|dc:26|basic|options:area-effect] save. The woodblessed's body is completely consumed, though their root network and gear remain behind.</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -531,7 +529,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The sluagh reaper becomes incorporeal until the start of their next turn, and Flies up to their fly Speed. While incorporeal, they are immune to precision damage, and have resistance 10 to all damage (except force, ghost touch, or vitality); this resistance is doubled against non-magical damage.</p>\n<p>After using Ghostly Swoop, the sluagh reaper can't use it again for [[/gmr 1d4 #Recharge]]{1d4 rounds}.</p>"
+                    "value": "<p>The sluagh reaper becomes incorporeal until the start of their next turn, and Flies up to their fly Speed. While incorporeal, they are immune to precision damage, and have resistance 10 to all damage (except force, <em>@UUID[Compendium.pf2e.equipment-srd.Item.Ghost Touch]</em>, or vitality); this resistance is doubled against non-magical damage.</p>\n<p>After using Ghostly Swoop, the sluagh reaper can't use it again for [[/gmr 1d4 #Recharge Ghostly Swoop]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -540,12 +538,30 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "ghostly-swoop",
                         "toggleable": true
                     },
                     {
+                        "add": [
+                            "incorporeal"
+                        ],
+                        "key": "ActorTraits",
+                        "predicate": [
+                            "ghostly-swoop"
+                        ]
+                    },
+                    {
+                        "key": "Immunity",
+                        "predicate": [
+                            "ghostly-swoop"
+                        ],
+                        "type": "precision"
+                    },
+                    {
+                        "doubleVs": [
+                            "non-magical"
+                        ],
                         "exceptions": [
                             "force",
                             "ghost-touch",
@@ -679,7 +695,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",
@@ -752,7 +767,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "tap-planar-gate",
                         "toggleable": true
@@ -816,6 +830,9 @@
                 "value": 175
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

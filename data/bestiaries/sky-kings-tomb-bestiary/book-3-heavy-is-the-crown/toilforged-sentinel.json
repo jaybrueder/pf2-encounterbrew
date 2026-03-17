@@ -35,6 +35,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -44,9 +45,6 @@
                         "reach-30",
                         "tethered"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -80,6 +78,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -88,9 +87,6 @@
                         "reach-15",
                         "shove"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -128,15 +124,14 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 200
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "value": [
-                        "range-200"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -229,7 +224,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>When a toilforged sentinel fails a saving throw against a spell that would banish tormented spirits or manipulate souls, such as @UUID[Compendium.pf2e.spells-srd.Item.Banishment] or @UUID[Compendium.pf2e.spells-srd.Item.Seize Soul], instead of experiencing the listed effect, it takes 10 damage per spell rank.</p>"
+                    "value": "<p>When a toilforged sentinel fails a saving throw against a spell that would banish tormented spirits or manipulate souls, such as @UUID[Compendium.pf2e.spells-srd.Item.Banishment] or @UUID[Compendium.pf2e.spells-srd.Item.Seize Soul], instead of experiencing the listed effect, it takes @Damage[10[untyped]] damage per spell rank.</p>"
                 },
                 "publication": {
                     "license": "OGL",

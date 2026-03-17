@@ -35,6 +35,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -42,9 +43,6 @@
                         "electricity",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -78,16 +76,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 60
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "electricity",
-                        "range-60"
+                        "electricity"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -238,7 +236,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "sparking-shell",
                         "toggleable": true
@@ -346,7 +343,7 @@
                 "value": 12
             },
             "privateNotes": "",
-            "publicNotes": "",
+            "publicNotes": "<p>Lightning turtles have a reputation as kind protectors of those lost or injured at sea. Their unique ability to promote healing by stimulating the body's natural bioelectricity has led to many attempts over the year to domesticate the creatures, but none have been successful.</p>",
             "publication": {
                 "license": "ORC",
                 "remaster": true,

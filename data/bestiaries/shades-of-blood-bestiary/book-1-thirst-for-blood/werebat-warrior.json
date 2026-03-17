@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "dart",
                 "hardness": 0,
                 "hp": {
@@ -123,6 +124,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -149,7 +151,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -247,7 +249,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
             },
-            "img": "icons/commodities/treasure/broach-jeweled-green.webp",
+            "img": "icons/commodities/treasure/brooch-jeweled-green.webp",
             "name": "Religious Symbol of Camazotz",
             "sort": 400000,
             "system": {
@@ -288,7 +290,6 @@
                 "quantity": 1,
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "has-religious-symbol",
                         "requiresEquipped": false
@@ -409,6 +410,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "javelin",
                 "traits": {
@@ -450,6 +452,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "rapier",
                 "traits": {
@@ -616,6 +619,10 @@
                         "label": "PF2E.Strike.Fist.Label",
                         "predicate": [
                             "change-shape:humanoid"
+                        ],
+                        "slug": "fist",
+                        "traits": [
+                            "unarmed"
                         ]
                     },
                     {
@@ -635,7 +642,7 @@
                                 "not": "change-shape:humanoid"
                             }
                         ],
-                        "slug": "jaws",
+                        "slug": "fangs",
                         "traits": [
                             "finesse"
                         ]
@@ -678,6 +685,14 @@
                         ],
                         "selector": "fly",
                         "value": 30
+                    },
+                    {
+                        "key": "BaseSpeed",
+                        "predicate": [
+                            "change-shape:hybrid"
+                        ],
+                        "selector": "fly",
+                        "value": 25
                     }
                 ],
                 "slug": "werecreature-change-shape",
@@ -715,7 +730,15 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "key": "Note",
+                        "selector": "fangs-attack",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
                 "slug": "werecreature-curse-of-the-werecreature",
                 "traits": {
                     "value": [
@@ -848,12 +871,7 @@
                 "value": 45
             },
             "speed": {
-                "otherSpeeds": [
-                    {
-                        "type": "fly",
-                        "value": 25
-                    }
-                ],
+                "otherSpeeds": [],
                 "value": 25
             },
             "weaknesses": [

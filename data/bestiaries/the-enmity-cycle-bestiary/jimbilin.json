@@ -970,6 +970,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "flail",
                 "hardness": 0,
                 "hp": {
@@ -996,7 +997,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1100,7 +1101,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
             },
-            "img": "icons/commodities/treasure/broach-jeweled-green.webp",
+            "img": "icons/commodities/treasure/brooch-jeweled-green.webp",
             "name": "Religious Symbol (Wooden)",
             "sort": 1300000,
             "system": {
@@ -1141,7 +1142,6 @@
                 "quantity": 1,
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "has-religious-symbol",
                         "requiresEquipped": false
@@ -1193,13 +1193,11 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1218,7 +1216,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The priest chants a prayer to his deity that invokes the forces of nothingness.</p>\n<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> All enemies within @Template[emanation|distance:30]{30 feet} take @Damage[5d6[void]] damage (@Check[will|dc:21|basic] save).</p>"
+                    "value": "<p>The priest chants a prayer to his deity that invokes the forces of nothingness.</p>\n<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> All enemies within @Template[emanation|distance:30]{30 feet} take @Damage[5d6[void]|options:area-damage] damage (@Check[will|dc:21|basic|options:area-effect] save).</p>"
                 },
                 "frequency": {
                     "max": 1,

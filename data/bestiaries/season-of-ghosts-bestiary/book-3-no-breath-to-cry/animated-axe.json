@@ -9,9 +9,8 @@
             "name": "Battle Axe",
             "sort": 100000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
+                "action": "strike",
+                "area": null,
                 "attackEffects": {
                     "value": []
                 },
@@ -37,15 +36,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -73,7 +70,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.ConstructArmor.CriticalHit",
                         "option": "construct-armor",
@@ -187,9 +183,9 @@
             "privateNotes": "",
             "publicNotes": "",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #198: No Breath to Cry"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Season of Ghosts Hardcover Compilation"
             }
         },
         "initiative": {
@@ -216,12 +212,13 @@
             },
             "will": {
                 "saveDetail": "",
-                "value": 11
+                "value": 7
             }
         },
         "skills": {
-            "athletics": {
-                "base": 13
+            "acrobatics": {
+                "base": 13,
+                "special": []
             }
         },
         "traits": {

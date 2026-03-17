@@ -531,6 +531,7 @@
                     "handsHeld": 2,
                     "invested": null
                 },
+                "expend": null,
                 "group": "flail",
                 "hardness": 0,
                 "hp": {
@@ -557,7 +558,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -627,6 +628,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -640,9 +642,6 @@
                         "trip",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -681,6 +680,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -692,9 +692,6 @@
                         "unarmed",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -735,6 +732,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -744,9 +742,6 @@
                         "reach-10",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1008,7 +1003,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>10 feet. @Check[will|dc:34]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>10 feet. @Check[will|dc:34|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1054,7 +1049,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> The cornugon's last action was a success with a spiked chain Strike.</p>\n<hr />\n<p><strong>Effect</strong> The devil pulls the creature 5 feet closer and @UUID[Compendium.pf2e.conditionitems.Item.Grabbed]{Grabs} it with the spiked chain (@UUID[Compendium.pf2e.actionspf2e.Item.Escape] DC 42). The creature is automatically freed if the devil makes another spiked chain attack or moves away.</p>"
+                    "value": "<p><strong>Requirements</strong> The cornugon's last action was a success with a spiked chain Strike.</p>\n<hr />\n<p><strong>Effect</strong> The devil pulls the creature 5 feet closer and @UUID[Compendium.pf2e.conditionitems.Item.Grabbed]{Grabs} it with the spiked chain ([[/act escape dc=42]]). The creature is automatically freed if the devil makes another spiked chain attack or moves away.</p>"
                 },
                 "publication": {
                     "license": "OGL",

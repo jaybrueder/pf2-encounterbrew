@@ -643,6 +643,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -652,9 +653,6 @@
                         "reach-20",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -697,6 +695,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -707,9 +706,6 @@
                         "reach-20",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -748,18 +744,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "cold",
-                        "magical",
-                        "range-increment-60"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1141,6 +1137,9 @@
                 "value": 450
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "cold"
                 },

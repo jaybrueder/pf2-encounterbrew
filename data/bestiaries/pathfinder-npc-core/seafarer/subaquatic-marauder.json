@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "brawling",
                 "hardness": 0,
                 "hp": {
@@ -63,7 +64,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -123,6 +124,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "dart",
                 "hardness": 0,
                 "hp": {
@@ -329,6 +331,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "gauntlet",
                 "traits": {
@@ -371,10 +374,12 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "javelin",
                 "traits": {
                     "value": [
+                        "tethered",
                         "thrown-30"
                     ]
                 }
@@ -433,7 +438,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The marauder pulls a release valve on their suit, expelling a pressure wave that deals @Damage[3d6[sonic], 3d6[bludgeoning]] damage (@Check[fortitude|dc:22|basic] save) to all creatures in a @Template[type:emanation|distance:10]. Creatures that fail the save take a –2 circumstance penalty to Acrobatics checks to @UUID[Compendium.pf2e.actionspf2e.Item.Balance] and Athletics checks to Swim for 1 minute as their inner ear is impaired. Creatures that critically fail the save are also @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 minute. The marauder can't use Depth Charge again for [[/gmr 1d4 #Recharge Depth Charge]]{1d4 rounds}.</p>"
+                    "value": "<p>The marauder pulls a release valve on their suit, expelling a pressure wave that deals @Damage[3d6[sonic],3d6[bludgeoning]|options:area-damage] damage (@Check[fortitude|dc:22|basic|options:area-effect] save) to all creatures in a @Template[type:emanation|distance:10]. Creatures that fail the save take a –2 circumstance penalty to Acrobatics checks to @UUID[Compendium.pf2e.actionspf2e.Item.Balance] and Athletics checks to @UUID[Compendium.pf2e.actionspf2e.Item.Swim] for 1 minute as their inner ear is impaired. Creatures that critically fail the save are also @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 minute. The marauder can't use Depth Charge again for [[/gmr 1d4 #Recharge Depth Charge]]{1d4 rounds}.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Depth Charge]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -558,7 +563,9 @@
             "blurb": "",
             "languages": {
                 "details": "",
-                "value": []
+                "value": [
+                    "common"
+                ]
             },
             "level": {
                 "value": 5

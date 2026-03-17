@@ -35,6 +35,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -72,12 +73,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "poison",
-                        "range-increment-20"
+                        "poison"
                     ]
                 }
             },
@@ -152,7 +156,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet, @Check[fortitude|dc:16]. Undead are immune to viper bat stench.</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.Stench]</p>"
+                    "value": "<p>30 feet. @Check[fortitude|dc:16|options:area-effect,inflicts:sickened,inflicts:slowed]. Undead are immune to viper bat stench.</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.Stench]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -416,9 +420,13 @@
             "statistic": "perception"
         },
         "perception": {
-            "details": "darkvision",
+            "details": "",
             "mod": 15,
-            "senses": []
+            "senses": [
+                {
+                    "type": "darkvision"
+                }
+            ]
         },
         "resources": {},
         "saves": {

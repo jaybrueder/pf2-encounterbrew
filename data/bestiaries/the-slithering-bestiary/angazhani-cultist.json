@@ -1153,6 +1153,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -1379,7 +1380,6 @@
                 "quantity": 1,
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "has-religious-symbol",
                         "requiresEquipped": false
@@ -1431,14 +1431,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1477,6 +1475,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1484,9 +1483,6 @@
                     "value": [
                         "thrown-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1605,7 +1601,7 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "itemType": "weapon",
+                        "itemType": "melee",
                         "key": "ItemAlteration",
                         "mode": "add",
                         "predicate": [

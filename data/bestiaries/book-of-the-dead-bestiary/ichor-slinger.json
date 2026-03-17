@@ -118,7 +118,7 @@
         },
         {
             "_id": "JKpaLr9UX648Hgix",
-            "img": "icons/commodities/treasure/broach-pink-orbs.webp",
+            "img": "icons/commodities/treasure/brooch-pink-orbs.webp",
             "name": "Infused Reagents",
             "sort": 300000,
             "system": {
@@ -274,6 +274,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -282,9 +283,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -538,6 +536,9 @@
                 "value": 65
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

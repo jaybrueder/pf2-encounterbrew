@@ -239,7 +239,7 @@
                 },
                 "defense": null,
                 "description": {
-                    "value": "<p>You become living flame, giving you fire immunity, resistance 10 to precision damage, and weakness 5 to cold and to water. Any creature that touches you or damages you with an unarmed attack or non-reach melee weapon takes 3d6 fire damage. Your unarmed attacks deal 1d4 additional fire damage, and your fire spells deal one additional die of fire damage (of the same damage die the spell uses). You can cast produce flame as an innate spell; the casting is reduced from 2 actions to 1. In fire form, you have a fly Speed of 40 feet and don't need to breathe.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Fiery Body]</p>\n<hr />\n<p><strong>Heightened (9th)</strong> Creatures touching you take 4d6 fire damage instead of 3d6, your unarmed attacks deal 2d4 additional fire damage, and you have a fly Speed of 60 feet.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Fiery Body (9th Level)]</p>"
+                    "value": "<p>You become living flame, giving you fire immunity, resistance 10 to precision damage, and weakness 5 to cold and to water. Any creature that touches you or damages you with an unarmed attack or non-reach melee weapon takes 3d6 fire damage. Your unarmed attacks deal 1d4 additional fire damage, and your fire spells deal one additional die of fire damage (of the same damage die the spell uses). You can cast produce flame as an innate spell; the casting is reduced from 2 actions to 1. In fire form, you have a fly Speed of 40 feet and don't need to breathe.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Fiery Body]</p>\n<hr />\n<p><strong>Heightened (9th)</strong> Creatures touching you take 4d6 fire damage instead of 3d6, your unarmed attacks deal 2d4 additional fire damage, and you have a fly Speed of 60 feet.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -301,7 +301,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>An infusion of vitality energy grants a creature continuous healing. The target temporarily gains regeneration 15, which restores 15 Hit Points to it at the start of each of its turns. While it has regeneration, the target can't die from damage and its @UUID[Compendium.pf2e.conditionitems.Item.Dying] condition can't increase to a value that would kill it (this stops most creatures from going beyond dying 3), though if its @UUID[Compendium.pf2e.conditionitems.Item.Wounded] value becomes 4 or higher, it stays @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] until its wounds are treated. If the target takes acid or fire damage, its regeneration deactivates until after the end of its next turn. Each time the creature regains Hit Points from regeneration, it also regrows one damaged or ruined organ (if any). During the spell's duration, the creature can also reattach severed body parts by spending an Interact action to hold the body part to the area it was severed from.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Regenerate]</p>\n<hr />\n<p><strong>Heightened (9th)</strong> The regeneration increases to 20.</p>"
+                    "value": "<p>An infusion of vital energy grants a creature continuous healing. The target temporarily gains regeneration 15, which restores 15 Hit Points to it at the start of each of its turns. While it has regeneration, the target can't die from taking Hit Point damage and its @UUID[Compendium.pf2e.conditionitems.Item.Dying] condition can't increase to a value that would kill it (this stops most creatures' dying condition at dying 3), though if its @UUID[Compendium.pf2e.conditionitems.Item.Wounded] value becomes 4 or higher, it stays @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] until its wounds are treated. If the target takes acid or fire damage, its regeneration deactivates until after the end of its next turn.</p>\n<p>Each time the creature regains Hit Points from regeneration, it also regrows one damaged or ruined organ (if any). During the spell's duration, the creature can also reattach severed body parts by spending an Interact action to hold the body part to the area it was severed from.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Regenerate]</p>\n<hr />\n<p><strong>Heightened (9th)</strong> The regeneration increases to 20.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -314,9 +314,9 @@
                     "value": "iKwCFX8JmN7iosxC"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
@@ -507,7 +507,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.m34WOIGZCEg1h76G"
             },
-            "img": "systems/pf2e/icons/spells/blanket-of-stars.webp",
+            "img": "icons/magic/light/orbs-firefly-hand-yellow.webp",
             "name": "Blanket Of Stars",
             "sort": 700000,
             "system": {
@@ -827,7 +827,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.YrzBLPLd3r9m6t1p"
             },
-            "img": "systems/pf2e/icons/spells/fire-shield.webp",
+            "img": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
             "name": "Fire Shield",
             "sort": 1200000,
             "system": {
@@ -1579,7 +1579,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.Et8RSCLx8w7uOLvo"
             },
-            "img": "systems/pf2e/icons/spells/restore-senses.webp",
+            "img": "icons/magic/control/buff-flight-wings-runes-red-yellow.webp",
             "name": "Restore Senses",
             "sort": 2300000,
             "system": {
@@ -2728,7 +2728,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>A vine covered in sticky sap appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack against the target.</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty and the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition.</p>\n<p><strong>Success</strong> The target takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
+                    "value": "<p>A vine covered in sticky sap appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack against the target.</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty and the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition.</p>\n<p><strong>Success</strong> The target takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -2807,6 +2807,7 @@
                     "remaster": false,
                     "title": "Pathfinder #177: Burning Tundra"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2817,9 +2818,6 @@
                         "magical",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2853,17 +2851,17 @@
                     "remaster": false,
                     "title": "Pathfinder #177: Burning Tundra"
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
-                        "magical",
-                        "range-increment-60"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -2978,7 +2976,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet. Creatures that start their turn in the aura must succeed at a @Check[will|dc:30] save or suffer an effect described in the nymph queen's entry.</p>\n<hr />\n<p>On a failed save, the creature is @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] and @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] for 1 minute.</p>"
+                    "value": "<p>30 feet. Creatures that start their turn in the aura must succeed at a @Check[will|dc:30|options:area-effect,inflicts:dazzled,inflicts:off-guard] save or suffer an effect described in the nymph queen's entry.</p>\n<hr />\n<p>On a failed save, the creature is @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] and @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] for 1 minute.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -3135,7 +3133,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> The summer hora or an ally within 30 feet that the summer hora can see fails a Perception check, saving throw, attack roll, or skill check.</p>\n<hr />\n<p><strong>Effect</strong> If it's the month of the summer solstice, the hora's or ally's check retroactively gains a +4 status bonus, which can change the outcome from a critical failure to a failure or a failure to a success. If it's the month before or after the summer solstice, the check gains a retroactive +2 status bonus instead. In the other months except during the three winter solstice months, the check gains a retroactive +1 status bonus instead. During the winter solstice months, this ability has no effect. The summer hora can't use Summer's Fortune again for [[/gmr 1d4 #rounds]]{1d4 rounds}.</p>"
+                    "value": "<p><strong>Trigger</strong> The summer hora or an ally within 30 feet that the summer hora can see fails a Perception check, saving throw, attack roll, or skill check.</p>\n<hr />\n<p><strong>Effect</strong> If it's the month of the summer solstice, the hora's or ally's check retroactively gains a +4 status bonus, which can change the outcome from a critical failure to a failure or a failure to a success. If it's the month before or after the summer solstice, the check gains a retroactive +2 status bonus instead. In the other months except during the three winter solstice months, the check gains a retroactive +1 status bonus instead. During the winter solstice months, this ability has no effect. The summer hora can't use Summer's Fortune again for [[/gmr 1d4 #Recharge Summer's Salvation]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",

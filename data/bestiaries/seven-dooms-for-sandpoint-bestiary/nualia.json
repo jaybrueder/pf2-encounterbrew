@@ -118,7 +118,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You drive mental contamination from the target's mind. Attempt to counteract an effect of your choice imposing one of these conditions on the target: @UUID[Compendium.pf2e.conditionitems.Item.Fleeing], @UUID[Compendium.pf2e.conditionitems.Item.Frightened], and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]. If you failed to counteract the effect but you would have if its counteract rank were 2 lower, instead suppress the effect until the beginning of your next turn. The effect's duration doesn't elapse while it's suppressed. This spell can't counteract or suppress conditions that are part of curses, diseases, or a natural state of the target.</p>\n<hr />\n<p><strong>Heightened (4th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Confused], @UUID[Compendium.pf2e.conditionitems.Item.Controlled], and @UUID[Compendium.pf2e.conditionitems.Item.Slowed] to the list of conditions.</p>\n<p><strong>Heightened (6th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Doomed] to the list of conditions.</p>\n<p><strong>Heightened (8th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Stunned] to the list of conditions.</p>"
+                    "value": "<p>You drive mental contamination from the target's mind. Attempt to counteract an effect of your choice imposing one of these conditions on the target: @UUID[Compendium.pf2e.conditionitems.Item.Fleeing], @UUID[Compendium.pf2e.conditionitems.Item.Frightened], and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]. If you failed to counteract the effect but you would have if its counteract rank were 2 lower, instead suppress the effect until the beginning of your next turn. The effect's duration doesn't elapse while it's suppressed. This spell can't counteract or suppress conditions that are part of curses, diseases, or a natural state of the target.</p><hr /><p><strong>Heightened (4th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Confused], @UUID[Compendium.pf2e.conditionitems.Item.Controlled], and @UUID[Compendium.pf2e.conditionitems.Item.Slowed] to the list of conditions.</p>\n<p><strong>Heightened (6th)</strong> As 4th rank, plus add @UUID[Compendium.pf2e.conditionitems.Item.Doomed].</p>\n<p><strong>Heightened (8th)</strong> As 4th rank, plus add doomed and @UUID[Compendium.pf2e.conditionitems.Item.Stunned].</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -1076,6 +1076,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1085,9 +1086,6 @@
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1218,7 +1216,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The ghost laments its fate, forcing each living creature within @Template[emanation|distance:30]{30 feet} to attempt a @Check[will|dc:29] save. On a failure, a creature becomes @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} (or @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3} on a critical failure). On a success, a creature is temporarily immune to this ghost's frightful moan for 1 minute.</p>"
+                    "value": "<p>The ghost laments its fate, forcing each living creature within @Template[emanation|distance:30]{30 feet} to attempt a @Check[will|dc:29|options:area-effect,inflicts:frightened] save. On a failure, a creature becomes @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} (or @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3} on a critical failure). On a success, a creature is temporarily immune to this ghost's frightful moan for 1 minute.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1257,7 +1255,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The ghost cries out in pain and anguish as small objects and debris fly about in a @Template[emanation|distance:30]. Creatures in this area take @Damage[6d6[bludgeoning]] damage, subject to a @Check[reflex|dc:29|basic] save.</p>"
+                    "value": "<p>The ghost cries out in pain and anguish as small objects and debris fly about in a @Template[emanation|distance:30]. Creatures in this area take @Damage[6d6[bludgeoning]|options:area-damage] damage, subject to a @Check[reflex|dc:29|basic|options:area-effect] save.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1313,6 +1311,9 @@
                 "value": 135
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

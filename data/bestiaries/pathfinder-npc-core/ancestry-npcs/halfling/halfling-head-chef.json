@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -128,6 +129,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -154,7 +156,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -325,6 +327,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "filchers-fork",
                 "traits": {
@@ -368,6 +371,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "filchers-fork",
                 "traits": {
@@ -416,6 +420,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "hot-frying-pan",
                 "traits": {
@@ -452,6 +457,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -566,8 +572,8 @@
                             },
                             {
                                 "or": [
-                                    "target:hidden",
-                                    "target:undetected"
+                                    "target:condition:hidden",
+                                    "target:condition:undetected"
                                 ]
                             }
                         ],

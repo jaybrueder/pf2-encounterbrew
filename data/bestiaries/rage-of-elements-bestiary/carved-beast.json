@@ -34,6 +34,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "diceNumber": 1,
@@ -49,9 +50,6 @@
                     "value": [
                         "shove"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -85,6 +83,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -92,9 +91,6 @@
                         "finesse",
                         "trip"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -216,7 +212,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "dig-in",
                         "toggleable": true

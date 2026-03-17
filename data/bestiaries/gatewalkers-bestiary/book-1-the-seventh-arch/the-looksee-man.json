@@ -33,13 +33,13 @@
                         "max": 3,
                         "prepared": [
                             {
-                                "id": "aeB62jQp98ojyLkK"
+                                "id": "aswLpvZwr29fo2LY"
                             },
                             {
-                                "id": "qag1JpCKSkSHqzBA"
+                                "id": "T9mOeLG7LXxXnOIK"
                             },
                             {
-                                "id": "wh9L2YMRjMG7RyUf"
+                                "id": "L6iivddVgNGBFy4O"
                             }
                         ]
                     },
@@ -47,10 +47,10 @@
                         "max": 2,
                         "prepared": [
                             {
-                                "id": "HMZmQbQXSqL7diZD"
+                                "id": "moQHw4XnKHo7qOzb"
                             },
                             {
-                                "id": "uSIgJMl5QDZxM0D2"
+                                "id": "wMDpMrKbcRw0qD3E"
                             }
                         ]
                     },
@@ -58,16 +58,16 @@
                         "max": 4,
                         "prepared": [
                             {
-                                "id": "mSxp1HoLGLqwulJI"
+                                "id": "DDOopEExDzpn4XPR"
                             },
                             {
-                                "id": "NXFoAbBCMDFdZq09"
+                                "id": "fe3yFR8uDXz2c40b"
                             },
                             {
-                                "id": "NXFoAbBCMDFdZq09"
+                                "id": "fe3yFR8uDXz2c40b"
                             },
                             {
-                                "id": "EzNzh2wFTpJV8Eyv"
+                                "id": "6cWXYUm021XtebAq"
                             }
                         ]
                     }
@@ -79,7 +79,8 @@
                 },
                 "tradition": {
                     "value": "arcane"
-                }
+                },
+                "traits": {}
             },
             "type": "spellcastingEntry"
         },
@@ -125,7 +126,7 @@
         {
             "_id": "GbdzxsOU9nk4djit",
             "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
-            "name": "Transmutation School Spell",
+            "name": "School of Protean Form Spell",
             "sort": 300000,
             "system": {
                 "autoHeightenLevel": {
@@ -154,17 +155,19 @@
                 },
                 "tradition": {
                     "value": "arcane"
-                }
+                },
+                "traits": {}
             },
             "type": "spellcastingEntry"
         },
         {
-            "_id": "mSxp1HoLGLqwulJI",
+            "_id": "DDOopEExDzpn4XPR",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.f8hRqLJaxBVhF1u0"
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.9h9YCncqah6VNsKf"
             },
-            "img": "systems/pf2e/icons/spells/acid-arrow.webp",
-            "name": "Acid Arrow",
+            "folder": "lPzcDrjGDFbzuF2r",
+            "img": "icons/magic/acid/dissolve-arm-flesh.webp",
+            "name": "Acid Grip",
             "sort": 400000,
             "system": {
                 "area": null,
@@ -173,10 +176,10 @@
                 },
                 "counteraction": false,
                 "damage": {
-                    "0": {
+                    "YBeTuItHduzXElD5": {
                         "applyMod": false,
                         "category": null,
-                        "formula": "3d8",
+                        "formula": "2d8",
                         "kinds": [
                             "damage"
                         ],
@@ -184,9 +187,14 @@
                         "type": "acid"
                     }
                 },
-                "defense": null,
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
                 "description": {
-                    "value": "<p>You conjure an arrow of acid that keeps corroding the target after it hits. Make a spell attack against the target. On a hit, you deal 3d8 acid damage plus @Damage[(floor(@item.rank/2))d6[persistent,acid]] damage. On a critical hit, double the initial damage, but not the persistent damage.</p><hr /><p><strong>Heightened (+2)</strong> The initial damage increases by 2d8, and the persistent acid damage increases by 1d6.</p>"
+                    "value": "<p>An ephemeral, taloned hand grips the target, burning it with magical acid. The target takes 2d8 acid damage plus @Damage[floor(@item.level/2)d6[persistent,acid]] damage depending on its Reflex save. A creature taking persistent damage from this spell takes a –10-foot status penalty to its Speeds. @UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Acid Grip]</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage and no persistent damage, and the claw moves it up to 5 feet in a direction of your choice.</p>\n<p><strong>Failure</strong> The creature takes full damage and persistent damage, and the claw moves it up to 10 feet in a direction of your choice.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage and full persistent damage, and the claw moves it up to 20 feet in a direction of your choice.</p><hr /><p><strong>Heightened (+2)</strong> The initial damage increases by 2d8, and the persistent acid damage increases by 1d6.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -194,7 +202,7 @@
                 },
                 "heightening": {
                     "damage": {
-                        "0": "2d8"
+                        "YBeTuItHduzXElD5": "2d8"
                     },
                     "interval": 2,
                     "type": "interval"
@@ -206,16 +214,16 @@
                     "value": "Qt0MDGy45EzgUTBu"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "120 feet"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "acid-arrow",
+                "slug": "acid-grip",
                 "target": {
                     "value": "1 creature"
                 },
@@ -230,7 +238,6 @@
                     ],
                     "value": [
                         "acid",
-                        "attack",
                         "concentrate",
                         "manipulate"
                     ]
@@ -239,12 +246,13 @@
             "type": "spell"
         },
         {
-            "_id": "NXFoAbBCMDFdZq09",
+            "_id": "fe3yFR8uDXz2c40b",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.ZxHC7V7HtjUsB8zH"
             },
+            "folder": "lPzcDrjGDFbzuF2r",
             "img": "icons/magic/fire/projectile-fireball-smoke-orange.webp",
-            "name": "Scorching Ray",
+            "name": "Blazing Bolt",
             "sort": 500000,
             "system": {
                 "area": null,
@@ -255,7 +263,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You fire a ray of heat and flame. Make a spell attack roll against a single creature. On a hit, the target takes 2d6 fire damage, and on a critical hit, the target takes double damage.</p>\n<p>For each additional action you use when Casting the Spell, you can fire an additional ray at a different target, to a maximum of three rays targeting three different targets for 3 actions. These attacks each increase your multiple attack penalty, but you don't increase your multiple attack penalty until after you make all the spell attack rolls for <em>scorching ray</em>. If you spend 2 or more actions Casting the Spell, the damage increases to 4d6 fire damage on a hit, and it still deals double damage on a critical hit.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage to each target increases by 1d6 for the 1-action version, or by 2d6 for the 2-action and 3-action versions.</p>"
+                    "value": "<p>You fire a ray of heat and flame. Make a spell attack roll against a single creature. On a hit, the target takes 2d6 fire damage, and on a critical hit, the target takes double damage.</p>\n<p>For each additional action you use when Casting the Spell, you can fire an additional ray at a different target, to a maximum of three rays targeting three different targets for 3 actions. These attacks each increase your multiple attack penalty, but you don't increase your multiple attack penalty until after you make all the spell attack rolls for <em>blazing bolt</em>. If you spend 2 or more actions Casting the Spell, the damage increases to 4d6 fire damage on a hit, and it still deals double damage on a critical hit.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage to each target increases by 1d6 for the 1-action version, or by 2d6 for the 2-action and 3-action versions.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -278,14 +286,10 @@
                                     "applyMod": false,
                                     "category": null,
                                     "formula": "4d6",
-                                    "kinds": [
-                                        "damage"
-                                    ],
                                     "materials": [],
                                     "type": "fire"
                                 }
                             },
-                            "defense": null,
                             "heightening": {
                                 "damage": {
                                     "d80radfbikwjogmr": "2d6"
@@ -311,14 +315,10 @@
                                     "applyMod": false,
                                     "category": null,
                                     "formula": "2d6",
-                                    "kinds": [
-                                        "damage"
-                                    ],
                                     "materials": [],
                                     "type": "fire"
                                 }
                             },
-                            "defense": null,
                             "heightening": {
                                 "damage": {
                                     "tgzp2lzatpg4c9a5": "1d6"
@@ -336,16 +336,16 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Secrets of Magic"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "60 feet"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "scorching-ray",
+                "slug": "blazing-bolt",
                 "target": {
                     "value": "1 or more creatures"
                 },
@@ -369,12 +369,13 @@
             "type": "spell"
         },
         {
-            "_id": "EzNzh2wFTpJV8Eyv",
+            "_id": "6cWXYUm021XtebAq",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.5KobTMrZeZxuXMgl"
             },
+            "folder": "lPzcDrjGDFbzuF2r",
             "img": "icons/creatures/invertebrates/spider-striped-web-red.webp",
-            "name": "Spider Climb",
+            "name": "Gecko Grip",
             "sort": 600000,
             "system": {
                 "area": null,
@@ -385,7 +386,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>Tiny clinging hairs sprout across the creature's hands and feet, offering purchase on nearly any surface. The target gains a climb Speed equal to its Speed.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The duration increases to 1 hour.</p>"
+                    "value": "<p>Tiny clinging hairs sprout across the creature's hands and feet, offering purchase on nearly any surface. The target gains a climb Speed equal to its Speed.</p>\n<hr />\n<p><strong>Heightened (5th)</strong> The duration increases to 1 hour.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Gecko Grip]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -398,16 +399,16 @@
                     "value": "Qt0MDGy45EzgUTBu"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "spider-climb",
+                "slug": "gecko-grip",
                 "target": {
                     "value": "1 creature"
                 },
@@ -429,13 +430,87 @@
             "type": "spell"
         },
         {
+            "_id": "moQHw4XnKHo7qOzb",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gKKqvLohtrSJj3BM"
+            },
+            "folder": "T8AzYUgNIAgTJ9Iz",
+            "img": "systems/pf2e/icons/spells/magic-missile.webp",
+            "name": "Force Barrage",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "1d4+1",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "force"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>You fire a shard of solidified magic toward a creature that you can see. It automatically hits and deals 1d4+1 force damage. For each additional action you use when Casting the Spell, increase the number of shards you shoot by one, to a maximum of three shards for 3 actions. You choose the target for each shard individually. If you shoot more than one shard at the same target, combine the damage before applying bonuses or penalties to damage, resistances, weaknesses, and so forth.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> You fire one additional shard with each action you spend.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "Qt0MDGy45EzgUTBu"
+                },
+                "overlays": {},
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "force-barrage",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "1 to 3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "force",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
             "_id": "kqaxD4YPUwtAxTrP",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.i35dpZFI7jZcRoBo"
             },
             "img": "systems/pf2e/icons/spells/illusory-disguise.webp",
             "name": "Illusory Disguise",
-            "sort": 700000,
+            "sort": 800000,
             "system": {
                 "area": null,
                 "cost": {
@@ -445,7 +520,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You create an illusion that causes you to appear as another creature of the same body shape, and with roughly similar height (within 6 inches) and weight (within 50 pounds), as yourself. The disguise is typically good enough to hide your identity, but not to impersonate a specific individual. The spell doesn't change your voice, scent, or mannerisms. You can change the appearance of your clothing and worn items, such as making your armor look like a dress. Held items are unaffected, and any worn item you remove returns to its true appearance.</p>\n<p>Casting illusory disguise counts as setting up a disguise for the @UUID[Compendium.pf2e.action-macros.Macro.Impersonate: Deception]{Impersonate} use of Deception; it ignores any circumstance penalties you might take for disguising yourself as a dissimilar creature, it gives you a +4 status bonus to Deception checks to prevent others from seeing through your disguise, and you add your level even if you're untrained. You can Dismiss this spell.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The spell also disguises your voice and scent, and it gains the auditory and olfactory traits.</p>\n<p><strong>Heightened (3rd)</strong> You can appear as any creature of the same size, even a specific individual. You must have seen an individual to take on their appearance. The spell also disguises your voice and scent, and it gains the auditory and olfactory traits.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Illusory Disguise]</p>"
+                    "value": "<p>You create an illusion that causes the target to appear as another creature of the same body shape, and with roughly similar height (within 6 inches) and weight (within 50 pounds). The disguise is typically good enough to hide their identity, but not to impersonate a specific individual. The spell changes their appearance and voice, but not mannerisms. You can change the appearance of its clothing and worn items, such as making its armor look like a dress. Held items are unaffected, and any worn item removed from the creature returns to its true appearance.</p>\n<p>Casting <em>illusory disguise</em> counts as setting up a disguise for the @UUID[Compendium.pf2e.actionspf2e.Item.Impersonate] use of Deception; it ignores any circumstance penalties the target might take for disguising itself as a dissimilar creature, gives a +4 status bonus to Deception checks to prevent others from seeing through the disguise, and lets the target add its level to such Deception checks even if untrained. You can Dismiss this spell.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> The target can appear as any creature of the same size, even a specific individual. You must have seen an individual to replicate its appearance, and must have heard its voice to replicate its voice.</p>\n<p><strong>Heightened (4th)</strong> You can target up to 10 willing creatures. If you target multiple creatures, you can choose a different disguise for each target, but none can impersonate a specific individual. You can Dismiss each disguise individually or all collectively.</p>\n<p><strong>Heightened (7th)</strong> As 4th, but you can choose disguises that impersonate specific individuals. You must have seen an individual to replicate its appearance, and must have heard its voice to replicate its voice.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Illusory Disguise]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -459,18 +534,18 @@
                     "value": "dBI4qQGJ1xsIgngf"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
-                    "value": ""
+                    "value": "30 feet"
                 },
                 "requirements": "",
                 "rules": [],
                 "slug": "illusory-disguise",
                 "target": {
-                    "value": ""
+                    "value": "1 willing creature"
                 },
                 "time": {
                     "value": "2"
@@ -492,13 +567,79 @@
             "type": "spell"
         },
         {
-            "_id": "aeB62jQp98ojyLkK",
+            "_id": "VeBjUYg2HfgOk8dH",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.pwzdSlJgYqN7bs2w"
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.XcMObj2p9nIBp53b"
             },
-            "img": "systems/pf2e/icons/spells/mage-hand.webp",
-            "name": "Mage Hand",
-            "sort": 800000,
+            "folder": "wnvibtD90h7CStDC",
+            "img": "icons/magic/unholy/strike-body-life-soul-green.webp",
+            "name": "Scramble Body",
+            "sort": 900000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>Your magic throws the creature's biology into disarray, inducing nausea, fever, and other unpleasant conditions.</p>\n<hr />\n<p><strong>Success</strong> The target is unaffected.</p>\n<p><strong>Failure</strong> The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1}.</p>\n<p><strong>Critical Failure</strong> The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2} and @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} as long as it's sickened.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "GbdzxsOU9nk4djit"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "scramble-body",
+                "target": {
+                    "value": "1 living creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [],
+                    "value": [
+                        "concentrate",
+                        "focus",
+                        "manipulate",
+                        "wizard"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "aswLpvZwr29fo2LY",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.TVKNbcgTee19PXZR"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "systems/pf2e/icons/spells/shield.webp",
+            "name": "Shield",
+            "sort": 1000000,
             "system": {
                 "area": null,
                 "cost": {
@@ -508,7 +649,135 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You create a single magical hand, either invisible or ghostlike, that grasps the target object and moves it slowly up to 20 feet. Because you're levitating the object, you can move it in any direction. When you Sustain the Spell, you can move the object an additional 20 feet. If the object is in the air when the spell ends, the object falls.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You can target an unattended object with a Bulk of 1 or less.</p>\n<p><strong>Heightened (5th)</strong> The range increases to 60 feet, and you can target an unattended object with a Bulk of 1 or less.</p>\n<p><strong>Heightened (7th)</strong> The range increases to 60 feet, and you can target an unattended object with a Bulk of 2 or less.</p>"
+                    "value": "<p>You raise a magical shield of force. This counts as using the Raise a Shield action, giving you a +1 circumstance bonus to AC until the start of your next turn, but it doesn't require a hand to use.</p>\n<p>While the spell is in effect, you can use the @UUID[Compendium.pf2e.feats-srd.Item.Shield Block] reaction with your magic shield. The shield has Hardness 5. You can use the spell's reaction to reduce damage from any spell or magical effect, even if it doesn't deal physical damage. After you use Shield Block, the spell ends and you can't cast it again for 10 minutes.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Shield]</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Effect: Shield Immunity]</p>\n<hr />\n<p><strong>Heightened (+2)</strong> The shield's Hardness increases by 5.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "until the start of your next turn"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "Qt0MDGy45EzgUTBu"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "shield",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "1"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "concentrate",
+                        "force"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "T9mOeLG7LXxXnOIK",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.uZK2BYzPnxUBnDjr"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "icons/magic/nature/root-vine-entangled-hand.webp",
+            "name": "Tangle Vine",
+            "sort": 1100000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>A vine appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack roll against the target.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Escape] against your spell DC to remove the penalty and the immobilized condition.</p>\n<p><strong>Success</strong> The target takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "Qt0MDGy45EzgUTBu"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "tangle-vine",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "attack",
+                        "cantrip",
+                        "concentrate",
+                        "manipulate",
+                        "plant",
+                        "wood"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "L6iivddVgNGBFy4O",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.pwzdSlJgYqN7bs2w"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "systems/pf2e/icons/spells/mage-hand.webp",
+            "name": "Telekinetic Hand",
+            "sort": 1200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You create a floating, magical hand, either invisible or ghostlike, that grasps the target object and levitates it slowly up to 20 feet in any direction. When you Sustain the spell, you can move the object an additional 20 feet. If the object is in the air when the spell ends, the object falls.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You can target an unattended object with a Bulk of 1 or less.</p>\n<p><strong>Heightened (5th)</strong> The range increases to 60 feet, and you can target an unattended object with a Bulk of 1 or less.</p>\n<p><strong>Heightened (7th)</strong> The range increases to 60 feet, and you can target an unattended object with a Bulk of 2 or less.</p>"
                 },
                 "duration": {
                     "sustained": true,
@@ -541,16 +810,16 @@
                     "value": "Qt0MDGy45EzgUTBu"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "mage-hand",
+                "slug": "telekinetic-hand",
                 "target": {
                     "value": "1 unattended object of light Bulk or less"
                 },
@@ -573,206 +842,14 @@
             "type": "spell"
         },
         {
-            "_id": "HMZmQbQXSqL7diZD",
+            "_id": "wMDpMrKbcRw0qD3E",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gKKqvLohtrSJj3BM"
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.zDJS8E66UI0himqV"
             },
-            "img": "systems/pf2e/icons/spells/magic-missile.webp",
-            "name": "Magic Missile",
-            "sort": 900000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {
-                    "0": {
-                        "applyMod": false,
-                        "category": null,
-                        "formula": "1d4+1",
-                        "kinds": [
-                            "damage"
-                        ],
-                        "materials": [],
-                        "type": "force"
-                    }
-                },
-                "defense": null,
-                "description": {
-                    "value": "<p>You send a dart of force streaking toward a creature that you can see. It automatically hits and deals 1d4+1 force damage. For each additional action you use when Casting the Spell, increase the number of missiles you shoot by one, to a maximum of three missiles for 3 actions. You choose the target for each missile individually. If you shoot more than one missile at the same target, combine the damage before applying bonuses or penalties to damage, resistances, weaknesses, and so forth.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> You shoot one additional missile with each action you spend.</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": ""
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "value": "Qt0MDGy45EzgUTBu"
-                },
-                "overlays": {},
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "120 feet"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "magic-missile",
-                "target": {
-                    "value": "1 creature"
-                },
-                "time": {
-                    "value": "1 to 3"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
-                        "arcane",
-                        "occult"
-                    ],
-                    "value": [
-                        "concentrate",
-                        "force",
-                        "manipulate"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "AAm0nxHdKDoBtUmz",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.1lmzILdCFENln8Cy"
-            },
-            "img": "systems/pf2e/icons/spells/physical-boost.webp",
-            "name": "Physical Boost",
-            "sort": 1000000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {},
-                "defense": null,
-                "description": {
-                    "value": "<p>You temporarily improve the target's physique. The target gains a +2 status bonus to the next Acrobatics check, Athletics check, Fortitude save, or Reflex save it attempts.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Physical Boost]</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": "until the end of the target's next turn"
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "value": "GbdzxsOU9nk4djit"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "touch"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "physical-boost",
-                "target": {
-                    "value": "1 living creature"
-                },
-                "time": {
-                    "value": "1"
-                },
-                "traits": {
-                    "rarity": "uncommon",
-                    "traditions": [],
-                    "value": [
-                        "concentrate",
-                        "focus",
-                        "wizard"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "qag1JpCKSkSHqzBA",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.TVKNbcgTee19PXZR"
-            },
-            "img": "systems/pf2e/icons/spells/shield.webp",
-            "name": "Shield",
-            "sort": 1100000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {},
-                "defense": null,
-                "description": {
-                    "value": "<p>You raise a magical shield of force. This counts as using the Raise a Shield action, giving you a +1 circumstance bonus to AC until the start of your next turn, but it doesn't require a hand to use.</p>\n<p>While the spell is in effect, you can use the @UUID[Compendium.pf2e.feats-srd.Item.Shield Block] reaction with your magic shield. The shield has Hardness 5. After you use Shield Block, the spell ends and you can't cast it again for 10 minutes. Unlike a normal Shield Block, you can use the spell's reaction against the @UUID[Compendium.pf2e.spells-srd.Item.Force Barrage] spell.</p>\n<p>Heightening the spell increases the shield's Hardness.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Shield]</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Effect: Shield Immunity]</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> The shield has Hardness 10.</p>\n<p><strong>Heightened (5th)</strong> The shield has Hardness 15.</p>\n<p><strong>Heightened (7th)</strong> The shield has Hardness 20.</p>\n<p><strong>Heightened (9th)</strong> The shield has Hardness 25.</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": "until the start of your next turn"
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "value": "Qt0MDGy45EzgUTBu"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": ""
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "shield",
-                "target": {
-                    "value": ""
-                },
-                "time": {
-                    "value": "1"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
-                        "arcane",
-                        "divine",
-                        "occult"
-                    ],
-                    "value": [
-                        "cantrip",
-                        "concentrate",
-                        "force"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "uSIgJMl5QDZxM0D2",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.r3NeUnsgt9mS03Sn"
-            },
+            "folder": "T8AzYUgNIAgTJ9Iz",
             "img": "systems/pf2e/icons/spells/shocking-grasp.webp",
-            "name": "Shocking Grasp",
-            "sort": 1200000,
+            "name": "Thunderstrike",
+            "sort": 1300000,
             "system": {
                 "area": null,
                 "cost": {
@@ -780,20 +857,35 @@
                 },
                 "counteraction": false,
                 "damage": {
-                    "0": {
+                    "6aFqAhfOSz7ukuwr": {
                         "applyMod": false,
                         "category": null,
-                        "formula": "2d12",
+                        "formula": "1d12",
                         "kinds": [
                             "damage"
                         ],
                         "materials": [],
                         "type": "electricity"
+                    },
+                    "K00cW8XZuHvutOhE": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "1d4",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "sonic"
                     }
                 },
-                "defense": null,
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
                 "description": {
-                    "value": "<p>You shroud your hands in a crackling field of lightning. Make a melee spell attack roll. On a hit, the target takes 2d12 electricity damage. If the target is wearing metal armor or is made of metal, you gain a +1 circumstance bonus to your attack roll with shocking grasp, and the target also takes @Damage[(1d4+((@item.level)-1))[persistent,electricity]] damage on a hit. On a critical hit, double the initial damage, but not the persistent damage.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 1d12, and the persistent electricity damage increases by 1.</p>"
+                    "value": "<p>You call down a tendril of lightning that cracks with thunder, dealing 1d12 electricity damage and 1d4 sonic damage to the target with a basic Reflex save. A target wearing metal armor or made of metal takes a –1 circumstance bonus to its save, and if damaged by the spell is @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1} for 1 round.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d12 electricity and 1d4 sonic.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -801,7 +893,8 @@
                 },
                 "heightening": {
                     "damage": {
-                        "0": "1d12"
+                        "6aFqAhfOSz7ukuwr": "1d12",
+                        "K00cW8XZuHvutOhE": "1d4"
                     },
                     "interval": 1,
                     "type": "interval"
@@ -813,16 +906,16 @@
                     "value": "Qt0MDGy45EzgUTBu"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
-                    "value": "touch"
+                    "value": "120 feet"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "shocking-grasp",
+                "slug": "thunderstrike",
                 "target": {
                     "value": "1 creature"
                 },
@@ -836,73 +929,10 @@
                         "primal"
                     ],
                     "value": [
-                        "attack",
                         "concentrate",
                         "electricity",
-                        "manipulate"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "wh9L2YMRjMG7RyUf",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.uZK2BYzPnxUBnDjr"
-            },
-            "img": "icons/magic/nature/root-vine-entangled-hand.webp",
-            "name": "Tanglefoot",
-            "sort": 1300000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {},
-                "defense": null,
-                "description": {
-                    "value": "<p>A vine covered in sticky sap appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack against the target.</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty and the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition.</p>\n<p><strong>Success</strong> The target takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": ""
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "value": "Qt0MDGy45EzgUTBu"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "30 feet"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "tanglefoot",
-                "target": {
-                    "value": "1 creature"
-                },
-                "time": {
-                    "value": "2"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
-                        "arcane",
-                        "primal"
-                    ],
-                    "value": [
-                        "attack",
-                        "cantrip",
-                        "concentrate",
                         "manipulate",
-                        "plant"
+                        "sonic"
                     ]
                 }
             },
@@ -913,7 +943,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.rQWaJhI5Bko5x14Z"
             },
-            "img": "systems/pf2e/icons/equipment/weapons/dagger.webp",
+            "img": "icons/weapons/daggers/dagger-straight-blue.webp",
             "name": "Dagger",
             "sort": 1400000,
             "system": {
@@ -942,6 +972,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -961,9 +992,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "range": null,
@@ -991,6 +1022,7 @@
                     ]
                 },
                 "usage": {
+                    "canBeAmmo": false,
                     "value": "held-in-one-hand"
                 }
             },
@@ -1014,11 +1046,12 @@
                 "checkPenalty": 0,
                 "containerId": null,
                 "description": {
-                    "value": "<p>This armor is simply a layer of heavy, quilted cloth, but it is sometimes used because it's so inexpensive. Padded armor is easier to damage and destroy than other types of armor. Heavy armor comes with a padded armor undercoat included in its Price, though it loses the comfort trait when worn under heavy armor. You can wear just that padded armor or undercoat to sleep in, if your heavy armor is destroyed, or when otherwise not wearing the full heavy armor. This allows you to keep the armor invested and benefit from the power of any runes on the associated heavy armor, but no one else can wear your heavy armor without the padded undercoat.</p>"
+                    "value": "<p>This armor is simply a layer of heavy, quilted cloth, but it is sometimes used because it's so inexpensive. Padded armor is easier to damage and destroy than other types of armor. Heavy armor comes with a padded armor undercoat included in its Price, though it loses the comfort trait when worn under heavy armor. You can wear just that padded armor undercoat to sleep in, if your heavy armor is destroyed, or when otherwise not wearing the full heavy armor. This allows you to keep magic armor invested and benefit from the power of any runes on the associated heavy armor, but no one else can wear your heavy armor without the padded undercoat.</p>"
                 },
                 "dexCap": 3,
                 "equipped": {
                     "carryType": "worn",
+                    "handsHeld": 0,
                     "inSlot": false,
                     "invested": null
                 },
@@ -1041,9 +1074,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "rules": [],
@@ -1142,7 +1175,7 @@
                 },
                 "containerId": null,
                 "description": {
-                    "value": "<p>A spellbook holds the written knowledge necessary to learn and prepare various spells, a necessity for wizards (who typically get one for free) and a useful luxury for other spellcasters looking to learn additional spells. Each spellbook can hold up to 100 spells. The Price listed is for a blank spellbook.</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Acid Arrow]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Blazing Bolt]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Gecko Grip]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Force Barrage]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Shocking Grasp]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Telekinetic Hand]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Shield]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Tangle Vine]</p>"
+                    "value": "<p>A spellbook holds the written knowledge necessary to learn and prepare various spells, a necessity for wizards (who typically get one for free) and a useful luxury for other spellcasters looking to learn additional spells. Each spellbook can hold up to 100 spells. The Price listed is for a blank spellbook.</p>\n<p><strong>Cantrips</strong></p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Shield]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Tangle Vine]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Telekinetic Hand]</p>\n<p><strong>1st</strong></p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Force Barrage]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Thunderstrike]</p>\n<p><strong>2nd</strong></p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Acid Grip]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Blazing Bolt]</p>\n<p>@UUID[Compendium.pf2e.spells-srd.Item.Gecko Grip]</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
@@ -1167,9 +1200,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "rules": [],
@@ -1275,6 +1308,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1284,9 +1318,6 @@
                         "finesse",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1325,6 +1356,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1334,9 +1366,6 @@
                         "thrown-10",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1394,7 +1423,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "shadow-stride",
                         "toggleable": true
@@ -1435,7 +1463,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>As long as he wears his greater stalk goggles, the Looksee Man can't be flanked by creatures of 4th level or lower.</p>"
+                    "value": "<p>As long as he wears his @UUID[Compendium.pf2e.equipment-srd.Item.Stalk Goggles (Greater)]{Greater Stalk Goggles}, the Looksee Man can't be flanked by creatures of 4th level or lower.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1519,9 +1547,9 @@
             "privateNotes": "",
             "publicNotes": "",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #187: The Seventh Arch"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -1585,7 +1613,6 @@
                 "value": "med"
             },
             "value": [
-                "evil",
                 "fetchling",
                 "humanoid",
                 "shadow"

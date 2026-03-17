@@ -1722,6 +1722,7 @@
                     "handsHeld": 2,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -1748,7 +1749,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1808,6 +1809,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1818,9 +1820,6 @@
                         "magical",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1855,18 +1854,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 300
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "holy",
-                        "light",
-                        "range-300"
+                        "light"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1987,7 +1986,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.Label.DamageType",
                         "option": "choose-weakness-damage",
@@ -2016,7 +2014,6 @@
                         "toggleable": true
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.Label.ResistanceType",
                         "option": "choose-weakness-resistance",
@@ -2045,7 +2042,7 @@
                         "toggleable": true
                     },
                     {
-                        "damageType": "{item|flags.pf2e.rulesSelections.chooseWeaknessDamage}",
+                        "damageType": "{item|flags.system.rulesSelections.chooseWeaknessDamage}",
                         "diceNumber": 1,
                         "dieSize": "d6",
                         "key": "DamageDice",
@@ -2055,7 +2052,7 @@
                         "selector": "holy-greatsword-damage"
                     },
                     {
-                        "damageType": "{item|flags.pf2e.rulesSelections.chooseWeaknessDamage}",
+                        "damageType": "{item|flags.system.rulesSelections.chooseWeaknessDamage}",
                         "diceNumber": 2,
                         "dieSize": "d6",
                         "key": "DamageDice",
@@ -2065,7 +2062,7 @@
                         "selector": "light-ray-damage"
                     },
                     {
-                        "damageType": "{item|flags.pf2e.rulesSelections.chooseWeaknessDamage}",
+                        "damageType": "{item|flags.system.rulesSelections.chooseWeaknessDamage}",
                         "key": "FlatModifier",
                         "predicate": [
                             "choose-weakness-damage"
@@ -2078,7 +2075,7 @@
                         "predicate": [
                             "choose-weakness-resistance"
                         ],
-                        "type": "{item|flags.pf2e.rulesSelections.chooseWeaknessResistance}",
+                        "type": "{item|flags.system.rulesSelections.chooseWeaknessResistance}",
                         "value": 15
                     },
                     {

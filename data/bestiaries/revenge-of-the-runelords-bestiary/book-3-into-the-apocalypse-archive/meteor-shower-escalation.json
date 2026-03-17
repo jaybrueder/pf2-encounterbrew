@@ -1,0 +1,63 @@
+{
+    "_id": "79o8JqOC2wf1es9Y",
+    "folder": "rl5REaDECQmW6sqA",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [],
+    "name": "Meteor Shower (Escalation)",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": null
+            },
+            "emitsSound": "encounter",
+            "hardness": 0,
+            "hp": {
+                "details": "",
+                "max": 0,
+                "temp": 0,
+                "value": 0
+            },
+            "immunities": [],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>@Check[astronomy-lore|dc:41] (master) or @Check[nature|dc:45] (legendary) to notice signs of the approach of unusual celestial bodies</p>",
+                "value": null
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>Impact from a sufficiently large asteroid would be powerful enough to wipe out a region or destroy a planet, but smaller-scale impact events, like from a meteor shower, present hazards that could be survived. This shower might arise naturally, or it might be the result of the PCs or other forces preventing a greater calamity by breaking a world-rending asteroid into smaller pieces.</p>",
+            "disable": "<p>@Check[astronomy-lore|dc:40] (master) or @Check[nature|dc:50] (legendary) to predict the trajectory of the falling asteroids and determine safe zones, @Check[athletics|dc:45] (legendary) or @Check[crafting|dc:47] (master) to dig underground shelters, @Check[diplomacy|dc:45] (master) or @Check[intimidation|dc:47] (master) to coordinate an orderly evacuation</p>",
+            "isComplex": true,
+            "level": {
+                "value": 20
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #221: Into the Apocalypse Archive"
+            },
+            "reset": "",
+            "routine": "<p>(1+ minutes, @Check[flat|dc:17]) Small asteroids rain down across the sky, battering and incinerating those caught in their path before carving craters. Over the course of a minute, enough asteroids smash into the ground and explode to inflict @Damage[7d10[bludgeoning],14d6[fire]|options:area-damage] damage to any unprepared characters in the area (@Check[reflex|dc:46|basic] save). The @Template[type:burst|distance:40]{40-foot-radius} craters left behind are greater difficult terrain.</p><p>The material raining down from outer space includes chunks of adamantine. Adamantine's ability to break through the Hardness of materials is particularly lethal at terminal velocity. The falling adamantine has Hardness 20, allowing the asteroid's bludgeoning damage to overcome the Hardness of all materials with less Hardness, including shelters that would otherwise provide cover. Cover that's destroyed by the bludgeoning damage provides no protection against the fire damage.</p>"
+        },
+        "saves": {
+            "fortitude": {
+                "value": 0
+            },
+            "reflex": {
+                "value": 0
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": []
+        }
+    },
+    "type": "hazard"
+}

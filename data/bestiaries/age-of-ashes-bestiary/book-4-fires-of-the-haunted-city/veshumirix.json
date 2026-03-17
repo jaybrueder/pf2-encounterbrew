@@ -49,7 +49,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.YrzBLPLd3r9m6t1p"
             },
-            "img": "systems/pf2e/icons/spells/fire-shield.webp",
+            "img": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
             "name": "Fire Shield (Constant)",
             "sort": 200000,
             "system": {
@@ -296,7 +296,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.y6rAdMK6EFlV6U0t"
             },
-            "img": "systems/pf2e/icons/spells/burning-hands.webp",
+            "img": "icons/magic/fire/flame-burning-hand-orange.webp",
             "name": "Burning Hands (At Will)",
             "sort": 500000,
             "system": {
@@ -492,6 +492,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -502,9 +503,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -538,6 +536,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -548,9 +547,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -584,6 +580,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -592,9 +589,6 @@
                         "magical",
                         "reach-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -628,6 +622,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -636,9 +631,6 @@
                         "magical",
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -736,7 +728,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>90 feet. @Check[will|dc:34]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>90 feet. @Check[will|dc:34|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -828,7 +820,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Veshumirix breathes a blast of magma that deals @Damage[9d6[fire],4d12[bludgeoning]|options:area-damage]{9d6 fire damage and 4d12 bludgeoning damage} in a @Template[cone|distance:60] (@Check[reflex|dc:42|basic] save).</p>\n<p>He can't use Breath Weapon again for [[/gmr 1d4 #Recharge Breath Weapon]]{1d4 rounds}.</p>"
+                    "value": "<p>Veshumirix breathes a blast of magma that deals @Damage[9d6[fire],4d12[bludgeoning]|options:area-damage]{9d6 fire damage and 4d12 bludgeoning damage} in a @Template[cone|distance:60] (@Check[reflex|dc:42|basic|options:area-effect] save).</p>\n<p>He can't use Breath Weapon again for [[/gmr 1d4 #Recharge Breath Weapon]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -904,9 +896,10 @@
                         "outcome": [
                             "criticalSuccess"
                         ],
-                        "selector": "attack",
-                        "text": "{item|system.description.value}",
-                        "title": "{item|name}"
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
                     }
                 ],
                 "slug": null,
@@ -961,7 +954,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>If the next action Veshumirix uses is Breath Weapon, the magma clings to those it damages. Each creature that fails its save against the Breath Weapon takes @Damage[4d6[persistent,fire]] damage, and as long as it has this persistent fire damage, it also takes a -10-foot status penalty to its Speeds.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Volcanic Purge]</p>"
+                    "value": "<p>If the next action Veshumirix uses is Breath Weapon, the magma clings to those it damages. Each creature that fails its save against the Breath Weapon takes @Damage[4d6[persistent,fire]] damage, and as long as it has this persistent fire damage, it also takes a –10-foot status penalty to its Speeds.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Volcanic Purge]</p>"
                 },
                 "publication": {
                     "license": "OGL",

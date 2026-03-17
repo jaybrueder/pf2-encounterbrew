@@ -34,6 +34,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -42,9 +43,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -105,7 +103,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "implant-core",
                         "toggleable": true
@@ -222,7 +219,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> The grikkitog hits a creature with a jaws Strike</p>\n<hr />\n<p><strong>Effect</strong> The grikkitog sinks its barbed teeth into the target, which must succeed at a @Check[reflex|dc:34] save or be @UUID[Compendium.pf2e.conditionitems.Item.Immobilized]. While immobilized, the victim takes @Damage[3d8[persistent,bleed]] damage and the grikkitog feeds upon its flesh. The creature is immobilized until the grikkitog ends the effect as a free action or the target succeeds at a DC 38 check to @UUID[Compendium.pf2e.actionspf2e.Item.Escape].</p>\n<p>The grikkitog can immobilize any number of creatures with these maws.</p>"
+                    "value": "<p><strong>Trigger</strong> The grikkitog hits a creature with a jaws Strike</p>\n<hr />\n<p><strong>Effect</strong> The grikkitog sinks its barbed teeth into the target, which must succeed at a @Check[reflex|dc:34|options:inflicts:immobilized] save or be @UUID[Compendium.pf2e.conditionitems.Item.Immobilized]. While immobilized, the victim takes @Damage[3d8[persistent,bleed]] damage and the grikkitog feeds upon its flesh. The creature is immobilized until the grikkitog ends the effect as a free action or the target succeeds at a DC 38 check to [[/act escape dc=38]].</p>\n<p>The grikkitog can immobilize any number of creatures with these maws.</p>"
                 },
                 "publication": {
                     "license": "ORC",

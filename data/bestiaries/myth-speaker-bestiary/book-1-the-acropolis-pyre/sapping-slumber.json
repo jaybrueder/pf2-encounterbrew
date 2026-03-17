@@ -1,0 +1,107 @@
+{
+    "_id": "kjo1QK0BVUguDFhM",
+    "folder": "TK7ZSMCuElK7Dn5u",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [
+        {
+            "_id": "zHxv0ZNg30yEdASZ",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Soporific Backlash",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A creature physically contacts Merosyne</p><hr /><p><strong>Effect</strong> The stasis affecting Merosyne is disrupted, but as the magic dissipates, it tries to escape into other nearby bodies, like electricity arcing toward nearby metal. Creatures other than Merosyne within 15 feet of the circles must attempt a @Check[fortitude|dc:21] save.</p><hr /><p><strong>Success</strong> The creature is unaffected.</p>\n<p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1}. While drained by this effect, the PC takes a circumstance penalty equal to their drained value on all checks made as part of a reaction (such as Reactive Strike attack rolls).</p>\n<p><strong>Critical Failure</strong> As failure, but the creature is @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 2}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "sleep"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Sapping Slumber",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": 16
+            },
+            "emitsSound": "encounter",
+            "hardness": 5,
+            "hp": {
+                "details": "",
+                "max": 42,
+                "temp": 0,
+                "value": 42
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "critical-hits"
+                },
+                {
+                    "exceptions": [],
+                    "type": "precision"
+                }
+            ],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>(trained)</p>",
+                "value": 7
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>Ritual circles barely anchor the ancient stasis magic, which dissipates erratically when disturbed.</p>",
+            "disable": "<p>@Check[hero-god-lore|dc:16]{Hero-God Lore} or @Check[occultism|dc:16] to convince the magic that it's fulfilled its objective; @Check[arcana|dc:18], @Check[nature|dc:18], or @Check[religion|dc:18] short-circuit the stasis magic; or @Check[thievery|dc:20] to disable the ritual circles.</p>",
+            "isComplex": false,
+            "level": {
+                "value": 3
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #216: The Acropolis Pyre"
+            },
+            "reset": "",
+            "routine": ""
+        },
+        "saves": {
+            "fortitude": {
+                "value": 12
+            },
+            "reflex": {
+                "value": 6
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "magical",
+                "trap"
+            ]
+        }
+    },
+    "type": "hazard"
+}

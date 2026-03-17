@@ -33,19 +33,19 @@
                         "max": 5,
                         "prepared": [
                             {
-                                "id": "UV6FnYHXyx51bqi6"
+                                "id": "vq4gVwqsp4fkv3Cv"
                             },
                             {
-                                "id": "A5fGPxUPRUT8ws4l"
+                                "id": "oOEOmUOcPKvERzrY"
                             },
                             {
-                                "id": "A6iIPQFJ8ANgSMJK"
+                                "id": "bj6S8xsjwDgOwhLB"
                             },
                             {
-                                "id": "ex0Fq7SV6fd0qOmD"
+                                "id": "H4ZBHgQx2G9POao7"
                             },
                             {
-                                "id": "dMQ9MoUr14ixXNQp"
+                                "id": "QLRdTGlTZfT0JwAe"
                             }
                         ]
                     },
@@ -53,16 +53,16 @@
                         "max": 4,
                         "prepared": [
                             {
-                                "id": "OECVbTyGmfc5i0Ke"
+                                "id": "1NnnMujbTRaiQGP6"
                             },
                             {
-                                "id": "zn3CuLPttWwaj9m0"
+                                "id": "oZ5Kq9R5my6NNybH"
                             },
                             {
-                                "id": "qRG1l01HEr5Dd9xg"
+                                "id": "1HN1RyD8oJmvBkTw"
                             },
                             {
-                                "id": "SfpYC9zPjhfYsbYM"
+                                "id": "abjoxsz1kNxyIfmP"
                             }
                         ]
                     }
@@ -74,7 +74,8 @@
                 },
                 "tradition": {
                     "value": "primal"
-                }
+                },
+                "traits": {}
             },
             "type": "spellcastingEntry"
         },
@@ -115,174 +116,14 @@
             "type": "spellcastingEntry"
         },
         {
-            "_id": "UV6FnYHXyx51bqi6",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gISYsBFby1TiXfBt"
-            },
-            "img": "icons/magic/acid/projectile-smoke-glowing.webp",
-            "name": "Acid Splash",
-            "sort": 300000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {
-                    "0": {
-                        "applyMod": false,
-                        "category": null,
-                        "formula": "1d6",
-                        "kinds": [
-                            "damage"
-                        ],
-                        "materials": [],
-                        "type": "acid"
-                    },
-                    "gcovwqxwitqchoin": {
-                        "applyMod": false,
-                        "category": "splash",
-                        "formula": "1",
-                        "kinds": [
-                            "damage"
-                        ],
-                        "materials": [],
-                        "type": "acid"
-                    }
-                },
-                "defense": null,
-                "description": {
-                    "value": "<p>You splash a glob of acid that splatters your target and nearby creatures. Make a spell attack. If you hit, you deal 1d6 acid damage plus 1 splash acid damage. On a critical success, the target also takes @Damage[(ceil(@item.level/2))[persistent,acid]] damage.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> The initial damage increases to 2d6, and the persistent damage increases to 2.</p>\n<p><strong>Heightened (5th)</strong> The initial damage increases to 3d6, the persistent damage increases to 3, and the splash damage increases to 2.</p>\n<p><strong>Heightened (7th)</strong> The initial damage increases to 4d6, the persistent damage increases to 4, and the splash damage increases to 3.</p>\n<p><strong>Heightened (9th)</strong> The initial damage increases to 5d6, the persistent damage increases to 5, and the splash damage increases to 4.</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": ""
-                },
-                "heightening": {
-                    "levels": {
-                        "3": {
-                            "damage": {
-                                "0": {
-                                    "applyMod": false,
-                                    "category": null,
-                                    "formula": "2d6",
-                                    "materials": [],
-                                    "type": "acid"
-                                },
-                                "gcovwqxwitqchoin": {
-                                    "applyMod": false,
-                                    "category": "splash",
-                                    "formula": "1",
-                                    "materials": [],
-                                    "type": "acid"
-                                }
-                            }
-                        },
-                        "5": {
-                            "damage": {
-                                "0": {
-                                    "applyMod": false,
-                                    "category": null,
-                                    "formula": "3d6",
-                                    "materials": [],
-                                    "type": "acid"
-                                },
-                                "gcovwqxwitqchoin": {
-                                    "applyMod": false,
-                                    "category": "splash",
-                                    "formula": "2",
-                                    "materials": [],
-                                    "type": "acid"
-                                }
-                            }
-                        },
-                        "7": {
-                            "damage": {
-                                "0": {
-                                    "applyMod": false,
-                                    "category": null,
-                                    "formula": "4d6",
-                                    "materials": [],
-                                    "type": "acid"
-                                },
-                                "gcovwqxwitqchoin": {
-                                    "applyMod": false,
-                                    "category": "splash",
-                                    "formula": "3",
-                                    "materials": [],
-                                    "type": "acid"
-                                }
-                            }
-                        },
-                        "9": {
-                            "damage": {
-                                "0": {
-                                    "applyMod": false,
-                                    "category": null,
-                                    "formula": "5d6",
-                                    "materials": [],
-                                    "type": "acid"
-                                },
-                                "gcovwqxwitqchoin": {
-                                    "applyMod": false,
-                                    "category": "splash",
-                                    "formula": "4",
-                                    "materials": [],
-                                    "type": "acid"
-                                }
-                            }
-                        }
-                    },
-                    "type": "fixed"
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "value": "CQEesz5CNMt6BtQP"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "30 feet"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "acid-splash",
-                "target": {
-                    "value": "1 creature"
-                },
-                "time": {
-                    "value": "2"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
-                        "arcane",
-                        "primal"
-                    ],
-                    "value": [
-                        "acid",
-                        "attack",
-                        "cantrip",
-                        "concentrate",
-                        "manipulate"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "OECVbTyGmfc5i0Ke",
+            "_id": "1NnnMujbTRaiQGP6",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.y6rAdMK6EFlV6U0t"
             },
-            "img": "systems/pf2e/icons/spells/burning-hands.webp",
-            "name": "Burning Hands",
-            "sort": 400000,
+            "folder": "T8AzYUgNIAgTJ9Iz",
+            "img": "systems/pf2e/icons/spells/dragon-breath.webp",
+            "name": "Breathe Fire",
+            "sort": 300000,
             "system": {
                 "area": {
                     "type": "cone",
@@ -294,6 +135,7 @@
                 "counteraction": false,
                 "damage": {
                     "0": {
+                        "applyMod": false,
                         "category": null,
                         "formula": "2d6",
                         "kinds": [
@@ -310,7 +152,7 @@
                     }
                 },
                 "description": {
-                    "value": "<p>Gouts of flame rush from your hands. You deal 2d6 fire damage to creatures in the area.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
+                    "value": "<p>A gout of flame sprays from your mouth. You deal 2d6 fire damage to creatures in the area with a basic Reflex save.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -330,16 +172,16 @@
                     "value": "CQEesz5CNMt6BtQP"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": ""
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "burning-hands",
+                "slug": "breathe-fire",
                 "target": {
                     "value": ""
                 },
@@ -362,10 +204,100 @@
             "type": "spell"
         },
         {
-            "_id": "zn3CuLPttWwaj9m0",
+            "_id": "vq4gVwqsp4fkv3Cv",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.thAHF1zxNplLCJPO"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "icons/magic/acid/orb-bubble-smoke-drip.webp",
+            "name": "Caustic Blast",
+            "sort": 400000,
+            "system": {
+                "area": {
+                    "type": "burst",
+                    "value": 5
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "yI4fzrhnbFxup4Ep": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "1d8",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "acid"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
+                "description": {
+                    "value": "<p>You fling a large glob of acid that immediately detonates, spraying nearby creatures. Creatures in the area take 1d8 acid damage with a basic Reflex save; on a critical failure, the creature also takes @Damage[(1+floor((@item.rank -1)/2))[persistent,acid]] damage.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> The initial damage increases by 1d8, and the persistent damage on a critical failure increases by 1.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "yI4fzrhnbFxup4Ep": "1d8"
+                    },
+                    "interval": 2,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "CQEesz5CNMt6BtQP"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "caustic-blast",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "acid",
+                        "cantrip",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "oZ5Kq9R5my6NNybH",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.aEM2cttJ2eYcLssW"
             },
+            "folder": "T8AzYUgNIAgTJ9Iz",
             "img": "icons/skills/movement/feet-winged-sandals-tan.webp",
             "name": "Fleet Step",
             "sort": 500000,
@@ -391,9 +323,9 @@
                     "value": "CQEesz5CNMt6BtQP"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": ""
@@ -422,13 +354,100 @@
             "type": "spell"
         },
         {
-            "_id": "A5fGPxUPRUT8ws4l",
+            "_id": "oOEOmUOcPKvERzrY",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.IxhGEKl63R4QBvkj"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "icons/magic/movement/trail-streak-impact-blue.webp",
+            "name": "Frostbite",
+            "sort": 600000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "3bsJUDEgedKhPx6T": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "2d4",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "cold"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>An orb of biting cold coalesces around your target, freezing its body. The target takes 2d4 cold damage with a basic Fortitude save. On a critical failure, the target also gains weakness 1 to bludgeoning until the start of your next turn.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Frostbite]</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4 and the weakness on a critical failure increases by 1.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "3bsJUDEgedKhPx6T": "1d4"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "CQEesz5CNMt6BtQP"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "60 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "frostbite",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "cantrip",
+                        "cold",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "bj6S8xsjwDgOwhLB",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.izcxFQFwf3woCnFs"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "systems/pf2e/icons/spells/guidance.webp",
             "name": "Guidance",
-            "sort": 600000,
+            "sort": 700000,
             "system": {
                 "area": null,
                 "cost": {
@@ -438,7 +457,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You ask for divine guidance, granting the target a +1 status bonus to one attack roll, Perception check, saving throw, or skill check the target attempts before the duration ends. The target chooses which roll to use the bonus on before rolling. If the target uses the bonus, the spell ends. Either way, the target is then temporarily immune for 1 hour.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Guidance]</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Effect: Guidance Immunity]</p>"
+                    "value": "<p>You ask for the guidance of supernatural entities, granting the target a +1 status bonus to one attack roll, Perception check, saving throw, or skill check the target attempts before the duration ends. The target chooses which roll to use the bonus on before rolling. If the target uses the bonus, the spell ends. Either way, the target is then temporarily immune for 1 hour.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Guidance]</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Effect: Guidance Immunity]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -451,9 +470,9 @@
                     "value": "CQEesz5CNMt6BtQP"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -483,13 +502,14 @@
             "type": "spell"
         },
         {
-            "_id": "A6iIPQFJ8ANgSMJK",
+            "_id": "H4ZBHgQx2G9POao7",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.WBmvzNDfpwka3qT4"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "systems/pf2e/icons/spells/light.webp",
             "name": "Light",
-            "sort": 700000,
+            "sort": 800000,
             "system": {
                 "area": null,
                 "cost": {
@@ -499,11 +519,11 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>The object glows, casting bright light in a 20-foot radius (and dim light for the next 20 feet) like a torch. If you cast this spell again on a second object, the light spell on the first object ends.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Light]</p>\n<hr />\n<p><strong>Heightened (4th)</strong> The object sheds bright light in a 60-foot radius (and dim light for the next 60 feet).</p>"
+                    "value": "<p>You create an orb of light that sheds bright light in a 20-foot radius (and dim light for the next 20 feet) in a color you choose. If you create the light in the same space as a willing creature, you can attach the light to the creature, causing it to float near that creature as it moves. You can Sustain the spell to move the light up to 60 feet; you can attach or detach it from a creature as part of this movement.</p>\n<p>You can Dismiss the spell. If you Cast the Spell while you already have four <em>light</em> spells active, you must choose one of the existing spells to end.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Light]</p>\n<hr />\n<p><strong>Heightened (4th)</strong> The orb sheds light in a 60-foot radius (and dim light for the next 60 feet).</p>"
                 },
                 "duration": {
                     "sustained": false,
-                    "value": "until the next time you make your daily preparations"
+                    "value": "until your next daily preparations"
                 },
                 "level": {
                     "value": 1
@@ -512,18 +532,18 @@
                     "value": "CQEesz5CNMt6BtQP"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
-                    "value": "touch"
+                    "value": "120 feet"
                 },
                 "requirements": "",
                 "rules": [],
                 "slug": "light",
                 "target": {
-                    "value": "1 object of 1 Bulk or less, either unattended or possessed by you or a willing ally"
+                    "value": ""
                 },
                 "time": {
                     "value": "2"
@@ -547,93 +567,13 @@
             "type": "spell"
         },
         {
-            "_id": "ex0Fq7SV6fd0qOmD",
+            "_id": "1HN1RyD8oJmvBkTw",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gYjPm7YwGtEa1oxh"
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.EE7Q5BHIrfWNCPtT"
             },
-            "img": "icons/magic/movement/trail-streak-impact-blue.webp",
-            "name": "Ray of Frost",
-            "sort": 800000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {
-                    "0": {
-                        "applyMod": false,
-                        "category": null,
-                        "formula": "2d4",
-                        "kinds": [
-                            "damage"
-                        ],
-                        "materials": [],
-                        "type": "cold"
-                    }
-                },
-                "defense": null,
-                "description": {
-                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a -10-foot status penalty to its Speeds for 1 round.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ray of Frost]</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": ""
-                },
-                "heightening": {
-                    "damage": {
-                        "0": "1d4"
-                    },
-                    "interval": 1,
-                    "type": "interval"
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "value": "CQEesz5CNMt6BtQP"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "120 feet"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "ray-of-frost",
-                "target": {
-                    "value": "1 creature"
-                },
-                "time": {
-                    "value": "2"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
-                        "arcane",
-                        "primal"
-                    ],
-                    "value": [
-                        "attack",
-                        "cantrip",
-                        "cold",
-                        "concentrate",
-                        "manipulate"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "qRG1l01HEr5Dd9xg",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.s3abwDbTV43pGFFW"
-            },
-            "img": "systems/pf2e/icons/spells/shillelagh.webp",
-            "name": "Shillelagh",
+            "folder": "T8AzYUgNIAgTJ9Iz",
+            "img": "systems/pf2e/icons/spells/magic-fang.webp",
+            "name": "Runic Body",
             "sort": 900000,
             "system": {
                 "area": null,
@@ -644,7 +584,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>The target grows vines and leaves, brimming with primal energy. The target becomes a <em>+1 striking weapon</em> while in your hands, gaining a +1 item bonus to attack rolls and increasing the number of weapon damage dice to two. Additionally, as long as you are on your home plane, attacks you make with the target against aberrations, extraplanar creatures, and undead increase the number of weapon damage dice to three.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Shillelagh]</p>"
+                    "value": "<p>Glowing runes appear on the target's body. All its unarmed attacks become <em>+1 striking</em> unarmed attacks, gaining a +1 item bonus to attack rolls and increasing the number of damage dice to two.</p>\n<hr />\n<p><strong>Heightened (6th)</strong> The unarmed attacks are <em>+2 greater striking</em>.</p>\n<p><strong>Heightened (9th)</strong> The unarmed attacks are <em>+3 major striking</em>.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Runic Body]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -657,18 +597,18 @@
                     "value": "CQEesz5CNMt6BtQP"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "shillelagh",
+                "slug": "runic-body",
                 "target": {
-                    "value": "1 club or staff you hold"
+                    "value": "1 willing creature"
                 },
                 "time": {
                     "value": "2"
@@ -676,66 +616,8 @@
                 "traits": {
                     "rarity": "common",
                     "traditions": [
-                        "primal"
-                    ],
-                    "value": [
-                        "concentrate",
-                        "manipulate",
-                        "plant"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "SfpYC9zPjhfYsbYM",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.hs7h8f4Z1ZNdUt3s"
-            },
-            "img": "icons/creatures/unholy/demon-horned-winged-laughing.webp",
-            "name": "Summon Fey",
-            "sort": 1000000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {},
-                "defense": null,
-                "description": {
-                    "value": "<p>You conjure a fey to fight for you. This works like @UUID[Compendium.pf2e.spells-srd.Item.Summon Animal], except you summon a common creature that has the fey trait and whose level is -1.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> Level 1</p>\n<p><strong>Heightened (3rd)</strong> Level 2</p>\n<p><strong>Heightened (4th)</strong> Level 3</p>\n<p><strong>Heightened (5th)</strong> Level 5</p>\n<p><strong>Heightened (6th)</strong> Level 7</p>\n<p><strong>Heightened (7th)</strong> Level 9</p>\n<p><strong>Heightened (8th)</strong> Level 11</p>\n<p><strong>Heightened (9th)</strong> Level 13</p>\n<p><strong>Heightened (10th)</strong> Level 15</p>"
-                },
-                "duration": {
-                    "sustained": true,
-                    "value": "1 minute"
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "value": "CQEesz5CNMt6BtQP"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "30 feet"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "summon-fey",
-                "target": {
-                    "value": ""
-                },
-                "time": {
-                    "value": "3"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
+                        "arcane",
+                        "divine",
                         "occult",
                         "primal"
                     ],
@@ -748,12 +630,76 @@
             "type": "spell"
         },
         {
-            "_id": "dMQ9MoUr14ixXNQp",
+            "_id": "abjoxsz1kNxyIfmP",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.TFitdEOpQC4SzKQQ"
+            },
+            "folder": "T8AzYUgNIAgTJ9Iz",
+            "img": "systems/pf2e/icons/spells/magic-weapon.webp",
+            "name": "Runic Weapon",
+            "sort": 1000000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>The weapon glimmers with magic as temporary runes carve down its length. The target becomes a <em>+1 striking weapon</em>, gaining a +1 item bonus to attack rolls and increasing the number of weapon damage dice to two.</p>\n<hr />\n<p><strong>Heightened (6th)</strong> The weapon is <em>+2 greater striking</em>.</p>\n<p><strong>Heightened (9th)</strong> The weapon is <em>+3 major striking</em>.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Runic Weapon]</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "CQEesz5CNMt6BtQP"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "runic-weapon",
+                "target": {
+                    "value": "1 weapon that is unattended or wielded by a willing creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "QLRdTGlTZfT0JwAe",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.uZK2BYzPnxUBnDjr"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "icons/magic/nature/root-vine-entangled-hand.webp",
-            "name": "Tanglefoot",
+            "name": "Tangle Vine",
             "sort": 1100000,
             "system": {
                 "area": null,
@@ -764,7 +710,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>A vine covered in sticky sap appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack against the target.</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty and the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition.</p>\n<p><strong>Success</strong> The target takes a -10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
+                    "value": "<p>A vine appears from thin air, flicking from your hand and lashing itself to the target. Attempt a spell attack roll against the target.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Tangle Vine]</p>\n<hr />\n<p><strong>Critical Success</strong> The target gains the @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] condition and takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Escape] against your spell DC to remove the penalty and the immobilized condition.</p>\n<p><strong>Success</strong> The target takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape against your spell DC to remove the penalty.</p>\n<p><strong>Failure</strong> The target is unaffected.</p>\n<hr />\n<p><strong>Heightened (2nd)</strong> The effects last for 2 rounds.</p>\n<p><strong>Heightened (4th)</strong> The effects last for 1 minute.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -777,16 +723,16 @@
                     "value": "CQEesz5CNMt6BtQP"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "tanglefoot",
+                "slug": "tangle-vine",
                 "target": {
                     "value": "1 creature"
                 },
@@ -804,7 +750,8 @@
                         "cantrip",
                         "concentrate",
                         "manipulate",
-                        "plant"
+                        "plant",
+                        "wood"
                     ]
                 }
             },
@@ -816,7 +763,7 @@
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.0xR9vrt6uDFl0Umo"
             },
             "img": "systems/pf2e/icons/spells/wild-morph.webp",
-            "name": "Wild Morph (Plant Shape)",
+            "name": "Untamed Shift",
             "sort": 1200000,
             "system": {
                 "area": null,
@@ -827,7 +774,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You morph your body based on your training, choosing one of the following effects based on your wild order feats.</p>\n<ul>\n<li>If you have @UUID[Compendium.pf2e.feats-srd.Item.Untamed Form], you can morph your hands into wild claws. Your hands transform into incredibly sharp claws. These claws are an unarmed attack you're trained in and deal 1d6 slashing damage each (agile, finesse). You can still hold and use items with your hands while they're transformed by this spell, but you cannot hold an item while attacking.</li>\n<li>If you have @UUID[Compendium.pf2e.feats-srd.Item.Insect Shape], you can instead transform your mouth into wild jaws, an unarmed attack you're trained in that deals 1d8 piercing damage.</li>\n<li>If you have @UUID[Compendium.pf2e.feats-srd.Item.Elemental Shape], you can morph your body to be partially composed of elemental matter, granting you resistance 5 to critical hits and precision damage.</li>\n<li>If you have @UUID[Compendium.pf2e.feats-srd.Item.Plant Shape], you can morph your arms into long vines, increasing your reach to 10 feet (or 15 feet with a reach weapon).</li>\n<li>If you have @UUID[Compendium.pf2e.feats-srd.Item.Soaring Shape], you can cast the spell as a two-action activity (<span class=\"action-glyph\">2</span> <strong>somatic, verbal</strong>) to grow wings from your back. These wings allow you to fly with a fly Speed of 30 feet.</li>\n</ul>\n<hr />\n<p><strong>Heightened (6th)</strong> You can choose up to two of the effects from the list. Wild claws leave terrible, ragged wounds that also deal @Damage[2d6[bleed]] on a hit, and wild jaws are envenomed, also dealing @Damage[2d6[persistent,poison]] on a hit.</p>\n<p><strong>Heightened (10th)</strong> You can choose up to three of the effects from the list. Wild claws deal @Damage[4d6[bleed]] on a hit, and wild jaws deal @Damage[4d6[persistent,poison]] on a hit.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Untamed Shift]</p>"
+                    "value": "<p>You transform just a part of your body. Choose any one effect that matches an untamed order feat you have.</p>\n<ul>\n<li><strong>Untamed Form</strong> Your hands transform into incredibly sharp claws. Untamed claws are an unarmed attack, have the agile and finesse traits, and and deal 1d6 slashing damage. You can still hold and use items with your hands while they're transformed by this spell, but you must have a hand free to attack with it.</li>\n<li><strong>Insect Shape</strong> Your mouth becomes deadly jaws. Untamed jaws are an unarmed attack that deal 1d8 piercing damage.</li>\n<li><strong>Elemental Shape</strong> You shift your body to be partially composed of elemental matter, granting you resistance 5 to critical hits and precision damage.</li>\n<li><strong>Plant Shape</strong> Your arms become long vines, increasing your reach to 10 feet (or 15 feet with a reach weapon).</li>\n<li><strong>Soaring Shape</strong> You must cast <em>untamed shift</em> using 2 actions for this benefit. You grow wings from your back, gaining a fly Speed of 30 feet.</li>\n</ul>\n<hr />\n<p><strong>Heightened (6th)</strong> You can choose up to two effects from the list. Untamed claws leave terrible, ragged wounds that also deal 2d6 persistent bleed damage on a hit, and untamed jaws are envenomed, also dealing 2d6 persistent poison damage on a hit.</p>\n<p><strong>Heightened (10th)</strong> You can choose up to three effects from the list. Untamed claws deal 4d6 persistent bleed damage on a hit, and untamed jaws deal 4d6 persistent poison damage on a hit</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Untamed Shift]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -840,16 +787,16 @@
                     "value": "TGcVVlnIzAdEGbVW"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": ""
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "wild-morph",
+                "slug": "untamed-shift",
                 "target": {
                     "value": ""
                 },
@@ -875,7 +822,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.rQWaJhI5Bko5x14Z"
             },
-            "img": "systems/pf2e/icons/equipment/weapons/dagger.webp",
+            "img": "icons/weapons/daggers/dagger-straight-blue.webp",
             "name": "Dagger",
             "sort": 1300000,
             "system": {
@@ -904,6 +851,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -923,9 +871,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "range": null,
@@ -953,6 +901,7 @@
                     ]
                 },
                 "usage": {
+                    "canBeAmmo": false,
                     "value": "held-in-one-hand"
                 }
             },
@@ -992,6 +941,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -1009,19 +959,21 @@
                     "value": {}
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
                     "potency": 1,
-                    "property": [],
+                    "property": {
+                        "0": ""
+                    },
                     "striking": 0
                 },
                 "size": "med",
@@ -1032,6 +984,7 @@
                 "traits": {
                     "rarity": "common",
                     "value": [
+                        "monk",
                         "two-hand-d8"
                     ]
                 },
@@ -1064,6 +1017,7 @@
                 "dexCap": 2,
                 "equipped": {
                     "carryType": "worn",
+                    "handsHeld": 0,
                     "inSlot": false,
                     "invested": null
                 },
@@ -1086,9 +1040,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "rules": [],
@@ -1195,6 +1149,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -1217,7 +1172,6 @@
                         "value": 8
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "feat:plant-shape"
                     }
@@ -1229,9 +1183,6 @@
                         "magical",
                         "two-hand-d8"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1250,7 +1201,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Bolan compels plant-based materials within @Template[emanation|distance:10]{10 feet} of him to grow sharp thorns and spiky branches. This ability affects all walls, floors, and large objects made from dead organic material, such as wood. Affected areas become difficult terrain. Non-fey and non-plant creatures in the affected area or those who move through an affected square take @Damage[2d10[piercing]] (@Check[reflex|dc:18|basic]). This ability does not affect stone, dirt, living plants, or other materials. The effect ends when Bolan moves out of his square.</p>"
+                    "value": "<p>Bolan compels plant-based materials within @Template[emanation|distance:10]{10 feet} of him to grow sharp thorns and spiky branches. This ability affects all walls, floors, and large objects made from dead organic material, such as wood. Affected areas become difficult terrain. Non-fey and non-plant creatures in the affected area or those who move through an affected square take @Damage[2d10[piercing]|options:area-damage] (@Check[reflex|dc:18|basic|options:area-effect]). This ability does not affect stone, dirt, living plants, or other materials. The effect ends when Bolan moves out of his square.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1390,9 +1341,9 @@
             "privateNotes": "",
             "publicNotes": "",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #187: The Seventh Arch"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -1449,7 +1400,6 @@
                 "value": "med"
             },
             "value": [
-                "evil",
                 "human",
                 "humanoid"
             ]

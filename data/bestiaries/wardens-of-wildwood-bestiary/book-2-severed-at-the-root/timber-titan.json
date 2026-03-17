@@ -35,6 +35,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -42,9 +43,6 @@
                     "value": [
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -78,16 +76,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 80,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "magical",
-                        "range-increment-80"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -115,7 +113,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.ConstructArmor.CriticalHit",
                         "option": "construct-armor",

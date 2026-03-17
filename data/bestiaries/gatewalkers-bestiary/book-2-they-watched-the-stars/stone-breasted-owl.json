@@ -38,17 +38,19 @@
                 },
                 "tradition": {
                     "value": "primal"
-                }
+                },
+                "traits": {}
             },
             "type": "spellcastingEntry"
         },
         {
-            "_id": "1BbQQdhQdFdXQxTl",
+            "_id": "vQweOxNYWQTaZvId",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.SwUiVavHKMWG7t5K"
             },
+            "folder": "iDjm2cXyRAe4VZ35",
             "img": "systems/pf2e/icons/spells/tongues.webp",
-            "name": "Tongues (Constant)",
+            "name": "Truespeech (Constant)",
             "sort": 200000,
             "system": {
                 "area": null,
@@ -69,20 +71,19 @@
                     "value": 5
                 },
                 "location": {
-                    "heightenedLevel": 5,
                     "value": "UbteBatu0F9hxxSX"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "tongues",
+                "slug": "truespeech",
                 "target": {
                     "value": "1 creature"
                 },
@@ -105,12 +106,13 @@
             "type": "spell"
         },
         {
-            "_id": "b3Bq7tqnCqSMZeiJ",
+            "_id": "aCuFkdrJgiPyRTcm",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.RneiyehRO6f7LP44"
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.SUKaxVZW2TlM8lu0"
             },
-            "img": "icons/magic/death/skull-poison-green.webp",
-            "name": "Remove Disease",
+            "folder": "lPzcDrjGDFbzuF2r",
+            "img": "icons/consumables/fruit/berry-clustered-white.webp",
+            "name": "Cleanse Affliction",
             "sort": 300000,
             "system": {
                 "area": null,
@@ -121,40 +123,41 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>Healing magic purges disease from a creature's body. You attempt to counteract one disease afflicting the target.</p>"
+                    "value": "<p>Gentle restorative magic pushes back the effects of toxins and more complex maladies. Choose an affliction on the target, such as a curse, disease, or poison. If it has advanced past stage one, reduce the stage by one. This reduction can be applied only once to a given case of an affliction, with the case ending when it's completely cured. Although the reduction can't occur again, heightened versions of this spell attempt to counteract with each casting.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> Attempt to counteract the affliction if it is a disease or poison.</p>\n<p><strong>Heightened (4th)</strong> Attempt to counteract the affliction if it is a curse, disease, or poison.</p>"
                 },
                 "duration": {
                     "sustained": false,
                     "value": ""
                 },
                 "level": {
-                    "value": 3
+                    "value": 2
                 },
                 "location": {
                     "heightenedLevel": 3,
                     "value": "UbteBatu0F9hxxSX"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "remove-disease",
+                "slug": "cleanse-affliction",
                 "target": {
-                    "value": "1 creature"
+                    "value": "1 willing creature"
                 },
                 "time": {
-                    "value": "10 minutes"
+                    "value": "2"
                 },
                 "traits": {
                     "rarity": "common",
                     "traditions": [
                         "divine",
+                        "occult",
                         "primal"
                     ],
                     "value": [
@@ -167,12 +170,13 @@
             "type": "spell"
         },
         {
-            "_id": "qEnnQksCoUpomH1p",
+            "_id": "mgvXfZ8BnDKSgWax",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.EfFMLVbmkBWmzoLF"
             },
-            "img": "systems/pf2e/icons/spells/remove-fear.webp",
-            "name": "Remove Fear",
+            "folder": "lPzcDrjGDFbzuF2r",
+            "img": "systems/pf2e/icons/spells/detect-alignment.webp",
+            "name": "Clear Mind",
             "sort": 400000,
             "system": {
                 "area": null,
@@ -183,24 +187,11 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>With a touch, you ease a creature's fears. You can attempt to counteract a single fear effect that the target suffers from. This frees only the target, not any other creatures under the fear effect.</p>\n<hr />\n<p><strong>Heightened (6th)</strong> The spell's range increases to 30 feet, and you can target up to 10 creatures.</p>"
+                    "value": "<p>You drive mental contamination from the target's mind. Attempt to counteract an effect of your choice imposing one of these conditions on the target: @UUID[Compendium.pf2e.conditionitems.Item.Fleeing], @UUID[Compendium.pf2e.conditionitems.Item.Frightened], and @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]. If you failed to counteract the effect but you would have if its counteract rank were 2 lower, instead suppress the effect until the beginning of your next turn. The effect's duration doesn't elapse while it's suppressed. This spell can't counteract or suppress conditions that are part of curses, diseases, or a natural state of the target.</p><hr /><p><strong>Heightened (4th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Confused], @UUID[Compendium.pf2e.conditionitems.Item.Controlled], and @UUID[Compendium.pf2e.conditionitems.Item.Slowed] to the list of conditions.</p>\n<p><strong>Heightened (6th)</strong> As 4th rank, plus add @UUID[Compendium.pf2e.conditionitems.Item.Doomed].</p>\n<p><strong>Heightened (8th)</strong> As 4th rank, plus add doomed and @UUID[Compendium.pf2e.conditionitems.Item.Stunned].</p>"
                 },
                 "duration": {
                     "sustained": false,
                     "value": ""
-                },
-                "heightening": {
-                    "levels": {
-                        "6": {
-                            "range": {
-                                "value": "30 feet"
-                            },
-                            "target": {
-                                "value": "10 creatures"
-                            }
-                        }
-                    },
-                    "type": "fixed"
                 },
                 "level": {
                     "value": 2
@@ -210,93 +201,18 @@
                     "value": "UbteBatu0F9hxxSX"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "remove-fear",
+                "slug": "clear-mind",
                 "target": {
-                    "value": "1 creature"
-                },
-                "time": {
-                    "value": "2"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
-                        "divine",
-                        "occult",
-                        "primal"
-                    ],
-                    "value": [
-                        "concentrate",
-                        "manipulate"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "0xrJrsCrfaTh7iXI",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.Et8RSCLx8w7uOLvo"
-            },
-            "img": "systems/pf2e/icons/spells/restore-senses.webp",
-            "name": "Restore Senses",
-            "sort": 500000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": true,
-                "damage": {},
-                "defense": null,
-                "description": {
-                    "value": "<p>You attempt to counteract a single effect imposing the @UUID[Compendium.pf2e.conditionitems.Item.Blinded] or @UUID[Compendium.pf2e.conditionitems.Item.Deafened] conditions on the target, restoring its vision or hearing. This can counteract both temporary magic and permanent consequences of magic, but it doesn't cure someone who does not have the sense due to some natural state or effect, such as from birth or from a non-magical wound or toxin.</p>\n<hr />\n<p><strong>Heightened (6th)</strong> The spell's range increases to 30 feet, and you can target up to 10 creatures. You can choose the effect to counteract separately for each selected creature.</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": ""
-                },
-                "heightening": {
-                    "levels": {
-                        "6": {
-                            "range": {
-                                "value": "30 feet"
-                            },
-                            "target": {
-                                "value": "10 creatures"
-                            }
-                        }
-                    },
-                    "type": "fixed"
-                },
-                "level": {
-                    "value": 2
-                },
-                "location": {
-                    "heightenedLevel": 2,
-                    "value": "UbteBatu0F9hxxSX"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "touch"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "restore-senses",
-                "target": {
-                    "value": "1 creature"
+                    "value": "1 willing creature"
                 },
                 "time": {
                     "value": "2"
@@ -311,6 +227,134 @@
                     "value": [
                         "concentrate",
                         "healing",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "xYvx3YylrYYXn7ol",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.Et8RSCLx8w7uOLvo"
+            },
+            "folder": "lPzcDrjGDFbzuF2r",
+            "img": "systems/pf2e/icons/spells/wholeness-of-body.webp",
+            "name": "Sound Body",
+            "sort": 500000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": true,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You send a surge of healing energy to restore the target's body. Attempt to counteract an effect of your choice imposing one of these conditions on the target: @UUID[Compendium.pf2e.conditionitems.Item.Blinded], @UUID[Compendium.pf2e.conditionitems.Item.Dazzled], @UUID[Compendium.pf2e.conditionitems.Item.Deafened], @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled], or @UUID[Compendium.pf2e.conditionitems.Item.Sickened]. If you didn't counteract the effect, but you would have if its counteract rank were 2 lower, instead suppress the effect until the beginning of your next turn. The effect's duration doesn't elapse while it's suppressed.</p>\n<p>This spell can't counteract or suppress curses, diseases, or conditions that are part of the target's normal state.</p><hr /><p><strong>Heightened (4th)</strong> Add @UUID[Compendium.pf2e.conditionitems.Item.Drained] and @UUID[Compendium.pf2e.conditionitems.Item.Slowed] to the list of conditions.</p>\n<p><strong>Heightened (6th)</strong> As 4th rank, plus add @UUID[Compendium.pf2e.conditionitems.Item.Petrified].</p>\n<p><strong>Heightened (8th)</strong> As 4th rank, plus add petrified and @UUID[Compendium.pf2e.conditionitems.Item.Stunned].</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 2
+                },
+                "location": {
+                    "heightenedLevel": 2,
+                    "value": "UbteBatu0F9hxxSX"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "sound-body",
+                "target": {
+                    "value": "1 willing creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine",
+                        "occult",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "healing",
+                        "manipulate",
+                        "vitality"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "0hpvgNBaJBNAqPda",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.qXTB7Ec9yYh5JPPV"
+            },
+            "folder": "T8AzYUgNIAgTJ9Iz",
+            "img": "icons/magic/nature/leaf-glow-maple-teal.webp",
+            "name": "Cleanse Cuisine",
+            "sort": 600000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You transform all food and beverages in the area into delicious fare, changing water into wine or another fine beverage, or enhancing the food's taste and ingredients to make it a gourmet treat. You can also choose to remove all toxins and contaminations from the food. This spell doesn't prevent future contamination, natural decay, or spoilage, nor does it make the food any more nutritious.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> Add another cubic foot to the area, which must be contiguous with the rest.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "heightenedLevel": 1,
+                    "value": "UbteBatu0F9hxxSX"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "10 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "cleanse-cuisine",
+                "target": {
+                    "value": "1 cubic foot"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
                         "manipulate"
                     ]
                 }
@@ -318,13 +362,14 @@
             "type": "spell"
         },
         {
-            "_id": "eoevzZvzESRJp3Gu",
+            "_id": "pYcEAqCdcid4Kx0C",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.QqxwHeYEVylkYjsO"
             },
+            "folder": "T8AzYUgNIAgTJ9Iz",
             "img": "icons/magic/light/explosion-glow-spiral-teal.webp",
             "name": "Detect Poison",
-            "sort": 600000,
+            "sort": 700000,
             "system": {
                 "area": null,
                 "cost": {
@@ -348,9 +393,9 @@
                     "value": "UbteBatu0F9hxxSX"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -380,13 +425,14 @@
             "type": "spell"
         },
         {
-            "_id": "jFEu3ceQElNpjdWz",
+            "_id": "Aju4XmImp60XRkkA",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.izcxFQFwf3woCnFs"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "systems/pf2e/icons/spells/guidance.webp",
             "name": "Guidance",
-            "sort": 700000,
+            "sort": 800000,
             "system": {
                 "area": null,
                 "cost": {
@@ -396,7 +442,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You ask for divine guidance, granting the target a +1 status bonus to one attack roll, Perception check, saving throw, or skill check the target attempts before the duration ends. The target chooses which roll to use the bonus on before rolling. If the target uses the bonus, the spell ends. Either way, the target is then temporarily immune for 1 hour.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Guidance]</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Effect: Guidance Immunity]</p>"
+                    "value": "<p>You ask for the guidance of supernatural entities, granting the target a +1 status bonus to one attack roll, Perception check, saving throw, or skill check the target attempts before the duration ends. The target chooses which roll to use the bonus on before rolling. If the target uses the bonus, the spell ends. Either way, the target is then temporarily immune for 1 hour.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Guidance]</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Effect: Guidance Immunity]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -409,9 +455,9 @@
                     "value": "UbteBatu0F9hxxSX"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -441,13 +487,14 @@
             "type": "spell"
         },
         {
-            "_id": "ogL0ZEs1cMWgrEcN",
+            "_id": "r0DB8buIzA51YXC8",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.rfZpqmj0AIIdkVIs"
             },
+            "folder": "T8AzYUgNIAgTJ9Iz",
             "img": "icons/magic/life/cross-worn-green.webp",
             "name": "Heal",
-            "sort": 800000,
+            "sort": 900000,
             "system": {
                 "area": null,
                 "cost": {
@@ -474,7 +521,7 @@
                     }
                 },
                 "description": {
-                    "value": "<p>You channel vitality energy to heal the living or damage the undead. If the target is a willing living creature, you restore 1d8 Hit Points. If the target is undead, you deal that amount of vitality damage to it, and it gets a basic Fortitude save. The number of actions you spend when Casting this Spell determines its targets, range, area, and other parameters.</p>\n<p><span class=\"action-glyph\">1</span> <strong>(somatic)</strong> The spell has a range of touch.</p>\n<p><span class=\"action-glyph\">2</span> <strong>(verbal, somatic)</strong> The spell has a range of 30 feet. If you're healing a living creature, increase the Hit Points restored by 8</p>\n<p><span class=\"action-glyph\">3</span> <strong>(material, somatic, verbal)</strong> You disperse vitality energy in a 30-foot emanation. This targets all living and undead creatures in the burst.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The amount of healing or damage increases by 1d8, and the extra healing for the 2-action version increases by 8.</p>"
+                    "value": "<p>You channel vital energy to heal the living or damage the undead. If the target is a willing living creature, you restore 1d8 Hit Points. If the target is undead, you deal that amount of vitality damage to it, and it gets a basic Fortitude save. The number of actions you spend when Casting this Spell determines its targets, range, area, and other parameters.</p>\n<p><span class=\"action-glyph\">1</span> The spell has a range of touch.</p>\n<p><span class=\"action-glyph\">2</span> <strong>(concentrate)</strong> The spell has a range of 30 feet. If you're healing a living creature, increase the Hit Points restored by 8.</p>\n<p><span class=\"action-glyph\">3</span> <strong>(concentrate)</strong> You disperse vital energy in a @Template[emanation|distance:30]. This targets all living and undead creatures in the burst.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The amount of healing or damage increases by 1d8, and the extra healing for the 2-action version increases by 8.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -492,10 +539,6 @@
                 },
                 "location": {
                     "heightenedLevel": 3,
-                    "uses": {
-                        "max": 2,
-                        "value": 2
-                    },
                     "value": "UbteBatu0F9hxxSX"
                 },
                 "overlays": {
@@ -610,9 +653,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "varies"
@@ -642,13 +685,14 @@
             "type": "spell"
         },
         {
-            "_id": "2IhZUo1332aKyU15",
+            "_id": "sVICiG2htk2Ly12d",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.tXa5vOu5giBNCjdR"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "icons/skills/ranged/arrow-flying-ornate-gold.webp",
-            "name": "Know Direction",
-            "sort": 900000,
+            "name": "Know the Way",
+            "sort": 1000000,
             "system": {
                 "area": null,
                 "cost": {
@@ -658,7 +702,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>In your mind's eye, you see a path northward. You immediately know which direction is north (if it exists at your current location).</p>\n<hr />\n<p><strong>Heightened (7th)</strong> You can instead know the direction to a familiar location, such as a previous home or a favorite tavern.</p>"
+                    "value": "<p>In your mind's eye, you magically reorient yourself. You immediately know which direction is north (if it exists at your current location), and you can choose a location you were at within the last 24 hours and learn what direction it lies.</p>\n<hr />\n<p><strong>Heightened (3rd)</strong> You can choose a location you were at within the last week.</p>\n<p><strong>Heightened (7th)</strong> You can choose a location you were at regardless of how long ago you were there.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -671,16 +715,16 @@
                     "value": "UbteBatu0F9hxxSX"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": ""
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "know-direction",
+                "slug": "know-the-way",
                 "target": {
                     "value": ""
                 },
@@ -705,71 +749,11 @@
             "type": "spell"
         },
         {
-            "_id": "JAEefiymIJBppzbL",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.qXTB7Ec9yYh5JPPV"
-            },
-            "img": "icons/magic/nature/leaf-glow-maple-teal.webp",
-            "name": "Purify Food and Drink",
-            "sort": 1000000,
-            "system": {
-                "area": null,
-                "cost": {
-                    "value": ""
-                },
-                "counteraction": false,
-                "damage": {},
-                "defense": null,
-                "description": {
-                    "value": "<p>You remove toxins and contaminations from food and drink, making them safe to consume. This spell doesn't prevent future contamination, natural decay, or spoilage. One cubic foot of liquid is roughly 8 gallons.</p>"
-                },
-                "duration": {
-                    "sustained": false,
-                    "value": ""
-                },
-                "level": {
-                    "value": 1
-                },
-                "location": {
-                    "heightenedLevel": 1,
-                    "value": "UbteBatu0F9hxxSX"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
-                },
-                "range": {
-                    "value": "touch"
-                },
-                "requirements": "",
-                "rules": [],
-                "slug": "purify-food-and-drink",
-                "target": {
-                    "value": "1 cubic foot of contaminated food or water"
-                },
-                "time": {
-                    "value": "2"
-                },
-                "traits": {
-                    "rarity": "common",
-                    "traditions": [
-                        "divine",
-                        "primal"
-                    ],
-                    "value": [
-                        "concentrate",
-                        "manipulate"
-                    ]
-                }
-            },
-            "type": "spell"
-        },
-        {
-            "_id": "Ym83l58Uj97hG0It",
+            "_id": "9chHSWKixFBqpVYB",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.SnjhtQYexDtNDdEg"
             },
+            "folder": "D7UVaOiB40wTR6kv",
             "img": "icons/magic/control/debuff-energy-hold-yellow.webp",
             "name": "Stabilize",
             "sort": 1100000,
@@ -782,7 +766,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>Vitality energy shuts death's door. The target loses the @UUID[Compendium.pf2e.conditionitems.Item.Dying] condition, though it remains @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] at 0 Hit Points.</p>"
+                    "value": "<p>Life energy shuts death's door. The target loses the @UUID[Compendium.pf2e.conditionitems.Item.Dying] condition, though it remains @UUID[Compendium.pf2e.conditionitems.Item.Unconscious] at 0 Hit Points.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -795,9 +779,9 @@
                     "value": "UbteBatu0F9hxxSX"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -857,6 +841,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -866,9 +851,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -965,7 +947,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "bond-with-mortal",
                         "toggleable": true
@@ -994,7 +975,7 @@
                         "exceptions": [
                             "force",
                             "ghost-touch",
-                            "vitality"
+                            "spirit"
                         ],
                         "key": "Resistance",
                         "predicate": [
@@ -1165,11 +1146,11 @@
                 "value": 5
             },
             "privateNotes": "",
-            "publicNotes": "<p>Sage spirit guides are among the wisest spirits. They often take the forms of raptors such as owls, using their keen senses to evaluate situations from high above before swooping in to aid imperiled mortals.</p>\n<p>Adventurers who befriend a sage guide are fortunate indeed; in addition to providing sage counsel before conflict begins, sage guides can restore and tend to their allies in the aftermath of a violent dispute.</p>\n<p>In many stories, the sage guide assumes the form of a large owl whose proud breast is composed of hard stone. This depiction combines the wisdom commonly attributed to the owl with the strength and fortitude of the earth.</p>\n<hr />\n<p>Spirit guides are ghostly creatures that manifest as primordial animals on the Material Plane. Many Sarkorian cultures believe that spirit guides came into being at the same time as the first mortal hunting bands. In this time before time, spirit guides took on the most elemental shapes of animals, and they taught humanoid communities about important aspects of nature. As they imparted their wisdom, these spirit guides took physical forms, becoming the wild animals that exist today. Though spirit guides bestowed most of their gifts unto mortals in ancient times, a rare few continue to lurk in forgotten or as-of-yet-undiscovered corners of the physical world.</p>",
+            "publicNotes": "<p>Sage spirit guides are among the wisest spirits. They often take the forms of raptors such as owls, using their keen senses to evaluate situations from high above before swooping in to aid imperiled mortals.</p>\n<p>Adventurers who befriend a sage guide are fortunate indeed; in addition to providing sage counsel before conflict begins, sage guides can restore and tend to their allies in the aftermath of a violent dispute.</p>\n<p>In many stories, the sage guide assumes the form of a large owl whose proud breast is composed of hard stone. This depiction combines the wisdom commonly attributed to the owl with the strength and fortitude of the earth.</p><hr /><p>Spirit guides are ghostly creatures that manifest as primordial animals in the Universe. Many Sarkorian cultures believe that spirit guides came into being as the first mortal hunting bands began to form. In this time before time, spirit guides adopted the most elemental shapes of animals, and they taught humanoid communities about important aspects of nature, such as where to find fresh water, which plants were safe to eat, and how to live in harmony with their environment. As they imparted their wisdom, spirit guides took more physical forms, eventually becoming the wild animals that exist today. Though spirit guides bestowed most of their gifts unto mortals in ancient times, a rare few continue to lurk in forgotten or as-of-yet-undiscovered corners of the physical world.</p><h2>Spirit Guide Companions</h2><p>One way to gain the aid of a spirit guide is to take the @UUID[Compendium.pf2e.journals.JournalEntry.vx5FGEG34AxI2dow.JournalEntryPage.J0AfK0jJgS5WxhCE]{scion of Domora} archetype. This archetype allows character to choose a spirit guide to accompany them on their adventures—provided they first prove themselves worthy of the honor.</p><h2>The Sarkoris Scar</h2><p>Some spirit guides encountered in the haunted badlands now known as the Sarkoris Scar are remnants of god calling, an ancient tradition practiced by many Sarkorian cultures. Severed from their callers by the demonic war that devastated the land for over a century, such gods now roam the blasted landscape, occasionally helping those they find worthy.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #188: They Watched the Stars"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {

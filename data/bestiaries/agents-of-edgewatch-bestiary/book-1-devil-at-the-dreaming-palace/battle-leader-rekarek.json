@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "pick",
                 "hardness": 0,
                 "hp": {
@@ -63,7 +64,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -122,6 +123,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -148,7 +150,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -182,6 +184,11 @@
             "name": "Sling",
             "sort": 300000,
             "system": {
+                "ammo": {
+                    "baseType": "sling-bullets",
+                    "builtIn": false,
+                    "capacity": 1
+                },
                 "baseItem": "sling",
                 "bonus": {
                     "value": 0
@@ -207,6 +214,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "sling",
                 "hardness": 0,
                 "hp": {
@@ -405,31 +413,17 @@
             "name": "Sling Bullets",
             "sort": 600000,
             "system": {
-                "baseItem": null,
+                "baseItem": "sling-bullets",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>These are small metal balls, typically either iron or lead, designed to be used as ammunition in slings.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn",
-                    "handsHeld": 0
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -446,13 +440,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": "sling-bullets",
-                "stackGroup": "slingBullets",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -460,7 +452,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "U7PjzQ5AjISpvEhR",
@@ -497,6 +489,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -504,9 +497,6 @@
                     "value": [
                         "fatal-d12"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -546,6 +536,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -553,9 +544,6 @@
                     "value": [
                         "reach"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -595,18 +583,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 50,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "propulsive",
-                        "range-increment-50",
                         "reload-1"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

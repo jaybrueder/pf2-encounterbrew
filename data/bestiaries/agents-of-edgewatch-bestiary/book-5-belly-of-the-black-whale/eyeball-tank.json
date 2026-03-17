@@ -61,18 +61,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "emotion",
-                        "mental",
-                        "range-increment-100"
+                        "mental"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -102,14 +102,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -139,16 +137,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-increment-100"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -167,7 +164,7 @@
                 },
                 "category": null,
                 "description": {
-                    "value": "<p><strong>Trigger</strong> The tank reaches its Broken Threshold</p>\n<hr />\n<p><strong>Effect</strong> The glass shatters, spilling eyeballs onto the floor in a 15-foot radius and casting <em>grease</em>(DC 33) on the affected area. The eyeball tank is permanently destroyed and can't be reset.<strong>Reset</strong> The trap can be reset by adding 100 new eyeballs to the tank and allowing them to grow in the slime for 1 week.</p>"
+                    "value": "<p><strong>Trigger</strong> The tank reaches its Broken Threshold</p>\n<hr />\n<p><strong>Effect</strong> The glass shatters, spilling eyeballs onto the floor in a @Template[emanation|distance:15]{15-foot radius} and casting <em>grease</em> (DC 33) on the affected area. The eyeball tank is permanently destroyed and can't be reset.<strong>Reset</strong> The trap can be reset by adding 100 new eyeballs to the tank and allowing them to grow in the slime for 1 week.</p>"
                 },
                 "publication": {
                     "license": "OGL",

@@ -1632,6 +1632,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -1662,7 +1663,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.GoldenBladeOfMzali.LitLabel",
                         "option": "lit-golden-blade",
@@ -1670,7 +1670,6 @@
                         "value": true
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.GoldenBladeOfMzali.ElementalFormLabel",
                         "option": "used-elemental-form",
@@ -1963,14 +1962,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2014,6 +2011,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2021,9 +2019,6 @@
                     "value": [
                         "thrown-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -2211,7 +2206,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Frequency</strong> once per round <strong>Requirements</strong> Worknesh is within reach of an enemy designated by Walkena's Judgment</p><hr /><p><strong>Effect</strong> Worknesh makes two melee Strikes against the enemy of Walkena. If both attacks hit, she combines their damage for the purpose of the creature's resistances and weaknesses.</p>"
+                    "value": "<p><strong>Frequency</strong> once per round</p>\n<p><strong>Requirements</strong> Worknesh is within reach of an enemy designated by Walkena's Judgment</p><hr /><p><strong>Effect</strong> Worknesh makes two melee Strikes against the enemy of Walkena. If both attacks hit, she combines their damage for the purpose of the creature's resistances and weaknesses.</p>"
                 },
                 "frequency": {
                     "max": 1,

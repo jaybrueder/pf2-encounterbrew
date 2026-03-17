@@ -127,7 +127,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Undetected], not just to sight but to all senses, allowing the target to count as @UUID[Compendium.pf2e.conditionitems.Item.Invisible] no matter what precise and imprecise senses an observer might have. It's still possible for a creature to find the target by Seeking, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of an otherwise-undetectable creature.</p>"
+                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Invisible], but not merely to vision. The invisibility granted by <em>disappearance</em> applies to all precise senses an observer might have. It's still possible for a creature to find the target by Seeking using various senses, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of a creature that is otherwise undetectable.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -550,6 +550,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -636,6 +637,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -662,7 +664,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -722,6 +724,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "club",
                 "traits": {
@@ -765,6 +768,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "club",
                 "traits": {
@@ -809,6 +813,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "shortsword",
                 "traits": {
@@ -845,6 +850,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -906,7 +912,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet. @Check[will|dc:41]</p>\n<p>As @UUID[Compendium.pf2e.bestiary-ability-glossary-srd.Item.Frightful Presence], plus a creature frightened by the aura becomes suspicious; it doesn't count any other creature as its ally and can't @UUID[Compendium.pf2e.actionspf2e.Item.Aid] or flank. On a critical failure, the creature also can't be a willing target for harmless or helpful magic.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Aura of Disquietude]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>30 feet. @Check[will|dc:41|options:area-effect,inflicts:frightened]</p>\n<p>As @UUID[Compendium.pf2e.bestiary-ability-glossary-srd.Item.Frightful Presence], plus a creature frightened by the aura becomes suspicious; it doesn't count any other creature as its ally and can't @UUID[Compendium.pf2e.actionspf2e.Item.Aid] or flank. On a critical failure, the creature also can't be a willing target for harmless or helpful magic.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Aura of Disquietude]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -917,7 +923,7 @@
                     {
                         "key": "Aura",
                         "radius": 30,
-                        "slug": "frightful-presence",
+                        "slug": "aura-of-disquietude",
                         "traits": [
                             "emotion",
                             "fear",
@@ -1055,7 +1061,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> The Prince has grappled a creature with his manacle</p><hr /><p><strong>Effect</strong> The manacle clasps drop away from the chain the Prince holds. The creature remains grappled until they @UUID[Compendium.pf2e.actionspf2e.Item.Escape] (DC 44), at which point its manacles vanish. The Prince can't make manacle Strikes again until his next turn when his chain creates a new set of manacles at its end.</p>"
+                    "value": "<p><strong>Trigger</strong> The Prince has grabbed a creature with his manacle</p><hr /><p><strong>Effect</strong> The manacle clasps drop away from the chain the Prince holds. The creature remains grabbed until they [[/act escape dc=44]], at which point its manacles vanish. The Prince can't make manacle Strikes again until his next turn when his chain creates a new set of manacles at its end.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1103,7 +1109,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",
@@ -1338,7 +1343,7 @@
             "diplomacy": {
                 "base": 38
             },
-            "intimidate": {
+            "intimidation": {
                 "base": 40
             },
             "religion": {

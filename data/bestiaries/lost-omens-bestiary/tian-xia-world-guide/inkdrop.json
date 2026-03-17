@@ -34,15 +34,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -216,7 +214,7 @@
                 "mod": 0
             },
             "wis": {
-                "mod": null
+                "mod": 0
             }
         },
         "attributes": {
@@ -326,8 +324,8 @@
                         "predicate": [
                             {
                                 "or": [
-                                    "dim-light",
-                                    "darkness"
+                                    "lighting:darkness",
+                                    "lighting:dim-light"
                                 ]
                             }
                         ]

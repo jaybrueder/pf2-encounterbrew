@@ -200,7 +200,7 @@
                     }
                 },
                 "description": {
-                    "value": "<p>You unleash your qi as a powerful blast that deals 2d6 force damage. If you use 2 actions to cast qi blast, increase the size of the cone to 30 feet and the damage to 3d6. If you use 3 actions to cast qi blast, increase the cone to 60 feet and the damage to 4d6. Each creature in the area must attempt a Fortitude save.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage.</p>\n<p><strong>Failure</strong> The creature takes full damage and is pushed 5 feet.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage and is pushed 10 feet.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 1d6, or by 2d6 if you use 2 or 3 actions.</p>"
+                    "value": "<p>You unleash your qi as a powerful blast that deals 2d6 force damage. If you use 2 actions to cast <em>qi blast</em>, increase the size of the cone to 30 feet and the damage to 3d6. If you use 3 actions to cast <em>qi blast</em>, increase the cone to 60 feet and the damage to 4d6. Each creature in the area must attempt a Fortitude save.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage.</p>\n<p><strong>Failure</strong> The creature takes full damage and is pushed 5 feet.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage and is pushed 10 feet.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 1d6, or by 2d6 if you use 2 or 3 actions.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -297,7 +297,6 @@
                 "requirements": "",
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.Monk.QiSpells.HeavensThunder.RollOptionLabel",
                         "option": "heavens-thunder",
@@ -327,7 +326,7 @@
                         "selectors": [
                             "{item|id}-damage"
                         ],
-                        "value": "{item|flags.pf2e.rulesSelections.heavensThunder}"
+                        "value": "{item|flags.system.rulesSelections.heavensThunder}"
                     },
                     {
                         "itemId": "{item|id}",
@@ -347,7 +346,7 @@
                             "heavens-thunder"
                         ],
                         "property": "traits",
-                        "value": "{item|flags.pf2e.rulesSelections.heavensThunder}"
+                        "value": "{item|flags.system.rulesSelections.heavensThunder}"
                     }
                 ],
                 "slug": "qi-blast",
@@ -483,6 +482,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "dart",
                 "hardness": 0,
                 "hp": {
@@ -573,6 +573,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "brawling",
                 "hardness": 0,
                 "hp": {
@@ -599,7 +600,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -662,6 +663,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -688,7 +690,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -821,6 +823,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "temple-sword",
                 "traits": {
@@ -863,6 +866,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -907,6 +911,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "shuriken",
                 "traits": {
@@ -1049,7 +1054,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><span class=\"action-glyph\">2</span> or <span class=\"action-glyph\">3</span></p>\n<p>The grandmaster makes a single, carefully controlled unarmed Strike that deals 2 additional dice of damage, or 4 additional dice if the grandmaster spent 3 actions. If this damages the target, the grandmaster can choose to make the target attempt a @Check[fortitude|dc:38] save.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target is pushed back 5 feet.</p>\n<p><strong>Failure</strong> The target is pushed back 10 feet.</p>\n<p><strong>Critical Failure</strong> The target is pushed back 10 feet for each action the grandmaster spent on One-Millimeter Punch.</p>"
+                    "value": "<p><span class=\"action-glyph\">2</span> or <span class=\"action-glyph\">3</span></p><hr /><p>The grandmaster makes a single, carefully controlled unarmed Strike that deals 2 additional dice of damage, or 4 additional dice if the grandmaster spent 3 actions. If this damages the target, the grandmaster can choose to make the target attempt a @Check[fortitude|dc:38] save.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target is pushed back 5 feet.</p>\n<p><strong>Failure</strong> The target is pushed back 10 feet.</p>\n<p><strong>Critical Failure</strong> The target is pushed back 10 feet for each action the grandmaster spent on One-Millimeter Punch.</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -1074,7 +1079,7 @@
                         "toggleable": true
                     },
                     {
-                        "diceNumber": "@item.flags.pf2e.rulesSelections.oneMillimeterPunch",
+                        "diceNumber": "@item.flags.system.rulesSelections.oneMillimeterPunch",
                         "key": "DamageDice",
                         "predicate": [
                             "one-millimeter-punch"

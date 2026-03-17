@@ -671,6 +671,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "polearm",
                 "hardness": 0,
                 "hp": {
@@ -697,7 +698,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -762,6 +763,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -774,9 +776,6 @@
                         "reach-15",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -813,6 +812,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -824,9 +824,6 @@
                         "unarmed",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -861,6 +858,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [
                     {
                         "key": "Note",
@@ -875,13 +876,9 @@
                     "value": [
                         "evil",
                         "magical",
-                        "range-increment-60",
                         "sonic",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

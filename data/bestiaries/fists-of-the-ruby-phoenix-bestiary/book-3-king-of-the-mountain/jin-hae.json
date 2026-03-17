@@ -27,6 +27,9 @@
                     "title": ""
                 },
                 "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
                 "slots": {},
                 "slug": null,
                 "spelldc": {
@@ -36,7 +39,8 @@
                 },
                 "tradition": {
                     "value": "divine"
-                }
+                },
+                "traits": {}
             },
             "type": "spellcastingEntry"
         },
@@ -102,104 +106,15 @@
             "type": "spell"
         },
         {
-            "_id": "NtJHFwQeHn8lF6Z2",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.O3XAH3VkOx9a0FyD"
-            },
-            "img": "systems/pf2e/icons/default-icons/weapon.svg",
-            "name": "Hook Sword",
-            "sort": 300000,
-            "system": {
-                "baseItem": null,
-                "bonus": {
-                    "value": 0
-                },
-                "bonusDamage": {
-                    "value": 0
-                },
-                "bulk": {
-                    "value": 1
-                },
-                "category": "simple",
-                "containerId": null,
-                "damage": {
-                    "damageType": "slashing",
-                    "dice": 1,
-                    "die": "d6"
-                },
-                "description": {
-                    "value": "<p>This long sword has a hook near the tip which makes it easy to snag an opponent or their weapons.</p>"
-                },
-                "equipped": {
-                    "carryType": "worn",
-                    "handsHeld": 0,
-                    "invested": null
-                },
-                "group": "sword",
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
-                "level": {
-                    "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
-                },
-                "price": {
-                    "value": {
-                        "gp": 3
-                    }
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": ""
-                },
-                "quantity": 1,
-                "range": null,
-                "reload": {
-                    "value": ""
-                },
-                "rules": [],
-                "runes": {
-                    "potency": 0,
-                    "property": [],
-                    "striking": 0
-                },
-                "size": "med",
-                "slug": "hook-sword",
-                "splashDamage": {
-                    "value": 0
-                },
-                "traits": {
-                    "rarity": "common",
-                    "value": [
-                        "disarm",
-                        "monk",
-                        "parry",
-                        "trip",
-                        "twin"
-                    ]
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
-                }
-            },
-            "type": "weapon"
-        },
-        {
             "_id": "aDN0RcvG4E7jcGLL",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.yUgOLSyb4pGGxfCR"
             },
             "img": "systems/pf2e/icons/default-icons/weapon.svg",
             "name": "Feng Huo Lun",
-            "sort": 400000,
+            "sort": 300000,
             "system": {
-                "baseItem": null,
+                "baseItem": "feng-huo-lun",
                 "bonus": {
                     "value": 0
                 },
@@ -214,16 +129,18 @@
                 "damage": {
                     "damageType": "slashing",
                     "dice": 1,
-                    "die": "d6"
+                    "die": "d4"
                 },
                 "description": {
-                    "value": "<p>This large, flat steel ring features several protruding blades typically stylized to resemble flames.</p>"
+                    "value": "<p>Also known as wind and fire wheels, these large, flat steel rings feature several protruding blades typically stylized to resemble flames.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
+                "grade": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -243,14 +160,14 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": ""
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Treasure Vault (Remastered)"
                 },
-                "quantity": 1,
+                "quantity": 2,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -264,13 +181,105 @@
                     "value": 0
                 },
                 "traits": {
-                    "rarity": "common",
+                    "rarity": "uncommon",
                     "value": [
                         "agile",
                         "disarm",
                         "finesse",
                         "monk",
                         "parry",
+                        "twin",
+                        "versatile-p"
+                    ]
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "weapon"
+        },
+        {
+            "_id": "q9SNkKSO6ejVLV8C",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.O3XAH3VkOx9a0FyD"
+            },
+            "img": "systems/pf2e/icons/equipment/weapons/hook-sword.webp",
+            "name": "Hook Sword",
+            "sort": 400000,
+            "system": {
+                "baseItem": "hook-sword",
+                "bonus": {
+                    "value": 0
+                },
+                "bonusDamage": {
+                    "value": 0
+                },
+                "bulk": {
+                    "value": 1
+                },
+                "category": "advanced",
+                "containerId": null,
+                "damage": {
+                    "damageType": "slashing",
+                    "dice": 1,
+                    "die": "d6"
+                },
+                "description": {
+                    "value": "<p>This long sword has a hook near the tip, making it easy to snag an opponent or their weapons.</p>"
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "handsHeld": 0,
+                    "invested": null
+                },
+                "expend": null,
+                "grade": null,
+                "group": "sword",
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {
+                        "gp": 3
+                    }
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Treasure Vault (Remastered)"
+                },
+                "quantity": 2,
+                "range": null,
+                "reload": {
+                    "value": null
+                },
+                "rules": [],
+                "runes": {
+                    "potency": 0,
+                    "property": [],
+                    "striking": 0
+                },
+                "size": "med",
+                "slug": "hook-sword",
+                "splashDamage": {
+                    "value": 0
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "value": [
+                        "disarm",
+                        "monk",
+                        "parry",
+                        "trip",
                         "twin"
                     ]
                 },
@@ -282,11 +291,6 @@
         },
         {
             "_id": "nl7k5HK7TqZfntnR",
-            "flags": {
-                "pf2e": {
-                    "linkedWeapon": "NtJHFwQeHn8lF6Z2"
-                }
-            },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Hook Sword",
             "sort": 500000,
@@ -314,6 +318,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -325,20 +330,12 @@
                         "trip",
                         "twin"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
         },
         {
             "_id": "yIoJFTEAk52gbWvj",
-            "flags": {
-                "pf2e": {
-                    "linkedWeapon": "NtJHFwQeHn8lF6Z2"
-                }
-            },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Linked Hook Swords",
             "sort": 600000,
@@ -366,6 +363,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -375,9 +373,6 @@
                         "reach-10",
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -420,6 +415,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -434,9 +430,6 @@
                         "twin",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -470,18 +463,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "air",
-                        "divine",
-                        "range-increment-60"
+                        "divine"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -736,7 +729,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> Jin-Hae is wielding her feng huo lun</p>\n<hr />\n<p><strong>Effect</strong> Jin-Hae blasts off on her feng huo lun, leaving an elemental trail in her wake. She Strides up to twice her Speed and makes a feng huo lun Strike at any point during her movement. The path left by her movement is filled with her choice of an 8th-rank @UUID[Compendium.pf2e.spells-srd.Item.Wall of Wind] or @UUID[Compendium.pf2e.spells-srd.Item.Wall of Fire] spell. Jin-Hae is unaffected by any walls she creates with this ability. She cannot use Wind-Fire Charge again for [[/gmr 1d4 #rounds]]{1d4 rounds}. If she uses Wind-Fire Charge again, the wall created by her previous Wind-Fire Charge disappears as soon as her action is completed.</p>"
+                    "value": "<p><strong>Requirements</strong> Jin-Hae is wielding her feng huo lun</p>\n<hr />\n<p><strong>Effect</strong> Jin-Hae blasts off on her feng huo lun, leaving an elemental trail in her wake. She Strides up to twice her Speed and makes a feng huo lun Strike at any point during her movement. The path left by her movement is filled with her choice of an 8th-rank @UUID[Compendium.pf2e.spells-srd.Item.Wall of Wind] or @UUID[Compendium.pf2e.spells-srd.Item.Wall of Fire] spell. Jin-Hae is unaffected by any walls she creates with this ability. She cannot use Wind-Fire Charge again for [[/gmr 1d4 #Recharge Wind-Fire Charge]]{1d4 rounds}. If she uses Wind-Fire Charge again, the wall created by her previous Wind-Fire Charge disappears as soon as her action is completed.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -868,7 +861,7 @@
             }
         },
         "details": {
-            "blurb": "",
+            "blurb": "Female phantom knight",
             "languages": {
                 "details": "",
                 "value": [

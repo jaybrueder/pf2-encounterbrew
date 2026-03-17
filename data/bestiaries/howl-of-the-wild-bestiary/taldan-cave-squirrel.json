@@ -33,6 +33,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -40,9 +41,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -76,6 +74,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -83,9 +82,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -121,15 +117,14 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 20
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "value": [
-                        "range-20"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -303,7 +298,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The cave squirrel lets out a terrible scream. Non–cave squirrel creatures within @Template[emanation|distance:30]{30 feet} must succeed at a @Check[fortitude|dc:22] save or take @Damage[2d10[sonic]] damage. On a critical failure, a creature is @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 minute. The cave squirrel can't use Screaming Force again for [[/gmr 1d4 #Recharge Screaming Force]]{1d4 rounds}.</p>"
+                    "value": "<p>The cave squirrel lets out a terrible scream. Non–cave squirrel creatures within @Template[emanation|distance:30]{30 feet} must succeed at a @Check[fortitude|dc:22|options:area-effect,damaging-effect,inflicts:deafened] save or take @Damage[2d10[sonic]|options:area-damage] damage. On a critical failure, a creature is @UUID[Compendium.pf2e.conditionitems.Item.Deafened] for 1 minute. The cave squirrel can't use Screaming Force again for [[/gmr 1d4 #Recharge Screaming Force]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -411,7 +406,7 @@
                 "value": 5
             },
             "privateNotes": "",
-            "publicNotes": "",
+            "publicNotes": "<p>Taldan cave squirrels, also known as tauhotis, are a curious cousin of the much smaller common ground squirrel, found anywhere with large, grassy flatlands. The creatures burrow underground, forming cave systems tall enough for giants in astonishingly little time. Once the caves are excavated, the squirrels turn their attention toward the largest quantities of gems or metals they can find—including those in the ground floors and vaults of nearby buildings. Nothing is off-limits, and no effort is too large when these squirrels go gem hunting.</p>\n<p>Cave squirrels' desire for these precious stones and ores arises not from greed, but rather productivity. After returning to the cave system, cheek pouches full of treasure, the males deposit the stolen goods before the females, who lick and spit on the piles of gems and metals to form them into structural pillars. Given the cave squirrels' tireless work habits, these pillars can solidify in a matter of hours, easily displacing existing stone and soil. Many an Opparan groundskeeper has stepped outside after a lovely teatime to find months of work undone in a scene of utter, glittering chaos. Architects throughout history have attempted to recreate or imitate these gleaming pillars; however, they rarely succeeded, for they often lacked a certain unpredictable pragmatism the cave squirrels seem to effortlessly achieve.</p>\n<p>When threatened, cave squirrels will let out a high-pitched scream to warn their colony. They can spit out any food or building materials in their cheek pouches with deadly speeds at attackers.</p>",
             "publication": {
                 "license": "ORC",
                 "remaster": true,

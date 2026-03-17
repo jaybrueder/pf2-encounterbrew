@@ -36,6 +36,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -44,9 +45,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -84,6 +82,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -93,9 +92,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -114,7 +110,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>Sparkeater has the same statistics as a normal @UUID[Compendium.pf2e.pathfinder-bestiary-2.Actor.Ravener Husk] but is Large instead of Gargantuan. His melee Strikes have a reach of only 5 feet, and he lacks the Ravenous Repast ability, as he was never a ravener in the first place.</p>"
+                    "value": "<p>Sparkeater has the same statistics as a normal @UUID[Compendium.pf2e.pathfinder-monster-core-2.Actor.Ravener Husk] but is Large instead of Gargantuan. His melee Strikes have a reach of only 5 feet, and he lacks the Ravenous Repast ability, as he was never a ravener in the first place.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -210,7 +206,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>90 feet. @Check[will|dc:31]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>90 feet. @Check[will|dc:31|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -353,6 +349,9 @@
                 "value": 325
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

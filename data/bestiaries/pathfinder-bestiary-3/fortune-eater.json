@@ -36,6 +36,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -45,9 +46,6 @@
                         "magical",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -86,6 +84,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -96,9 +95,6 @@
                         "magical",
                         "shove"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -137,6 +133,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -144,12 +144,8 @@
                     "value": [
                         "deadly-d10",
                         "magical",
-                        "range-increment-100",
                         "volley-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -406,6 +402,9 @@
                 "value": 100
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

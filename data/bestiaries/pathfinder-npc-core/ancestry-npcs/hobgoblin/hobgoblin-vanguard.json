@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "hammer",
                 "hardness": 0,
                 "hp": {
@@ -63,7 +64,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -127,6 +128,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -343,6 +345,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "maul",
                 "traits": {
@@ -380,6 +383,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -428,6 +432,10 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [
                     {
                         "alwaysActive": true,
@@ -464,13 +472,12 @@
                         "selectors": [
                             "strike-damage"
                         ],
-                        "value": "{item|flags.pf2e.rulesSelections.alchemicalGrenade}"
+                        "value": "{item|flags.system.rulesSelections.alchemicalGrenade}"
                     }
                 ],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "range-increment-20",
                         "splash"
                     ]
                 }

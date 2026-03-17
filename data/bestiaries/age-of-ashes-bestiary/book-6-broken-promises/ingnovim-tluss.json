@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -130,6 +131,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -225,6 +227,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -315,6 +318,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -404,13 +408,14 @@
                     "die": "d6"
                 },
                 "description": {
-                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> Strike</p>\n<hr />\n<p>The liquid reagents in this vial rapidly absorb heat when exposed to air. A frost vial deals the listed cold damage and cold splash damage. On a hit, the target takes a status penalty to its Speeds until the end of its next turn. Many types of frost vial also grant an item bonus to attack rolls.</p>\n<p>You gain a +3 item bonus to attack rolls, the bomb deals 4d6 cold damage and 4 cold splash damage, and the target takes a -15-foot penalty.</p>\n<p>@UUID[Compendium.pf2e.equipment-effects.Item.Effect: Frost Vial]</p>"
+                    "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> Strike</p>\n<hr />\n<p>The liquid reagents in this vial rapidly absorb heat when exposed to air. A frost vial deals the listed cold damage and cold splash damage. On a hit, the target takes a status penalty to its Speeds until the end of its next turn. Many types of frost vial also grant an item bonus to attack rolls.</p>\n<p>You gain a +3 item bonus to attack rolls, the bomb deals 4d6 cold damage and 4 cold splash damage, and the target takes a –15-foot penalty.</p>\n<p>@UUID[Compendium.pf2e.equipment-effects.Item.Effect: Frost Vial]</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -958,6 +963,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -965,9 +971,6 @@
                     "value": [
                         "agile"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1006,6 +1009,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1017,9 +1021,6 @@
                         "thrown-10",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1068,6 +1069,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1076,12 +1081,8 @@
                         "acid",
                         "alchemical",
                         "bomb",
-                        "range-increment-20",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1130,6 +1131,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1138,12 +1143,8 @@
                         "alchemical",
                         "bomb",
                         "fire",
-                        "range-increment-20",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1187,6 +1188,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [
                     {
                         "key": "Note",
@@ -1201,12 +1206,8 @@
                         "alchemical",
                         "bomb",
                         "electricity",
-                        "range-increment-20",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1250,6 +1251,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [
                     {
                         "key": "Note",
@@ -1264,12 +1269,8 @@
                         "alchemical",
                         "bomb",
                         "cold",
-                        "range-increment-20",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

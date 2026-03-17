@@ -35,6 +35,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -74,6 +75,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -137,7 +139,21 @@
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "key": "RollOption",
+                        "option": "fungal-empowerment",
+                        "toggleable": true
+                    },
+                    {
+                        "inMemoryOnly": true,
+                        "key": "GrantItem",
+                        "predicate": [
+                            "fungal-empowerment"
+                        ],
+                        "uuid": "Compendium.pf2e.conditionitems.Item.Quickened"
+                    }
+                ],
                 "slug": null,
                 "traits": {
                     "value": []
@@ -168,7 +184,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "fungal-mind",
                         "toggleable": true
@@ -258,7 +273,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> The root rotter has 25 Hit Points or fewer</p><hr /><p><strong>Effect</strong> The root rotter destroys themself. Thorny fungal roots explode from their body, dealing @Damage[10d6[piercing]] damage in a @Template[type:emanation|distance:10] (@Check[reflex|dc:25|basic] save). Any creature who fails the save is exposed to rotter infestation.</p>"
+                    "value": "<p><strong>Requirements</strong> The root rotter has 25 Hit Points or fewer</p><hr /><p><strong>Effect</strong> The root rotter destroys themself. Thorny fungal roots explode from their body, dealing @Damage[10d6[piercing]|options:area-damage] damage in a @Template[type:emanation|distance:10] (@Check[reflex|dc:25|basic|options:area-effect] save). Any creature who fails the save is exposed to rotter infestation.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -291,7 +306,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> The root rotter is standing in fungal terrain</p><hr /><p><strong>Effect</strong> Fungal roots reach out to snag a nearby foe. An enemy within 30 feet of the root rotter takes @Damage[4d6[piercing]] damage and must attempt a @Check[reflex|dc:27] saving throw.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage and becomes @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1} until the end of its next turn.</p>\n<p><strong>Failure</strong> The creature takes full damage and becomes clumsy 1 with an unlimited duration. In addition, the creature is @UUID[Compendium.pf2e.conditionitems.Item.Restrained] (@UUID[Compendium.pf2e.actionspf2e.Item.Escape] DC 27) for 1 minute.</p>\n<p><strong>Critical Failure</strong> As failure but double damage. In addition, the creature is exposed to rotter infestation.</p>"
+                    "value": "<p><strong>Requirements</strong> The root rotter is standing in fungal terrain</p><hr /><p><strong>Effect</strong> Fungal roots reach out to snag a nearby foe. An enemy within 30 feet of the root rotter takes @Damage[4d6[piercing]] damage and must attempt a @Check[reflex|dc:27] saving throw.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage and becomes @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1} until the end of its next turn.</p>\n<p><strong>Failure</strong> The creature takes full damage and becomes clumsy 1 with an unlimited duration. In addition, the creature is @UUID[Compendium.pf2e.conditionitems.Item.Restrained] ([[/act escape dc=27]]) for 1 minute.</p>\n<p><strong>Critical Failure</strong> As failure but double damage. In addition, the creature is exposed to rotter infestation.</p>"
                 },
                 "publication": {
                     "license": "OGL",

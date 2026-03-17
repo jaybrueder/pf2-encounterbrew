@@ -459,6 +459,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -469,9 +470,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -506,17 +504,17 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": {
+                    "increment": null,
+                    "max": 20
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
-                        "magical",
-                        "range-20"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

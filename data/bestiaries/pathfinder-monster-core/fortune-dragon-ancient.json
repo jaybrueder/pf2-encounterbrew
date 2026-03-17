@@ -850,6 +850,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -858,9 +859,6 @@
                         "reach-20",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -898,6 +896,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -907,9 +906,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -947,6 +943,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -954,9 +951,6 @@
                         "magical",
                         "reach-25"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1163,9 +1157,10 @@
                         "outcome": [
                             "criticalSuccess"
                         ],
-                        "selector": "attack",
-                        "text": "{item|system.description.value}",
-                        "title": "{item|name}"
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
                     }
                 ],
                 "slug": null,
@@ -1190,6 +1185,10 @@
                 "category": "offensive",
                 "description": {
                     "value": "<p><strong>Requirements</strong> The dragon is within 60 feet of their hoard</p>\n<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> The dragon draws power out of the magic items in their hoard, regaining all their expended spontaneous spell slots.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "day"
                 },
                 "publication": {
                     "license": "ORC",
@@ -1218,7 +1217,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> The dragon's body is covered in riches (this is typically the case when the dragon is first encountered)</p>\n<hr />\n<p><strong>Effect</strong> The dragon shakes their body aggressively, sending coins and other riches flying in every direction, dealing @Damage[18d10[bludgeoning]] damage with a @Check[reflex|dc:40|basic] save to all creatures in a @Template[emanation|distance:50]. The dragon's body is then no longer covered in riches.</p>"
+                    "value": "<p><strong>Requirements</strong> The dragon's body is covered in riches (this is typically the case when the dragon is first encountered)</p>\n<hr />\n<p><strong>Effect</strong> The dragon shakes their body aggressively, sending coins and other riches flying in every direction, dealing @Damage[18d10[bludgeoning]|options:area-damage] damage with a @Check[reflex|dc:40|basic|options:area-effect] save to all creatures in a @Template[emanation|distance:50]. The dragon's body is then no longer covered in riches.</p>"
                 },
                 "publication": {
                     "license": "ORC",

@@ -1899,6 +1899,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -1960,7 +1961,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.YVtXlsEWb3NIkDyy"
             },
-            "img": "icons/commodities/treasure/broach-jewel-gold-blue.webp",
+            "img": "icons/commodities/treasure/brooch-jewel-gold-blue.webp",
             "name": "Shining Symbol",
             "sort": 2600000,
             "system": {
@@ -2045,18 +2046,18 @@
                                 "not": "self:effect:aura-shining-symbol"
                             }
                         ],
-                        "value": "icons/commodities/treasure/broach-jewel-gold-blue.webp"
+                        "value": "icons/commodities/treasure/brooch-jewel-gold-blue.webp"
                     },
                     {
                         "key": "ActiveEffectLike",
                         "mode": "override",
-                        "path": "flags.pf2e.shiningSymbolPenalty",
+                        "path": "flags.system.shiningSymbolPenalty",
                         "value": -1
                     },
                     {
                         "key": "ActiveEffectLike",
                         "mode": "override",
-                        "path": "flags.pf2e.shiningSymbolWeakness",
+                        "path": "flags.system.shiningSymbolWeakness",
                         "value": 0
                     }
                 ],
@@ -2107,6 +2108,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "starknife",
                 "traits": {
@@ -2152,6 +2154,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "starknife",
                 "traits": {
@@ -2192,6 +2195,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {

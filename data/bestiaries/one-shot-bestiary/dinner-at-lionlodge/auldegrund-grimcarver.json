@@ -392,7 +392,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.FzAtX8yXBjTaisJK"
             },
-            "img": "systems/pf2e/icons/spells/undetectable-alignment.webp",
+            "img": "icons/magic/control/silhouette-aura-energy.webp",
             "name": "Undetectable Alignment",
             "sort": 700000,
             "system": {
@@ -608,6 +608,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "hammer",
                 "hardness": 0,
                 "hp": {
@@ -634,11 +635,11 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
-                    "potency": 1,
+                    "potency": 0,
                     "property": [],
                     "striking": 0
                 },
@@ -668,6 +669,11 @@
             "name": "Composite Shortbow",
             "sort": 1100000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "composite-shortbow",
                 "bonus": {
                     "value": 0
@@ -693,6 +699,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -868,7 +875,7 @@
         {
             "_id": "sGGmfBpBIdaarMTN",
             "img": "systems/pf2e/icons/equipment/held-items/skeleton-key.webp",
-            "name": "Lionlodge Key Ring",
+            "name": "Key Ring",
             "sort": 1400000,
             "system": {
                 "baseItem": null,
@@ -877,7 +884,8 @@
                 },
                 "containerId": null,
                 "description": {
-                    "value": "<p>Key ring for every door in Lionlodge.</p>"
+                    "gm": "<p>Contains keys to all locks in Lionlodge.</p>",
+                    "value": ""
                 },
                 "equipped": {
                     "carryType": "held",
@@ -1000,31 +1008,17 @@
             "name": "Arrows",
             "sort": 1600000,
             "system": {
-                "baseItem": null,
+                "baseItem": "arrows",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. It is stabilized in flight by fletching at one end and bears a metal head on the other.</p>"
                 },
-                "equipped": {
-                    "carryType": "held",
-                    "handsHeld": 1
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -1041,13 +1035,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": "arrows",
-                "stackGroup": "arrows",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -1055,7 +1047,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "ftOspvMiV3ql3L5k",
@@ -1070,27 +1062,15 @@
                 "bulk": {
                     "value": 0
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": [
+                    "arrows"
+                ],
                 "description": {
                     "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Interact</p>\n<p><em>Sleep arrows</em> often have shafts of deep blue or black, and their fletching is exceptionally soft and downy. An activated <em>sleep arrow</em> deals no damage, but a living creature hit by it is subject to the effects of a @UUID[Compendium.pf2e.spells-srd.Item.Sleep] spell (DC 17).</p>\n<p><strong>Craft Requirements</strong> Supply one casting of <em>sleep</em>.</p>"
                 },
-                "equipped": {
-                    "carryType": "held",
-                    "handsHeld": 1
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 3
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "value": {
@@ -1106,7 +1086,6 @@
                 "rules": [],
                 "size": "med",
                 "slug": "sleep-arrow",
-                "stackGroup": "arrows",
                 "traits": {
                     "rarity": "common",
                     "value": [
@@ -1116,16 +1095,13 @@
                         "sleep"
                     ]
                 },
-                "usage": {
-                    "value": "held-in-one-hand"
-                },
                 "uses": {
                     "autoDestroy": true,
                     "max": 1,
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "nkKhmehnjM75AKNT",
@@ -1161,6 +1137,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1169,9 +1146,6 @@
                         "shove",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1210,6 +1184,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1217,12 +1195,8 @@
                     "value": [
                         "deadly-d10",
                         "propulsive",
-                        "range-increment-60",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1241,7 +1215,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> Auldegrund is reduced to 60 or fewer Hit Points</p>\n<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> Auldegrund calls out, in Infernal, \"Give me the strength to slay these foes in your name, almighty Alocer!\" As he does so, his skin darkens to red, diabolic horns jut from his brow, a flaming lion-like mane appears around his head, burning wings burst from his shoulders, and his weapons ignite with black fire.</p>\n<p>He immediately heals @Damage[(3d6+7)[healing]] Hit Points, gains a fly speed of 25 feet, and deals an additional @Damage[1d6[fire]] damage with his melee and ranged Strikes.</p>\n<p>This is a risky gambit, though, for Alocer is not patient. At the end of each of Auldegrund's turns, he must attempt a @Check[flat|dc:11|name:End Invoke Alocer] (the DC of this flat check increases by 1 each round). On a failure, Alocer grows disappointed that Auldegrund has not defeated his foes and the effects of Invoke Alocer end immediately. This deals @Damage[(3d6+7)] damage to Auldegrund, removes his fly speed and additional fire damage to weapon Strikes, and causes Auldegrund to become @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3}.</p>"
+                    "value": "<p><strong>Trigger</strong> Auldegrund is reduced to 60 or fewer Hit Points</p>\n<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> Auldegrund calls out, in Infernal, \"Give me the strength to slay these foes in your name, almighty Alocer!\" As he does so, his skin darkens to red, diabolic horns jut from his brow, a flaming lion-like mane appears around his head, burning wings burst from his shoulders, and his weapons ignite with black fire.</p>\n<p>He immediately heals @Damage[(3d6+7)[healing]] Hit Points, gains a fly speed of 25 feet, and deals an additional 1d6 fire damage with his melee and ranged Strikes.</p>\n<p>This is a risky gambit, though, for Alocer is not patient. At the end of each of Auldegrund's turns, he must attempt a @Check[flat|dc:11|name:End Invoke Alocer] (the DC of this flat check increases by 1 each round). On a failure, Alocer grows disappointed that Auldegrund has not defeated his foes and the effects of Invoke Alocer end immediately. This deals @Damage[(3d6+7)[untyped]] damage to Auldegrund, removes his fly speed and additional fire damage to weapon Strikes, and causes Auldegrund to become @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 3}.</p>"
                 },
                 "frequency": {
                     "max": 1,
@@ -1255,9 +1229,7 @@
                 },
                 "rules": [
                     {
-                        "domain": "damage",
                         "key": "RollOption",
-                        "label": "Is under invocation of Alocar",
                         "option": "invoke-alocar",
                         "toggleable": true
                     },
@@ -1266,11 +1238,18 @@
                         "diceNumber": 1,
                         "dieSize": "d6",
                         "key": "DamageDice",
-                        "label": "Avatar of Alocar",
                         "predicate": [
                             "invoke-alocar"
                         ],
                         "selector": "strike-damage"
+                    },
+                    {
+                        "key": "BaseSpeed",
+                        "predicate": [
+                            "invoke-alocar"
+                        ],
+                        "selector": "fly",
+                        "value": 25
                     }
                 ],
                 "slug": null,
@@ -1297,7 +1276,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Auldegrund takes time to line up a shot with his bow and smiles cruelly as he makes a ranged Strike with it.</p>\n<p>If he hits, he deals 2d6 precision damage and 1d6 bleed damage. Even if he misses, he still deals [[/r 2d6]] damage from the glancing blow. Only on a critical miss does his cruel shot deal no damage.</p>"
+                    "value": "<p>Auldegrund takes time to line up a shot with his bow and smiles cruelly as he makes a ranged Strike with it.</p>\n<p>If he hits, he deals 2d6 precision damage and 1d6 bleed damage. Even if he misses, he still deals @Damage[2d6[untyped]] damage from the glancing blow. Only on a critical miss does his cruel shot deal no damage.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1306,7 +1285,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "cruel-shot",
                         "toggleable": true
@@ -1320,8 +1298,9 @@
                             "cruel-shot"
                         ],
                         "selector": "shortbow-attack",
-                        "text": "Aulderund deals [[/r 2d6]] damage even on a miss using Cruel Shot. A critical miss still deals no damage.",
-                        "title": "{item|name}"
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
                     },
                     {
                         "category": "precision",
@@ -1414,7 +1393,7 @@
             ]
         },
         "details": {
-            "blurb": "",
+            "blurb": "Male dwarf ritualist",
             "languages": {
                 "details": "",
                 "value": [
@@ -1480,10 +1459,10 @@
                 "base": 15
             },
             "occultism": {
-                "base": 15
+                "base": 17
             },
             "religion": {
-                "base": 17
+                "base": 15
             },
             "society": {
                 "base": 17

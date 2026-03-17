@@ -1523,6 +1523,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1533,9 +1534,6 @@
                         "reach-10",
                         "versatile-b"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1570,17 +1568,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
-                        "fire",
-                        "range-increment-60"
+                        "fire"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1790,7 +1788,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> Taljjae's turn begins <strong>Requirements</strong> Taljjae has 200 or fewer Hit Points</p><hr /><p><strong>Effect</strong> Taljjae's dance reaches a frantic climax, allowing it to change personas rapidly. Taljjae Changes Characters.</p>"
+                    "value": "<p><strong>Trigger</strong> Taljjae's turn begins</p>\n<p><strong>Requirements</strong> Taljjae has 200 or fewer Hit Points</p><hr /><p><strong>Effect</strong> Taljjae's dance reaches a frantic climax, allowing it to change personas rapidly. Taljjae Changes Characters.</p>"
                 },
                 "publication": {
                     "license": "OGL",

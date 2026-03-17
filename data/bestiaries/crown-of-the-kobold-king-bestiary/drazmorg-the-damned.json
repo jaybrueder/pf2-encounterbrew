@@ -1379,6 +1379,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -1405,7 +1406,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [
                     {
@@ -1534,6 +1535,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1541,9 +1543,6 @@
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1639,14 +1638,21 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>When the wight damages a living creature with its claw Strike, the wight gains [[/r 3 #Temporary Hit Points]]{3 temporary Hit Points} and the creature must succeed at a @Check[fortitude|dc:25] save or become @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1}. Further damage dealt by the wraith increases the amount of drain by 1 on a failed save to a maximum of drained 4.</p>"
+                    "value": "<p>When the wight damages a living creature with its claw Strike, the wight gains 3 temporary Hit Points and the creature must succeed at a @Check[fortitude|dc:25|options:inflicts:drained] save or become @UUID[Compendium.pf2e.conditionitems.Item.Drained]{Drained 1}. Further damage dealt by the wraith increases the amount of drain by 1 on a failed save to a maximum of drained 4.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Drain Life]</p>"
                 },
                 "publication": {
                     "license": "OGL",
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "flags.system.drainLifeTempHP",
+                        "value": 3
+                    }
+                ],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
@@ -1789,6 +1795,9 @@
                 "value": 115
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

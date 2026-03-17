@@ -377,7 +377,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>Dense, twitching creepers sprout from every surface and fill any bodies of water in the area. Any creature moving on the land, or Climbing or Swimming within the creepers, takes a -10-foot circumstance penalty to its Speeds while in the area. Once per round, you can Sustain the spell to make a vine lash out from any square within the expanse of creepers. This vine has a 15-foot reach. Make a melee spell attack roll against the target; on a success, the vine pulls the target into the creepers and makes it @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] for 1 round or until the creature Escapes (against your spell DC), whichever comes first.</p>"
+                    "value": "<p>Dense, twitching creepers sprout from every surface and fill any bodies of water in the area. Any creature moving on the land, or Climbing or Swimming within the creepers, takes a –10-foot circumstance penalty to its Speeds while in the area. Once per round, you can Sustain the spell to make a vine lash out from any square within the expanse of creepers. This vine has a 15-foot reach. Make a melee spell attack roll against the target; on a success, the vine pulls the target into the creepers and makes it @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] for 1 round or until the creature Escapes (against your spell DC), whichever comes first.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -699,32 +699,14 @@
                     "value": ""
                 },
                 "counteraction": false,
-                "damage": {
-                    "0": {
-                        "applyMod": false,
-                        "category": null,
-                        "formula": "6d8",
-                        "kinds": [
-                            "damage"
-                        ],
-                        "materials": [],
-                        "type": "untyped"
-                    }
-                },
+                "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shape the shadow substance of the Netherworld into a blast. Choose acid, bludgeoning, cold, electricity, fire, force, piercing, slashing, sonic, or spirit damage; and choose a @Template[cone|distance:30], a @Template[burst|distance:15] within 120 feet, or a @Template[line|distance:50]. The blast deals 6d8 damage of the type you chose to each creature in the area.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d8.</p>"
+                    "value": "<p><strong>Area</strong> varies</p>\n<p><strong>Defense</strong> @Check[reflex|basic|options:area-effect] or @Check[will|basic|options:area-effect] (target's choice)</p><hr /><p>You shape the shadow substance of the Netherworld into a blast. Choose @Damage[(@item.rank+1)d8[acid]|options:area-damage], @Damage[(@item.rank+1)d8[bludgeoning]|options:area-damage], @Damage[(@item.rank+1)d8[cold]|options:area-damage], @Damage[(@item.rank+1)d8[electricity]|options:area-damage], @Damage[(@item.rank+1)d8[fire]|options:area-damage], @Damage[(@item.rank+1)d8[force]|options:area-damage], @Damage[(@item.rank+1)d8[piercing]|options:area-damage], @Damage[(@item.rank+1)d8[slashing]|options:area-damage], @Damage[(@item.rank+1)d8[sonic]|options:area-damage], or @Damage[(@item.rank+1)d8[spirit]|options:area-damage] damage, and choose a @Template[cone|distance:30], a @Template[burst|distance:15] within 120 feet, or a @Template[line|distance:50]. The blast deals 6d8 damage of the type you chose to each creature in the area.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 1d8.</p>"
                 },
                 "duration": {
                     "sustained": false,
                     "value": ""
-                },
-                "heightening": {
-                    "damage": {
-                        "0": "1d8"
-                    },
-                    "interval": 1,
-                    "type": "interval"
                 },
                 "level": {
                     "value": 5
@@ -736,36 +718,6 @@
                         "value": 2
                     },
                     "value": "BwdJDHkyX8eC90wf"
-                },
-                "overlays": {
-                    "UTMlHk0o5FXLlwwM": {
-                        "_id": "UTMlHk0o5FXLlwwM",
-                        "name": "Shadow Blast (Will)",
-                        "overlayType": "override",
-                        "sort": 2,
-                        "system": {
-                            "defense": {
-                                "save": {
-                                    "basic": false,
-                                    "statistic": "will"
-                                }
-                            }
-                        }
-                    },
-                    "zjyfdrWBaUVi4O7b": {
-                        "_id": "zjyfdrWBaUVi4O7b",
-                        "name": "Shadow Blast (Reflex)",
-                        "overlayType": "override",
-                        "sort": 1,
-                        "system": {
-                            "defense": {
-                                "save": {
-                                    "basic": false,
-                                    "statistic": "reflex"
-                                }
-                            }
-                        }
-                    }
                 },
                 "publication": {
                     "license": "ORC",
@@ -1062,7 +1014,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.sRfSBHWHdbIa0aGc"
             },
-            "img": "systems/pf2e/icons/spells/chilling-darkness.webp",
+            "img": "icons/magic/light/beam-explosion-pink-purple.webp",
             "name": "Chilling Darkness",
             "sort": 1700000,
             "system": {
@@ -2141,6 +2093,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2149,9 +2102,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2190,6 +2140,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2197,9 +2148,6 @@
                         "magical",
                         "reach-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2237,6 +2185,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2245,9 +2194,6 @@
                         "magical",
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2285,15 +2231,14 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "value": [
-                        "range-increment-60"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -2434,7 +2379,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>90 feet @Check[will|dc:29]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>90 feet. @Check[will|dc:29|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -2520,7 +2465,18 @@
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
                 "slug": null,
                 "traits": {
                     "value": []
@@ -2542,7 +2498,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Avathrael exhales a cloud of sweet-smelling poisonous gas that deals @Damage[13d6[poison]|options:area-damage] damage in a @Template[cone|distance:50] (@Check[fortitude|dc:32|basic|options:area-effect] save). A creature that critically fails is also @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2}. Avathrael can't use Poison Breath again for [[/gmr 1d4 #Recharge Poison Breath]]{1d4 rounds}.</p>"
+                    "value": "<p>Avathrael exhales a cloud of sweet-smelling poisonous gas that deals @Damage[13d6[poison]|options:area-damage] damage in a @Template[cone|distance:50] (@Check[fortitude|dc:32|basic|options:area-effect,inflicts:sickened] save). A creature that critically fails is also @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2}. Avathrael can't use Poison Breath again for [[/gmr 1d4 #Recharge Poison Breath]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -2576,6 +2532,10 @@
                 "description": {
                     "value": "<p><strong>Frequency</strong> twice per day</p>\n<hr />\n<p><strong>Effect</strong> Avathrael teleports with the effects of a 4th-rank @UUID[Compendium.pf2e.spells-srd.Item.Translocate] spell, but Avathrael must begin and end the teleportation effect in an area of dim light or darkness. If they use 2 actions to activate this ability, Avathrael also regains @Damage[8d10[healing]] Hit Points. Avathrael can't use Shadow Step again for [[/gmr 1d4 #Recharge Shadow Step]]{1d4 rounds}.</p>"
                 },
+                "frequency": {
+                    "max": 2,
+                    "per": "day"
+                },
                 "publication": {
                     "license": "OGL",
                     "remaster": false,
@@ -2607,7 +2567,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Avathrael mentally reshapes their realm, reshaping terrain and creating obstacles to hinder their foes. All squares within a @Template[burst|distance:50] become difficult terrain. Creatures in the area take @Damage[10d6[void]] damage (@Check[reflex|dc:32|basic] save) from the shadows. On a failure, that creature is additionally @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] by the malleable shadows (@UUID[Compendium.pf2e.actionspf2e.Item.Escape] DC 32). At the beginning of Avathrael's turn, each creature that's grabbed takes @Damage[4d6[void]] damage. Avathrael can't use Shape Shadow Realm again for [[/gmr 1d4 #Recharge Shape Shadow Realm]]{1d4 rounds}.</p>"
+                    "value": "<p>Avathrael mentally reshapes their realm, reshaping terrain and creating obstacles to hinder their foes. All squares within a @Template[burst|distance:50] become difficult terrain. Creatures in the area take @Damage[10d6[void]|options:area-damage] damage (@Check[reflex|dc:32|basic|options:area-effect,inflicts:grabbed] save) from the shadows. On a failure, that creature is additionally @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] by the malleable shadows ([[/act escape dc=32]]). At the beginning of Avathrael's turn, each creature that's grabbed takes @Damage[4d6[void]] damage. Avathrael can't use Shape Shadow Realm again for [[/gmr 1d4 #Recharge Shape Shadow Realm]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",

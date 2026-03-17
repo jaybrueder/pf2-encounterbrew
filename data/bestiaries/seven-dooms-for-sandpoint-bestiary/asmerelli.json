@@ -1874,6 +1874,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -1900,7 +1901,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1935,6 +1936,11 @@
             "name": "Shortbow",
             "sort": 2400000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "shortbow",
                 "bonus": {
                     "value": 0
@@ -1960,6 +1966,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -2084,7 +2091,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
             },
-            "img": "icons/commodities/treasure/broach-jeweled-green.webp",
+            "img": "icons/commodities/treasure/brooch-jeweled-green.webp",
             "name": "Religious Symbol",
             "sort": 2600000,
             "system": {
@@ -2125,7 +2132,6 @@
                 "quantity": 1,
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "has-religious-symbol",
                         "requiresEquipped": false
@@ -2152,30 +2158,17 @@
             "name": "Arrows",
             "sort": 2700000,
             "system": {
-                "baseItem": null,
+                "baseItem": "arrows",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. It is stabilized in flight by fletching at one end and bears a metal head on the other.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn"
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -2192,13 +2185,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": "arrows",
-                "stackGroup": "arrows",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -2206,7 +2197,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "sL2obEwV3OQCPtoX",
@@ -2242,6 +2233,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "machete",
                 "traits": {
@@ -2249,9 +2241,6 @@
                         "deadly-d8",
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2294,18 +2283,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": "shortbow",
                 "traits": {
                     "value": [
                         "deadly-d10",
                         "magical",
-                        "range-increment-60",
                         "reload-0"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -2324,7 +2313,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> Asmerelli bites down on her tongue (taking @Damage[1[slashing]] damage), then exhales a @Template[cone|distance:15] of burning smoke. Each creature in the area must attempt a @Check[reflex|dc:24] save.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes @Damage[3d8[fire]] damage.</p>\n<p><strong>Failure</strong> The creature takes @Damage[6d8[fire]] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1} by the agonizing pain of the burns.</p>\n<p><strong>Critical Failure</strong> The creature takes @Damage[6d8[fire]] damage, is sickened 1 by the agonizing pain of the burns, and becomes cursed. The victim's burns never fully vanish, and the cursed creature takes a –2 status penalty to all attacks from the constant pain. Healing doesn't alter the appearance of the burns or lessen the penalty, but removing the curse does.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Devil's Cursed Breath]</p>"
+                    "value": "<p><strong>Frequency</strong> once per day</p>\n<hr />\n<p><strong>Effect</strong> Asmerelli bites down on her tongue (taking @Damage[1[slashing]] damage), then exhales a @Template[cone|distance:15] of burning smoke. Each creature in the area must attempt a @Check[reflex|dc:24|options:area-effect,damaging-effect] save.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes @Damage[3d8[fire]|options:area-damage] damage.</p>\n<p><strong>Failure</strong> The creature takes @Damage[6d8[fire]|options:area-damage] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1} by the agonizing pain of the burns.</p>\n<p><strong>Critical Failure</strong> The creature takes @Damage[6d8[fire]|options:area-damage] damage, is sickened 1 by the agonizing pain of the burns, and becomes cursed. The victim's burns never fully vanish, and the cursed creature takes a –2 status penalty to all attacks from the constant pain. Healing doesn't alter the appearance of the burns or lessen the penalty, but removing the curse does.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Devil's Cursed Breath]</p>"
                 },
                 "frequency": {
                     "max": 1,

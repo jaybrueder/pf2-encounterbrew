@@ -1,0 +1,65 @@
+{
+    "_id": "59P7RXOjA4nwcMMj",
+    "folder": "rl5REaDECQmW6sqA",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [],
+    "name": "Cataclysmic Planar Rift",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": null
+            },
+            "emitsSound": "encounter",
+            "hardness": 0,
+            "hp": {
+                "details": "",
+                "max": 0,
+                "temp": 0,
+                "value": 0
+            },
+            "immunities": [],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>DC 40 Lore (expert) for the plane's Lore skill to notice pinpoint incursions from the other plane or @Check[arcana|dc:45] (master), @Check[nature|dc:45] (master), @Check[occultism|dc:45] (master), or @Check[religion|dc:45] (master) to detect subtle instabilities in the fabric of the Universe</p>",
+                "value": null
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>This apocalypse represents the effects of numerous planar rifts forming and exploding in a region, with the risk of the planar fabric being compromised enough to tear a city-sized (if not larger) hole in reality. These rifts are likely to eject inhabitants of the other plane into the Universe, as well as serve as gateways for furious defenders to pour through to punish anyone they think might be responsible for the problem. Any additional encounters that result from these incursions should award XP as normal for encounters of their difficulty. While the rifts are likely to all lead to the same plane, particularly far-reaching disruptions might create gateways to multiple planes at once, with each rift spewing forth its own defenders. These groups would each have their own aims and agendas, clashing, collaborating, or causing chaos wherever they go.</p>",
+            "disable": "<p>DC 42 Lore (expert) with the plane's Lore skill, @Check[arcana|dc:45] (master), @Check[nature|dc:45] (master), @Check[occultism|dc:45] (master), @Check[religion|dc:45] (master) or @Check[performance|dc:48] (legendary) to perform a planar stabilization rite to minimize the damage</p>",
+            "isComplex": true,
+            "level": {
+                "value": 18
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #221: Into the Apocalypse Archive"
+            },
+            "reset": "",
+            "routine": "<p>(1+ hours, @Check[flat|dc:18]) Rifts detonate with raw planar essence. As the hazard progresses, the ruptures grow more frequent until they merge together into a gaping portal (this final stage might be prevented with good fortune or successful efforts to Prepare). Ruptures occur once per 10 minutes for the first hour and once per minute for the second hour. The frequency with which each unprepared creature in the area is hit by a rupture depends upon their proximity to the hazard's epicenter. If the hazard proceeds into a third hour, all creatures and objects in the area take the hazard's damage one final time before being swallowed up by the burgeoning portal and deposited on the other plane.</p><p>The planar explosions deal 2d12+18 damage, with a DC 42 basic saving throw, and inflict a condition on a failed saving throw. The damage type, saving throw type, condition, and condition duration depend upon the exploding plane, as detailed in the table below.</p><table class=\"pf2-table\"><thead><tr><th>d20</th><th>Plane</th><th>Damage and Save</th><th>Condition</th></tr></thead><tbody><tr><td>1</td><td>Abaddon</td><td>Fortitude vs. poison damage</td><td>frightened 2 (1 hour, The condition's value can't be reduced by the typical means for 1 hour)</td></tr><tr><td>2</td><td>Astral or Ethereal Plane</td><td>Each time a new rift appears, roll again on this table, using the listed effects.</td><td>Each time a new rift appears, roll again on this table, using the listed effects.</td></tr><tr><td>3</td><td>Axis</td><td>Fortitude vs. force damage</td><td>clumsy 2 (1 hour)</td></tr><tr><td>4</td><td>Boneyard</td><td>Will vs. spirit damage</td><td>drained 2 (1 hour)</td></tr><tr><td>5</td><td>Creation's Forge</td><td>Will vs. vitality damage</td><td>dazzled (1 hour)</td></tr><tr><td>6</td><td>Elysium</td><td>Fortitude vs. sonic damage</td><td>deafened (24 hours)</td></tr><tr><td>7</td><td>First World</td><td>Will vs. mental damage</td><td>confused (1 minute)</td></tr><tr><td>8</td><td>Heaven</td><td>Reflex vs. fire damage</td><td>fascinated by the rift (10 minutes)</td></tr><tr><td>9</td><td>Hell</td><td>Reflex vs. fire damage</td><td>doomed 1 (1 hour)</td></tr><tr><td>10</td><td>Maelstrom</td><td>varies 2</td><td>varies 2</td></tr><tr><td>11</td><td>Nirvana</td><td>Fortitude vs. bludgeoning damage</td><td>stupefied 2 (1 hour)</td></tr><tr><td>12</td><td>The Netherworld</td><td>Fortitude vs. cold damage</td><td>blinded (10 minutes)</td></tr><tr><td>13</td><td>Outer Rifts</td><td>Reflex vs. acid damage</td><td>sickened 1 (1 hour) 1</td></tr><tr><td>14</td><td>Plane of Air</td><td>Reflex vs. electricity damage</td><td>stunned 1 (1 minute)</td></tr><tr><td>15</td><td>Plane of Earth</td><td>Fortitude vs. bludgeoning damage</td><td>fatigued</td></tr><tr><td>16</td><td>Plane of Fire</td><td>Reflex vs. fire damage</td><td>2d6 persistent fire damage</td></tr><tr><td>17</td><td>Plane of Metal</td><td>Reflex vs. slashing damage</td><td>2d6 persistent bleed damage</td></tr><tr><td>18</td><td>Plane of Water</td><td>Reflex vs. bludgeoning damage</td><td>off-guard (10 minutes)</td></tr><tr><td>19</td><td>Plane of Wood</td><td>Reflex vs. piercing damage</td><td>–15-foot circumstance penalty to Speeds (10 minutes)</td></tr><tr><td>20</td><td>The Void</td><td>Will vs. void damage</td><td>enfeebled 2 (1 hour)</td></tr></tbody></table>"
+        },
+        "saves": {
+            "fortitude": {
+                "value": 0
+            },
+            "reflex": {
+                "value": 0
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "magical"
+            ]
+        }
+    },
+    "type": "hazard"
+}

@@ -2387,6 +2387,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -2413,7 +2414,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -2661,6 +2662,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2668,44 +2670,6 @@
                         "agile",
                         "nonlethal",
                         "unarmed"
-                    ]
-                }
-            },
-            "type": "melee"
-        },
-        {
-            "_id": "TQeCzrpY9XhfwJHU",
-            "img": "systems/pf2e/icons/default-icons/melee.svg",
-            "name": "Arcane Beam",
-            "sort": 3600000,
-            "system": {
-                "attackEffects": {
-                    "value": []
-                },
-                "bonus": {
-                    "value": 31
-                },
-                "damageRolls": {
-                    "03jIwnJLwlcJneJG": {
-                        "damage": "6d6+10",
-                        "damageType": "fire"
-                    }
-                },
-                "description": {
-                    "value": ""
-                },
-                "publication": {
-                    "license": "ORC",
-                    "remaster": true,
-                    "title": ""
-                },
-                "rules": [],
-                "slug": null,
-                "traits": {
-                    "value": [
-                        "arcane",
-                        "fire",
-                        "magical"
                     ]
                 }
             },
@@ -2720,7 +2684,7 @@
             },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Staff",
-            "sort": 3700000,
+            "sort": 3600000,
             "system": {
                 "attackEffects": {
                     "value": []
@@ -2742,6 +2706,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -2769,6 +2734,48 @@
                     "value": [
                         "magical",
                         "two-hand-d8"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "TQeCzrpY9XhfwJHU",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Arcane Beam",
+            "sort": 3700000,
+            "system": {
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 31
+                },
+                "damageRolls": {
+                    "03jIwnJLwlcJneJG": {
+                        "damage": "6d6+10",
+                        "damageType": "fire"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": ""
+                },
+                "range": {
+                    "increment": null,
+                    "max": 30
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "fire",
+                        "magical"
                     ]
                 }
             },
@@ -2902,7 +2909,7 @@
         },
         {
             "_id": "YnLObWaGlgd2Jikj",
-            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
             "name": "Steady Spellcasting",
             "sort": 4200000,
             "system": {
@@ -3046,9 +3053,6 @@
             "arcana": {
                 "base": 36,
                 "special": []
-            },
-            "intimidate": {
-                "base": 30
             },
             "intimidation": {
                 "base": 30,

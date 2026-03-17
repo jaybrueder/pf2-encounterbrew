@@ -355,6 +355,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -363,9 +364,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -399,16 +397,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-increment-30"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -430,7 +427,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>60 feet. @Check[will|dc:29]</p>\n<p>Animals take a -2 circumstance penalty to the Will save.</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>60 feet. @Check[will|dc:29|options:area-effect,inflicts:frightened]</p>\n<p>Animals take a -2 circumstance penalty to the Will save.</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -614,7 +611,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The bugul noz lets out a hair-raising keen. Other creatures within @Template[emanation|distance:30]{30 feet} must attempt a @Check[fortitude|dc:31|traits:damaging-effect] save.</p>\n<p>The bugul noz can't use this ability again for [[/gmr 1d4 #Recharge Haunting Wail]]{1d4 rounds}.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target takes @Damage[2d10[sonic]] damage.</p>\n<p><strong>Failure</strong> The target takes @Damage[4d10[sonic]] damage and gains sonic weakness 10 for 1 minute.</p>\n<p><strong>Critical Failure</strong> As failure, and the target becomes @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] for 1 round.</p>"
+                    "value": "<p>The bugul noz lets out a hair-raising keen. Other creatures within @Template[emanation|distance:30]{30 feet} must attempt a @Check[fortitude|dc:31|options:area-effect,damaging-effect] save.</p>\n<p>The bugul noz can't use this ability again for [[/gmr 1d4 #Recharge Haunting Wail]]{1d4 rounds}.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target takes @Damage[2d10[sonic]|options:area-damage] damage.</p>\n<p><strong>Failure</strong> The target takes @Damage[4d10[sonic]|options:area-damage] damage and gains sonic weakness 10 for 1 minute.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Haunting Wail]</p>\n<p><strong>Critical Failure</strong> As failure, and the target becomes @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] for 1 round.</p>"
                 },
                 "publication": {
                     "license": "OGL",

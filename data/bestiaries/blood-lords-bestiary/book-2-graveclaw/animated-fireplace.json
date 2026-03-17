@@ -39,6 +39,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -46,9 +47,6 @@
                     "value": [
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -76,7 +74,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.ConstructArmor.CriticalHit",
                         "option": "construct-armor",
@@ -173,7 +170,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The animated fireplace releases a gout of flame in a @Template[cone|distance:30] that deals @Damage[3d6[fire]] damage (@Check[reflex|dc:22|basic]).</p>"
+                    "value": "<p>The animated fireplace releases a gout of flame in a @Template[cone|distance:30] that deals @Damage[3d6[fire]|options:area-damage] damage (@Check[reflex|dc:22|basic|options:area-effect]).</p>"
                 },
                 "publication": {
                     "license": "OGL",

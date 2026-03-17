@@ -657,6 +657,11 @@
             "name": "Composite Longbow",
             "sort": 900000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "composite-longbow",
                 "bonus": {
                     "value": 0
@@ -682,6 +687,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -769,6 +775,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -795,7 +802,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -863,6 +870,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -871,9 +879,6 @@
                         "holy",
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -920,6 +925,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -928,13 +937,9 @@
                         "holy",
                         "magical",
                         "propulsive",
-                        "range-increment-100",
                         "reload-0",
                         "volley-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1019,7 +1024,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The bralani generates a @Template[line|distance:20] of scouring wind that deals @Damage[7d6[bludgeoning]] damage (@Check[reflex|dc:24|basic] save). It can't use this ability again for [[/gmr 1d4 #Recharge Whirlwind Blast]]{1d4 rounds}.</p>"
+                    "value": "<p>The bralani generates a @Template[line|distance:20] of scouring wind that deals @Damage[7d6[bludgeoning]|options:area-damage] damage (@Check[reflex|dc:24|basic|options:area-effect] save). It can't use this ability again for [[/gmr 1d4 #Recharge Whirlwind Blast]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",

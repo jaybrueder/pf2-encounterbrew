@@ -474,6 +474,7 @@
                     "handsHeld": 2,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -500,7 +501,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -567,6 +568,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -577,9 +579,6 @@
                         "reach-10",
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -617,6 +616,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -628,9 +628,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -745,7 +742,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>When the shaitan Pushes a creature into a stone barrier, the target must succeed at a @Check[reflex|dc:22] save or become merged with the barrier (as @UUID[Compendium.pf2e.spells-srd.Item.One with Stone]). The victim can attempt to Escape (DC 28).</p>"
+                    "value": "<p>When the shaitan Pushes a creature into a stone barrier, the target must succeed at a @Check[reflex|dc:22] save or become merged with the barrier (as @UUID[Compendium.pf2e.spells-srd.Item.One with Stone]). The victim can attempt to [[/act escape dc=28]].</p>"
                 },
                 "publication": {
                     "license": "OGL",

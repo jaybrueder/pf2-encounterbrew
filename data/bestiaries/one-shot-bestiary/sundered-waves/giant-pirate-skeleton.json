@@ -35,6 +35,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -42,9 +43,6 @@
                     "value": [
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -78,6 +76,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -87,9 +86,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -126,7 +122,6 @@
                         "value": -4
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "Is flanked?",
                         "option": "flanked",
@@ -279,6 +274,9 @@
                 "value": 125
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

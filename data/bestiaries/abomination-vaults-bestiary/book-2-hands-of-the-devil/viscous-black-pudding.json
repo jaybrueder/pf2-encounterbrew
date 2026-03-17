@@ -40,6 +40,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -48,9 +49,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -108,7 +106,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "adjust-shape",
                         "selection": "large",
@@ -129,7 +126,7 @@
                         "predicate": [
                             "adjust-shape"
                         ],
-                        "value": "{item|flags.pf2e.rulesSelections.adjustShape}"
+                        "value": "{item|flags.system.rulesSelections.adjustShape}"
                     },
                     {
                         "key": "FlatModifier",

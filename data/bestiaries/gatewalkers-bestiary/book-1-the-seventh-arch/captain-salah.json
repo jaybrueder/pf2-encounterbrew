@@ -8,7 +8,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.LJdbVTOZog39EEbi"
             },
-            "img": "systems/pf2e/icons/equipment/weapons/longsword.webp",
+            "img": "icons/weapons/swords/sword-guard-blue.webp",
             "name": "Longsword",
             "sort": 100000,
             "system": {
@@ -30,13 +30,14 @@
                     "die": "d8"
                 },
                 "description": {
-                    "value": "<p>Longswords can be one-edged or two-edged swords. Their blades are heavy and they're between 3 and 4 feet in length.</p>"
+                    "value": "<p>Longswords, also known as arming swords, can be one-edged or two-edged swords. Their blades are heavy and they're between 3 and 4 feet in length.</p>"
                 },
                 "equipped": {
                     "carryType": "held",
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -56,14 +57,14 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": "-"
                 },
                 "rules": [],
                 "runes": {
@@ -83,6 +84,7 @@
                     ]
                 },
                 "usage": {
+                    "canBeAmmo": false,
                     "value": "held-in-one-hand"
                 }
             },
@@ -93,7 +95,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.tOhoGvmCMw4JpWcS"
             },
-            "img": "systems/pf2e/icons/equipment/weapons/spear.webp",
+            "img": "icons/weapons/polearms/spear-flared-steel.webp",
             "name": "Spear",
             "sort": 200000,
             "system": {
@@ -122,6 +124,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "spear",
                 "hardness": 0,
                 "hp": {
@@ -141,9 +144,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 3,
                 "range": null,
@@ -164,10 +167,12 @@
                 "traits": {
                     "rarity": "common",
                     "value": [
+                        "monk",
                         "thrown-20"
                     ]
                 },
                 "usage": {
+                    "canBeAmmo": false,
                     "value": "held-in-one-hand"
                 }
             },
@@ -178,7 +183,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.Yr9yCuJiAlFh3QEB"
             },
-            "img": "icons/equipment/shield/heater-steel-boss-red.webp",
+            "img": "systems/pf2e/icons/equipment/shields/steel-shield.webp",
             "name": "Steel Shield",
             "sort": 300000,
             "system": {
@@ -189,7 +194,7 @@
                 },
                 "containerId": null,
                 "description": {
-                    "value": "<p>Like wooden shields, steel shields come in a variety of shapes and sizes. Though more expensive than wooden shields, they are much more durable.</p>\n<table class=\"pf2e\">\n<thead>\n<tr>\n<th>Hardness</th>\n<th>HP</th>\n<th>BT</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>5</td>\n<td>20</td>\n<td>10</td>\n</tr>\n</tbody>\n</table>"
+                    "value": "<p>Like wooden shields, steel shields come in a variety of shapes and sizes. Though more expensive than wooden shields, they are much more durable.</p><table class=\"pf2e remaster\"><thead><tr><th>Hardness</th><th>HP</th><th>BT</th></tr></thead><tbody><tr><td>5</td><td>20</td><td>10</td></tr></tbody></table>"
                 },
                 "equipped": {
                     "carryType": "held",
@@ -214,9 +219,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "rules": [],
@@ -252,11 +257,12 @@
                 "checkPenalty": -2,
                 "containerId": null,
                 "description": {
-                    "value": "<p>Though referred to as a breastplate, this type of armor consists of several pieces of plate or half-plate armor that protect the torso, chest, neck, and sometimes the hips and lower legs. It strategically grants some of the protection of plate while allowing greater flexibility and speed.</p>"
+                    "value": "<p>Though referred to as a breastplate, this type of armor consists of several pieces of plate or @UUID[Compendium.pf2e.equipment-srd.Item.Half Plate] armor that protect the torso, chest, neck, and sometimes the hips and lower legs. It strategically grants some of the protection of plate while allowing greater flexibility and speed.</p>"
                 },
                 "dexCap": 1,
                 "equipped": {
                     "carryType": "worn",
+                    "handsHeld": 0,
                     "inSlot": true,
                     "invested": null
                 },
@@ -279,9 +285,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "quantity": 1,
                 "rules": [],
@@ -316,7 +322,7 @@
                 },
                 "containerId": null,
                 "description": {
-                    "value": "<p>This cloak appears to be woven from a thousand living leaves, hungry for flesh and eager to defend the cloak's wearer.</p>\n<p><strong>Activate</strong> <span class=\"action-glyph\">r</span> envision</p>\n<p><strong>Frequency</strong> once per day</p>\n<p><strong>Trigger</strong> You are damaged by a melee attack from an adjacent creature</p>\n<hr />\n<p><strong>Effect</strong> The leaves lash out at your attacker, rising up to reveal snapping jaws made of wicked thorns. The triggering creature must attempt a @Check[reflex|dc:17] saving throw.</p>\n<p><strong>Success</strong> The creature is unaffected.</p>\n<p><strong>Failure</strong> The creature takes @Damage[1d4[piercing]].</p>\n<p><strong>Critical Failure</strong> The creature takes @Damage[2d4[piercing]] and @Damage[1[bleed]].</p>"
+                    "value": "<p>This cloak appears to be woven from a thousand living leaves, hungry for flesh and eager to defend the cloak's wearer.</p>\n<p><strong>Activate—Bite Back</strong> <span class=\"action-glyph\">r</span> (concentrate)</p>\n<p><strong>Frequency</strong> once per day</p>\n<p><strong>Trigger</strong> You are damaged by a melee attack from an adjacent creature</p><hr /><p><strong>Effect</strong> The leaves lash out at your attacker, rising up to reveal snapping jaws made of wicked thorns. The triggering creature must attempt a @Check[reflex|dc:17|options:damaging-effect] saving throw.</p>\n<p><strong>Success</strong> The creature is unaffected.</p>\n<p><strong>Failure</strong> The creature takes @Damage[1d4[piercing]] damage.</p>\n<p><strong>Critical Failure</strong> The creature takes @Damage[2d4[piercing],1[bleed]] damage.</p>"
                 },
                 "equipped": {
                     "carryType": "worn",
@@ -341,9 +347,9 @@
                     }
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder #187: The Seventh Arch"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Adventure Path: Gatewalkers"
                 },
                 "quantity": 1,
                 "rules": [],
@@ -363,10 +369,62 @@
             "type": "equipment"
         },
         {
+            "_id": "Vyz8rb1zWl87odyK",
+            "img": "icons/commodities/bones/skull-lizard-brown.webp",
+            "name": "Horse Skull Helmet",
+            "sort": 600000,
+            "system": {
+                "baseItem": null,
+                "bulk": {
+                    "value": 0.1
+                },
+                "containerId": null,
+                "description": {
+                    "value": ""
+                },
+                "equipped": {
+                    "carryType": "worn",
+                    "invested": null
+                },
+                "hardness": 0,
+                "hp": {
+                    "max": 0,
+                    "value": 0
+                },
+                "level": {
+                    "value": 0
+                },
+                "material": {
+                    "grade": null,
+                    "type": null
+                },
+                "price": {
+                    "value": {}
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "quantity": 1,
+                "rules": [],
+                "size": "lg",
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": []
+                },
+                "usage": {
+                    "value": "held-in-one-hand"
+                }
+            },
+            "type": "equipment"
+        },
+        {
             "_id": "h8HPqnXI3dI7KFxV",
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Hoof",
-            "sort": 600000,
+            "sort": 700000,
             "system": {
                 "attack": {
                     "value": ""
@@ -392,6 +450,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -399,9 +458,6 @@
                     "value": [
                         "agile"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -415,7 +471,7 @@
             },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Longsword",
-            "sort": 700000,
+            "sort": 800000,
             "system": {
                 "attack": {
                     "value": ""
@@ -441,6 +497,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -448,9 +505,6 @@
                     "value": [
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -464,7 +518,7 @@
             },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Spear",
-            "sort": 800000,
+            "sort": 900000,
             "system": {
                 "attack": {
                     "value": ""
@@ -490,14 +544,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -511,7 +563,7 @@
             },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Spear",
-            "sort": 900000,
+            "sort": 1000000,
             "system": {
                 "attack": {
                     "value": ""
@@ -537,6 +589,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -544,9 +597,6 @@
                     "value": [
                         "thrown-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -558,7 +608,7 @@
             },
             "img": "systems/pf2e/icons/actions/Reaction.webp",
             "name": "Shield Block",
-            "sort": 1000000,
+            "sort": 1100000,
             "system": {
                 "actionType": {
                     "value": "reaction"
@@ -571,14 +621,13 @@
                     "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.ShieldBlock]</p>"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Bestiary"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Monster Core"
                 },
                 "rules": [],
                 "slug": "shield-block",
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -591,7 +640,7 @@
             },
             "img": "systems/pf2e/icons/actions/ThreeActions.webp",
             "name": "Trample",
-            "sort": 1100000,
+            "sort": 1200000,
             "system": {
                 "actionType": {
                     "value": "action"
@@ -601,17 +650,16 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Medium or smaller, hoof, @Check[reflex|dc:18|basic] save</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Trample]</p>"
+                    "value": "<p>Medium or smaller, hoof, @Check[reflex|dc:18|basic]</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.Trample]</p>"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Bestiary"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Monster Core"
                 },
                 "rules": [],
                 "slug": "trample",
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -675,9 +723,9 @@
             "privateNotes": "",
             "publicNotes": "<p>Centaurs are legendary hunters and trackers who resemble heavily muscled humans with the bodies of powerful horses from the waist down. They are typically reclusive but haughty, quick to assume that their handsome physiques and long history of cultural traditions make them superior to any two-legged folk they encounter. While stories of bloody clashes between centaurs and humanoid settlers are well known, centaurs are neither intrinsically bloodthirsty nor recklessly aggressive. Rather, they are proud and stubborn and do not take kindly to outsiders who encroach on their ancestral grounds, some of which have been ruled by centaurs for thousands of years. Against despoilers of nature who fail to heed their warnings, centaurs do not hesitate to use their finely honed hunting skills to inflict deadly wounds.</p>\n<p>Centaurs train with weapons as well as their heavy hooves, and the thunder of centaurs charging across the plains is often mistaken for a stampede or even an earthquake. Despite their insular nature, some centaurs form close alliances with elves, fey, gnomes, and isolated human communities. Such allies are often surprised to learn the depths of centaurs' honor, pragmatism, and wilderness lore. Rarely, a centaur leaves its tribe to travel the wider world. Such lone centaur wanderers more easily integrate into humanoid societies, but other centaurs are quick to assume that some dishonor led to their exile and thus give such vagabonds a wide berth.</p>\n<p>Centaurs have incredible variation in their individual size and coloration. Their upper bodies are fairly similar within a tribe and even region, but their lower bodies-like those of horses-can vary widely from parent to child. Most centaurs are at least 7 feet tall and weigh more than 2,000 pounds.</p>\n<p>Centaurs live in groups of dozens of members, usually led by an old, powerful seer or battle-hardened warrior who has carried out many noble deeds and earned a lifetime of respect from their comrades. The revered leader guides the habits of their entire group; a wise seer might encourage the tribe to roam far from civilization to preserve the ways of its ancestors, while an aggressive warrior might foster skirmishes with nearby humanoid settlements and even rival centaur groups.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #187: The Seventh Arch"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -725,12 +773,14 @@
             }
         },
         "traits": {
-            "rarity": "common",
+            "rarity": "unique",
             "size": {
                 "value": "lg"
             },
             "value": [
-                "beast"
+                "beast",
+                "centaur",
+                "humanoid"
             ]
         }
     },

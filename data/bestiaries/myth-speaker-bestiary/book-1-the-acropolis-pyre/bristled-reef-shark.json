@@ -1,0 +1,244 @@
+{
+    "_id": "kOiU62ShG0Hyhznx",
+    "folder": "TK7ZSMCuElK7Dn5u",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "52TVwCIqN7EdC1xL",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 100000,
+            "system": {
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 5
+                },
+                "damageRolls": {
+                    "iQgtCamh8mCEmcfc": {
+                        "damage": "1d8+1",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "ElkNFMZXJWORukPW",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Bristle",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The bristled reef shark becomes @UUID[Compendium.pf2e.conditionitems.Item.Grabbed], @UUID[Compendium.pf2e.conditionitems.Item.Restrained], or otherwise @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] in a creature's grasp</p><hr /><p><strong>Effect</strong> The shark flares its bristles, dealing @Damage[1d6[piercing]] damage to the triggering creature (@Check[reflex|dc:17|basic]). If the creature critically fails, the shark can also try to @UUID[Compendium.pf2e.actionspf2e.Item.Escape] as part of this reaction.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "eaOzB2ZpMqmJxXYx",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Compression",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When a bristled reef shark successfully Squeezes, it moves though the tight space at half speed (or full speed on a critical success).</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "5F76CHIBn0QyTqHn",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Reef Rake",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Requirements</strong> The shark's last action was a successful jaws Strike, and the target is adjacent to a solid surface like a wall or reef</p><hr /><p><strong>Effect</strong> The shark attempts an Athletics check to @UUID[Compendium.pf2e.actionspf2e.Item.Reposition] the target into the adjacent surface. If successful, the target is thrown into the surface and takes @Damage[2d6[bludgeoning]] damage. If the surface is jagged (such as a reef), target instead takes @Damage[2d6[slashing],1[bleed]] damage. This neither applies nor counts toward the shark's multiple attack penalty.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Bristled Reef Shark",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 2
+            },
+            "con": {
+                "mod": 2
+            },
+            "dex": {
+                "mod": 4
+            },
+            "int": {
+                "mod": -4
+            },
+            "str": {
+                "mod": 1
+            },
+            "wis": {
+                "mod": 1
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 16
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 21,
+                "temp": 0,
+                "value": 21
+            },
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "swim",
+                        "value": 35
+                    }
+                ],
+                "value": null
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": []
+            },
+            "level": {
+                "value": 1
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Small enough to slip through labyrinthine corals yet large enough to overpower potential prey, bristled reef sharks prowl coastal reefs at night. By day, they're gregarious creatures that congregate in large groups and communicate with each other by performing dance-like maneuvers. On occasion, the sharks team up to drive away predators or mob large prey; more often, they dart for cover amid the corals. Those that aren't fast enough to avoid being swallowed by orcas and larger sharks flare their dorsal spines, forcing most predators to cough up the bristled shark who quickly flees to safety.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #216: The Acropolis Pyre"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "blood scent",
+            "mod": 7,
+            "senses": [
+                {
+                    "acuity": "imprecise",
+                    "range": 100,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 7
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 10
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 4
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 7
+            },
+            "athletics": {
+                "base": 5
+            },
+            "performance": {
+                "base": 6
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "med"
+            },
+            "value": [
+                "animal",
+                "aquatic"
+            ]
+        }
+    },
+    "type": "npc"
+}

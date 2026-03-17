@@ -1603,6 +1603,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1613,9 +1614,6 @@
                         "magical",
                         "water"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1649,17 +1647,17 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 60
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "magical",
-                        "range-60",
                         "water"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1777,7 +1775,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet.</p>\n<hr />\n<p>A creature that fails its save is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1} and becomes stunned 1 each time it starts its turn within the aura for the next 24 hours, even if it can't see the naiad queen.</p>\n<hr />\n<p>Creatures that start their turn in the aura must succeed at a @Check[will|dc:23] save or suffer an effect described in the nymph queen's entry.</p>"
+                    "value": "<p>30 feet. A creature that fails its save is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1} and becomes stunned 1 each time it starts its turn within the aura for the next 24 hours, even if it can't see the naiad queen.</p>\n<hr />\n<p>Creatures that start their turn in the aura must succeed at a @Check[will|dc:23|options:area-effect,inflicts:stunned] save or suffer an effect described in the nymph queen's entry.</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -1812,13 +1810,47 @@
             "type": "action"
         },
         {
+            "_id": "z1Wnid4gCPgKMoV8",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Water Healing",
+            "sort": 2800000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>For every 10 minutes a naiad spends soaking in any body of water in her domain, she regains @Damage[30[healing]]{30 Hit Points}.</p>"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "rarity": "common",
+                    "value": [
+                        "healing",
+                        "primal",
+                        "vitality"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
             "_id": "yQ0WKMlep02TPvLi",
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.bestiary-family-ability-glossary.Item.eXleBXdAemiEoHA8"
             },
             "img": "systems/pf2e/icons/actions/OneAction.webp",
             "name": "Change Shape",
-            "sort": 2800000,
+            "sort": 2900000,
             "system": {
                 "actionType": {
                     "value": "action"
@@ -1885,7 +1917,7 @@
             },
             "img": "systems/pf2e/icons/actions/OneAction.webp",
             "name": "Focus Beauty",
-            "sort": 2900000,
+            "sort": 3000000,
             "system": {
                 "actionType": {
                     "value": "action"
@@ -1923,7 +1955,7 @@
             },
             "img": "systems/pf2e/icons/actions/ThreeActions.webp",
             "name": "Inspiration",
-            "sort": 3000000,
+            "sort": 3100000,
             "system": {
                 "actionType": {
                     "value": "action"
@@ -1948,40 +1980,6 @@
                         "emotion",
                         "mental",
                         "primal"
-                    ]
-                }
-            },
-            "type": "action"
-        },
-        {
-            "_id": "z1Wnid4gCPgKMoV8",
-            "img": "systems/pf2e/icons/actions/TwoActions.webp",
-            "name": "Water Healing",
-            "sort": 3100000,
-            "system": {
-                "actionType": {
-                    "value": "action"
-                },
-                "actions": {
-                    "value": 2
-                },
-                "category": "offensive",
-                "description": {
-                    "value": "<p>For every 10 minutes a naiad spends soaking in any body of water in her domain, she regains @Damage[30[healing]]{30 Hit Points}.</p>"
-                },
-                "publication": {
-                    "license": "ORC",
-                    "remaster": true,
-                    "title": ""
-                },
-                "rules": [],
-                "slug": null,
-                "traits": {
-                    "rarity": "common",
-                    "value": [
-                        "healing",
-                        "primal",
-                        "vitality"
                     ]
                 }
             },

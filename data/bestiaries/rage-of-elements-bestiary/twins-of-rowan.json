@@ -31,6 +31,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -40,9 +41,6 @@
                         "finesse",
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -76,6 +74,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -84,9 +83,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -120,16 +116,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 120,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "brutal",
-                        "range-increment-120"
+                        "brutal"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -217,7 +213,6 @@
                         ]
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "beacon-of-the-rowan-guard-active",
                         "toggleable": true,
@@ -279,7 +274,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Once per day, the twins of rowan can strike the ground with their sword, releasing a @Template[burst|distance:30] of life energy centered on the twins that deals @Damage[14d6[vitality]] damage (@Check[fortitude|dc:30|basic] save); the twins of rowan is immune. The area affected by this burst then becomes greater difficult terrain as vibrant new plant life ruptures through it.</p>"
+                    "value": "<p>Once per day, the twins of rowan can strike the ground with their sword, releasing a @Template[burst|distance:30] of life energy centered on the twins that deals @Damage[14d6[vitality]|options:area-damage] damage (@Check[fortitude|dc:30|basic|options:area-effect] save); the twins of rowan is immune. The area affected by this burst then becomes greater difficult terrain as vibrant new plant life ruptures through it.</p>"
                 },
                 "publication": {
                     "license": "OGL",

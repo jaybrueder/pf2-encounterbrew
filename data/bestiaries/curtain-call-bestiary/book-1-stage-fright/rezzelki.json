@@ -134,6 +134,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -175,6 +176,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -272,7 +274,6 @@
                 "rules": [
                     {
                         "alwaysActive": true,
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "favored-meal",
                         "suboptions": [
@@ -306,7 +307,7 @@
                     {
                         "key": "FlatModifier",
                         "predicate": [
-                            "target:trait:{item|flags.pf2e.rulesSelections.favoredMeal}"
+                            "target:trait:{item|flags.system.rulesSelections.favoredMeal}"
                         ],
                         "selector": [
                             "strike-attack-roll",

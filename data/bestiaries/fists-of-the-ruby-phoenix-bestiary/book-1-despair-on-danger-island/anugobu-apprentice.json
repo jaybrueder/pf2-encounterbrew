@@ -621,6 +621,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -628,9 +629,6 @@
                     "value": [
                         "agile"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -664,6 +662,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -673,9 +672,6 @@
                         "parry",
                         "versatile-b"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -709,6 +705,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -719,9 +716,6 @@
                         "nonlethal",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -755,6 +749,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -763,9 +758,6 @@
                         "agile",
                         "thrown-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -784,7 +776,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>An anugobu is intrinsically connected to small, pocket dimension that they typically refer to as their workshop. The workshop is an extradimensional 10-foot cube. The workshop holds an anugobu's collected tools and materials. An anugobu can enter or leave their planar workshop as an action, which has the concentrate and manipulate traits. The anugobu gains resistance 5 to all damage (except force) and @UUID[Compendium.pf2e.conditionitems.Item.Concealed]{concealment} while within the workshop. The workshop is only visible while the anugobu is inside it.</p>"
+                    "value": "<p>An anugobu is intrinsically connected to small, pocket dimension that they typically refer to as their workshop. The workshop is an extradimensional 10-foot cube. The workshop holds an anugobu's collected tools and materials. An anugobu can enter or leave their planar workshop as an action, which has the concentrate and manipulate traits. The anugobu gains resistance 5 to all damage (except force) and @UUID[Compendium.pf2e.conditionitems.Item.Concealed]{Concealment} while within the workshop. The workshop is only visible while the anugobu is inside it.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -793,7 +785,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "planar-workshop",
                         "toggleable": true

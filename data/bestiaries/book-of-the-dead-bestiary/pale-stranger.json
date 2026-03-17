@@ -11,6 +11,11 @@
             "name": "Flintlock Pistol",
             "sort": 100000,
             "system": {
+                "ammo": {
+                    "baseType": "rounds-flintlock-pistol",
+                    "builtIn": false,
+                    "capacity": 1
+                },
                 "baseItem": "flintlock-pistol",
                 "bonus": {
                     "value": 0
@@ -36,6 +41,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "firearm",
                 "hardness": 0,
                 "hp": {
@@ -118,6 +124,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -125,9 +132,6 @@
                     "value": [
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -162,6 +166,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -172,9 +177,6 @@
                         "nonlethal",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -216,18 +218,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 40,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "concussive",
-                        "fatal-d8",
-                        "range-increment-40"
+                        "fatal-d8"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -322,7 +324,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "undying-vendetta",
                         "toggleable": true
@@ -438,14 +439,12 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.PaleStranger.TargetNeverKilled",
                         "option": "target-never-killed",
                         "toggleable": true
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.PaleStranger.TargetMurderedPaleStranger",
                         "option": "target-murdered-pale-stranger",
@@ -567,6 +566,9 @@
                 "value": 155
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

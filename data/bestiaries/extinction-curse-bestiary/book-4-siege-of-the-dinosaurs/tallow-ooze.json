@@ -34,6 +34,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -41,9 +42,6 @@
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -164,7 +162,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>@Check[reflex|dc:30], @Damage[4d10[bludgeoning]], Escape DC 26, Rupture 25</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Engulf]</p>"
+                    "value": "<p>@Check[reflex|dc:30], @Damage[4d10[bludgeoning]], [[/act escape dc=26]], Rupture 25</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Engulf]</p>"
                 },
                 "publication": {
                     "license": "OGL",

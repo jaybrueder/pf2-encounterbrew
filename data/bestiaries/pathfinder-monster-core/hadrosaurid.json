@@ -31,6 +31,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -38,9 +39,6 @@
                     "value": [
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -74,6 +72,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -82,9 +81,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -116,7 +112,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "sprint",
                         "toggleable": true

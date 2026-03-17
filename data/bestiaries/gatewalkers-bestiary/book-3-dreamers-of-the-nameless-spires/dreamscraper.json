@@ -48,7 +48,7 @@
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.aqRYNoSvxsVfqglH"
             },
             "img": "icons/equipment/feet/boots-leather-laced-brown.webp",
-            "name": "Freedom of Movement (Constant)",
+            "name": "Unfettered Movement (Constant)",
             "sort": 200000,
             "system": {
                 "area": null,
@@ -59,7 +59,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You repel effects that would hinder a creature or slow its movement. While under this spell's effect, the target ignores effects that would give them a circumstance penalty to Speed. When they attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Escape] an effect that has them @UUID[Compendium.pf2e.conditionitems.Item.Immobilized], @UUID[Compendium.pf2e.conditionitems.Item.Grabbed], or @UUID[Compendium.pf2e.conditionitems.Item.Restrained], they automatically succeed unless the effect is magical and of a higher rank than the <em>freedom of movement</em> spell.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Unfettered Movement]{Spell Effect: Freedom of Movement}</p>"
+                    "value": "<p>You repel effects that would hinder a creature or slow its movement. While under this spell's effect, the target ignores effects that would give them a circumstance penalty to Speed. When they attempt to @UUID[Compendium.pf2e.actionspf2e.Item.Escape] an effect that has them @UUID[Compendium.pf2e.conditionitems.Item.Immobilized], @UUID[Compendium.pf2e.conditionitems.Item.Grabbed], or @UUID[Compendium.pf2e.conditionitems.Item.Restrained], they automatically succeed unless the effect is magical and of a higher rank than the <em>unfettered movement</em> spell.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Unfettered Movement]</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -77,16 +77,16 @@
                     "value": "cIQKcnFIPQJAMDVl"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "touch"
                 },
                 "requirements": "",
                 "rules": [],
-                "slug": "freedom-of-movement",
+                "slug": "unfettered-movement",
                 "target": {
                     "value": "1 creature touched"
                 },
@@ -142,9 +142,9 @@
                     "value": "cIQKcnFIPQJAMDVl"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "120 feet"
@@ -218,9 +218,9 @@
                     "value": "cIQKcnFIPQJAMDVl"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Core Rulebook"
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "30 feet"
@@ -283,6 +283,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -291,9 +292,6 @@
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -325,17 +323,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 60
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "incorporeal",
-                        "magical",
-                        "range-60"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -498,7 +496,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>90 feet. @Check[will|dc:22]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>90 feet. @Check[will|dc:22|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -544,7 +542,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The dreamscraper shifts to either the Dimension of Dreams or the Material Plane. While in the Dimension of Dreams, it can see clearly onto the Material Plane with a range of 60 feet. On its first round in an encounter, the dreamscraper can use this ability once as a free action.</p>"
+                    "value": "<p>The dreamscraper shifts to either the Dimension of Dreams or the Universe. While in the Dimension of Dreams, it can see clearly into the Universe with a range of 60 feet. On its first round in an encounter, the dreamscraper can use this ability once as a free action.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -674,9 +672,9 @@
             "privateNotes": "",
             "publicNotes": "<p>Dreamscrapers invade the dreams of sleeping mortals to scrape away at their minds and steal their dreams, leaving them raw and tired upon waking. Maggot-like, with many eyes surrounded by a circular, toothy mouth, dreamscrapers use sharp barbs attached to ethereal tendrils to trawl for dreams. After returning to the Dimension of Dreams with their prizes, they store them in their dark, spire-like cocoons, trade them, or offer them up to their heinous masters as some obscure tax.</p>\n<p>Although many dreamscrapers act as servants for more powerful creatures, some act independently. Unable to dream themselves, their fascination leads them to experiment with their collections. They attempt to either synthesize dreams of their own or implant collected dreams within themselves.</p>\n<h3>Dream collections</h3>\n<p>Dreams are fascinating creations of the imagination that many powerful entities seek to collect. Liches, for example, are intrigued by the dreams of mortals. Night hags and denizens of Leng see dreams as a valuable commodity, and their bartering draws many beings to the shadowy markets of Leng.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #189: Dreamers of the Nameless Spires"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -739,8 +737,7 @@
             },
             "value": [
                 "aberration",
-                "dream",
-                "evil"
+                "dream"
             ]
         }
     },

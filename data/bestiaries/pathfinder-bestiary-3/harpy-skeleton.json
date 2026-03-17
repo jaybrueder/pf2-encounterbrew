@@ -32,6 +32,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -40,9 +41,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -77,14 +75,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -119,6 +115,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -126,9 +123,6 @@
                     "value": [
                         "thrown-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -187,7 +181,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The harpy skeleton emits an unearthly, bone-chilling scream that deals @Damage[4d10[mental]] damage to all creatures in a @Template[cone|distance:30] (@Check[will|dc:26|basic] save). A creature that fails its save is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1} (or @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} on a critical failure).</p>\n<p>The harpy skeleton can't Shriek again for [[/gmr 1d4 #Recharge Shriek]]{1d4 rounds}.</p>"
+                    "value": "<p>The harpy skeleton emits an unearthly, bone-chilling scream that deals @Damage[4d10[mental]|options:area-damage] damage to all creatures in a @Template[cone|distance:30] (@Check[will|dc:26|basic|options:area-effect,inflicts:frightened] save). A creature that fails its save is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1} (or @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2} on a critical failure).</p>\n<p>The harpy skeleton can't Shriek again for [[/gmr 1d4 #Recharge Shriek]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -247,6 +241,9 @@
                 "value": 60
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

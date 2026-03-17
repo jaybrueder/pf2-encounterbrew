@@ -142,6 +142,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "brawling",
                 "hardness": 0,
                 "hp": {
@@ -168,7 +169,7 @@
                 "quantity": 2,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -290,6 +291,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tekko-kagi",
                 "traits": {
@@ -322,6 +324,10 @@
                 "description": {
                     "value": "<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> Yobnobby attempts a @Check[crafting|dc:18] check.</p><hr /><p><strong>Critical Success</strong> Yobnobby's Strikes deal an additional 5 damage for 1 minute. After this effect ends, Yobnobby can't use Expert Overdrive for 1 minute.</p>\n<p><strong>Success</strong> As critical success, but only an additional 3 damage.</p>\n<p><strong>Failure</strong> Nothing happens.</p>\n<p><strong>Critical Failure</strong> Yobnobby's gizmos catch on fire! She takes @Damage[3[fire]] damage and can't use Expert Overdrive again for 1 minute.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Yobnobby Overdrive]</p>"
                 },
+                "frequency": {
+                    "max": 1,
+                    "per": "round"
+                },
                 "publication": {
                     "license": "OGL",
                     "remaster": false,
@@ -351,7 +357,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Yobnobby causes her armor to belch fire in a @Template[type:emanation|distance:5]. Creatures in this area (other than Yobnobby) take @Damage[3d6[fire]] damage (@Check[reflex|dc:19|basic] save), after which Yobnobby must attempt a @Check[flat|dc:17].</p>\n<p><strong>Success</strong> Yobnobby's armor is unharmed by the explosion.</p>\n<p><strong>Failure</strong> Yobnobby's armor emits a loud grinding sound and belches plumes of rancid-smelling smoke. She can't use Explode again until she takes 10 minutes to repair her armor.</p>\n<p><strong>Critical Failure</strong> As failure, but Yobnobby also takes @Damage[3[fire]] damage.</p>"
+                    "value": "<p>Yobnobby causes her armor to belch fire in a @Template[type:emanation|distance:5]. Creatures in this area (other than Yobnobby) take @Damage[3d6[fire]|options:area-damage] damage (@Check[reflex|dc:19|basic|options:area-effect] save), after which Yobnobby must attempt a @Check[flat|dc:17].</p>\n<p><strong>Success</strong> Yobnobby's armor is unharmed by the explosion.</p>\n<p><strong>Failure</strong> Yobnobby's armor emits a loud grinding sound and belches plumes of rancid-smelling smoke. She can't use Explode again until she takes 10 minutes to repair her armor.</p>\n<p><strong>Critical Failure</strong> As failure, but Yobnobby also takes @Damage[3[fire]] damage.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -460,7 +466,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

@@ -1,0 +1,106 @@
+{
+    "_id": "9JZ7QajdpFzbqtBo",
+    "folder": "rl5REaDECQmW6sqA",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [
+        {
+            "_id": "PEJk9vwnNxBybAzS",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Pungent Cloud",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The door to area <strong>B11</strong> is opened or a creature enters the area, or any open flame is brought into area <strong>B11</strong></p><hr /><p><strong>Effect</strong> The musky fog filling the perfume laboratory billows out into the hall, spreading 5 feet from the doorway and expanding by another 5 feet each round the door remains open. All creatures within the fog become @UUID[Compendium.pf2e.conditionitems.Item.Concealed], and all creatures outside the fog become concealed to creatures within it. Creatures in the fog must succeed at a @Check[fortitude|dc:45|traits:poison|options:area-effect,inflicts:sickened] save or become @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1} (@UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2} on a critical failure); this is a poison effect. If the pungent cloud was triggered by open flame, chemicals in the air ignite into a flash of fire, dealing @Damage[6d6[fire],6d6[poison]|options:area-damage] damage to all creatures in the area (@Check[reflex|dc:45|basic|options:area-effect] save), after which the pungent cloud disperses. The hazard then rolls initiative.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Malfunctioning Perfumery (Eastern)",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": 48
+            },
+            "emitsSound": "encounter",
+            "hardness": 41,
+            "hp": {
+                "details": "",
+                "max": 170,
+                "temp": 0,
+                "value": 170
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "critical-hits"
+                },
+                {
+                    "exceptions": [],
+                    "type": "precision"
+                }
+            ],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>(legendary)</p>",
+                "value": 45
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>The magically and mechanically automated tools Sorshen used to aid in the crafting of perfume on the long, eastern workbench have interacted in unexpected ways, transforming the workshop into a dangerous peril.</p>",
+            "disable": "<p>@Check[crafting|dc:52] (legendary) to quickly introduce neutralizing agents into the alchemical machinery, @Check[thievery|dc:55] (master) to disable the mechanized portions of the devices, or @Check[arcana|dc:55] (master) to counteract magical elements; four total successes are required to disable the hazard (destroying one of the four workbenches counts as one success)</p>",
+            "isComplex": true,
+            "level": {
+                "value": 22
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #221: Into the Apocalypse Archive"
+            },
+            "reset": "",
+            "routine": "<p>(5 actions) On its initiative, the malfunctioning perfumery takes the following five actions, in order. For each success at disabling it, the hazard loses one action. The targets for actions 2–5 are randomly chosen from creatures in the room, with no one creature being targeted more than once before all other creatures in the room have been targeted. For example, a party of 4 PCs will each be targeted by one of these actions. If just a single PC is in the room, they will be targeted by all four.</p><ul><li><strong>1: Crushing Notes</strong> <span class=\"action-glyph\">1</span> (olfactory, poison) The malfunctioning machinery exudes a blast of concentrated and overwhelming perfume notes into area <strong>B11</strong>. Creatures in the area must attempt a @Check[fortitude|dc:15|traits:olfactory,poison] save or become @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1} (@UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 2} on a critical failure).</li><li><strong>2: Nozzle Spray</strong> <span class=\"action-glyph\">1</span> (poison) Nozzles built into the machinery extend out to spray toxic, overwhelmingly cloying perfume in multiple directions. One randomly determined target in area <strong>B11</strong> takes @Damage[14d6[poison]] damage (@Check[fortitude|dc:45|basic|traits:poison] save).</li><li><strong>3: Sillage</strong> <span class=\"action-glyph\">1</span> (emotion, mental) A larger, more intimidating nozzle than the one utilized in the previous action extends forward and violently sprays a staggering array of different scents at a random target in the room. The overwhelming mixture of lingering scent (the perfume's sillage) causes the creature to take @Damage[10d6[mental]] damage (@Check[will|dc:45|basic|traits:emotion,mental] save); on a failed save, the creature is also @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} for 1 round by the overwhelming scents.</li><li><strong>4: Oil Spill</strong> <span class=\"action-glyph\">1</span> (fire) Sparks from grinding machinery ignite a patch of spilled oil somewhere in the room—a random creature in area <strong>B11</strong> takes @Damage[10d6[fire],4d6[persistent,fire]] damage (@Check[fortitude|dc:45|basic|traits:fire] save).</li><li><strong>5: Boiling Beaker</strong> <span class=\"action-glyph\">1</span> (emotion, mental) A pressurized beaker containing boiling fluids springs a leak, and a dislodged tube sprays disorienting, psychotropic fumes at a random creature in the room, who must then succeed at a @Check[will|dc:44|traits:emotion,mental] save to avoid becoming @UUID[Compendium.pf2e.conditionitems.Item.Confused] for 1 round (1 minute on a critical failure).</li></ul>"
+        },
+        "saves": {
+            "fortitude": {
+                "value": 43
+            },
+            "reflex": {
+                "value": 39
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "alchemical",
+                "environmental",
+                "mythic"
+            ]
+        }
+    },
+    "type": "hazard"
+}

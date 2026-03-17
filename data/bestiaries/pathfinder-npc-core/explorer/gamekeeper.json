@@ -12,6 +12,11 @@
             "name": "Arbalest",
             "sort": 100000,
             "system": {
+                "ammo": {
+                    "baseType": "bolts",
+                    "builtIn": false,
+                    "capacity": 1
+                },
                 "baseItem": "arbalest",
                 "bonus": {
                     "value": 0
@@ -37,6 +42,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "crossbow",
                 "hardness": 0,
                 "hp": {
@@ -122,6 +128,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -174,9 +181,6 @@
         },
         {
             "_id": "3e3jDXa0BbxKnEPG",
-            "_stats": {
-                "compendiumSource": "Actor.nQjuWXirAncu9ttG.Item.ff1pJ6NkMua12EnA"
-            },
             "img": "systems/pf2e/icons/equipment/adventuring-gear/rations.webp",
             "name": "Animal Treats",
             "sort": 300000,
@@ -238,30 +242,17 @@
             "name": "Bolts",
             "sort": 400000,
             "system": {
-                "baseItem": null,
+                "baseItem": "bolts",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>Shorter than traditional arrows but similar in construction, bolts are the ammunition used by crossbows.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn"
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -278,13 +269,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": "bolts",
-                "stackGroup": "bolts",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -292,7 +281,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "Ih7QDfEToepMwEar",
@@ -323,6 +312,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -367,6 +357,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "club",
                 "traits": {
@@ -406,13 +397,16 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 110,
+                    "max": null
+                },
                 "rules": [],
                 "slug": "arbalest",
                 "traits": {
                     "value": [
                         "backstabber",
                         "magical",
-                        "range-increment-110",
                         "reload-1"
                     ]
                 }
@@ -537,7 +531,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "leader-of-the-pack",
                         "toggleable": true

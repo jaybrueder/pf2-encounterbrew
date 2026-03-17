@@ -1823,6 +1823,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "dart",
                 "hardness": 0,
                 "hp": {
@@ -1909,6 +1910,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "axe",
                 "hardness": 0,
                 "hp": {
@@ -1935,7 +1937,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -2059,6 +2061,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "orc-necksplitter",
                 "traits": {
@@ -2102,6 +2105,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "javelin",
                 "traits": {
@@ -2140,6 +2144,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "claw",
                 "traits": {
@@ -2180,6 +2185,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "jaws",
                 "traits": {
@@ -2279,7 +2285,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "curse-of-the-destroyers-bloodlust",
                         "toggleable": true
@@ -2327,10 +2332,10 @@
             "sort": 3400000,
             "system": {
                 "actionType": {
-                    "value": "passive"
+                    "value": "action"
                 },
                 "actions": {
-                    "value": null
+                    "value": 2
                 },
                 "category": "offensive",
                 "description": {
@@ -2343,7 +2348,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "destructive-touch",
                         "toggleable": true
@@ -2355,12 +2359,7 @@
                         "key": "DamageDice",
                         "predicate": [
                             "destructive-touch",
-                            {
-                                "or": [
-                                    "item:slug:claw",
-                                    "item:slug:jaws"
-                                ]
-                            }
+                            "item:category:unarmed"
                         ],
                         "selector": "strike-damage"
                     }

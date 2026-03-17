@@ -1,0 +1,351 @@
+{
+    "_id": "I8RBVY3fsLsBDljf",
+    "folder": "TK7ZSMCuElK7Dn5u",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "KWazRbO9RBGG3km1",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Diverted Fury",
+            "sort": 100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>The speiroikos' aggression can be redirected against their own numbers. A creature within 30 feet of the speiroikos can take an action to throw a small object such as a rock among the troop, attempting a @Check[deception|dc:17|traits:manipulate] check; this action has the manipulate trait. On a success, the troop deals its two-action Dory Strike damage to itself on its next round, taking no other actions.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Ru7Cx1HsvNGn3pYC",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.EawOw47nHueUPnYc"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Troop Defenses",
+            "sort": 200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.TroopDefenses]</p>"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder NPC Core"
+                },
+                "rules": [],
+                "slug": "troop-defenses",
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "PJRztdwP4fF5J2F7",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.MXI6zwrvbQNIv7ji"
+            },
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Troop Movement",
+            "sort": 300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.TroopMovement]</p>"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder NPC Core"
+                },
+                "rules": [],
+                "slug": "troop-movement",
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "f1WmtkZio5s3t4eI",
+            "img": "systems/pf2e/icons/actions/OneThreeActions.webp",
+            "name": "Dory Strike",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><span class=\"action-glyph\">1</span> to <span class=\"action-glyph\">3</span></p>\n<p><strong>Frequency</strong> once per round</p><hr /><p><strong>Effect</strong> The speiroikos make a melee attack against each enemy in its space and in a @Template[type:emanation|distance:10] (@Check[reflex|dc:17|basic|options:area-effect] save). The damage depends on the number of actions.</p>\n<p><span class=\"action-glyph\">1</span> @Damage[1d6[piercing]|options:area-damage] damage</p>\n<p><span class=\"action-glyph\">2</span> @Damage[(1d6+6)[piercing]|options:area-damage] damage</p>\n<p><span class=\"action-glyph\">3</span> @Damage[(2d6+6)[piercing]|options:area-damage] damage</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "round"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "eoPLKoVC7MS5YQAU",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Dragonhide",
+            "sort": 500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The speiroikos channel the power of their progenitor dragon to grow thick, scaly hides. Until the end of their next turn, they gain a +1 circumstance bonus to AC, and they reduce their weaknesses to area damage and splash damage by 2.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Weakness",
+                        "predicate": [
+                            {
+                                "not": "self:effect:dragonhide"
+                            }
+                        ],
+                        "type": [
+                            "area-damage",
+                            "splash-damage"
+                        ],
+                        "value": 3
+                    }
+                ],
+                "selfEffect": {
+                    "name": "Effect: Dragonhide",
+                    "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Dragonhide"
+                },
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "XxDH5I0nVbJRd6dD",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Kestros Volley",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The speiroikos let loose a flurry of heavy darts flung from slings. The volley is a @Template[type:burst|distance:10] within 60 feet that deals @Damage[1d8[piercing]|options:area-damage] damage (@Check[reflex|dc:17|basic|options:area-effect] save) plus @Damage[1[bleed]|options:area-damage] damage. When the speiroikos are reduced to 2 or fewer segments, this area decreases to a @Template[type:burst|distance:5].</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "NPFevXuoa30GHj0u",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Warfare Lore",
+            "sort": 700000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 9
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {}
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Speiroikos",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 0
+            },
+            "con": {
+                "mod": 3
+            },
+            "dex": {
+                "mod": 3
+            },
+            "int": {
+                "mod": 1
+            },
+            "str": {
+                "mod": 4
+            },
+            "wis": {
+                "mod": 2
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 18
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "Thresholds 34 (3 segments), 17 (2 segments)",
+                "max": 50,
+                "temp": 0,
+                "value": 50
+            },
+            "speed": {
+                "details": "troop movement",
+                "otherSpeeds": [],
+                "value": 25
+            },
+            "weaknesses": [
+                {
+                    "exceptions": [],
+                    "type": "area-damage",
+                    "value": 1
+                },
+                {
+                    "exceptions": [],
+                    "type": "splash-damage",
+                    "value": 1
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "iblydan"
+                ]
+            },
+            "level": {
+                "value": 3
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Speiroikos are born of an unusual ritual in which dragon teeth are sown in the ground, giving rise to a legion of fierce warriors formed of earth. Magic items to summon speiroikos also exist and, on rare occasions, they can arise spontaneously after a dragon is slain, and its body decomposes into the soil.</p>\n<p>At first glance, a speiroikos looks like a normal humanoid, though close inspection reveals their skin to have a clay-like texture and their teeth to be draconic fangs. They eagerly follow the one who crafted them into battle and obey their creator's orders without question. One might expect them to be perfect soldiers, but they're prone to fighting among themselves if provoked. Typically, speiroikos last only as long as there's a battle to fight, disintegrating back into dirt once hostilities conclude. Some canny creators manage to prolong their existence by hurrying them from one battle to another.</p><h2>Wandering Speiroikos</h2><p>On rare occasions, a surviving member of a speiroikos troop will maintain its existence after battle, gaining full autonomy; this occurs more often in those created spontaneously. Such survivors often experience an existential crisis, having previously existed only to fight. Some wander the world seeking combat, while others attempt to blend in with humanoid societies and find new aspirations.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #216: The Acropolis Pyre"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 9,
+            "senses": []
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 10
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 8
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 6
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 11
+            },
+            "intimidation": {
+                "base": 7
+            }
+        },
+        "traits": {
+            "rarity": "uncommon",
+            "size": {
+                "value": "grg"
+            },
+            "value": [
+                "construct",
+                "troop"
+            ]
+        }
+    },
+    "type": "npc"
+}

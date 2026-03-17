@@ -34,6 +34,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -41,9 +42,6 @@
                     "value": [
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -78,10 +76,10 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [
                     {
                         "alwaysActive": true,
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.Warsworn.AnimatedWeapon.DieSize",
                         "option": "animated-weapon-dice",
@@ -113,7 +111,6 @@
                     },
                     {
                         "alwaysActive": true,
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.Warsworn.AnimatedWeapon.DamageType",
                         "option": "animated-weapon-damage",
@@ -138,8 +135,8 @@
                     {
                         "key": "DamageDice",
                         "override": {
-                            "damageType": "{item|flags.pf2e.rulesSelections.animatedWeaponDamage}",
-                            "dieSize": "{item|flags.pf2e.rulesSelections.animatedWeaponDice}"
+                            "damageType": "{item|flags.system.rulesSelections.animatedWeaponDamage}",
+                            "dieSize": "{item|flags.system.rulesSelections.animatedWeaponDice}"
                         },
                         "selector": "animated-weapon-damage"
                     }
@@ -152,9 +149,6 @@
                         "magical",
                         "reach-100"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -191,17 +185,17 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
-                        "magical",
-                        "range-increment-100"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -266,7 +260,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>100 feet @Check[will|dc:35]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>100 feet. @Check[will|dc:35|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "ORC",

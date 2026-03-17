@@ -59,7 +59,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You form an @UUID[Compendium.pf2e.conditionitems.Item.Invisible] wall of pure magical force up to 50 feet long and up to 20 feet high. The wall has no discernible thickness. You must create the wall in an unbroken open space so its edges don't pass through any creatures or objects, or the spell is lost. The wall has AC 10, Hardness 30, and 60 Hit Points, and it's immune to critical hits and precision damage. The wall blocks physical effects from passing through it, and because it's made of force, it blocks incorporeal and ethereal creatures as well. Teleportation effects can pass through the barrier, as can visual effects (since the wall is invisible). Wall of force is immune to counteracting effects of its level or lower, but the wall is automatically destroyed by a @UUID[Compendium.pf2e.spells-srd.Item.Disintegrate] spell of any rank.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> The Hit Points of the wall increases by 20.</p>"
+                    "value": "<p>You form an @UUID[Compendium.pf2e.conditionitems.Item.Invisible] wall of pure magical force up to 50 feet long and up to 20 feet high. The wall has no discernible thickness. You must create the wall in an unbroken open space so its edges don't pass through any creatures or objects, or the spell is lost. The wall has AC 10, Hardness 30, and 60 Hit Points, and it's immune to critical hits and precision damage. The wall blocks physical effects from passing through it, and because it's made of force, it blocks incorporeal and ethereal creatures as well. Teleportation effects can pass through the barrier, as can visual effects (since the wall is invisible). Wall of force is immune to counteracting effects of its level or lower, but the wall is automatically destroyed by a @UUID[Compendium.pf2e.spells-srd.Item.Disintegrate] spell of any rank.</p><hr /><p><strong>Heightened (+2)</strong> The Hit Points of the wall increase by 20.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -404,6 +404,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -412,9 +413,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -452,6 +450,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -460,9 +459,6 @@
                         "magical",
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -496,6 +492,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -504,9 +501,6 @@
                         "magical",
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -525,7 +519,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>The alicorn has an empathic connection to the creatures of the natural world that. The alicorn can use Diplomacy to @UUID[Compendium.pf2e.actionspf2e.Item.Make an Impression] on animals and to make very simple @UUID[Compendium.pf2e.actionspf2e.Item.Request]{Requests} of them.</p>"
+                    "value": "<p>The alicorn has an empathic connection to the creatures of the natural world that. The alicorn can use Diplomacy to [[/act make-an-impression]] on animals and to make very simple [[/act request]]{Requests} of them.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -772,7 +766,7 @@
                 "value": 15
             },
             "privateNotes": "",
-            "publicNotes": "",
+            "publicNotes": "<p>Alicorns are a creation of arcane intervention, a rare transformation that occurs when a unicorn is exposed to large sources of magic. Massive in size, their strong bodies are matched with two large wings on their back, a long spiraling horn, and a mane that continually ripples in an unseen wind.</p>",
             "publication": {
                 "license": "ORC",
                 "remaster": true,

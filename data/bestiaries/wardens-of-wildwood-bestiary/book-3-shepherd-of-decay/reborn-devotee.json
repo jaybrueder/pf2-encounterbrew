@@ -35,6 +35,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -130,7 +131,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "focused-assault",
                         "toggleable": true
@@ -166,7 +166,7 @@
                         "value": true
                     },
                     {
-                        "diceNumber": "(@item.flags.pf2e.rulesSelections.stalkNumber)-1",
+                        "diceNumber": "(@item.flags.system.rulesSelections.stalkNumber)-1",
                         "dieSize": "d8",
                         "key": "DamageDice",
                         "predicate": [

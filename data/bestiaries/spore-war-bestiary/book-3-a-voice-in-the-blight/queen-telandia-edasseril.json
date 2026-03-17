@@ -400,7 +400,7 @@
                 "damage": {},
                 "defense": null,
                 "description": {
-                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Undetected], not just to sight but to all senses, allowing the target to count as @UUID[Compendium.pf2e.conditionitems.Item.Invisible] no matter what precise and imprecise senses an observer might have. It's still possible for a creature to find the target by Seeking, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of an otherwise-undetectable creature.</p>"
+                    "value": "<p>You shroud a creature from others' senses. The target becomes @UUID[Compendium.pf2e.conditionitems.Item.Invisible], but not merely to vision. The invisibility granted by <em>disappearance</em> applies to all precise senses an observer might have. It's still possible for a creature to find the target by Seeking using various senses, looking for disturbed dust, hearing gaps in the sound spectrum, or finding some other way to discover the presence of a creature that is otherwise undetectable.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -2177,7 +2177,7 @@
                     }
                 },
                 "description": {
-                    "value": "<p>You push at the target's mind to deflect their ire. The target must attempt a Will save.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target takes a -1 circumstance penalty to attack rolls and damage rolls against you.</p>\n<p><strong>Failure</strong> The target can't use hostile actions against you.</p>\n<p><strong>Critical Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1} and can't use hostile actions against you.</p>"
+                    "value": "<p>You push at the target's mind to deflect their ire. The target must attempt a Will save.</p><hr /><p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target takes a –1 circumstance penalty to attack rolls and damage rolls against you.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Charming Push]</p>\n<p><strong>Failure</strong> The target can't use hostile actions against you.</p>\n<p><strong>Critical Failure</strong> The target is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1} and can't use hostile actions against you.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -3063,6 +3063,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -3981,6 +3982,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -4198,6 +4200,10 @@
                 "category": "offensive",
                 "description": {
                     "value": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> If Telandia's next action is to cast a wizard cantrip or a spell that is 7th rank or lower, she reduces the number of actions to cast it by 1 (minimum 1 action).</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "day"
                 },
                 "publication": {
                     "license": "OGL",

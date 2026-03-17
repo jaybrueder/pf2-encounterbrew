@@ -32,15 +32,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -74,15 +72,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -159,7 +155,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> An arboreal sapling that is not @UUID[Compendium.pf2e.conditionitems.Item.Prone] either becomes prone or is reduced to 0 HP</p>\n<hr />\n<p><strong>Effect</strong> The arboreal sapling topples over, dealing @Damage[2d6[bludgeoning]] damage to itself and to creatures in a @Template[line|distance:10] (@Check[reflex|dc:16|basic]). Creatures that critically fail the saving throw are also knocked prone.</p>"
+                    "value": "<p><strong>Trigger</strong> An arboreal sapling that is not @UUID[Compendium.pf2e.conditionitems.Item.Prone] either becomes prone or is reduced to 0 HP</p>\n<hr />\n<p><strong>Effect</strong> The arboreal sapling topples over, dealing @Damage[2d6[bludgeoning]|options:area-damage] damage to itself and to creatures in a @Template[line|distance:10] (@Check[reflex|dc:16|basic|options:area-effect,inflicts:prone]). Creatures that critically fail the saving throw are also knocked prone.</p>"
                 },
                 "publication": {
                     "license": "OGL",

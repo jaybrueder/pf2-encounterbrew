@@ -1302,7 +1302,7 @@
                 },
                 "defense": null,
                 "description": {
-                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a -10-foot status penalty to its Speeds for 1 round.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ray of Frost]</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
+                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a –10-foot status penalty to its Speeds for 1 round.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Ray of Frost]</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -1642,6 +1642,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1652,9 +1653,6 @@
                         "magical",
                         "water"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1706,7 +1704,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>The naiad can use Diplomacy to @UUID[Compendium.pf2e.actionspf2e.Item.Make an Impression] on and make very simple @UUID[Compendium.pf2e.actionspf2e.Item.Request]{Requests} of animals.</p>"
+                    "value": "<p>The naiad can use Diplomacy to [[/act make-an-impression]] on and make very simple [[/act request]]{Requests} of animals.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1772,7 +1770,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet. On a failed save, the target is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1} for this turn and whenever it begins its turn within 30 feet of the naiad queen for the next 24 hours, even if it can't see her on subsequent turns.</p>\n<hr />\n<p>Creatures that start their turn in the aura must succeed at a @Check[will|dc:23] save or suffer an effect described in the nymph queen's entry.</p>"
+                    "value": "<p>30 feet. On a failed save, the target is @UUID[Compendium.pf2e.conditionitems.Item.Stunned]{Stunned 1} for this turn and whenever it begins its turn within 30 feet of the naiad queen for the next 24 hours, even if it can't see her on subsequent turns.</p>\n<hr />\n<p>Creatures that start their turn in the aura must succeed at a @Check[will|dc:23|options:area-effect,inflicts:stunned] save or suffer an effect described in the nymph queen's entry.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -2026,9 +2024,9 @@
             "privateNotes": "",
             "publicNotes": "<p>Naiad queens rule over pristine wildernesses centered on untouched lakes or other bodies of fresh water. Bards' songs and artists' paintings of nymphs tend to depict naiad queens in their slightly more humanoid forms, which they don when they make the rare journey into civilized lands to garner allies or gauge threats.</p>\n<p>Most naiad queens treat those who respect their domains with kindness, but they are fierce and quick in eliminating foes. Their blinding beauty and breadth of offensive spells make naiad queens fierce opponents if forced into a fight.</p>\n<hr />\n<p>Nymphs are a family of fey that take the form of beautiful humanoids with elven features and have a deep association with the natural world. The most common of their kind are the dryads, which are spirits that embody great trees, but many other kinds of nymphs exist, including naiads, who watch over bodies of water. All nymphs are guardians of some element of nature, typically a specific tree or pond, or even-in the case of nymph queens-whole forests or massive bodies of water</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #188: They Watched the Stars"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -2105,8 +2103,6 @@
             },
             "value": [
                 "amphibious",
-                "chaotic",
-                "evil",
                 "fey",
                 "nymph",
                 "water"

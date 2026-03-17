@@ -461,6 +461,7 @@
                     "handsHeld": 2,
                     "invested": null
                 },
+                "expend": null,
                 "group": "polearm",
                 "hardness": 0,
                 "hp": {
@@ -487,7 +488,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -657,6 +658,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "adjustment": {
@@ -684,7 +686,7 @@
                         ],
                         "selector": "{item|_id}-attack",
                         "text": "PF2E.AttackEffects.IncreasedCriticalChance",
-                        "title": "PF2E.WeaponPropertyRune.keen",
+                        "title": "PF2E.WeaponPropertyRune.keen.Name",
                         "visibility": "gm"
                     }
                 ],
@@ -698,9 +700,6 @@
                         "reach-10",
                         "trip"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"

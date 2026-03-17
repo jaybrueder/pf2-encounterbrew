@@ -446,6 +446,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -456,9 +457,6 @@
                         "reach-10",
                         "versatile-b"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -493,17 +491,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
-                        "fire",
-                        "range-increment-60"
+                        "fire"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -537,6 +535,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -545,12 +547,8 @@
                         "deadly-3d8",
                         "magical",
                         "propulsive",
-                        "range-increment-100",
                         "volley-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -700,7 +698,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Taljjae fires an arrow that could shoot a star from the sky. All creatures in a @Template[line|distance:120] take @Damage[10d12[piercing]] damage (@Check[reflex|dc:37|basic] save); on a critical failure, the target falls to the ground without taking falling damage, and it can't Fly, Leap, levitate, or otherwise leave the ground until the end of Taljjae's next turn.</p>\n<p>Taljjae then can't use Cometfall Arrow for [[/gmr 1d4 #Recharge Cometfall Arrow]]{1d4 rounds}.</p>"
+                    "value": "<p>Taljjae fires an arrow that could shoot a star from the sky. All creatures in a @Template[line|distance:120] take @Damage[10d12[piercing]|options:area-damage] damage (@Check[reflex|dc:37|basic|options:area-effect] save); on a critical failure, the target falls to the ground without taking falling damage, and it can't Fly, Leap, levitate, or otherwise leave the ground until the end of Taljjae's next turn.</p>\n<p>Taljjae then can't use Cometfall Arrow for [[/gmr 1d4 #Recharge Cometfall Arrow]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -805,7 +803,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> Taljjae's turn begins <strong>Requirements</strong> Taljjae has 200 or fewer Hit Points</p><hr /><p><strong>Effect</strong> Taljjae's dance reaches a frantic climax, allowing it to change personas rapidly. Taljjae Changes Characters.</p>"
+                    "value": "<p><strong>Trigger</strong> Taljjae's turn begins</p>\n<p><strong>Requirements</strong> Taljjae has 200 or fewer Hit Points</p><hr /><p><strong>Effect</strong> Taljjae's dance reaches a frantic climax, allowing it to change personas rapidly. Taljjae Changes Characters.</p>"
                 },
                 "publication": {
                     "license": "OGL",

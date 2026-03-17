@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -61,7 +62,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -91,7 +92,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
             },
-            "img": "icons/commodities/treasure/broach-jeweled-green.webp",
+            "img": "icons/commodities/treasure/brooch-jeweled-green.webp",
             "name": "Religious Symbol (Wooden)",
             "sort": 200000,
             "system": {
@@ -104,7 +105,6 @@
                     "value": "<p>This piece of wood or silver is emblazoned with an image representing a deity. Some divine spellcasters, such as clerics, can use a religious symbol of their deity to use certain abilities and cast some spells. A religious symbol can be worn on the body on a chain or pin, or can be held.</p>"
                 },
                 "equipped": {
-                    "-=inSlot": null,
                     "carryType": "worn",
                     "handsHeld": 0,
                     "inSlot": true,
@@ -135,7 +135,6 @@
                 "quantity": 1,
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "has-religious-symbol",
                         "requiresEquipped": false
@@ -184,6 +183,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -216,9 +216,6 @@
         },
         {
             "_id": "Hcuoxxe2F5IxOXGv",
-            "_stats": {
-                "compendiumSource": "Actor.OnQ779U03HyImPcw.Item.0vVEiwK17dpFzgYu"
-            },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Fist",
             "sort": 400000,
@@ -243,6 +240,7 @@
                     "remaster": true,
                     "title": "Pathfinder NPC Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -304,7 +302,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The sage studies a creature, attempting an @Check[arcana], @Check[nature], @Check[occultism], @Check[religion], or @Check[society] check against the creature's Recall Knowledge DC. On a success, the sage gains a +2 circumstance bonus to attack rolls and AC against that creature and deals an additional 2d6 damage to the creature with weapon attacks.</p>\n<p>These benefits last for 1 minute or until the sage uses this ability again.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Sage's Analysis]</p>"
+                    "value": "<p>The sage studies a creature, attempting an @Check[arcana], @Check[nature], @Check[occultism], @Check[religion], or @Check[society] check against the creature's @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge] DC. On a success, the sage gains a +2 circumstance bonus to attack rolls and AC against that creature and deals an additional 2d6 damage to the creature with weapon attacks.</p>\n<p>These benefits last for 1 minute or until the sage uses this ability again.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Sage's Analysis]</p>"
                 },
                 "publication": {
                     "license": "ORC",

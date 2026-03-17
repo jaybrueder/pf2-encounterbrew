@@ -32,6 +32,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -40,9 +41,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -82,18 +80,18 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 15,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "acid",
-                        "range-increment-15",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -113,7 +111,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the grothlut is reduced to 0 Hit Points, its digestive organs rupture, unleashing alchemical acid and poison upon all creatures in a @Template[emanation|distance:30]. Each creature in the area must succeed at a @Check[fortitude|dc:19] save or take @Damage[2d6[acid]] damage and become @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1} (double damage and @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2} on a critical failure).</p>"
+                    "value": "<p>When the grothlut is reduced to 0 Hit Points, its digestive organs rupture, unleashing alchemical acid and poison upon all creatures in a @Template[emanation|distance:30]. Each creature in the area must succeed at a @Check[fortitude|dc:19|options:area-effect,damaging-effect] save or take @Damage[2d6[acid]|options:area-damage] damage and become @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1} (double damage and @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2} on a critical failure).</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -169,7 +167,6 @@
                         ]
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "moaning",
                         "toggleable": true

@@ -153,6 +153,11 @@
             "name": "Heavy Crossbow",
             "sort": 300000,
             "system": {
+                "ammo": {
+                    "baseType": "bolts",
+                    "builtIn": false,
+                    "capacity": 1
+                },
                 "baseItem": "heavy-crossbow",
                 "bonus": {
                     "value": 0
@@ -178,6 +183,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "crossbow",
                 "hardness": 0,
                 "hp": {
@@ -263,6 +269,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -289,7 +296,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -468,31 +475,17 @@
             "name": "Bolts",
             "sort": 700000,
             "system": {
-                "baseItem": null,
+                "baseItem": "bolts",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>Shorter than traditional arrows but similar in construction, bolts are the ammunition used by crossbows.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn",
-                    "handsHeld": 0
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -509,13 +502,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": "bolts",
-                "stackGroup": "bolts",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -523,7 +514,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "NqAs4SvCETnYSYOK",
@@ -534,31 +525,17 @@
             "name": "Bolts coated with shadow essence",
             "sort": 800000,
             "system": {
-                "baseItem": null,
+                "baseItem": "bolts",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>Shorter than traditional arrows but similar in construction, bolts are the ammunition used by crossbows.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn",
-                    "handsHeld": 0
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -575,13 +552,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": "bolts",
-                "stackGroup": "bolts",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -589,7 +564,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "e09QNAXtgAev98xw",
@@ -625,6 +600,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -635,9 +611,6 @@
                         "magical",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -679,18 +652,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 120,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "magical",
-                        "range-increment-120",
                         "reload-2"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -823,7 +796,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>Ginjana takes [[/r 20]] damage for every hour she's exposed to sunlight.</p>"
+                    "value": "<p>Ginjana takes @Damage[20[untyped]] damage for every hour she's exposed to sunlight.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1001,7 +974,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

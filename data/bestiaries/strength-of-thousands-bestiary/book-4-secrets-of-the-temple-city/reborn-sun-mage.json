@@ -1726,7 +1726,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.y6rAdMK6EFlV6U0t"
             },
-            "img": "systems/pf2e/icons/spells/burning-hands.webp",
+            "img": "icons/magic/fire/flame-burning-hand-orange.webp",
             "name": "Burning Hands",
             "sort": 2300000,
             "system": {
@@ -2679,6 +2679,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -2705,7 +2706,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -2737,7 +2738,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.equipment-srd.Item.plplsXJsqrdqNQVI"
             },
-            "img": "icons/commodities/treasure/broach-jeweled-green.webp",
+            "img": "icons/commodities/treasure/brooch-jeweled-green.webp",
             "name": "Religious Symbol of Walkena",
             "sort": 3700000,
             "system": {
@@ -2824,6 +2825,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2834,9 +2836,6 @@
                         "nonlethal",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2876,6 +2875,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -2905,9 +2905,6 @@
                         "magical",
                         "two-hand-d8"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2942,18 +2939,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 40,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "fire",
-                        "magical",
-                        "range-increment-40"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -2973,7 +2970,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the sun mage is destroyed, they explode in a blast of flame that deals @Damage[6d6[fire]] damage in a @Template[emanation|distance:10] (@Check[reflex|dc:27|basic] save). Creatures that critically fail their saves are marked with Walkena's religious symbol on a visible area of their body, which remains for 1 day. This mark allows Walkena to treat the creature as if he knew the creature's identity but not having met them for the purposes of @UUID[Compendium.pf2e.spells-srd.Item.Scrying], lowering the spell's DC by 2. The sun mage's gear and treasure are unaffected by the explosion and left in a pile where they die.</p>"
+                    "value": "<p>When the sun mage is destroyed, they explode in a blast of flame that deals @Damage[6d6[fire]|options:area-damage] damage in a @Template[emanation|distance:10] (@Check[reflex|dc:27|basic|options:area-effect] save). Creatures that critically fail their saves are marked with Walkena's religious symbol on a visible area of their body, which remains for 1 day. This mark allows Walkena to treat the creature as if he knew the creature's identity but not having met them for the purposes of @UUID[Compendium.pf2e.spells-srd.Item.Scrying], lowering the spell's DC by 2. The sun mage's gear and treasure are unaffected by the explosion and left in a pile where they die.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -3114,6 +3111,9 @@
                 "value": 195
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

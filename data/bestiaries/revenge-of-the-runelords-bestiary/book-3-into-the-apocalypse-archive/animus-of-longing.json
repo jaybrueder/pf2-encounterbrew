@@ -1,0 +1,98 @@
+{
+    "_id": "RjYaYrUEyNNjvKEL",
+    "folder": "rl5REaDECQmW6sqA",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [
+        {
+            "_id": "RM2KV3PBuJCEhy6r",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Shroud of Passion's Might",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A creature attempts to use the anima focus to open the way into the Eye of Desire</p><hr /><p><strong>Effect</strong> The Runewell of Lust's magic reaches out of the Eye of Desire and into the minds of all nearby creatures, creating vivid, dreamlike hallucinations fulfilling their greatest desires. Each creature in the area must attempt a @Check[will|dc:44] save with the following effects. The hazard then manifests three phantoms of desire—incarnations of Runelord Sorshen empowered by certain beliefs that she hasn't actually turned over a proverbial new leaf and is playing a long-con game to take over the world. The phantoms and the hazard then roll initiative.</p><hr /><p><strong>Critical Success</strong> The creature understands the false nature of the hallucination but gleans useful insights from what they see, gaining a +2 status bonus to one Perception check, saving throw, or skill check made before the end of their next turn.</p>\n<p><strong>Success</strong> The creature becomes @UUID[Compendium.pf2e.conditionitems.Item.Dazzled] for 1 round, then recognizes the hallucination for what it is and blocks it from their mind.</p>\n<p><strong>Failure</strong> The creature becomes lost in the hallucination, struggling to tell it apart from reality. The creature becomes dazzled and @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} as long as they remain in Sorshen's atrium. At the end of each of the creature's turns, it may attempt a new @Check[will|dc:44] save to end this effect.</p>\n<p><strong>Critical Failure</strong> As failure, but @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 2}, and the Will save to end the effect is DC 48.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Animus of Longing",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": null
+            },
+            "emitsSound": "encounter",
+            "hardness": 0,
+            "hp": {
+                "details": "",
+                "max": 0,
+                "temp": 0,
+                "value": 0
+            },
+            "immunities": [],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>(legendary) to detect the dangerous and sealed entrance to the Eye of Desire; noticing the anima focus itself has a DC of 0</p>",
+                "value": 43
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>Three pitchers pour water in an endless cascade, each decorated with a symbol of fertility, fecundity, and desire. The pitchers never empty, and the fountain below never overflows; the entire thing flickers with eerie red energy.</p>",
+            "disable": "<p>@Check[arcana|dc:50] (legendary) or @Check[society|dc:50] (legendary) to decipher the symbols and runes scribed across on the runewell and pinpoint which runes can be used to deactivate it, @Check[thievery|dc:53] (legendary) to temporarily disrupt the anima focus's connection to the Eye of Desire or to destroy a phantom of desire; three total successes are required to disable the hazard (destroying a phantom of desire counts as a single success)</p>",
+            "isComplex": true,
+            "level": {
+                "value": 21
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #221: Into the Apocalypse Archive"
+            },
+            "reset": "<p>The animus of longing deactivates as soon as no foes remain in the atrium, then immediately resets.</p>",
+            "routine": "<p>(1 action) On its turn, the animus of longing sustains the three phantoms of desire. The three creatures each take their turn.</p>"
+        },
+        "saves": {
+            "fortitude": {
+                "value": 0
+            },
+            "reflex": {
+                "value": 0
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "magical",
+                "mythic"
+            ]
+        }
+    },
+    "type": "hazard"
+}

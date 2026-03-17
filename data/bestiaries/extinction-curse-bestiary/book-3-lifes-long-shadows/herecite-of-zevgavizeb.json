@@ -1081,6 +1081,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "brawling",
                 "hardness": 0,
                 "hp": {
@@ -1107,7 +1108,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1172,6 +1173,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1181,9 +1183,6 @@
                         "free-hand",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1211,7 +1210,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "in-a-cabal",
                         "toggleable": true
@@ -1542,6 +1540,11 @@
                 "temp": 0,
                 "value": 200
             },
+            "immunities": [
+                {
+                    "type": "bleed"
+                }
+            ],
             "speed": {
                 "otherSpeeds": [],
                 "value": 30

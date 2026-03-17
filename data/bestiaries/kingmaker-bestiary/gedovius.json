@@ -73,7 +73,7 @@
         {
             "_id": "DiARocJoBMTbmCN9",
             "img": "systems/pf2e/icons/equipment/held-items/key-purple.webp",
-            "name": "Key to Area E4",
+            "name": "Key",
             "sort": 200000,
             "system": {
                 "baseItem": null,
@@ -82,6 +82,7 @@
                 },
                 "containerId": null,
                 "description": {
+                    "gm": "<p>Key to area <strong>E4</strong>.</p>",
                     "value": ""
                 },
                 "equipped": {
@@ -153,6 +154,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "jaws",
                 "traits": {
@@ -160,9 +162,6 @@
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -197,6 +196,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -205,9 +205,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -389,7 +386,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

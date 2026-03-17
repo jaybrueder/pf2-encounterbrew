@@ -35,15 +35,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -77,6 +75,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -85,9 +84,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -115,7 +111,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "swallow-projectile",
                         "toggleable": true
@@ -151,7 +146,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p><strong>Requirements</strong> The kvernknurr doesn't have a creature @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] in its jaws</p>\n<hr />\n<p><strong>Effect</strong> The kvernknurr lets out a deep-throated shout to scare away its foes. Each non-kvernknurr creature within 60 feet must attempt a @Check[will|dc:20] save, and then they are temporarily immune to that kvenknurr's Frightening Bellow for 24 hours.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unafected.</p>\n<p><strong>Success</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The creature is frightened 2 and is feeing as long as it remains frightened.</p>"
+                    "value": "<p><strong>Requirements</strong> The kvernknurr doesn't have a creature @UUID[Compendium.pf2e.conditionitems.Item.Grabbed] in its jaws</p>\n<hr />\n<p><strong>Effect</strong> The kvernknurr lets out a deep-throated shout to scare away its foes. Each non-kvernknurr creature within 60 feet must attempt a @Check[will|dc:20|options:inflicts:frightened,inflicts:fleeing] save, and then they are temporarily immune to that kvenknurr's Frightening Bellow for 24 hours.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 1}.</p>\n<p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Frightened]{Frightened 2}.</p>\n<p><strong>Critical Failure</strong> The creature is frightened 2 and is @UUID[Compendium.pf2e.conditionitems.Item.Fleeing] as long as it remains frightened.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -312,9 +307,9 @@
             "privateNotes": "",
             "publicNotes": "<p>Kvernknurrs are lanky fey giants that dwell in cold-water rivers and lakes. A kvernknurr's blue flesh allows it to camoufage itself in its preferred environ, where it haunts local millers and farmers by sabotaging water wheels and farm equipment.</p>\n<p>A kvernknurr's most distinguishing feature is its oversized mouth and the two rows of axe-like teeth therein. To eat, a kvernknurr need only unhinge its lower jaw, revealing in the process a yawning portal nearly the size of a human doorway—convenient, considering its favorite food is humans and their ilk.</p>\n<p>A lake- or riverbed is the perfect place for a kvernknurr to sleep off a big meal. It's also a perilous circumstance for swallowed prey lucky enough to escape the kvernknurr's belly. \"Out of the belly, into the water,\" goes one lakeside village saying.</p>\n<p>Kverknurrs despise humanoid-made disturbances to the waters in which they live, even seemingly harmless ones like waterwheels. In their anger, kvernknurrs use their oversized jaws to clamp down on such machinery. When townsfolk come to investigate their jammed mill, the kvernknurr then springs out from hiding to attack, roaring terribly before snatching a victim to eat whole. Folks brave enough to attack a kvernknurr soon learn to fight up close; the wily monster is quick enough to snatch arrows and spears in its jaws midair before swallowing the weapons down.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #188: They Watched the Stars"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -371,8 +366,6 @@
             },
             "value": [
                 "amphibious",
-                "chaotic",
-                "evil",
                 "fey",
                 "water"
             ]

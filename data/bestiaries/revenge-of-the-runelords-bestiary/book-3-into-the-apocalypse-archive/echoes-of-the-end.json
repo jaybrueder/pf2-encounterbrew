@@ -1,0 +1,96 @@
+{
+    "_id": "RpnT60CTGbRuEz7V",
+    "folder": "rl5REaDECQmW6sqA",
+    "img": "systems/pf2e/icons/default-icons/hazard.svg",
+    "items": [
+        {
+            "_id": "QTqrLsbtEptA0oWy",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Oliphaunt's Echo",
+            "sort": 0,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A living creature enters area <strong>C6</strong></p><hr /><p><strong>Effect</strong> Pent-up magical energy from another world begins to release in waves of overwhelming sound. The hazard rolls initiative.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Echoes of the End",
+    "system": {
+        "attributes": {
+            "ac": {
+                "value": null
+            },
+            "emitsSound": "encounter",
+            "hardness": 0,
+            "hp": {
+                "details": "",
+                "max": 0,
+                "temp": 0,
+                "value": 0
+            },
+            "immunities": [],
+            "resistances": [],
+            "stealth": {
+                "details": "<p>(legendary) to notice the low vibration forming in the area surrounding the <em>apocalypse seed</em>; noticing the <em>apocalypse seed</em> itself has a DC of 0</p>",
+                "value": 38
+            },
+            "weaknesses": []
+        },
+        "details": {
+            "description": "<p>An overwhelming trumpeting fills the area as the apocalypse seed vibrates and shakes off the encrusted bone that's accreted around it to reveal a large tooth fragment from some immense monster.</p>",
+            "disable": "<p>@Check[arcana|dc:50] (master), @Check[occultism|dc:50] (legendary), or @Check[religion|dc:50] (legendary) to recognize and shore up the area against the localized planar instability causing a connection between the apocalypse seed and Jandelay, or @Check[athletics|dc:53] (legendary) to grasp the apocalypse seed and muffle its vibrations with your embrace. Four successes are needed to muffle the aura enough against the planar instability and end the hazard.</p>",
+            "isComplex": true,
+            "level": {
+                "value": 20
+            },
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #221: Into the Apocalypse Archive"
+            },
+            "reset": "<p>The <em>apocalypse seed</em> creates another area of instability after 24 hours.</p>",
+            "routine": "<p>(1 action) Each creature in the area must attempt a @Check[fortitude|dc:44] save. A creature with the slowed condition from this hazard takes a –2 penalty to this save.</p><hr><p><strong>Critical Success</strong> The creature is unaffected.</p><p><strong>Success</strong> The creature takes @Damage[(2d10+10)[sonic]] damage.</p><p><strong>Failure</strong> The creature takes @Damage[(4d10+20)[sonic]] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} until the start of the hazard's next turn.</p><p><strong>Critical Failure</strong> The creature takes @Damage[(8d10+40)[sonic]] damage and is @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 2} for 1 round.</p>"
+        },
+        "saves": {
+            "fortitude": {
+                "value": 0
+            },
+            "reflex": {
+                "value": 0
+            },
+            "will": {
+                "value": 0
+            }
+        },
+        "traits": {
+            "rarity": "unique",
+            "size": {
+                "value": "lg"
+            },
+            "value": [
+                "haunt",
+                "mythic"
+            ]
+        }
+    },
+    "type": "hazard"
+}

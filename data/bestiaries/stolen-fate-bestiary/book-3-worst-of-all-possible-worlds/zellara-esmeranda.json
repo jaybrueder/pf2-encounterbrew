@@ -1423,6 +1423,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "",
                 "traits": {
@@ -1431,9 +1432,6 @@
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1467,16 +1465,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": "",
                 "traits": {
                     "value": [
-                        "magical",
-                        "range-increment-60"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1658,7 +1656,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Zellara unleashes a barrage of harrow cards that deals @Damage[7d6[void]] damage in a @Template[cone|distance:30] (@Check[reflex|dc:34|basic] save).</p>"
+                    "value": "<p>Zellara unleashes a barrage of harrow cards that deals @Damage[7d6[void]|options:area-damage] damage in a @Template[cone|distance:30] (@Check[reflex|dc:34|basic|options:area-effect] save).</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1727,7 +1725,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "stack-the-deck",
                         "toggleable": true
@@ -1816,6 +1813,9 @@
                 "value": 195
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "exceptions": [],
                     "type": "death-effects"

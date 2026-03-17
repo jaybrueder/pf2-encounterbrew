@@ -1,0 +1,1212 @@
+{
+    "_id": "SPSJBTVSUzH5lf5a",
+    "folder": "TA61QdE3XdWNzAgg",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "5V4hc8GqzN9xAxay",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Divine Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 44,
+                    "value": 37
+                },
+                "tradition": {
+                    "value": "divine"
+                },
+                "traits": {}
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "0Uni53St7HwzfKzi",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.fkDeKktdmbeplYRY"
+            },
+            "folder": "fi1AYNmuCRvoT15b",
+            "img": "icons/magic/control/control-influence-crown-gold.webp",
+            "name": "Overwhelming Presence",
+            "sort": 200000,
+            "system": {
+                "area": {
+                    "type": "burst",
+                    "value": 40
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You surround yourself with supernatural splendor, appearing to be a god or similarly majestic being, with an appearance, regalia, and iconography of your choice. Targets must attempt a Will save. Regardless of the outcome, the target is then temporarily immune for 1 minute.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target must pay tribute to you two times. Paying tribute requires that the target spend a single action, which has either the move trait (as they bow) or manipulate trait (as they offer up a token in their hands). They must pay tribute at least once on each of their turns, if possible. While affected, the target is @UUID[Compendium.pf2e.conditionitems.Item.Fascinated] by you and can't use hostile actions against you.</p>\n<p><strong>Failure</strong> As success, but the target must pay tribute a total of six times.</p>\n<p><strong>Critical Failure</strong> As failure, but the target must spend all its actions paying tribute, and they cannot take other actions until the tribute is fully paid.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "until full tribute is paid"
+                },
+                "level": {
+                    "value": 9
+                },
+                "location": {
+                    "heightenedLevel": 9,
+                    "value": "5V4hc8GqzN9xAxay"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "overwhelming-presence",
+                "target": {
+                    "value": "any number of creatures"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "auditory",
+                        "concentrate",
+                        "incapacitation",
+                        "manipulate",
+                        "mental",
+                        "visual"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "7PWrUrAMI7XssQqf",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.ZqmP9gijBmK7y8Xy"
+            },
+            "folder": "fi1AYNmuCRvoT15b",
+            "img": "systems/pf2e/icons/spells/weapon-of-judgement.webp",
+            "name": "Weapon of Judgment",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "4d10",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "untyped"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>An immense weapon of spiritual energy appears, hovering in the air above the target. The weapon has the ghostly visual appearance of your deity's favored weapon. Name war or peace when you cast this spell.</p>\n<p>If you name \"war,\" mentally choose one creature. This must be a creature both you and the target can see. The target instinctively knows which creature this is. At the end of each of the target's turns, if the target didn't use a hostile action against the creature you chose during that turn, the weapon Strikes the target.</p>\n<p>If you name \"peace,\" mentally choose up to five allies. The target instinctively knows who those allies are. The weapon Strikes the target each time the target uses a hostile action against you or one of the chosen allies. The weapon Strikes only once per action, even if the action targets multiple allies (such as for a @UUID[Compendium.pf2e.spells-srd.Item.Fireball] or a @UUID[Compendium.pf2e.feats-srd.Item.Whirlwind Strike]).</p>\n<p>Strikes with the weapon are melee weapon attacks, but they use your spell attack modifier. Regardless of its appearance, the weapon deals 4d10 damage. The damage type is the same as the chosen weapon (or any of its types for a versatile weapon). The attack deals spirit damage instead if that would be more detrimental to the creature (as determined by the GM). No other statistics or attributes of the weapon apply, and even a ranged weapon attacks adjacent creatures only. The weapon takes a multiple attack penalty, which increases throughout the target's turn, but its penalty is separate from yours.</p>\n<p>A weapon of judgment is a weapon for the purposes of triggers, resistances, and so forth. The weapon doesn't take up space, grant flanking, or have any other attributes a creature would. The weapon can't make any attack other than its Strike, and feats or spells that affect weapons don't apply to this weapon.</p><hr /><p><strong>Heightened (10th)</strong> The damage increases by 1d10.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "heightening": {
+                    "levels": {
+                        "10": {
+                            "damage": {
+                                "0": {
+                                    "applyMod": false,
+                                    "category": null,
+                                    "formula": "5d10",
+                                    "materials": [],
+                                    "type": "untyped"
+                                }
+                            }
+                        }
+                    },
+                    "type": "fixed"
+                },
+                "level": {
+                    "value": 9
+                },
+                "location": {
+                    "heightenedLevel": 10,
+                    "value": "5V4hc8GqzN9xAxay"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core 2"
+                },
+                "range": {
+                    "value": "100 feet"
+                },
+                "requirements": "You have a deity.",
+                "rules": [],
+                "slug": "weapon-of-judgment",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "sanctified",
+                        "spirit"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "PY79Xh0aExMjKHRX",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.A16eFTRh82xIjMu8"
+            },
+            "folder": "iDjm2cXyRAe4VZ35",
+            "img": "icons/magic/fire/explosion-embers-orange.webp",
+            "name": "Divine Immolation",
+            "sort": 400000,
+            "system": {
+                "area": {
+                    "type": "burst",
+                    "value": 20
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "b9dAiWfV57lyCWpP": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "6d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "fire"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
+                "description": {
+                    "value": "<p>Divine flames scour creatures within the area. Creatures take 6d6 fire damage and @Damage[(@item.level -3)d6[persistent,fire]] damage. The divine power within the flames scorches the spirit as well; a creature takes spirit damage instead of fire damage from divine immolation if that would be more detrimental to the creature (as determined by the GM).</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage and no persistent damage.</p>\n<p><strong>Failure</strong> The creature takes full damage and persistent damage.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage and double persistent damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d6 and persistent damage increases by 1d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "area": 0,
+                    "damage": {
+                        "b9dAiWfV57lyCWpP": "1d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "value": "5V4hc8GqzN9xAxay"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "divine-immolation",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "fire",
+                        "manipulate",
+                        "sanctified",
+                        "spirit"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "Sd63R8e2fvJH3wvm",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.SwUiVavHKMWG7t5K"
+            },
+            "folder": "iDjm2cXyRAe4VZ35",
+            "img": "systems/pf2e/icons/spells/tongues.webp",
+            "name": "Truespeech (Constant)",
+            "sort": 500000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>The target can understand all words regardless of language and also speak the languages of other creatures. When in a mixed group of creatures, each time the target speaks, it can choose a creature and speak in a language that creature understands, even if the target doesn't know what language that is.</p>\n<hr />\n<p><strong>Heightened (7th)</strong> The duration is 8 hours.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 hour"
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "heightenedLevel": 5,
+                    "value": "5V4hc8GqzN9xAxay"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "touch"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "truespeech",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "uncommon",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "24NtQoizFLf1lTso",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.3x6eUCm17n6ROzUa"
+            },
+            "folder": "4fJHnYFqH0VjZXPv",
+            "img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
+            "name": "Crisis of Faith",
+            "sort": 600000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "6d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "mental"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "will"
+                    }
+                },
+                "description": {
+                    "value": "<p>You assault the target's faith, riddling the creature with doubt and mental turmoil that deal 6d6 mental damage, or 6d8 mental damage if it can cast divine spells. The effects are determined by its Will save.</p>\n<p>To many deities, casting this spell on a follower of your own deity without significant cause is anathema.</p>\n<hr />\n<p><strong>Critical Success</strong> The target is unaffected.</p>\n<p><strong>Success</strong> The target takes half damage.</p>\n<p><strong>Failure</strong> The target takes full damage; if the target can cast divine spells, it's @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} for 1 round.</p>\n<p><strong>Critical Failure</strong> The target takes double damage, is @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} for 1 round, and can't cast divine spells for 1 round.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 2d6 (or by 2d8 if the target is a divine spellcaster).</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "2d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 3
+                },
+                "location": {
+                    "heightenedLevel": 5,
+                    "value": "5V4hc8GqzN9xAxay"
+                },
+                "overlays": {
+                    "Fs08rHTZAfROKKzu": {
+                        "_id": "Fs08rHTZAfROKKzu",
+                        "name": "Crisis of Faith (Vs. Divine)",
+                        "overlayType": "override",
+                        "sort": 2,
+                        "system": {
+                            "damage": {
+                                "0": {
+                                    "formula": "6d8"
+                                }
+                            },
+                            "heightening": {
+                                "damage": {
+                                    "0": "2d8"
+                                }
+                            }
+                        }
+                    },
+                    "noPVUX8Ocln52MKm": {
+                        "_id": "noPVUX8Ocln52MKm",
+                        "overlayType": "override",
+                        "sort": 1,
+                        "system": {}
+                    }
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "30 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "crisis-of-faith",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "divine"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "manipulate",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "xLMIpkND5TEea7BW",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.W02bHXylIpoXbO4e"
+            },
+            "folder": "D7UVaOiB40wTR6kv",
+            "img": "icons/tools/instruments/megaphone.webp",
+            "name": "Bullhorn",
+            "sort": 700000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {},
+                "defense": null,
+                "description": {
+                    "value": "<p>You amplify your voice, loud enough for you to be heard easily at a great distance. For the duration, your voice can be heard loudly and clearly by all listeners within 500 feet, even if other ambient noise would otherwise block the sound. Despite the volume, this doesn't make your voice jarring or distracting. This doesn't increase the range or area of other auditory or linguistic effects, and physical barriers such as walls and doors still block or muffle your voice as normal.</p>\n<p>Your loud voice makes it easier to @UUID[Compendium.pf2e.actionspf2e.Item.Coerce] others, and the acoustics assist in Performing at a large venue. You gain a +1 status bonus to checks to Coerce and auditory Performance checks to @UUID[Compendium.pf2e.actionspf2e.Item.Perform] at a large venue. You can Dismiss the spell.</p>\n<p>@UUID[Compendium.pf2e.spell-effects.Item.Spell Effect: Bullhorn]</p><hr /><p><strong>Heightened (5th)</strong> Your voice can be heard clearly up to 1,200 feet away.</p>\n<p><strong>Heightened (7th)</strong> Your voice can be heard clearly up to 1 mile away.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "10 minutes"
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "value": "5V4hc8GqzN9xAxay"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core 2"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "bullhorn",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "divine",
+                        "occult"
+                    ],
+                    "value": [
+                        "auditory",
+                        "cantrip",
+                        "concentrate",
+                        "illusion",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "YDHtyX6pUKl3Hr5r",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 800000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 38
+                },
+                "damageRolls": {
+                    "o6BT3N9SD78mKuvt": {
+                        "damage": "4d10+19",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-20",
+                        "sanctified",
+                        "unarmed"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "2K99gtGTfDnWWvsL",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Claw",
+            "sort": 900000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": [
+                        "grab"
+                    ]
+                },
+                "bonus": {
+                    "value": 38
+                },
+                "damageRolls": {
+                    "1aj1j38uSsCTak0e": {
+                        "damage": "4d8+19",
+                        "damageType": "slashing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "magical",
+                        "reach-15",
+                        "sanctified",
+                        "unarmed"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "vxtFZQ6UaV1L1jpn",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Tail",
+            "sort": 1000000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 36
+                },
+                "damageRolls": {
+                    "lfuUr9LuwW9xdmak": {
+                        "damage": "4d12+19",
+                        "damageType": "bludgeoning"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-25",
+                        "sanctified",
+                        "unarmed"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "Ebpnptc3A1bH5JuF",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Divine Sanctification",
+            "sort": 1100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>Once an executor dragon reaches adulthood, they are expected to sanctify as either holy or unholy; they gain the corresponding trait and weakness 20 to the opposing sanctification.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "alwaysActive": true,
+                        "key": "RollOption",
+                        "option": "divine-sanctification",
+                        "suboptions": [
+                            {
+                                "label": "PF2E.TraitHoly",
+                                "value": "holy"
+                            },
+                            {
+                                "label": "PF2E.TraitUnholy",
+                                "value": "unholy"
+                            },
+                            {
+                                "label": "PF2E.GenericLabel.NoSanctification",
+                                "value": "none"
+                            }
+                        ],
+                        "toggleable": true
+                    },
+                    {
+                        "add": [
+                            "holy"
+                        ],
+                        "key": "ActorTraits",
+                        "predicate": [
+                            "divine-sanctification:holy"
+                        ]
+                    },
+                    {
+                        "add": [
+                            "unholy"
+                        ],
+                        "key": "ActorTraits",
+                        "predicate": [
+                            "divine-sanctification:unholy"
+                        ]
+                    },
+                    {
+                        "key": "Weakness",
+                        "predicate": [
+                            "divine-sanctification:holy"
+                        ],
+                        "type": "unholy",
+                        "value": 20
+                    },
+                    {
+                        "key": "Weakness",
+                        "predicate": [
+                            "divine-sanctification:unholy"
+                        ],
+                        "type": "holy",
+                        "value": 20
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "tXCZEIMhUDyc9Xhl",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "+2 Status to All Saves vs. Divine",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "item:trait:divine"
+                        ],
+                        "selector": "saving-throw",
+                        "type": "status",
+                        "value": 2
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "YAjkFIR8nOK7ixSV",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Aura of Authority",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>60 feet. The divine majesty of an executor archdragon can't be denied. A creature that enters or begins their turn in the aura must attempt a @Check[will|dc:44|options:area-effect,inflicts:stupefied] save. Regardless of the result of the saving throw, the creature is temporarily immune to this dragon's aura of authority for 1 minute.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 1} for 1 minute.</p>\n<p><strong>Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 2} for 1 minute.</p>\n<p><strong>Critical Failure</strong> The creature is @UUID[Compendium.pf2e.conditionitems.Item.Stupefied]{Stupefied 3} for 10 minutes.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 60,
+                        "traits": [
+                            "emotion",
+                            "mental"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "aura",
+                        "emotion",
+                        "mental"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "2j9NujaNTlE4rVmO",
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Rage of the Divine",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The dragon is critically hit by an attack</p><hr /><p><strong>Effect</strong> Raw divine power flashes through the executor dragon harming anyone who dares strike it so brazenly. The creature who dealt the triggering attack takes @Damage[8d8[spirit]] damage with a @Check[will|dc:41|basic] save.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "divine",
+                        "sanctified",
+                        "spirit"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "8RyUILT0k3Z42T2U",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Apocalyptic Roar",
+            "sort": 1500000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Frequency</strong> once per day</p><hr /><p><strong>Effect</strong> The executor archdragon calls down the full power of the divine. All creatures in a @Template[type:burst|distance:30] within 120 feet take @Damage[9d8[sonic],6d12[spirit]|options:area-damage] damage, with a @Check[will|dc:44|basic|options:area-effect] save.</p>"
+                },
+                "frequency": {
+                    "max": 1,
+                    "per": "day"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "divine",
+                        "sanctified",
+                        "sonic"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "859saWvtVk4DfVMC",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-family-ability-glossary.Item.mEbrInCpag7YThH2"
+            },
+            "folder": "w5Pc3AuTwltjbYiz",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Change Shape",
+            "sort": 1600000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon takes on the appearance of any Small or Medium humanoid. This doesn't change its Speed or attack and damage bonuses with its Strikes, but might change the damage type its Strikes deal (typically to bludgeoning).</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.ChangeShape]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": "Pathfinder Bestiary"
+                },
+                "rules": [],
+                "slug": "dragon-change-shape",
+                "traits": {
+                    "value": [
+                        "concentrate",
+                        "divine",
+                        "polymorph"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "kZamIyWl9XZoEBJ5",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Divine Utterance",
+            "sort": 1700000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon screams the truth of the divine, dealing @Damage[17d8[sonic]|options:area-damage] damage in a @Template[type:cone|distance:60] (@Check[reflex|dc:44|basic|options:area-effect] save). They can't use Divine Utterance again for [[/gmr 1d4 #Recharge Divine Utterance]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "divine",
+                        "sonic"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "h243PhRZvdB33shA",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Draconic Frenzy",
+            "sort": 1800000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon makes two claw Strikes and one tail Strike in any order.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "mt14auiXtr17mnKi",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Draconic Momentum",
+            "sort": 1900000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon recharges their Divine Utterance whenever they score a critical hit with a Strike.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "l9DSXnvJxGSod6fI",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Plane Lore",
+            "sort": 2000000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 36
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {}
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Executor Archdragon",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 5
+            },
+            "con": {
+                "mod": 6
+            },
+            "dex": {
+                "mod": 5
+            },
+            "int": {
+                "mod": 4
+            },
+            "str": {
+                "mod": 11
+            },
+            "wis": {
+                "mod": 7
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 45
+            },
+            "allSaves": {
+                "value": "+2 status to all saves vs. divine"
+            },
+            "hp": {
+                "details": "",
+                "max": 400,
+                "temp": 0,
+                "value": 400
+            },
+            "immunities": [
+                {
+                    "type": "paralyzed"
+                },
+                {
+                    "type": "sleep"
+                },
+                {
+                    "type": "sonic"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 150
+                    }
+                ],
+                "value": 90
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "plus one additional language spoken by celestials, fiends, or monitors as appropriate; truespeech",
+                "value": [
+                    "common",
+                    "draconic"
+                ]
+            },
+            "level": {
+                "value": 21
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Legends state the first executor dragons formed from the rage-filled screams of Sarenrae during her struggle against the Rough Beast. In the face of an enemy even she had no hope of redeeming, the ever-compassionate Dawnflower allowed her divine fury to escape from her lips as she struck down the primordial god, and from this act of anathema, the first executor dragons were given form. Since that moment, executor dragons represent the full wrath of the gods. Divine in nature, executor dragons typically appear to punish those who have strayed so far from the path of their deity's edicts as to begin embracing the anathema. Due to their potent nature as weapons of the divine, executor dragons are generally drawn to target not a single misbehaving follower, but entire villages, cities, or towns that have turned their backs on their gods. Many of the gods prefer not to use executor dragons as part of their punishment of mortal transgressors, and instead keep them reserved for the days of apocalyptic battles.</p>\n<p>Though many believe executor dragons are spawned from divine magic, they are fully biological creatures. Compelled by faith and devotion and disgusted by hypocrisy and base cruelty, executor dragons tend to live near human settlements, but rarely within them. They form small familial groups when young, but grow more independent as they age, seeking to claim territory uninhabited by other dragons. Their chosen lairs tend to be locations secreted away, either in the ruins of mountaintop monasteries or in the cavernous depths beneath abandoned places of worship. For the few executor dragons that live actively among non-draconic peoples, even fewer do so in their natural forms. They are sometimes found living disguised as traveling lay priests who bring healing and alms for the needy, choristers singing hymnals, wandering monastic scholars who ask challenging and conflicted questions about faith, or quiet church custodians who protect and beautify their chosen houses of worship. It's said that one or more executor dragons might have even taken up the defense of Kenebres after its near destruction at the hands of the Khorramzadeh, Storm King of the Worldwound.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Lost Omens Draconic Codex"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 35,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 30,
+                    "type": "lifesense"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 60,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 35
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 33
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 38
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 34
+            },
+            "athletics": {
+                "base": 41
+            },
+            "intimidation": {
+                "base": 36
+            },
+            "religion": {
+                "base": 41
+            },
+            "survival": {
+                "base": 36
+            }
+        },
+        "traits": {
+            "rarity": "rare",
+            "size": {
+                "value": "grg"
+            },
+            "value": [
+                "divine",
+                "dragon"
+            ]
+        }
+    },
+    "type": "npc"
+}

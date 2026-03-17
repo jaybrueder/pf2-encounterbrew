@@ -31,6 +31,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -38,9 +39,6 @@
                         "reach-60",
                         "versatile-b"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -179,8 +177,11 @@
                         "value": 15
                     },
                     {
-                        "allowDuplicate": false,
+                        "inMemoryOnly": true,
                         "key": "GrantItem",
+                        "predicate": [
+                            "form:battle"
+                        ],
                         "uuid": "Compendium.pf2e.conditionitems.Item.Clumsy"
                     },
                     {
@@ -230,7 +231,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>@Check[reflex|dc:27], @Damage[(2d8+6)[bludgeoning]] damage, Escape DC 27, Rupture 18</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Engulf]</p>"
+                    "value": "<p>@Check[reflex|dc:27], @Damage[(2d8+6)[bludgeoning]] damage, [[/act escape dc=27]], Rupture 18</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Engulf]</p>"
                 },
                 "publication": {
                     "license": "OGL",

@@ -33,13 +33,11 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -73,15 +71,14 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 30
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "value": [
-                        "range-30"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -139,7 +136,6 @@
                 "rules": [
                     {
                         "alwaysActive": true,
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "advanced-arcanovore",
                         "suboptions": [
@@ -169,7 +165,7 @@
                     },
                     {
                         "key": "Immunity",
-                        "type": "{item|flags.pf2e.rulesSelections.advancedArcanovore}"
+                        "type": "{item|flags.system.rulesSelections.advancedArcanovore}"
                     },
                     {
                         "key": "DamageAlteration",
@@ -181,12 +177,12 @@
                         "selectors": [
                             "inline-damage"
                         ],
-                        "value": "{item|flags.pf2e.rulesSelections.advancedArcanovore}"
+                        "value": "{item|flags.system.rulesSelections.advancedArcanovore}"
                     },
                     {
                         "key": "DamageDice",
                         "override": {
-                            "damageType": "{item|flags.pf2e.rulesSelections.advancedArcanovore}"
+                            "damageType": "{item|flags.system.rulesSelections.advancedArcanovore}"
                         },
                         "selector": "hexbolt-damage"
                     }
@@ -270,7 +266,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>With a few fierce wingbeats, the hexmoth expels magical scale dust in a @Template[cone|distance:30]. This deals @Damage[10d6[untyped]] damage of the type to which the hexmoth is immune (@Check[fortitude|dc:23|basic] save). It can't use Hexdust Wind again for [[/gmr 1d4 #Recharge Hexdust Wind]]{1d4 rounds}.</p>"
+                    "value": "<p>With a few fierce wingbeats, the hexmoth expels magical scale dust in a @Template[cone|distance:30]. This deals @Damage[10d6[untyped]|options:area-damage] damage of the type to which the hexmoth is immune (@Check[fortitude|dc:23|basic|options:area-effect] save). It can't use Hexdust Wind again for [[/gmr 1d4 #Recharge Hexdust Wind]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -350,7 +346,7 @@
                 "value": 8
             },
             "privateNotes": "",
-            "publicNotes": "",
+            "publicNotes": "<p>A hexworm, upon consuming a sufficient quantity of magic, will spin a cocoon of magically infused silk, metamorphosing into its imago form.</p>",
             "publication": {
                 "license": "ORC",
                 "remaster": true,

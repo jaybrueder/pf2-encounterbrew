@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "polearm",
                 "hardness": 0,
                 "hp": {
@@ -63,7 +64,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -99,6 +100,11 @@
             "name": "Composite Shortbow",
             "sort": 200000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "composite-shortbow",
                 "bonus": {
                     "value": 0
@@ -124,6 +130,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -359,6 +366,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "glaive",
                 "traits": {
@@ -403,6 +411,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": "composite-shortbow",
                 "traits": {
@@ -410,7 +422,6 @@
                         "deadly-d10",
                         "magical",
                         "propulsive",
-                        "range-increment-60",
                         "reload-0"
                     ]
                 }
@@ -464,7 +475,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>30 feet, @Check[will|dc:27].</p>\n<p>As long as Molog remains mounted and his standard is intact, he has frightful presence against enemies within the aura.</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>30 feet. @Check[will|dc:27|options:area-effect,inflicts:frightened].</p>\n<p>As long as Molog remains mounted and his standard is intact, he has frightful presence against enemies within the aura.</p><hr /><p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -473,8 +484,23 @@
                 },
                 "rules": [
                     {
+                        "key": "RollOption",
+                        "option": "frightful-standard",
+                        "toggleable": true,
+                        "value": true
+                    },
+                    {
                         "key": "Aura",
-                        "radius": 30
+                        "predicate": [
+                            "frightful-standard"
+                        ],
+                        "radius": 30,
+                        "slug": "frightful-standard",
+                        "traits": [
+                            "emotion",
+                            "fear",
+                            "mental"
+                        ]
                     }
                 ],
                 "slug": null,
@@ -612,7 +638,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "wyverns-swoop",
                         "toggleable": true
@@ -627,7 +652,6 @@
                         "value": 1
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.WyvernRider.WyvernsSwoop.HigherElevation",
                         "option": "swooping-down",

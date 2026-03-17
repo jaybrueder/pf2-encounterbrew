@@ -204,25 +204,11 @@
                         "key": "FlatModifier",
                         "predicate": [
                             "action:craft",
-                            "{item|flags.pf2e.rulesSelections.specialtyCrafting}"
+                            "{item|flags.system.rulesSelections.specialtyCrafting}"
                         ],
                         "selector": "crafting",
                         "type": "circumstance",
-                        "value": {
-                            "brackets": [
-                                {
-                                    "end": 4,
-                                    "start": 3,
-                                    "value": 2
-                                },
-                                {
-                                    "end": 2,
-                                    "start": 1,
-                                    "value": 1
-                                }
-                            ],
-                            "field": "actor|system.skills.crafting.rank"
-                        }
+                        "value": "match(when(btwn(@actor.system.skills.crafting.rank, 3, 4), 2), when(btwn(@actor.system.skills.crafting.rank, 1, 2), 1))"
                     }
                 ],
                 "slug": "specialty-crafting",
@@ -764,6 +750,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -790,7 +777,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -826,6 +813,11 @@
             "name": "Shortbow",
             "sort": 0,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "shortbow",
                 "bonus": {
                     "value": 0
@@ -851,6 +843,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -2328,7 +2321,7 @@
                     {
                         "flag": "enigma",
                         "key": "GrantItem",
-                        "uuid": "{item|flags.pf2e.rulesSelections.muses}"
+                        "uuid": "{item|flags.system.rulesSelections.muses}"
                     }
                 ],
                 "slug": "muses",
@@ -2712,8 +2705,8 @@
                             "target:within-30-feet",
                             {
                                 "or": [
-                                    "target:hidden",
-                                    "target:undetected"
+                                    "target:condition:hidden",
+                                    "target:condition:undetected"
                                 ]
                             }
                         ],
@@ -2745,10 +2738,6 @@
             "hp": {
                 "temp": 0,
                 "value": 15
-            },
-            "speed": {
-                "otherSpeeds": [],
-                "value": 25
             }
         },
         "build": {

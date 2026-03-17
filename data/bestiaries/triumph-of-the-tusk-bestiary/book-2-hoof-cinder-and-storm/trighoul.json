@@ -35,6 +35,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -74,6 +75,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -117,12 +119,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "acid",
-                        "range-increment-20",
                         "splash"
                     ]
                 }
@@ -152,7 +157,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "pain-sensitivity",
                         "toggleable": true
@@ -204,7 +208,7 @@
         },
         {
             "_id": "KyySvWbQsUodrCtS",
-            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "img": "systems/pf2e/icons/actions/OneThreeActions.webp",
             "name": "Puppet Show",
             "sort": 600000,
             "system": {

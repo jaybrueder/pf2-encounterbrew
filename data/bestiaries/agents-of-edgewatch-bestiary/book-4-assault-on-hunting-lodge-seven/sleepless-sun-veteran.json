@@ -5,6 +5,9 @@
     "items": [
         {
             "_id": "4MChMrebJ8nIj9MZ",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.e4NwsnPnpQKbDZ9F"
+            },
             "img": "systems/pf2e/icons/equipment/weapons/composite-shortbow.webp",
             "name": "Composite Shortbow",
             "sort": 100000,
@@ -34,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -60,7 +64,7 @@
                 "quantity": 1,
                 "range": 60,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -88,6 +92,9 @@
         },
         {
             "_id": "9P41GfpfwgHzsOVS",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.TLQErnOpM9Luy7rL"
+            },
             "img": "systems/pf2e/icons/equipment/weapons/sap.webp",
             "name": "Sap",
             "sort": 200000,
@@ -117,6 +124,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -143,7 +151,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -171,6 +179,9 @@
         },
         {
             "_id": "IFtGiv3KwyArYGb5",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.NIsxR5zXtVa3PuyU"
+            },
             "img": "systems/pf2e/icons/equipment/weapons/temple-sword.webp",
             "name": "+1 Striking Temple Sword",
             "sort": 300000,
@@ -200,6 +211,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -226,7 +238,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -254,6 +266,9 @@
         },
         {
             "_id": "HadDk6LP4NttJ2c0",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.Yr9yCuJiAlFh3QEB"
+            },
             "img": "icons/equipment/shield/heater-steel-boss-red.webp",
             "name": "Steel Shield",
             "sort": 400000,
@@ -312,6 +327,9 @@
         },
         {
             "_id": "d0PSqdgGSITrVURk",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.Kf4eJEXnFPuAsseP"
+            },
             "img": "systems/pf2e/icons/equipment/armor/chainmail.webp",
             "name": "Chain Mail",
             "sort": 500000,
@@ -436,31 +454,17 @@
             "name": "Arrows",
             "sort": 700000,
             "system": {
-                "baseItem": null,
+                "baseItem": "arrows",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>These projectiles are the ammunition for bows. The shaft of an arrow is made of wood. It is stabilized in flight by fletching at one end and bears a metal head on the other.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn",
-                    "handsHeld": 0
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -477,13 +481,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": null,
-                "stackGroup": "arrows",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -491,7 +493,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "uYvjUwSl8dqCBiVf",
@@ -528,6 +530,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -535,9 +538,6 @@
                     "value": [
                         "trip"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -577,6 +577,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -585,9 +586,6 @@
                         "agile",
                         "nonlethal"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -627,6 +625,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -634,12 +636,8 @@
                     "value": [
                         "deadly-d10",
                         "propulsive",
-                        "range-increment-60",
                         "reload-0"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

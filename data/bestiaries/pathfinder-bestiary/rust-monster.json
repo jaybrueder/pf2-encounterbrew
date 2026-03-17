@@ -29,6 +29,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -36,9 +37,6 @@
                     "value": [
                         "finesse"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -73,6 +71,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -80,9 +79,6 @@
                     "value": [
                         "finesse"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -119,6 +115,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -126,9 +123,6 @@
                     "value": [
                         "finesse"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -237,7 +231,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>A rust monster's antenna causes metal to rapidly rust and corrode.</p>\n<p>If it succeeds at an antenna Strike or Disarm attempt with its antenna, the rust monster deals [[/r {2d6}]]{2d6 damage} (doubled on a critical hit) to a metal item the target is wearing or holding, ignoring its Hardness.</p>\n<p>If the rust monster hits an unattended metal item, the item takes this damage automatically.</p>\n<p>If a creature uses the @UUID[Compendium.pf2e.feats-srd.Item.Shield Block] reaction with a metal shield against an antenna attack, the shield is automatically broken, but no other item is rusted on that attack.</p>"
+                    "value": "<p>A rust monster's antenna causes metal to rapidly rust and corrode.</p>\n<p>If it succeeds at an antenna Strike or Disarm attempt with its antenna, the rust monster deals @Damage[2d6[untyped]] damage (doubled on a critical hit) to a metal item the target is wearing or holding, ignoring its Hardness.</p>\n<p>If the rust monster hits an unattended metal item, the item takes this damage automatically.</p>\n<p>If a creature uses the @UUID[Compendium.pf2e.feats-srd.Item.Shield Block] reaction with a metal shield against an antenna attack, the shield is automatically broken, but no other item is rusted on that attack.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -391,7 +385,7 @@
                         "label": "to Disarm a metal item",
                         "predicate": [
                             "action:disarm",
-                            "target:metalItem"
+                            "target:metal-item"
                         ]
                     }
                 ]

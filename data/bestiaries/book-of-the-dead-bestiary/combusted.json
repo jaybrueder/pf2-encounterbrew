@@ -37,14 +37,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -84,16 +82,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-increment-60"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -112,7 +109,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>5 feet. @Damage[2d6[fire]], @Check[reflex|dc:17|basic]</p>"
+                    "value": "<p>5 feet. @Damage[2d6[fire]|options:area-damage], @Check[reflex|dc:17|basic|options:area-effect]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -281,6 +278,9 @@
                 "value": 65
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "type": "death-effects"
                 },

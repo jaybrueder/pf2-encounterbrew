@@ -37,6 +37,7 @@
                     "handsHeld": 2,
                     "invested": null
                 },
+                "expend": null,
                 "group": "axe",
                 "hardness": 0,
                 "hp": {
@@ -63,7 +64,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -122,6 +123,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "dart",
                 "hardness": 0,
                 "hp": {
@@ -279,6 +281,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -286,9 +289,6 @@
                         "magical",
                         "sweep"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -331,6 +331,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -338,9 +339,6 @@
                         "magical",
                         "thrown-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -508,7 +506,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The graveknight unleashes a @Template[cone|distance:30] of energy.</p>\n<p>Creatures in the area take @Damage[10d12[fire]] damage (@Check[reflex|dc:37|basic] save).</p>\n<p>The graveknight can't use this ability again for [[/gmr 1d4 #Recharge Devastating Blast]]{1d4 rounds}.</p>"
+                    "value": "<p>The graveknight unleashes a @Template[cone|distance:30] of energy.</p>\n<p>Creatures in the area take @Damage[10d12[fire]|options:area-damage] damage (@Check[reflex|dc:37|basic|options:area-effect] save).</p>\n<p>The graveknight can't use this ability again for [[/gmr 1d4 #Recharge Devastating Blast]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -685,13 +683,19 @@
             },
             "immunities": [
                 {
-                    "type": "paralyzed"
+                    "type": "bleed"
                 },
                 {
-                    "type": "unconscious"
+                    "type": "death-effects"
+                },
+                {
+                    "type": "disease"
                 },
                 {
                     "type": "fire"
+                },
+                {
+                    "type": "paralyzed"
                 },
                 {
                     "type": "poison"
@@ -700,10 +704,7 @@
                     "type": "precision"
                 },
                 {
-                    "type": "death-effects"
-                },
-                {
-                    "type": "disease"
+                    "type": "unconscious"
                 }
             ],
             "resistances": [

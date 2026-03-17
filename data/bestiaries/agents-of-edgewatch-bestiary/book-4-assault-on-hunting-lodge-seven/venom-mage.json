@@ -1464,7 +1464,7 @@
                 },
                 "defense": null,
                 "description": {
-                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a -10-foot status penalty to its Speeds for 1 round.</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
+                    "value": "<p>You blast an icy ray. Make a spell attack roll. The ray deals 2d4 cold damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The target takes double damage and takes a –10-foot status penalty to its Speeds for 1 round.</p>\n<p><strong>Success</strong> The target takes normal damage.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>"
                 },
                 "duration": {
                     "sustained": false,
@@ -1660,6 +1660,9 @@
         },
         {
             "_id": "vaajM0KUGgXjj8Cl",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.rQWaJhI5Bko5x14Z"
+            },
             "img": "systems/pf2e/icons/equipment/weapons/dagger.webp",
             "name": "Dagger",
             "sort": 2300000,
@@ -1689,6 +1692,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -1745,6 +1749,9 @@
         },
         {
             "_id": "YG7KXH0qtjZddB2w",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.ewQZ0VeL38v3qFnN"
+            },
             "img": "icons/equipment/chest/breastplate-layered-leather-studded-brown.webp",
             "name": "Studded Leather Armor",
             "sort": 2400000,
@@ -1809,6 +1816,9 @@
         },
         {
             "_id": "hHlYjJTlmZGddvQY",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.SeZfwtBYwmxKrphR"
+            },
             "img": "systems/pf2e/icons/default-icons/equipment.svg",
             "name": "Poisoner's Staff",
             "sort": 2500000,
@@ -1900,6 +1910,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1909,9 +1920,6 @@
                         "finesse",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1946,6 +1954,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [
                     {
                         "domain": "damage",
@@ -1975,9 +1984,6 @@
                         "magical",
                         "two-hand-d8"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -2017,6 +2023,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2027,9 +2034,6 @@
                         "thrown-10",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

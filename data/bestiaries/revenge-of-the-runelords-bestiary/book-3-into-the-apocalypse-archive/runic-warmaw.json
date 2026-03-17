@@ -1,0 +1,703 @@
+{
+    "_id": "rELMTgvh9e5GHVDL",
+    "folder": "rl5REaDECQmW6sqA",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "NZP9QeSoUYvkbriM",
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Arcane Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 35,
+                    "value": 27
+                },
+                "tradition": {
+                    "value": "arcane"
+                },
+                "traits": {}
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "5zkLSSFwzSYYYunK",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.C2GYCH3TtUFqPfdX"
+            },
+            "folder": "IfuYSF4ymX48CZnm",
+            "img": "icons/magic/water/projectiles-ice-explosion.webp",
+            "name": "Arctic Rift",
+            "sort": 200000,
+            "system": {
+                "area": {
+                    "type": "line",
+                    "value": 120
+                },
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "dFAvAi8vt0k4MIyH": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "12d8",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "cold"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "fortitude"
+                    }
+                },
+                "description": {
+                    "value": "<p>A jagged crack opens in the air, dealing 12d8 cold damage as it draws away warmth. Each creature along the rift must attempt a Fortitude save.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage.</p>\n<p><strong>Failure</strong> The creature takes full damage and is @UUID[Compendium.pf2e.conditionitems.Item.Slowed]{Slowed 1} until the start of your next turn.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage, is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] by a layer of ice, and is slowed 1 as long as it's immobilized. The ice is an object with 60 Hit Points, Hardness 5, immunity to cold damage, and vulnerability 10 to fire. It has object immunities and is destroyed if the target Escapes.</p><hr /><p><strong>Heightened (+1)</strong> The damage increases by 1d8 and the ice's Hit Points increase by 5.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "area": 0,
+                    "damage": {
+                        "dFAvAi8vt0k4MIyH": "1d8"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 8
+                },
+                "location": {
+                    "heightenedLevel": 8,
+                    "value": "NZP9QeSoUYvkbriM"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": ""
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "arctic-rift",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "cold",
+                        "concentrate",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "yGMlz2WAd8JaqEYW",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.TDNlDWbYb58Y55Da"
+            },
+            "folder": "zDlxATrLAlbYA2Mv",
+            "img": "systems/pf2e/icons/spells/chain-lightning.webp",
+            "name": "Chain Lightning",
+            "sort": 300000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "8d12",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "electricity"
+                    }
+                },
+                "defense": {
+                    "save": {
+                        "basic": true,
+                        "statistic": "reflex"
+                    }
+                },
+                "description": {
+                    "value": "<p>You discharge a powerful bolt of lightning at the target, dealing 8d12 electricity damage. The target must attempt a basic Reflex save. The electricity arcs to another creature within 30 feet of the first target, jumps to another creature within 30 feet of that target, and so on. You can end the chain at any point. You can't target the same creature more than once, and you must have line of effect to all targets. Roll the damage only once, and apply it to each target (halving or doubling as appropriate for its saving throw outcome). The chain ends if any one of the targets critically succeeds at its save.</p>\n<hr />\n<p><strong>Heightened (+1)</strong> The damage increases by 1d12.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d12"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 6
+                },
+                "location": {
+                    "heightenedLevel": 6,
+                    "value": "NZP9QeSoUYvkbriM"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "500 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "chain-lightning",
+                "target": {
+                    "value": "1 creature, plus any number of additional creatures"
+                },
+                "time": {
+                    "value": "2"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "electricity",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "UoLm0k2MbDAgGPNl",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.gKKqvLohtrSJj3BM"
+            },
+            "folder": "T8AzYUgNIAgTJ9Iz",
+            "img": "systems/pf2e/icons/spells/magic-missile.webp",
+            "name": "Force Barrage",
+            "sort": 400000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "1d4+1",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "force"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>You fire a shard of solidified magic toward a creature that you can see. It automatically hits and deals 1d4+1 force damage. For each additional action you use when Casting the Spell, increase the number of shards you shoot by one, to a maximum of three shards for 3 actions. You choose the target for each shard individually. If you shoot more than one shard at the same target, combine the damage before applying bonuses or penalties to damage, resistances, weaknesses, and so forth.</p>\n<hr />\n<p><strong>Heightened (+2)</strong> You fire one additional shard with each action you spend.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": ""
+                },
+                "level": {
+                    "value": 1
+                },
+                "location": {
+                    "heightenedLevel": 7,
+                    "value": "NZP9QeSoUYvkbriM"
+                },
+                "overlays": {},
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "force-barrage",
+                "target": {
+                    "value": "1 creature"
+                },
+                "time": {
+                    "value": "1 to 3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "occult"
+                    ],
+                    "value": [
+                        "concentrate",
+                        "force",
+                        "manipulate"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "7EnqLAGhxx1TMgej",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 500000,
+            "system": {
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 32
+                },
+                "damageRolls": {
+                    "THuzZ7XqMZAhwTQJ": {
+                        "damage": "3d10+16",
+                        "damageType": "piercing"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": "jaws",
+                "traits": {
+                    "value": [
+                        "magical",
+                        "reach-15",
+                        "unarmed"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "R28vpDd1oo1hPMme",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Searing Ray",
+            "sort": 600000,
+            "system": {
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 30
+                },
+                "damageRolls": {
+                    "FrGuGpEmMpoiHhbu": {
+                        "damage": "8d6",
+                        "damageType": "fire"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "fire"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "G3EfdigV3fEwI7Eo",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Echo Arcana",
+            "sort": 700000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> A rune giant within 30 feet casts one of the warmaw's innate spells by reading their shared runes</p><hr /><p><strong>Effect</strong> The runic warmaw makes a jaws Strike.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "0bY4PJ17AqcqdWFT",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Rune Flare",
+            "sort": 800000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p><strong>Trigger</strong> The runic warmaw is targeted by an arcane spell or effect</p><hr /><p><strong>Effect</strong> The runes etched across the runic warmaw's body burst to life with a sudden flow of energy. The runic warmaw becomes @UUID[Compendium.pf2e.conditionitems.Item.Quickened] for 1 round and can use the additional action only to Stride or Strike.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "5WcUZ9NcgflyMxhA",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Howl of Ash and Ember",
+            "sort": 900000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The runic warmaw exhales a surge of foul soot and flame, dealing @Damage[15d6[fire]|options:area-damage] damage to all creatures in a @Template[type:cone|distance:60] (@Check[reflex|dc:37|basic] save). A creature that fails the save is also @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1} (or @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 2} on a critical failure). The runic warmaw can't use Howl of Ash and Ember again for [[/gmr 1d4 #Recharge Howl of Ash and Ember]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "arcane",
+                        "fire",
+                        "unholy"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "lYTt4JhS8p5W4qcK",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Invigorating Bite",
+            "sort": 1000000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When a runic warmaw critically hits a target with a jaws Strike, they regain 30 Hit Points and, at the start of their next turn, gain an additional reaction during that turn.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "jaws-damage",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "upRaYxwYbB6fLiOy",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Pack Attack",
+            "sort": 1100000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The runic warmaw's Strikes deal an additional 3d6 precision damage to creatures within the reach of at least two of the runic warmaw's allies.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "RollOption",
+                        "option": "pack-attack",
+                        "toggleable": true
+                    },
+                    {
+                        "category": "precision",
+                        "diceNumber": 3,
+                        "dieSize": "d6",
+                        "key": "DamageDice",
+                        "predicate": [
+                            "pack-attack"
+                        ],
+                        "selector": "strike-damage"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "tlvvtCs9OYHkaoDT",
+            "img": "systems/pf2e/icons/default-icons/action.svg",
+            "name": "Share Runes",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>When a runic warmaw is within 60 feet of a rune giant, that rune giant can cast any of the runic warmaw's innate spells during the rune giant's turn—these spells use the rune giant's DCs but are depleted from the warmaw's daily uses. The rune giant is the point of origin and makes all the decisions about the spell's targets.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        }
+    ],
+    "name": "Runic Warmaw",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 6
+            },
+            "con": {
+                "mod": 8
+            },
+            "dex": {
+                "mod": 6
+            },
+            "int": {
+                "mod": 4
+            },
+            "str": {
+                "mod": 8
+            },
+            "wis": {
+                "mod": 4
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 38
+            },
+            "allSaves": {
+                "value": ""
+            },
+            "hp": {
+                "details": "",
+                "max": 300,
+                "temp": 0,
+                "value": 300
+            },
+            "immunities": [
+                {
+                    "exceptions": [],
+                    "type": "fire"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [],
+                "value": 55
+            }
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "can't speak any language",
+                "value": [
+                    "jotun"
+                ]
+            },
+            "level": {
+                "value": 16
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Rune giants have specialized talents and magical abilities to command other giants, yet giants are far from the only creatures they favor when it comes to guardians. The first runic warmaws were created by Runelord Alaznist in –5780, not long after she perfected the fleshwarping techniques she learned from the qlippoth lord Yamasoth, in response to her rune giants' repeated requests for some form of powerful guardian they could deploy against her enemies on the field of battle. In the following years, as with sinspawn and other fleshwarp creations, other runelords capitalized upon these methods to create runic warmaws as well.</p>\n<p>A runic warmaw looks somewhat like an immense, elephant-sized hound, yet with horselike heads that have large, toothy jaws well suited to rending flesh. Strange patterns of shifting red runes appear on their black-furred bodies—runes containing latent sources of magic that rune giants can use to access some of a runic warmaw's magical powers.</p><h2>Specialized Warmaws</h2><p>The runic warmaw presented here has been specially bred by rune giants to foster magical powers that serve well in combat, but others with a focus on different types of magical tactics, such as research, defense, or travel, exist. These warmaws have differently themed innate spells—replace the three combat-associated spells listed in the stat block as appropriate for the warmaw's theme you desire for the encounter you're building.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder #221: Into the Apocalypse Archive"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "",
+            "mod": 28,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 60,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 30
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 28
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 24
+            }
+        },
+        "skills": {
+            "acrobatics": {
+                "base": 28
+            },
+            "athletics": {
+                "base": 32
+            },
+            "stealth": {
+                "base": 30
+            },
+            "survival": {
+                "base": 30
+            }
+        },
+        "traits": {
+            "rarity": "rare",
+            "size": {
+                "value": "huge"
+            },
+            "value": []
+        }
+    },
+    "type": "npc"
+}

@@ -37,6 +37,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -44,9 +45,6 @@
                     "value": [
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -81,16 +79,15 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-increment-60"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -140,7 +137,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the firewyrm dies, it explodes, dealing @Damage[6d6[fire]] damage to each creature in a @Template[emanation|distance:10|traits:fire,damaging-effect] (@Check[reflex|dc:28|basic] save).</p>"
+                    "value": "<p>When the firewyrm dies, it explodes, dealing @Damage[6d6[fire]|options:area-damage] damage to each creature in a @Template[emanation|distance:10] (@Check[reflex|dc:28|basic|options:area-effect] save).</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -172,7 +169,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>10 feet. @Damage[4d6[fire]] damage @Check[reflex|dc:25|basic]</p>"
+                    "value": "<p>10 feet. @Damage[4d6[fire]|options:area-damage] damage @Check[reflex|dc:25|basic|options:area-effect]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -214,7 +211,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The firewyrm breathes a @Template[cone|distance:30] of fire dealing @Damage[7d6[fire],2d8[persistent,fire]] damage to every creature within the cone (@Check[reflex|dc:28|basic] save).</p>\n<p>The firewyrm can't Breathe Fire again for [[/gmr 1d4 #Recharge Breathe Fire]]{1d4 rounds}.</p>"
+                    "value": "<p>The firewyrm breathes a @Template[cone|distance:30] of fire dealing @Damage[7d6[fire],2d8[persistent,fire]|options:area-damage] damage to every creature within the cone (@Check[reflex|dc:28|basic|options:area-effect] save).</p>\n<p>The firewyrm can't Breathe Fire again for [[/gmr 1d4 #Recharge Breathe Fire]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "ORC",

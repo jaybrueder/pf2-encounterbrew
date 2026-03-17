@@ -86,15 +86,13 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -128,17 +126,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 60
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "divine",
-                        "range-60",
                         "sonic"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -305,7 +303,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Medium, @Damage[(3d6+6)[bludgeoning]], Rupture [20]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.SwallowWhole]</p>"
+                    "value": "<p>Medium, @Damage[(3d6+6)[bludgeoning]], Rupture 20</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.SwallowWhole]</p>"
                 },
                 "publication": {
                     "license": "ORC",

@@ -194,6 +194,7 @@
                     "inSlot": false,
                     "invested": null
                 },
+                "expend": null,
                 "group": "brawling",
                 "hardness": 0,
                 "hp": {
@@ -220,7 +221,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -363,6 +364,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -372,9 +374,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -415,6 +414,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -424,9 +424,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -464,6 +461,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -472,12 +473,8 @@
                         "agile",
                         "nonlethal",
                         "propulsive",
-                        "range-increment-30",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -496,7 +493,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The monk lets loose a powerful breath of air, whose effect depends on the type of energy to which the monk is attuned. The monk can't use this ability again for [[/gmr 1d4 #Recharge Breath of the Glacier]]{1d4 rounds}.</p>\n<p>Pravan blows icy winds in a @Template[cone|distance:30], dealing @Damage[10d6[cold]] damage. Creatures in the area must attempt a @Check[reflex|dc:33|traits:damaging-effect] save as ice forms around them. The Speed penalty or immobilized condition caused by this ability persist until a creature either Breaks Open the ice or Escapes (DC 37 in either case), or if the creature takes at least 30 fire damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage and takes a -5- foot status penalty to its Speeds.</p>\n<p><strong>Failure</strong> The creature takes full damage and takes a -15-foot status penalty to its Speeds.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage and is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized].</p>"
+                    "value": "<p>The monk lets loose a powerful breath of air, whose effect depends on the type of energy to which the monk is attuned. The monk can't use this ability again for [[/gmr 1d4 #Recharge Breath of the Glacier]]{1d4 rounds}.</p>\n<p>Pravan blows icy winds in a @Template[cone|distance:30], dealing @Damage[10d6[cold]|options:area-damage] damage. Creatures in the area must attempt a @Check[reflex|dc:33|options:area-effect,damaging-effect] save as ice forms around them. The Speed penalty or immobilized condition caused by this ability persist until a creature either Breaks Open the ice or Escapes (DC 37 in either case), or if the creature takes at least 30 fire damage.</p>\n<hr />\n<p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature takes half damage and takes a -5- foot status penalty to its Speeds.</p>\n<p><strong>Failure</strong> The creature takes full damage and takes a –15-foot status penalty to its Speeds.</p>\n<p><strong>Critical Failure</strong> The creature takes double damage and is @UUID[Compendium.pf2e.conditionitems.Item.Immobilized].</p>"
                 },
                 "publication": {
                     "license": "OGL",

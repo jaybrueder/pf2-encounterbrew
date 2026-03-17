@@ -5,10 +5,18 @@
     "items": [
         {
             "_id": "z84wqzko1RPXKwRr",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.62nnVQvGhoVLLl2K"
+            },
             "img": "systems/pf2e/icons/equipment/weapons/crossbow.webp",
             "name": "+1 Striking Crossbow",
             "sort": 100000,
             "system": {
+                "ammo": {
+                    "baseType": "bolts",
+                    "builtIn": false,
+                    "capacity": 1
+                },
                 "baseItem": null,
                 "bonus": {
                     "value": 0
@@ -34,6 +42,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "crossbow",
                 "hardness": 0,
                 "hp": {
@@ -85,6 +94,9 @@
         },
         {
             "_id": "zlY2IvuCU0h5iOV8",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.dsMkvuLgpOOGLWDy"
+            },
             "img": "icons/commodities/gems/pearl-rough-turquoise.webp",
             "name": "Thunderstone (Greater)",
             "sort": 200000,
@@ -114,6 +126,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "bomb",
                 "hardness": 0,
                 "hp": {
@@ -140,7 +153,7 @@
                 "quantity": 3,
                 "range": 20,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [
                     {
@@ -177,6 +190,9 @@
         },
         {
             "_id": "EjxAC6le3nK3Lfmx",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.LJdbVTOZog39EEbi"
+            },
             "img": "systems/pf2e/icons/equipment/weapons/longsword.webp",
             "name": "+1 Striking Longsword",
             "sort": 300000,
@@ -206,6 +222,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -232,7 +249,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -259,6 +276,9 @@
         },
         {
             "_id": "59NYvJMmj1tMm5lr",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.equipment-srd.Item.MPcM4Wt6KmWE2kGL"
+            },
             "img": "systems/pf2e/icons/equipment/armor/chainshirt.webp",
             "name": "Chain Shirt",
             "sort": 400000,
@@ -384,31 +404,17 @@
             "name": "Bolts",
             "sort": 600000,
             "system": {
-                "baseItem": null,
+                "baseItem": "bolts",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>Shorter than traditional arrows but similar in construction, bolts are the ammunition used by crossbows.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn",
-                    "handsHeld": 0
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -425,13 +431,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": null,
-                "stackGroup": "bolts",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -439,7 +443,7 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "WlrYnJI19Nc7qelL",
@@ -476,6 +480,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -483,9 +488,6 @@
                     "value": [
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -525,18 +527,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 120,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "magical",
-                        "range-increment-120",
                         "reload-1"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -583,6 +585,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 30,
+                    "max": null
+                },
                 "rules": [
                     {
                         "key": "Note",
@@ -597,12 +603,8 @@
                         "alchemical",
                         "bomb",
                         "consumable",
-                        "range-increment-30",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -660,7 +662,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "target-culprit",
                         "toggleable": true

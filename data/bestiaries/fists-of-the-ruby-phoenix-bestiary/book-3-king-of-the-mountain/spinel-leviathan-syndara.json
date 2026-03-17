@@ -9,9 +9,6 @@
             "name": "Spatial Pincers",
             "sort": 100000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
                 "attackEffects": {
                     "value": []
                 },
@@ -32,18 +29,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "magical",
                         "reach-15",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -54,11 +48,7 @@
             "name": "Tentacle",
             "sort": 200000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
                 "attackEffects": {
-                    "custom": "",
                     "value": [
                         "improved-grab"
                     ]
@@ -80,19 +70,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "agile",
                         "magical",
                         "reach-20",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -103,9 +90,6 @@
             "name": "Warpspines",
             "sort": 300000,
             "system": {
-                "attack": {
-                    "value": ""
-                },
                 "attackEffects": {
                     "value": []
                 },
@@ -131,21 +115,20 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 120,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "agile",
                         "brutal",
                         "magical",
                         "propulsive",
-                        "range-increment-120",
                         "splash"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -174,7 +157,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "divine",
                         "teleportation"
@@ -204,10 +186,18 @@
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "definition": [
+                            "keeper-of-the-lighthouse"
+                        ],
+                        "key": "Immunity",
+                        "label": "{item|name}",
+                        "type": "custom"
+                    }
+                ],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -237,7 +227,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "divine",
                         "teleportation"
@@ -270,7 +259,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -352,7 +340,6 @@
                 ],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -385,7 +372,6 @@
                 "rules": [],
                 "slug": "attack-of-opportunity",
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -412,10 +398,18 @@
                     "remaster": false,
                     "title": ""
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "definition": [
+                            "extradimensional"
+                        ],
+                        "key": "Immunity",
+                        "label": "{item|name}",
+                        "type": "custom"
+                    }
+                ],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -423,7 +417,7 @@
         },
         {
             "_id": "Eynq7wApdA89lqBo",
-            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "img": "systems/pf2e/icons/actions/ThreeActions.webp",
             "name": "Dimensional Flurry",
             "sort": 1200000,
             "system": {
@@ -431,7 +425,7 @@
                     "value": "action"
                 },
                 "actions": {
-                    "value": 2
+                    "value": 3
                 },
                 "category": "offensive",
                 "description": {
@@ -445,7 +439,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -475,7 +468,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "divine"
                     ]
@@ -497,7 +489,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>With great regret, Syndara calls his masterpieces from the firmament to crash down upon his enemies. He flings four worldspheres to any four points within 500 feet. Each worldsphere deals 20d6 damage in a @Template[burst|distance:40] (@Check[reflex|dc:48|basic] save). Syndara chooses the type of damage for each worldsphere, which can be any type he chooses, though each worldsphere must deal a different type of damage. On a failed save, the target is pushed to the edge of the burst. No matter how many overlapping explosions it's caught in, a creature can take damage from only one worldsphere per round. Syndara is immune to the damage dealt by his worldspheres. Syndara can't use Mover of Worlds again for [[/gmr 1d4 #Recharge Mover of Worlds]]{1d4 rounds}.</p>"
+                    "value": "<p>With great regret, Syndara calls his masterpieces from the firmament to crash down upon his enemies. He flings four worldspheres to any four points within 500 feet. Each worldsphere deals @Damage[20d6[untyped]] damage in a @Template[burst|distance:40] (@Check[reflex|dc:48|basic] save). Syndara chooses the type of damage for each worldsphere, which can be any type he chooses, though each worldsphere must deal a different type of damage. On a failed save, the target is pushed to the edge of the burst. No matter how many overlapping explosions it's caught in, a creature can take damage from only one worldsphere per round. Syndara is immune to the damage dealt by his worldspheres. Syndara can't use Mover of Worlds again for [[/gmr 1d4 #Recharge Mover of Worlds]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -507,7 +499,6 @@
                 "rules": [],
                 "slug": null,
                 "traits": {
-                    "rarity": "common",
                     "value": [
                         "divine"
                     ]
@@ -542,7 +533,6 @@
                 "rules": [],
                 "slug": "rend",
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -575,7 +565,6 @@
                 "rules": [],
                 "slug": "improved-grab",
                 "traits": {
-                    "rarity": "common",
                     "value": []
                 }
             },
@@ -602,7 +591,8 @@
                     "title": ""
                 },
                 "rules": [],
-                "slug": null
+                "slug": null,
+                "traits": {}
             },
             "type": "lore"
         }
@@ -657,6 +647,20 @@
                     "type": "fear-effects"
                 }
             ],
+            "resistances": [
+                {
+                    "doubleVs": [],
+                    "exceptions": [],
+                    "type": "electricity",
+                    "value": 25
+                },
+                {
+                    "doubleVs": [],
+                    "exceptions": [],
+                    "type": "mental",
+                    "value": 25
+                }
+            ],
             "speed": {
                 "otherSpeeds": [
                     {
@@ -666,10 +670,16 @@
                 ],
                 "value": 60
             },
-            "weaknesses": []
+            "weaknesses": [
+                {
+                    "exceptions": [],
+                    "type": "spirit",
+                    "value": 25
+                }
+            ]
         },
         "details": {
-            "blurb": "",
+            "blurb": "Syndara the Sculptor's final form",
             "languages": {
                 "details": "",
                 "value": [

@@ -339,6 +339,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -346,9 +347,6 @@
                         "finesse",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -506,6 +504,10 @@
                 {
                     "exceptions": [],
                     "type": "sleep"
+                },
+                {
+                    "exceptions": [],
+                    "type": "fire"
                 }
             ],
             "speed": {

@@ -35,6 +35,7 @@
                     "remaster": false,
                     "title": "Pathfinder #177: Burning Tundra"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -43,9 +44,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -127,7 +125,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>@Check[reflex|dc:29|traits:damaging-effect], @Damage[6d6[bludgeoning]], @UUID[Compendium.pf2e.actionspf2e.Item.Escape] DC 29, Rupture 17</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Engulf]</p>"
+                    "value": "<p>@Check[reflex|dc:29|traits:damaging-effect], @Damage[6d6[bludgeoning]], [[/act escape dc=29]], Rupture 17</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.Engulf]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -157,7 +155,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The tar ooze can have up to eight creatures grappled at the same time; doing so doesn't prevent it from making pseudopod Strikes. A tar ooze can climb on ceilings and other inverted surfaces, though such surfaces are difficult terrain.</p>"
+                    "value": "<p>The tar ooze can have up to eight creatures grabbed at the same time; doing so doesn't prevent it from making pseudopod Strikes. A tar ooze can climb on ceilings and other inverted surfaces, though such surfaces are difficult terrain.</p>"
                 },
                 "publication": {
                     "license": "OGL",

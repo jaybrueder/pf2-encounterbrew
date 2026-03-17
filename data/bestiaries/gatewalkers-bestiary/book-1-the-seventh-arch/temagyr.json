@@ -32,14 +32,12 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": []
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -78,43 +76,10 @@
             "type": "action"
         },
         {
-            "_id": "jCBFh1P6BcTh33wX",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.hFtNbo1LKYCoDy2O"
-            },
-            "img": "systems/pf2e/icons/actions/Reaction.webp",
-            "name": "Attack of Opportunity",
-            "sort": 300000,
-            "system": {
-                "actionType": {
-                    "value": "reaction"
-                },
-                "actions": {
-                    "value": null
-                },
-                "category": "defensive",
-                "description": {
-                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.AttackOfOpportunity]</p>"
-                },
-                "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": "Pathfinder Bestiary"
-                },
-                "rules": [],
-                "slug": "attack-of-opportunity",
-                "traits": {
-                    "rarity": "common",
-                    "value": []
-                }
-            },
-            "type": "action"
-        },
-        {
             "_id": "6Ov3KB3pwSY5vjsO",
             "img": "systems/pf2e/icons/actions/Passive.webp",
             "name": "Cloak of Shadows",
-            "sort": 400000,
+            "sort": 300000,
             "system": {
                 "actionType": {
                     "value": "passive"
@@ -135,6 +100,38 @@
                 "slug": null,
                 "traits": {
                     "rarity": "common",
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "iUK6RoKBiUwwCmIo",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.bestiary-ability-glossary-srd.Item.W7SbTykXrNwxDzJc"
+            },
+            "img": "systems/pf2e/icons/actions/Reaction.webp",
+            "name": "Reactive Strike",
+            "sort": 400000,
+            "system": {
+                "actionType": {
+                    "value": "reaction"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>@Localize[PF2E.NPC.Abilities.Glossary.ReactiveStrike]</p>"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Monster Core"
+                },
+                "rules": [],
+                "slug": "reactive-strike",
+                "traits": {
                     "value": []
                 }
             },
@@ -275,11 +272,11 @@
                 "value": 1
             },
             "privateNotes": "",
-            "publicNotes": "<p>Temagyrs embody the fear of nocturnal hunters—predators that stalk through the dark of night and attack when their prey is most vulnerable. Able to blend in with and step between shadows to surprise victims, temagyrs delight in ambush tactics.</p>\n<p>An average temagyr is 8 feet long and weighs 500 pounds but moves with unnatural fluidity and grace, the shadows they carry seeming to hang in the air behind them. In combat, a temagyr can take down opponents either with physical attacks or by taking bites out of their enemy's shadow. These shadow wounds, which remain visible unless healed, often perplex Material Plane doctors and investigators; a corpse from a temagyr attack can appear pristine, its tattered shadow the only clue to how it met its untimely fate.</p>\n<hr />\n<p>Gorgas are fey embodiments of diurnal creatures' fear of the dark. Beings of shadow and hunger, they love to prey upon light-loving creatures. Many different kinds of gorgas exist, and each embodies a different facet of the night's countless terrors.</p>\n<p>Gorgas are common in the First World realm of Nighthold, where they once served the mysterious Count Ranalc. After Ranalc's disappearance, the gorgas quickly lost what little compassion they had, scattered into small bands led by their strongest members, and began hunting any fey they could find. All gorgas carry shrouds of shadow within them, and most find daylight unpleasant, tending to remain within Nighthold's perpetual gloom or hole up in caverns or deep forests until night falls. Their bizarre eyes—hollow pools of magical shadow—allow them to see even in magical darkness.</p>",
+            "publicNotes": "<p>Temagyrs embody the fear of nocturnal hunters—predators that stalk through the dark of night and attack when their prey is most vulnerable. Able to blend in with and step between shadows to surprise victims, temagyrs delight in ambush tactics.</p>\n<p>An average temagyr is 8 feet long and weighs 500 pounds but moves with unnatural fluidity and grace, the shadows they carry seeming to hang in the air behind them. In combat, a temagyr can take down opponents either with physical attacks or by taking bites out of their enemy's shadow. These shadow wounds, which remain visible unless healed, often perplex doctors and investigators from the Universe; a corpse from a temagyr attack can appear pristine, its tattered shadow the only clue to how it met its untimely fate.</p><hr /><p>Gorgas are fey embodiments of diurnal creatures' fear of the dark. Beings of shadow and hunger, they love to prey upon light-loving creatures. Many different kinds of gorgas exist, and each embodies a different facet of the night's countless terrors.</p>\n<p>Gorgas are common in the First World realm of Nighthold, where they once served the mysterious Count Ranalc. After Ranalc's disappearance, the gorgas quickly lost what little compassion they had, scattered into small bands led by their strongest members, and began hunting any fey they could find. All gorgas carry shrouds of shadow within them, and most find daylight unpleasant, tending to remain within Nighthold's perpetual gloom or hole up in caverns or deep forests until night falls. Their bizarre eyes—hollow pools of magical shadow—allow them to see even in magical darkness.</p><h2>Gorgas and Elves</h2><p>For thousands of years, gorgas have sought vengeance for the loss of their beloved Count Ranalc. A few centuries ago, a fey schemer named Kaneepo the Slim saw in the shadowy creatures' grudge an opportunity to carry out their own vendetta. The slick-tongued fey convinced a group of gorgas that elves were behind Count Ranalc's disappearance and that the gorgas could achieve vengeance if they joined Kaneepo's assaults on the Universe. Though some of the brighter gorgas have seen through the ruse, most are content to have an outlet for their fury.</p><h2>Other Gorgas</h2><p>As many different types of gorgas exist as there are ways to fear the dark. The fear of losing one's sole source of illumination—a flickering torch in a rainstorm, the last candle on a moonless night—manifests as a notua, capable of snuffing lights as well as lives. When the dark makes distant objects appear to be something other than they are—a tree trunk seems to be a crouching beast, a drape of moss becoming a dangling snake—the gaiomyr gorga dances with delight and brings its victims' imagined dangers to horrific life. Some gorgas, it's said, represent nocturnal fears that defy description altogether—the fear of unknown unknowns, perhaps.</p>",
             "publication": {
-                "license": "OGL",
-                "remaster": false,
-                "title": "Pathfinder #187: The Seventh Arch"
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Adventure Path: Gatewalkers"
             }
         },
         "initiative": {
@@ -326,8 +323,6 @@
                 "value": "med"
             },
             "value": [
-                "chaotic",
-                "evil",
                 "fey"
             ]
         }

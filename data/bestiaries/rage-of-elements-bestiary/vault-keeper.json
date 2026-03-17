@@ -178,7 +178,7 @@
         {
             "_id": "rcgB2Ykf6tDxkNOt",
             "_stats": {
-                "compendiumSource": "Compendium.pf2e.spells-srd.Item.nH3Rgzzv0b6IeKdd"
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.YIMampGpij4Y30yE"
             },
             "img": "icons/commodities/stone/stone-porous-blue.webp",
             "name": "Speak With Stones (At Will)",
@@ -749,6 +749,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -758,9 +759,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -798,6 +796,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -806,9 +805,6 @@
                         "magical",
                         "radiation"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -842,17 +838,17 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "earth",
-                        "magical",
-                        "range-increment-100"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1109,7 +1105,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>An explosion of razor-sharp splinters deals @Damage[15d6[piercing]|traits:item:frequency:limited] damage in a @Template[burst|distance:30] within 120 feet, with a @Check[reflex|dc:35|basic] save. The vault keeper can't use Crystal Burst again for [[/gmr 1d4 #Recharge Crystal Burst]]{1d4 rounds}.</p>"
+                    "value": "<p>An explosion of razor-sharp splinters deals @Damage[15d6[piercing]|options:area-damage|traits:item:frequency:limited] damage in a @Template[burst|distance:30] within 120 feet, with a @Check[reflex|dc:35|basic|options:area-effect] save. The vault keeper can't use Crystal Burst again for [[/gmr 1d4 #Recharge Crystal Burst]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",

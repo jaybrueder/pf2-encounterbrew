@@ -1,0 +1,800 @@
+{
+    "_id": "YdR6e9b5oxuBmD2Z",
+    "folder": "xwhdTjHDOMETAuhU",
+    "img": "systems/pf2e/icons/default-icons/npc.svg",
+    "items": [
+        {
+            "_id": "POLsp6d5ZmM0nyGh",
+            "_stats": {
+                "compendiumSource": "Actor.fyS8hbgG2bahSIDp.Item.POLsp6d5ZmM0nyGh"
+            },
+            "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
+            "name": "Primal Innate Spells",
+            "sort": 100000,
+            "system": {
+                "autoHeightenLevel": {
+                    "value": null
+                },
+                "description": {
+                    "value": ""
+                },
+                "prepared": {
+                    "value": "innate"
+                },
+                "proficiency": {
+                    "value": 1
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "showSlotlessLevels": {
+                    "value": false
+                },
+                "slots": {},
+                "slug": null,
+                "spelldc": {
+                    "dc": 29,
+                    "value": 0
+                },
+                "tradition": {
+                    "value": "primal"
+                },
+                "traits": {}
+            },
+            "type": "spellcastingEntry"
+        },
+        {
+            "_id": "oGgMpSd5v7cMdtqO",
+            "_stats": {
+                "compendiumSource": "Compendium.pf2e.spells-srd.Item.R5FHRv7VqyRnxg2t"
+            },
+            "folder": "iDjm2cXyRAe4VZ35",
+            "img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+            "name": "Wall of Ice",
+            "sort": 200000,
+            "system": {
+                "area": null,
+                "cost": {
+                    "value": ""
+                },
+                "counteraction": false,
+                "damage": {
+                    "0": {
+                        "applyMod": false,
+                        "category": null,
+                        "formula": "2d6",
+                        "kinds": [
+                            "damage"
+                        ],
+                        "materials": [],
+                        "type": "cold"
+                    }
+                },
+                "defense": null,
+                "description": {
+                    "value": "<p>You sculpt an ice barrier that blocks sight and, once shattered, freezes foes. You create either a 1-foot-thick wall of ice in a straight line up to 60 feet long and 10 feet high (the wall doesn't have to be vertical, but it must be anchored on both sides to a solid surface) or a 1-foot-thick, 10-foot radius hemisphere of ice. The ice that makes up the wall is opaque. If you wish, the wall can be of a smaller length, height, or radius.</p>\n<p>You must create the wall in an unbroken open space so its edges don't pass through any creatures or objects, or the spell is lost. Each 10-foot-by-10-foot section of the wall has AC 10, Hardness 10, and 40 Hit Points, and it's immune to critical hits, cold damage, and precision damage. A section also has weakness 15 to fire; a section of the wall destroyed by fire melts, evaporating into water and steam. A section destroyed by means other than fire leaves behind a chilling mass of ice that is difficult terrain and deals 2d6 cold damage to any creature passing through it.</p><hr /><p><strong>Heightened (+2)</strong> The Hit Points of each section of the wall increase by 10, and the cold damage dealt to creatures crossing a destroyed section increases by 1d6.</p>"
+                },
+                "duration": {
+                    "sustained": false,
+                    "value": "1 minute"
+                },
+                "heightening": {
+                    "damage": {
+                        "0": "1d6"
+                    },
+                    "interval": 1,
+                    "type": "interval"
+                },
+                "level": {
+                    "value": 5
+                },
+                "location": {
+                    "heightenedLevel": 5,
+                    "value": "POLsp6d5ZmM0nyGh"
+                },
+                "publication": {
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
+                },
+                "range": {
+                    "value": "120 feet"
+                },
+                "requirements": "",
+                "rules": [],
+                "slug": "wall-of-ice",
+                "target": {
+                    "value": ""
+                },
+                "time": {
+                    "value": "3"
+                },
+                "traits": {
+                    "rarity": "common",
+                    "traditions": [
+                        "arcane",
+                        "primal"
+                    ],
+                    "value": [
+                        "cold",
+                        "concentrate",
+                        "manipulate",
+                        "water"
+                    ]
+                }
+            },
+            "type": "spell"
+        },
+        {
+            "_id": "OBrNzw81w52wdpVu",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Jaws",
+            "sort": 300000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": [
+                        "grab"
+                    ]
+                },
+                "bonus": {
+                    "value": 21
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "2d10+8",
+                        "damageType": "piercing"
+                    },
+                    "1": {
+                        "damage": "2d6",
+                        "damageType": "cold"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "cold",
+                        "magical",
+                        "reach-10"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "iEXR33HC2yQojbxI",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Claw",
+            "sort": 400000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 21
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "2d8+8",
+                        "damageType": "slashing"
+                    },
+                    "1": {
+                        "damage": "2d6",
+                        "damageType": "cold"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "agile",
+                        "cold",
+                        "magical"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "5c8uhNUNK2kME6dz",
+            "img": "systems/pf2e/icons/default-icons/melee.svg",
+            "name": "Tail",
+            "sort": 500000,
+            "system": {
+                "action": "strike",
+                "area": null,
+                "attackEffects": {
+                    "value": []
+                },
+                "bonus": {
+                    "value": 19
+                },
+                "damageRolls": {
+                    "0": {
+                        "damage": "2d12+8",
+                        "damageType": "bludgeoning"
+                    },
+                    "1": {
+                        "damage": "2d6",
+                        "damageType": "cold"
+                    }
+                },
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "range": null,
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "cold",
+                        "magical",
+                        "reach-15"
+                    ]
+                }
+            },
+            "type": "melee"
+        },
+        {
+            "_id": "SF6dYRzzYA6AbZr7",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Arctic Hunter",
+            "sort": 600000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>A rime dragon's natural camouflage allows them to [[/act hide]] in arctic terrain without cover. A rime dragon also ignores difficult terrain and greater difficult terrain from ice and snow and doesn't risk falling when crossing ice.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "OdTNgj9pUo50loyf",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Snow Vision",
+            "sort": 700000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "interaction",
+                "description": {
+                    "value": "<p>Snow doesn't impair the rime dragon's vision; they ignore @UUID[Compendium.pf2e.conditionitems.Item.Concealed]{Concealment} from snowfall.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "hoa165EZJ2gDgf8s",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "+2 Status to All Saves vs. Primal",
+            "sort": 800000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": ""
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "item:trait:primal"
+                        ],
+                        "selector": "saving-throw",
+                        "type": "status",
+                        "value": 2
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "B0OfY0UUBZutj1ue",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Radiate Cold",
+            "sort": 900000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "defensive",
+                "description": {
+                    "value": "<p>10 feet. The adult rime dragon's presence lowers the temperature around them. A creature who enters or begins their turn in the aura must attempt a @Check[fortitude|dc:26|options:area-effect,inflicts:enfeebled,inflicts:immobilized] save.</p><hr /><p><strong>Critical Success</strong> The creature is unaffected.</p>\n<p><strong>Success</strong> The creature begins to shiver as the biting cold affects it. It takes a –5-foot status penalty to its Speeds until the end of its next turn.</p>\n<p><strong>Failure</strong> The creature's body temperature begins to drop. It takes a –10-foot status penalty to their Speeds and is @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1} until the end of its next turn.</p>\n<p><strong>Critical Failure</strong> Ice begins to form on the creature. It's @UUID[Compendium.pf2e.conditionitems.Item.Immobilized] ([[/act escape dc=26]]) and @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 2} until the end of their its turn.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Radiate Cold]</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Aura",
+                        "radius": 10,
+                        "traits": [
+                            "cold",
+                            "primal"
+                        ]
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "aura",
+                        "cold",
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "TpzLgnzQE3P8BctL",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Blizzard Breath",
+            "sort": 1000000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon breathes out a gust of frost and ice that deals @Damage[9d8[cold]|options:area-damage] damage in a @Template[type:cone|distance:40] (@Check[reflex|dc:29|basic|options:area-effect] save). They can't use Blizzard Breath again for [[/gmr 1d4 #Recharge Blizzard Breath]]{1d4 rounds}.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "cold",
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "mfAqRkLRQeaAeiKR",
+            "img": "systems/pf2e/icons/actions/TwoActions.webp",
+            "name": "Draconic Frenzy",
+            "sort": 1100000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 2
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon makes two claw Strikes and one tail Strike in any order.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "b3ABg94M6kcsmmfR",
+            "img": "systems/pf2e/icons/actions/Passive.webp",
+            "name": "Draconic Momentum",
+            "sort": 1200000,
+            "system": {
+                "actionType": {
+                    "value": "passive"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p>The dragon recharges their Blizzard Breath whenever they score a critical hit with a Strike.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "Note",
+                        "outcome": [
+                            "criticalSuccess"
+                        ],
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
+                    }
+                ],
+                "slug": null,
+                "traits": {
+                    "value": []
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "HuNpUJDqQ6iqHzRy",
+            "img": "systems/pf2e/icons/actions/OneAction.webp",
+            "name": "Piercing Ice",
+            "sort": 1300000,
+            "system": {
+                "actionType": {
+                    "value": "action"
+                },
+                "actions": {
+                    "value": 1
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Requirements</strong> The dragon has temporary Hit Points from Rime Shield</p><hr /><p><strong>Effect</strong> The dragon launches the collected ice shards from its scales in a @Template[type:emanation|distance:5], dealing @Damage[4d6[piercing],3d6[cold]|options:area-damage] damage (@Check[reflex|dc:29|basic|options:area-effect] save). The dragon then loses the AC bonus and temporary Hit Points from Rime Shield.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "cold",
+                        "concentrate",
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "FWvZ2aqTc39xhR3x",
+            "img": "systems/pf2e/icons/actions/FreeAction.webp",
+            "name": "Rime Shield",
+            "sort": 1400000,
+            "system": {
+                "actionType": {
+                    "value": "free"
+                },
+                "actions": {
+                    "value": null
+                },
+                "category": "offensive",
+                "description": {
+                    "value": "<p><strong>Requirements</strong> The rime dragon's last action was to Fly at least 40 feet</p><hr /><p><strong>Effect</strong> Water vapor collected on the dragon's scales quickly freezes over. The dragon gains a +2 circumstance bonus to AC and 10 temporary Hit Points that last until the end of the dragon's next turn.</p>"
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [
+                    {
+                        "key": "ActiveEffectLike",
+                        "mode": "override",
+                        "path": "flags.system.rimeShieldTempHP",
+                        "value": 10
+                    }
+                ],
+                "selfEffect": {
+                    "name": "Effect: Rime Shield",
+                    "uuid": "Compendium.pf2e.bestiary-effects.Item.Effect: Rime Shield"
+                },
+                "slug": null,
+                "traits": {
+                    "value": [
+                        "cold",
+                        "primal"
+                    ]
+                }
+            },
+            "type": "action"
+        },
+        {
+            "_id": "Kg6vtjZXzhJYYqQC",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Architecture Lore",
+            "sort": 1500000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 20
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {}
+            },
+            "type": "lore"
+        },
+        {
+            "_id": "GNFHl52VLlDvJvEI",
+            "img": "systems/pf2e/icons/default-icons/lore.svg",
+            "name": "Arctic Lore",
+            "sort": 1600000,
+            "system": {
+                "description": {
+                    "value": ""
+                },
+                "mod": {
+                    "value": 20
+                },
+                "proficient": {
+                    "value": 0
+                },
+                "publication": {
+                    "license": "OGL",
+                    "remaster": false,
+                    "title": ""
+                },
+                "rules": [],
+                "slug": null,
+                "traits": {}
+            },
+            "type": "lore"
+        }
+    ],
+    "name": "Rime Dragon (Adult)",
+    "system": {
+        "abilities": {
+            "cha": {
+                "mod": 3
+            },
+            "con": {
+                "mod": 7
+            },
+            "dex": {
+                "mod": 3
+            },
+            "int": {
+                "mod": 4
+            },
+            "str": {
+                "mod": 6
+            },
+            "wis": {
+                "mod": 5
+            }
+        },
+        "attributes": {
+            "ac": {
+                "details": "",
+                "value": 29
+            },
+            "allSaves": {
+                "value": "+2 status to all saves vs. primal"
+            },
+            "hp": {
+                "details": "",
+                "max": 175,
+                "temp": 0,
+                "value": 175
+            },
+            "immunities": [
+                {
+                    "type": "cold"
+                },
+                {
+                    "type": "paralyzed"
+                },
+                {
+                    "type": "sleep"
+                }
+            ],
+            "speed": {
+                "otherSpeeds": [
+                    {
+                        "type": "fly",
+                        "value": 100
+                    },
+                    {
+                        "type": "swim",
+                        "value": 30
+                    }
+                ],
+                "value": 40
+            },
+            "weaknesses": [
+                {
+                    "type": "fire",
+                    "value": 10
+                }
+            ]
+        },
+        "details": {
+            "blurb": "",
+            "languages": {
+                "details": "",
+                "value": [
+                    "common",
+                    "draconic",
+                    "jotun"
+                ]
+            },
+            "level": {
+                "value": 10
+            },
+            "privateNotes": "",
+            "publicNotes": "<p>Rime dragons are the embodiment of the frigid cold and ice. These hardy creatures have adapted to harsh arctic climates, able to survive indefinitely in sub-zero temperatures. Rime dragons are shades of white and pale blue that perfectly camouflage them in their natural habitat, resembling glaciers or mounds of snow when curled up. They can break through large slabs of ice and dive into frozen waters in search of prey. Due to their natural lower body temperature, they can slow their digestive tract, which allows them to live a long time on little food. Large prey—such as whales, caribou, or moose—offer the best sustenance, but they aren't picky when it's time to eat.</p>\n<p>Rime dragons have a deep curiosity for things hidden and lost in the ice. The ocean's currents bring all kinds of artifacts from across the world to their frigid waters. Self-described caretakers and scholars, rime dragons search the arctic regions for ancient antiquities. Rime dragons with an academic interest in archaeology peer into glaciers for pieces of civilizations both recent and ancient, which they preserve in their lairs. Others might search for fossils or preserved corpses. Rime dragons also have an interest in more biological aspects of the world. As preservers of life, some of these dragons collect flora to log and study, and they protect endangered species by using low temperatures to conserve them. They also act as paleopathologists, studying ancient diseases that could cause havoc if they were brought back to a populace unknowingly. These they carefully contain while researching mitigation strategies should the pathogens be reintroduced to the world.</p>",
+            "publication": {
+                "license": "ORC",
+                "remaster": true,
+                "title": "Pathfinder Lost Omens Draconic Codex"
+            }
+        },
+        "initiative": {
+            "statistic": "perception"
+        },
+        "perception": {
+            "details": "snow vision",
+            "mod": 20,
+            "senses": [
+                {
+                    "type": "darkvision"
+                },
+                {
+                    "acuity": "imprecise",
+                    "range": 60,
+                    "type": "scent"
+                }
+            ]
+        },
+        "resources": {},
+        "saves": {
+            "fortitude": {
+                "saveDetail": "",
+                "value": 22
+            },
+            "reflex": {
+                "saveDetail": "",
+                "value": 16
+            },
+            "will": {
+                "saveDetail": "",
+                "value": 19
+            }
+        },
+        "skills": {
+            "athletics": {
+                "base": 22,
+                "special": []
+            },
+            "nature": {
+                "base": 13,
+                "special": []
+            },
+            "occultism": {
+                "base": 19,
+                "special": []
+            },
+            "stealth": {
+                "base": 18,
+                "special": [
+                    {
+                        "base": 22,
+                        "label": "in arctic terrain",
+                        "predicate": [
+                            "environment:artic"
+                        ]
+                    }
+                ]
+            },
+            "survival": {
+                "base": 21,
+                "special": []
+            }
+        },
+        "traits": {
+            "rarity": "common",
+            "size": {
+                "value": "huge"
+            },
+            "value": [
+                "cold",
+                "dragon",
+                "primal"
+            ]
+        }
+    },
+    "type": "npc"
+}

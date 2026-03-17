@@ -970,6 +970,11 @@
             "name": "Living Bow",
             "sort": 1400000,
             "system": {
+                "ammo": {
+                    "baseType": "arrows",
+                    "builtIn": false,
+                    "capacity": null
+                },
                 "baseItem": "composite-longbow",
                 "bonus": {
                     "value": 0
@@ -995,6 +1000,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "bow",
                 "hardness": 0,
                 "hp": {
@@ -1146,6 +1152,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1154,9 +1161,6 @@
                         "agile",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1199,6 +1203,10 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 100
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1207,12 +1215,8 @@
                         "deadly-d10",
                         "magical",
                         "propulsive",
-                        "range-100",
                         "volley-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -1291,7 +1295,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>500 feet. A wild hunt archer grants wild hunt other than archers the ability to target @UUID[Compendium.pf2e.conditionitems.Item.Concealed] creatures with ranged Strikes without having to succeed at a @Check[flat|dc:5].</p>"
+                    "value": "<p>500 feet. A wild hunt archer grants wild hunt other than archers the ability to target @UUID[Compendium.pf2e.conditionitems.Item.Concealed] creatures with ranged Strikes without having to succeed at a DC 5 flat check.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1425,7 +1429,6 @@
                         ]
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "wild-gaze-active",
                         "toggleable": true,

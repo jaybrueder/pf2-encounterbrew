@@ -724,6 +724,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -732,9 +733,6 @@
                         "force",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -768,6 +766,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -777,9 +776,6 @@
                         "force",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -913,7 +909,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "deflecting-gale",
                         "toggleable": true
@@ -1026,7 +1021,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Cloudsplitter breathes fire in a @Template[cone|distance:30], dealing @Damage[18d6[fire]] damage (@Check[reflex|dc:40|basic] save). Cloudsplitter can't use Breath Weapon again for [[/gmr 1d4 #Recharge Breath Weapon]]{1d4 rounds}.</p>"
+                    "value": "<p>Cloudsplitter breathes fire in a @Template[cone|distance:30], dealing @Damage[18d6[fire]|options:area-damage] damage (@Check[reflex|dc:40|basic|options:area-effect] save). Cloudsplitter can't use Breath Weapon again for [[/gmr 1d4 #Recharge Breath Weapon]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1059,7 +1054,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The Cloudsplitter rushes forward, rears up on their hind legs, and descends upon their target with their horn. Cloudsplitter Strides and makes a horn Strike. If this Strike hits, it deals an additional [[/r 2d8]] damage, and the target is knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"
+                    "value": "<p>The Cloudsplitter rushes forward, rears up on their hind legs, and descends upon their target with their horn. Cloudsplitter Strides and makes a horn Strike. If this Strike hits, it deals an additional 2d8 damage, and the target is knocked @UUID[Compendium.pf2e.conditionitems.Item.Prone].</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -1068,7 +1063,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "rearing-thrust",
                         "toggleable": true
@@ -1198,7 +1192,7 @@
             }
         },
         "details": {
-            "blurb": "",
+            "blurb": "Variant kirin",
             "languages": {
                 "details": "telepathy 100 feet",
                 "value": [

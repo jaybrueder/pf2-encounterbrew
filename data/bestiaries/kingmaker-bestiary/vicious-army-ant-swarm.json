@@ -49,7 +49,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p><strong>Trigger</strong> A creature leaves the swarm's space</p>\n<hr />\n<p><strong>Effect</strong> The swarm takes [[/r {1d6}]]{1d6 damage} as ants cling to the creature and continue biting, dealing @Damage[7d6[persistent,piercing]] damage. High winds or immersion in water reduces the DC of the flat check to end this persistent damage to 5. Any area damage dealt to the creature destroys these clinging ants.</p>"
+                    "value": "<p><strong>Trigger</strong> A creature leaves the swarm's space</p>\n<hr />\n<p><strong>Effect</strong> The swarm takes @Damage[1d6[untyped]] damage as ants cling to the creature and continue biting, dealing @Damage[7d6[persistent,piercing]] damage. High winds or immersion in water reduces the DC of the flat check to end this persistent damage to 5. Any area damage dealt to the creature destroys these clinging ants.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -79,7 +79,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>Each enemy in the swarm's space takes @Damage[7d6[piercing]] damage (@Check[fortitude|dc:31|basic] save). A creature that fails its save against Swarming Bites becomes @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1} for 1 round. If the creature attempts a concentrate or manipulate action while affected, it must succeed at a @Check[flat|dc:5] check or the action is lost; roll the check after spending the action, but before any effects are applied.</p>"
+                    "value": "<p>Each enemy in the swarm's space takes @Damage[7d6[piercing]|options:area-damage] damage (@Check[fortitude|dc:31|basic|options:area-effect,inflicts:clumsy] save). A creature that fails its save against Swarming Bites becomes @UUID[Compendium.pf2e.conditionitems.Item.Clumsy]{Clumsy 1} for 1 round. If the creature attempts a concentrate or manipulate action while affected, it must succeed at a @Check[flat|dc:5] check or the action is lost; roll the check after spending the action, but before any effects are applied.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Swarming Bites]</p>"
                 },
                 "publication": {
                     "license": "OGL",

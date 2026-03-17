@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -126,6 +127,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -152,7 +154,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -295,9 +297,6 @@
         },
         {
             "_id": "BKpUsI3mLhP4a5Gb",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.pathfinder-npc-core.Actor.vfFB2za4zaQnXYIa.Item.uUISfTBeVRNhnN9u"
-            },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Fist",
             "sort": 500000,
@@ -322,6 +321,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -366,6 +366,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "dagger",
                 "traits": {
@@ -411,6 +412,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "dagger",
                 "traits": {
@@ -457,6 +459,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "sword-cane",
                 "traits": {
@@ -472,9 +475,6 @@
         },
         {
             "_id": "VYqmsfhYCU6ak1bm",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.pathfinder-npc-core.Actor.vfFB2za4zaQnXYIa.Item.BpD2byfrbMItSgfy"
-            },
             "img": "systems/pf2e/icons/actions/Passive.webp",
             "name": "+2 to Sense Motive",
             "sort": 900000,
@@ -497,7 +497,6 @@
                 "rules": [
                     {
                         "key": "FlatModifier",
-                        "label": "To Sense Motive",
                         "predicate": [
                             "action:sense-motive"
                         ],
@@ -514,9 +513,6 @@
         },
         {
             "_id": "t9t9UyZUzYGkBBPE",
-            "_stats": {
-                "compendiumSource": "Compendium.pf2e.pathfinder-npc-core.Actor.bzRxQ0Z317yeCUE5.Item.jCd90kV3C9iAbsbt"
-            },
             "img": "systems/pf2e/icons/actions/Passive.webp",
             "name": "Insightful",
             "sort": 1000000,
@@ -601,7 +597,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The accuser agent's Strikes deal an extra 3d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures. A target who takes this additional precision damage also either becomes @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1} or takes a –10-foot status penalty to its Speeds until the end of the agent's next turn.</p>"
+                    "value": "<p>The accuser agent's Strikes deal an extra 3d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures. A target who takes this additional precision damage also either becomes @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1} or takes a –10-foot status penalty to its Speeds until the end of the agent's next turn.</p>\n<p>@UUID[Compendium.pf2e.bestiary-effects.Item.Effect: Debilitating Sneak Attack]</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -620,7 +616,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",
@@ -635,8 +630,10 @@
                         "predicate": [
                             "target:condition:off-guard"
                         ],
-                        "selector": "attack-damage",
-                        "text": "The accuser agent's Strikes deal an extra 3d6 precision damage to @UUID[Compendium.pf2e.conditionitems.Item.Off-Guard] creatures. A target who takes this additional precision damage also either becomes @UUID[Compendium.pf2e.conditionitems.Item.Enfeebled]{Enfeebled 1} or takes a –10-foot status penalty to its Speeds until the end of the agent's next turn."
+                        "selector": "strike-damage",
+                        "text": "{item|system.description.value}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
                     }
                 ],
                 "slug": "sneak-attack",
@@ -737,7 +734,7 @@
             "statistic": "perception"
         },
         "perception": {
-            "details": "+21 to Sense Motive",
+            "details": "(+21 to Sense Motive)",
             "mod": 19,
             "senses": []
         },

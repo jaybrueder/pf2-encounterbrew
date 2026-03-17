@@ -141,6 +141,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "knife",
                 "hardness": 0,
                 "hp": {
@@ -167,7 +168,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -222,6 +223,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -264,6 +266,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "sickle",
                 "traits": {
@@ -309,11 +312,14 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 20,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "range-increment-20",
                         "splash"
                     ]
                 }
@@ -821,6 +827,7 @@
                 "temp": 0,
                 "value": 66
             },
+            "immunities": [],
             "resistances": [
                 {
                     "doubleVs": [],

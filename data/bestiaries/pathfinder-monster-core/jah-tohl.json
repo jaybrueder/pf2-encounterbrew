@@ -1139,6 +1139,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1146,9 +1147,6 @@
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1183,6 +1181,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -1191,9 +1190,6 @@
                         "agile",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -1331,43 +1327,66 @@
                 "rules": [
                     {
                         "alwaysActive": true,
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.NPCAbility.BrainCollector.BrainBlistersRemaining",
-                        "option": "brain-blisters",
-                        "selection": "7",
+                        "option": "brain-blisters-stupefied",
+                        "selection": "0",
                         "suboptions": [
                             {
+                                "label": "PF2E.SpecificRule.Numbers.Zero",
+                                "value": "7"
+                            },
+                            {
                                 "label": "PF2E.SpecificRule.Numbers.One",
-                                "value": "1"
-                            },
-                            {
-                                "label": "PF2E.SpecificRule.Numbers.Two",
-                                "value": "2"
-                            },
-                            {
-                                "label": "PF2E.SpecificRule.Numbers.Three",
-                                "value": "3"
-                            },
-                            {
-                                "label": "PF2E.SpecificRule.Numbers.Four",
-                                "value": "4"
-                            },
-                            {
-                                "label": "PF2E.SpecificRule.Numbers.Five",
-                                "value": "5"
-                            },
-                            {
-                                "label": "PF2E.SpecificRule.Numbers.Six",
                                 "value": "6"
                             },
                             {
+                                "label": "PF2E.SpecificRule.Numbers.Two",
+                                "value": "5"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.Numbers.Three",
+                                "value": "4"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.Numbers.Four",
+                                "value": "3"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.Numbers.Five",
+                                "value": "2"
+                            },
+                            {
+                                "label": "PF2E.SpecificRule.Numbers.Six",
+                                "value": "1"
+                            },
+                            {
                                 "label": "PF2E.SpecificRule.Numbers.Seven",
-                                "value": "7"
+                                "value": "0"
                             }
                         ],
                         "toggleable": true,
                         "value": true
+                    },
+                    {
+                        "alterations": [
+                            {
+                                "mode": "override",
+                                "property": "badge-value",
+                                "value": "{item|flags.system.rulesSelections.brainBlistersStupefied}"
+                            }
+                        ],
+                        "inMemoryOnly": true,
+                        "key": "GrantItem",
+                        "predicate": [
+                            {
+                                "gt": [
+                                    "{item|flags.system.rulesSelections.brainBlistersStupefied}",
+                                    0
+                                ]
+                            }
+                        ],
+                        "uuid": "Compendium.pf2e.conditionitems.Item.Stupefied"
                     }
                 ],
                 "slug": null,
@@ -1422,7 +1441,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The jahtohl extracts the brain of a creature within its reach that has been dead for no more than 1 minute. It can then use an Interact action to secure the brain in one of its empty brain blisters and heal 20 Hit Points.</p>"
+                    "value": "<p>The jah-tohl extracts the brain of a creature within its reach that has been dead for no more than 1 minute. It can then use an Interact action to secure the brain in one of its empty brain blisters and heal @Damage[20[healing]] Hit Points.</p>"
                 },
                 "publication": {
                     "license": "ORC",

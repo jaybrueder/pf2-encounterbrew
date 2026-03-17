@@ -212,6 +212,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "jaws",
                 "traits": {
@@ -222,9 +223,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -259,6 +257,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -268,9 +267,6 @@
                         "magical",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -305,6 +301,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "tail",
                 "traits": {
@@ -313,9 +310,6 @@
                         "magical",
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -334,7 +328,7 @@
                 },
                 "category": "interaction",
                 "description": {
-                    "value": "<p>Snow doesn't impair a white dragon's vision; it ignores concealment from snowfall.</p>"
+                    "value": "<p>Snow doesn't impair a white dragon's vision; it ignores @UUID[Compendium.pf2e.conditionitems.Item.Concealed]{Concealment} from snowfall.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -407,7 +401,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>5 feet. @Damage[2d6[cold]] damage (@Check[reflex|dc:27|basic] save)</p>"
+                    "value": "<p>5 feet. @Damage[2d6[cold]|options:area-damage] damage (@Check[reflex|dc:27|basic|options:area-effect] save)</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -487,7 +481,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>90 feet. @Check[will|dc:27]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
+                    "value": "<p>90 feet. @Check[will|dc:27|options:area-effect,inflicts:frightened]</p>\n<hr />\n<p>@Localize[PF2E.NPC.Abilities.Glossary.FrightfulPresence]</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -596,7 +590,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>When the dragon scores a critical hit with a Strike, it recharges its Breath Weapon</p>"
+                    "value": "<p>When the dragon scores a critical hit with a Strike, it recharges its Breath Weapon.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -609,9 +603,10 @@
                         "outcome": [
                             "criticalSuccess"
                         ],
-                        "selector": "attack",
-                        "text": "{item|system.description.value}",
-                        "title": "{item|name}"
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
                     }
                 ],
                 "slug": null,
@@ -636,7 +631,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The dragon slams into the ground. It can do this if it's on the ground or Flying within 10 feet of the ground. Each creature on the ground within @Template[emanation|distance:10]{10 feet} must succeed at a @Check[reflex|dc:29|traits:damaging-effect] save or fall @UUID[Compendium.pf2e.conditionitems.Item.Prone] and take @Damage[3d6[bludgeoning]] damage.</p>\n<p>The dragon can then Step.</p>"
+                    "value": "<p>The dragon slams into the ground. It can do this if it's on the ground or Flying within 10 feet of the ground. Each creature on the ground within @Template[emanation|distance:10]{10 feet} must succeed at a @Check[reflex|dc:29|options:area-effect,damaging-effect] save or fall @UUID[Compendium.pf2e.conditionitems.Item.Prone] and take @Damage[3d6[bludgeoning]|options:area-damage] damage.</p>\n<p>The dragon can then Step.</p>"
                 },
                 "publication": {
                     "license": "OGL",

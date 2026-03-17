@@ -32,6 +32,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -39,9 +40,6 @@
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -81,7 +79,6 @@
                         "value": 1
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "riled-by-disrespect",
                         "toggleable": true
@@ -299,6 +296,9 @@
                 "value": 15
             },
             "immunities": [
+                {
+                    "type": "bleed"
+                },
                 {
                     "exceptions": [],
                     "type": "death-effects"

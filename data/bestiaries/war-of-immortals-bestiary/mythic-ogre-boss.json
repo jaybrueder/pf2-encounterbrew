@@ -36,6 +36,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "dart",
                 "hardness": 0,
                 "hp": {
@@ -115,13 +116,14 @@
                     "die": "d10"
                 },
                 "description": {
-                    "value": "<p>This <em>+1 striking ogre hook</em> causes its owner to dream of past murders conducted with the weapon. Gut-Ripper's mythic magic is tied to the bloodlust of the ogre boss who was holding it upon becoming mythic. If Gut-Ripper doesn't kill a creature each day by midnight, it becomes a non-magical ogre hook.</p>\n<p><strong>Activate—Rip Guts! Rip Guts!</strong> <span class=\"action-glyph\">2</span> <strong>Cost</strong> 1 Mythic Point</p><hr /><p><strong>Effect</strong> You throw Gut-Ripper in a line of any length up to 60 feet, then it returns to your hands. Each creature in the line takes @Damage[2d10[piercing]] damage with a @Check[fortitude|dc:25|basic] save. If there's a creature at the end of the line, you instead make a melee Strike against it with the hook that deals an additional @Damage[2d10[persistent,bleed]] damage. Each time a creature takes this bleed damage, you regain that many HP; this is a healing vitality effect. This activation can't be used again for [[/gmr 1d4 #Recharge be used]]{1d4 rounds}.</p>"
+                    "value": "<p>This <em>+1 striking ogre hook</em> causes its owner to dream of past murders conducted with the weapon. <em>Gut-Ripper</em>'s mythic magic is tied to the bloodlust of the ogre boss who was holding it upon becoming mythic. If <em>Gut-Ripper</em> doesn't kill a creature each day by midnight, it becomes a non-magical ogre hook.</p><hr /><p><strong>Activate—Rip Guts! Rip Guts!</strong> <span class=\"action-glyph\">2</span> <strong>Cost</strong> 1 Mythic Point</p>\n<p><strong>Effect</strong> You throw <em>Gut-Ripper</em> in a line of any length up to 60 feet, then it returns to your hands. Each creature in the line takes @Damage[2d10[piercing]|options:area-damage] damage with a @Check[fortitude|dc:25|basic|options:area-effect] save. If there's a creature at the end of the line, you instead make a melee Strike against it with the hook that deals an additional @Damage[2d10[persistent,bleed]] damage. Each time a creature takes this bleed damage, you regain that many HP; this is a healing vitality effect. This activation can't be used again for [[/r 1d4 #Recharge Rip Guts! Rip Guts!]]{1d4 rounds}.</p>"
                 },
                 "equipped": {
                     "carryType": "held",
                     "handsHeld": 2,
                     "invested": null
                 },
+                "expend": null,
                 "group": "pick",
                 "hardness": 0,
                 "hp": {
@@ -155,7 +157,7 @@
                     "striking": 1
                 },
                 "size": "lg",
-                "slug": null,
+                "slug": "gut-ripper",
                 "specific": {
                     "material": {
                         "grade": null,
@@ -279,6 +281,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -322,6 +325,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -519,7 +523,24 @@
                     "remaster": true,
                     "title": "Pathfinder War of Immortals"
                 },
-                "rules": [],
+                "rules": [
+                    {
+                        "key": "RollOption",
+                        "option": "mythic-skill",
+                        "toggleable": true
+                    },
+                    {
+                        "key": "FlatModifier",
+                        "predicate": [
+                            "mythic-skill"
+                        ],
+                        "selector": [
+                            "athletics"
+                        ],
+                        "slug": "mythic-skill-bonus",
+                        "value": 4
+                    }
+                ],
                 "slug": null,
                 "traits": {
                     "value": []
@@ -596,6 +617,14 @@
                 "temp": 0,
                 "value": 130
             },
+            "resistances": [
+                {
+                    "doubleVs": [],
+                    "exceptions": [],
+                    "type": "mythic",
+                    "value": 7
+                }
+            ],
             "speed": {
                 "otherSpeeds": [],
                 "value": 25

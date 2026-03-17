@@ -70,13 +70,18 @@
                 },
                 "counteraction": false,
                 "damage": {},
-                "defense": null,
+                "defense": {
+                    "save": {
+                        "basic": false,
+                        "statistic": "fortitude"
+                    }
+                },
                 "description": {
-                    "value": "<p>By imposing your will upon the water, you can raise or lower the level of water in the chosen area by 10 feet. Water creatures in the area are subjected to the effects of @UUID[Compendium.pf2e.spells-srd.Item.Slow].</p>"
+                    "value": "<p><strong>Area</strong> 50 feet long by 50 feet wide</p><hr /><p>By imposing your will upon the water, you can raise or lower the level of water in the chosen area by 10 feet. Creatures that have the water trait and that are in the area when you Cast the Spell must attempt a Fortitude save, with the effects of the @UUID[Compendium.pf2e.spells-srd.Item.Slow] spell.</p>"
                 },
                 "duration": {
                     "sustained": false,
-                    "value": ""
+                    "value": "1 hour"
                 },
                 "level": {
                     "value": 5
@@ -85,9 +90,9 @@
                     "value": "pBSCpqNjtOltHsiZ"
                 },
                 "publication": {
-                    "license": "OGL",
-                    "remaster": false,
-                    "title": ""
+                    "license": "ORC",
+                    "remaster": true,
+                    "title": "Pathfinder Player Core"
                 },
                 "range": {
                     "value": "500 feet"
@@ -146,6 +151,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -153,9 +159,6 @@
                     "value": [
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -192,6 +195,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -200,9 +204,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -239,16 +240,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 60,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
-                    "value": [
-                        "range-increment-60"
-                    ]
-                },
-                "weaponType": {
-                    "value": "ranged"
+                    "value": []
                 }
             },
             "type": "melee"
@@ -268,7 +268,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the great grodair dies, his body explodes in a blast of pressurized water that deals @Damage[6d6[bludgeoning]] damage to creatures within a @Template[emanation|distance:15] (@Check[reflex|dc:25|basic|traits:amphibious,beast,fey] save). A creature that fails its save is pushed 5 feet (or 10 feet on a critical failure).</p>"
+                    "value": "<p>When the great grodair dies, his body explodes in a blast of pressurized water that deals @Damage[6d6[bludgeoning]|options:area-damage] damage to creatures within a @Template[emanation|distance:15] (@Check[reflex|dc:25|basic|options:area-effect] save). A creature that fails its save is pushed 5 feet (or 10 feet on a critical failure).</p>"
                 },
                 "publication": {
                     "license": "OGL",

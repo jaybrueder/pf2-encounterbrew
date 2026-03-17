@@ -2480,6 +2480,8 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
+                "grade": "commercial",
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -2506,7 +2508,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -2565,6 +2567,8 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
+                "grade": "elite",
                 "group": "polearm",
                 "hardness": 0,
                 "hp": {
@@ -2591,7 +2595,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [
                     {
@@ -2618,20 +2622,30 @@
                         ]
                     },
                     {
-                        "key": "WeaponPotency",
-                        "selector": "flechette-attack",
+                        "itemType": "weapon",
+                        "key": "ItemAlteration",
+                        "mode": "upgrade",
+                        "predicate": [
+                            "item:slug:flechette"
+                        ],
+                        "property": "runes-potency",
                         "value": "@item.system.runes.potency"
                     },
                     {
-                        "key": "Striking",
-                        "selector": "flechette-damage",
+                        "itemType": "weapon",
+                        "key": "ItemAlteration",
+                        "mode": "upgrade",
+                        "predicate": [
+                            "item:slug:flechette"
+                        ],
+                        "property": "runes-striking",
                         "value": "@item.system.runes.striking"
                     }
                 ],
                 "runes": {
-                    "potency": 2,
+                    "potency": 0,
                     "property": [],
-                    "striking": 2
+                    "striking": 0
                 },
                 "size": "med",
                 "slug": "rod-of-razors",
@@ -3181,6 +3195,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -3189,9 +3204,6 @@
                         "reach-10",
                         "versatile-p"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -3225,18 +3237,18 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": 100,
+                    "max": null
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "rarity": "common",
                     "value": [
                         "deadly-d10",
-                        "range-increment-100",
                         "volley-30"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"

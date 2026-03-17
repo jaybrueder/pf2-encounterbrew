@@ -32,6 +32,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -42,9 +43,6 @@
                         "unarmed",
                         "unholy"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -105,7 +103,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "subservience",
                         "suboptions": [
@@ -153,6 +150,10 @@
                         "selector": "land-speed",
                         "type": "circumstance",
                         "value": 10
+                    },
+                    {
+                        "key": "RollOption",
+                        "option": "self:tag:ort"
                     }
                 ],
                 "slug": null,

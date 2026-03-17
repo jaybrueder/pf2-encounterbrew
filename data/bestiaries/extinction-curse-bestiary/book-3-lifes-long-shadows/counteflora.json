@@ -32,6 +32,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -39,9 +40,6 @@
                     "value": [
                         "agile"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -93,7 +91,7 @@
                 },
                 "category": "defensive",
                 "description": {
-                    "value": "<p>Whenever the counteflora takes cold damage, it takes a -10-foot circumstance penalty to Speed for 1 round.</p>"
+                    "value": "<p>Whenever the counteflora takes cold damage, it takes a –10-foot circumstance penalty to Speed for 1 round.</p>"
                 },
                 "publication": {
                     "license": "OGL",
@@ -132,7 +130,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "tighten-bracts",
                         "toggleable": true

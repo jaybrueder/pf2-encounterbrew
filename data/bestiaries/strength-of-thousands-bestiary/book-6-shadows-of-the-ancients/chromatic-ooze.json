@@ -36,6 +36,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -44,9 +45,6 @@
                         "reach-10",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -118,7 +116,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.Label.ResistanceType",
                         "option": "chromatic-shift-resistance",
@@ -147,7 +144,6 @@
                         "toggleable": true
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.Label.WeaknessType",
                         "option": "chromatic-shift-weakness",
@@ -180,7 +176,7 @@
                         "predicate": [
                             "chromatic-shift-resistance"
                         ],
-                        "type": "{item|flags.pf2e.rulesSelections.chromaticShiftResistance}",
+                        "type": "{item|flags.system.rulesSelections.chromaticShiftResistance}",
                         "value": 20
                     },
                     {
@@ -188,17 +184,17 @@
                         "predicate": [
                             "chromatic-shift-weakness"
                         ],
-                        "type": "{item|flags.pf2e.rulesSelections.chromaticShiftWeakness}",
+                        "type": "{item|flags.system.rulesSelections.chromaticShiftWeakness}",
                         "value": 20
                     },
                     {
                         "key": "ActiveEffectLike",
                         "mode": "override",
-                        "path": "flags.pf2e.chromaticShiftResistance",
+                        "path": "flags.system.chromaticShiftResistance",
                         "predicate": [
                             "chromatic-shift-resistance"
                         ],
-                        "value": "{item|flags.pf2e.rulesSelections.chromaticShiftResistance}"
+                        "value": "{item|flags.system.rulesSelections.chromaticShiftResistance}"
                     }
                 ],
                 "slug": null,
@@ -262,7 +258,7 @@
                 },
                 "rules": [
                     {
-                        "damageType": "{actor|flags.pf2e.chromaticShiftResistance}",
+                        "damageType": "{actor|flags.system.chromaticShiftResistance}",
                         "diceNumber": 2,
                         "dieSize": "d10",
                         "key": "DamageDice",

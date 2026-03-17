@@ -209,6 +209,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -352,6 +353,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "longsword",
                 "traits": {
@@ -391,12 +393,15 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 60
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
                         "magical",
-                        "range-60",
                         "spirit"
                     ]
                 }

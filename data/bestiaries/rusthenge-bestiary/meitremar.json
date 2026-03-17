@@ -360,7 +360,7 @@
             "_stats": {
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.XFtO4BBI22Uox2QP"
             },
-            "img": "systems/pf2e/icons/spells/sudden-blight.webp",
+            "img": "icons/magic/acid/dissolve-bone-white.webp",
             "name": "Sudden Blight",
             "sort": 700000,
             "system": {
@@ -1652,6 +1652,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "pick",
                 "hardness": 0,
                 "hp": {
@@ -1678,7 +1679,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -1880,7 +1881,6 @@
                 "quantity": 1,
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "has-religious-symbol",
                         "requiresEquipped": false
@@ -2253,6 +2253,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -2260,9 +2261,6 @@
                         "fatal-d10",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"

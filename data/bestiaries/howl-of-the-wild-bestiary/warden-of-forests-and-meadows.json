@@ -209,6 +209,7 @@
                     "value": "1 minute"
                 },
                 "heightening": {
+                    "area": 0,
                     "damage": {
                         "0": "1d10"
                     },
@@ -261,7 +262,7 @@
                 "compendiumSource": "Compendium.pf2e.spells-srd.Item.VlNcjmYyu95vOUe8"
             },
             "img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
-            "name": "Translocate (at will)",
+            "name": "Translocate (At Will)",
             "sort": 500000,
             "system": {
                 "area": null,
@@ -549,6 +550,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -558,9 +560,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -599,6 +598,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -607,9 +607,6 @@
                         "magical",
                         "reach-10"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -643,6 +640,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -653,9 +651,6 @@
                         "reach-15",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -693,16 +688,16 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": {
+                    "increment": null,
+                    "max": 120
+                },
                 "rules": [],
                 "slug": null,
                 "traits": {
                     "value": [
-                        "magical",
-                        "range-120"
+                        "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "ranged"
                 }
             },
             "type": "melee"
@@ -999,7 +994,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "change-shape",
                         "suboptions": [
@@ -1027,7 +1021,7 @@
                         "predicate": [
                             "change-shape"
                         ],
-                        "value": "{item|flags.pf2e.rulesSelections.changeShape}"
+                        "value": "{item|flags.system.rulesSelections.changeShape}"
                     }
                 ],
                 "slug": "change-shape",
@@ -1205,7 +1199,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

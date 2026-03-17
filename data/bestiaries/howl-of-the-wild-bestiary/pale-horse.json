@@ -85,6 +85,7 @@
                     "value": "1 minute"
                 },
                 "heightening": {
+                    "area": 0,
                     "damage": {
                         "0": "1d8"
                     },
@@ -498,6 +499,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -505,9 +507,6 @@
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -541,6 +540,7 @@
                     "remaster": false,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -549,9 +549,6 @@
                         "finesse",
                         "magical"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -768,6 +765,9 @@
             },
             "immunities": [
                 {
+                    "type": "bleed"
+                },
+                {
                     "exceptions": [],
                     "type": "death-effects"
                 },
@@ -830,7 +830,7 @@
                 "value": 11
             },
             "privateNotes": "",
-            "publicNotes": "",
+            "publicNotes": "<p>The death of a unicorn in a particularly cruel manner leads to the creation of a pale horse—a symbol of hope and purity transformed into one of hopelessness and despair.</p>",
             "publication": {
                 "license": "ORC",
                 "remaster": true,

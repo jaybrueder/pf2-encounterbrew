@@ -271,6 +271,7 @@
                     "handsHeld": 1,
                     "invested": null
                 },
+                "expend": null,
                 "group": "sword",
                 "hardness": 0,
                 "hp": {
@@ -297,7 +298,7 @@
                 "quantity": 2,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -494,6 +495,7 @@
                     "remaster": true,
                     "title": "Pathfinder Monster Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -503,9 +505,6 @@
                         "finesse",
                         "versatile-s"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -591,7 +590,7 @@
                 "category": "defensive",
                 "deathNote": true,
                 "description": {
-                    "value": "<p>When the hunter dies, their soul leaves their body in an explosion of spiritual energy. All creatures in a @Template[burst|distance:20] take @Damage[5d6[spirit]] damage (@Check[will|dc:19|basic] save).</p>\n<p>The hunter's possessions are left in a pile where they died.</p>"
+                    "value": "<p>When the hunter dies, their soul leaves their body in an explosion of spiritual energy. All creatures in a @Template[burst|distance:20] take @Damage[5d6[spirit]|options:area-damage] damage (@Check[will|dc:19|basic|options:area-effect] save).</p>\n<p>The hunter's possessions are left in a pile where they died.</p>"
                 },
                 "publication": {
                     "license": "ORC",
@@ -738,7 +737,6 @@
                         "selector": "strike-damage"
                     },
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "label": "PF2E.SpecificRule.TOTMToggle.OffGuard",
                         "option": "target:condition:off-guard",

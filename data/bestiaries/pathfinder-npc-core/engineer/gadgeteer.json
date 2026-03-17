@@ -37,6 +37,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": null,
                 "group": "club",
                 "hardness": 0,
                 "hp": {
@@ -63,7 +64,7 @@
                 "quantity": 1,
                 "range": null,
                 "reload": {
-                    "value": ""
+                    "value": null
                 },
                 "rules": [],
                 "runes": {
@@ -97,6 +98,11 @@
             "name": "Crossbow",
             "sort": 200000,
             "system": {
+                "ammo": {
+                    "baseType": "bolts",
+                    "builtIn": false,
+                    "capacity": 1
+                },
                 "baseItem": "crossbow",
                 "bonus": {
                     "value": 0
@@ -122,6 +128,7 @@
                     "handsHeld": 0,
                     "invested": null
                 },
+                "expend": 1,
                 "group": "crossbow",
                 "hardness": 0,
                 "hp": {
@@ -246,30 +253,17 @@
             "name": "Bolts",
             "sort": 400000,
             "system": {
-                "baseItem": null,
+                "baseItem": "bolts",
                 "bulk": {
                     "value": 0.1
                 },
-                "category": "ammo",
                 "containerId": null,
-                "damage": null,
+                "craftableAs": null,
                 "description": {
                     "value": "<p>Shorter than traditional arrows but similar in construction, bolts are the ammunition used by crossbows.</p>"
                 },
-                "equipped": {
-                    "carryType": "worn"
-                },
-                "hardness": 0,
-                "hp": {
-                    "max": 0,
-                    "value": 0
-                },
                 "level": {
                     "value": 0
-                },
-                "material": {
-                    "grade": null,
-                    "type": null
                 },
                 "price": {
                     "per": 10,
@@ -286,13 +280,11 @@
                 "rules": [],
                 "size": "med",
                 "slug": "bolts",
-                "stackGroup": "bolts",
                 "traits": {
                     "rarity": "common",
-                    "value": []
-                },
-                "usage": {
-                    "value": "held-in-one-hand"
+                    "value": [
+                        "consumable"
+                    ]
                 },
                 "uses": {
                     "autoDestroy": true,
@@ -300,13 +292,10 @@
                     "value": 1
                 }
             },
-            "type": "consumable"
+            "type": "ammo"
         },
         {
             "_id": "1JNxYujzGAMiVbIS",
-            "_stats": {
-                "compendiumSource": "Actor.OnQ779U03HyImPcw.Item.0vVEiwK17dpFzgYu"
-            },
             "img": "systems/pf2e/icons/default-icons/melee.svg",
             "name": "Fist",
             "sort": 500000,
@@ -331,6 +320,7 @@
                     "remaster": true,
                     "title": "Pathfinder NPC Core"
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -375,6 +365,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": "heavy-wrench",
                 "traits": {
@@ -416,11 +407,14 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": {
+                    "increment": 120,
+                    "max": null
+                },
                 "rules": [],
                 "slug": "crossbow",
                 "traits": {
                     "value": [
-                        "range-increment-120",
                         "reload-1"
                     ]
                 }
@@ -470,7 +464,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The gadgeteer uses their bag of junk and nearby scraps to create one of the following gadgets. Gadgets created this way fall apart after a single use or after 1 hour, whichever happens first.</p><ul><li><strong>Flash Bang</strong> <span class=\"action-glyph\">1</span> (manipulate) The gadgeteer throws a flash bang up to 20 feet away that explodes in a @Template[type:burst|distance:5]. Creatures in the burst must succeed a @Check[fortitude|dc:24] save or become @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round.</li><li><strong>Glider</strong> <span class=\"action-glyph\">1</span> (move) The gadgeteer leaps off a precipice with the glider in their hands. They fall only 60 feet per round, and for every 10 feet they fall, they can travel 5 feet forward.</li><li><strong>Makeshift Key</strong> <span class=\"action-glyph\">1</span> (manipulate) The gadgeteer attempts to Pick a Lock with a +4 item bonus to the check.</li><li><strong>Recorder</strong> <span class=\"action-glyph\">1</span> (manipulate) The gadgeteer records up to 25 spoken words on this device. Activating this gadget causes it to either repeat the recorded words once before falling apart or play the message on a loop for up to 10 minutes before falling apart.</li><li><p><strong>Shocking Rod</strong> <span class=\"action-glyph\">1</span> (manipulate) An adjacent creature takes @Damage[3d12[electricity]] damage with a @Check[reflex|dc:24|basic] save.</p>\n</li></ul>"
+                    "value": "<p>The gadgeteer uses their bag of junk and nearby scraps to create one of the following gadgets. Gadgets created this way fall apart after a single use or after 1 hour, whichever happens first.</p><ul><li><strong>Flash Bang</strong> <span class=\"action-glyph\">1</span> (manipulate) The gadgeteer throws a flash bang up to 20 feet away that explodes in a @Template[type:burst|distance:5]. Creatures in the burst must succeed a @Check[fortitude|dc:24|options:area-effect] save or become @UUID[Compendium.pf2e.conditionitems.Item.Blinded] for 1 round.</li><li><strong>Glider</strong> <span class=\"action-glyph\">1</span> (move) The gadgeteer leaps off a precipice with the glider in their hands. They fall only 60 feet per round, and for every 10 feet they fall, they can travel 5 feet forward.</li><li><strong>Makeshift Key</strong> <span class=\"action-glyph\">1</span> (manipulate) The gadgeteer attempts to Pick a Lock with a +4 item bonus to the check.</li><li><strong>Recorder</strong> <span class=\"action-glyph\">1</span> (manipulate) The gadgeteer records up to 25 spoken words on this device. Activating this gadget causes it to either repeat the recorded words once before falling apart or play the message on a loop for up to 10 minutes before falling apart.</li><li><p><strong>Shocking Rod</strong> <span class=\"action-glyph\">1</span> (manipulate) An adjacent creature takes @Damage[3d12[electricity]] damage with a @Check[reflex|dc:24|basic] save.</p>\n</li></ul>"
                 },
                 "publication": {
                     "license": "ORC",

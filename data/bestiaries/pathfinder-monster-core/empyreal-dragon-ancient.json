@@ -492,6 +492,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -501,9 +502,6 @@
                         "reach-20",
                         "unarmed"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -541,6 +539,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -550,9 +549,6 @@
                         "magical",
                         "reach-15"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -590,6 +586,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -598,9 +595,6 @@
                         "magical",
                         "reach-25"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -638,6 +632,7 @@
                     "remaster": true,
                     "title": ""
                 },
+                "range": null,
                 "rules": [],
                 "slug": null,
                 "traits": {
@@ -646,9 +641,6 @@
                         "holy",
                         "reach-20"
                     ]
-                },
-                "weaponType": {
-                    "value": "melee"
                 }
             },
             "type": "melee"
@@ -785,7 +777,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "divine-deflection",
                         "toggleable": true
@@ -882,7 +873,6 @@
                 },
                 "rules": [
                     {
-                        "domain": "all",
                         "key": "RollOption",
                         "option": "direct-halo",
                         "toggleable": true
@@ -955,9 +945,10 @@
                         "outcome": [
                             "criticalSuccess"
                         ],
-                        "selector": "attack",
-                        "text": "{item|system.description.value}",
-                        "title": "{item|name}"
+                        "selector": "strike-attack-roll",
+                        "text": "{item|description}",
+                        "title": "{item|name}",
+                        "visibility": "owner"
                     }
                 ],
                 "slug": null,
@@ -1013,7 +1004,7 @@
                 },
                 "category": "offensive",
                 "description": {
-                    "value": "<p>The dragon unleashes a blast of holy fire that deals @Damage[16d8[spirit]|options:area-damage] damage in a @Template[cone|distance:50] (@Check[reflex|dc:41|basic|options:area-effect] save).</p>\n<p>The dragon can't use Spirit Breath again for [[/gmr 1d4 #rounds]]{1d4 rounds}.</p>"
+                    "value": "<p>The dragon unleashes a blast of holy fire that deals @Damage[16d8[spirit]|options:area-damage] damage in a @Template[cone|distance:50] (@Check[reflex|dc:41|basic|options:area-effect] save).</p>\n<p>The dragon can't use Spirit Breath again for [[/gmr 1d4 #Recharge Spirit Breath]]{1d4 rounds}.</p>"
                 },
                 "publication": {
                     "license": "ORC",
