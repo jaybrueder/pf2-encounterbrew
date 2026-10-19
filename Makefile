@@ -73,7 +73,7 @@ golangci-lint:
 		golangci-lint run; \
 	else \
 		echo "golangci-lint not installed. Installing..."; \
-		curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin; \
+		go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.15.0; \
 		golangci-lint run; \
 	fi
 

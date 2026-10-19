@@ -1,4 +1,4 @@
-version: 2
+version: "2"
 
 linters:
   enable:
@@ -10,16 +10,17 @@ linters:
     - errcheck
     - gosec
     - misspell
+  settings:
+    gocyclo:
+      min-complexity: 30
+  exclusions:
+    rules:
+      - path: _test\.go
+        linters:
+          - gosec
+      - path: ^tests/
+        linters:
+          - goconst
 
 run:
   timeout: 5m
-
-issues:
-  exclude-rules:
-    - path: _test\.go
-      linters:
-        - gosec
-
-linters-settings:
-  gocyclo:
-    min-complexity: 30
